@@ -1,0 +1,257 @@
+export interface ServiceData {
+  id: string;
+  emoji: string;
+  name: string;
+  shortDesc: string;
+  isNew?: boolean;
+  startingPrice?: string;
+  turnaround?: string;
+  heroDesc: string;
+  features: { title: string; desc: string }[];
+  pricingNote?: string;
+  relatedServices: string[];
+  waMessage: string;
+}
+
+export const services: ServiceData[] = [
+  {
+    id: "digital-printing",
+    emoji: "🖨️",
+    name: "Digital Printing",
+    shortDesc: "No minimum order, same-day available",
+    startingPrice: "Varies",
+    turnaround: "Same Day",
+    heroDesc: "Need just 1 copy or 100? Our digital printing service in Chennai delivers fast, high-quality prints with no minimum order requirement. Perfect for urgent business documents, event materials, and small-batch printing needs in Pallavaram and surrounding areas.",
+    features: [
+      { title: "No Minimum Order", desc: "Print even a single copy — ideal for proofs and urgent needs" },
+      { title: "Same-Day Printing", desc: "Rush orders completed the same day for standard items" },
+      { title: "Full Color CMYK", desc: "Vibrant, accurate colors on premium paper stocks" },
+      { title: "Variable Data", desc: "Personalized prints with unique names, numbers, or codes" },
+    ],
+    relatedServices: ["business-cards", "brochures"],
+    waMessage: "Hi Super Printers, I need digital printing services. Details: ",
+  },
+  {
+    id: "offset-printing",
+    emoji: "⚙️",
+    name: "Offset Printing",
+    shortDesc: "Best for 500+ print runs",
+    startingPrice: "Varies",
+    turnaround: "5–7 Days",
+    heroDesc: "For large print runs of 500 copies or more, offset printing in Chennai offers unbeatable quality and cost-efficiency. Super Printers has been delivering premium offset printing from our Pallavaram facility for over 36 years.",
+    features: [
+      { title: "Bulk Efficiency", desc: "Lower per-unit cost for runs of 500+" },
+      { title: "Pantone Matching", desc: "Exact brand color matching with PMS inks" },
+      { title: "Multiple Paper Options", desc: "Art paper, maplitho, bond, and specialty stocks" },
+      { title: "Consistent Quality", desc: "Every copy identical — ideal for branding materials" },
+    ],
+    relatedServices: ["brochures", "booklets"],
+    waMessage: "Hi Super Printers, I need offset printing. Quantity: ",
+  },
+  {
+    id: "business-cards",
+    emoji: "📇",
+    name: "Business/Visiting Cards",
+    shortDesc: "From ₹299/100 pcs, 2–3 days",
+    startingPrice: "₹299",
+    turnaround: "2–3 Days",
+    heroDesc: "Make a lasting first impression with premium visiting card printing in Chennai. From classic matte finishes to modern PVC and foil-stamped designs, Super Printers delivers business cards that reflect your brand's quality. Serving professionals across Pallavaram, Tambaram, and Chromepet.",
+    features: [
+      { title: "Standard Cards", desc: "300 GSM art card with gloss/matt lamination" },
+      { title: "Premium Matt Finish", desc: "Soft-touch lamination for a luxurious feel" },
+      { title: "PVC / Frosted Cards", desc: "Transparent and frosted plastic cards" },
+      { title: "Foil Stamped", desc: "Gold/silver foil for premium branding" },
+      { title: "Spot UV Cards", desc: "Selective gloss coating for texture contrast" },
+      { title: "Rounded Corners", desc: "Modern die-cut finish options" },
+      { title: "Digital Variable", desc: "Different names/details on each card" },
+      { title: "Eco-Friendly", desc: "Recycled paper and soy-ink options" },
+    ],
+    relatedServices: ["letterheads", "envelopes"],
+    waMessage: "Hi Super Printers, I need visiting cards. Quantity: Design: ",
+  },
+  {
+    id: "letterheads",
+    emoji: "📄",
+    name: "Letterheads",
+    shortDesc: "From ₹499/100 sheets",
+    startingPrice: "₹499",
+    turnaround: "2–3 Days",
+    heroDesc: "Professional letterhead printing in Chennai for businesses that value their brand identity. Printed on premium bond paper with your logo, contact details, and brand colors. Trusted by companies across Pallavaram and South Chennai.",
+    features: [
+      { title: "Bond Paper", desc: "80 GSM and 100 GSM executive bond paper" },
+      { title: "Full Color", desc: "CMYK full-color printing for vibrant branding" },
+      { title: "Watermark Option", desc: "Custom watermarks for premium letterheads" },
+      { title: "Matching Envelopes", desc: "Coordinate with branded envelope printing" },
+    ],
+    relatedServices: ["business-cards", "envelopes"],
+    waMessage: "Hi Super Printers, I need letterhead printing. Quantity: ",
+  },
+  {
+    id: "brochures",
+    emoji: "📖",
+    name: "Brochures/Leaflets",
+    shortDesc: "From ₹1,500/500 pcs",
+    startingPrice: "₹1,500",
+    turnaround: "3–5 Days",
+    heroDesc: "Eye-catching brochure printing in Chennai for marketing campaigns, product launches, and corporate communications. Choose from tri-fold, bi-fold, z-fold, and gate-fold options at Super Printers, Pallavaram.",
+    features: [
+      { title: "Tri-Fold", desc: "Classic 3-panel layout — most popular for marketing" },
+      { title: "Bi-Fold", desc: "Simple 4-page booklet-style brochure" },
+      { title: "Z-Fold", desc: "Accordion-style for step-by-step content" },
+      { title: "Gate-Fold", desc: "Premium reveal-style for luxury brands" },
+    ],
+    relatedServices: ["flyers", "booklets"],
+    waMessage: "Hi Super Printers, I need brochure printing. Type: Quantity: ",
+  },
+  {
+    id: "booklets",
+    emoji: "📚",
+    name: "Booklets",
+    shortDesc: "From ₹2,499/100 pcs",
+    startingPrice: "₹2,499",
+    turnaround: "5–7 Days",
+    heroDesc: "Professional booklet printing in Chennai for product guides, training manuals, annual reports, and event programs. Multiple binding options available at Super Printers, Pallavaram.",
+    features: [
+      { title: "Saddle Stitched", desc: "Staple-bound — ideal for up to 48 pages" },
+      { title: "Perfect Bound", desc: "Flat spine — professional look for 50+ pages" },
+      { title: "Wire-O Binding", desc: "Lay-flat binding for manuals and guides" },
+      { title: "Spiral Binding", desc: "Durable coil binding for frequent use" },
+    ],
+    relatedServices: ["catalogues", "brochures"],
+    waMessage: "Hi Super Printers, I need booklet printing. Pages: Quantity: ",
+  },
+  {
+    id: "catalogues",
+    emoji: "📋",
+    name: "Catalogues",
+    shortDesc: "Product catalogues, menus, price lists",
+    startingPrice: "Varies",
+    turnaround: "5–7 Days",
+    heroDesc: "Premium catalogue printing in Chennai for product showcases, restaurant menus, and corporate price lists. High-quality printing with professional binding options at Super Printers, Pallavaram.",
+    features: [
+      { title: "Product Catalogues", desc: "Showcase your products with vibrant imagery" },
+      { title: "Restaurant Menus", desc: "Laminated and durable menu printing" },
+      { title: "Price Lists", desc: "Professional price list booklets" },
+      { title: "Corporate Profiles", desc: "Company profile booklets for presentations" },
+    ],
+    relatedServices: ["booklets", "brochures"],
+    waMessage: "Hi Super Printers, I need catalogue printing. Type: Pages: Quantity: ",
+  },
+  {
+    id: "bill-books",
+    emoji: "🧾",
+    name: "Bill Books (NCR)",
+    shortDesc: "GST-compliant, from ₹699/5 books",
+    startingPrice: "₹699",
+    turnaround: "3–5 Days",
+    heroDesc: "GST-compliant bill book printing in Chennai with carbonless NCR paper. Perfect for invoices, receipts, delivery challans, and purchase orders. Trusted by businesses across Pallavaram, Tambaram, and Chromepet.",
+    features: [
+      { title: "Duplicate Books", desc: "2-part NCR — white + yellow carbonless" },
+      { title: "Triplicate Books", desc: "3-part NCR — white + yellow + pink" },
+      { title: "GST Format", desc: "Pre-printed GST invoice layout with all fields" },
+      { title: "Custom Numbering", desc: "Sequential numbering for accounting compliance" },
+    ],
+    relatedServices: ["letterheads", "envelopes"],
+    waMessage: "Hi Super Printers, I need bill books. Type (Duplicate/Triplicate): Quantity: ",
+  },
+  {
+    id: "envelopes",
+    emoji: "✉️",
+    name: "Envelopes",
+    shortDesc: "Branded, all sizes, from ₹1.50/piece",
+    startingPrice: "₹750",
+    turnaround: "2–3 Days",
+    heroDesc: "Custom branded envelope printing in Chennai for professional business correspondence. Available in all standard sizes with full-color or single-color printing at Super Printers, Pallavaram.",
+    features: [
+      { title: "Window Envelopes", desc: "Address window for easy mailing" },
+      { title: "Full Color", desc: "4-color CMYK printed envelopes" },
+      { title: "All Sizes", desc: "DL, C5, C4, and custom sizes available" },
+      { title: "Kraft Paper", desc: "Eco-friendly brown kraft options" },
+    ],
+    relatedServices: ["letterheads", "business-cards"],
+    waMessage: "Hi Super Printers, I need envelope printing. Size: Quantity: ",
+  },
+  {
+    id: "screen-printing",
+    emoji: "🎨",
+    name: "Screen Printing",
+    shortDesc: "T-shirts, bags, banners, from ₹999/50 pcs",
+    startingPrice: "₹999",
+    turnaround: "3–5 Days",
+    heroDesc: "Quality screen printing in Pallavaram for T-shirts, bags, banners, and promotional items. Durable, vibrant prints that last. Serving businesses and event organizers across Chennai.",
+    features: [
+      { title: "T-Shirt Printing", desc: "Custom T-shirts for events, teams, and brands" },
+      { title: "Bag Printing", desc: "Branded cloth and non-woven bags" },
+      { title: "Banner Printing", desc: "Flex and vinyl banners for events" },
+      { title: "Promotional Items", desc: "Caps, aprons, and custom merchandise" },
+    ],
+    relatedServices: ["flyers", "brochures"],
+    waMessage: "Hi Super Printers, I need screen printing. Item: Quantity: ",
+  },
+  {
+    id: "wedding-cards",
+    emoji: "💌",
+    name: "Wedding Cards",
+    shortDesc: "From ₹1,999/100 pcs, 5–7 days",
+    startingPrice: "₹1,999",
+    turnaround: "5–7 Days",
+    isNew: true,
+    heroDesc: "Beautiful wedding card printing in Chennai — from traditional Tamil designs to modern minimalist styles. Super Printers in Pallavaram crafts wedding invitations that set the tone for your special day. Serving families across Tambaram, Chromepet, and all of South Chennai.",
+    features: [
+      { title: "Traditional Cards", desc: "Classic Tamil and South Indian wedding designs" },
+      { title: "Modern Minimalist", desc: "Clean, contemporary invitation designs" },
+      { title: "Floral Designs", desc: "Elegant floral and botanical patterns" },
+      { title: "Boxed Sets", desc: "Premium boxed invitations with inserts" },
+      { title: "Laser-Cut", desc: "Intricate laser-cut patterns for luxury feel" },
+      { title: "Foil Stamped", desc: "Gold and silver foil accents for elegance" },
+    ],
+    relatedServices: ["envelopes", "booklets"],
+    waMessage: "Hi Super Printers, I need wedding cards. Date: Quantity: Style preference: ",
+  },
+  {
+    id: "flyers",
+    emoji: "📰",
+    name: "Flyers/Pamphlets",
+    shortDesc: "Event and promo materials",
+    startingPrice: "₹800",
+    turnaround: "2–3 Days",
+    heroDesc: "Affordable flyer and pamphlet printing in Chennai for events, promotions, and marketing campaigns. Single and double-sided options with fast turnaround at Super Printers, Pallavaram.",
+    features: [
+      { title: "A4 Flyers", desc: "Standard size for general marketing" },
+      { title: "A5 Leaflets", desc: "Compact handout size for events" },
+      { title: "Double-Sided", desc: "Maximize your messaging on both sides" },
+      { title: "Bulk Packs", desc: "Huge discounts for 1000+ pieces" },
+    ],
+    relatedServices: ["brochures", "screen-printing"],
+    waMessage: "Hi Super Printers, I need flyer/pamphlet printing. Size: Quantity: ",
+  },
+];
+
+export const pricingData = [
+  { emoji: "📇", service: "Visiting Cards (100)", price: "₹299", turnaround: "2–3 Days", waMsg: "visiting cards (100 pcs)" },
+  { emoji: "📄", service: "Letterheads (100)", price: "₹499", turnaround: "2–3 Days", waMsg: "letterheads (100 sheets)" },
+  { emoji: "📖", service: "Brochures (500)", price: "₹1,500", turnaround: "3–5 Days", waMsg: "brochures (500 pcs)" },
+  { emoji: "🧾", service: "Bill Books (5 books)", price: "₹699", turnaround: "3–5 Days", waMsg: "bill books (5 books)" },
+  { emoji: "💌", service: "Wedding Cards (100)", price: "₹1,999", turnaround: "5–7 Days", waMsg: "wedding cards (100 pcs)" },
+  { emoji: "✉️", service: "Envelopes (500)", price: "₹750", turnaround: "2–3 Days", waMsg: "envelopes (500 pcs)" },
+  { emoji: "📚", service: "Booklets (100)", price: "₹2,499", turnaround: "5–7 Days", waMsg: "booklets (100 pcs)" },
+  { emoji: "🎨", service: "Screen Printing (50)", price: "₹999", turnaround: "3–5 Days", waMsg: "screen printing (50 pcs)" },
+];
+
+export const testimonials = [
+  { stars: 5, text: "We have counted on Super Printers for many years to help us with all of our printing needs. The work they do is excellent and their staff is great to work with too.", name: "Ramesh Kumar", title: "Business Owner", area: "Pallavaram" },
+  { stars: 5, text: "I was pleasantly surprised by the exceptional service and quality. I received my digitally printed business cards in just 2 days. Highly recommended!", name: "Priya Sundar", title: "Marketing Manager", area: "Chennai" },
+  { stars: 5, text: "The quality of my brochure was way beyond my expectations. Great value for the price I paid.", name: "Arjun Pillai", title: "Event Organizer", area: "Tambaram" },
+  { stars: 5, text: "The wedding cards were beautiful and delivered on time. We look forward to working with you again.", name: "Suresh & Family", title: "", area: "Chromepet" },
+];
+
+export const faqData = [
+  { q: "What is the minimum order quantity?", a: "For digital printing, there is no minimum — we can print even 1 piece. For offset printing, the typical minimum is 100–500 copies depending on the product." },
+  { q: "How long does printing take?", a: "Simple items like visiting cards and letterheads take 2–3 working days. Complex items like booklets and wedding cards take 5–7 working days. Rush orders are available on request." },
+  { q: "Do you deliver across Chennai?", a: "Yes! We deliver across all of Chennai including Pallavaram, Tambaram, Chromepet, Perungalathur, Pammal, Anakaputhur, Chitlapakkam, Medavakkam, Vandalur, and Selaiyur. Free delivery for orders above ₹2,000." },
+  { q: "Can you help with design?", a: "Yes, we offer design assistance. Bring your logo and content, or ask us to create a design from scratch. Design charges may apply for complex jobs." },
+  { q: "What file format should I send?", a: "We accept print-ready PDF (300 DPI, with bleed marks), as well as AI, CDR, PSD, and high-resolution JPG/PNG files." },
+  { q: "Are bulk discounts available?", a: "Yes! The more you order, the lower the per-unit cost. WhatsApp us with your quantity for an instant custom quote." },
+  { q: "Are your prices GST-inclusive?", a: "Prices shown are indicative starting prices. GST is applicable as per government norms. We provide proper GST invoices for all orders." },
+  { q: "What payment methods do you accept?", a: "We accept Cash, UPI (GPay, PhonePe, Paytm), NEFT/IMPS bank transfer, and cheques. A 50% advance is required for large orders before production begins." },
+];
