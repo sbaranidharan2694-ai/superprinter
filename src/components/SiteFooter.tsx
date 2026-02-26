@@ -77,7 +77,7 @@ const SiteFooter = ({ setActivePage }: SiteFooterProps) => {
             <div className="space-y-3 text-sm font-body text-primary-foreground/60">
               <p>📍 Pallavaram, Chennai 600043</p>
               <p><a href="tel:+919840199878" className="hover:text-gold-light transition-colors">📞 +91 9840199878</a></p>
-              <p><a href="mailto:superprinters.net@gmail.com" className="hover:text-gold-light transition-colors">✉️ superprinters.net@gmail.com</a></p>
+              <p><a href="mailto:superprinters.net@gmail.com" className="hover:text-gold-light transition-colors">✉️ superprntrs@yahoo.com</a></p>
             </div>
             <a
               href="https://wa.me/919840199878?text=Hi%20Super%20Printers!"
