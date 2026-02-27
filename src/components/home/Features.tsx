@@ -1,6 +1,5 @@
 import { useInView } from "@/hooks/useInView";
-
-const WA_LINK = "https://wa.me/919840199878?text=Hi%20Super%20Printers%2C%20I%20need%20";
+import { BUSINESS } from "@/data/business";
 
 const features = [
   {
@@ -17,7 +16,7 @@ const features = [
     emoji: "🤝",
     title: "You Say, We Deliver",
     desc: "All you have to do is tell us what you need. From design to delivery, we handle everything. Contact us via WhatsApp, phone, or visit our Pallavaram shop.",
-    link: { text: "Tell us what you need →", href: WA_LINK },
+    link: { text: "Tell us what you need →", href: BUSINESS.whatsappQuote },
   },
 ];
 

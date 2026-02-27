@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { useInView } from "@/hooks/useInView";
+import { BUSINESS } from "@/data/business";
 
 const ContactSection = () => {
   const { ref, isVisible } = useInView();
@@ -18,21 +20,21 @@ const ContactSection = () => {
               <span className="text-2xl">📍</span>
               <div>
                 <h3 className="font-bold text-card-foreground font-body">Address</h3>
-                <p className="text-muted-foreground text-sm font-body">No:6, Saraswathy Colony, Pallavaram, Chennai – 600043</p>
+                <p className="text-muted-foreground text-sm font-body">{BUSINESS.address}, {BUSINESS.city}, Chennai – {BUSINESS.postalCode}</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <span className="text-2xl">📞</span>
               <div>
                 <h3 className="font-bold text-card-foreground font-body">Phone</h3>
-                <a href="tel:+919840199878" className="text-secondary text-sm font-body hover:underline">+91 9840199878</a>
+                <a href={BUSINESS.phoneTel} className="text-secondary text-sm font-body hover:underline">{BUSINESS.phone}</a>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <span className="text-2xl">✉️</span>
               <div>
                 <h3 className="font-bold text-card-foreground font-body">Email</h3>
-                <a href="mailto:superprinters.net@gmail.com" className="text-secondary text-sm font-body hover:underline">superprinters.net@gmail.com</a>
+                <a href={`mailto:${BUSINESS.email}`} className="text-secondary text-sm font-body hover:underline">{BUSINESS.email}</a>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -44,22 +46,25 @@ const ContactSection = () => {
               </div>
             </div>
             <p className="text-muted-foreground text-xs font-body mt-4">
-              Near Pallavaram Railway Station. Serving Pallavaram, Tambaram, Chromepet, Perungalathur, Pammal, Anakaputhur, Chitlapakkam, Medavakkam, Vandalur, Selaiyur, and all of South Chennai.
+              Near Pallavaram Railway Station. Serving {BUSINESS.areas.slice(0, 10).join(", ")} and all of South Chennai.
             </p>
+            <Link to="/contact" className="inline-block gold-button px-6 py-2.5 rounded-lg text-sm mt-2">
+              View Full Contact Page →
+            </Link>
           </div>
 
-          {/* Map Placeholder */}
-          <div className="rounded-xl border-2 border-dashed border-navy/30 bg-card flex flex-col items-center justify-center p-10 min-h-[300px]">
-            <span className="text-5xl mb-4">🗺️</span>
-            <p className="text-muted-foreground font-body text-sm mb-4">Google Maps — Pallavaram, Chennai</p>
-            <a
-              href="https://www.google.com/maps/search/Super+Printers+Pallavaram+Chennai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gold-button px-6 py-2.5 rounded-lg text-sm"
-            >
-              Open in Google Maps →
-            </a>
+          {/* Map */}
+          <div className="rounded-xl overflow-hidden border border-border min-h-[300px]">
+            <iframe
+              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4!2d${BUSINESS.lng}!3d${BUSINESS.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzAzLjAiTiA4MMKwMDgnNTYuOCJF!5e0!3m2!1sen!2sin!4v1700000000000`}
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: "300px" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Super Printers location in Pallavaram Chennai"
+            ></iframe>
           </div>
         </div>
       </div>
