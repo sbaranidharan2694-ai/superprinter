@@ -1,19 +1,7 @@
-const items = [
-  "🖨️ Digital Printing",
-  "📇 Visiting Cards",
-  "💌 Wedding Cards",
-  "📄 Letterheads",
-  "📖 Brochures",
-  "🧾 Bill Books",
-  "🎨 Screen Printing",
-  "✉️ Envelopes",
-  "📚 Booklets",
-  "📋 Catalogues",
-  "📰 Flyers",
-  "⚙️ Offset Printing",
-];
+import { services } from "@/data/services";
 
 const ServiceTicker = () => {
+  const items = services.map((s) => `${s.emoji} ${s.name}`);
   const doubled = [...items, ...items];
 
   return (

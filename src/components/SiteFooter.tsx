@@ -1,23 +1,20 @@
-interface SiteFooterProps {
-  setActivePage: (page: string) => void;
-}
+import { Link } from "react-router-dom";
+import { BUSINESS } from "@/data/business";
 
-const SiteFooter = ({ setActivePage }: SiteFooterProps) => {
-  const navigate = (page: string) => {
-    setActivePage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
+const SiteFooter = () => {
   return (
     <footer className="bg-footer-dark text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Col 1: Logo */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
+            <Link to="/" className="flex items-center gap-2 mb-4">
               <span className="text-2xl">🖨️</span>
               <span className="font-display text-lg font-bold">Super Printers</span>
-            </div>
+            </Link>
+            <p className="text-primary-foreground/60 text-sm font-body leading-relaxed mb-2">
+              {BUSINESS.tagline}
+            </p>
             <p className="text-primary-foreground/60 text-sm font-body leading-relaxed mb-4">
               Serving Chennai since 1989 with high-quality, affordable printing solutions for businesses and families.
             </p>
@@ -25,7 +22,7 @@ const SiteFooter = ({ setActivePage }: SiteFooterProps) => {
               <a href="#" aria-label="Facebook" className="hover:scale-110 transition-transform">📘</a>
               <a href="#" aria-label="Twitter" className="hover:scale-110 transition-transform">🐦</a>
               <a href="#" aria-label="YouTube" className="hover:scale-110 transition-transform">▶️</a>
-              <a href="https://wa.me/919840199878" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:scale-110 transition-transform">💬</a>
+              <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:scale-110 transition-transform">💬</a>
             </div>
           </div>
 
@@ -34,17 +31,16 @@ const SiteFooter = ({ setActivePage }: SiteFooterProps) => {
             <h4 className="font-display text-sm font-bold mb-4 text-gold-light">Quick Links</h4>
             <ul className="space-y-2 text-sm font-body">
               {[
-                { label: "Home", page: "home" },
-                { label: "About", page: "about" },
-                { label: "Services", page: "home" },
-                { label: "Portfolio", page: "portfolio" },
-                { label: "FAQ", page: "faq" },
-                { label: "Contact", page: "contact" },
+                { label: "Home", to: "/" },
+                { label: "About Us", to: "/about" },
+                { label: "All Printing Services", to: "/services" },
+                { label: "Our Portfolio", to: "/gallery" },
+                { label: "Contact Us", to: "/contact" },
               ].map((link) => (
                 <li key={link.label}>
-                  <button onClick={() => navigate(link.page)} className="text-primary-foreground/60 hover:text-gold-light transition-colors">
+                  <Link to={link.to} className="text-primary-foreground/60 hover:text-gold-light transition-colors">
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -55,17 +51,19 @@ const SiteFooter = ({ setActivePage }: SiteFooterProps) => {
             <h4 className="font-display text-sm font-bold mb-4 text-gold-light">Our Services</h4>
             <ul className="space-y-2 text-sm font-body">
               {[
-                { label: "Wedding Cards", page: "wedding-cards" },
-                { label: "Visiting Cards", page: "business-cards" },
-                { label: "Brochures", page: "brochures" },
-                { label: "Bill Books", page: "bill-books" },
-                { label: "Letterheads", page: "letterheads" },
-                { label: "Screen Printing", page: "screen-printing" },
+                { label: "Offset Printing in Chennai", to: "/services/offset-printing" },
+                { label: "Visiting Card Printing", to: "/services/visiting-cards" },
+                { label: "Wedding Invitations", to: "/services/wedding-invitations" },
+                { label: "Banner Printing Chennai", to: "/services/banner-printing" },
+                { label: "Brochure Printing", to: "/services/brochure-printing" },
+                { label: "Bill Book Printing", to: "/services/bill-books" },
+                { label: "T-Shirt Printing Chennai", to: "/services/t-shirt-printing" },
+                { label: "Rubber Stamps", to: "/services/rubber-stamps" },
               ].map((link) => (
                 <li key={link.label}>
-                  <button onClick={() => navigate(link.page)} className="text-primary-foreground/60 hover:text-gold-light transition-colors">
+                  <Link to={link.to} className="text-primary-foreground/60 hover:text-gold-light transition-colors">
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -75,12 +73,13 @@ const SiteFooter = ({ setActivePage }: SiteFooterProps) => {
           <div>
             <h4 className="font-display text-sm font-bold mb-4 text-gold-light">Contact Us</h4>
             <div className="space-y-3 text-sm font-body text-primary-foreground/60">
-              <p>📍 Pallavaram, Chennai 600043</p>
-              <p><a href="tel:+919840199878" className="hover:text-gold-light transition-colors">📞 +91 9840199878</a></p>
-              <p><a href="mailto:superprinters.net@gmail.com" className="hover:text-gold-light transition-colors">✉️ superprntrs@yahoo.com</a></p>
+              <p>📍 {BUSINESS.address}, {BUSINESS.city}, Chennai {BUSINESS.postalCode}</p>
+              <p><a href={BUSINESS.phoneTel} className="hover:text-gold-light transition-colors">📞 {BUSINESS.phone}</a></p>
+              <p><a href={`mailto:${BUSINESS.email}`} className="hover:text-gold-light transition-colors">✉️ {BUSINESS.email}</a></p>
+              <p>🕐 {BUSINESS.hours}</p>
             </div>
             <a
-              href="https://wa.me/919840199878?text=Hi%20Super%20Printers!"
+              href={`${BUSINESS.whatsappQuote}Hi%20Super%20Printers!`}
               target="_blank"
               rel="noopener noreferrer"
               className="wa-button mt-4 inline-block px-5 py-2 rounded-lg text-xs font-semibold"

@@ -21,7 +21,7 @@ const FAQSection = () => {
                 className="w-full text-left px-6 py-4 flex items-center justify-between gap-4"
                 aria-expanded={openIndex === i}
               >
-                <span className="font-semibold text-sm text-card-foreground font-body">{faq.q}</span>
+                <h3 className="font-semibold text-sm text-card-foreground font-body">{faq.q}</h3>
                 <span className={`text-secondary text-xl shrink-0 transition-transform duration-200 ${openIndex === i ? "rotate-45" : ""}`}>+</span>
               </button>
               <div className={`overflow-hidden transition-all duration-300 ${openIndex === i ? "max-h-40 pb-4 px-6" : "max-h-0"}`}>
