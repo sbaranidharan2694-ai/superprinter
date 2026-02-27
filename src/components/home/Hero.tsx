@@ -13,7 +13,7 @@ const Hero = () => {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/30 mb-6">
               <span className="text-sm">🏆</span>
-              <span className="text-xs font-semibold text-gold-light font-body">Trusted Since 1989 · Pallavaram, Chennai</span>
+              <span className="text-xs font-semibold text-gold-light font-body">Trusted Since 1990 · Pallavaram, Chennai</span>
             </div>
 
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground leading-tight mb-6">
@@ -40,16 +40,16 @@ const Hero = () => {
             {/* Trust stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
               {[
-                { num: BUSINESS.years, label: "Years of Excellence" },
-                { num: "1000+", label: "Happy Customers" },
-                { num: "14+", label: "Services" },
-                { num: "Est.", label: BUSINESS.founded },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center px-3 py-2 rounded-lg bg-primary-foreground/5 border border-primary-foreground/10">
+              { num: BUSINESS.years, label: "Years of Excellence" },
+              { num: "1000+", label: "Happy Customers" },
+              { num: "14+", label: "Services" },
+              { num: "Est.", label: BUSINESS.founded }].
+              map((stat) =>
+              <div key={stat.label} className="text-center px-3 py-2 rounded-lg bg-primary-foreground/5 border border-primary-foreground/10">
                   <div className="text-gold-light font-display text-xl font-bold">{stat.num}</div>
                   <div className="text-primary-foreground/60 text-xs font-body">{stat.label}</div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
 
@@ -63,16 +63,16 @@ const Hero = () => {
                 href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers, I need wedding invitations. Date: Quantity: ")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="gold-button w-full py-2.5 rounded-lg text-sm flex items-center justify-center gap-2"
-              >
+                className="gold-button w-full py-2.5 rounded-lg text-sm flex items-center justify-center gap-2">
+
                 Get Quote →
               </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default Hero;
