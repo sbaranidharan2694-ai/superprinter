@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 
+// TODO: Update social media URLs with actual profile links before publishing
 const SiteFooter = () => {
   return (
     <footer className="bg-footer-dark text-primary-foreground">
@@ -9,19 +10,18 @@ const SiteFooter = () => {
           {/* Col 1: Logo */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">🖨️</span>
-              <span className="font-display text-lg font-bold">Super Printers</span>
+              <img src="/logo.svg" alt="Super Printers" className="h-8 w-auto brightness-200" width="128" height="32" />
             </Link>
             <p className="text-primary-foreground/60 text-sm font-body leading-relaxed mb-2">
               {BUSINESS.tagline}
             </p>
             <p className="text-primary-foreground/60 text-sm font-body leading-relaxed mb-4">
-              Serving Chennai since 1989 with high-quality, affordable printing solutions for businesses and families.
+              Serving Chennai since 1990 with high-quality, affordable printing solutions for businesses and families.
             </p>
             <div className="flex gap-3 text-xl">
-              <a href="#" aria-label="Facebook" className="hover:scale-110 transition-transform">📘</a>
-              <a href="#" aria-label="Twitter" className="hover:scale-110 transition-transform">🐦</a>
-              <a href="#" aria-label="YouTube" className="hover:scale-110 transition-transform">▶️</a>
+              <a href="https://www.facebook.com/superprinterpallavaram" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:scale-110 transition-transform">📘</a>
+              <a href="https://www.instagram.com/superprinters_pallavaram" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform">📸</a>
+              <a href="https://www.youtube.com/@superprinters" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-transform">▶️</a>
               <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:scale-110 transition-transform">💬</a>
             </div>
           </div>
@@ -59,6 +59,9 @@ const SiteFooter = () => {
                 { label: "Bill Book Printing", to: "/services/bill-books" },
                 { label: "T-Shirt Printing Chennai", to: "/services/t-shirt-printing" },
                 { label: "Rubber Stamps", to: "/services/rubber-stamps" },
+                { label: "Pamphlet Printing", to: "/services/pamphlet-printing" },
+                { label: "Screen Printing", to: "/services/screen-printing" },
+                { label: "PVC ID Cards", to: "/services/id-cards" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link to={link.to} className="text-primary-foreground/60 hover:text-gold-light transition-colors">
@@ -95,7 +98,7 @@ const SiteFooter = () => {
       <div className="border-t border-primary-foreground/10 py-4 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-body text-primary-foreground/40">
           <span>© 2026 Super Printers. All Rights Reserved.</span>
-          <span>🏆 Trusted Since 1989</span>
+          <span>🏆 Trusted Since 1990</span>
           <span>📍 Pallavaram, Chennai</span>
           <span>⭐ 1000+ Happy Customers</span>
         </div>

@@ -9,6 +9,7 @@ interface SEOHeadProps {
   ogType?: string;
   keywords?: string;
   schemaMarkup?: object | object[];
+  breadcrumbs?: { name: string; url: string }[];
 }
 
 const SEOHead = ({
@@ -19,16 +20,32 @@ const SEOHead = ({
   ogType = "website",
   keywords = "printers in chennai, printing press chennai, printing services chennai, super printers pallavaram",
   schemaMarkup,
+  breadcrumbs,
 }: SEOHeadProps) => {
   const fullCanonical = canonical
     ? `${BUSINESS.siteUrl}${canonical}`
     : BUSINESS.siteUrl;
 
-  const schemas = Array.isArray(schemaMarkup)
-    ? [LOCAL_BUSINESS_SCHEMA, ...schemaMarkup]
-    : schemaMarkup
-    ? [LOCAL_BUSINESS_SCHEMA, schemaMarkup]
-    : [LOCAL_BUSINESS_SCHEMA];
+  const schemas: object[] = [LOCAL_BUSINESS_SCHEMA];
+
+  if (Array.isArray(schemaMarkup)) {
+    schemas.push(...schemaMarkup);
+  } else if (schemaMarkup) {
+    schemas.push(schemaMarkup);
+  }
+
+  if (breadcrumbs && breadcrumbs.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs.map((bc, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": bc.name,
+        "item": `${BUSINESS.siteUrl}${bc.url}`,
+      })),
+    });
+  }
 
   return (
     <Helmet>

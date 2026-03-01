@@ -5,7 +5,7 @@ const features = [
   {
     emoji: "🖨️",
     title: "Innovative Prints",
-    desc: "Super Printers is one of Chennai's leading print management companies. With 36 years of experience, we've removed the hassles of traditional printing — delivering fast, high-quality results every time.",
+    desc: "Super Printers is one of Chennai's leading print management companies. With 35 years of experience, we've removed the hassles of traditional printing — delivering fast, high-quality results every time.",
   },
   {
     emoji: "💰",

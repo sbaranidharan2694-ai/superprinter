@@ -1,13 +1,13 @@
 import { useInView } from "@/hooks/useInView";
 
 const checklist = [
-  "36 Years Experience", "Best Prices Guaranteed", "Fast 2–5 Day Turnaround", "Premium Quality Output",
+  "35 Years Experience", "Best Prices Guaranteed", "Fast 2–5 Day Turnaround", "Premium Quality Output",
   "Free Design Assistance", "1000+ Happy Customers", "Pamphlet & Leaflet Printing", "Wedding Specialists",
   "Bulk Discounts", "Delivery Across Chennai",
 ];
 
 const stats = [
-  { num: "36+", label: "Years" },
+  { num: "35+", label: "Years" },
   { num: "1000+", label: "Customers" },
   { num: "14+", label: "Services" },
   { num: "₹₹", label: "Best Price" },
@@ -22,7 +22,7 @@ const WhyUs = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why Chennai Trusts Super Printers for 36 Years
+              Why Chennai Trusts Super Printers for 35 Years
             </h2>
             <p className="text-muted-foreground font-body mb-8 leading-relaxed">
               Ordering high-quality prints should be simple — and with Super Printers, it is. Tell us what you need via WhatsApp or phone, and we handle the rest. From design assistance to final delivery, we make printing effortless for businesses and individuals across Chennai.

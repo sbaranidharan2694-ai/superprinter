@@ -22,6 +22,19 @@ const ServiceDetail = () => {
 
   const relatedServices = services.filter((s) => service.relatedServices.includes(s.id));
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": `${service.name} — Super Printers Chennai`,
+    "description": service.seoDescription,
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR",
+      "price": service.startingPrice?.replace(/[^\d]/g, "") || "0",
+      "availability": "https://schema.org/InStock",
+    },
+  };
+
   return (
     <>
       <SEOHead
@@ -29,6 +42,12 @@ const ServiceDetail = () => {
         description={service.seoDescription}
         canonical={`/services/${service.slug}`}
         keywords={service.keywords}
+        schemaMarkup={productSchema}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+          { name: service.name, url: `/services/${service.slug}` },
+        ]}
       />
       <main>
         {/* Hero */}
@@ -75,6 +94,36 @@ const ServiceDetail = () => {
                 </div>
               ))}
             </div>
+
+            {/* Pricing Guide */}
+            {service.pricingGuide && service.pricingGuide.length > 0 && (
+              <>
+                <h3 className="font-display text-xl font-bold text-foreground mb-4">Pricing Guide</h3>
+                <div className="overflow-hidden rounded-xl border border-border mb-4">
+                  <table className="w-full text-sm font-body">
+                    <thead>
+                      <tr className="navy-gradient text-primary-foreground">
+                        <th className="text-left px-4 py-3 font-semibold">Paper / Finish</th>
+                        <th className="text-left px-4 py-3 font-semibold">Quantity</th>
+                        <th className="text-left px-4 py-3 font-semibold">Starting Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {service.pricingGuide.map((row, i) => (
+                        <tr key={i} className="border-t border-border">
+                          <td className="px-4 py-3 text-card-foreground">{row.paper}</td>
+                          <td className="px-4 py-3 text-muted-foreground">{row.quantity}</td>
+                          <td className="px-4 py-3 font-bold text-secondary">{row.price}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-muted-foreground text-xs font-body mb-12">
+                  Final prices depend on paper, finish, and quantity. WhatsApp us for exact quote.
+                </p>
+              </>
+            )}
 
             {/* How to Order */}
             <h2 className="font-display text-2xl font-bold text-foreground mb-6">How to Order</h2>
