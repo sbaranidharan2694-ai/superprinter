@@ -10,8 +10,9 @@ const PricingTable = () => {
     <section ref={ref} className={`py-16 md:py-20 bg-background transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-10">
+          <span className="text-3xl block mb-2">💰</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
-            💰 Starting Prices — Transparent. No Hidden Charges.
+            Starting Prices — Transparent. No Hidden Charges.
           </h2>
           <p className="text-muted-foreground font-body">Bulk discounts available. Contact us for exact quotes.</p>
         </div>
@@ -68,7 +69,7 @@ const PricingTable = () => {
         </div>
 
         <p className="text-center text-xs text-muted-foreground mt-6 font-body">
-          * Prices vary based on paper, finish, quantity & design. ⚠️ OWNER: Replace all prices with actual rates before publishing.
+          * Prices vary based on paper, finish, quantity & design. Contact us for exact quote.
         </p>
       </div>
     </section>

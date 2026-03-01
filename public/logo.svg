@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <!-- Printer Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Paper coming out -->
+    <rect x="18" y="5" width="44" height="30" rx="2" fill="#d4a017" opacity="0.3"/>
+    <rect x="22" y="10" width="36" height="4" rx="1" fill="#d4a017" opacity="0.5"/>
+    <rect x="22" y="18" width="28" height="3" rx="1" fill="#d4a017" opacity="0.4"/>
+    <!-- Printer body -->
+    <rect x="8" y="30" width="64" height="35" rx="6" fill="#1a2b5e"/>
+    <!-- Printer detail -->
+    <rect x="14" y="36" width="52" height="18" rx="3" fill="#243672"/>
+    <!-- Feed slot -->
+    <rect x="20" y="40" width="40" height="3" rx="1" fill="#d4a017"/>
+    <!-- Paper tray -->
+    <rect x="14" y="65" width="52" height="12" rx="3" fill="#243672"/>
+    <rect x="18" y="68" width="44" height="6" rx="2" fill="#1a2b5e"/>
+  </g>
+  <!-- Text -->
+  <text x="95" y="52" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#1a2b5e">Super Printers</text>
+  <text x="95" y="74" font-family="Arial, sans-serif" font-size="13" fill="#8b7a3a" letter-spacing="1">Since 1990 · Pallavaram</text>
+</svg>

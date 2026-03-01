@@ -1,8 +1,9 @@
 const GoldCTA = () => (
   <section className="bg-secondary py-10 md:py-14">
     <div className="max-w-4xl mx-auto px-4 text-center">
+      <span className="text-3xl block mb-2">📍</span>
       <h2 className="font-display text-2xl md:text-3xl font-bold text-secondary-foreground mb-2">
-        📍 Visit Us in Pallavaram, Chennai
+        Visit Us in Pallavaram, Chennai
       </h2>
       <p className="text-secondary-foreground/80 font-body text-sm md:text-base mb-6">
         Free delivery for orders above ₹2,000. Serving all of South Chennai.
