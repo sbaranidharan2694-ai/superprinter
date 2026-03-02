@@ -10,6 +10,8 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
+import GetQuote from "./pages/GetQuote";
+import PrintingGuide from "./pages/PrintingGuide";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +30,8 @@ const App = () => (
             <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/get-quote" element={<GetQuote />} />
+            <Route path="/printing-guide" element={<PrintingGuide />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

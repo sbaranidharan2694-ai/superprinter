@@ -17,6 +17,13 @@ const galleryItems = [
   { emoji: "🎨", label: "Screen Printing", desc: "Bags, banners & merchandise", wa: "Hi, I need screen printing" },
 ];
 
+const corporateClients = [
+  { name: "Wipro Limited", monogram: "W", desc: "Corporate stationery, ID cards & branded materials", bg: "bg-navy" },
+  { name: "Reliance Smart Bazaar", monogram: "R", desc: "Retail signage, banners & promotional prints", bg: "bg-navy" },
+  { name: "Fujitec", monogram: "F", desc: "Technical manuals, letterheads & visiting cards", bg: "bg-navy" },
+  { name: "NK Grand Palace", monogram: "NK", desc: "Event invitations, menus & wedding stationery", bg: "bg-navy" },
+];
+
 const serviceLinks = [
   { emoji: "📇", name: "Visiting Cards", slug: "visiting-cards" },
   { emoji: "💌", name: "Wedding Invitations", slug: "wedding-invitations" },
@@ -62,7 +69,7 @@ const Gallery = () => {
               {galleryItems.map((item) => (
                 <div key={item.label} className="aspect-square rounded-xl navy-gradient flex items-center justify-center text-center p-6">
                   <div>
-                    <div className="text-5xl mb-3">{item.emoji}</div>
+                    <div className="text-5xl mb-3" aria-hidden="true">{item.emoji}</div>
                     <h3 className="text-primary-foreground/90 text-sm font-display font-bold mb-1">{item.label}</h3>
                     <p className="text-primary-foreground/50 text-xs font-body mb-2">{item.desc}</p>
                     <p className="text-primary-foreground/30 text-[11px] font-body mb-3">Sample photos available on request — WhatsApp us</p>
@@ -79,13 +86,39 @@ const Gallery = () => {
               ))}
             </div>
 
+            {/* Corporate clients work */}
+            <div className="mt-16">
+              <h2 className="font-display text-2xl font-bold text-foreground mb-6">Work Done for Our Corporate Clients</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {corporateClients.map((c) => (
+                  <div key={c.name} className="p-6 rounded-xl navy-gradient text-left flex items-start gap-4">
+                    <div className="w-14 h-14 shrink-0 rounded-full bg-gold/20 flex items-center justify-center">
+                      <span className="font-display text-xl font-bold text-gold-light">{c.monogram}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg font-bold text-primary-foreground mb-1">{c.name}</h3>
+                      <p className="text-primary-foreground/60 text-sm font-body mb-3">{c.desc}</p>
+                      <a
+                        href={`https://wa.me/919840199878?text=${encodeURIComponent(`Hi, I need similar printing work as done for ${c.name}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="wa-button inline-block px-3 py-1.5 rounded-lg text-[11px] font-semibold"
+                      >
+                        Get Similar Work →
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Service links */}
             <div className="mt-16">
               <h2 className="font-display text-2xl font-bold text-foreground mb-6">Ready to Order? Explore Our Services</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {serviceLinks.map((s) => (
                   <Link key={s.slug} to={`/services/${s.slug}`} className="p-4 rounded-xl bg-card border border-border card-lift text-center">
-                    <span className="text-2xl block mb-2">{s.emoji}</span>
+                    <span className="text-2xl block mb-2" aria-hidden="true">{s.emoji}</span>
                     <span className="font-body font-semibold text-xs text-card-foreground">{s.name}</span>
                   </Link>
                 ))}

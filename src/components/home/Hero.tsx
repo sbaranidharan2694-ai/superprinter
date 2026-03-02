@@ -12,7 +12,7 @@ const Hero = () => {
           <div className={`flex-1 text-center lg:text-left transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/30 mb-6">
-              <span className="text-sm">🏆</span>
+              <span className="text-sm" aria-hidden="true">🏆</span>
               <span className="text-xs font-semibold text-gold-light font-body">Trusted Since 1990 · Pallavaram, Chennai</span>
             </div>
 
@@ -37,8 +37,22 @@ const Hero = () => {
               </a>
             </div>
 
+            {/* Trust badges */}
+            <div className="flex flex-wrap items-center gap-2 mt-6 justify-center lg:justify-start">
+              {[
+                { icon: "🏆", text: "35 Years of Excellence" },
+                { icon: "🚚", text: "Home Delivery Available" },
+                { icon: "⚡", text: "Quotes in 30 Minutes" },
+                { icon: "🏢", text: "Trusted by Wipro & Reliance" },
+              ].map((badge) => (
+                <span key={badge.text} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-xs font-semibold text-gold-light font-body">
+                  <span aria-hidden="true">{badge.icon}</span> {badge.text}
+                </span>
+              ))}
+            </div>
+
             {/* Trust stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
               {[
                 { num: BUSINESS.years, label: "Years of Excellence" },
                 { num: "1000+", label: "Happy Customers" },
@@ -56,7 +70,7 @@ const Hero = () => {
           {/* Floating side card */}
           <div className={`animate-float hidden lg:block transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
             <div className="w-72 p-6 rounded-2xl bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 shadow-2xl">
-              <div className="text-4xl mb-3">💌</div>
+              <span className="text-4xl mb-3 block" aria-hidden="true">💌</span>
               <h3 className="font-display text-xl font-bold text-primary-foreground mb-2">Wedding Invitations</h3>
               <p className="text-primary-foreground/70 text-sm font-body mb-4">Starting ₹1,999 for 100 cards</p>
               <a
@@ -70,6 +84,11 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Home delivery ribbon */}
+      <div className="absolute top-4 right-4 hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-whatsapp text-white text-xs font-bold font-body shadow-lg">
+        <span aria-hidden="true">🚚</span> Home Delivery Available
       </div>
     </section>
   );
