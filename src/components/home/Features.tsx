@@ -35,7 +35,7 @@ const Features = () => {
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <div className="text-4xl mb-4">{f.emoji}</div>
+              <span className="text-4xl mb-4 block" aria-hidden="true">{f.emoji}</span>
               <h3 className="font-display text-xl font-bold text-card-foreground mb-3">{f.title}</h3>
               <p className="text-muted-foreground text-sm font-body leading-relaxed">{f.desc}</p>
               {f.link && (

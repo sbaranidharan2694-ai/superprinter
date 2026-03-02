@@ -1,0 +1,167 @@
+import { useState } from "react";
+import SEOHead from "@/components/SEOHead";
+import { services } from "@/data/services";
+import { useInView } from "@/hooks/useInView";
+
+const GetQuote = () => {
+  const { ref, isVisible } = useInView();
+  const [step, setStep] = useState(1);
+  const [service, setService] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [paper, setPaper] = useState("Standard");
+  const [phone, setPhone] = useState("");
+
+  const handleGetQuote = () => {
+    const msg = `Hi, I need a quote for ${service} x ${quantity} pcs on ${paper} finish. My number is ${phone}.`;
+    window.open(`https://wa.me/919840199878?text=${encodeURIComponent(msg)}`, "_blank");
+  };
+
+  const selectedService = services.find((s) => s.name === service);
+
+  return (
+    <>
+      <SEOHead
+        title="Get Instant Print Quote | Super Printers Chennai"
+        description="Get an instant printing quote from Super Printers Pallavaram. Select your service, quantity, and finish — receive a WhatsApp quote in 30 minutes."
+        canonical="/get-quote"
+        keywords="print quote chennai, printing quote pallavaram, instant print quote, super printers quote"
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Get Quote", url: "/get-quote" },
+        ]}
+      />
+      <main>
+        <section className="navy-gradient-hero dot-pattern py-14 md:py-20">
+          <div className="max-w-3xl mx-auto px-4 text-center">
+            <h1 className="font-display text-3xl md:text-5xl font-black text-primary-foreground mb-4">
+              Get an Instant Print Quote
+            </h1>
+            <p className="text-primary-foreground/70 font-body text-lg">
+              Select your service, quantity, and finish. We'll respond on WhatsApp within 30 minutes.
+            </p>
+          </div>
+        </section>
+
+        <section ref={ref} className={`py-16 bg-background transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="max-w-xl mx-auto px-4">
+            {/* Progress */}
+            <div className="flex items-center justify-between mb-8">
+              {[1, 2, 3, 4].map((s) => (
+                <div key={s} className="flex items-center gap-2">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold font-body ${step >= s ? "bg-secondary text-secondary-foreground" : "bg-muted text-muted-foreground"}`}>
+                    {s}
+                  </div>
+                  {s < 4 && <div className={`hidden sm:block w-12 h-0.5 ${step > s ? "bg-secondary" : "bg-border"}`} />}
+                </div>
+              ))}
+            </div>
+
+            <div className="p-6 rounded-xl bg-card border border-border">
+              {/* Step 1 */}
+              {step === 1 && (
+                <div>
+                  <h2 className="font-display text-xl font-bold text-foreground mb-4">Select Service</h2>
+                  <select
+                    value={service}
+                    onChange={(e) => setService(e.target.value)}
+                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                  >
+                    <option value="">Choose a printing service</option>
+                    {services.map((s) => (
+                      <option key={s.id} value={s.name}>{s.emoji} {s.name}{s.startingPrice ? ` — from ${s.startingPrice}` : ""}</option>
+                    ))}
+                  </select>
+                  <button
+                    onClick={() => service && setStep(2)}
+                    disabled={!service}
+                    className="gold-button w-full py-3 rounded-lg text-sm font-bold mt-4 disabled:opacity-50"
+                  >
+                    Next →
+                  </button>
+                </div>
+              )}
+
+              {/* Step 2 */}
+              {step === 2 && (
+                <div>
+                  <h2 className="font-display text-xl font-bold text-foreground mb-2">Enter Quantity</h2>
+                  {selectedService?.startingPrice && (
+                    <p className="text-muted-foreground text-sm font-body mb-4">Starting from {selectedService.startingPrice}</p>
+                  )}
+                  <input
+                    type="number"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    placeholder="e.g. 500"
+                    min="1"
+                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                  />
+                  <div className="flex gap-3 mt-4">
+                    <button onClick={() => setStep(1)} className="flex-1 py-3 rounded-lg text-sm font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors">← Back</button>
+                    <button onClick={() => quantity && setStep(3)} disabled={!quantity} className="flex-1 gold-button py-3 rounded-lg text-sm font-bold disabled:opacity-50">Next →</button>
+                  </div>
+                </div>
+              )}
+
+              {/* Step 3 */}
+              {step === 3 && (
+                <div>
+                  <h2 className="font-display text-xl font-bold text-foreground mb-4">Select Paper / Finish</h2>
+                  <div className="space-y-2">
+                    {["Standard", "Premium", "Luxury"].map((opt) => (
+                      <label key={opt} className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer transition-colors ${paper === opt ? "border-secondary bg-secondary/5" : "border-border hover:bg-muted/50"}`}>
+                        <input type="radio" name="paper" value={opt} checked={paper === opt} onChange={() => setPaper(opt)} className="accent-secondary" />
+                        <div>
+                          <div className="font-body font-semibold text-sm text-card-foreground">{opt}</div>
+                          <div className="text-muted-foreground text-xs font-body">
+                            {opt === "Standard" && "Basic paper and finish — most affordable"}
+                            {opt === "Premium" && "Better paper stock with lamination options"}
+                            {opt === "Luxury" && "Premium card stock, foil, or specialty finish"}
+                          </div>
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                  <div className="flex gap-3 mt-4">
+                    <button onClick={() => setStep(2)} className="flex-1 py-3 rounded-lg text-sm font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors">← Back</button>
+                    <button onClick={() => setStep(4)} className="flex-1 gold-button py-3 rounded-lg text-sm font-bold">Next →</button>
+                  </div>
+                </div>
+              )}
+
+              {/* Step 4 */}
+              {step === 4 && (
+                <div>
+                  <h2 className="font-display text-xl font-bold text-foreground mb-4">Your WhatsApp Number</h2>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="e.g. 9840199878"
+                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                  />
+
+                  {/* Summary */}
+                  <div className="mt-4 p-4 rounded-lg bg-muted/50 border border-border text-sm font-body space-y-1">
+                    <div className="text-muted-foreground">Service: <span className="text-foreground font-semibold">{service}</span></div>
+                    <div className="text-muted-foreground">Quantity: <span className="text-foreground font-semibold">{quantity} pcs</span></div>
+                    <div className="text-muted-foreground">Finish: <span className="text-foreground font-semibold">{paper}</span></div>
+                  </div>
+
+                  <div className="flex gap-3 mt-4">
+                    <button onClick={() => setStep(3)} className="flex-1 py-3 rounded-lg text-sm font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors">← Back</button>
+                    <button onClick={handleGetQuote} disabled={!phone} className="flex-1 wa-button py-3 rounded-lg text-sm font-bold disabled:opacity-50 flex items-center justify-center gap-2">
+                      💬 Get Quote on WhatsApp
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+};
+
+export default GetQuote;

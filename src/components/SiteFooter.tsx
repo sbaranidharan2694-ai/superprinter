@@ -6,7 +6,7 @@ const SiteFooter = () => {
   return (
     <footer className="bg-footer-dark text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Col 1: Logo */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
@@ -33,8 +33,9 @@ const SiteFooter = () => {
               {[
                 { label: "Home", to: "/" },
                 { label: "About Us", to: "/about" },
-                { label: "All Printing Services", to: "/services" },
-                { label: "Our Portfolio", to: "/gallery" },
+                { label: "All Services", to: "/services" },
+                { label: "Portfolio", to: "/gallery" },
+                { label: "Get Quote", to: "/get-quote" },
                 { label: "Contact Us", to: "/contact" },
               ].map((link) => (
                 <li key={link.label}>
@@ -51,13 +52,13 @@ const SiteFooter = () => {
             <h4 className="font-display text-sm font-bold mb-4 text-gold-light">Our Services</h4>
             <ul className="space-y-2 text-sm font-body">
               {[
-                { label: "Offset Printing in Chennai", to: "/services/offset-printing" },
-                { label: "Visiting Card Printing", to: "/services/visiting-cards" },
+                { label: "Offset Printing", to: "/services/offset-printing" },
+                { label: "Visiting Cards", to: "/services/visiting-cards" },
                 { label: "Wedding Invitations", to: "/services/wedding-invitations" },
-                { label: "Banner Printing Chennai", to: "/services/banner-printing" },
+                { label: "Banner Printing", to: "/services/banner-printing" },
                 { label: "Brochure Printing", to: "/services/brochure-printing" },
-                { label: "Bill Book Printing", to: "/services/bill-books" },
-                { label: "T-Shirt Printing Chennai", to: "/services/t-shirt-printing" },
+                { label: "Bill Books", to: "/services/bill-books" },
+                { label: "T-Shirt Printing", to: "/services/t-shirt-printing" },
                 { label: "Rubber Stamps", to: "/services/rubber-stamps" },
                 { label: "Pamphlet Printing", to: "/services/pamphlet-printing" },
                 { label: "Screen Printing", to: "/services/screen-printing" },
@@ -72,7 +73,17 @@ const SiteFooter = () => {
             </ul>
           </div>
 
-          {/* Col 4: Contact */}
+          {/* Col 4: Resources */}
+          <div>
+            <h4 className="font-display text-sm font-bold mb-4 text-gold-light">Resources</h4>
+            <ul className="space-y-2 text-sm font-body">
+              <li><Link to="/printing-guide" className="text-primary-foreground/60 hover:text-gold-light transition-colors">Printing Guide</Link></li>
+              <li><Link to="/get-quote" className="text-primary-foreground/60 hover:text-gold-light transition-colors">Get Instant Quote</Link></li>
+              <li><Link to="/gallery" className="text-primary-foreground/60 hover:text-gold-light transition-colors">Our Portfolio</Link></li>
+            </ul>
+          </div>
+
+          {/* Col 5: Contact */}
           <div>
             <h4 className="font-display text-sm font-bold mb-4 text-gold-light">Contact Us</h4>
             <div className="space-y-3 text-sm font-body text-primary-foreground/60">

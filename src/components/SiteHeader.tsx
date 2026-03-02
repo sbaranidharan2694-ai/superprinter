@@ -34,10 +34,15 @@ const SiteHeader = () => {
           <img src="/logo.svg" alt="Super Printers - Printing Press in Pallavaram Chennai" className="h-10 w-auto" width="160" height="40" />
         </Link>
 
-        {/* Trust Badge */}
-        <div className="hidden lg:flex items-center gap-1 px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
-          <span className="text-sm">🏆</span>
-          <span className="text-xs font-semibold text-secondary font-body">35 Years of Trust</span>
+        {/* Trust Badge + Delivery tag */}
+        <div className="hidden lg:flex items-center gap-2">
+          <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
+            <span className="text-sm" aria-hidden="true">🏆</span>
+            <span className="text-xs font-semibold text-secondary font-body">35 Years of Trust</span>
+          </div>
+          <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-whatsapp/10 border border-whatsapp/30">
+            <span className="text-[10px] font-bold text-whatsapp font-body">🚚 Delivery</span>
+          </div>
         </div>
 
         {/* Desktop Nav */}
@@ -78,6 +83,10 @@ const SiteHeader = () => {
               )}
             </div>
           ))}
+          {/* Get Quote CTA */}
+          <Link to="/get-quote" className="ml-2 gold-button px-4 py-2 rounded-lg text-sm font-bold">
+            Get Instant Quote
+          </Link>
         </nav>
 
         {/* WhatsApp CTA + Hamburger */}
@@ -132,7 +141,10 @@ const SiteHeader = () => {
               )}
             </div>
           ))}
-          <a href={BUSINESS.whatsappQuote} target="_blank" rel="noopener noreferrer" className="mt-3 wa-button w-full py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+          <Link to="/get-quote" onClick={closeMobile} className="mt-2 gold-button w-full py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2">
+            Get Instant Quote
+          </Link>
+          <a href={BUSINESS.whatsappQuote} target="_blank" rel="noopener noreferrer" className="mt-2 wa-button w-full py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
             💬 WhatsApp Us
           </a>
         </div>

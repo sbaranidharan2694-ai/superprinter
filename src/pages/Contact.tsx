@@ -34,8 +34,8 @@ const Contact = () => {
   return (
     <>
       <SEOHead
-        title="Contact Super Printers Chennai | Get a Free Print Quote"
-        description={`Visit Super Printers at Saraswathi Colony, Pallavaram, Chennai 600043. Call ${BUSINESS.phone} for fast, reliable printing services.`}
+        title="Contact Super Printers | Printing Press Pallavaram Chennai"
+        description="Visit Super Printers at Saraswathi Colony, Pallavaram. Open Mon–Sat 9:30AM–6:30PM. WhatsApp +91 98401 99878 for instant quotes."
         canonical="/contact"
         keywords="contact super printers, printing press pallavaram, printing shop chennai, super printers phone number"
         breadcrumbs={[
@@ -57,28 +57,28 @@ const Contact = () => {
               {/* Contact Info */}
               <div className="space-y-5">
                 <div className="flex items-start gap-4">
-                  <span className="text-2xl">📍</span>
+                  <span className="text-2xl" aria-hidden="true">📍</span>
                   <div>
                     <h2 className="font-bold text-card-foreground font-body">Address</h2>
                     <p className="text-muted-foreground text-sm font-body">{BUSINESS.address}, {BUSINESS.city}, Chennai – {BUSINESS.postalCode}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="text-2xl">📞</span>
+                  <span className="text-2xl" aria-hidden="true">📞</span>
                   <div>
                     <h3 className="font-bold text-card-foreground font-body">Phone</h3>
                     <a href={BUSINESS.phoneTel} className="text-secondary text-sm font-body hover:underline">{BUSINESS.phone}</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="text-2xl">✉️</span>
+                  <span className="text-2xl" aria-hidden="true">✉️</span>
                   <div>
                     <h3 className="font-bold text-card-foreground font-body">Email</h3>
                     <a href={`mailto:${BUSINESS.email}`} className="text-secondary text-sm font-body hover:underline">{BUSINESS.email}</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="text-2xl">🕐</span>
+                  <span className="text-2xl" aria-hidden="true">🕐</span>
                   <div>
                     <h3 className="font-bold text-card-foreground font-body">Hours</h3>
                     <p className="text-muted-foreground text-sm font-body">Monday–Saturday: 9:30 AM – 6:30 PM</p>
@@ -143,7 +143,7 @@ const Contact = () => {
               <h2 className="font-display text-2xl font-bold text-foreground text-center mb-6">Send Us a Message</h2>
               {submitted ? (
                 <div className="p-8 rounded-xl bg-card border border-border text-center">
-                  <span className="text-4xl block mb-3">✅</span>
+                  <span className="text-4xl block mb-3" aria-hidden="true">✅</span>
                   <h3 className="font-display text-xl font-bold text-foreground mb-2">Thank you!</h3>
                   <p className="text-muted-foreground font-body">We'll call you back within 2 hours during business hours.</p>
                 </div>
@@ -151,56 +151,45 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-4 p-6 rounded-xl bg-card border border-border">
                   <div>
                     <label className="block text-sm font-semibold text-card-foreground font-body mb-1">Name *</label>
-                    <input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-                      placeholder="Your name"
-                    />
+                    <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring" placeholder="Your name" />
                     {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-card-foreground font-body mb-1">Phone Number *</label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-                      placeholder="Your phone number"
-                    />
+                    <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring" placeholder="Your phone number" />
                     {errors.phone && <p className="text-destructive text-xs mt-1">{errors.phone}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-card-foreground font-body mb-1">Service Required *</label>
-                    <select
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-                    >
+                    <select value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring">
                       <option value="">Select a service</option>
-                      {services.map((s) => (
-                        <option key={s.id} value={s.name}>{s.name}</option>
-                      ))}
+                      {services.map((s) => (<option key={s.id} value={s.name}>{s.name}</option>))}
                       <option value="Other">Other</option>
                     </select>
                     {errors.service && <p className="text-destructive text-xs mt-1">{errors.service}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-card-foreground font-body mb-1">Message</label>
-                    <textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={4}
-                      className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-                      placeholder="Tell us about your printing needs..."
-                    />
+                    <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} rows={4} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none" placeholder="Tell us about your printing needs..." />
                   </div>
                   <button type="submit" className="gold-button w-full py-3 rounded-lg text-sm font-bold">
                     Send Enquiry →
                   </button>
                 </form>
               )}
+            </div>
+
+            {/* Delivery Information */}
+            <div className="mt-16 max-w-2xl mx-auto">
+              <h2 className="font-display text-2xl font-bold text-foreground text-center mb-6">Delivery Information</h2>
+              <div className="p-6 rounded-xl bg-muted/50 border border-border">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl" aria-hidden="true">🚚</span>
+                  <p className="text-muted-foreground text-sm font-body leading-relaxed">
+                    We offer home delivery and courier dispatch across Chennai, Pallavaram, Chromepet, Tambaram, Pammal, Alandur, and all of South Chennai. Free delivery for orders above ₹2,000. WhatsApp us to confirm delivery charges for your area.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
