@@ -580,7 +580,7 @@ const Index = () => {
       {/* ═══ PARALLAX / QUOTE DIVIDER ═══ */}
       <div style={{ height:420,overflow:"hidden",position:"relative",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center" }}>
         <img src={IMG.pressWide} alt="Printing press" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",filter:"brightness(0.3)" }} loading="lazy"/>
-        <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(26,35,126,0.88),rgba(13,22,66,0.75),rgba(10,14,39,0.65))` }}/>
+        <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(37,99,235,0.82),rgba(29,78,216,0.7),rgba(15,23,42,0.55))` }}/>
         <div style={{ position:"relative",zIndex:2,textAlign:"center",padding:"0 24px" }}>
           <div style={{ fontFamily:NT,color:"rgba(255,255,255,0.8)",fontSize:24,marginBottom:10 }}>தரம் • வேகம் • நம்பகத்தன்மை</div>
           <h2 className="glow-text" style={{ fontFamily:PF,fontWeight:900,fontSize:50,color:"#fff",lineHeight:1.2,marginBottom:14 }}>Quality. Speed. <span style={{color:C.gold}}>Trust.</span></h2>
