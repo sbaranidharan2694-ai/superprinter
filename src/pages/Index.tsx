@@ -701,7 +701,7 @@ const Index = () => {
           </div>
           <div style={{ display:"flex",flexWrap:"wrap",justifyContent:"center",gap:8,marginBottom:30 }}>
             {GAL_FILTERS.map(f=>(
-              <button key={f} onClick={()=>setGalFilter(f)} style={{ background:galFilter===f?`linear-gradient(135deg,${C.red},${C.maroon})`:"#f5f5f5",color:galFilter===f?"#fff":"#666",border:"none",padding:"8px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,transition:"all 0.3s",boxShadow:galFilter===f?"0 4px 15px rgba(139,0,0,0.2)":"none" }}>{f}</button>
+              <button key={f} onClick={()=>setGalFilter(f)} style={{ background:galFilter===f?`linear-gradient(135deg,${C.red},${C.maroon})`:"#f5f5f5",color:galFilter===f?"#fff":"#666",border:"none",padding:"8px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,transition:"all 0.3s",boxShadow:galFilter===f?"0 4px 15px rgba(26,35,126,0.3)":"none" }}>{f}</button>
             ))}
           </div>
           <div style={{ columnCount:4,columnGap:10,maxWidth:1200,margin:"0 auto" }}>
