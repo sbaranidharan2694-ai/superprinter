@@ -236,7 +236,7 @@ const Index = () => {
         @keyframes glow{0%,100%{text-shadow:0 0 20px rgba(255,215,0,0.3),0 0 40px rgba(255,215,0,0.1)}50%{text-shadow:0 0 30px rgba(255,215,0,0.6),0 0 60px rgba(255,215,0,0.2)}}
         @keyframes particleFloat{0%{transform:translateY(0) scale(1);opacity:0.6}50%{opacity:1}100%{transform:translateY(-100vh) scale(0);opacity:0}}
         @keyframes pulseBtn{0%,100%{box-shadow:0 0 0 0 rgba(255,215,0,0.5)}50%{box-shadow:0 0 0 12px rgba(255,215,0,0)}}
-        @keyframes borderGlow{0%,100%{box-shadow:0 0 5px rgba(255,215,0,0.3)}50%{box-shadow:0 0 20px rgba(255,215,0,0.6),0 0 40px rgba(26,35,126,0.2)}}
+        @keyframes borderGlow{0%,100%{box-shadow:0 0 5px rgba(37,99,235,0.2)}50%{box-shadow:0 0 20px rgba(37,99,235,0.4),0 0 40px rgba(37,99,235,0.1)}}
         @keyframes slideUnderline{from{transform:scaleX(0)}to{transform:scaleX(1)}}
         .hero-anim{animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both}
         .glow-text{animation:glow 3s ease-in-out infinite}
