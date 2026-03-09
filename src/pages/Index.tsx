@@ -276,8 +276,8 @@ const Index = () => {
               {modal==="orders"&&"Order Tracking"}{modal==="track"&&"Track Your Order"}{modal==="cart"&&"Place Your Order"}
             </div>
             <p style={{ fontFamily:PP,fontSize:14,color:"#666",lineHeight:1.7,marginBottom:24 }}>
-              {modal==="orders"&&"Order tracking coming soon. Please WhatsApp us at +91-44-22480847 for order status."}
-              {modal==="track"&&"Track your order via WhatsApp: +91-44-22480847"}
+              {modal==="orders"&&"Order tracking coming soon. Please WhatsApp us at +91 9840199878 for order status."}
+              {modal==="track"&&"Track your order via WhatsApp: +91 9840199878"}
               {modal==="cart"&&"To place an order, please WhatsApp us or fill the quote form below."}
             </p>
             <div style={{ display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap" }}>
