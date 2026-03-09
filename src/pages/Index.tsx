@@ -276,12 +276,12 @@ const Index = () => {
               {modal==="orders"&&"Order Tracking"}{modal==="track"&&"Track Your Order"}{modal==="cart"&&"Place Your Order"}
             </div>
             <p style={{ fontFamily:PP,fontSize:14,color:"#666",lineHeight:1.7,marginBottom:24 }}>
-              {modal==="orders"&&"Order tracking coming soon. Please WhatsApp us at +91-44-22480847 for order status."}
-              {modal==="track"&&"Track your order via WhatsApp: +91-44-22480847"}
+              {modal==="orders"&&"Order tracking coming soon. Please WhatsApp us at +91 9840199878 for order status."}
+              {modal==="track"&&"Track your order via WhatsApp: +91 9840199878"}
               {modal==="cart"&&"To place an order, please WhatsApp us or fill the quote form below."}
             </p>
             <div style={{ display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap" }}>
-              <a href="https://wa.me/914422480847" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 24px",borderRadius:30 }}>WhatsApp Us</a>
+              <a href="https://wa.me/919840199878" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 24px",borderRadius:30 }}>WhatsApp Us</a>
               {modal==="cart"&&<button onClick={()=>{setModal(null);scrollTo("contact")}} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 24px",borderRadius:30,border:"none",cursor:"pointer" }}>Fill Quote Form</button>}
               <button onClick={()=>setModal(null)} style={{ background:"transparent",color:"#888",fontFamily:PP,fontWeight:600,fontSize:13,padding:"12px 24px",borderRadius:30,border:"1.5px solid #ddd",cursor:"pointer" }}>Close</button>
             </div>
@@ -297,7 +297,7 @@ const Index = () => {
             {[0,1].map(k=><span key={k} style={{ color:C.gold,fontSize:11,whiteSpace:"nowrap",fontFamily:NT,minWidth:"50%" }}>{TICKER_TEXT}</span>)}
           </div>
         </div>
-        <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP }}>+91-44-22480847</span>
+        <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP }}>+91 9840199878</span>
       </div>
 
       {/* ═══ GLASSMORPHISM NAVBAR ═══ */}
@@ -459,7 +459,7 @@ const Index = () => {
           <p style={{ fontFamily:PP,color:"rgba(255,255,255,0.7)",fontSize:16,marginBottom:28,maxWidth:500,margin:"0 auto 28px" }}>From visiting cards to wedding invitations — get premium quality printing delivered to your doorstep.</p>
           <div style={{ display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap" }}>
             <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 8px 30px rgba(255,215,0,0.3)" }}>Get Free Quote</button>
-            <a href="https://wa.me/914422480847" style={{ background:"rgba(255,255,255,0.1)",color:"#fff",fontFamily:PP,fontWeight:600,fontSize:14,padding:"14px 36px",borderRadius:30,border:"1.5px solid rgba(255,255,255,0.3)",backdropFilter:"blur(4px)" }}>WhatsApp Us</a>
+            <a href="https://wa.me/919840199878" style={{ background:"rgba(255,255,255,0.1)",color:"#fff",fontFamily:PP,fontWeight:600,fontSize:14,padding:"14px 36px",borderRadius:30,border:"1.5px solid rgba(255,255,255,0.3)",backdropFilter:"blur(4px)" }}>WhatsApp Us</a>
           </div>
         </div>
       </div>
@@ -757,7 +757,7 @@ const Index = () => {
         <p style={{ fontFamily:PP,color:"rgba(26,26,26,0.7)",fontSize:15,marginBottom:24,maxWidth:500,margin:"0 auto 24px" }}>Get premium quality prints delivered to your doorstep. Free quotes within 2 hours.</p>
         <div style={{ display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap" }}>
           <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 8px 25px rgba(139,0,0,0.3)" }}>Get Free Quote</button>
-          <a href="https://wa.me/914422480847" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,boxShadow:"0 8px 25px rgba(37,211,102,0.3)" }}>WhatsApp Order</a>
+          <a href="https://wa.me/919840199878" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,boxShadow:"0 8px 25px rgba(37,211,102,0.3)" }}>WhatsApp Order</a>
         </div>
       </div>
 
@@ -772,7 +772,7 @@ const Index = () => {
             <div style={{ position:"relative",zIndex:2,padding:"56px 48px",display:"flex",flexDirection:"column",justifyContent:"center",height:"100%" }}>
               <div style={{ fontFamily:NT,color:"rgba(255,255,255,0.6)",fontSize:14,marginBottom:8 }}>எங்களை தொடர்பு கொள்ளுங்கள்</div>
               <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:32,color:"#fff",marginBottom:24,lineHeight:1.3 }}>Get in Touch with <span style={{color:C.gold}}>Super Printers</span></h2>
-              {[{text:"98/4 Chavadi Street, Pallavaram, Chennai – 600 043",label:"Address"},{text:"+91-44-22480847",label:"Phone"},{text:"info@superprinters.in",label:"Email"},{text:"Mon–Sat: 9AM–7PM | Sunday: Closed",label:"Hours"}].map((r,i)=>(
+              {[{text:"No 8 Saraswathy Colony, Pallavaram, Chennai – 600 043",label:"Address"},{text:"+91 9840199878",label:"Phone"},{text:"Superprntrs@yahoo.com",label:"Email"},{text:"Mon–Sat: 9AM–7PM | Sunday: Closed",label:"Hours"}].map((r,i)=>(
                 <div key={i} style={{ display:"flex",alignItems:"center",gap:14,marginBottom:14 }}>
                   <div style={{ width:48,height:48,borderRadius:12,background:"rgba(255,215,0,0.1)",border:"1px solid rgba(255,215,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>
                     <span style={{ color:C.gold,fontFamily:PP,fontSize:10,fontWeight:700 }}>{r.label}</span>
@@ -780,7 +780,7 @@ const Index = () => {
                   <span style={{ color:"rgba(255,255,255,0.85)",fontFamily:PP,fontSize:14 }}>{r.text}</span>
                 </div>
               ))}
-              <a href="https://wa.me/914422480847" style={{ display:"inline-block",marginTop:20,background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 28px",borderRadius:30,alignSelf:"flex-start",boxShadow:"0 8px 25px rgba(37,211,102,0.3)" }}>WhatsApp Order</a>
+              <a href="https://wa.me/919840199878" style={{ display:"inline-block",marginTop:20,background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 28px",borderRadius:30,alignSelf:"flex-start",boxShadow:"0 8px 25px rgba(37,211,102,0.3)" }}>WhatsApp Order</a>
               <div style={{ marginTop:20,borderRadius:14,overflow:"hidden",border:"2px solid rgba(255,215,0,0.2)" }}>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d80.1491!3d12.9675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzAzLjAiTiA4MMKwMDgnNTYuOCJF!5e0!3m2!1sen!2sin!4v1" width="100%" height="160" style={{ border:0,display:"block" }} loading="lazy" title="Location" allowFullScreen/>
               </div>
@@ -835,11 +835,11 @@ const Index = () => {
           </div>
           <div>
             <div style={{ color:C.gold,fontFamily:PP,fontWeight:700,fontSize:14,marginBottom:14 }}>Get in Touch</div>
-            {["98/4 Chavadi Street, Pallavaram","Chennai – 600 043","+91-44-22480847","info@superprinters.in","Mon–Sat: 9AM–7PM"].map((t,i)=>(
+            {["No 8 Saraswathy Colony, Pallavaram","Chennai – 600 043","+91 9840199878","Superprntrs@yahoo.com","Mon–Sat: 9AM–7PM"].map((t,i)=>(
               <p key={i} style={{ color:"rgba(255,255,255,0.45)",fontFamily:PP,fontSize:13,margin:"5px 0" }}>{t}</p>
             ))}
             <div style={{ marginTop:16,display:"flex",gap:10 }}>
-              <a href="https://wa.me/914422480847" style={{ width:40,height:40,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:14,fontWeight:700,fontFamily:PP }}>WA</a>
+              <a href="https://wa.me/919840199878" style={{ width:40,height:40,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:14,fontWeight:700,fontFamily:PP }}>WA</a>
               <div style={{ width:40,height:40,borderRadius:"50%",background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,215,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center",color:C.gold,fontSize:12,fontWeight:700,fontFamily:PP }}>FB</div>
               <div style={{ width:40,height:40,borderRadius:"50%",background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,215,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center",color:C.gold,fontSize:12,fontWeight:700,fontFamily:PP }}>IG</div>
             </div>
@@ -856,7 +856,7 @@ const Index = () => {
       </footer>
 
       {/* ═══ FLOATING BUTTONS ═══ */}
-      <a href="https://wa.me/914422480847" style={{ position:"fixed",bottom:28,right:28,width:58,height:58,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center",zIndex:9999,animation:"waPulse 2s infinite",textDecoration:"none",boxShadow:"0 8px 25px rgba(37,211,102,0.4)" }}>
+      <a href="https://wa.me/919840199878" style={{ position:"fixed",bottom:28,right:28,width:58,height:58,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center",zIndex:9999,animation:"waPulse 2s infinite",textDecoration:"none",boxShadow:"0 8px 25px rgba(37,211,102,0.4)" }}>
         <span style={{ color:"#fff",fontSize:22,fontWeight:900,fontFamily:PP }}>WA</span>
       </a>
       {scrolled && (
