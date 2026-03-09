@@ -297,7 +297,7 @@ const Index = () => {
             {[0,1].map(k=><span key={k} style={{ color:C.gold,fontSize:11,whiteSpace:"nowrap",fontFamily:NT,minWidth:"50%" }}>{TICKER_TEXT}</span>)}
           </div>
         </div>
-        <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP }}>+91-44-22480847</span>
+        <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP }}>+91 9840199878</span>
       </div>
 
       {/* ═══ GLASSMORPHISM NAVBAR ═══ */}
