@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
+
+const Scene3D = lazy(() => import("@/components/Scene3D"));
 
 // ─── IMAGES ─────────────────────────────────────────────────────
 const IMG = {
