@@ -835,7 +835,7 @@ const Index = () => {
           </div>
           <div>
             <div style={{ color:C.gold,fontFamily:PP,fontWeight:700,fontSize:14,marginBottom:14 }}>Get in Touch</div>
-            {["98/4 Chavadi Street, Pallavaram","Chennai – 600 043","+91-44-22480847","info@superprinters.in","Mon–Sat: 9AM–7PM"].map((t,i)=>(
+            {["No 8 Saraswathy Colony, Pallavaram","Chennai – 600 043","+91 9840199878","Superprntrs@yahoo.com","Mon–Sat: 9AM–7PM"].map((t,i)=>(
               <p key={i} style={{ color:"rgba(255,255,255,0.45)",fontFamily:PP,fontSize:13,margin:"5px 0" }}>{t}</p>
             ))}
             <div style={{ marginTop:16,display:"flex",gap:10 }}>
