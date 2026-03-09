@@ -439,7 +439,7 @@ const Index = () => {
                 boxShadow:hoverCat===i?"0 20px 50px rgba(0,0,0,0.2),0 0 0 2px rgba(255,215,0,0.3)":"0 4px 20px rgba(0,0,0,0.08)"
               }} onMouseEnter={()=>setHoverCat(i)} onMouseLeave={()=>setHoverCat(null)}>
                 <img src={cat.img} alt={cat.name} style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",transition:"transform 0.6s cubic-bezier(0.16,1,0.3,1)",transform:hoverCat===i?"scale(1.12)":"scale(1)" }} loading="lazy"/>
-                <div style={{ position:"absolute",inset:0,background:hoverCat===i?`linear-gradient(135deg,rgba(26,35,126,0.9),rgba(13,22,66,0.85))`:"linear-gradient(0deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 60%)",transition:"all 0.4s" }}/>
+                <div style={{ position:"absolute",inset:0,background:hoverCat===i?`linear-gradient(135deg,rgba(37,99,235,0.88),rgba(29,78,216,0.82))`:"linear-gradient(0deg,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 60%)",transition:"all 0.4s" }}/>
                 {cat.badge && <div style={{ position:"absolute",top:14,right:14,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontSize:10,fontWeight:700,padding:"4px 12px",borderRadius:20,zIndex:2,letterSpacing:"0.05em" }}>{cat.badge}</div>}
                 <div style={{ position:"absolute",bottom:0,left:0,right:0,padding:"24px 20px",zIndex:2,transition:"transform 0.4s",transform:hoverCat===i?"translateY(-20px)":"translateY(0)" }}>
                   <div style={{ fontFamily:PF,fontWeight:700,fontSize:20,color:"#fff",marginBottom:6,textShadow:"0 2px 10px rgba(0,0,0,0.3)" }}>{cat.name}</div>
