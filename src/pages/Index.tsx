@@ -115,7 +115,7 @@ const GALLERY: {img:string;label:string;cat:GalCat}[] = [
 ];
 
 const WHY = [
-  { img: IMG.offsetPress, title: "35 Years of Excellence", tamil: "35 ஆண்டுகள் சிறப்பு", body: "Three decades of offset printing excellence. State-of-the-art presses.", extra: "Since 1989", thumb: IMG.inkRollers },
+  { img: IMG.offsetPress, title: "35 Years of Excellence", tamil: "35 ஆண்டுகள் சிறப்பு", body: "Three decades of offset printing excellence. State-of-the-art presses.", extra: "Since 1990", thumb: IMG.inkRollers },
   { img: IMG.delivery, title: "Fast Pan-TN Delivery", tamil: "வேகமான டெலிவரி", body: "1–4 business days across Tamil Nadu. Same-day pickup from Chennai.", extra: "Chennai | CBE | Madurai", thumb: IMG.courier },
   { img: IMG.qualityCheck, title: "Quality Guaranteed", tamil: "தரம் உறுதி", body: "Multi-point quality checks on every job. Colour accurate, sharp.", extra: "GST Inclusive Pricing", thumb: IMG.printedStack },
   { img: IMG.stackedCards, title: "Competitive Pricing", tamil: "சிறந்த விலை", body: "Transparent pricing. Bulk discounts for DTP operators and resellers.", extra: "Rates from ₹199", thumb: IMG.glossCard },
