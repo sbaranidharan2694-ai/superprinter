@@ -492,7 +492,7 @@ const Index = () => {
               }} onMouseEnter={()=>setHoverProd(i)} onMouseLeave={()=>setHoverProd(null)}>
                 <div style={{ position:"relative",height:200,overflow:"hidden" }}>
                   <img src={p.img} alt={p.name} style={{ width:"100%",height:"100%",objectFit:"cover",display:"block",transition:"transform 0.5s",transform:hoverProd===i?"scale(1.08)":"scale(1)" }} loading="lazy"/>
-                  <div style={{ position:"absolute",inset:0,background:hoverProd===i?"linear-gradient(0deg,rgba(26,35,126,0.4),transparent)":"none",transition:"all 0.3s" }}/>
+                  <div style={{ position:"absolute",inset:0,background:hoverProd===i?"linear-gradient(0deg,rgba(37,99,235,0.3),transparent)":"none",transition:"all 0.3s" }}/>
                   {p.badge && <div style={{ position:"absolute",top:12,left:12,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontSize:10,fontWeight:700,padding:"4px 12px",borderRadius:20 }}>{p.badge}</div>}
                 </div>
                 <div style={{ padding:20 }}>
