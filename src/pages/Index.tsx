@@ -403,7 +403,7 @@ const Index = () => {
 
       {/* ═══ TRUST/STATS BAR ═══ */}
       <Section>
-        <div style={{ background:`linear-gradient(135deg,${C.dark},#2a1a1a)`,padding:"60px 40px" }}>
+        <div style={{ background:`linear-gradient(135deg,${C.dark},${C.maroon})`,padding:"60px 40px" }}>
           <div className="trust-bar" style={{ display:"flex",justifyContent:"center",gap:0,maxWidth:1200,margin:"0 auto",flexWrap:"wrap" }}>
             {TRUST.map((t,i)=>(
               <div key={i} className="trust-item" style={{ flex:"1 1 25%",minWidth:220,display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",padding:"30px 20px",borderRight:i<3?"1px solid rgba(255,215,0,0.1)":"none",position:"relative" }}>
