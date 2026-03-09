@@ -334,8 +334,8 @@ const Index = () => {
           ))}
         </div>
         <div style={{ display:"flex",gap:10,alignItems:"center" }}>
-          <button onClick={()=>setModal("orders")} style={{ background:"transparent",border:`1.5px solid rgba(255,215,0,0.5)`,color:C.gold,padding:"8px 18px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontWeight:600,fontSize:11,transition:"all 0.3s",letterSpacing:"0.05em" }}>My Orders</button>
-          <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,border:"none",padding:"9px 22px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontWeight:700,fontSize:11,boxShadow:"0 4px 15px rgba(255,215,0,0.3)",transition:"all 0.3s",letterSpacing:"0.05em" }}>Get Quote</button>
+          <button onClick={()=>setModal("orders")} style={{ background:"transparent",border:`1.5px solid ${scrolled?C.red:"rgba(255,255,255,0.5)"}`,color:scrolled?C.red:"#fff",padding:"8px 18px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontWeight:600,fontSize:11,transition:"all 0.3s",letterSpacing:"0.05em" }}>My Orders</button>
+          <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",border:"none",padding:"9px 22px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontWeight:700,fontSize:11,boxShadow:"0 4px 15px rgba(37,99,235,0.25)",transition:"all 0.3s",letterSpacing:"0.05em" }}>Get Quote</button>
         </div>
       </nav>
 
