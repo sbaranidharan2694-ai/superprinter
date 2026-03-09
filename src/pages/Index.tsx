@@ -49,13 +49,13 @@ const NT = "'Noto Sans Tamil',sans-serif";
 
 // ─── DATA ───────────────────────────────────────────────────────
 const SLIDES = [
-  { bg: IMG.hero, badge: "TAMIL NADU'S TRUSTED PRESS", h1a: "Premium Offset", h1b: "Printing for Every Need", body: "Business cards, wedding invitations, letterheads and more — printed with precision since 1989.", btn1: "Order Now", btn1Action: "products", btn2: "Get Free Quote", btn2Action: "quote", rightImg: IMG.glossCard, thumbs: [IMG.glossCard, IMG.weddingInvite1, IMG.letterhead, IMG.envelopes, IMG.brochures] },
+  { bg: IMG.hero, badge: "TAMIL NADU'S TRUSTED PRESS", h1a: "Premium Offset", h1b: "Printing for Every Need", body: "Business cards, wedding invitations, letterheads and more — printed with precision since 1990.", btn1: "Order Now", btn1Action: "products", btn2: "Get Free Quote", btn2Action: "quote", rightImg: IMG.glossCard, thumbs: [IMG.glossCard, IMG.weddingInvite1, IMG.letterhead, IMG.envelopes, IMG.brochures] },
   { bg: IMG.weddingCeremony, badge: "WEDDING SEASON SPECIAL", h1a: "Beautiful Wedding", h1b: "Invitations", tamil: "திருமண அழைப்பிதழ்கள்", body: "Gloss, Matt, Spot UV & Premium finishes on 300 GSM Art Board.", btn1: "See Designs", btn1Action: "wedding-cards", rightImg: IMG.weddingInvite1, thumbs: [] },
   { bg: IMG.offsetPress, badge: "1 TO 4 BUSINESS DAYS", h1a: "Order Online.", h1b: "Delivered Fast.", body: "We deliver across Chennai, Coimbatore, and all Tamil Nadu.", btn1: "Order Now", btn1Action: "products", btn2: "Track Order", btn2Action: "track", rightImg: IMG.glossCard, thumbs: [] },
 ];
 
 const TRUST = [
-  { num: "35+", label: "Years Experience", sub: "Since 1989", img: IMG.pressTools },
+  { num: "35+", label: "Years Experience", sub: "Since 1990", img: IMG.pressTools },
   { num: "10,000+", label: "Happy Clients", sub: "Across India", img: IMG.workshop },
   { num: "50+", label: "Print Services", sub: "Complete Range", img: IMG.digital },
   { num: "1–4", label: "Day Delivery", sub: "Pan Tamil Nadu", img: IMG.delivery },
@@ -115,7 +115,7 @@ const GALLERY: {img:string;label:string;cat:GalCat}[] = [
 ];
 
 const WHY = [
-  { img: IMG.offsetPress, title: "35 Years of Excellence", tamil: "35 ஆண்டுகள் சிறப்பு", body: "Three decades of offset printing excellence. State-of-the-art presses.", extra: "Since 1989", thumb: IMG.inkRollers },
+  { img: IMG.offsetPress, title: "35 Years of Excellence", tamil: "35 ஆண்டுகள் சிறப்பு", body: "Three decades of offset printing excellence. State-of-the-art presses.", extra: "Since 1990", thumb: IMG.inkRollers },
   { img: IMG.delivery, title: "Fast Pan-TN Delivery", tamil: "வேகமான டெலிவரி", body: "1–4 business days across Tamil Nadu. Same-day pickup from Chennai.", extra: "Chennai | CBE | Madurai", thumb: IMG.courier },
   { img: IMG.qualityCheck, title: "Quality Guaranteed", tamil: "தரம் உறுதி", body: "Multi-point quality checks on every job. Colour accurate, sharp.", extra: "GST Inclusive Pricing", thumb: IMG.printedStack },
   { img: IMG.stackedCards, title: "Competitive Pricing", tamil: "சிறந்த விலை", body: "Transparent pricing. Bulk discounts for DTP operators and resellers.", extra: "Rates from ₹199", thumb: IMG.glossCard },
@@ -291,7 +291,7 @@ const Index = () => {
 
       {/* ═══ TOP TICKER BAR ═══ */}
       <div style={{ height:36,background:`linear-gradient(90deg,${C.dark},#2a1a1a)`,display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 24px",overflow:"hidden" }}>
-        <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP,letterSpacing:"0.05em" }}>Chennai, Tamil Nadu | Since 1989</span>
+        <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP,letterSpacing:"0.05em" }}>Chennai, Tamil Nadu | Since 1990</span>
         <div style={{ flex:1,overflow:"hidden",margin:"0 20px" }}>
           <div style={{ display:"flex",width:"200%",animation:"ticker 30s linear infinite" }}>
             {[0,1].map(k=><span key={k} style={{ color:C.gold,fontSize:11,whiteSpace:"nowrap",fontFamily:NT,minWidth:"50%" }}>{TICKER_TEXT}</span>)}
@@ -606,10 +606,10 @@ const Index = () => {
             </div>
             <div>
               <div style={{ color:C.gold,fontFamily:PP,fontSize:12,textTransform:"uppercase",letterSpacing:"0.2em",marginBottom:10 }}>எங்களைப் பற்றி • OUR STORY</div>
-              <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:36,color:C.dark,marginBottom:20,lineHeight:1.3 }}>Chennai's Printing Legacy — <span style={{color:C.red}}>Since 1989</span></h2>
+              <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:36,color:C.dark,marginBottom:20,lineHeight:1.3 }}>Chennai's Printing Legacy — <span style={{color:C.red}}>Since 1990</span></h2>
               <div style={{ overflow:"hidden",marginBottom:18 }}>
                 <img src={IMG.printedStack} alt="Printed materials" style={{ float:"right",width:140,height:100,borderRadius:10,objectFit:"cover",margin:"0 0 12px 16px",display:"block",boxShadow:"0 4px 15px rgba(0,0,0,0.1)" }} loading="lazy"/>
-                <p style={{ fontFamily:PP,fontSize:14,color:"#555",lineHeight:1.8 }}>Super Printers was founded in 1989 as a small family printing press in Chennai. Over 35 years we have grown into a full-service printing house — but we have never lost the personal care and craftsmanship of a family business that knows every client by name.</p>
+                <p style={{ fontFamily:PP,fontSize:14,color:"#555",lineHeight:1.8 }}>Super Printers was founded in 1990 as a small family printing press in Chennai. Over 35 years we have grown into a full-service printing house — but we have never lost the personal care and craftsmanship of a family business that knows every client by name.</p>
               </div>
               <div style={{ overflow:"hidden",marginBottom:18 }}>
                 <img src={IMG.brochures} alt="Brochures" style={{ float:"left",width:130,height:90,borderRadius:10,objectFit:"cover",margin:"0 16px 12px 0",display:"block",boxShadow:"0 4px 15px rgba(0,0,0,0.1)" }} loading="lazy"/>
@@ -814,7 +814,7 @@ const Index = () => {
               </div>
               <div><div style={{ fontFamily:PF,color:C.gold,fontSize:18,fontWeight:700 }}>Super Printers</div><div style={{ fontFamily:NT,color:"rgba(255,215,0,0.5)",fontSize:10 }}>சுப்பர் பிரிண்டர்ஸ்</div></div>
             </div>
-            <p style={{ color:"rgba(255,255,255,0.4)",fontSize:13,fontFamily:PP,marginBottom:14,lineHeight:1.6 }}>Chennai's finest printing press since 1989. Premium quality, fast delivery.</p>
+            <p style={{ color:"rgba(255,255,255,0.4)",fontSize:13,fontFamily:PP,marginBottom:14,lineHeight:1.6 }}>Chennai's finest printing press since 1990. Premium quality, fast delivery.</p>
             <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:4 }}>
               {[IMG.glossCard,IMG.mattCard,IMG.weddingInvite1,IMG.weddingInvite2,IMG.letterhead,IMG.envelopes].map((src,i)=>(
                 <img key={i} src={src} alt="Product" style={{ width:"100%",height:50,borderRadius:6,objectFit:"cover",display:"block" }} loading="lazy"/>
