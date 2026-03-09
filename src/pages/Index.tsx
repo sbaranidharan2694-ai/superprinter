@@ -723,7 +723,7 @@ const Index = () => {
 
       {/* ═══ WHY CHOOSE US ═══ */}
       <Section>
-        <div style={{ background:`linear-gradient(135deg,${C.dark},#2a1a1a)`,padding:"80px 40px" }}>
+        <div style={{ background:`linear-gradient(135deg,${C.dark},#0D1642)`,padding:"80px 40px" }}>
           <div style={{ textAlign:"center",marginBottom:50 }}>
             <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:38,color:"#fff",marginBottom:6 }}>Why Choose <span style={{color:C.gold}}>Super Printers</span></h2>
             <div style={{ fontFamily:NT,color:"rgba(255,215,0,0.7)",fontSize:14 }}>ஏன் சுப்பர் பிரிண்டர்ஸ்?</div>
