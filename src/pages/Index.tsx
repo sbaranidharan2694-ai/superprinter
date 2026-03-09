@@ -709,7 +709,7 @@ const Index = () => {
               <div key={`${item.label}-${i}`} style={{ breakInside:"avoid",marginBottom:10,borderRadius:12,overflow:"hidden",position:"relative",cursor:"pointer",transition:"transform 0.3s",transform:hoverGal===i?"scale(1.02)":"scale(1)" }}
                 onMouseEnter={()=>setHoverGal(i)} onMouseLeave={()=>setHoverGal(null)}>
                 <img src={item.img} alt={item.label} style={{ width:"100%",display:"block",objectFit:"cover" }} loading="lazy"/>
-                <div style={{ position:"absolute",inset:0,background:`linear-gradient(0deg,rgba(139,0,0,0.85),rgba(0,0,0,0.3),transparent)`,opacity:hoverGal===i?1:0,transition:"opacity 0.3s",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"flex-end",padding:20 }}>
+                <div style={{ position:"absolute",inset:0,background:`linear-gradient(0deg,rgba(26,35,126,0.85),rgba(0,0,0,0.3),transparent)`,opacity:hoverGal===i?1:0,transition:"opacity 0.3s",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"flex-end",padding:20 }}>
                   <div style={{ color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,marginBottom:4 }}>{item.label}</div>
                   <span style={{ color:C.gold,fontFamily:PP,fontSize:12,fontWeight:500 }}>View →</span>
                 </div>
