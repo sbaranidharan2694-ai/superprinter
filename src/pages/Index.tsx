@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
+
+const Scene3D = lazy(() => import("@/components/Scene3D"));
 
 // ─── IMAGES ─────────────────────────────────────────────────────
 const IMG = {
@@ -216,47 +218,63 @@ const Index = () => {
         </div>
       )}
 
+      {/* ═══ TOP BAR ═══ */}
+      <div className="bg-foreground text-white/70 text-[11px] font-medium flex items-center justify-between px-6 py-2 border-b border-white/10">
+        <span className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          Chennai, Tamil Nadu — Since 1990
+        </span>
+        <div className="hidden sm:flex items-center gap-4">
+          <a href="tel:+919840199878" className="hover:text-white transition-colors">+91 9840199878</a>
+          <span className="text-white/20">|</span>
+          <a href="mailto:superprntrs@yahoo.com" className="hover:text-white transition-colors">superprntrs@yahoo.com</a>
+        </div>
+      </div>
+
       {/* ═══ NAVBAR ═══ */}
-      <nav className={`sticky top-0 z-[100] transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-xl shadow-sm border-b border-border" : "bg-transparent absolute w-full"}`}>
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-          <div className="flex items-center gap-3 cursor-pointer" onClick={()=>scrollTo("top")}>
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-              <span className="font-display font-bold text-base text-primary-foreground">SP</span>
+      <nav className={`sticky top-0 z-[100] transition-all duration-500 ${scrolled ? "bg-background/98 backdrop-blur-xl shadow-lg border-b border-border" : "bg-foreground border-b border-white/10"}`}>
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[68px]">
+          <div className="flex items-center gap-3 cursor-pointer group" onClick={()=>scrollTo("top")}>
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow">
+              <span className="font-display font-bold text-lg text-primary-foreground">SP</span>
             </div>
             <div>
               <div className={`font-display font-bold text-lg transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>Super Printers</div>
-              <div className={`font-tamil text-[10px] transition-colors ${scrolled ? "text-muted-foreground" : "text-white/60"}`}>சுப்பர் பிரிண்டர்ஸ்</div>
+              <div className={`font-tamil text-[10px] transition-colors ${scrolled ? "text-muted-foreground" : "text-white/50"}`}>சுப்பர் பிரிண்டர்ஸ் • Est. 1990</div>
             </div>
           </div>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5">
             {NAV_LINKS.map((l) => (
               <button key={l.label} onClick={()=>scrollTo(l.anchor)}
-                className={`px-3 py-2 text-[13px] font-medium rounded-lg transition-all hover:bg-accent/80 ${scrolled ? "text-foreground" : "text-white/90 hover:text-white hover:bg-white/10"}`}>
+                className={`px-4 py-2 text-[13px] font-medium rounded-full transition-all ${scrolled ? "text-muted-foreground hover:text-foreground hover:bg-accent" : "text-white/70 hover:text-white hover:bg-white/10"}`}>
                 {l.label}
               </button>
             ))}
           </div>
 
           <div className="flex items-center gap-3">
-            <button onClick={()=>scrollTo("contact")} className="bg-primary text-primary-foreground font-semibold text-xs px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity">
+            <button onClick={()=>setModal("orders")} className={`hidden sm:block text-xs font-semibold px-4 py-2 rounded-full transition-all ${scrolled ? "text-foreground border border-border hover:bg-accent" : "text-white/80 border border-white/20 hover:bg-white/10"}`}>
+              My Orders
+            </button>
+            <button onClick={()=>scrollTo("contact")} className="bg-gradient-to-r from-primary to-primary/90 text-primary-foreground font-bold text-xs px-6 py-2.5 rounded-full hover:shadow-lg hover:shadow-primary/25 transition-all">
               Get Quote
             </button>
-            <button onClick={()=>setMobileMenu(!mobileMenu)} className={`lg:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-lg ${scrolled?"text-foreground":"text-white"}`}>
-              <span className={`w-5 h-0.5 rounded-full transition-all ${scrolled?"bg-foreground":"bg-white"} ${mobileMenu?"rotate-45 translate-y-1":""}`}/>
-              <span className={`w-5 h-0.5 rounded-full transition-all ${scrolled?"bg-foreground":"bg-white"} ${mobileMenu?"opacity-0":""}`}/>
-              <span className={`w-5 h-0.5 rounded-full transition-all ${scrolled?"bg-foreground":"bg-white"} ${mobileMenu?"-rotate-45 -translate-y-1":""}`}/>
+            <button onClick={()=>setMobileMenu(!mobileMenu)} className={`lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-xl transition-colors ${scrolled?"hover:bg-accent":"hover:bg-white/10"}`}>
+              <span className={`w-5 h-0.5 rounded-full transition-all duration-300 ${scrolled?"bg-foreground":"bg-white"} ${mobileMenu?"rotate-45 translate-y-[4px]":""}`}/>
+              <span className={`w-5 h-0.5 rounded-full transition-all duration-300 ${scrolled?"bg-foreground":"bg-white"} ${mobileMenu?"opacity-0":""}`}/>
+              <span className={`w-5 h-0.5 rounded-full transition-all duration-300 ${scrolled?"bg-foreground":"bg-white"} ${mobileMenu?"-rotate-45 -translate-y-[4px]":""}`}/>
             </button>
           </div>
         </div>
 
         {/* Mobile menu */}
         {mobileMenu && (
-          <div className="lg:hidden bg-background border-t border-border shadow-lg">
+          <div className={`lg:hidden border-t shadow-xl ${scrolled ? "bg-background border-border" : "bg-foreground border-white/10"}`}>
             <div className="px-4 py-3 space-y-1">
               {NAV_LINKS.map(l => (
-                <button key={l.label} onClick={()=>{scrollTo(l.anchor);setMobileMenu(false)}} className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground rounded-lg hover:bg-accent transition-colors">
+                <button key={l.label} onClick={()=>{scrollTo(l.anchor);setMobileMenu(false)}} className={`block w-full text-left px-4 py-3 text-sm font-medium rounded-xl transition-colors ${scrolled ? "text-foreground hover:bg-accent" : "text-white/80 hover:bg-white/10"}`}>
                   {l.label}
                 </button>
               ))}
@@ -265,50 +283,65 @@ const Index = () => {
         )}
       </nav>
 
-      {/* ═══ HERO ═══ */}
-      <div className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-foreground">
+      {/* ═══ HERO WITH 3D ═══ */}
+      <div className="relative min-h-[92vh] flex items-center overflow-hidden bg-foreground">
         {SLIDES.map((s, i) => (
-          <img key={i} src={s.bg} alt="Super Printers" className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${slide===i?"opacity-100":"opacity-0"}`} style={{filter:"brightness(0.35)"}} loading={i===0?"eager":"lazy"} />
+          <img key={i} src={s.bg} alt="Super Printers" className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${slide===i?"opacity-100":"opacity-0"}`} style={{filter:"brightness(0.25)"}} loading={i===0?"eager":"lazy"} />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20" />
+        
+        {/* Decorative gradient orbs */}
+        <div className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-0 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div key={slide} className="animate-fadeIn">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                <span className="text-white/80 text-xs font-semibold tracking-[0.15em] uppercase">{SLIDES[slide].badge}</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-white/70 text-xs font-semibold tracking-[0.15em] uppercase">{SLIDES[slide].badge}</span>
               </div>
 
-              <h1 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-4">
+              <h1 className="font-display font-black text-4xl md:text-5xl lg:text-[64px] text-white leading-[1.05] mb-5">
                 {SLIDES[slide].h1a}<br/>
-                <span className="text-secondary">{SLIDES[slide].h1b}</span>
+                <span className="bg-gradient-to-r from-secondary to-secondary/80 bg-clip-text text-transparent">{SLIDES[slide].h1b}</span>
               </h1>
 
-              {SLIDES[slide].tamil && <p className="font-tamil text-secondary/80 text-lg mb-3">{SLIDES[slide].tamil}</p>}
+              {SLIDES[slide].tamil && <p className="font-tamil text-secondary/60 text-lg mb-4">{SLIDES[slide].tamil}</p>}
 
-              <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-8 max-w-lg font-light">{SLIDES[slide].body}</p>
+              <p className="text-white/60 text-base lg:text-lg leading-relaxed mb-10 max-w-lg">{SLIDES[slide].body}</p>
 
-              <div className="flex flex-wrap gap-3">
-                <button onClick={()=>handleSlideBtn(SLIDES[slide].btn1Action)} className="bg-primary text-primary-foreground font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-all shadow-lg shadow-primary/25">
+              <div className="flex flex-wrap gap-4">
+                <button onClick={()=>handleSlideBtn(SLIDES[slide].btn1Action)} className="bg-gradient-to-r from-primary to-primary/90 text-primary-foreground font-bold text-sm px-10 py-4 rounded-full hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-0.5">
                   {SLIDES[slide].btn1}
                 </button>
                 {SLIDES[slide].btn2 && (
-                  <button onClick={()=>handleSlideBtn(SLIDES[slide].btn2Action)} className="border border-white/30 text-white font-medium text-sm px-8 py-3.5 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
+                  <button onClick={()=>handleSlideBtn(SLIDES[slide].btn2Action)} className="border border-white/20 text-white/90 font-medium text-sm px-10 py-4 rounded-full hover:bg-white/5 transition-all backdrop-blur-sm">
                     {SLIDES[slide].btn2}
                   </button>
                 )}
               </div>
+
+              {/* Mini trust bar in hero */}
+              <div className="flex items-center gap-6 mt-12">
+                {[{n:"35+",l:"Years"},{n:"10K+",l:"Clients"},{n:"50+",l:"Services"}].map((s,i) => (
+                  <div key={i} className="text-center">
+                    <div className="font-display font-black text-xl text-white">{s.n}</div>
+                    <div className="text-white/40 text-[10px] font-medium tracking-wider uppercase">{s.l}</div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="hidden lg:flex justify-center">
-              <div className="relative">
-                <img src={SLIDES[slide].rightImg} alt="Product" className="w-72 h-96 object-cover rounded-3xl shadow-2xl border-2 border-white/10" loading="lazy" />
-                <div className="absolute -top-3 -right-3 w-20 h-20 rounded-2xl bg-secondary flex flex-col items-center justify-center shadow-lg">
-                  <span className="font-display font-black text-lg text-secondary-foreground">35+</span>
-                  <span className="text-[9px] font-bold text-secondary-foreground/80 tracking-wider">YEARS</span>
+            {/* 3D Scene */}
+            <div className="hidden lg:block h-[500px] relative">
+              <Suspense fallback={
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="w-16 h-16 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
                 </div>
-              </div>
+              }>
+                <Scene3D />
+              </Suspense>
             </div>
           </div>
         </div>
@@ -316,7 +349,7 @@ const Index = () => {
         {/* Slide indicators */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
           {[0,1,2].map(i => (
-            <button key={i} onClick={()=>setSlide(i)} className={`h-2 rounded-full transition-all duration-500 ${slide===i ? "w-8 bg-primary" : "w-2 bg-white/30 hover:bg-white/50"}`} />
+            <button key={i} onClick={()=>setSlide(i)} className={`h-2 rounded-full transition-all duration-500 ${slide===i ? "w-10 bg-gradient-to-r from-primary to-secondary" : "w-2 bg-white/20 hover:bg-white/40"}`} />
           ))}
         </div>
       </div>
