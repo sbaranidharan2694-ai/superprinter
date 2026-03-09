@@ -49,7 +49,7 @@ const NT = "'Noto Sans Tamil',sans-serif";
 
 // ─── DATA ───────────────────────────────────────────────────────
 const SLIDES = [
-  { bg: IMG.hero, badge: "TAMIL NADU'S TRUSTED PRESS", h1a: "Premium Offset", h1b: "Printing for Every Need", body: "Business cards, wedding invitations, letterheads and more — printed with precision since 1989.", btn1: "Order Now", btn1Action: "products", btn2: "Get Free Quote", btn2Action: "quote", rightImg: IMG.glossCard, thumbs: [IMG.glossCard, IMG.weddingInvite1, IMG.letterhead, IMG.envelopes, IMG.brochures] },
+  { bg: IMG.hero, badge: "TAMIL NADU'S TRUSTED PRESS", h1a: "Premium Offset", h1b: "Printing for Every Need", body: "Business cards, wedding invitations, letterheads and more — printed with precision since 1990.", btn1: "Order Now", btn1Action: "products", btn2: "Get Free Quote", btn2Action: "quote", rightImg: IMG.glossCard, thumbs: [IMG.glossCard, IMG.weddingInvite1, IMG.letterhead, IMG.envelopes, IMG.brochures] },
   { bg: IMG.weddingCeremony, badge: "WEDDING SEASON SPECIAL", h1a: "Beautiful Wedding", h1b: "Invitations", tamil: "திருமண அழைப்பிதழ்கள்", body: "Gloss, Matt, Spot UV & Premium finishes on 300 GSM Art Board.", btn1: "See Designs", btn1Action: "wedding-cards", rightImg: IMG.weddingInvite1, thumbs: [] },
   { bg: IMG.offsetPress, badge: "1 TO 4 BUSINESS DAYS", h1a: "Order Online.", h1b: "Delivered Fast.", body: "We deliver across Chennai, Coimbatore, and all Tamil Nadu.", btn1: "Order Now", btn1Action: "products", btn2: "Track Order", btn2Action: "track", rightImg: IMG.glossCard, thumbs: [] },
 ];
