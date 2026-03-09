@@ -4,18 +4,18 @@ import { Float, MeshDistortMaterial, RoundedBox, Text, Environment } from "@reac
 import * as THREE from "three";
 
 const BusinessCard = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const groupRef = useRef<THREE.Group>(null);
 
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.3 + 0.2;
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.1;
+    if (groupRef.current) {
+      groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.3 + 0.2;
+      groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.1;
     }
   });
 
   return (
     <Float speed={2} rotationIntensity={0.3} floatIntensity={0.8}>
-      <group ref={meshRef}>
+      <group ref={groupRef}>
         {/* Main card body */}
         <RoundedBox args={[3.6, 2.1, 0.05]} radius={0.08} smoothness={4}>
           <meshPhysicalMaterial
