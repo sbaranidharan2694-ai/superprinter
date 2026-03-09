@@ -782,7 +782,7 @@ const Index = () => {
               ))}
               <a href="https://wa.me/919840199878" style={{ display:"inline-block",marginTop:20,background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 28px",borderRadius:30,alignSelf:"flex-start",boxShadow:"0 8px 25px rgba(37,211,102,0.3)" }}>WhatsApp Order</a>
               <div style={{ marginTop:20,borderRadius:14,overflow:"hidden",border:"2px solid rgba(255,215,0,0.2)" }}>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d80.1491!3d12.9675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzAzLjAiTiA4MMKwMDgnNTYuOCJF!5e0!3m2!1sen!2sin!4v1" width="100%" height="160" style={{ border:0,display:"block" }} loading="lazy" title="Location" allowFullScreen/>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d80.1478823!3d12.9666825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525fcc22e3457d%3A0x8e423468eccddee2!2sSuper%20Printers%20-%20Wedding%20Cards%20%26%20Printing!5e0!3m2!1sen!2sin!4v1" width="100%" height="200" style={{ border:0,display:"block" }} loading="lazy" title="Super Printers Location" allowFullScreen/>
               </div>
             </div>
           </div>
