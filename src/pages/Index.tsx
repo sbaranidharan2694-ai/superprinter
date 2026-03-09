@@ -126,7 +126,7 @@ const NAV_LINKS = [
   {label:"Wedding Cards",anchor:"wedding-cards"},{label:"Gallery",anchor:"gallery"},{label:"About",anchor:"about"},{label:"Contact",anchor:"contact"},
 ];
 const GAL_FILTERS: GalCat[] = ["All","Visiting Cards","Wedding Cards","Stationery","Envelopes","Brochures","Stickers","Posters","Press"];
-const TICKER_TEXT = "விசிட்டிங் கார்டு  •  Wedding Cards  •  Letterheads  •  Envelopes  •  Stickers  •  Brochures & Flyers  |  Fast Delivery across Tamil Nadu  |  14 National Awards  |  GST Inclusive Pricing     ";
+const TICKER_TEXT = "•  Wedding Cards  •  Letterheads  •  Envelopes  •  Stickers  •  Brochures & Flyers  |  Fast Delivery across Tamil Nadu    |  GST Inclusive Pricing     ";
 
 const scrollTo = (id: string) => {
   if (id === "top") { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
