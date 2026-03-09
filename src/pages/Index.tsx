@@ -281,7 +281,7 @@ const Index = () => {
               {modal==="cart"&&"To place an order, please WhatsApp us or fill the quote form below."}
             </p>
             <div style={{ display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap" }}>
-              <a href="https://wa.me/914422480847" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 24px",borderRadius:30 }}>WhatsApp Us</a>
+              <a href="https://wa.me/919840199878" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 24px",borderRadius:30 }}>WhatsApp Us</a>
               {modal==="cart"&&<button onClick={()=>{setModal(null);scrollTo("contact")}} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 24px",borderRadius:30,border:"none",cursor:"pointer" }}>Fill Quote Form</button>}
               <button onClick={()=>setModal(null)} style={{ background:"transparent",color:"#888",fontFamily:PP,fontWeight:600,fontSize:13,padding:"12px 24px",borderRadius:30,border:"1.5px solid #ddd",cursor:"pointer" }}>Close</button>
             </div>
