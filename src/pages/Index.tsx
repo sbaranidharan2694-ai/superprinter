@@ -658,7 +658,7 @@ const Index = () => {
           <div className="test-grid" style={{ display:"grid",gridTemplateColumns:"38% 62%",gap:0,maxWidth:1100,margin:"0 auto",borderRadius:20,overflow:"hidden",boxShadow:"0 20px 60px rgba(0,0,0,0.3)" }}>
             <div style={{ position:"relative",overflow:"hidden",minHeight:400 }}>
               <img src={IMG.hero} alt="Super Printers" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block" }} loading="lazy"/>
-              <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(139,0,0,0.9),rgba(92,0,0,0.85))` }}/>
+              <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(26,35,126,0.92),rgba(13,22,66,0.88))` }}/>
               <div style={{ position:"relative",zIndex:2,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"100%",padding:36 }}>
                 <div style={{ width:80,height:80,borderRadius:"50%",background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:20,boxShadow:"0 0 30px rgba(255,215,0,0.3)" }}>
                   <span style={{ fontFamily:PF,fontWeight:900,fontSize:28,color:C.dark }}>★</span>
