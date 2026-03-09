@@ -459,7 +459,7 @@ const Index = () => {
           <p style={{ fontFamily:PP,color:"rgba(255,255,255,0.7)",fontSize:16,marginBottom:28,maxWidth:500,margin:"0 auto 28px" }}>From visiting cards to wedding invitations — get premium quality printing delivered to your doorstep.</p>
           <div style={{ display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap" }}>
             <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 8px 30px rgba(255,215,0,0.3)" }}>Get Free Quote</button>
-            <a href="https://wa.me/914422480847" style={{ background:"rgba(255,255,255,0.1)",color:"#fff",fontFamily:PP,fontWeight:600,fontSize:14,padding:"14px 36px",borderRadius:30,border:"1.5px solid rgba(255,255,255,0.3)",backdropFilter:"blur(4px)" }}>WhatsApp Us</a>
+            <a href="https://wa.me/919840199878" style={{ background:"rgba(255,255,255,0.1)",color:"#fff",fontFamily:PP,fontWeight:600,fontSize:14,padding:"14px 36px",borderRadius:30,border:"1.5px solid rgba(255,255,255,0.3)",backdropFilter:"blur(4px)" }}>WhatsApp Us</a>
           </div>
         </div>
       </div>
