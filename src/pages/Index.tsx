@@ -504,7 +504,7 @@ const Index = () => {
                   </div>
                   <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center" }}>
                     <span style={{ fontFamily:PF,color:C.red,fontSize:22,fontWeight:700 }}>{p.price}</span>
-                    <button onClick={()=>setModal("cart")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",border:"none",padding:"9px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,boxShadow:"0 4px 15px rgba(26,35,126,0.3)" }}>Order Now</button>
+                    <button onClick={()=>setModal("cart")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",border:"none",padding:"9px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,boxShadow:"0 4px 15px rgba(37,99,235,0.25)" }}>Order Now</button>
                   </div>
                 </div>
               </div>
