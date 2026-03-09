@@ -649,7 +649,7 @@ const Index = () => {
 
       {/* ═══ TESTIMONIALS ═══ */}
       <Section>
-        <div style={{ background:`linear-gradient(135deg,${C.dark},#2a1a1a)`,padding:"80px 40px" }}>
+        <div style={{ background:`linear-gradient(135deg,${C.dark},#0D1642)`,padding:"80px 40px" }}>
           <div style={{ textAlign:"center",marginBottom:50 }}>
             <div style={{ fontFamily:NT,color:C.gold,fontSize:16,marginBottom:6 }}>வாடிக்கையாளர் கருத்துக்கள்</div>
             <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:38,color:"#fff",marginBottom:8 }}>What Our Clients Say</h2>
