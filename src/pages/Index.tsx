@@ -316,12 +316,12 @@ const Index = () => {
         borderBottom:"1px solid rgba(255,215,0,0.1)"
       }}>
         <div style={{ display:"flex",alignItems:"center",gap:12,padding:"10px 0",cursor:"pointer" }} onClick={()=>scrollTo("top")}>
-          <div style={{ width:42,height:42,borderRadius:10,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 0 20px rgba(255,215,0,0.3)" }}>
-            <span style={{ fontFamily:PF,fontWeight:900,fontSize:18,color:C.dark }}>SP</span>
+          <div style={{ width:42,height:42,borderRadius:10,background:`linear-gradient(135deg,${C.red},${C.maroon})`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 15px rgba(37,99,235,0.2)" }}>
+            <span style={{ fontFamily:PF,fontWeight:900,fontSize:18,color:"#fff" }}>SP</span>
           </div>
           <div>
-            <div style={{ fontFamily:PF,fontWeight:700,fontSize:18,color:"#fff",textShadow:"0 0 20px rgba(255,215,0,0.2)" }}>Super Printers</div>
-            <div style={{ fontFamily:NT,fontSize:9,color:C.gold,letterSpacing:"0.1em" }}>சுப்பர் பிரிண்டர்ஸ்</div>
+            <div style={{ fontFamily:PF,fontWeight:700,fontSize:18,color:scrolled?C.dark:"#fff",transition:"color 0.3s" }}>Super Printers</div>
+            <div style={{ fontFamily:NT,fontSize:9,color:scrolled?C.red:"rgba(255,255,255,0.7)",letterSpacing:"0.1em",transition:"color 0.3s" }}>சுப்பர் பிரிண்டர்ஸ்</div>
           </div>
         </div>
         <div className="nav-links" style={{ display:"flex",gap:0 }}>
