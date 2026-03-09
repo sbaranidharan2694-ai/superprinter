@@ -39,9 +39,9 @@ const IMG = {
 
 // ─── BRAND ──────────────────────────────────────────────────────
 const C = {
-  red: "#8B0000", maroon: "#5C0000", gold: "#FFD700", goldDark: "#B8860B",
-  saffron: "#E65100", teal: "#00695C", ivory: "#FFFDF7", dark: "#1A1A1A",
-  darkAlt: "#111111", wa: "#25D366", cream: "#FFF8F0",
+  red: "#1A237E", maroon: "#0D1642", gold: "#FFD700", goldDark: "#B8860B",
+  saffron: "#283593", teal: "#1565C0", ivory: "#F5F7FF", dark: "#0A0E27",
+  darkAlt: "#080C1F", wa: "#25D366", cream: "#EEF1FF",
 };
 const PF = "'Playfair Display',serif";
 const PP = "'Poppins',sans-serif";
