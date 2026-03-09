@@ -243,7 +243,7 @@ const Index = () => {
         *{box-sizing:border-box;margin:0;padding:0}
         a{text-decoration:none;color:inherit}
         input,select,textarea{font-family:'Poppins',sans-serif}
-        ::selection{background:rgba(26,35,126,0.3);color:#fff}
+        ::selection{background:rgba(37,99,235,0.25);color:#fff}
         html{scroll-behavior:smooth}
         @media(max-width:768px){
           .hero-flex{flex-direction:column!important;text-align:center!important;padding:0 20px!important}
