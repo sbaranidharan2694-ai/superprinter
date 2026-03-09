@@ -327,9 +327,9 @@ const Index = () => {
         <div className="nav-links" style={{ display:"flex",gap:0 }}>
           {NAV_LINKS.map((l,i)=>(
             <button key={l.label} onClick={()=>scrollTo(l.anchor)} onMouseEnter={()=>setHoverNav(i)} onMouseLeave={()=>setHoverNav(null)}
-              style={{ color:hoverNav===i?C.gold:"rgba(255,255,255,0.85)",fontFamily:PP,fontSize:12,fontWeight:500,padding:"16px 14px",background:"transparent",border:"none",cursor:"pointer",transition:"all 0.3s",position:"relative",letterSpacing:"0.02em" }}>
+              style={{ color:hoverNav===i?C.gold:scrolled?C.dark:"rgba(255,255,255,0.9)",fontFamily:PP,fontSize:12,fontWeight:500,padding:"16px 14px",background:"transparent",border:"none",cursor:"pointer",transition:"all 0.3s",position:"relative",letterSpacing:"0.02em" }}>
               {l.label}
-              <span style={{ position:"absolute",bottom:8,left:"50%",transform:`translateX(-50%) scaleX(${hoverNav===i?1:0})`,width:"70%",height:2,background:C.gold,borderRadius:1,transition:"transform 0.3s cubic-bezier(0.16,1,0.3,1)",transformOrigin:"center" }}/>
+              <span style={{ position:"absolute",bottom:8,left:"50%",transform:`translateX(-50%) scaleX(${hoverNav===i?1:0})`,width:"70%",height:2,background:C.red,borderRadius:1,transition:"transform 0.3s cubic-bezier(0.16,1,0.3,1)",transformOrigin:"center" }}/>
             </button>
           ))}
         </div>
