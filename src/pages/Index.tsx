@@ -839,7 +839,7 @@ const Index = () => {
               <p key={i} style={{ color:"rgba(255,255,255,0.45)",fontFamily:PP,fontSize:13,margin:"5px 0" }}>{t}</p>
             ))}
             <div style={{ marginTop:16,display:"flex",gap:10 }}>
-              <a href="https://wa.me/914422480847" style={{ width:40,height:40,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:14,fontWeight:700,fontFamily:PP }}>WA</a>
+              <a href="https://wa.me/919840199878" style={{ width:40,height:40,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:14,fontWeight:700,fontFamily:PP }}>WA</a>
               <div style={{ width:40,height:40,borderRadius:"50%",background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,215,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center",color:C.gold,fontSize:12,fontWeight:700,fontFamily:PP }}>FB</div>
               <div style={{ width:40,height:40,borderRadius:"50%",background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,215,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center",color:C.gold,fontSize:12,fontWeight:700,fontFamily:PP }}>IG</div>
             </div>
