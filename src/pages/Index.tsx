@@ -761,7 +761,7 @@ const Index = () => {
         <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:34,color:C.dark,marginBottom:12 }}>Start Your Printing Journey Today</h2>
         <p style={{ fontFamily:PP,color:"rgba(26,26,26,0.7)",fontSize:15,marginBottom:24,maxWidth:500,margin:"0 auto 24px" }}>Get premium quality prints delivered to your doorstep. Free quotes within 2 hours.</p>
         <div style={{ display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap" }}>
-          <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 8px 25px rgba(26,35,126,0.3)" }}>Get Free Quote</button>
+          <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 8px 25px rgba(37,99,235,0.25)" }}>Get Free Quote</button>
           <a href="https://wa.me/919840199878" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,boxShadow:"0 8px 25px rgba(37,211,102,0.3)" }}>WhatsApp Order</a>
         </div>
       </div>
