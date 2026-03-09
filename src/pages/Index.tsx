@@ -856,7 +856,7 @@ const Index = () => {
       </footer>
 
       {/* ═══ FLOATING BUTTONS ═══ */}
-      <a href="https://wa.me/914422480847" style={{ position:"fixed",bottom:28,right:28,width:58,height:58,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center",zIndex:9999,animation:"waPulse 2s infinite",textDecoration:"none",boxShadow:"0 8px 25px rgba(37,211,102,0.4)" }}>
+      <a href="https://wa.me/919840199878" style={{ position:"fixed",bottom:28,right:28,width:58,height:58,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center",zIndex:9999,animation:"waPulse 2s infinite",textDecoration:"none",boxShadow:"0 8px 25px rgba(37,211,102,0.4)" }}>
         <span style={{ color:"#fff",fontSize:22,fontWeight:900,fontFamily:PP }}>WA</span>
       </a>
       {scrolled && (
