@@ -772,7 +772,7 @@ const Index = () => {
             <div style={{ position:"relative",zIndex:2,padding:"56px 48px",display:"flex",flexDirection:"column",justifyContent:"center",height:"100%" }}>
               <div style={{ fontFamily:NT,color:"rgba(255,255,255,0.6)",fontSize:14,marginBottom:8 }}>எங்களை தொடர்பு கொள்ளுங்கள்</div>
               <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:32,color:"#fff",marginBottom:24,lineHeight:1.3 }}>Get in Touch with <span style={{color:C.gold}}>Super Printers</span></h2>
-              {[{text:"98/4 Chavadi Street, Pallavaram, Chennai – 600 043",label:"Address"},{text:"+91-44-22480847",label:"Phone"},{text:"info@superprinters.in",label:"Email"},{text:"Mon–Sat: 9AM–7PM | Sunday: Closed",label:"Hours"}].map((r,i)=>(
+              {[{text:"No 8 Saraswathy Colony, Pallavaram, Chennai – 600 043",label:"Address"},{text:"+91 9840199878",label:"Phone"},{text:"Superprntrs@yahoo.com",label:"Email"},{text:"Mon–Sat: 9AM–7PM | Sunday: Closed",label:"Hours"}].map((r,i)=>(
                 <div key={i} style={{ display:"flex",alignItems:"center",gap:14,marginBottom:14 }}>
                   <div style={{ width:48,height:48,borderRadius:12,background:"rgba(255,215,0,0.1)",border:"1px solid rgba(255,215,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>
                     <span style={{ color:C.gold,fontFamily:PP,fontSize:10,fontWeight:700 }}>{r.label}</span>
