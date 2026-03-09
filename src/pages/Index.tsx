@@ -236,14 +236,14 @@ const Index = () => {
         @keyframes glow{0%,100%{text-shadow:0 0 20px rgba(255,215,0,0.3),0 0 40px rgba(255,215,0,0.1)}50%{text-shadow:0 0 30px rgba(255,215,0,0.6),0 0 60px rgba(255,215,0,0.2)}}
         @keyframes particleFloat{0%{transform:translateY(0) scale(1);opacity:0.6}50%{opacity:1}100%{transform:translateY(-100vh) scale(0);opacity:0}}
         @keyframes pulseBtn{0%,100%{box-shadow:0 0 0 0 rgba(255,215,0,0.5)}50%{box-shadow:0 0 0 12px rgba(255,215,0,0)}}
-        @keyframes borderGlow{0%,100%{box-shadow:0 0 5px rgba(255,215,0,0.3)}50%{box-shadow:0 0 20px rgba(255,215,0,0.6),0 0 40px rgba(139,0,0,0.2)}}
+        @keyframes borderGlow{0%,100%{box-shadow:0 0 5px rgba(255,215,0,0.3)}50%{box-shadow:0 0 20px rgba(255,215,0,0.6),0 0 40px rgba(26,35,126,0.2)}}
         @keyframes slideUnderline{from{transform:scaleX(0)}to{transform:scaleX(1)}}
         .hero-anim{animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both}
         .glow-text{animation:glow 3s ease-in-out infinite}
         *{box-sizing:border-box;margin:0;padding:0}
         a{text-decoration:none;color:inherit}
         input,select,textarea{font-family:'Poppins',sans-serif}
-        ::selection{background:rgba(139,0,0,0.3);color:#1A1A1A}
+        ::selection{background:rgba(26,35,126,0.3);color:#fff}
         html{scroll-behavior:smooth}
         @media(max-width:768px){
           .hero-flex{flex-direction:column!important;text-align:center!important;padding:0 20px!important}
@@ -295,7 +295,7 @@ const Index = () => {
       )}
 
       {/* ═══ TOP TICKER BAR ═══ */}
-      <div style={{ height:36,background:`linear-gradient(90deg,${C.dark},#2a1a1a)`,display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 24px",overflow:"hidden" }}>
+      <div style={{ height:36,background:`linear-gradient(90deg,${C.dark},${C.maroon})`,display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 24px",overflow:"hidden" }}>
         <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP,letterSpacing:"0.05em" }}>Chennai, Tamil Nadu | Since 1990</span>
         <div style={{ flex:1,overflow:"hidden",margin:"0 20px" }}>
           <div style={{ display:"flex",width:"200%",animation:"ticker 30s linear infinite" }}>
@@ -308,7 +308,7 @@ const Index = () => {
       {/* ═══ GLASSMORPHISM NAVBAR ═══ */}
       <nav style={{
         position:"sticky",top:0,zIndex:100,
-        background: scrolled ? "rgba(26,26,26,0.85)" : "rgba(139,0,0,0.92)",
+        background: scrolled ? "rgba(10,14,39,0.92)" : "rgba(26,35,126,0.92)",
         backdropFilter:"blur(20px)",WebkitBackdropFilter:"blur(20px)",
         boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.3)" : "none",
         transition:"all 0.4s cubic-bezier(0.16,1,0.3,1)",
@@ -342,7 +342,7 @@ const Index = () => {
       {/* ═══ HERO — FULL SCREEN ═══ */}
       <div style={{ position:"relative",minHeight:"100vh",overflow:"hidden",background:C.dark }}>
         {/* Animated gradient overlay */}
-        <div style={{ position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(139,0,0,0.92) 0%,rgba(92,0,0,0.85) 30%,rgba(26,26,26,0.7) 60%,rgba(0,0,0,0.3) 100%)",zIndex:2 }}/>
+        <div style={{ position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(26,35,126,0.92) 0%,rgba(13,22,66,0.85) 30%,rgba(10,14,39,0.7) 60%,rgba(0,0,0,0.3) 100%)",zIndex:2 }}/>
         {/* Background image */}
         {SLIDES.map((s,i)=>(
           <img key={i} src={s.bg} alt="Super Printers" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:slide===i?1:0,transition:"opacity 1.2s ease",filter:"brightness(0.7)" }} loading={i===0?"eager":"lazy"} />
@@ -403,7 +403,7 @@ const Index = () => {
 
       {/* ═══ TRUST/STATS BAR ═══ */}
       <Section>
-        <div style={{ background:`linear-gradient(135deg,${C.dark},#2a1a1a)`,padding:"60px 40px" }}>
+        <div style={{ background:`linear-gradient(135deg,${C.dark},${C.maroon})`,padding:"60px 40px" }}>
           <div className="trust-bar" style={{ display:"flex",justifyContent:"center",gap:0,maxWidth:1200,margin:"0 auto",flexWrap:"wrap" }}>
             {TRUST.map((t,i)=>(
               <div key={i} className="trust-item" style={{ flex:"1 1 25%",minWidth:220,display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",padding:"30px 20px",borderRight:i<3?"1px solid rgba(255,215,0,0.1)":"none",position:"relative" }}>
@@ -439,7 +439,7 @@ const Index = () => {
                 boxShadow:hoverCat===i?"0 20px 50px rgba(0,0,0,0.2),0 0 0 2px rgba(255,215,0,0.3)":"0 4px 20px rgba(0,0,0,0.08)"
               }} onMouseEnter={()=>setHoverCat(i)} onMouseLeave={()=>setHoverCat(null)}>
                 <img src={cat.img} alt={cat.name} style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",transition:"transform 0.6s cubic-bezier(0.16,1,0.3,1)",transform:hoverCat===i?"scale(1.12)":"scale(1)" }} loading="lazy"/>
-                <div style={{ position:"absolute",inset:0,background:hoverCat===i?`linear-gradient(135deg,rgba(139,0,0,0.9),rgba(92,0,0,0.85))`:"linear-gradient(0deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 60%)",transition:"all 0.4s" }}/>
+                <div style={{ position:"absolute",inset:0,background:hoverCat===i?`linear-gradient(135deg,rgba(26,35,126,0.9),rgba(13,22,66,0.85))`:"linear-gradient(0deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 60%)",transition:"all 0.4s" }}/>
                 {cat.badge && <div style={{ position:"absolute",top:14,right:14,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontSize:10,fontWeight:700,padding:"4px 12px",borderRadius:20,zIndex:2,letterSpacing:"0.05em" }}>{cat.badge}</div>}
                 <div style={{ position:"absolute",bottom:0,left:0,right:0,padding:"24px 20px",zIndex:2,transition:"transform 0.4s",transform:hoverCat===i?"translateY(-20px)":"translateY(0)" }}>
                   <div style={{ fontFamily:PF,fontWeight:700,fontSize:20,color:"#fff",marginBottom:6,textShadow:"0 2px 10px rgba(0,0,0,0.3)" }}>{cat.name}</div>
@@ -492,7 +492,7 @@ const Index = () => {
               }} onMouseEnter={()=>setHoverProd(i)} onMouseLeave={()=>setHoverProd(null)}>
                 <div style={{ position:"relative",height:200,overflow:"hidden" }}>
                   <img src={p.img} alt={p.name} style={{ width:"100%",height:"100%",objectFit:"cover",display:"block",transition:"transform 0.5s",transform:hoverProd===i?"scale(1.08)":"scale(1)" }} loading="lazy"/>
-                  <div style={{ position:"absolute",inset:0,background:hoverProd===i?"linear-gradient(0deg,rgba(139,0,0,0.4),transparent)":"none",transition:"all 0.3s" }}/>
+                  <div style={{ position:"absolute",inset:0,background:hoverProd===i?"linear-gradient(0deg,rgba(26,35,126,0.4),transparent)":"none",transition:"all 0.3s" }}/>
                   {p.badge && <div style={{ position:"absolute",top:12,left:12,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontSize:10,fontWeight:700,padding:"4px 12px",borderRadius:20 }}>{p.badge}</div>}
                 </div>
                 <div style={{ padding:20 }}>
@@ -504,7 +504,7 @@ const Index = () => {
                   </div>
                   <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center" }}>
                     <span style={{ fontFamily:PF,color:C.red,fontSize:22,fontWeight:700 }}>{p.price}</span>
-                    <button onClick={()=>setModal("cart")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",border:"none",padding:"9px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,boxShadow:"0 4px 15px rgba(139,0,0,0.2)" }}>Order Now</button>
+                    <button onClick={()=>setModal("cart")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",border:"none",padding:"9px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,boxShadow:"0 4px 15px rgba(26,35,126,0.3)" }}>Order Now</button>
                   </div>
                 </div>
               </div>
@@ -580,7 +580,7 @@ const Index = () => {
       {/* ═══ PARALLAX / QUOTE DIVIDER ═══ */}
       <div style={{ height:420,overflow:"hidden",position:"relative",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center" }}>
         <img src={IMG.pressWide} alt="Printing press" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",filter:"brightness(0.3)" }} loading="lazy"/>
-        <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(139,0,0,0.85),rgba(92,0,0,0.7),rgba(26,26,26,0.6))` }}/>
+        <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(26,35,126,0.88),rgba(13,22,66,0.75),rgba(10,14,39,0.65))` }}/>
         <div style={{ position:"relative",zIndex:2,textAlign:"center",padding:"0 24px" }}>
           <div style={{ fontFamily:NT,color:"rgba(255,255,255,0.8)",fontSize:24,marginBottom:10 }}>தரம் • வேகம் • நம்பகத்தன்மை</div>
           <h2 className="glow-text" style={{ fontFamily:PF,fontWeight:900,fontSize:50,color:"#fff",lineHeight:1.2,marginBottom:14 }}>Quality. Speed. <span style={{color:C.gold}}>Trust.</span></h2>
@@ -649,7 +649,7 @@ const Index = () => {
 
       {/* ═══ TESTIMONIALS ═══ */}
       <Section>
-        <div style={{ background:`linear-gradient(135deg,${C.dark},#2a1a1a)`,padding:"80px 40px" }}>
+        <div style={{ background:`linear-gradient(135deg,${C.dark},#0D1642)`,padding:"80px 40px" }}>
           <div style={{ textAlign:"center",marginBottom:50 }}>
             <div style={{ fontFamily:NT,color:C.gold,fontSize:16,marginBottom:6 }}>வாடிக்கையாளர் கருத்துக்கள்</div>
             <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:38,color:"#fff",marginBottom:8 }}>What Our Clients Say</h2>
@@ -658,7 +658,7 @@ const Index = () => {
           <div className="test-grid" style={{ display:"grid",gridTemplateColumns:"38% 62%",gap:0,maxWidth:1100,margin:"0 auto",borderRadius:20,overflow:"hidden",boxShadow:"0 20px 60px rgba(0,0,0,0.3)" }}>
             <div style={{ position:"relative",overflow:"hidden",minHeight:400 }}>
               <img src={IMG.hero} alt="Super Printers" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block" }} loading="lazy"/>
-              <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(139,0,0,0.9),rgba(92,0,0,0.85))` }}/>
+              <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(26,35,126,0.92),rgba(13,22,66,0.88))` }}/>
               <div style={{ position:"relative",zIndex:2,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"100%",padding:36 }}>
                 <div style={{ width:80,height:80,borderRadius:"50%",background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:20,boxShadow:"0 0 30px rgba(255,215,0,0.3)" }}>
                   <span style={{ fontFamily:PF,fontWeight:900,fontSize:28,color:C.dark }}>★</span>
@@ -701,7 +701,7 @@ const Index = () => {
           </div>
           <div style={{ display:"flex",flexWrap:"wrap",justifyContent:"center",gap:8,marginBottom:30 }}>
             {GAL_FILTERS.map(f=>(
-              <button key={f} onClick={()=>setGalFilter(f)} style={{ background:galFilter===f?`linear-gradient(135deg,${C.red},${C.maroon})`:"#f5f5f5",color:galFilter===f?"#fff":"#666",border:"none",padding:"8px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,transition:"all 0.3s",boxShadow:galFilter===f?"0 4px 15px rgba(139,0,0,0.2)":"none" }}>{f}</button>
+              <button key={f} onClick={()=>setGalFilter(f)} style={{ background:galFilter===f?`linear-gradient(135deg,${C.red},${C.maroon})`:"#f5f5f5",color:galFilter===f?"#fff":"#666",border:"none",padding:"8px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,transition:"all 0.3s",boxShadow:galFilter===f?"0 4px 15px rgba(26,35,126,0.3)":"none" }}>{f}</button>
             ))}
           </div>
           <div style={{ columnCount:4,columnGap:10,maxWidth:1200,margin:"0 auto" }}>
@@ -709,7 +709,7 @@ const Index = () => {
               <div key={`${item.label}-${i}`} style={{ breakInside:"avoid",marginBottom:10,borderRadius:12,overflow:"hidden",position:"relative",cursor:"pointer",transition:"transform 0.3s",transform:hoverGal===i?"scale(1.02)":"scale(1)" }}
                 onMouseEnter={()=>setHoverGal(i)} onMouseLeave={()=>setHoverGal(null)}>
                 <img src={item.img} alt={item.label} style={{ width:"100%",display:"block",objectFit:"cover" }} loading="lazy"/>
-                <div style={{ position:"absolute",inset:0,background:`linear-gradient(0deg,rgba(139,0,0,0.85),rgba(0,0,0,0.3),transparent)`,opacity:hoverGal===i?1:0,transition:"opacity 0.3s",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"flex-end",padding:20 }}>
+                <div style={{ position:"absolute",inset:0,background:`linear-gradient(0deg,rgba(26,35,126,0.85),rgba(0,0,0,0.3),transparent)`,opacity:hoverGal===i?1:0,transition:"opacity 0.3s",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"flex-end",padding:20 }}>
                   <div style={{ color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,marginBottom:4 }}>{item.label}</div>
                   <span style={{ color:C.gold,fontFamily:PP,fontSize:12,fontWeight:500 }}>View →</span>
                 </div>
@@ -723,7 +723,7 @@ const Index = () => {
 
       {/* ═══ WHY CHOOSE US ═══ */}
       <Section>
-        <div style={{ background:`linear-gradient(135deg,${C.dark},#2a1a1a)`,padding:"80px 40px" }}>
+        <div style={{ background:`linear-gradient(135deg,${C.dark},#0D1642)`,padding:"80px 40px" }}>
           <div style={{ textAlign:"center",marginBottom:50 }}>
             <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:38,color:"#fff",marginBottom:6 }}>Why Choose <span style={{color:C.gold}}>Super Printers</span></h2>
             <div style={{ fontFamily:NT,color:"rgba(255,215,0,0.7)",fontSize:14 }}>ஏன் சுப்பர் பிரிண்டர்ஸ்?</div>
@@ -761,7 +761,7 @@ const Index = () => {
         <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:34,color:C.dark,marginBottom:12 }}>Start Your Printing Journey Today</h2>
         <p style={{ fontFamily:PP,color:"rgba(26,26,26,0.7)",fontSize:15,marginBottom:24,maxWidth:500,margin:"0 auto 24px" }}>Get premium quality prints delivered to your doorstep. Free quotes within 2 hours.</p>
         <div style={{ display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap" }}>
-          <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 8px 25px rgba(139,0,0,0.3)" }}>Get Free Quote</button>
+          <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 8px 25px rgba(26,35,126,0.3)" }}>Get Free Quote</button>
           <a href="https://wa.me/919840199878" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,boxShadow:"0 8px 25px rgba(37,211,102,0.3)" }}>WhatsApp Order</a>
         </div>
       </div>
@@ -773,7 +773,7 @@ const Index = () => {
         <div id="contact" className="contact-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",minHeight:600,maxWidth:1400,margin:"0 auto" }}>
           <div style={{ position:"relative",overflow:"hidden",borderRadius:"20px 0 0 20px" }}>
             <img src={IMG.workshop} alt="Super Printers workshop" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block" }} loading="lazy"/>
-            <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(139,0,0,0.92),rgba(92,0,0,0.88))` }}/>
+            <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(26,35,126,0.92),rgba(13,22,66,0.88))` }}/>
             <div style={{ position:"relative",zIndex:2,padding:"56px 48px",display:"flex",flexDirection:"column",justifyContent:"center",height:"100%" }}>
               <div style={{ fontFamily:NT,color:"rgba(255,255,255,0.6)",fontSize:14,marginBottom:8 }}>எங்களை தொடர்பு கொள்ளுங்கள்</div>
               <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:32,color:"#fff",marginBottom:24,lineHeight:1.3 }}>Get in Touch with <span style={{color:C.gold}}>Super Printers</span></h2>
@@ -868,7 +868,7 @@ const Index = () => {
         <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </a>
       {scrolled && (
-        <button onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} style={{ position:"fixed",bottom:28,left:28,width:48,height:48,borderRadius:"50%",background:`linear-gradient(135deg,${C.red},${C.maroon})`,border:"none",cursor:"pointer",zIndex:9999,boxShadow:"0 8px 25px rgba(139,0,0,0.4)",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.3s" }}>
+        <button onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} style={{ position:"fixed",bottom:28,left:28,width:48,height:48,borderRadius:"50%",background:`linear-gradient(135deg,${C.red},${C.maroon})`,border:"none",cursor:"pointer",zIndex:9999,boxShadow:"0 8px 25px rgba(26,35,126,0.4)",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.3s" }}>
           <span style={{ color:"#fff",fontSize:18,fontWeight:700 }}>↑</span>
         </button>
       )}
