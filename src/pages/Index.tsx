@@ -55,10 +55,10 @@ const SLIDES = [
 ];
 
 const TRUST = [
-  { num: "14", label: "National Awards", sub: "Excellence in Printing", img: IMG.inkRollers },
   { num: "35+", label: "Years Experience", sub: "Since 1989", img: IMG.pressTools },
   { num: "10,000+", label: "Happy Clients", sub: "Across India", img: IMG.workshop },
   { num: "50+", label: "Print Services", sub: "Complete Range", img: IMG.digital },
+  { num: "1–4", label: "Day Delivery", sub: "Pan Tamil Nadu", img: IMG.delivery },
 ];
 
 const CATEGORIES = [
@@ -85,7 +85,7 @@ const PRODUCTS = [
 const STEPS = [
   { img: IMG.glossCard, color: C.red, title: "Choose Product", tamil: "தயாரிப்பை தேர்ந்தெடுங்கள்", desc: "Browse visiting cards, wedding invitations, letterheads and more.", thumbs: [IMG.mattCard, IMG.weddingInvite1, IMG.letterhead], num: "01" },
   { img: IMG.printShop, color: C.saffron, title: "Upload Your Design", tamil: "டிசைனை அப்லோட் செய்யுங்கள்", desc: "Upload print-ready PDF or CDR. No design? Our team helps create one.", thumbs: [IMG.spotUvCard, IMG.weddingInvite2, IMG.brochures], num: "02" },
-  { img: IMG.inkRollers, color: C.teal, title: "We Print with Precision", tamil: "துல்லியமாக அச்சிடுகிறோம்", desc: "Quality checked on offset and digital presses. 14 national awards.", thumbs: [IMG.pressTools, IMG.inkPress, IMG.printedStack], num: "03" },
+  { img: IMG.inkRollers, color: C.teal, title: "We Print with Precision", tamil: "துல்லியமாக அச்சிடுகிறோம்", desc: "Quality checked on offset and digital presses. Premium results guaranteed.", thumbs: [IMG.pressTools, IMG.inkPress, IMG.printedStack], num: "03" },
   { img: IMG.parcel, color: C.goldDark, title: "Delivered to You", tamil: "உங்கள் வீட்டிற்கே டெலிவரி", desc: "Pan Tamil Nadu delivery in 1–4 business days. Same-day pickup.", thumbs: [IMG.delivery, IMG.courier, IMG.parcel], num: "04" },
 ];
 
@@ -115,7 +115,7 @@ const GALLERY: {img:string;label:string;cat:GalCat}[] = [
 ];
 
 const WHY = [
-  { img: IMG.offsetPress, title: "35 Years of Excellence", tamil: "35 ஆண்டுகள் சிறப்பு", body: "Three decades of offset printing excellence. State-of-the-art presses.", extra: "14 National Awards", thumb: IMG.inkRollers },
+  { img: IMG.offsetPress, title: "35 Years of Excellence", tamil: "35 ஆண்டுகள் சிறப்பு", body: "Three decades of offset printing excellence. State-of-the-art presses.", extra: "Since 1989", thumb: IMG.inkRollers },
   { img: IMG.delivery, title: "Fast Pan-TN Delivery", tamil: "வேகமான டெலிவரி", body: "1–4 business days across Tamil Nadu. Same-day pickup from Chennai.", extra: "Chennai | CBE | Madurai", thumb: IMG.courier },
   { img: IMG.qualityCheck, title: "Quality Guaranteed", tamil: "தரம் உறுதி", body: "Multi-point quality checks on every job. Colour accurate, sharp.", extra: "GST Inclusive Pricing", thumb: IMG.printedStack },
   { img: IMG.stackedCards, title: "Competitive Pricing", tamil: "சிறந்த விலை", body: "Transparent pricing. Bulk discounts for DTP operators and resellers.", extra: "Rates from ₹199", thumb: IMG.glossCard },
