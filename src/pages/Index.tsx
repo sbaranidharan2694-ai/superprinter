@@ -453,6 +453,93 @@ const Index = () => {
         </div>
       </motion.div>
 
+      {/* ═══ TRUSTED CLIENTS ═══ */}
+      <motion.section 
+        className="py-16 lg:py-20 px-6 bg-accent/50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div variants={fadeInUp} className="text-center mb-10">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary/70 mb-2 block">Trusted by Industry Leaders</span>
+            <h2 className="font-display font-black text-2xl lg:text-3xl text-foreground">Our Esteemed Clients</h2>
+            <p className="text-muted-foreground text-sm mt-2">Serving 50+ businesses across Tamil Nadu and India</p>
+          </motion.div>
+
+          {/* Featured Clients Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+            {[
+              { name: "Wipro Engineering", short: "WIPRO", color: "from-blue-600 to-blue-800" },
+              { name: "Fujitec", short: "FUJITEC", color: "from-red-600 to-red-800" },
+              { name: "Contemporary Leathers", short: "CL", color: "from-amber-700 to-amber-900" },
+              { name: "SSK Smart Move Logistics", short: "SSK", color: "from-emerald-600 to-emerald-800" },
+              { name: "State Bank of India", short: "SBI", color: "from-blue-700 to-blue-900" },
+              { name: "GMT Machine Tools", short: "GMT", color: "from-slate-700 to-slate-900" },
+            ].map((client, i) => (
+              <motion.div
+                key={i}
+                variants={scaleIn}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="group bg-background rounded-xl p-5 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center min-h-[120px]"
+              >
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${client.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg`}>
+                  <span className="text-white font-display font-bold text-xs">{client.short.slice(0, 3)}</span>
+                </div>
+                <span className="text-foreground font-semibold text-xs text-center leading-tight">{client.name}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* More Clients Row */}
+          <motion.div variants={fadeInUp} className="bg-background rounded-2xl p-6 border border-border">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+              {[
+                "TVS Motors", "Ashok Leyland", "TCS", "Infosys", "HCL Technologies",
+                "L&T Construction", "Sundaram Finance", "Indian Bank", "Canara Bank", 
+                "HDFC Bank", "Apollo Hospitals", "Fortis Healthcare", "Hyundai Motors",
+                "Saint Gobain", "Dalmia Cement", "Ultratech", "Ramco Systems"
+              ].map((name, i) => (
+                <motion.span 
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.03 }}
+                  className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors cursor-default"
+                >
+                  {name}
+                </motion.span>
+              ))}
+              <span className="text-primary font-bold text-sm">& 50+ more...</span>
+            </div>
+          </motion.div>
+
+          {/* Client Testimonial Badge */}
+          <motion.div variants={fadeInUp} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {[1,2,3,4,5].map(i => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center border-2 border-background">
+                    <span className="text-white text-[10px] font-bold">{String.fromCharCode(64 + i)}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="text-left">
+                <div className="text-secondary text-sm">★★★★★</div>
+                <span className="text-muted-foreground text-xs">10,000+ Happy Clients</span>
+              </div>
+            </div>
+            <div className="h-8 w-px bg-border hidden sm:block" />
+            <div className="text-center sm:text-left">
+              <span className="text-foreground font-semibold text-sm">Serving since 1990</span>
+              <p className="text-muted-foreground text-xs">35+ years of trusted printing excellence</p>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
       {/* ═══ PRODUCT CATEGORIES ═══ */}
       <motion.section 
         id="products" 
