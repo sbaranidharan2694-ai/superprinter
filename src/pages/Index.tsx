@@ -198,6 +198,11 @@ const Index = () => {
   const [hoverNav, setHoverNav] = useState<number|null>(null);
   const [hoverWhy, setHoverWhy] = useState<number|null>(null);
   const [modal, setModal] = useState<string|null>(null);
+  const [formName, setFormName] = useState("");
+  const [formPhone, setFormPhone] = useState("");
+  const [formEmail, setFormEmail] = useState("");
+  const [formService, setFormService] = useState("Select Service");
+  const [formMsg, setFormMsg] = useState("");
   const [particles] = useState(() => Array.from({length:30}, (_,i) => ({
     x: Math.random()*100, y: Math.random()*100, size: 2+Math.random()*4, dur: 3+Math.random()*5, delay: Math.random()*5
   })));
