@@ -295,7 +295,7 @@ const Index = () => {
       )}
 
       {/* ═══ TOP TICKER BAR ═══ */}
-      <div style={{ height:36,background:`linear-gradient(90deg,${C.dark},#2a1a1a)`,display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 24px",overflow:"hidden" }}>
+      <div style={{ height:36,background:`linear-gradient(90deg,${C.dark},${C.maroon})`,display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 24px",overflow:"hidden" }}>
         <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP,letterSpacing:"0.05em" }}>Chennai, Tamil Nadu | Since 1990</span>
         <div style={{ flex:1,overflow:"hidden",margin:"0 20px" }}>
           <div style={{ display:"flex",width:"200%",animation:"ticker 30s linear infinite" }}>
