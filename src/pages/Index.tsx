@@ -310,7 +310,7 @@ const Index = () => {
         position:"sticky",top:0,zIndex:100,
         background: scrolled ? "rgba(255,255,255,0.95)" : "rgba(37,99,235,0.95)",
         backdropFilter:"blur(20px)",WebkitBackdropFilter:"blur(20px)",
-        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.3)" : "none",
+        boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.08)" : "none",
         transition:"all 0.4s cubic-bezier(0.16,1,0.3,1)",
         padding:"0 32px",display:"flex",alignItems:"center",justifyContent:"space-between",
         borderBottom:"1px solid rgba(255,215,0,0.1)"
