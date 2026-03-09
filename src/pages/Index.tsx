@@ -308,7 +308,7 @@ const Index = () => {
       {/* ═══ GLASSMORPHISM NAVBAR ═══ */}
       <nav style={{
         position:"sticky",top:0,zIndex:100,
-        background: scrolled ? "rgba(10,14,39,0.92)" : "rgba(26,35,126,0.92)",
+        background: scrolled ? "rgba(255,255,255,0.95)" : "rgba(37,99,235,0.95)",
         backdropFilter:"blur(20px)",WebkitBackdropFilter:"blur(20px)",
         boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.3)" : "none",
         transition:"all 0.4s cubic-bezier(0.16,1,0.3,1)",
