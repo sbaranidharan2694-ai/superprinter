@@ -773,7 +773,7 @@ const Index = () => {
         <div id="contact" className="contact-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",minHeight:600,maxWidth:1400,margin:"0 auto" }}>
           <div style={{ position:"relative",overflow:"hidden",borderRadius:"20px 0 0 20px" }}>
             <img src={IMG.workshop} alt="Super Printers workshop" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block" }} loading="lazy"/>
-            <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(139,0,0,0.92),rgba(92,0,0,0.88))` }}/>
+            <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(26,35,126,0.92),rgba(13,22,66,0.88))` }}/>
             <div style={{ position:"relative",zIndex:2,padding:"56px 48px",display:"flex",flexDirection:"column",justifyContent:"center",height:"100%" }}>
               <div style={{ fontFamily:NT,color:"rgba(255,255,255,0.6)",fontSize:14,marginBottom:8 }}>எங்களை தொடர்பு கொள்ளுங்கள்</div>
               <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:32,color:"#fff",marginBottom:24,lineHeight:1.3 }}>Get in Touch with <span style={{color:C.gold}}>Super Printers</span></h2>
