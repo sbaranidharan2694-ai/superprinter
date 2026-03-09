@@ -55,10 +55,10 @@ const SLIDES = [
 ];
 
 const TRUST = [
-  { num: "14", label: "National Awards", sub: "Excellence in Printing", img: IMG.inkRollers },
   { num: "35+", label: "Years Experience", sub: "Since 1989", img: IMG.pressTools },
   { num: "10,000+", label: "Happy Clients", sub: "Across India", img: IMG.workshop },
   { num: "50+", label: "Print Services", sub: "Complete Range", img: IMG.digital },
+  { num: "1–4", label: "Day Delivery", sub: "Pan Tamil Nadu", img: IMG.delivery },
 ];
 
 const CATEGORIES = [
