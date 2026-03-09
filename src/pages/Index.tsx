@@ -606,7 +606,7 @@ const Index = () => {
             </div>
             <div>
               <div style={{ color:C.gold,fontFamily:PP,fontSize:12,textTransform:"uppercase",letterSpacing:"0.2em",marginBottom:10 }}>எங்களைப் பற்றி • OUR STORY</div>
-              <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:36,color:C.dark,marginBottom:20,lineHeight:1.3 }}>Chennai's Printing Legacy — <span style={{color:C.red}}>Since 1989</span></h2>
+              <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:36,color:C.dark,marginBottom:20,lineHeight:1.3 }}>Chennai's Printing Legacy — <span style={{color:C.red}}>Since 1990</span></h2>
               <div style={{ overflow:"hidden",marginBottom:18 }}>
                 <img src={IMG.printedStack} alt="Printed materials" style={{ float:"right",width:140,height:100,borderRadius:10,objectFit:"cover",margin:"0 0 12px 16px",display:"block",boxShadow:"0 4px 15px rgba(0,0,0,0.1)" }} loading="lazy"/>
                 <p style={{ fontFamily:PP,fontSize:14,color:"#555",lineHeight:1.8 }}>Super Printers was founded in 1989 as a small family printing press in Chennai. Over 35 years we have grown into a full-service printing house — but we have never lost the personal care and craftsmanship of a family business that knows every client by name.</p>
