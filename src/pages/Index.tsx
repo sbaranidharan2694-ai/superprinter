@@ -342,7 +342,7 @@ const Index = () => {
       {/* ═══ HERO — FULL SCREEN ═══ */}
       <div style={{ position:"relative",minHeight:"100vh",overflow:"hidden",background:C.dark }}>
         {/* Animated gradient overlay */}
-        <div style={{ position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(26,35,126,0.92) 0%,rgba(13,22,66,0.85) 30%,rgba(10,14,39,0.7) 60%,rgba(0,0,0,0.3) 100%)",zIndex:2 }}/>
+        <div style={{ position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(37,99,235,0.85) 0%,rgba(29,78,216,0.7) 30%,rgba(15,23,42,0.5) 70%,rgba(0,0,0,0.2) 100%)",zIndex:2 }}/>
         {/* Background image */}
         {SLIDES.map((s,i)=>(
           <img key={i} src={s.bg} alt="Super Printers" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:slide===i?1:0,transition:"opacity 1.2s ease",filter:"brightness(0.7)" }} loading={i===0?"eager":"lazy"} />
