@@ -814,7 +814,7 @@ const Index = () => {
               </div>
               <div><div style={{ fontFamily:PF,color:C.gold,fontSize:18,fontWeight:700 }}>Super Printers</div><div style={{ fontFamily:NT,color:"rgba(255,215,0,0.5)",fontSize:10 }}>சுப்பர் பிரிண்டர்ஸ்</div></div>
             </div>
-            <p style={{ color:"rgba(255,255,255,0.4)",fontSize:13,fontFamily:PP,marginBottom:14,lineHeight:1.6 }}>Chennai's finest printing press since 1989. Premium quality, fast delivery.</p>
+            <p style={{ color:"rgba(255,255,255,0.4)",fontSize:13,fontFamily:PP,marginBottom:14,lineHeight:1.6 }}>Chennai's finest printing press since 1990. Premium quality, fast delivery.</p>
             <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:4 }}>
               {[IMG.glossCard,IMG.mattCard,IMG.weddingInvite1,IMG.weddingInvite2,IMG.letterhead,IMG.envelopes].map((src,i)=>(
                 <img key={i} src={src} alt="Product" style={{ width:"100%",height:50,borderRadius:6,objectFit:"cover",display:"block" }} loading="lazy"/>
