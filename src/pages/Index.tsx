@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // ─── IMAGES ─────────────────────────────────────────────────────
 const IMG = {
@@ -37,40 +37,27 @@ const IMG = {
   stackedCards: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&h=700&fit=crop",
 };
 
-// ─── BRAND ──────────────────────────────────────────────────────
-const C = {
-  red: "#2563EB", maroon: "#1D4ED8", gold: "#F59E0B", goldDark: "#D97706",
-  saffron: "#3B82F6", teal: "#0EA5E9", ivory: "#FFFFFF", dark: "#0F172A",
-  darkAlt: "#1E293B", wa: "#25D366", cream: "#F8FAFC",
-};
-const PF = "'Playfair Display',serif";
-const PP = "'Poppins',sans-serif";
-const NT = "'Noto Sans Tamil',sans-serif";
-
 // ─── DATA ───────────────────────────────────────────────────────
 const SLIDES = [
-  { bg: IMG.hero, badge: "TAMIL NADU'S TRUSTED PRESS", h1a: "Premium Offset", h1b: "Printing for Every Need", body: "Business cards, wedding invitations, letterheads and more — printed with precision since 1990.", btn1: "Order Now", btn1Action: "products", btn2: "Get Free Quote", btn2Action: "quote", rightImg: IMG.glossCard, thumbs: [IMG.glossCard, IMG.weddingInvite1, IMG.letterhead, IMG.envelopes, IMG.brochures] },
-  { bg: IMG.weddingCeremony, badge: "WEDDING SEASON SPECIAL", h1a: "Beautiful Wedding", h1b: "Invitations", tamil: "திருமண அழைப்பிதழ்கள்", body: "Gloss, Matt, Spot UV & Premium finishes on 300 GSM Art Board.", btn1: "See Designs", btn1Action: "wedding-cards", rightImg: IMG.weddingInvite1, thumbs: [] },
-  { bg: IMG.offsetPress, badge: "1 TO 4 BUSINESS DAYS", h1a: "Order Online.", h1b: "Delivered Fast.", body: "We deliver across Chennai, Coimbatore, and all Tamil Nadu.", btn1: "Order Now", btn1Action: "products", btn2: "Track Order", btn2Action: "track", rightImg: IMG.glossCard, thumbs: [] },
+  { bg: IMG.hero, badge: "TAMIL NADU'S TRUSTED PRESS", h1a: "Premium Offset", h1b: "Printing for Every Need", body: "Business cards, wedding invitations, letterheads and more — printed with precision since 1990.", btn1: "Order Now", btn1Action: "products", btn2: "Get Free Quote", btn2Action: "quote", rightImg: IMG.glossCard },
+  { bg: IMG.weddingCeremony, badge: "WEDDING SEASON SPECIAL", h1a: "Beautiful Wedding", h1b: "Invitations", tamil: "திருமண அழைப்பிதழ்கள்", body: "Gloss, Matt, Spot UV & Premium finishes on 300 GSM Art Board.", btn1: "See Designs", btn1Action: "wedding-cards", rightImg: IMG.weddingInvite1 },
+  { bg: IMG.offsetPress, badge: "1 TO 4 BUSINESS DAYS", h1a: "Order Online.", h1b: "Delivered Fast.", body: "We deliver across Chennai, Coimbatore, and all Tamil Nadu.", btn1: "Order Now", btn1Action: "products", btn2: "Track Order", btn2Action: "track", rightImg: IMG.glossCard },
 ];
 
 const TRUST = [
-  { num: "35+", label: "Years Experience", sub: "Since 1990", img: IMG.pressTools },
-  { num: "10,000+", label: "Happy Clients", sub: "Across India", img: IMG.workshop },
-  { num: "50+", label: "Print Services", sub: "Complete Range", img: IMG.digital },
-  { num: "1–4", label: "Day Delivery", sub: "Pan Tamil Nadu", img: IMG.delivery },
+  { num: "35+", label: "Years Experience", sub: "Since 1990" },
+  { num: "10,000+", label: "Happy Clients", sub: "Across India" },
+  { num: "50+", label: "Print Services", sub: "Complete Range" },
+  { num: "1–4", label: "Day Delivery", sub: "Pan Tamil Nadu" },
 ];
 
 const CATEGORIES = [
   { name: "Visiting Cards", sub: "Gloss • Matt • Spot UV • Velvet", img: IMG.glossCard, anchor: "visiting-cards", badge: "Best Seller" },
   { name: "Wedding Invitations", sub: "300 GSM Art Board • Premium", img: IMG.weddingInvite1, anchor: "wedding-cards", badge: "Popular" },
-  { name: "Letterheads", sub: "80 GSM • 100 GSM Bond", img: IMG.letterhead, anchor: "stationery", badge: "" },
-  { name: "Envelopes & Covers", sub: "80 • 100 • 130 • 170 GSM", img: IMG.envelopes, anchor: "envelopes", badge: "" },
+  { name: "Letterheads", sub: "80 GSM • 100 GSM Bond", img: IMG.letterhead, anchor: "stationery" },
+  { name: "Envelopes & Covers", sub: "80 • 100 • 130 • 170 GSM", img: IMG.envelopes, anchor: "envelopes" },
   { name: "Stickers", sub: "Mirror Coated • 20×30 inch", img: IMG.stickerSheets, anchor: "stickers", badge: "New" },
-  { name: "Brochures & Flyers", sub: "Tri-fold • Bi-fold • A4", img: IMG.brochures, anchor: "brochures", badge: "" },
-  { name: "Posters", sub: "80 GSM Maplitho • All Sizes", img: IMG.posterPrint, anchor: "posters", badge: "" },
-  { name: "Lamination", sub: "Gloss • Matt • A4 to Crown", img: IMG.laminationMachine, anchor: "visiting-cards", badge: "" },
-  { name: "Premium Cards", sub: "Velvet • UV • Foil • Die Cut", img: IMG.premiumCards, anchor: "visiting-cards", badge: "Premium" },
+  { name: "Brochures & Flyers", sub: "Tri-fold • Bi-fold • A4", img: IMG.brochures, anchor: "brochures" },
 ];
 
 const PRODUCTS = [
@@ -78,55 +65,46 @@ const PRODUCTS = [
   { name: "Matt Visiting Card", spec: "300 GSM | 90×53mm | Matt Lam", days: "1-2 Days", price: "₹299", img: IMG.mattCard, badge: "Popular" },
   { name: "Spot UV Card", spec: "300 GSM | 90×53mm | Spot UV", days: "6-10 Days", price: "₹499", img: IMG.spotUvCard, badge: "Premium" },
   { name: "Velvet Lamination", spec: "400 GSM | 90×53mm | Velvet Lam", days: "10-15 Days", price: "₹799", img: IMG.velvetCard, badge: "Luxury" },
-  { name: "Synthetic Card", spec: "Non-Tearable Paper | 90×53mm", days: "2-4 Days", price: "₹499", img: IMG.syntheticCard, badge: "" },
+  { name: "Synthetic Card", spec: "Non-Tearable Paper | 90×53mm", days: "2-4 Days", price: "₹499", img: IMG.syntheticCard },
   { name: "Velvet + Gold Foil", spec: "400 GSM | Velvet + Foil Stamping", days: "10-15 Days", price: "₹999", img: IMG.goldFoilCard, badge: "Premium" },
 ];
 
 const STEPS = [
-  { img: IMG.glossCard, color: C.red, title: "Choose Product", tamil: "தயாரிப்பை தேர்ந்தெடுங்கள்", desc: "Browse visiting cards, wedding invitations, letterheads and more.", thumbs: [IMG.mattCard, IMG.weddingInvite1, IMG.letterhead], num: "01" },
-  { img: IMG.printShop, color: C.saffron, title: "Upload Your Design", tamil: "டிசைனை அப்லோட் செய்யுங்கள்", desc: "Upload print-ready PDF or CDR. No design? Our team helps create one.", thumbs: [IMG.spotUvCard, IMG.weddingInvite2, IMG.brochures], num: "02" },
-  { img: IMG.inkRollers, color: C.teal, title: "We Print with Precision", tamil: "துல்லியமாக அச்சிடுகிறோம்", desc: "Quality checked on offset and digital presses. Premium results guaranteed.", thumbs: [IMG.pressTools, IMG.inkPress, IMG.printedStack], num: "03" },
-  { img: IMG.parcel, color: C.goldDark, title: "Delivered to You", tamil: "உங்கள் வீட்டிற்கே டெலிவரி", desc: "Pan Tamil Nadu delivery in 1–4 business days. Same-day pickup.", thumbs: [IMG.delivery, IMG.courier, IMG.parcel], num: "04" },
+  { img: IMG.glossCard, title: "Choose Product", tamil: "தயாரிப்பை தேர்ந்தெடுங்கள்", desc: "Browse visiting cards, wedding invitations, letterheads and more.", num: "01" },
+  { img: IMG.printShop, title: "Upload Your Design", tamil: "டிசைனை அப்லோட் செய்யுங்கள்", desc: "Upload print-ready PDF or CDR. No design? Our team helps create one.", num: "02" },
+  { img: IMG.inkRollers, title: "We Print with Precision", tamil: "துல்லியமாக அச்சிடுகிறோம்", desc: "Quality checked on offset and digital presses.", num: "03" },
+  { img: IMG.parcel, title: "Delivered to You", tamil: "உங்கள் வீட்டிற்கே டெலிவரி", desc: "Pan Tamil Nadu delivery in 1–4 business days.", num: "04" },
 ];
 
 const TESTIMONIALS = [
-  { img: IMG.glossCard, name: "Senthil Kumar", role: "Business Owner, T. Nagar", quote: "Super Printers-ல் visiting card-கள் print செய்தோம். Quality மிகவும் அருமை. Quick delivery. Thank you!" },
-  { img: IMG.weddingInvite2, name: "Priya Krishnan", role: "Bride, Adyar, Chennai", quote: "Wedding invitation-கள் மிகவும் beautiful-ஆக வந்தது. Spot UV finish excellent!" },
-  { img: IMG.letterhead, name: "Suresh & Associates", role: "Advocate, Madurai", quote: "10 years-ஆக letterhead மற்றும் envelope print செய்கிறோம். Quality consistent." },
-  { img: IMG.delivery, name: "Ramesh Velayutham", role: "Event Coordinator, Coimbatore", quote: "Same-day flyers 4 மணி நேரத்தில் deliver பண்ணினார்கள். Excellent service!" },
-  { img: IMG.weddingInvite1, name: "Priya Suresh", role: "Homemaker, Pallavaram", quote: "Wedding cards design மிகவும் அழகாக வந்தது. 2 days-ல் delivery கிடைத்தது!" },
-  { img: IMG.printedStack, name: "Karthik Rajan", role: "Business Owner, Tambaram", quote: "Letterheads and visiting cards — excellent quality, GST bill provided, very professional." },
-];
-
-type GalCat = "All"|"Visiting Cards"|"Wedding Cards"|"Stationery"|"Envelopes"|"Stickers"|"Posters"|"Press"|"Brochures";
-const GALLERY: {img:string;label:string;cat:GalCat}[] = [
-  {img:IMG.glossCard,label:"Gloss Visiting Card",cat:"Visiting Cards"},{img:IMG.weddingInvite1,label:"Wedding Invitation",cat:"Wedding Cards"},
-  {img:IMG.inkRollers,label:"Offset Press",cat:"Press"},{img:IMG.letterhead,label:"Letterhead Set",cat:"Stationery"},
-  {img:IMG.mattCard,label:"Matt Visiting Card",cat:"Visiting Cards"},{img:IMG.envelopes,label:"Envelope / Cover",cat:"Envelopes"},
-  {img:IMG.pressTools,label:"Press Tools",cat:"Press"},{img:IMG.stickerSheets,label:"Sticker Print",cat:"Stickers"},
-  {img:IMG.spotUvCard,label:"Spot UV Card",cat:"Visiting Cards"},{img:IMG.weddingInvite2,label:"Wedding Matt",cat:"Wedding Cards"},
-  {img:IMG.workshop,label:"Workshop Floor",cat:"Press"},{img:IMG.brochures,label:"Brochure",cat:"Brochures"},
-  {img:IMG.velvetCard,label:"Velvet Foil Card",cat:"Visiting Cards"},{img:IMG.printedStack,label:"Printed Output",cat:"Press"},
-  {img:IMG.posterPrint,label:"Poster Print",cat:"Posters"},{img:IMG.digital,label:"Digital Printer",cat:"Press"},
-  {img:IMG.weddingInvite3,label:"Premium Wedding Card",cat:"Wedding Cards"},{img:IMG.inkPress,label:"Printing in Progress",cat:"Press"},
-  {img:IMG.offsetPress,label:"Offset Press Room",cat:"Press"},{img:IMG.parcel,label:"Packaged Order",cat:"Press"},
-  {img:IMG.printShop,label:"Print Shop",cat:"Press"},{img:IMG.printedBrochures,label:"Printed Brochures",cat:"Brochures"},
-  {img:IMG.laminationMachine,label:"Lamination",cat:"Press"},{img:IMG.premiumCards,label:"Premium Cards",cat:"Visiting Cards"},
+  { name: "Senthil Kumar", role: "Business Owner, T. Nagar", quote: "Super Printers-ல் visiting card-கள் print செய்தோம். Quality மிகவும் அருமை. Quick delivery!" },
+  { name: "Priya Krishnan", role: "Bride, Adyar, Chennai", quote: "Wedding invitation-கள் மிகவும் beautiful-ஆக வந்தது. Spot UV finish excellent!" },
+  { name: "Suresh & Associates", role: "Advocate, Madurai", quote: "10 years-ஆக letterhead மற்றும் envelope print செய்கிறோம். Quality consistent." },
+  { name: "Ramesh Velayutham", role: "Event Coordinator, Coimbatore", quote: "Same-day flyers 4 மணி நேரத்தில் deliver பண்ணினார்கள். Excellent service!" },
 ];
 
 const WHY = [
-  { img: IMG.offsetPress, title: "35 Years of Excellence", tamil: "35 ஆண்டுகள் சிறப்பு", body: "Three decades of offset printing excellence. State-of-the-art presses.", extra: "Since 1990", thumb: IMG.inkRollers },
-  { img: IMG.delivery, title: "Fast Pan-TN Delivery", tamil: "வேகமான டெலிவரி", body: "1–4 business days across Tamil Nadu. Same-day pickup from Chennai.", extra: "Chennai | CBE | Madurai", thumb: IMG.courier },
-  { img: IMG.qualityCheck, title: "Quality Guaranteed", tamil: "தரம் உறுதி", body: "Multi-point quality checks on every job. Colour accurate, sharp.", extra: "GST Inclusive Pricing", thumb: IMG.printedStack },
-  { img: IMG.stackedCards, title: "Competitive Pricing", tamil: "சிறந்த விலை", body: "Transparent pricing. Bulk discounts for DTP operators and resellers.", extra: "Rates from ₹199", thumb: IMG.glossCard },
+  { img: IMG.offsetPress, title: "35 Years of Excellence", body: "Three decades of offset printing excellence with state-of-the-art presses." },
+  { img: IMG.delivery, title: "Fast Pan-TN Delivery", body: "1–4 business days across Tamil Nadu. Same-day pickup from Chennai." },
+  { img: IMG.qualityCheck, title: "Quality Guaranteed", body: "Multi-point quality checks on every job. Colour accurate, sharp results." },
+  { img: IMG.stackedCards, title: "Competitive Pricing", body: "Transparent pricing. Bulk discounts for DTP operators and resellers." },
 ];
 
 const NAV_LINKS = [
   {label:"Home",anchor:"top"},{label:"Products",anchor:"products"},{label:"Visiting Cards",anchor:"visiting-cards"},
   {label:"Wedding Cards",anchor:"wedding-cards"},{label:"Gallery",anchor:"gallery"},{label:"About",anchor:"about"},{label:"Contact",anchor:"contact"},
 ];
-const GAL_FILTERS: GalCat[] = ["All","Visiting Cards","Wedding Cards","Stationery","Envelopes","Brochures","Stickers","Posters","Press"];
-const TICKER_TEXT = "•  Wedding Cards  •  Letterheads  •  Envelopes  •  Stickers  •  Brochures & Flyers  |  Fast Delivery across Tamil Nadu    |  GST Inclusive Pricing     ";
+
+type GalCat = "All"|"Visiting Cards"|"Wedding Cards"|"Stationery"|"Brochures"|"Press";
+const GALLERY: {img:string;label:string;cat:GalCat}[] = [
+  {img:IMG.glossCard,label:"Gloss Visiting Card",cat:"Visiting Cards"},{img:IMG.weddingInvite1,label:"Wedding Invitation",cat:"Wedding Cards"},
+  {img:IMG.inkRollers,label:"Offset Press",cat:"Press"},{img:IMG.letterhead,label:"Letterhead Set",cat:"Stationery"},
+  {img:IMG.mattCard,label:"Matt Visiting Card",cat:"Visiting Cards"},{img:IMG.envelopes,label:"Envelope / Cover",cat:"Stationery"},
+  {img:IMG.stickerSheets,label:"Sticker Print",cat:"Stationery"},{img:IMG.weddingInvite2,label:"Wedding Matt",cat:"Wedding Cards"},
+  {img:IMG.brochures,label:"Brochure",cat:"Brochures"},{img:IMG.velvetCard,label:"Velvet Card",cat:"Visiting Cards"},
+  {img:IMG.weddingInvite3,label:"Premium Wedding Card",cat:"Wedding Cards"},{img:IMG.premiumCards,label:"Premium Cards",cat:"Visiting Cards"},
+];
+const GAL_FILTERS: GalCat[] = ["All","Visiting Cards","Wedding Cards","Stationery","Brochures","Press"];
 
 const scrollTo = (id: string) => {
   if (id === "top") { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
@@ -134,16 +112,7 @@ const scrollTo = (id: string) => {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-// ─── WAVE SVG ───────────────────────────────────────────────────
-const Wave = ({ color = "#FFFDF7", flip = false }: { color?: string; flip?: boolean }) => (
-  <div style={{ lineHeight: 0, overflow: "hidden", transform: flip ? "rotate(180deg)" : "none", marginTop: flip ? -1 : 0, marginBottom: flip ? 0 : -1 }}>
-    <svg viewBox="0 0 1440 80" style={{ width: "100%", height: 80, display: "block" }} preserveAspectRatio="none">
-      <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill={color} />
-    </svg>
-  </div>
-);
-
-// ─── INTERSECTION OBSERVER HOOK ─────────────────────────────────
+// ─── HOOKS ──────────────────────────────────────────────────────
 const useInView = (threshold = 0.15) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -157,34 +126,37 @@ const useInView = (threshold = 0.15) => {
   return { ref, visible };
 };
 
-// ─── ANIMATED COUNTER ───────────────────────────────────────────
 const Counter = ({ target, suffix = "" }: { target: string; suffix?: string }) => {
   const [count, setCount] = useState(0);
   const { ref, visible } = useInView(0.3);
-  const numericTarget = parseInt(target.replace(/[^0-9]/g, "")) || 0;
+  const num = parseInt(target.replace(/[^0-9]/g, "")) || 0;
   useEffect(() => {
-    if (!visible || numericTarget === 0) return;
-    let start = 0;
-    const step = Math.max(1, Math.floor(numericTarget / 60));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= numericTarget) { setCount(numericTarget); clearInterval(timer); }
-      else setCount(start);
-    }, 30);
-    return () => clearInterval(timer);
-  }, [visible, numericTarget]);
-  return <span ref={ref}>{numericTarget === 0 ? target : count.toLocaleString() + suffix}</span>;
+    if (!visible || num === 0) return;
+    let s = 0;
+    const step = Math.max(1, Math.floor(num / 60));
+    const t = setInterval(() => { s += step; if (s >= num) { setCount(num); clearInterval(t); } else setCount(s); }, 30);
+    return () => clearInterval(t);
+  }, [visible, num]);
+  return <span ref={ref}>{num === 0 ? target : count.toLocaleString() + suffix}</span>;
 };
 
-// ─── SECTION WRAPPER ────────────────────────────────────────────
-const Section = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+const FadeIn = ({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) => {
   const { ref, visible } = useInView(0.1);
   return (
-    <div ref={ref} className={className} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(40px)", transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)" }}>
+    <div ref={ref} className={className} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)", transition: `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}s` }}>
       {children}
     </div>
   );
 };
+
+// ─── SECTION LABEL ──────────────────────────────────────────────
+const SectionLabel = ({ label, tamil }: { label: string; tamil?: string }) => (
+  <div className="flex items-center gap-3 mb-3">
+    <div className="h-px flex-1 max-w-[40px] bg-primary" />
+    <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary font-body">{label}</span>
+    {tamil && <span className="text-xs text-muted-foreground font-tamil">{tamil}</span>}
+  </div>
+);
 
 // ─── MAIN COMPONENT ─────────────────────────────────────────────
 const Index = () => {
@@ -192,24 +164,17 @@ const Index = () => {
   const [testIdx, setTestIdx] = useState(0);
   const [galFilter, setGalFilter] = useState<GalCat>("All");
   const [scrolled, setScrolled] = useState(false);
-  const [hoverCat, setHoverCat] = useState<number|null>(null);
-  const [hoverProd, setHoverProd] = useState<number|null>(null);
-  const [hoverGal, setHoverGal] = useState<number|null>(null);
-  const [hoverNav, setHoverNav] = useState<number|null>(null);
-  const [hoverWhy, setHoverWhy] = useState<number|null>(null);
   const [modal, setModal] = useState<string|null>(null);
   const [formName, setFormName] = useState("");
   const [formPhone, setFormPhone] = useState("");
   const [formEmail, setFormEmail] = useState("");
-  const [formService, setFormService] = useState("Select Service");
+  const [formService, setFormService] = useState("");
   const [formMsg, setFormMsg] = useState("");
-  const [particles] = useState(() => Array.from({length:30}, (_,i) => ({
-    x: Math.random()*100, y: Math.random()*100, size: 2+Math.random()*4, dur: 3+Math.random()*5, delay: Math.random()*5
-  })));
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   useEffect(() => {
     const si = setInterval(() => setSlide(p => (p+1)%3), 5000);
-    const ti = setInterval(() => setTestIdx(p => (p+1)%TESTIMONIALS.length), 4500);
+    const ti = setInterval(() => setTestIdx(p => (p+1)%TESTIMONIALS.length), 5000);
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
     return () => { clearInterval(si); clearInterval(ti); window.removeEventListener("scroll", onScroll); };
@@ -225,653 +190,574 @@ const Index = () => {
   };
 
   return (
-    <div id="top" style={{ fontFamily: PP, color: C.dark, margin: 0, padding: 0, background: C.ivory, overflowX: "hidden" }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap');
-        @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-        @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes waPulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}}
-        @keyframes float{0%,100%{transform:translateY(0) rotate(2deg)}50%{transform:translateY(-12px) rotate(-1deg)}}
-        @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-        @keyframes glow{0%,100%{text-shadow:0 0 20px rgba(255,215,0,0.3),0 0 40px rgba(255,215,0,0.1)}50%{text-shadow:0 0 30px rgba(255,215,0,0.6),0 0 60px rgba(255,215,0,0.2)}}
-        @keyframes particleFloat{0%{transform:translateY(0) scale(1);opacity:0.6}50%{opacity:1}100%{transform:translateY(-100vh) scale(0);opacity:0}}
-        @keyframes pulseBtn{0%,100%{box-shadow:0 0 0 0 rgba(255,215,0,0.5)}50%{box-shadow:0 0 0 12px rgba(255,215,0,0)}}
-        @keyframes borderGlow{0%,100%{box-shadow:0 0 5px rgba(37,99,235,0.2)}50%{box-shadow:0 0 20px rgba(37,99,235,0.4),0 0 40px rgba(37,99,235,0.1)}}
-        @keyframes slideUnderline{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-        .hero-anim{animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both}
-        .glow-text{animation:glow 3s ease-in-out infinite}
-        *{box-sizing:border-box;margin:0;padding:0}
-        a{text-decoration:none;color:inherit}
-        input,select,textarea{font-family:'Poppins',sans-serif}
-        ::selection{background:rgba(37,99,235,0.25);color:#fff}
-        html{scroll-behavior:smooth}
-        @media(max-width:768px){
-          .hero-flex{flex-direction:column!important;text-align:center!important;padding:0 20px!important}
-          .hero-right{display:none!important}
-          .hero-h1{font-size:36px!important}
-          .grid-2col{grid-template-columns:1fr!important}
-          .grid-3col{grid-template-columns:1fr 1fr!important}
-          .grid-4col{grid-template-columns:1fr 1fr!important}
-          .grid-5col{grid-template-columns:1fr 1fr!important}
-          .trust-bar{flex-direction:column!important}
-          .trust-item{min-width:100%!important;border-right:none!important;border-bottom:1px solid #2a2a2a}
-          .nav-links{display:none!important}
-          .hero-thumbs{justify-content:center!important}
-          .footer-grid{grid-template-columns:1fr 1fr!important}
-          .contact-grid{grid-template-columns:1fr!important}
-          .about-grid{grid-template-columns:1fr!important}
-          .test-grid{grid-template-columns:1fr!important}
-          .wedding-grid{grid-template-columns:1fr!important}
-        }
-        @media(max-width:480px){
-          .grid-3col{grid-template-columns:1fr!important}
-          .grid-4col{grid-template-columns:1fr!important}
-          .footer-grid{grid-template-columns:1fr!important}
-        }
-      `}</style>
+    <div id="top" className="font-body text-foreground bg-background overflow-x-hidden">
 
       {/* ═══ MODAL ═══ */}
       {modal && (
-        <div style={{ position:"fixed",inset:0,zIndex:10000,background:"rgba(0,0,0,0.6)",backdropFilter:"blur(8px)",display:"flex",alignItems:"center",justifyContent:"center" }} onClick={()=>setModal(null)}>
-          <div onClick={e=>e.stopPropagation()} style={{ background:"linear-gradient(145deg,#fff,#FFF8F0)",borderRadius:20,padding:"40px 36px",maxWidth:440,width:"90%",textAlign:"center",boxShadow:"0 30px 80px rgba(0,0,0,0.3),0 0 0 1px rgba(255,215,0,0.2)" }}>
-            <div style={{ width:60,height:60,borderRadius:"50%",background:`linear-gradient(135deg,${C.red},${C.gold})`,margin:"0 auto 16px",display:"flex",alignItems:"center",justifyContent:"center" }}>
-              <span style={{color:"#fff",fontSize:24,fontWeight:900,fontFamily:PF}}>SP</span>
+        <div className="fixed inset-0 z-[10000] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4" onClick={()=>setModal(null)}>
+          <div onClick={e=>e.stopPropagation()} className="bg-background rounded-2xl p-8 max-w-md w-full shadow-2xl">
+            <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4">
+              <span className="text-primary-foreground font-display font-bold text-xl">SP</span>
             </div>
-            <div style={{ fontFamily:PF,fontWeight:700,fontSize:24,color:C.red,marginBottom:12 }}>
+            <h3 className="font-display font-bold text-xl text-center mb-2">
               {modal==="orders"&&"Order Tracking"}{modal==="track"&&"Track Your Order"}{modal==="cart"&&"Place Your Order"}
-            </div>
-            <p style={{ fontFamily:PP,fontSize:14,color:"#666",lineHeight:1.7,marginBottom:24 }}>
+            </h3>
+            <p className="text-sm text-muted-foreground text-center mb-6 leading-relaxed">
               {modal==="orders"&&"Order tracking coming soon. Please WhatsApp us at +91 9840199878 for order status."}
               {modal==="track"&&"Track your order via WhatsApp: +91 9840199878"}
               {modal==="cart"&&"To place an order, please WhatsApp us or fill the quote form below."}
             </p>
-            <div style={{ display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap" }}>
-              <a href="https://wa.me/919840199878" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 24px",borderRadius:30 }}>WhatsApp Us</a>
-              {modal==="cart"&&<button onClick={()=>{setModal(null);scrollTo("contact")}} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 24px",borderRadius:30,border:"none",cursor:"pointer" }}>Fill Quote Form</button>}
-              <button onClick={()=>setModal(null)} style={{ background:"transparent",color:"#888",fontFamily:PP,fontWeight:600,fontSize:13,padding:"12px 24px",borderRadius:30,border:"1.5px solid #ddd",cursor:"pointer" }}>Close</button>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <a href="https://wa.me/919840199878" className="bg-[#25D366] text-white font-semibold text-sm px-6 py-3 rounded-full hover:opacity-90 transition-opacity">WhatsApp Us</a>
+              {modal==="cart"&&<button onClick={()=>{setModal(null);scrollTo("contact")}} className="bg-primary text-primary-foreground font-semibold text-sm px-6 py-3 rounded-full hover:opacity-90 transition-opacity">Fill Quote Form</button>}
+              <button onClick={()=>setModal(null)} className="text-muted-foreground font-medium text-sm px-6 py-3 rounded-full border border-border hover:bg-accent transition-colors">Close</button>
             </div>
           </div>
         </div>
       )}
 
-      {/* ═══ TOP TICKER BAR ═══ */}
-      <div style={{ height:36,background:`linear-gradient(90deg,${C.dark},${C.maroon})`,display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 24px",overflow:"hidden" }}>
-        <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP,letterSpacing:"0.05em" }}>Chennai, Tamil Nadu | Since 1990</span>
-        <div style={{ flex:1,overflow:"hidden",margin:"0 20px" }}>
-          <div style={{ display:"flex",width:"200%",animation:"ticker 30s linear infinite" }}>
-            {[0,1].map(k=><span key={k} style={{ color:C.gold,fontSize:11,whiteSpace:"nowrap",fontFamily:NT,minWidth:"50%" }}>{TICKER_TEXT}</span>)}
+      {/* ═══ NAVBAR ═══ */}
+      <nav className={`sticky top-0 z-[100] transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-xl shadow-sm border-b border-border" : "bg-transparent absolute w-full"}`}>
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+          <div className="flex items-center gap-3 cursor-pointer" onClick={()=>scrollTo("top")}>
+            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+              <span className="font-display font-bold text-base text-primary-foreground">SP</span>
+            </div>
+            <div>
+              <div className={`font-display font-bold text-lg transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>Super Printers</div>
+              <div className={`font-tamil text-[10px] transition-colors ${scrolled ? "text-muted-foreground" : "text-white/60"}`}>சுப்பர் பிரிண்டர்ஸ்</div>
+            </div>
           </div>
-        </div>
-        <span style={{ color:"rgba(255,255,255,0.7)",fontSize:11,whiteSpace:"nowrap",fontFamily:PP }}>+91 9840199878</span>
-      </div>
 
-      {/* ═══ GLASSMORPHISM NAVBAR ═══ */}
-      <nav style={{
-        position:"sticky",top:0,zIndex:100,
-        background: scrolled ? "rgba(255,255,255,0.95)" : "rgba(37,99,235,0.95)",
-        backdropFilter:"blur(20px)",WebkitBackdropFilter:"blur(20px)",
-        boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.08)" : "none",
-        transition:"all 0.4s cubic-bezier(0.16,1,0.3,1)",
-        padding:"0 32px",display:"flex",alignItems:"center",justifyContent:"space-between",
-        borderBottom:"1px solid rgba(255,215,0,0.1)"
-      }}>
-        <div style={{ display:"flex",alignItems:"center",gap:12,padding:"10px 0",cursor:"pointer" }} onClick={()=>scrollTo("top")}>
-          <div style={{ width:42,height:42,borderRadius:10,background:`linear-gradient(135deg,${C.red},${C.maroon})`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 15px rgba(37,99,235,0.2)" }}>
-            <span style={{ fontFamily:PF,fontWeight:900,fontSize:18,color:"#fff" }}>SP</span>
+          {/* Desktop nav */}
+          <div className="hidden lg:flex items-center gap-1">
+            {NAV_LINKS.map((l) => (
+              <button key={l.label} onClick={()=>scrollTo(l.anchor)}
+                className={`px-3 py-2 text-[13px] font-medium rounded-lg transition-all hover:bg-accent/80 ${scrolled ? "text-foreground" : "text-white/90 hover:text-white hover:bg-white/10"}`}>
+                {l.label}
+              </button>
+            ))}
           </div>
-          <div>
-            <div style={{ fontFamily:PF,fontWeight:700,fontSize:18,color:scrolled?C.dark:"#fff",transition:"color 0.3s" }}>Super Printers</div>
-            <div style={{ fontFamily:NT,fontSize:9,color:scrolled?C.red:"rgba(255,255,255,0.7)",letterSpacing:"0.1em",transition:"color 0.3s" }}>சுப்பர் பிரிண்டர்ஸ்</div>
-          </div>
-        </div>
-        <div className="nav-links" style={{ display:"flex",gap:0 }}>
-          {NAV_LINKS.map((l,i)=>(
-            <button key={l.label} onClick={()=>scrollTo(l.anchor)} onMouseEnter={()=>setHoverNav(i)} onMouseLeave={()=>setHoverNav(null)}
-              style={{ color:hoverNav===i?C.gold:scrolled?C.dark:"rgba(255,255,255,0.9)",fontFamily:PP,fontSize:12,fontWeight:500,padding:"16px 14px",background:"transparent",border:"none",cursor:"pointer",transition:"all 0.3s",position:"relative",letterSpacing:"0.02em" }}>
-              {l.label}
-              <span style={{ position:"absolute",bottom:8,left:"50%",transform:`translateX(-50%) scaleX(${hoverNav===i?1:0})`,width:"70%",height:2,background:C.red,borderRadius:1,transition:"transform 0.3s cubic-bezier(0.16,1,0.3,1)",transformOrigin:"center" }}/>
+
+          <div className="flex items-center gap-3">
+            <button onClick={()=>scrollTo("contact")} className="bg-primary text-primary-foreground font-semibold text-xs px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity">
+              Get Quote
             </button>
-          ))}
+            <button onClick={()=>setMobileMenu(!mobileMenu)} className={`lg:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-lg ${scrolled?"text-foreground":"text-white"}`}>
+              <span className={`w-5 h-0.5 rounded-full transition-all ${scrolled?"bg-foreground":"bg-white"} ${mobileMenu?"rotate-45 translate-y-1":""}`}/>
+              <span className={`w-5 h-0.5 rounded-full transition-all ${scrolled?"bg-foreground":"bg-white"} ${mobileMenu?"opacity-0":""}`}/>
+              <span className={`w-5 h-0.5 rounded-full transition-all ${scrolled?"bg-foreground":"bg-white"} ${mobileMenu?"-rotate-45 -translate-y-1":""}`}/>
+            </button>
+          </div>
         </div>
-        <div style={{ display:"flex",gap:10,alignItems:"center" }}>
-          <button onClick={()=>setModal("orders")} style={{ background:"transparent",border:`1.5px solid ${scrolled?C.red:"rgba(255,255,255,0.5)"}`,color:scrolled?C.red:"#fff",padding:"8px 18px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontWeight:600,fontSize:11,transition:"all 0.3s",letterSpacing:"0.05em" }}>My Orders</button>
-          <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",border:"none",padding:"9px 22px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontWeight:700,fontSize:11,boxShadow:"0 4px 15px rgba(37,99,235,0.25)",transition:"all 0.3s",letterSpacing:"0.05em" }}>Get Quote</button>
-        </div>
+
+        {/* Mobile menu */}
+        {mobileMenu && (
+          <div className="lg:hidden bg-background border-t border-border shadow-lg">
+            <div className="px-4 py-3 space-y-1">
+              {NAV_LINKS.map(l => (
+                <button key={l.label} onClick={()=>{scrollTo(l.anchor);setMobileMenu(false)}} className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground rounded-lg hover:bg-accent transition-colors">
+                  {l.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
-      {/* ═══ HERO — FULL SCREEN ═══ */}
-      <div style={{ position:"relative",minHeight:"100vh",overflow:"hidden",background:C.dark }}>
-        {/* Animated gradient overlay */}
-        <div style={{ position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(37,99,235,0.85) 0%,rgba(29,78,216,0.7) 30%,rgba(15,23,42,0.5) 70%,rgba(0,0,0,0.2) 100%)",zIndex:2 }}/>
-        {/* Background image */}
-        {SLIDES.map((s,i)=>(
-          <img key={i} src={s.bg} alt="Super Printers" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:slide===i?1:0,transition:"opacity 1.2s ease",filter:"brightness(0.7)" }} loading={i===0?"eager":"lazy"} />
+      {/* ═══ HERO ═══ */}
+      <div className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-foreground">
+        {SLIDES.map((s, i) => (
+          <img key={i} src={s.bg} alt="Super Printers" className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${slide===i?"opacity-100":"opacity-0"}`} style={{filter:"brightness(0.35)"}} loading={i===0?"eager":"lazy"} />
         ))}
-        {/* Floating particles */}
-        <div style={{ position:"absolute",inset:0,zIndex:3,pointerEvents:"none" }}>
-          {particles.map((p,i)=>(
-            <div key={i} style={{ position:"absolute",left:`${p.x}%`,bottom:"-5%",width:p.size,height:p.size,borderRadius:"50%",background:`radial-gradient(circle,rgba(255,215,0,0.8),rgba(255,215,0,0))`,animation:`particleFloat ${p.dur}s ease-in-out ${p.delay}s infinite` }}/>
-          ))}
-        </div>
-        {/* Content */}
-        <div className="hero-flex" style={{ position:"relative",zIndex:4,display:"flex",alignItems:"center",minHeight:"100vh",padding:"0 60px",maxWidth:1400,margin:"0 auto" }}>
-          <div style={{ flex:"0 0 55%" }}>
-            {slide===0 || slide===1 || slide===2 ? (
-              <div className="hero-anim" key={slide}>
-                <div style={{ display:"inline-block",padding:"6px 20px",borderRadius:30,background:"rgba(255,215,0,0.15)",border:"1px solid rgba(255,215,0,0.3)",marginBottom:20 }}>
-                  <span style={{ color:C.gold,fontFamily:PP,fontSize:11,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase" }}>{SLIDES[slide].badge}</span>
-                </div>
-                <h1 className="hero-h1 glow-text" style={{ fontFamily:PF,fontWeight:900,fontSize:60,color:"#fff",lineHeight:1.1,margin:"0 0 12px" }}>
-                  {SLIDES[slide].h1a}<br/>
-                  <span style={{ color:C.gold }}>{SLIDES[slide].h1b}</span>
-                </h1>
-                {SLIDES[slide].tamil && <div style={{ fontFamily:NT,color:C.gold,fontSize:20,marginBottom:12,opacity:0.9 }}>{SLIDES[slide].tamil}</div>}
-                <p style={{ color:"rgba(255,255,255,0.8)",fontSize:16,lineHeight:1.7,marginBottom:28,maxWidth:460,fontFamily:PP,fontWeight:300 }}>{SLIDES[slide].body}</p>
-                <div style={{ display:"flex",gap:14,flexWrap:"wrap",marginBottom:24 }}>
-                  <button onClick={()=>handleSlideBtn(SLIDES[slide].btn1Action)} style={{ background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",animation:"pulseBtn 2s infinite",letterSpacing:"0.05em",boxShadow:"0 8px 30px rgba(255,215,0,0.3)" }}>{SLIDES[slide].btn1}</button>
-                  {SLIDES[slide].btn2 && <button onClick={()=>handleSlideBtn(SLIDES[slide].btn2Action)} style={{ border:"2px solid rgba(255,255,255,0.4)",color:"#fff",fontFamily:PP,fontWeight:500,fontSize:14,padding:"12px 32px",borderRadius:30,background:"rgba(255,255,255,0.05)",cursor:"pointer",backdropFilter:"blur(4px)",transition:"all 0.3s" }}>{SLIDES[slide].btn2}</button>}
-                </div>
-                {SLIDES[slide].thumbs.length > 0 && (
-                  <div className="hero-thumbs" style={{ display:"flex",gap:8 }}>
-                    {SLIDES[slide].thumbs.map((t,ti)=><img key={ti} src={t} alt="Product" style={{ width:70,height:50,borderRadius:8,border:"2px solid rgba(255,215,0,0.3)",objectFit:"cover",display:"block",transition:"transform 0.3s",cursor:"pointer" }} loading="lazy"/>)}
-                  </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-0 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div key={slide} className="animate-fadeIn">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-white/80 text-xs font-semibold tracking-[0.15em] uppercase">{SLIDES[slide].badge}</span>
+              </div>
+
+              <h1 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-4">
+                {SLIDES[slide].h1a}<br/>
+                <span className="text-secondary">{SLIDES[slide].h1b}</span>
+              </h1>
+
+              {SLIDES[slide].tamil && <p className="font-tamil text-secondary/80 text-lg mb-3">{SLIDES[slide].tamil}</p>}
+
+              <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-8 max-w-lg font-light">{SLIDES[slide].body}</p>
+
+              <div className="flex flex-wrap gap-3">
+                <button onClick={()=>handleSlideBtn(SLIDES[slide].btn1Action)} className="bg-primary text-primary-foreground font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-all shadow-lg shadow-primary/25">
+                  {SLIDES[slide].btn1}
+                </button>
+                {SLIDES[slide].btn2 && (
+                  <button onClick={()=>handleSlideBtn(SLIDES[slide].btn2Action)} className="border border-white/30 text-white font-medium text-sm px-8 py-3.5 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
+                    {SLIDES[slide].btn2}
+                  </button>
                 )}
               </div>
-            ):null}
-          </div>
-          <div className="hero-right" style={{ flex:"0 0 45%",display:"flex",justifyContent:"center",alignItems:"center" }}>
-            <div style={{ position:"relative",animation:"float 6s ease-in-out infinite" }}>
-              <img src={SLIDES[slide].rightImg} alt="Product showcase" style={{ width:340,height:440,borderRadius:20,border:"3px solid rgba(255,215,0,0.3)",objectFit:"cover",boxShadow:"0 40px 80px rgba(0,0,0,0.5),0 0 40px rgba(255,215,0,0.1)",display:"block" }} loading="lazy"/>
-              <div style={{ position:"absolute",top:-10,right:-10,width:90,height:90,borderRadius:"50%",background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",boxShadow:"0 8px 25px rgba(255,215,0,0.4)" }}>
-                <span style={{ fontFamily:PF,fontWeight:900,fontSize:18,color:C.dark }}>35+</span>
-                <span style={{ fontFamily:PP,fontSize:8,fontWeight:600,color:C.dark,letterSpacing:"0.1em" }}>YEARS</span>
+            </div>
+
+            <div className="hidden lg:flex justify-center">
+              <div className="relative">
+                <img src={SLIDES[slide].rightImg} alt="Product" className="w-72 h-96 object-cover rounded-3xl shadow-2xl border-2 border-white/10" loading="lazy" />
+                <div className="absolute -top-3 -right-3 w-20 h-20 rounded-2xl bg-secondary flex flex-col items-center justify-center shadow-lg">
+                  <span className="font-display font-black text-lg text-secondary-foreground">35+</span>
+                  <span className="text-[9px] font-bold text-secondary-foreground/80 tracking-wider">YEARS</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        {/* Slide dots */}
-        <div style={{ position:"absolute",bottom:30,left:"50%",transform:"translateX(-50%)",display:"flex",gap:10,zIndex:10 }}>
-          {[0,1,2].map(i=>(
-            <button key={i} onClick={()=>setSlide(i)} style={{ width:slide===i?36:12,height:12,borderRadius:6,background:slide===i?`linear-gradient(90deg,${C.gold},${C.goldDark})`:"rgba(255,255,255,0.3)",border:"none",cursor:"pointer",transition:"all 0.4s cubic-bezier(0.16,1,0.3,1)",boxShadow:slide===i?"0 0 15px rgba(255,215,0,0.4)":"none" }}/>
+
+        {/* Slide indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {[0,1,2].map(i => (
+            <button key={i} onClick={()=>setSlide(i)} className={`h-2 rounded-full transition-all duration-500 ${slide===i ? "w-8 bg-primary" : "w-2 bg-white/30 hover:bg-white/50"}`} />
           ))}
         </div>
-        {/* Bottom wave */}
-        <div style={{ position:"absolute",bottom:0,left:0,right:0,zIndex:5 }}>
-          <Wave color={C.dark} />
-        </div>
       </div>
 
-      {/* ═══ TRUST/STATS BAR ═══ */}
-      <Section>
-        <div style={{ background:`linear-gradient(135deg,${C.dark},${C.maroon})`,padding:"60px 40px" }}>
-          <div className="trust-bar" style={{ display:"flex",justifyContent:"center",gap:0,maxWidth:1200,margin:"0 auto",flexWrap:"wrap" }}>
-            {TRUST.map((t,i)=>(
-              <div key={i} className="trust-item" style={{ flex:"1 1 25%",minWidth:220,display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",padding:"30px 20px",borderRight:i<3?"1px solid rgba(255,215,0,0.1)":"none",position:"relative" }}>
-                <img src={t.img} alt={t.label} style={{ width:56,height:56,borderRadius:"50%",objectFit:"cover",border:`3px solid ${C.gold}`,display:"block",marginBottom:14,boxShadow:"0 0 20px rgba(255,215,0,0.2)" }} loading="lazy"/>
-                <div style={{ fontFamily:PF,color:C.gold,fontSize:36,fontWeight:900,marginBottom:4,textShadow:"0 0 20px rgba(255,215,0,0.2)" }}>
-                  <Counter target={t.num} suffix={t.num.includes("+")?"+":""} />
+      {/* ═══ TRUST BAR ═══ */}
+      <FadeIn>
+        <div className="bg-foreground">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4">
+            {TRUST.map((t, i) => (
+              <div key={i} className={`text-center py-10 px-6 ${i < 3 ? "lg:border-r border-white/10" : ""}`}>
+                <div className="font-display text-secondary font-black text-3xl lg:text-4xl mb-1">
+                  <Counter target={t.num} suffix={t.num.includes("+") ? "+" : ""} />
                 </div>
-                <div style={{ fontFamily:PP,color:"#fff",fontSize:13,fontWeight:600,marginBottom:4,letterSpacing:"0.05em" }}>{t.label}</div>
-                <div style={{ color:"rgba(255,255,255,0.4)",fontSize:11,fontFamily:PP }}>{t.sub}</div>
+                <div className="text-white font-semibold text-sm mb-0.5">{t.label}</div>
+                <div className="text-white/40 text-xs">{t.sub}</div>
               </div>
             ))}
           </div>
         </div>
-      </Section>
-
-      <Wave color={C.ivory} />
+      </FadeIn>
 
       {/* ═══ PRODUCT CATEGORIES ═══ */}
-      <Section>
-        <div id="products" style={{ background:C.ivory,padding:"80px 40px" }}>
-          <div style={{ textAlign:"center",marginBottom:50,maxWidth:600,margin:"0 auto 50px" }}>
-            <div style={{ fontFamily:NT,color:C.red,fontSize:16,marginBottom:6 }}>எங்கள் தயாரிப்புகள்</div>
-            <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:42,color:C.dark,margin:"0 0 14px",lineHeight:1.2 }}>Our Products</h2>
-            <div style={{ width:60,height:4,borderRadius:2,background:`linear-gradient(90deg,${C.red},${C.gold})`,margin:"0 auto 14px" }}/>
-            <p style={{ fontFamily:PP,fontSize:15,color:"#888",lineHeight:1.6 }}>Premium printing solutions for every need — from visiting cards to large format posters.</p>
+      <FadeIn>
+        <section id="products" className="py-20 lg:py-28 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-14">
+              <SectionLabel label="Our Products" tamil="எங்கள் தயாரிப்புகள்" />
+              <h2 className="font-display font-black text-3xl lg:text-4xl text-foreground mb-4">Premium Printing Solutions</h2>
+              <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">From visiting cards to large format posters — everything printed to perfection.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {CATEGORIES.map((cat, i) => (
+                <button key={i} onClick={()=>scrollTo(cat.anchor)} className="group relative h-64 rounded-2xl overflow-hidden text-left">
+                  <img src={cat.img} alt={cat.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-primary/80 group-hover:via-primary/30 transition-all duration-500" />
+                  {cat.badge && <span className="absolute top-4 right-4 bg-secondary text-secondary-foreground text-[10px] font-bold px-3 py-1 rounded-full z-10">{cat.badge}</span>}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                    <h3 className="font-display font-bold text-xl text-white mb-1">{cat.name}</h3>
+                    <p className="text-white/70 text-xs">{cat.sub}</p>
+                    <span className="inline-block mt-3 text-xs font-semibold text-white/90 border-b border-white/30 pb-0.5 group-hover:border-white transition-colors">Explore →</span>
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="grid-3col" style={{ display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:20,maxWidth:1200,margin:"0 auto" }}>
-            {CATEGORIES.map((cat,i)=>(
-              <div key={i} style={{
-                height:300,borderRadius:16,overflow:"hidden",position:"relative",cursor:"pointer",
-                transition:"all 0.5s cubic-bezier(0.16,1,0.3,1)",
-                transform:hoverCat===i?"translateY(-8px) scale(1.02)":"translateY(0)",
-                boxShadow:hoverCat===i?"0 20px 50px rgba(0,0,0,0.2),0 0 0 2px rgba(255,215,0,0.3)":"0 4px 20px rgba(0,0,0,0.08)"
-              }} onMouseEnter={()=>setHoverCat(i)} onMouseLeave={()=>setHoverCat(null)}>
-                <img src={cat.img} alt={cat.name} style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",transition:"transform 0.6s cubic-bezier(0.16,1,0.3,1)",transform:hoverCat===i?"scale(1.12)":"scale(1)" }} loading="lazy"/>
-                <div style={{ position:"absolute",inset:0,background:hoverCat===i?`linear-gradient(135deg,rgba(37,99,235,0.88),rgba(29,78,216,0.82))`:"linear-gradient(0deg,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 60%)",transition:"all 0.4s" }}/>
-                {cat.badge && <div style={{ position:"absolute",top:14,right:14,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontSize:10,fontWeight:700,padding:"4px 12px",borderRadius:20,zIndex:2,letterSpacing:"0.05em" }}>{cat.badge}</div>}
-                <div style={{ position:"absolute",bottom:0,left:0,right:0,padding:"24px 20px",zIndex:2,transition:"transform 0.4s",transform:hoverCat===i?"translateY(-20px)":"translateY(0)" }}>
-                  <div style={{ fontFamily:PF,fontWeight:700,fontSize:20,color:"#fff",marginBottom:6,textShadow:"0 2px 10px rgba(0,0,0,0.3)" }}>{cat.name}</div>
-                  <div style={{ fontFamily:PP,fontSize:12,color:"rgba(255,255,255,0.7)",marginBottom:hoverCat===i?14:0,transition:"margin 0.3s" }}>{cat.sub}</div>
-                  {hoverCat===i && (
-                    <button onClick={()=>scrollTo(cat.anchor)} style={{ fontFamily:PP,fontWeight:600,fontSize:12,color:C.dark,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,padding:"8px 22px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 4px 15px rgba(255,215,0,0.3)" }}>Explore →</button>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
+        </section>
+      </FadeIn>
 
       {/* ═══ CTA BAND ═══ */}
-      <div style={{ background:`linear-gradient(135deg,${C.red},${C.maroon},${C.dark})`,padding:"60px 40px",position:"relative",overflow:"hidden" }}>
-        <div style={{ position:"absolute",inset:0,opacity:0.08 }}>
-          <img src={IMG.pressWide} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}} loading="lazy"/>
-        </div>
-        <div style={{ position:"relative",zIndex:2,maxWidth:900,margin:"0 auto",textAlign:"center" }}>
-          <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:38,color:"#fff",marginBottom:12,lineHeight:1.3 }}>Ready to Print? <span style={{color:C.gold}}>Let's Create Together.</span></h2>
-          <p style={{ fontFamily:PP,color:"rgba(255,255,255,0.7)",fontSize:16,marginBottom:28,maxWidth:500,margin:"0 auto 28px" }}>From visiting cards to wedding invitations — get premium quality printing delivered to your doorstep.</p>
-          <div style={{ display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap" }}>
-            <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 8px 30px rgba(255,215,0,0.3)" }}>Get Free Quote</button>
-            <a href="https://wa.me/919840199878" style={{ background:"rgba(255,255,255,0.1)",color:"#fff",fontFamily:PP,fontWeight:600,fontSize:14,padding:"14px 36px",borderRadius:30,border:"1.5px solid rgba(255,255,255,0.3)",backdropFilter:"blur(4px)" }}>WhatsApp Us</a>
+      <div className="relative py-20 px-6 overflow-hidden">
+        <img src={IMG.pressWide} alt="" className="absolute inset-0 w-full h-full object-cover" style={{filter:"brightness(0.2)"}} loading="lazy" />
+        <div className="absolute inset-0 bg-primary/80" />
+        <div className="relative z-10 max-w-2xl mx-auto text-center">
+          <h2 className="font-display font-black text-3xl lg:text-4xl text-white mb-4">Ready to Print?</h2>
+          <p className="text-white/80 mb-8 leading-relaxed">From visiting cards to wedding invitations — get premium quality printing delivered to your doorstep.</p>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <button onClick={()=>scrollTo("contact")} className="bg-white text-foreground font-bold text-sm px-8 py-3.5 rounded-full hover:bg-white/90 transition-colors shadow-lg">Get Free Quote</button>
+            <a href="https://wa.me/919840199878" className="border border-white/30 text-white font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors">WhatsApp Us</a>
           </div>
         </div>
       </div>
 
-      <Wave color={C.ivory} />
-
-      {/* ═══ VISITING CARDS SPOTLIGHT ═══ */}
-      <Section>
-        <div id="visiting-cards" style={{ background:C.ivory,padding:"80px 40px" }}>
-          <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:36,maxWidth:1200,margin:"0 auto 36px" }}>
-            <div>
-              <div style={{ fontFamily:NT,color:"#aaa",fontSize:13,marginBottom:4 }}>விசிட்டிங் கார்டு</div>
-              <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:36,color:C.dark,margin:0 }}>Visiting Cards</h2>
-              <div style={{ width:40,height:3,borderRadius:2,background:C.red,marginTop:10 }}/>
-            </div>
-            <button onClick={()=>setModal("cart")} style={{ color:C.red,fontFamily:PP,fontSize:13,fontWeight:700,background:"transparent",border:`1.5px solid ${C.red}`,padding:"8px 20px",borderRadius:30,cursor:"pointer" }}>View All →</button>
-          </div>
-          <div className="grid-3col" style={{ display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:20,maxWidth:1200,margin:"0 auto" }}>
-            {PRODUCTS.map((p,i)=>(
-              <div key={i} style={{
-                borderRadius:16,overflow:"hidden",background:"#fff",
-                transition:"all 0.4s cubic-bezier(0.16,1,0.3,1)",
-                transform:hoverProd===i?"translateY(-8px)":"none",
-                boxShadow:hoverProd===i?"0 20px 50px rgba(0,0,0,0.12)":"0 2px 15px rgba(0,0,0,0.06)"
-              }} onMouseEnter={()=>setHoverProd(i)} onMouseLeave={()=>setHoverProd(null)}>
-                <div style={{ position:"relative",height:200,overflow:"hidden" }}>
-                  <img src={p.img} alt={p.name} style={{ width:"100%",height:"100%",objectFit:"cover",display:"block",transition:"transform 0.5s",transform:hoverProd===i?"scale(1.08)":"scale(1)" }} loading="lazy"/>
-                  <div style={{ position:"absolute",inset:0,background:hoverProd===i?"linear-gradient(0deg,rgba(37,99,235,0.3),transparent)":"none",transition:"all 0.3s" }}/>
-                  {p.badge && <div style={{ position:"absolute",top:12,left:12,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontSize:10,fontWeight:700,padding:"4px 12px",borderRadius:20 }}>{p.badge}</div>}
-                </div>
-                <div style={{ padding:20 }}>
-                  <div style={{ fontFamily:PF,fontWeight:700,fontSize:17,marginBottom:6,color:C.dark }}>{p.name}</div>
-                  <div style={{ color:"#999",fontSize:12,lineHeight:1.5,marginBottom:10,fontFamily:PP }}>{p.spec}</div>
-                  <div style={{ display:"flex",gap:6,marginBottom:14 }}>
-                    <span style={{ background:"rgba(0,105,92,0.1)",color:C.teal,fontSize:10,fontWeight:600,padding:"4px 10px",borderRadius:20,fontFamily:PP }}>{p.days}</span>
-                    <span style={{ background:"rgba(255,215,0,0.1)",color:C.goldDark,fontSize:10,fontWeight:600,padding:"4px 10px",borderRadius:20,fontFamily:PP }}>GST Incl.</span>
-                  </div>
-                  <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center" }}>
-                    <span style={{ fontFamily:PF,color:C.red,fontSize:22,fontWeight:700 }}>{p.price}</span>
-                    <button onClick={()=>setModal("cart")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",border:"none",padding:"9px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,boxShadow:"0 4px 15px rgba(37,99,235,0.25)" }}>Order Now</button>
-                  </div>
-                </div>
+      {/* ═══ VISITING CARDS ═══ */}
+      <FadeIn>
+        <section id="visiting-cards" className="py-20 lg:py-28 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-4">
+              <div>
+                <SectionLabel label="Visiting Cards" tamil="விசிட்டிங் கார்டு" />
+                <h2 className="font-display font-black text-3xl text-foreground">Our Card Collection</h2>
               </div>
-            ))}
+              <button onClick={()=>setModal("cart")} className="text-primary font-semibold text-sm border border-primary px-5 py-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-all self-start sm:self-auto">View All →</button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {PRODUCTS.map((p, i) => (
+                <div key={i} className="group bg-background rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-400">
+                  <div className="relative h-48 overflow-hidden">
+                    <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    {p.badge && <span className="absolute top-3 left-3 bg-secondary text-secondary-foreground text-[10px] font-bold px-3 py-1 rounded-full">{p.badge}</span>}
+                  </div>
+                  <div className="p-5">
+                    <h4 className="font-display font-bold text-lg mb-1.5 text-foreground">{p.name}</h4>
+                    <p className="text-muted-foreground text-xs mb-3 leading-relaxed">{p.spec}</p>
+                    <div className="flex gap-2 mb-4">
+                      <span className="bg-primary/10 text-primary text-[10px] font-semibold px-3 py-1 rounded-full">{p.days}</span>
+                      <span className="bg-secondary/10 text-secondary-foreground text-[10px] font-semibold px-3 py-1 rounded-full">GST Incl.</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-display font-bold text-xl text-primary">{p.price}</span>
+                      <button onClick={()=>setModal("cart")} className="bg-foreground text-background text-xs font-semibold px-5 py-2.5 rounded-full hover:opacity-80 transition-opacity">Order</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </Section>
+        </section>
+      </FadeIn>
 
       {/* ═══ WEDDING INVITATIONS ═══ */}
-      <Section>
-        <div id="wedding-cards" className="wedding-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",minHeight:500 }}>
-          <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:4 }}>
-            {[IMG.weddingInvite1,IMG.weddingInvite2,IMG.weddingInvite3,IMG.weddingCeremony].map((src,i)=>(
-              <img key={i} src={src} alt="Wedding invitation" style={{ width:"100%",height:"100%",objectFit:"cover",display:"block",minHeight:240 }} loading="lazy"/>
-            ))}
-          </div>
-          <div style={{ background:`linear-gradient(145deg,${C.maroon},${C.red})`,padding:"60px 50px",display:"flex",flexDirection:"column",justifyContent:"center" }}>
-            <div style={{ display:"inline-block",padding:"5px 16px",borderRadius:20,background:"rgba(255,215,0,0.15)",border:"1px solid rgba(255,215,0,0.3)",marginBottom:16,alignSelf:"flex-start" }}>
-              <span style={{ color:C.gold,fontFamily:PP,fontSize:11,fontWeight:600,letterSpacing:"0.15em" }}>WEDDING SEASON SPECIAL</span>
+      <FadeIn>
+        <section id="wedding-cards" className="px-6 pb-20">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 rounded-3xl overflow-hidden shadow-xl">
+            <div className="grid grid-cols-2 gap-1 min-h-[300px]">
+              {[IMG.weddingInvite1,IMG.weddingInvite2,IMG.weddingInvite3,IMG.weddingCeremony].map((src,i)=>(
+                <img key={i} src={src} alt="Wedding invitation" className="w-full h-full object-cover min-h-[150px]" loading="lazy" />
+              ))}
             </div>
-            <div style={{ fontFamily:NT,color:C.gold,fontSize:20,marginBottom:12 }}>திருமண சீசன் ஆஃபர்</div>
-            <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:30,color:"#fff",lineHeight:1.25,marginBottom:16 }}>Beautiful Wedding Invitations</h2>
-            <p style={{ color:"rgba(255,255,255,0.75)",fontSize:14,lineHeight:1.7,marginBottom:24,fontFamily:PP }}>Traditional Tamil-style to modern minimalist — Gloss, Matt, Spot UV and Embossed finishes on 300 GSM premium art board.</p>
-            {[{img:IMG.weddingInvite1,name:"Gloss Lamination",price:"From ₹599"},{img:IMG.weddingInvite2,name:"Matt Lamination",price:"From ₹599"},{img:IMG.weddingInvite3,name:"Premium Spot UV",price:"From ₹999"}].map((w,i)=>(
-              <div key={i} style={{ display:"flex",alignItems:"center",gap:14,marginBottom:12,padding:"8px 12px",background:"rgba(255,255,255,0.05)",borderRadius:10 }}>
-                <img src={w.img} alt={w.name} style={{ width:56,height:42,borderRadius:8,border:"2px solid rgba(255,215,0,0.3)",objectFit:"cover",display:"block" }} loading="lazy"/>
-                <div><div style={{ color:"#fff",fontFamily:PP,fontWeight:600,fontSize:13 }}>{w.name}</div><div style={{ color:C.gold,fontFamily:PP,fontSize:12 }}>{w.price}</div></div>
+            <div className="bg-foreground p-10 lg:p-14 flex flex-col justify-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 mb-5 self-start">
+                <span className="text-secondary text-xs font-semibold tracking-widest uppercase">Wedding Special</span>
               </div>
-            ))}
-            <button onClick={()=>setModal("cart")} style={{ marginTop:16,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,color:C.dark,fontFamily:PP,fontWeight:700,fontSize:13,padding:"14px 32px",borderRadius:30,alignSelf:"flex-start",border:"none",cursor:"pointer",boxShadow:"0 8px 25px rgba(255,215,0,0.3)" }}>Order Wedding Cards</button>
+              <p className="font-tamil text-secondary/70 text-base mb-2">திருமண சீசன் ஆஃபர்</p>
+              <h2 className="font-display font-black text-2xl lg:text-3xl text-white mb-4 leading-tight">Beautiful Wedding Invitations</h2>
+              <p className="text-white/60 text-sm leading-relaxed mb-6">Traditional Tamil-style to modern minimalist — Gloss, Matt, Spot UV and Embossed finishes on 300 GSM premium art board.</p>
+              {[{name:"Gloss Lamination",price:"From ₹599"},{name:"Matt Lamination",price:"From ₹599"},{name:"Premium Spot UV",price:"From ₹999"}].map((w,i)=>(
+                <div key={i} className="flex items-center justify-between py-3 border-b border-white/10 last:border-0">
+                  <span className="text-white text-sm font-medium">{w.name}</span>
+                  <span className="text-secondary text-sm font-semibold">{w.price}</span>
+                </div>
+              ))}
+              <button onClick={()=>setModal("cart")} className="mt-6 bg-secondary text-secondary-foreground font-bold text-sm px-8 py-3.5 rounded-full self-start hover:opacity-90 transition-opacity">
+                Order Wedding Cards
+              </button>
+            </div>
           </div>
-        </div>
-      </Section>
+        </section>
+      </FadeIn>
 
       <div id="stationery"/><div id="envelopes"/><div id="brochures"/><div id="stickers"/><div id="posters"/>
 
-      <Wave color="#fff" flip />
-
       {/* ═══ HOW TO ORDER ═══ */}
-      <Section>
-        <div style={{ background:"#fff",padding:"80px 40px" }}>
-          <div style={{ textAlign:"center",marginBottom:50,maxWidth:500,margin:"0 auto 50px" }}>
-            <div style={{ fontFamily:NT,color:C.red,fontSize:16,marginBottom:6 }}>ஆர்டர் எப்படி செய்வது?</div>
-            <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:38,color:C.dark,margin:"0 0 14px" }}>Simple 4-Step Process</h2>
-            <div style={{ width:60,height:4,borderRadius:2,background:`linear-gradient(90deg,${C.red},${C.gold})`,margin:"0 auto" }}/>
-          </div>
-          <div className="grid-4col" style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:20,maxWidth:1200,margin:"0 auto" }}>
-            {STEPS.map((s,i)=>(
-              <div key={i} style={{ background:C.ivory,borderRadius:16,overflow:"hidden",boxShadow:"0 4px 20px rgba(0,0,0,0.06)",transition:"transform 0.3s,box-shadow 0.3s" }}>
-                <div style={{ position:"relative",height:180,overflow:"hidden" }}>
-                  <img src={s.img} alt={s.title} style={{ width:"100%",height:"100%",objectFit:"cover",display:"block" }} loading="lazy"/>
-                  <div style={{ position:"absolute",inset:0,background:`linear-gradient(0deg,${s.color}cc,transparent)` }}/>
-                  <div style={{ position:"absolute",top:14,left:14,width:40,height:40,borderRadius:"50%",background:C.gold,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 15px rgba(255,215,0,0.3)" }}>
-                    <span style={{ fontFamily:PF,fontWeight:900,fontSize:16,color:C.dark }}>{s.num}</span>
+      <FadeIn>
+        <section className="py-20 lg:py-28 px-6 bg-accent">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-14">
+              <SectionLabel label="How to Order" tamil="ஆர்டர் எப்படி செய்வது?" />
+              <h2 className="font-display font-black text-3xl lg:text-4xl text-foreground mb-4">Simple 4-Step Process</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {STEPS.map((s, i) => (
+                <div key={i} className="bg-background rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-shadow">
+                  <div className="relative h-40 overflow-hidden">
+                    <img src={s.img} alt={s.title} className="w-full h-full object-cover" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+                      <span className="font-display font-bold text-sm text-primary-foreground">{s.num}</span>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="font-display font-bold text-base mb-1 text-foreground">{s.title}</h4>
+                    <p className="font-tamil text-[11px] text-muted-foreground mb-2">{s.tamil}</p>
+                    <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
-                <div style={{ padding:20 }}>
-                  <h4 style={{ fontFamily:PF,fontSize:18,fontWeight:700,marginBottom:6,color:C.dark }}>{s.title}</h4>
-                  <div style={{ fontFamily:NT,fontSize:11,color:"#aaa",marginBottom:8 }}>{s.tamil}</div>
-                  <p style={{ fontFamily:PP,fontSize:13,color:"#666",lineHeight:1.6,marginBottom:12 }}>{s.desc}</p>
-                  <div style={{ display:"flex",gap:5 }}>
-                    {s.thumbs.map((t,ti)=><img key={ti} src={t} alt="" style={{ width:44,height:32,borderRadius:5,objectFit:"cover",display:"block",border:"1px solid #eee" }} loading="lazy"/>)}
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </Section>
+        </section>
+      </FadeIn>
 
-      <Wave color={C.dark} />
-
-      {/* ═══ PARALLAX / QUOTE DIVIDER ═══ */}
-      <div style={{ height:420,overflow:"hidden",position:"relative",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center" }}>
-        <img src={IMG.pressWide} alt="Printing press" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",filter:"brightness(0.3)" }} loading="lazy"/>
-        <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(37,99,235,0.82),rgba(29,78,216,0.7),rgba(15,23,42,0.55))` }}/>
-        <div style={{ position:"relative",zIndex:2,textAlign:"center",padding:"0 24px" }}>
-          <div style={{ fontFamily:NT,color:"rgba(255,255,255,0.8)",fontSize:24,marginBottom:10 }}>தரம் • வேகம் • நம்பகத்தன்மை</div>
-          <h2 className="glow-text" style={{ fontFamily:PF,fontWeight:900,fontSize:50,color:"#fff",lineHeight:1.2,marginBottom:14 }}>Quality. Speed. <span style={{color:C.gold}}>Trust.</span></h2>
-          <p style={{ fontFamily:PP,color:"rgba(255,255,255,0.7)",fontSize:16,maxWidth:520,margin:"0 auto 28px" }}>Serving Chennai's businesses, designers and families for over 35 years.</p>
-          <div style={{ display:"flex",justifyContent:"center",gap:16 }}>
-            {[{src:IMG.glossCard,label:"Visiting Cards"},{src:IMG.weddingInvite1,label:"Wedding Cards"},{src:IMG.letterhead,label:"Stationery"}].map((t,i)=>(
-              <div key={i} style={{ textAlign:"center" }}>
-                <img src={t.src} alt={t.label} style={{ width:140,height:90,borderRadius:12,border:"2px solid rgba(255,215,0,0.3)",objectFit:"cover",display:"block",boxShadow:"0 8px 25px rgba(0,0,0,0.3)" }} loading="lazy"/>
-                <div style={{ color:"rgba(255,255,255,0.8)",fontFamily:PP,fontSize:11,marginTop:8,fontWeight:500 }}>{t.label}</div>
-              </div>
-            ))}
-          </div>
+      {/* ═══ PARALLAX DIVIDER ═══ */}
+      <div className="relative py-24 lg:py-32 overflow-hidden">
+        <img src={IMG.pressWide} alt="Printing press" className="absolute inset-0 w-full h-full object-cover" style={{filter:"brightness(0.15)"}} loading="lazy"/>
+        <div className="absolute inset-0 bg-foreground/70" />
+        <div className="relative z-10 text-center px-6">
+          <p className="font-tamil text-white/60 text-lg mb-3">தரம் • வேகம் • நம்பகத்தன்மை</p>
+          <h2 className="font-display font-black text-4xl lg:text-5xl text-white mb-4">Quality. Speed. <span className="text-secondary">Trust.</span></h2>
+          <p className="text-white/50 max-w-md mx-auto">Serving Chennai's businesses, designers and families for over 35 years.</p>
         </div>
       </div>
 
-      <Wave color="#fff" />
-
-      {/* ═══ ABOUT US ═══ */}
-      <Section>
-        <div id="about" style={{ background:"#fff",padding:"80px 40px" }}>
-          <div className="about-grid" style={{ display:"grid",gridTemplateColumns:"44% 56%",gap:48,maxWidth:1200,margin:"0 auto",alignItems:"start" }}>
-            <div>
-              <img src={IMG.hero} alt="Super Printers workshop" style={{ width:"100%",height:400,objectFit:"cover",borderRadius:20,display:"block",boxShadow:`0 0 0 4px ${C.red},0 0 0 8px ${C.gold},0 20px 60px rgba(0,0,0,0.15)` }} loading="lazy"/>
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginTop:14 }}>
-                <img src={IMG.workshop} alt="Workshop" style={{ width:"100%",height:180,objectFit:"cover",borderRadius:14,display:"block",boxShadow:"0 8px 25px rgba(0,0,0,0.1)" }} loading="lazy"/>
-                <img src={IMG.inkPress} alt="Ink press" style={{ width:"100%",height:180,objectFit:"cover",borderRadius:14,display:"block",boxShadow:"0 8px 25px rgba(0,0,0,0.1)" }} loading="lazy"/>
+      {/* ═══ ABOUT ═══ */}
+      <FadeIn>
+        <section id="about" className="py-20 lg:py-28 px-6">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+            <div className="space-y-4">
+              <img src={IMG.hero} alt="Super Printers workshop" className="w-full h-80 object-cover rounded-2xl shadow-lg" loading="lazy" />
+              <div className="grid grid-cols-2 gap-4">
+                <img src={IMG.workshop} alt="Workshop" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
+                <img src={IMG.inkPress} alt="Ink press" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
               </div>
             </div>
             <div>
-              <div style={{ color:C.gold,fontFamily:PP,fontSize:12,textTransform:"uppercase",letterSpacing:"0.2em",marginBottom:10 }}>எங்களைப் பற்றி • OUR STORY</div>
-              <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:36,color:C.dark,marginBottom:20,lineHeight:1.3 }}>Chennai's Printing Legacy — <span style={{color:C.red}}>Since 1990</span></h2>
-              <div style={{ overflow:"hidden",marginBottom:18 }}>
-                <img src={IMG.printedStack} alt="Printed materials" style={{ float:"right",width:140,height:100,borderRadius:10,objectFit:"cover",margin:"0 0 12px 16px",display:"block",boxShadow:"0 4px 15px rgba(0,0,0,0.1)" }} loading="lazy"/>
-                <p style={{ fontFamily:PP,fontSize:14,color:"#555",lineHeight:1.8 }}>Super Printers was founded in 1990 as a small family printing press in Chennai. Over 35 years we have grown into a full-service printing house — but we have never lost the personal care and craftsmanship of a family business that knows every client by name.</p>
-              </div>
-              <div style={{ overflow:"hidden",marginBottom:18 }}>
-                <img src={IMG.brochures} alt="Brochures" style={{ float:"left",width:130,height:90,borderRadius:10,objectFit:"cover",margin:"0 16px 12px 0",display:"block",boxShadow:"0 4px 15px rgba(0,0,0,0.1)" }} loading="lazy"/>
-                <p style={{ fontFamily:PP,fontSize:14,color:"#555",lineHeight:1.8 }}>From a single offset press to a complete facility offering digital printing, large format, lamination and binding — we have grown with Chennai's businesses, wedding families and creative professionals for three decades.</p>
-              </div>
-              <div style={{ clear:"both" }}/>
-              {[{c:C.red,t:"State-of-the-art offset and digital presses"},{c:C.gold,t:"35+ years of printing excellence in Chennai"},{c:C.teal,t:"10,000+ satisfied clients across Tamil Nadu"},{c:C.saffron,t:"Fast delivery — 1 to 4 business days"}].map((f,i)=>(
-                <div key={i} style={{ display:"flex",alignItems:"center",gap:12,marginBottom:10 }}>
-                  <div style={{ width:5,height:30,borderRadius:3,background:f.c,flexShrink:0 }}/>
-                  <span style={{ fontFamily:PP,fontSize:14,color:"#555" }}>{f.t}</span>
-                </div>
-              ))}
-              <button onClick={()=>scrollTo("contact")} style={{ marginTop:18,border:`2px solid ${C.red}`,color:C.red,fontFamily:PP,fontWeight:600,fontSize:13,padding:"12px 28px",borderRadius:30,background:"transparent",cursor:"pointer",transition:"all 0.3s" }}>Learn More →</button>
-            </div>
-          </div>
-          {/* About image strip */}
-          <div className="grid-5col" style={{ display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:6,marginTop:48,borderRadius:14,overflow:"hidden",maxWidth:1200,margin:"48px auto 0" }}>
-            {[{src:IMG.inkRollers,label:"Offset Press"},{src:IMG.glossCard,label:"Visiting Cards"},{src:IMG.weddingInvite1,label:"Wedding Cards"},{src:IMG.letterhead,label:"Stationery"},{src:IMG.delivery,label:"Fast Delivery"}].map((ai,i)=>(
-              <div key={i} style={{ position:"relative",height:180,overflow:"hidden" }}>
-                <img src={ai.src} alt={ai.label} style={{ width:"100%",height:"100%",objectFit:"cover",display:"block",transition:"transform 0.4s" }} loading="lazy"/>
-                <div style={{ position:"absolute",inset:0,background:"linear-gradient(0deg,rgba(0,0,0,0.7),transparent 50%)" }}/>
-                <div style={{ position:"absolute",bottom:0,left:0,right:0,padding:"10px 14px" }}>
-                  <span style={{ color:"#fff",fontFamily:PP,fontSize:12,fontWeight:600 }}>{ai.label}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      <Wave color={C.dark} />
-
-      {/* ═══ TESTIMONIALS ═══ */}
-      <Section>
-        <div style={{ background:`linear-gradient(135deg,${C.dark},#0D1642)`,padding:"80px 40px" }}>
-          <div style={{ textAlign:"center",marginBottom:50 }}>
-            <div style={{ fontFamily:NT,color:C.gold,fontSize:16,marginBottom:6 }}>வாடிக்கையாளர் கருத்துக்கள்</div>
-            <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:38,color:"#fff",marginBottom:8 }}>What Our Clients Say</h2>
-            <div style={{ width:60,height:4,borderRadius:2,background:`linear-gradient(90deg,${C.gold},${C.red})`,margin:"0 auto" }}/>
-          </div>
-          <div className="test-grid" style={{ display:"grid",gridTemplateColumns:"38% 62%",gap:0,maxWidth:1100,margin:"0 auto",borderRadius:20,overflow:"hidden",boxShadow:"0 20px 60px rgba(0,0,0,0.3)" }}>
-            <div style={{ position:"relative",overflow:"hidden",minHeight:400 }}>
-              <img src={IMG.hero} alt="Super Printers" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block" }} loading="lazy"/>
-              <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(37,99,235,0.9),rgba(29,78,216,0.85))` }}/>
-              <div style={{ position:"relative",zIndex:2,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"100%",padding:36 }}>
-                <div style={{ width:80,height:80,borderRadius:"50%",background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:20,boxShadow:"0 0 30px rgba(255,215,0,0.3)" }}>
-                  <span style={{ fontFamily:PF,fontWeight:900,fontSize:28,color:C.dark }}>★</span>
-                </div>
-                <h3 style={{ fontFamily:PF,fontWeight:700,fontStyle:"italic",fontSize:28,color:"#fff",textAlign:"center",marginBottom:10 }}>Trusted by Thousands</h3>
-                <p style={{ fontFamily:PP,fontSize:14,color:"rgba(255,255,255,0.6)",textAlign:"center" }}>10,000+ happy clients across Tamil Nadu</p>
-              </div>
-            </div>
-            <div style={{ background:C.ivory,padding:"44px 48px",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column" }}>
-              {TESTIMONIALS.map((t,i)=>(
-                <div key={i} style={{ display:testIdx===i?"block":"none",background:"#fff",borderRadius:16,overflow:"hidden",boxShadow:"0 4px 20px rgba(0,0,0,0.06)",borderLeft:`4px solid ${C.gold}`,maxWidth:440,width:"100%" }}>
-                  <div style={{ display:"flex",gap:14,padding:22,alignItems:"center",borderBottom:"1px solid #f0f0f0" }}>
-                    <img src={t.img} alt={t.name} style={{ width:50,height:50,borderRadius:"50%",objectFit:"cover",display:"block",border:`2px solid ${C.gold}` }} loading="lazy"/>
-                    <div><div style={{ fontFamily:PP,fontWeight:700,fontSize:15,color:C.dark }}>{t.name}</div><div style={{ fontFamily:PP,fontSize:12,color:"#999" }}>{t.role}</div></div>
+              <SectionLabel label="About Us" tamil="எங்களைப் பற்றி" />
+              <h2 className="font-display font-black text-3xl text-foreground mb-6 leading-snug">
+                Chennai's Printing Legacy — <span className="text-primary">Since 1990</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Super Printers was founded in 1990 as a small family printing press in Chennai. Over 35 years we have grown into a full-service printing house — but we have never lost the personal care and craftsmanship of a family business.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                From a single offset press to a complete facility offering digital printing, large format, lamination and binding — we have grown with Chennai's businesses and families.
+              </p>
+              <div className="space-y-3">
+                {["State-of-the-art offset and digital presses","35+ years of printing excellence in Chennai","10,000+ satisfied clients across Tamil Nadu","Fast delivery — 1 to 4 business days"].map((t,i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span className="text-sm text-muted-foreground">{t}</span>
                   </div>
-                  <div style={{ padding:22 }}>
-                    <div style={{ color:C.gold,fontSize:22,marginBottom:10,letterSpacing:2 }}>★★★★★</div>
-                    <p style={{ fontFamily:PP,fontSize:14,fontStyle:"italic",color:"#555",lineHeight:1.7 }}>"{t.quote}"</p>
-                  </div>
-                </div>
-              ))}
-              <div style={{ display:"flex",justifyContent:"center",gap:8,marginTop:20 }}>
-                {TESTIMONIALS.map((_,i)=>(
-                  <button key={i} onClick={()=>setTestIdx(i)} style={{ width:testIdx===i?28:10,height:10,borderRadius:5,background:testIdx===i?`linear-gradient(90deg,${C.red},${C.gold})`:"#ddd",border:"none",cursor:"pointer",transition:"all 0.4s" }}/>
                 ))}
               </div>
             </div>
           </div>
-        </div>
-      </Section>
+        </section>
+      </FadeIn>
 
-      <Wave color="#fff" />
+      {/* ═══ TESTIMONIALS ═══ */}
+      <FadeIn>
+        <section className="py-20 lg:py-28 px-6 bg-accent">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-14">
+              <SectionLabel label="Testimonials" tamil="வாடிக்கையாளர் கருத்துக்கள்" />
+              <h2 className="font-display font-black text-3xl lg:text-4xl text-foreground mb-4">What Our Clients Say</h2>
+            </div>
+
+            <div className="bg-background rounded-2xl p-8 lg:p-12 shadow-sm border border-border relative">
+              <div className="text-secondary text-5xl font-display absolute top-6 left-8 opacity-30">"</div>
+              {TESTIMONIALS.map((t, i) => (
+                <div key={i} className={`transition-opacity duration-500 ${testIdx===i?"opacity-100":"opacity-0 absolute inset-0 pointer-events-none"}`}>
+                  {testIdx === i && (
+                    <div className="text-center">
+                      <p className="text-lg lg:text-xl text-foreground italic leading-relaxed mb-8 max-w-2xl mx-auto">"{t.quote}"</p>
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                        <span className="font-display font-bold text-primary text-lg">{t.name[0]}</span>
+                      </div>
+                      <div className="font-semibold text-foreground">{t.name}</div>
+                      <div className="text-muted-foreground text-sm">{t.role}</div>
+                      <div className="text-secondary mt-2 tracking-widest">★★★★★</div>
+                    </div>
+                  )}
+                </div>
+              ))}
+              <div className="flex justify-center gap-2 mt-8">
+                {TESTIMONIALS.map((_,i) => (
+                  <button key={i} onClick={()=>setTestIdx(i)} className={`h-2 rounded-full transition-all duration-400 ${testIdx===i?"w-6 bg-primary":"w-2 bg-border hover:bg-muted-foreground/30"}`} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeIn>
 
       {/* ═══ GALLERY ═══ */}
-      <Section>
-        <div id="gallery" style={{ background:"#fff",padding:"80px 40px" }}>
-          <div style={{ textAlign:"center",marginBottom:36 }}>
-            <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:38,color:C.dark,marginBottom:6 }}>Our Print Gallery</h2>
-            <div style={{ fontFamily:NT,color:"#aaa",fontSize:13 }}>எங்கள் படைப்புகள் | Every product printed at Super Printers</div>
-          </div>
-          <div style={{ display:"flex",flexWrap:"wrap",justifyContent:"center",gap:8,marginBottom:30 }}>
-            {GAL_FILTERS.map(f=>(
-              <button key={f} onClick={()=>setGalFilter(f)} style={{ background:galFilter===f?`linear-gradient(135deg,${C.red},${C.maroon})`:"#f0f4f8",color:galFilter===f?"#fff":"#555",border:"none",padding:"8px 20px",borderRadius:30,cursor:"pointer",fontFamily:PP,fontSize:12,fontWeight:600,transition:"all 0.3s",boxShadow:galFilter===f?"0 4px 15px rgba(37,99,235,0.25)":"none" }}>{f}</button>
-            ))}
-          </div>
-          <div style={{ columnCount:4,columnGap:10,maxWidth:1200,margin:"0 auto" }}>
-            {filtered.map((item,i)=>(
-              <div key={`${item.label}-${i}`} style={{ breakInside:"avoid",marginBottom:10,borderRadius:12,overflow:"hidden",position:"relative",cursor:"pointer",transition:"transform 0.3s",transform:hoverGal===i?"scale(1.02)":"scale(1)" }}
-                onMouseEnter={()=>setHoverGal(i)} onMouseLeave={()=>setHoverGal(null)}>
-                <img src={item.img} alt={item.label} style={{ width:"100%",display:"block",objectFit:"cover" }} loading="lazy"/>
-                <div style={{ position:"absolute",inset:0,background:`linear-gradient(0deg,rgba(37,99,235,0.8),rgba(0,0,0,0.2),transparent)`,opacity:hoverGal===i?1:0,transition:"opacity 0.3s",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"flex-end",padding:20 }}>
-                  <div style={{ color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,marginBottom:4 }}>{item.label}</div>
-                  <span style={{ color:C.gold,fontFamily:PP,fontSize:12,fontWeight:500 }}>View →</span>
-                </div>
+      <FadeIn>
+        <section id="gallery" className="py-20 lg:py-28 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-10">
+              <SectionLabel label="Gallery" tamil="எங்கள் படைப்புகள்" />
+              <h2 className="font-display font-black text-3xl lg:text-4xl text-foreground mb-6">Our Print Gallery</h2>
+              <div className="flex flex-wrap justify-center gap-2">
+                {GAL_FILTERS.map(f => (
+                  <button key={f} onClick={()=>setGalFilter(f)} className={`text-xs font-semibold px-4 py-2 rounded-full transition-all ${galFilter===f ? "bg-foreground text-background" : "bg-accent text-muted-foreground hover:bg-border"}`}>{f}</button>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </Section>
+            </div>
 
-      <Wave color={C.dark} />
-
-      {/* ═══ WHY CHOOSE US ═══ */}
-      <Section>
-        <div style={{ background:`linear-gradient(135deg,${C.dark},#0D1642)`,padding:"80px 40px" }}>
-          <div style={{ textAlign:"center",marginBottom:50 }}>
-            <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:38,color:"#fff",marginBottom:6 }}>Why Choose <span style={{color:C.gold}}>Super Printers</span></h2>
-            <div style={{ fontFamily:NT,color:"rgba(255,215,0,0.7)",fontSize:14 }}>ஏன் சுப்பர் பிரிண்டர்ஸ்?</div>
-          </div>
-          <div className="grid-4col" style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:20,maxWidth:1200,margin:"0 auto" }}>
-            {WHY.map((w,i)=>(
-              <div key={i} style={{
-                background:"rgba(255,255,255,0.03)",borderRadius:16,overflow:"hidden",
-                border:"1px solid rgba(255,215,0,0.1)",
-                transition:"all 0.4s cubic-bezier(0.16,1,0.3,1)",
-                transform:hoverWhy===i?"translateY(-8px)":"none",
-                boxShadow:hoverWhy===i?"0 20px 50px rgba(0,0,0,0.3),0 0 30px rgba(255,215,0,0.1)":"0 4px 20px rgba(0,0,0,0.2)"
-              }} onMouseEnter={()=>setHoverWhy(i)} onMouseLeave={()=>setHoverWhy(null)}>
-                <div style={{ position:"relative",height:180,overflow:"hidden" }}>
-                  <img src={w.img} alt={w.title} style={{ width:"100%",height:"100%",objectFit:"cover",display:"block",transition:"transform 0.5s",transform:hoverWhy===i?"scale(1.1)":"scale(1)" }} loading="lazy"/>
-                  <div style={{ position:"absolute",inset:0,background:`linear-gradient(0deg,${C.dark},transparent)` }}/>
-                </div>
-                <div style={{ padding:20 }}>
-                  <div style={{ fontFamily:PF,fontWeight:700,fontSize:18,color:"#fff",marginBottom:4 }}>{w.title}</div>
-                  <div style={{ fontFamily:NT,fontSize:11,color:C.gold,marginBottom:10 }}>{w.tamil}</div>
-                  <p style={{ fontFamily:PP,fontSize:13,color:"rgba(255,255,255,0.5)",lineHeight:1.6,marginBottom:14 }}>{w.body}</p>
-                  <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center" }}>
-                    <span style={{ fontFamily:PP,fontSize:11,fontWeight:700,color:C.gold }}>{w.extra}</span>
-                    <img src={w.thumb} alt="" style={{ width:46,height:33,borderRadius:6,objectFit:"cover",display:"block",border:"1px solid rgba(255,215,0,0.2)" }} loading="lazy"/>
+            <div className="columns-2 lg:columns-3 xl:columns-4 gap-3">
+              {filtered.map((item, i) => (
+                <div key={`${item.label}-${i}`} className="break-inside-avoid mb-3 group rounded-xl overflow-hidden relative cursor-pointer">
+                  <img src={item.img} alt={item.label} className="w-full block transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <span className="text-white text-sm font-semibold">{item.label}</span>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </Section>
+        </section>
+      </FadeIn>
 
-      {/* ═══ CTA BAND 2 ═══ */}
-      <div style={{ background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,padding:"50px 40px",textAlign:"center" }}>
-        <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:34,color:C.dark,marginBottom:12 }}>Start Your Printing Journey Today</h2>
-        <p style={{ fontFamily:PP,color:"rgba(26,26,26,0.7)",fontSize:15,marginBottom:24,maxWidth:500,margin:"0 auto 24px" }}>Get premium quality prints delivered to your doorstep. Free quotes within 2 hours.</p>
-        <div style={{ display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap" }}>
-          <button onClick={()=>scrollTo("contact")} style={{ background:`linear-gradient(135deg,${C.red},${C.maroon})`,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,border:"none",cursor:"pointer",boxShadow:"0 8px 25px rgba(37,99,235,0.25)" }}>Get Free Quote</button>
-          <a href="https://wa.me/919840199878" style={{ background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:14,padding:"14px 36px",borderRadius:30,boxShadow:"0 8px 25px rgba(37,211,102,0.3)" }}>WhatsApp Order</a>
+      {/* ═══ WHY CHOOSE US ═══ */}
+      <FadeIn>
+        <section className="py-20 lg:py-28 px-6 bg-foreground">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-14">
+              <h2 className="font-display font-black text-3xl lg:text-4xl text-white mb-3">Why Choose <span className="text-secondary">Super Printers</span></h2>
+              <p className="font-tamil text-white/40 text-sm">ஏன் சுப்பர் பிரிண்டர்ஸ்?</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              {WHY.map((w, i) => (
+                <div key={i} className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-secondary/30 transition-all group">
+                  <div className="relative h-44 overflow-hidden">
+                    <img src={w.img} alt={w.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,26%,14%)] to-transparent" />
+                  </div>
+                  <div className="p-5">
+                    <h4 className="font-display font-bold text-white text-base mb-2">{w.title}</h4>
+                    <p className="text-white/40 text-xs leading-relaxed">{w.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* ═══ CTA 2 ═══ */}
+      <div className="bg-secondary py-16 px-6 text-center">
+        <h2 className="font-display font-black text-2xl lg:text-3xl text-secondary-foreground mb-3">Start Your Printing Journey Today</h2>
+        <p className="text-secondary-foreground/70 mb-8 max-w-md mx-auto">Get premium quality prints delivered to your doorstep. Free quotes within 2 hours.</p>
+        <div className="flex gap-3 justify-center flex-wrap">
+          <button onClick={()=>scrollTo("contact")} className="bg-foreground text-background font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-opacity">Get Free Quote</button>
+          <a href="https://wa.me/919840199878" className="bg-[#25D366] text-white font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-opacity shadow-lg">WhatsApp Order</a>
         </div>
       </div>
 
-      <Wave color="#fff" />
-
       {/* ═══ CONTACT ═══ */}
-      <Section>
-        <div id="contact" className="contact-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",minHeight:600,maxWidth:1400,margin:"0 auto" }}>
-          <div style={{ position:"relative",overflow:"hidden",borderRadius:"20px 0 0 20px" }}>
-            <img src={IMG.workshop} alt="Super Printers workshop" style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block" }} loading="lazy"/>
-            <div style={{ position:"absolute",inset:0,background:`linear-gradient(135deg,rgba(37,99,235,0.9),rgba(29,78,216,0.85))` }}/>
-            <div style={{ position:"relative",zIndex:2,padding:"56px 48px",display:"flex",flexDirection:"column",justifyContent:"center",height:"100%" }}>
-              <div style={{ fontFamily:NT,color:"rgba(255,255,255,0.6)",fontSize:14,marginBottom:8 }}>எங்களை தொடர்பு கொள்ளுங்கள்</div>
-              <h2 style={{ fontFamily:PF,fontWeight:900,fontSize:32,color:"#fff",marginBottom:24,lineHeight:1.3 }}>Get in Touch with <span style={{color:C.gold}}>Super Printers</span></h2>
-              {[{text:"No 8 Saraswathy Colony, Pallavaram, Chennai – 600 043",label:"Address"},{text:"+91 9840199878",label:"Phone"},{text:"Superprntrs@yahoo.com",label:"Email"},{text:"Mon–Sat: 9AM–7PM | Sunday: Closed",label:"Hours"}].map((r,i)=>(
-                <div key={i} style={{ display:"flex",alignItems:"center",gap:14,marginBottom:14 }}>
-                  <div style={{ width:48,height:48,borderRadius:12,background:"rgba(255,215,0,0.1)",border:"1px solid rgba(255,215,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>
-                    <span style={{ color:C.gold,fontFamily:PP,fontSize:10,fontWeight:700 }}>{r.label}</span>
+      <FadeIn>
+        <section id="contact" className="py-20 lg:py-28 px-6">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-xl border border-border">
+            {/* Left — info */}
+            <div className="relative overflow-hidden bg-foreground p-10 lg:p-14 flex flex-col justify-center">
+              <p className="font-tamil text-white/50 text-sm mb-2">எங்களை தொடர்பு கொள்ளுங்கள்</p>
+              <h2 className="font-display font-black text-2xl lg:text-3xl text-white mb-8 leading-tight">Get in Touch with <span className="text-secondary">Super Printers</span></h2>
+
+              {[
+                {label:"Address",text:"No 8 Saraswathy Colony, Pallavaram, Chennai – 600 043"},
+                {label:"Phone",text:"+91 9840199878"},
+                {label:"Email",text:"Superprntrs@yahoo.com"},
+                {label:"Hours",text:"Mon–Sat: 9AM–7PM | Sunday: Closed"},
+              ].map((r,i) => (
+                <div key={i} className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-secondary text-[10px] font-bold">{r.label.slice(0,3).toUpperCase()}</span>
                   </div>
-                  <span style={{ color:"rgba(255,255,255,0.85)",fontFamily:PP,fontSize:14 }}>{r.text}</span>
+                  <span className="text-white/80 text-sm leading-relaxed">{r.text}</span>
                 </div>
               ))}
-              <a href="https://wa.me/919840199878" style={{ display:"inline-block",marginTop:20,background:C.wa,color:"#fff",fontFamily:PP,fontWeight:700,fontSize:13,padding:"12px 28px",borderRadius:30,alignSelf:"flex-start",boxShadow:"0 8px 25px rgba(37,211,102,0.3)" }}>WhatsApp Order</a>
-              <div style={{ marginTop:20,borderRadius:14,overflow:"hidden",border:"2px solid rgba(255,215,0,0.2)" }}>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d80.1478823!3d12.9666825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525fcc22e3457d%3A0x8e423468eccddee2!2sSuper%20Printers%20-%20Wedding%20Cards%20%26%20Printing!5e0!3m2!1sen!2sin!4v1" width="100%" height="200" style={{ border:0,display:"block" }} loading="lazy" title="Super Printers Location" allowFullScreen/>
+
+              <a href="https://wa.me/919840199878" className="inline-flex items-center gap-2 mt-4 bg-[#25D366] text-white font-bold text-sm px-6 py-3 rounded-full self-start hover:opacity-90 transition-opacity">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp Us
+              </a>
+
+              <div className="mt-6 rounded-xl overflow-hidden border border-white/10">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d80.1478823!3d12.9666825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525fcc22e3457d%3A0x8e423468eccddee2!2sSuper%20Printers%20-%20Wedding%20Cards%20%26%20Printing!5e0!3m2!1sen!2sin!4v1" width="100%" height="180" style={{ border:0 }} loading="lazy" title="Super Printers Location" allowFullScreen/>
               </div>
             </div>
+
+            {/* Right — form */}
+            <div className="bg-background p-10 lg:p-14 flex flex-col justify-center">
+              <h3 className="font-display font-bold text-xl text-foreground mb-2">Get a Free Quote</h3>
+              <p className="text-muted-foreground text-sm mb-6">We respond within 2 hours during business hours</p>
+
+              <div className="space-y-3">
+                <input type="text" placeholder="Full Name" value={formName} onChange={e=>setFormName(e.target.value)} className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                <input type="tel" placeholder="Phone (+91)" value={formPhone} onChange={e=>setFormPhone(e.target.value)} className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                <input type="email" placeholder="Email Address" value={formEmail} onChange={e=>setFormEmail(e.target.value)} className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                <select value={formService} onChange={e=>setFormService(e.target.value)} className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                  <option value="">Select Service</option>
+                  {["Visiting Cards","Wedding Invitations","Letterheads","Envelopes","Stickers","Brochures","Posters","Lamination","Other"].map(s=><option key={s}>{s}</option>)}
+                </select>
+                <textarea rows={3} placeholder="Describe your requirements" value={formMsg} onChange={e=>setFormMsg(e.target.value)} className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-vertical" />
+              </div>
+
+              <button
+                onClick={()=>{
+                  const msg=`Hi Super Printers! I'd like a quote.\n\nName: ${formName}\nPhone: ${formPhone}\nEmail: ${formEmail}\nService: ${formService}\nDetails: ${formMsg}`;
+                  window.open(`https://wa.me/919840199878?text=${encodeURIComponent(msg)}`,"_blank");
+                }}
+                className="mt-5 w-full bg-[#25D366] text-white font-bold text-sm py-3.5 rounded-full hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/20">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Send Enquiry via WhatsApp
+              </button>
+            </div>
           </div>
-          <div style={{ background:C.ivory,padding:"56px 48px",display:"flex",flexDirection:"column",justifyContent:"center",borderRadius:"0 20px 20px 0" }}>
-            <h2 style={{ fontFamily:PF,fontSize:28,color:C.red,marginBottom:6 }}>Get a Free Quote</h2>
-            <p style={{ fontFamily:PP,fontSize:14,color:"#999",marginBottom:20 }}>We respond within 2 hours during business hours</p>
-            <img src={IMG.printedBrochures} alt="Prints" style={{ width:"100%",height:90,borderRadius:12,objectFit:"cover",display:"block",marginBottom:20 }} loading="lazy"/>
-            <input type="text" placeholder="Full Name" value={formName} onChange={e=>setFormName(e.target.value)} style={{ border:"2px solid #eee",borderRadius:10,padding:"12px 16px",marginBottom:12,fontSize:14,fontFamily:PP,width:"100%",outline:"none",background:"#fff",transition:"border 0.3s" }}/>
-            <input type="tel" placeholder="Phone (+91)" value={formPhone} onChange={e=>setFormPhone(e.target.value)} style={{ border:"2px solid #eee",borderRadius:10,padding:"12px 16px",marginBottom:12,fontSize:14,fontFamily:PP,width:"100%",outline:"none",background:"#fff",transition:"border 0.3s" }}/>
-            <input type="email" placeholder="Email Address" value={formEmail} onChange={e=>setFormEmail(e.target.value)} style={{ border:"2px solid #eee",borderRadius:10,padding:"12px 16px",marginBottom:12,fontSize:14,fontFamily:PP,width:"100%",outline:"none",background:"#fff",transition:"border 0.3s" }}/>
-            <select value={formService} onChange={e=>setFormService(e.target.value)} style={{ border:"2px solid #eee",borderRadius:10,padding:"12px 16px",marginBottom:12,fontSize:14,fontFamily:PP,width:"100%",background:"#fff" }}>
-              <option>Select Service</option>
-              {["Visiting Cards","Wedding Invitations","Letterheads","Envelopes","Stickers","Brochures","Posters","Lamination","Other"].map(s=><option key={s}>{s}</option>)}
-            </select>
-            <textarea rows={3} placeholder="Describe your requirements" value={formMsg} onChange={e=>setFormMsg(e.target.value)} style={{ border:"2px solid #eee",borderRadius:10,padding:"12px 16px",marginBottom:16,fontSize:14,fontFamily:PP,width:"100%",resize:"vertical",outline:"none",background:"#fff" }}/>
-            <button onClick={()=>{const msg=`Hi Super Printers! I'd like a quote.\n\nName: ${formName}\nPhone: ${formPhone}\nEmail: ${formEmail}\nService: ${formService}\nDetails: ${formMsg}`;window.open(`https://wa.me/919840199878?text=${encodeURIComponent(msg)}`,"_blank")}} style={{ width:"100%",padding:"14px",background:`linear-gradient(135deg,${C.wa},#128C7E)`,color:"#fff",border:"none",borderRadius:30,fontFamily:PP,fontWeight:700,fontSize:15,cursor:"pointer",boxShadow:"0 8px 25px rgba(37,211,102,0.3)",transition:"all 0.3s",display:"flex",alignItems:"center",justifyContent:"center",gap:10 }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Send Enquiry via WhatsApp
-            </button>
-          </div>
-        </div>
-      </Section>
+        </section>
+      </FadeIn>
 
       {/* ═══ FOOTER ═══ */}
-      <footer style={{ background:C.dark,marginTop:80 }}>
-        <div style={{ height:5,background:`linear-gradient(90deg,${C.red},${C.saffron},${C.gold},${C.teal},${C.red})` }}/>
-        <div className="footer-grid" style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:32,padding:"56px 40px 32px",maxWidth:1200,margin:"0 auto" }}>
+      <footer className="bg-foreground pt-16 pb-8 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <div style={{ display:"flex",alignItems:"center",gap:10,marginBottom:14 }}>
-              <div style={{ width:40,height:40,borderRadius:10,background:`linear-gradient(135deg,${C.gold},${C.goldDark})`,display:"flex",alignItems:"center",justifyContent:"center" }}>
-                <span style={{ fontFamily:PF,fontWeight:900,fontSize:16,color:C.dark }}>SP</span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
+                <span className="font-display font-bold text-base text-secondary-foreground">SP</span>
               </div>
-              <div><div style={{ fontFamily:PF,color:C.gold,fontSize:18,fontWeight:700 }}>Super Printers</div><div style={{ fontFamily:NT,color:"rgba(255,215,0,0.5)",fontSize:10 }}>சுப்பர் பிரிண்டர்ஸ்</div></div>
+              <div>
+                <div className="font-display text-white font-bold">Super Printers</div>
+                <div className="font-tamil text-white/40 text-[10px]">சுப்பர் பிரிண்டர்ஸ்</div>
+              </div>
             </div>
-            <p style={{ color:"rgba(255,255,255,0.4)",fontSize:13,fontFamily:PP,marginBottom:14,lineHeight:1.6 }}>Chennai's finest printing press since 1990. Premium quality, fast delivery.</p>
-            <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:4 }}>
-              {[IMG.glossCard,IMG.mattCard,IMG.weddingInvite1,IMG.weddingInvite2,IMG.letterhead,IMG.envelopes].map((src,i)=>(
-                <img key={i} src={src} alt="Product" style={{ width:"100%",height:50,borderRadius:6,objectFit:"cover",display:"block" }} loading="lazy"/>
-              ))}
-            </div>
+            <p className="text-white/40 text-sm leading-relaxed">Chennai's finest printing press since 1990. Premium quality, fast delivery.</p>
           </div>
+
           <div>
-            <div style={{ color:C.gold,fontFamily:PP,fontWeight:700,fontSize:14,marginBottom:14 }}>Quick Links</div>
-            {[{label:"Home",anchor:"top"},{label:"Products",anchor:"products"},{label:"Gallery",anchor:"gallery"},{label:"About Us",anchor:"about"},{label:"Contact",anchor:"contact"}].map(l=>(
-              <button key={l.label} onClick={()=>scrollTo(l.anchor)} style={{ display:"block",color:"rgba(255,255,255,0.45)",fontFamily:PP,fontSize:13,padding:"5px 0",background:"transparent",border:"none",cursor:"pointer",textAlign:"left",transition:"color 0.3s" }}>{l.label}</button>
+            <h4 className="text-white font-semibold text-sm mb-4">Quick Links</h4>
+            {["Home","Products","Gallery","About Us","Contact"].map((l,i) => (
+              <button key={l} onClick={()=>scrollTo(["top","products","gallery","about","contact"][i])} className="block text-white/40 text-sm py-1.5 hover:text-white/70 transition-colors">
+                {l}
+              </button>
             ))}
           </div>
+
           <div>
-            <div style={{ color:C.gold,fontFamily:PP,fontWeight:700,fontSize:14,marginBottom:14 }}>Our Products</div>
-            {["Visiting Cards","Wedding Invitations","Letterheads","Envelopes","Stickers","Brochures","Posters","Lamination"].map(l=>(
-              <span key={l} style={{ display:"block",color:"rgba(255,255,255,0.45)",fontFamily:PP,fontSize:13,padding:"5px 0" }}>{l}</span>
+            <h4 className="text-white font-semibold text-sm mb-4">Our Products</h4>
+            {["Visiting Cards","Wedding Invitations","Letterheads","Envelopes","Stickers","Brochures","Posters"].map(l => (
+              <span key={l} className="block text-white/40 text-sm py-1.5">{l}</span>
             ))}
           </div>
+
           <div>
-            <div style={{ color:C.gold,fontFamily:PP,fontWeight:700,fontSize:14,marginBottom:14 }}>Get in Touch</div>
+            <h4 className="text-white font-semibold text-sm mb-4">Get in Touch</h4>
             {["No 8 Saraswathy Colony, Pallavaram","Chennai – 600 043","+91 9840199878","Superprntrs@yahoo.com","Mon–Sat: 9AM–7PM"].map((t,i)=>(
-              <p key={i} style={{ color:"rgba(255,255,255,0.45)",fontFamily:PP,fontSize:13,margin:"5px 0" }}>{t}</p>
+              <p key={i} className="text-white/40 text-sm py-1">{t}</p>
             ))}
-            <div style={{ marginTop:16,display:"flex",gap:10 }}>
-              <a href="https://wa.me/919840199878" target="_blank" rel="noopener noreferrer" style={{ width:40,height:40,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-              <a href="#" style={{ width:40,height:40,borderRadius:"50%",background:"#1877F2",display:"flex",alignItems:"center",justifyContent:"center" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-              <a href="#" style={{ width:40,height:40,borderRadius:"50%",background:"linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)",display:"flex",alignItems:"center",justifyContent:"center" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <div className="flex gap-3 mt-4">
+              <a href="https://wa.me/919840199878" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center hover:opacity-80 transition-opacity">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="#" className="w-9 h-9 rounded-full bg-[#1877F2] flex items-center justify-center hover:opacity-80 transition-opacity">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
             </div>
           </div>
         </div>
-        <div style={{ borderTop:"1px solid rgba(255,215,0,0.1)",padding:"16px 40px",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",maxWidth:1200,margin:"0 auto" }}>
-          <span style={{ color:"rgba(255,255,255,0.3)",fontFamily:PP,fontSize:12 }}>© 2026 Super Printers, Chennai. All Rights Reserved.</span>
-          <div style={{ display:"flex",gap:8 }}>
-            {[IMG.inkRollers,IMG.glossCard,IMG.delivery,IMG.pressTools].map((src,i)=>(
-              <img key={i} src={src} alt="" style={{ width:34,height:34,borderRadius:"50%",objectFit:"cover",border:"2px solid rgba(255,215,0,0.15)",display:"block" }} loading="lazy"/>
-            ))}
-          </div>
+
+        <div className="max-w-6xl mx-auto border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <span className="text-white/30 text-xs">© 2026 Super Printers, Chennai. All Rights Reserved.</span>
+          <span className="text-white/20 text-xs">Crafted with care since 1990</span>
         </div>
       </footer>
 
       {/* ═══ FLOATING BUTTONS ═══ */}
-      <a href="https://wa.me/919840199878" target="_blank" rel="noopener noreferrer" style={{ position:"fixed",bottom:28,right:28,width:58,height:58,borderRadius:"50%",background:C.wa,display:"flex",alignItems:"center",justifyContent:"center",zIndex:9999,animation:"waPulse 2s infinite",textDecoration:"none",boxShadow:"0 8px 25px rgba(37,211,102,0.4)" }}>
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <a href="https://wa.me/919840199878" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center z-[9999] shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform wa-pulse">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </a>
+
       {scrolled && (
-        <button onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} style={{ position:"fixed",bottom:28,left:28,width:48,height:48,borderRadius:"50%",background:`linear-gradient(135deg,${C.red},${C.maroon})`,border:"none",cursor:"pointer",zIndex:9999,boxShadow:"0 8px 25px rgba(37,99,235,0.3)",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.3s" }}>
-          <span style={{ color:"#fff",fontSize:18,fontWeight:700 }}>↑</span>
+        <button onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} className="fixed bottom-6 left-6 w-11 h-11 rounded-full bg-foreground text-background flex items-center justify-center z-[9999] shadow-lg hover:scale-110 transition-transform">
+          <span className="text-base font-bold">↑</span>
         </button>
       )}
+
+      {/* Animation keyframe */}
+      <style>{`@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.animate-fadeIn{animation:fadeIn 0.8s cubic-bezier(0.16,1,0.3,1) both}`}</style>
     </div>
   );
 };
