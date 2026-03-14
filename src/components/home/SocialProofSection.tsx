@@ -53,12 +53,21 @@ const SocialProofSection = () => (
           {V2_FEATURED_QUOTE.quote}
         </p>
         <div className="flex items-center gap-4 mt-6">
-          <div
-            className="w-12 h-12 rounded-full flex items-center justify-center text-ink-black font-display font-bold text-sm shrink-0"
-            style={{ backgroundColor: "var(--gold)" }}
-          >
-            {V2_FEATURED_QUOTE.author.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-          </div>
+          {V2_FEATURED_QUOTE.image ? (
+            <img
+              src={V2_FEATURED_QUOTE.image}
+              alt={V2_FEATURED_QUOTE.author}
+              className="w-12 h-12 rounded-full object-cover shrink-0"
+              loading="lazy"
+            />
+          ) : (
+            <div
+              className="w-12 h-12 rounded-full flex items-center justify-center text-ink-black font-display font-bold text-sm shrink-0"
+              style={{ backgroundColor: "var(--gold)" }}
+            >
+              {V2_FEATURED_QUOTE.author.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+            </div>
+          )}
           <div>
             <p className="font-ui font-semibold text-[15px] text-ink-black">{V2_FEATURED_QUOTE.author}</p>
             <p className="font-ui text-[13px] font-light text-gray-500">Verified customer</p>
@@ -96,12 +105,21 @@ const SocialProofSection = () => (
               &ldquo;{review.quote}&rdquo;
             </p>
             <div className="border-t border-border-light pt-4 flex items-center gap-3">
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-ink-black font-display font-bold text-sm shrink-0"
-                style={{ backgroundColor: "var(--gold)" }}
-              >
-                {review.initials}
-              </div>
+              {review.image ? (
+                <img
+                  src={review.image}
+                  alt={review.name}
+                  className="w-10 h-10 rounded-full object-cover shrink-0"
+                  loading="lazy"
+                />
+              ) : (
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-ink-black font-display font-bold text-sm shrink-0"
+                  style={{ backgroundColor: "var(--gold)" }}
+                >
+                  {review.initials}
+                </div>
+              )}
               <div className="min-w-0">
                 <p className="font-ui font-semibold text-sm text-ink-black">{review.name}</p>
                 <p className="font-ui text-xs text-gray-500 truncate">{review.role}</p>

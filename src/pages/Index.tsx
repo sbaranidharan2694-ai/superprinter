@@ -1,15 +1,19 @@
 import SEOHead from "@/components/SEOHead";
 import HeroSection from "@/components/home/HeroSection";
 import MarqueeProductStrip from "@/components/home/MarqueeProductStrip";
+import ProductVideoSection from "@/components/home/ProductVideoSection";
 import CredibilityStrip from "@/components/home/CredibilityStrip";
 import StatsBarSection from "@/components/home/StatsBarSection";
 import ProductsSection from "@/components/home/ProductsSection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
+import BenefitsListSection from "@/components/home/BenefitsListSection";
+import ProductBenefitsSection from "@/components/home/ProductBenefitsSection";
 import WeddingCardsSection from "@/components/home/WeddingCardsSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
 import PortfolioSection from "@/components/home/PortfolioSection";
 import FinishesSection from "@/components/home/FinishesSection";
+import CTASection from "@/components/home/CTASection";
 import QuoteFormSection from "@/components/home/QuoteFormSection";
 import AboutSection from "@/components/home/AboutSection";
 import FAQSectionNew from "@/components/home/FAQSectionNew";
@@ -24,15 +28,19 @@ const Index = () => (
     />
     <HeroSection />
     <MarqueeProductStrip />
+    <ProductVideoSection />
     <CredibilityStrip />
     <StatsBarSection />
     <ProductsSection />
     <WhyChooseUsSection />
+    <BenefitsListSection />
+    <ProductBenefitsSection />
     <WeddingCardsSection />
     <HowItWorksSection />
     <SocialProofSection />
     <PortfolioSection />
     <FinishesSection />
+    <CTASection />
     <QuoteFormSection />
     <AboutSection />
     <FAQSectionNew />

@@ -452,20 +452,40 @@ export interface V2Review {
   role: string;
   quote: string;
   stars: number;
+  /** Optional avatar/photo URL (e.g. Indian/South Asian portrait). */
+  image?: string;
 }
 
+/** Unsplash Indian/South Asian portrait URLs (w=200&q=80). Replace with your own if needed. */
+const REVIEW_AVATARS = {
+  indianMan1: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80",
+  indianWoman1: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80",
+  indianMan2: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+  indianWoman2: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
+  indianMan3: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
+  indianWoman3: "https://images.unsplash.com/photo-1544004123-ea1b81b4653d?w=200&q=80",
+} as const;
+
 export const V2_REVIEWS: V2Review[] = [
-  { initials: "RM", name: "Rajesh M.", role: "Wipro · Business Cards", quote: "We have counted on Super Printers for many years for all our printing needs. Exceptional quality and their team is always professional and reliable.", stars: 5 },
-  { initials: "PS", name: "Priya S.", role: "Business Cards · Chennai", quote: "I was genuinely surprised by the quality — received my business cards in just 2 days. Will be ordering again for sure.", stars: 5 },
-  { initials: "KR", name: "Karthik R.", role: "Brochures · Adyar", quote: "The quality exceeded all expectations. I got incredible value for money on my brochures. Highly recommended.", stars: 5 },
-  { initials: "MV", name: "Meena & Vijay", role: "Wedding Cards · Pallavaram", quote: "Beautiful wedding cards — exactly what we dreamed of. Our guests kept admiring them. Perfect Tamil and English layout.", stars: 5 },
-  { initials: "SP", name: "Suresh P.", role: "Bill Books · Tambaram", quote: "Fast, professional, and more affordable than any other printer I'd tried. Our GST bill books are excellent quality.", stars: 5 },
-  { initials: "AT", name: "Ananya T.", role: "Catalogues · T. Nagar", quote: "Ordered 5,000 brochures for our product launch. Delivered on time, perfect colour. Now our permanent print partner.", stars: 5 },
+  { initials: "RM", name: "Rajesh M.", role: "Wipro · Business Cards", quote: "We have counted on Super Printers for many years for all our printing needs. Exceptional quality and their team is always professional and reliable.", stars: 5, image: REVIEW_AVATARS.indianMan1 },
+  { initials: "PS", name: "Priya S.", role: "Business Cards · Chennai", quote: "I was genuinely surprised by the quality — received my business cards in just 2 days. Will be ordering again for sure.", stars: 5, image: REVIEW_AVATARS.indianWoman1 },
+  { initials: "KR", name: "Karthik R.", role: "Brochures · Adyar", quote: "The quality exceeded all expectations. I got incredible value for money on my brochures. Highly recommended.", stars: 5, image: REVIEW_AVATARS.indianMan2 },
+  { initials: "MV", name: "Meena & Vijay", role: "Wedding Cards · Pallavaram", quote: "Beautiful wedding cards — exactly what we dreamed of. Our guests kept admiring them. Perfect Tamil and English layout.", stars: 5, image: REVIEW_AVATARS.indianWoman2 },
+  { initials: "SP", name: "Suresh P.", role: "Bill Books · Tambaram", quote: "Fast, professional, and more affordable than any other printer I'd tried. Our GST bill books are excellent quality.", stars: 5, image: REVIEW_AVATARS.indianMan3 },
+  { initials: "AT", name: "Ananya T.", role: "Catalogues · T. Nagar", quote: "Ordered 5,000 brochures for our product launch. Delivered on time, perfect colour. Now our permanent print partner.", stars: 5, image: REVIEW_AVATARS.indianWoman3 },
 ];
 
-export const V2_FEATURED_QUOTE = {
+export interface V2FeaturedQuote {
+  quote: string;
+  author: string;
+  /** Optional avatar/photo URL for the featured quote author (Indian/Tamil Nadu style). */
+  image?: string;
+}
+
+export const V2_FEATURED_QUOTE: V2FeaturedQuote = {
   quote: "35 years in Pallavaram and their quality has never once let us down.",
   author: "Rajesh M., Wipro Chennai",
+  image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80",
 };
 
 export const V2_TIMELINE: { year: string; text: string }[] = [

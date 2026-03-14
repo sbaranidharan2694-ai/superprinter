@@ -22,6 +22,8 @@ const translations: Record<string, { en: string; ta: string }> = {
   "Portfolio": { en: "Portfolio", ta: "போர்ட்ஃபோலியோ" },
   "About": { en: "About", ta: "எங்களைப் பற்றி" },
   "Contact": { en: "Contact", ta: "தொடர்பு" },
+  "35 Years Trusted": { en: "35 Years Trusted", ta: "35 ஆண்டுகள் நம்பிக்கை" },
+  "Watch how we print": { en: "Watch how we print", ta: "நாங்கள் எப்படி அச்சிடுகிறோம்" },
 };
 
 interface LangContextValue {
