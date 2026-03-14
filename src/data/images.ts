@@ -2,12 +2,52 @@ const px = (id: number, w = 1200, h = 800) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}&h=${h}&dpr=1`;
 
 export const IMG = {
+  // Hero & Background
+  hero: px(3825586, 1920, 1080),
+  pressWide: px(4481326, 1920, 800),
+  
+  // Offset Press & Workshop
+  offsetPress: px(4481323),
+  inkRollers: px(4481258),
+  workshop: px(4481259),
+  printShop: px(7034467, 900, 700),
+  
+  // Visiting Cards
+  glossCard: px(6177618, 900, 700),
+  mattCard: px(5632386, 900, 700),
+  spotUvCard: px(6177608, 900, 700),
+  velvetCard: px(4792506, 900, 700),
+  goldFoilCard: px(6801647, 900, 700),
+  syntheticCard: px(6801648, 900, 700),
+  premiumCards: px(6802042, 900, 700),
+  stackedCards: px(5632388, 900, 700),
+  
+  // Wedding Invitations
+  weddingInvite1: px(2253870, 900, 700),
+  weddingInvite2: px(1616113, 900, 700),
+  weddingInvite3: px(1043902, 900, 700),
+  weddingCeremony: px(1024993),
+  
+  // Stationery
+  letterhead: px(5632397, 900, 700),
+  envelopes: px(4226896, 900, 700),
+  stickerSheets: px(4792285, 900, 700),
+  brochures: px(6177670, 900, 700),
+  
+  // Delivery
+  delivery: px(4391470),
+  parcel: px(4246120, 900, 700),
+  
+  // Quality & Process
+  qualityCheck: px(7034466, 900, 700),
+  inkPress: px(4481324, 900, 700),
+  digitalPrint: px(7034465, 900, 700),
+
+  // Additional from old images.ts
   P01: px(6621000),
-  P01_HERO: px(6621000, 1920, 1080),
   P02: px(6620992),
   P03: px(4140923),
   P04: px(19316517),
-  P04_WIDE: px(19316517, 1920, 800),
   P05: px(28806603),
   P06: px(18748938),
   P07: px(28845664),
@@ -39,3 +79,21 @@ export const IMG = {
   P33: px(276267),
   P34: px(30171219),
 } as const;
+
+// Service images mapped to service slugs
+export const SERVICE_IMAGES: Record<string, string> = {
+  "offset-printing": IMG.offsetPress,
+  "visiting-cards": IMG.glossCard,
+  "banner-printing": IMG.P05,
+  "brochure-printing": IMG.brochures,
+  "bill-books": IMG.P11,
+  "wedding-invitations": IMG.weddingInvite1,
+  "t-shirt-printing": IMG.P16,
+  "rubber-stamps": IMG.P19,
+  "stickers-labels": IMG.stickerSheets,
+  "letterheads": IMG.letterhead,
+  "catalogues": IMG.P12,
+  "pamphlet-printing": IMG.P17,
+  "screen-printing": IMG.P18,
+  "id-cards": IMG.P13,
+};
