@@ -9,7 +9,7 @@ const HERO_IMG_RIGHT = "https://images.unsplash.com/photo-1519741497674-61148186
 const WeddingCardsSection = () => (
   <>
     {/* Hero strip */}
-    <section className="relative grid grid-cols-1 lg:grid-cols-5 min-h-[500px] lg:min-h-[600px]">
+    <section id="wedding-cards" className="relative grid grid-cols-1 lg:grid-cols-5 min-h-[500px] lg:min-h-[600px]">
       <div className="relative lg:col-span-2 h-64 lg:h-auto">
         <img src={HERO_IMG_LEFT} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-wedding-deep/80" style={{ backgroundColor: "rgba(74,14,34,0.8)" }} />
@@ -43,7 +43,7 @@ const WeddingCardsSection = () => (
             viewport={{ once: true }}
             className="text-white/85 font-body text-base mb-6"
           >
-            Hindu, Christian, Muslim & modern designs. Tamil, English & bilingual. From ₹8 per card. Free proof in 24 hours.
+            Hindu, Christian, Muslim & modern designs. Tamil, English & bilingual. Free proof in 24 hours.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -102,10 +102,7 @@ const WeddingCardsSection = () => (
               </div>
               <div className="p-5">
                 <h4 className="font-display font-semibold text-lg text-ink-black mb-2">{card.name}</h4>
-                <p className="font-body text-sm text-gray-600 mb-3 line-clamp-2">{card.description}</p>
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-body font-semibold bg-gold/20 text-ink-black mb-3" style={{ backgroundColor: "var(--gold-bg)" }}>
-                  {card.price}
-                </span>
+                <p className="font-body text-sm text-gray-600 mb-4 line-clamp-2">{card.description}</p>
                 <a
                   href={BUSINESS.whatsappWedding}
                   target="_blank"
