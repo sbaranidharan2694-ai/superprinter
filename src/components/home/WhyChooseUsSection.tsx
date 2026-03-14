@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { V3_COIMBATORE_ROWS } from "@/data/v2";
 
 const WHY_FEATURES = [
   { num: "01", title: "35 Years of Craft", body: "Founded when quality meant hand-checking every sheet." },
   { num: "02", title: "48-Hour Delivery", body: "Business cards ready in 48 hours. Same-day available." },
-  { num: "03", title: "Chennai's Own", body: "Pallavaram-based for 35 years. No Coimbatore shipping delays." },
+  { num: "03", title: "Chennai's Own", body: "Pallavaram-based for 35 years. Local pickup and same-day options." },
 ];
 
 const WHY_IMAGE = "https://images.unsplash.com/photo-1504711434969-e33886198f5c?w=800&q=85";
@@ -72,37 +71,6 @@ const WhyChooseUsSection = () => (
           </motion.div>
         </div>
       </div>
-
-      {/* Coimbatore table */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        className="overflow-x-auto rounded-3xl border border-border-light shadow-card"
-        style={{ backgroundColor: "var(--pure-white)" }}
-      >
-        <table className="w-full min-w-[500px] text-left">
-          <thead>
-            <tr style={{ backgroundColor: "var(--gold)" }}>
-              <th className="px-6 py-4 font-display font-semibold text-ink-black">Factor</th>
-              <th className="px-6 py-4 font-display font-semibold text-ink-black">Super Printers</th>
-              <th className="px-6 py-4 font-display font-semibold text-ink-black">Coimbatore / outstation printers</th>
-            </tr>
-          </thead>
-          <tbody>
-            {V3_COIMBATORE_ROWS.map((row, i) => (
-              <tr key={row.factor} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
-                <td className="px-6 py-3 font-ui text-sm text-ink-black">{row.factor}</td>
-                <td className="px-6 py-3 font-ui text-sm text-gray-800">{row.super}</td>
-                <td className="px-6 py-3 font-ui text-sm text-gray-500">{row.coimbatore}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <p className="px-6 py-3 text-xs font-ui text-gray-500 border-t border-border-light">
-          Why Super Printers beats ordering from Coimbatore / outstation printers
-        </p>
-      </motion.div>
     </div>
   </section>
 );

@@ -5,12 +5,12 @@ import CredibilityStrip from "@/components/home/CredibilityStrip";
 import StatsBarSection from "@/components/home/StatsBarSection";
 import ProductsSection from "@/components/home/ProductsSection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
+import TrustedClients from "@/components/home/TrustedClients";
 import WeddingCardsSection from "@/components/home/WeddingCardsSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
 import PortfolioSection from "@/components/home/PortfolioSection";
 import FinishesSection from "@/components/home/FinishesSection";
-import TemplatesSection from "@/components/home/TemplatesSection";
 import QuoteFormSection from "@/components/home/QuoteFormSection";
 import AboutSection from "@/components/home/AboutSection";
 import FAQSectionNew from "@/components/home/FAQSectionNew";
@@ -29,12 +29,12 @@ const Index = () => (
     <StatsBarSection />
     <ProductsSection />
     <WhyChooseUsSection />
+    <TrustedClients />
     <WeddingCardsSection />
     <HowItWorksSection />
     <SocialProofSection />
     <PortfolioSection />
     <FinishesSection />
-    <TemplatesSection />
     <QuoteFormSection />
     <AboutSection />
     <FAQSectionNew />

@@ -6,7 +6,7 @@ import WhatsAppStatus from "@/components/WhatsAppStatus";
 import SuperPrintersLogo from "@/components/SuperPrintersLogo";
 import { useLang } from "@/contexts/LangContext";
 
-const SECTION_IDS = ["products", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "templates", "quote-form", "about", "faq", "contact"] as const;
+const SECTION_IDS = ["products", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "quote-form", "about", "faq", "contact"] as const;
 
 /** Nav items that scroll to section on home page */
 const SCROLL_NAV: { label: string; id: string }[] = [

@@ -1,19 +1,23 @@
 import { motion } from "framer-motion";
 import { BUSINESS } from "@/data/business";
 import { V2_REVIEWS, V2_FEATURED_QUOTE } from "@/data/v2";
-
-const CLIENT_LOGOES = ["Wipro", "TTK Healthcare", "Reckitt", "Local Business", "Local Business", "Local Business"];
+import { CLIENTS } from "@/data/clients";
 
 const SocialProofSection = () => (
   <section id="reviews" className="py-20 md:py-24" style={{ backgroundColor: "#FFFFFF" }}>
     <div className="max-w-7xl mx-auto px-6">
-      <div className="flex overflow-x-auto gap-8 pb-6 mb-10 -mx-6 px-6 scrollbar-hide">
-        {CLIENT_LOGOES.map((name) => (
+      <div className="flex overflow-x-auto gap-8 pb-6 mb-10 -mx-6 px-6 scrollbar-hide items-center">
+        {CLIENTS.map((c) => (
           <div
-            key={name}
-            className="shrink-0 w-28 h-14 flex items-center justify-center rounded-3xl border border-border-light bg-white font-display font-bold text-sm text-ink-black/70 shadow-sm"
+            key={c.name}
+            className="shrink-0 w-28 h-14 flex items-center justify-center rounded-3xl border border-border-light bg-white shadow-sm overflow-hidden p-2"
           >
-            {name}
+            <img
+              src={c.logo}
+              alt={`${c.name} logo`}
+              className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all"
+              loading="lazy"
+            />
           </div>
         ))}
       </div>

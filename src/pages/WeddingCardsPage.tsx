@@ -98,26 +98,6 @@ const WeddingCardsPage = () => (
           </ul>
         </section>
 
-        <section className="mb-12">
-          <h2 className="font-display font-semibold text-xl text-ink-black mb-4">File Specs</h2>
-          <p className="font-ui text-sm text-gray-700 mb-2">Required:</p>
-          <ul className="list-disc list-inside font-ui text-sm text-gray-700 space-y-1 mb-4">
-            <li>Size: 148×105mm (standard) or custom with 3mm bleed</li>
-            <li>Resolution: 300 DPI minimum</li>
-            <li>Colour mode: CMYK</li>
-            <li>Format: PDF preferred, or AI, PSD</li>
-          </ul>
-          <a
-            href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi! I'd like the wedding card print template. Please send.")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-gold font-ui font-medium hover:underline"
-            style={{ color: "var(--gold)" }}
-          >
-            Download Template via WhatsApp →
-          </a>
-        </section>
-
         <section className="rounded-3xl border border-border-light bg-white p-6 shadow-card">
           <h2 className="font-display font-semibold text-lg text-ink-black mb-2">Need a designer?</h2>
           <p className="font-ui text-sm text-gray-700 mb-4">

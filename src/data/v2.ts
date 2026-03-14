@@ -280,7 +280,7 @@ export const V2_WHY_CHOOSE: WhyChooseCard[] = [
   {
     id: "technical",
     title: "Spot UV. Foil. Die-cut.",
-    body: "We match the technical specs of any offset printer in Tamil Nadu — at Pallavaram prices, not Coimbatore shipping costs.",
+    body: "We match the technical specs of any offset printer in Tamil Nadu — at Pallavaram prices, with local pickup and fast turnaround.",
     icon: "✨",
     highlight: "white",
   },
@@ -309,16 +309,6 @@ export const V2_COMPARISON_ROWS: { feature: string; super: string; others: strin
   { feature: "Same-Day Available", super: "✅ Yes", others: "❌ Rarely" },
 ];
 
-/** V3: Why Super Printers beats ordering from Coimbatore / outstation */
-export const V3_COIMBATORE_ROWS: { factor: string; super: string; coimbatore: string }[] = [
-  { factor: "Location", super: "Pallavaram, Chennai ✓", coimbatore: "300km away ✗" },
-  { factor: "Pickup", super: "Same-day available ✓", coimbatore: "Courier only ✗" },
-  { factor: "Communication", super: "WhatsApp direct ✓", coimbatore: "Phone/email only ✗" },
-  { factor: "Delivery speed", super: "48 hours ✓", coimbatore: "3-5 days + shipping ✗" },
-  { factor: "Local knowledge", super: "35 years in Chennai ✓", coimbatore: "Outside market ✗" },
-  { factor: "Shipping cost", super: "Free pickup ✓", coimbatore: "₹150-500 courier ✗" },
-];
-
 /** V3: Awards / credibility strip badges */
 export const V3_CREDIBILITY_BADGES = [
   "🏆 Est. 1990",
@@ -328,18 +318,6 @@ export const V3_CREDIBILITY_BADGES = [
   "📋 14+ Years Digital Printing",
   "🚀 48-Hour Delivery Guarantee",
   "📱 WhatsApp Orders Welcome",
-];
-
-/** V3: Free print templates (download via WhatsApp) */
-export const V3_TEMPLATES: { id: string; name: string; specs: string; formats: string[] }[] = [
-  { id: "visiting", name: "Standard Visiting Card", specs: "89×52mm | 300 DPI | 3mm bleed", formats: ["PDF", "AI", "PSD"] },
-  { id: "letterhead", name: "Letterhead A4", specs: "210×297mm | 300 DPI", formats: ["PDF", "AI", "PSD"] },
-  { id: "brochure", name: "Trifold Brochure", specs: "99×210mm per panel | 300 DPI", formats: ["PDF", "AI", "PSD"] },
-  { id: "envelope", name: "DL Envelope", specs: "220×110mm | 300 DPI", formats: ["PDF", "AI"] },
-  { id: "flyer", name: "A4 Flyer", specs: "210×297mm | 300 DPI", formats: ["PDF", "AI", "PSD"] },
-  { id: "wedding", name: "Wedding Card (standard)", specs: "148×105mm | 300 DPI", formats: ["PDF", "AI"] },
-  { id: "billbook", name: "Bill Book", specs: "127×203mm (5×8 inch) | 300 DPI", formats: ["PDF", "AI"] },
-  { id: "poster", name: "A3 Poster", specs: "420×297mm | 300 DPI", formats: ["PDF", "AI"] },
 ];
 
 export interface WeddingCollectionCard {
