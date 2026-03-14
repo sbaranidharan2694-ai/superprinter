@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
-  <rect width="200" height="80" fill="#f3f4f6" rx="8"/>
-  <text x="100" y="48" font-family="system-ui,sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle">Company logo</text>
+  <rect width="200" height="80" fill="#fff" rx="6" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="100" y="35" font-family="Arial, system-ui, sans-serif" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">CONTEMPORARY</text>
+  <text x="100" y="58" font-family="Arial, system-ui, sans-serif" font-size="14" font-weight="600" fill="#333" text-anchor="middle">LEATHERS</text>
 </svg>

@@ -5,7 +5,7 @@ export const BUSINESS = {
   phone: "+91 98401 99878",
   phoneRaw: "919840199878",
   phoneTel: "tel:+919840199878",
-  email: "superprinters@gmail.com",
+  email: "superprntrs@yahoo.com",
   whatsapp: "https://wa.me/919840199878",
   whatsappQuote: "https://wa.me/919840199878?text=Hi%2C%20I%20need%20a%20printing%20quote",
   whatsappWedding: "https://wa.me/919840199878?text=Hi%2C%20I%27d%20like%20to%20discuss%20wedding%20cards",
