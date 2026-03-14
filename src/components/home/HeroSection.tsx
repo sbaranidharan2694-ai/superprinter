@@ -11,11 +11,12 @@ const HERO_PRODUCTS = [
   { name: "Bill Books", from: "₹250", image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=85", span: 1 },
 ];
 
+/** Hero: no Super Printers logo here — logo appears only in header and footer to avoid duplicate branding. */
 const HeroSection = () => {
   const { t } = useLang();
   return (
     <section className="relative min-h-[100svh] min-h-[700px] flex flex-col lg:flex-row">
-      {/* Left panel — 55% */}
+      {/* Left panel — 55% (no logo; headline only) */}
       <div
         className="relative flex-1 min-h-[60vh] lg:min-h-[100svh] flex items-center px-6 sm:px-12 lg:px-20 py-20 lg:py-24 overflow-hidden"
         style={{

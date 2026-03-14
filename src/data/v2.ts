@@ -3,7 +3,7 @@
 export const MARQUEE_ITEMS = [
   "📞 +91 98401 99878",
   "⚡ 48-Hour Business Card Delivery",
-  "🏆 35 Years of Quality Printing",
+  "🏆 Quality Printing Since 1990",
   "📍 Pallavaram, Chennai",
   "💬 WhatsApp Orders Welcome",
   "🎊 Wedding Cards from ₹8 per card",
