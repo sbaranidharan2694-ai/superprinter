@@ -113,7 +113,6 @@ const UnifiedHeader = () => {
                                     className="text-sm text-gray-700 hover:text-gold transition-colors block w-full text-left"
                                   >
                                     {item.name}
-                                    {item.fromPrice && <span className="text-gray-500 ml-1">— {item.fromPrice}</span>}
                                   </button>
                                 </li>
                               ))}

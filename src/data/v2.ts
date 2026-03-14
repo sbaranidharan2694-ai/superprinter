@@ -160,33 +160,33 @@ export const V2_PRODUCTS: V2Product[] = [
 
 export interface MegaMenuItem {
   title: string;
-  items: { name: string; fromPrice?: string; scrollTo: string }[];
+  items: { name: string; scrollTo: string }[];
 }
 
 export const V2_MEGA_MENU: MegaMenuItem[] = [
   {
     title: "Visiting Cards",
     items: [
-      { name: "Gloss / Matt Cards", fromPrice: "From ₹299", scrollTo: "products" },
-      { name: "Spot UV Cards", fromPrice: "From ₹599", scrollTo: "products" },
-      { name: "Foil Stamping", fromPrice: "From ₹799", scrollTo: "products" },
-      { name: "Die-cut Shaped", fromPrice: "From ₹699", scrollTo: "products" },
+      { name: "Gloss / Matt Cards", scrollTo: "products" },
+      { name: "Spot UV Cards", scrollTo: "products" },
+      { name: "Foil Stamping", scrollTo: "products" },
+      { name: "Die-cut Shaped", scrollTo: "products" },
     ],
   },
   {
     title: "Print & Stationery",
     items: [
-      { name: "Letterheads", fromPrice: "From ₹299", scrollTo: "products" },
-      { name: "Brochures", fromPrice: "From ₹499", scrollTo: "products" },
-      { name: "Bill Books", fromPrice: "From ₹250", scrollTo: "products" },
+      { name: "Letterheads", scrollTo: "products" },
+      { name: "Brochures", scrollTo: "products" },
+      { name: "Bill Books", scrollTo: "products" },
       { name: "Catalogues", scrollTo: "products" },
-      { name: "Envelopes", fromPrice: "From ₹199", scrollTo: "products" },
+      { name: "Envelopes", scrollTo: "products" },
     ],
   },
   {
     title: "Packaging & Promo",
     items: [
-      { name: "Posters & Flyers", fromPrice: "From ₹199", scrollTo: "products" },
+      { name: "Posters & Flyers", scrollTo: "products" },
       { name: "Stickers", scrollTo: "products" },
       { name: "Calendars", scrollTo: "products" },
     ],
@@ -194,7 +194,7 @@ export const V2_MEGA_MENU: MegaMenuItem[] = [
   {
     title: "Special",
     items: [
-      { name: "Wedding Cards", fromPrice: "From ₹8/card", scrollTo: "wedding-cards" },
+      { name: "Wedding Cards", scrollTo: "wedding-cards" },
       { name: "Screen Printing", scrollTo: "products" },
     ],
   },
