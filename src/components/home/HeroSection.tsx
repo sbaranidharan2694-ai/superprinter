@@ -1,100 +1,127 @@
 import { motion } from "framer-motion";
-import { IMG } from "@/data/images";
+import { scrollToSection } from "@/utils/scroll";
 
-const scrollToSection = (id: string) => {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-};
+const HERO_IMAGE = "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?w=900&q=85";
 
 const HeroSection = () => (
-  <section className="relative min-h-[100vh] min-h-[100dvh] min-h-[700px] flex items-center overflow-hidden">
-    <img
-      src={IMG.heroUnsplash}
-      alt=""
-      className="absolute inset-0 w-full h-full object-cover"
-    />
+  <section className="relative min-h-[100svh] min-h-[700px] flex flex-col lg:flex-row">
+    {/* Left panel — 55% */}
     <div
-      className="absolute inset-0"
-      style={{ backgroundColor: "rgba(15, 27, 61, 0.72)" }}
-    />
-    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMC4wMyIvPjwvc3ZnPg==')] opacity-30 pointer-events-none" />
-    <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
-      <div className="max-w-[680px]">
+      className="relative flex-1 min-h-[60vh] lg:min-h-[100svh] flex items-center px-6 sm:px-12 lg:px-20 py-20 lg:py-24"
+      style={{ backgroundColor: "var(--ink-black)", minHeight: "min(100svh, 700px)" }}
+    >
+      <div className="max-w-xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="inline-flex items-center px-4 py-1.5 rounded-full border border-gold text-gold text-[13px] font-body font-medium mb-6"
-          style={{ borderColor: "var(--color-gold)", color: "var(--color-gold)" }}
+          transition={{ duration: 0.4, delay: 0 }}
+          className="inline-flex items-center px-4 py-2 rounded-full border text-[13px] font-body font-medium mb-6"
+          style={{ borderColor: "var(--gold)", color: "var(--gold)" }}
         >
-          Pallavaram&apos;s #1 Printing Press Since 1990
+          Chennai&apos;s Premier Printing Studio Since 1990
         </motion.div>
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="font-display font-bold text-white text-4xl sm:text-5xl md:text-[56px] leading-[1.1] mb-4"
+          transition={{ duration: 0.45, delay: 0.1 }}
+          className="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.12] mb-3"
         >
-          35 Years of
+          <span className="italic font-display font-bold" style={{ color: "var(--gold)" }}>Where Every</span>
           <br />
           <span className="relative inline-block">
-            Quality Printing
-            <span className="absolute bottom-1 left-0 right-0 h-1 bg-gold rounded-full" style={{ backgroundColor: "var(--color-gold)" }} />
+            Print Tells
+            <span className="absolute bottom-1 left-0 right-0 h-1 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-light)]" />
           </span>
           <br />
-          in Chennai.
+          <span className="text-white">a Story.</span>
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-white/80 font-body text-lg max-w-[520px] mb-8"
+          transition={{ duration: 0.4, delay: 0.4 }}
+          className="text-white/70 font-body text-lg max-w-md mb-8"
         >
-          From business cards to wedding invitations — printed with care, delivered in 48 hours. Trusted by Wipro, TTK & 10,000+ businesses.
+          Business cards to wedding invitations — crafted with care, delivered in 48 hours. Trusted by Wipro, TTK & 10,000+ businesses in Chennai.
         </motion.p>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="flex flex-wrap gap-4 mb-12"
+          transition={{ duration: 0.4, delay: 0.6 }}
+          className="flex flex-wrap gap-4 mb-10"
         >
           <button
             onClick={() => scrollToSection("quote-form")}
-            className="bg-gold text-white font-body font-medium text-base px-8 py-4 rounded-full shadow-gold hover:bg-gold-light hover:scale-[1.02] transition-all duration-200 flex items-center gap-2"
-            style={{ backgroundColor: "var(--color-gold)" }}
+            className="bg-gold text-ink-black font-body font-semibold text-base px-8 py-3.5 rounded-full shadow-gold hover:scale-[1.02] transition-all duration-200"
+            style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
           >
-            Get Instant Quote
-            <span aria-hidden>→</span>
+            Get Instant Quote →
           </button>
           <button
-            onClick={() => scrollToSection("portfolio")}
-            className="border-2 border-white text-white font-body font-medium text-base px-8 py-4 rounded-full hover:bg-white hover:text-navy transition-all duration-200"
+            onClick={() => scrollToSection("products")}
+            className="border-2 border-white/60 text-white font-body font-medium text-base px-8 py-3.5 rounded-full hover:bg-white hover:text-ink-black transition-all duration-200"
           >
-            View Our Work
+            View Our Products →
           </button>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="flex flex-wrap gap-6 text-white/60 text-sm font-body"
+          transition={{ delay: 0.8 }}
+          className="flex items-center gap-4 text-white/80 text-sm font-body"
         >
-          <span>✓ 35+ Years Experience</span>
-          <span>✓ 48-Hour Delivery</span>
-          <span>✓ Trusted by Wipro & TTK</span>
+          <span>35+ Years</span>
+          <span className="w-px h-5 rounded-full bg-gold" style={{ backgroundColor: "var(--gold)" }} />
+          <span>10,000+ Clients</span>
+          <span className="w-px h-5 rounded-full bg-gold" style={{ backgroundColor: "var(--gold)" }} />
+          <span>48Hr Delivery</span>
         </motion.div>
       </div>
     </div>
+
+    {/* Right panel — 45%: image + floating cards */}
+    <div className="relative flex-1 min-h-[40vh] lg:min-h-[100svh] hidden sm:block">
+      <img
+        src={HERO_IMAGE}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-ink-black/60 via-transparent to-ink-black/40"
+        style={{ backgroundColor: "rgba(13,13,13,0.5)" }}
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="absolute right-[10%] top-[25%] w-[200px] rounded-xl p-4 shadow-lg backdrop-blur-sm"
+        style={{ backgroundColor: "rgba(255,255,255,0.95)", color: "var(--ink-black)" }}
+      >
+        <p className="font-display font-semibold text-lg">Business Cards</p>
+        <p className="text-sm font-body text-gray-600 mt-0.5">From ₹149 / 100 pcs</p>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1.2 }}
+        className="absolute right-[15%] bottom-[30%] w-[200px] rounded-xl p-4 shadow-lg backdrop-blur-sm"
+        style={{ backgroundColor: "rgba(255,255,255,0.95)", color: "var(--ink-black)" }}
+      >
+        <p className="font-display font-semibold text-lg">Wedding Cards</p>
+        <p className="text-sm font-body text-gray-600 mt-0.5">From ₹8 per card</p>
+      </motion.div>
+    </div>
+
+    {/* Mobile: scroll hint */}
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.2 }}
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 lg:hidden"
     >
       <button
-        onClick={() => scrollToSection("services")}
+        onClick={() => scrollToSection("products")}
         className="flex flex-col items-center text-white/70 hover:text-white transition-colors"
-        aria-label="Scroll to services"
+        aria-label="Scroll to products"
       >
         <motion.span
           animate={{ y: [0, 6, 0] }}

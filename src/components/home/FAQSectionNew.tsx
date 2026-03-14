@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LANDING_FAQ } from "@/data/landing";
+import { BUSINESS } from "@/data/business";
+import { V2_FAQ } from "@/data/v2";
 
 const FAQSectionNew = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-white">
+    <section id="faq" className="py-20 md:py-24" style={{ backgroundColor: "var(--ink-black)" }}>
       <div className="max-w-3xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,31 +15,26 @@ const FAQSectionNew = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="font-display font-semibold text-3xl md:text-[40px] text-navy mb-2">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-gray-text font-body text-base">
-            Everything you need to know before placing your order
+          <p className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
+            COMMON QUESTIONS
           </p>
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-2">
+            Everything You Need to Know
+          </h2>
         </motion.div>
 
-        <div className="space-y-0 border-t border-gray-200">
-          {LANDING_FAQ.map((faq, i) => (
-            <div
-              key={i}
-              className="border-b border-gray-200"
-            >
+        <div className="space-y-0 border-t border-white/10">
+          {V2_FAQ.map((faq, i) => (
+            <div key={i} className="border-b border-white/10">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full text-left px-0 py-5 flex items-center justify-between gap-4 font-body font-medium text-navy text-[17px] hover:text-gold transition-colors"
+                className="w-full text-left py-5 flex items-center justify-between gap-4 font-body font-medium text-white text-[17px] hover:text-gold transition-colors"
                 aria-expanded={openIndex === i}
               >
                 {faq.q}
                 <span
-                  className={`shrink-0 text-gold transition-transform duration-200 ${
-                    openIndex === i ? "rotate-180" : ""
-                  }`}
-                  style={{ color: "var(--color-gold)" }}
+                  className={`shrink-0 transition-transform duration-200 ${openIndex === i ? "rotate-180" : ""}`}
+                  style={{ color: "var(--gold)" }}
                 >
                   ▼
                 </span>
@@ -52,7 +48,7 @@ const FAQSectionNew = () => {
                     transition={{ duration: 0.25, ease: "easeOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="font-body text-gray-text text-[15px] leading-relaxed pb-5 pr-8">
+                    <p className="font-body text-white/60 text-[15px] leading-relaxed pb-5 pr-8">
                       {faq.a}
                     </p>
                   </motion.div>
@@ -61,6 +57,24 @@ const FAQSectionNew = () => {
             </div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <p className="text-white/80 font-body text-sm mb-4">Still have a question?</p>
+          <a
+            href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi, I have a question about your printing services.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-full font-body font-semibold text-ink-black hover:shadow-gold transition-all"
+            style={{ backgroundColor: "var(--gold)" }}
+          >
+            Ask us on WhatsApp
+          </a>
+        </motion.div>
       </div>
     </section>
   );

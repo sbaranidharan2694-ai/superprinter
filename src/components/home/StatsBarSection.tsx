@@ -2,16 +2,16 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const STATS = [
-  { value: 35, suffix: "+", label: "Years", sub: "Est. 1990" },
-  { value: 10000, suffix: "+", label: "Happy", sub: "Clients" },
-  { value: 48, suffix: " Hours", label: "Delivery", sub: "Guaranteed" },
-  { value: 50, suffix: "+", label: "Products", sub: "& Services" },
+  { value: 35, suffix: "+", label: "Years", sub: "Est. 1990 in Pallavaram" },
+  { value: 10000, suffix: "+", label: "Happy Clients", sub: "Across Chennai" },
+  { value: 48, suffix: " Hrs", label: "Delivery", sub: "Business cards" },
+  { value: 50, suffix: "+", label: "Products", sub: "& finishes" },
 ];
 
 const CountUp = ({ target, suffix, duration = 1.5 }: { target: number; suffix: string; duration?: number }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const inView = useInView(ref, { once: true, amount: 0.2 });
   const animated = useRef(false);
 
   useEffect(() => {
@@ -37,27 +37,28 @@ const CountUp = ({ target, suffix, duration = 1.5 }: { target: number; suffix: s
 
 const StatsBarSection = () => (
   <section
-    className="py-6 w-full"
-    style={{ backgroundColor: "var(--color-gold)" }}
+    id="stats"
+    className="py-16 w-full"
+    style={{ backgroundColor: "var(--paper-white)" }}
   >
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
         {STATS.map((stat, i) => (
           <motion.div
             key={stat.label}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: i * 0.05 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.45, delay: i * 0.07 }}
             className={`flex flex-col items-center text-center py-2 ${
-              i < STATS.length - 1 ? "lg:border-r lg:border-white/30" : ""
+              i < STATS.length - 1 ? "lg:border-r border-gray-300" : ""
             }`}
           >
-            <div className="font-display font-bold text-3xl md:text-[40px] text-white">
+            <div className="font-display font-extrabold text-5xl lg:text-[56px] leading-none text-ink-black">
               <CountUp target={stat.value} suffix={stat.suffix} />
             </div>
-            <div className="text-white/90 font-body font-medium text-sm mt-0.5">{stat.label}</div>
-            <div className="text-white/80 font-body text-xs">{stat.sub}</div>
+            <div className="font-body font-semibold text-ink-black text-sm mt-1">{stat.label}</div>
+            <div className="font-body text-gray-text text-xs mt-0.5">{stat.sub}</div>
           </motion.div>
         ))}
       </div>

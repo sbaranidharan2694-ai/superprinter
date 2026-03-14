@@ -1,34 +1,28 @@
 import { useState, useEffect } from "react";
+import { scrollToSection } from "@/utils/scroll";
+import { V2_MEGA_MENU } from "@/data/v2";
 
-const SECTION_IDS = ["services", "wedding-cards", "process", "reviews", "portfolio", "quote-form", "about", "faq", "contact"] as const;
+const SECTION_IDS = ["products", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "quote-form", "about", "faq", "contact"] as const;
 
 const NAV_LINKS: { label: string; id: string }[] = [
   { label: "Home", id: "" },
-  { label: "Services", id: "services" },
+  { label: "Products", id: "products" },
   { label: "Wedding Cards", id: "wedding-cards" },
   { label: "Portfolio", id: "portfolio" },
   { label: "About", id: "about" },
   { label: "Contact", id: "contact" },
 ];
 
-const scrollToSection = (id: string) => {
-  if (id === "") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-};
-
 const UnifiedHeader = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 80);
-      const scrollY = window.scrollY + 120;
+      setScrolled(window.scrollY > 100);
+      const scrollY = window.scrollY + 140;
       for (let i = SECTION_IDS.length - 1; i >= 0; i--) {
         const el = document.getElementById(SECTION_IDS[i]);
         if (el && el.offsetTop <= scrollY) {
@@ -56,53 +50,107 @@ const UnifiedHeader = () => {
     }`;
 
   return (
-    <nav
-      className={`sticky top-10 z-[100] transition-all duration-300 ${
+    <header
+      className={`fixed top-11 left-0 right-0 z-[101] transition-all duration-300 ${
         isTransparent
           ? "bg-transparent text-white"
-          : "bg-white text-navy shadow-[var(--shadow-card)]"
+          : "bg-white text-ink-black shadow-md backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <button
           onClick={() => scrollToSection("")}
-          className="flex flex-col items-start gap-0.5 text-left relative"
+          className="flex items-center gap-3 text-left"
           aria-label="Super Printers Home"
         >
-          <span className="font-display font-bold text-xl text-inherit">Super Printers</span>
           <span
-            className={`hidden sm:block text-xs font-body ${isTransparent ? "text-white/80" : "text-gray-text"}`}
+            className="w-10 h-10 rounded-full flex items-center justify-center font-display font-bold text-lg shrink-0"
+            style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
           >
-            Est. 1990 · Pallavaram
+            SP
           </span>
-          <span className="absolute -bottom-0.5 left-0 w-10 h-0.5 rounded-full bg-gold" style={{ backgroundColor: "var(--color-gold)" }} />
+          <div className="flex flex-col">
+            <span className="font-display font-bold text-xl text-inherit leading-tight">Super Printers</span>
+            <span className={`text-[11px] font-body ${isTransparent ? "text-gold" : "text-gold-muted"}`}>
+              Est. 1990 · Pallavaram
+            </span>
+          </div>
         </button>
 
-        <div className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
-            <button
-              key={link.id || "home"}
-              onClick={() => {
-                scrollToSection(link.id);
-                setMobileMenu(false);
-              }}
-              className={linkClass(link.id)}
-            >
-              {link.label}
-            </button>
+            <div key={link.id || "home"} className="relative">
+              {link.id === "products" ? (
+                <>
+                  <button
+                    onMouseEnter={() => setProductsOpen(true)}
+                    onMouseLeave={() => setProductsOpen(false)}
+                    onClick={() => setProductsOpen(!productsOpen)}
+                    className={`${linkClass("products")} flex items-center gap-1`}
+                  >
+                    {link.label}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                  </button>
+                  {productsOpen && (
+                    <div
+                      className="absolute top-full left-0 pt-2 w-full min-w-[640px]"
+                      onMouseEnter={() => setProductsOpen(true)}
+                      onMouseLeave={() => setProductsOpen(false)}
+                    >
+                      <div className="bg-white rounded-xl shadow-lg border border-gray-200 py-4 px-6 grid grid-cols-4 gap-6 text-left">
+                        {V2_MEGA_MENU.map((col) => (
+                          <div key={col.title}>
+                            <h4 className="font-display font-semibold text-ink-black text-sm mb-3">{col.title}</h4>
+                            <ul className="space-y-2">
+                              {col.items.map((item) => (
+                                <li key={item.name}>
+                                  <button
+                                    onClick={() => {
+                                      scrollToSection(item.scrollTo);
+                                      setProductsOpen(false);
+                                    }}
+                                    className="text-sm text-gray-700 hover:text-gold transition-colors block w-full text-left"
+                                  >
+                                    {item.name}
+                                    {item.fromPrice && <span className="text-gray-500 ml-1">— {item.fromPrice}</span>}
+                                  </button>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <button
+                  onClick={() => {
+                    scrollToSection(link.id);
+                    setMobileMenu(false);
+                  }}
+                  className={linkClass(link.id)}
+                >
+                  {link.label}
+                </button>
+              )}
+            </div>
           ))}
-        </div>
+        </nav>
 
         <div className="flex items-center gap-3">
+          <a href="tel:+919840199878" className="hidden md:inline text-sm font-medium hover:opacity-90">
+            {isTransparent ? "📞 Call" : "📞 +91 98401 99878"}
+          </a>
           <button
             onClick={() => {
               scrollToSection("quote-form");
               setMobileMenu(false);
             }}
-            className="bg-gold text-white font-body font-medium text-sm px-5 py-2 rounded-full hover:bg-gold-light hover:shadow-gold transition-all duration-200 hover:scale-[1.02]"
-            style={{ backgroundColor: "var(--color-gold)" }}
+            className="bg-gold text-ink-black font-body font-semibold text-sm px-5 py-2.5 rounded-full hover:shadow-gold transition-all duration-200 hover:scale-[1.02]"
+            style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
           >
-            Get a Quote →
+            WhatsApp Order
           </button>
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
@@ -116,33 +164,59 @@ const UnifiedHeader = () => {
         </div>
       </div>
 
+      {/* Mobile full-screen overlay */}
       {mobileMenu && (
-        <div className="lg:hidden fixed inset-0 top-[104px] bg-navy/98 backdrop-blur-sm z-50 flex flex-col items-center justify-center gap-4 py-8">
+        <div
+          className="lg:hidden fixed inset-0 top-[108px] bottom-0 bg-ink-black z-50 flex flex-col items-center justify-start pt-12 gap-0 overflow-y-auto"
+          style={{ backgroundColor: "var(--ink-black)" }}
+        >
           {NAV_LINKS.map((link) => (
             <button
               key={link.id || "home"}
               onClick={() => {
-                scrollToSection(link.id);
+                scrollToSection(link.id || "");
                 setMobileMenu(false);
               }}
-              className="text-white font-body text-lg font-medium py-3 px-6 hover:text-gold transition-colors"
+              className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
             >
               {link.label}
             </button>
           ))}
           <button
             onClick={() => {
-              scrollToSection("quote-form");
+              scrollToSection("why-us");
               setMobileMenu(false);
             }}
-            className="mt-4 bg-gold text-white font-medium px-8 py-3 rounded-full"
-            style={{ backgroundColor: "var(--color-gold)" }}
+            className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
           >
-            Get a Quote →
+            Why Choose Us
           </button>
+          <button
+            onClick={() => {
+              scrollToSection("finishes");
+              setMobileMenu(false);
+            }}
+            className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
+          >
+            Paper & Finishes
+          </button>
+          <div className="mt-8 flex flex-col gap-3 px-6 w-full">
+            <a
+              href="https://wa.me/919840199878?text=Hi%20Super%20Printers!%20I%20need%20a%20printing%20quote."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 rounded-full font-body font-semibold text-center text-ink-black bg-gold"
+              style={{ backgroundColor: "var(--gold)" }}
+            >
+              WhatsApp Order
+            </a>
+            <a href="tel:+919840199878" className="w-full py-4 rounded-full font-body font-semibold text-center text-white border-2 border-gold">
+              Call Now
+            </a>
+          </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 

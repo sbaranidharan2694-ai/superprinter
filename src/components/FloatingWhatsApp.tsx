@@ -5,14 +5,24 @@ const WHATSAPP_URL = `${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super P
 
 const FloatingWhatsApp = () => {
   const [showTooltip, setShowTooltip] = useState(false);
+  let tooltipTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  const handleMouseEnter = () => {
+    tooltipTimeout = setTimeout(() => setShowTooltip(true), 200);
+  };
+
+  const handleMouseLeave = () => {
+    if (tooltipTimeout) clearTimeout(tooltipTimeout);
+    setShowTooltip(false);
+  };
 
   return (
     <>
-      {/* Floating Call - mobile only */}
+      {/* Floating Call - desktop only; on mobile the bottom bar has Call + WhatsApp */}
       <a
         href={BUSINESS.phoneTel}
-        className="fixed bottom-24 left-6 z-[9999] w-14 h-14 rounded-full bg-navy flex items-center justify-center text-white shadow-lg md:hidden"
-        style={{ backgroundColor: "var(--color-navy)" }}
+        className="fixed bottom-7 left-7 z-[9998] w-14 h-14 rounded-full bg-navy-deep flex items-center justify-center text-white shadow-lg hidden md:flex"
+        style={{ backgroundColor: "var(--navy-deep)" }}
         aria-label="Call now"
       >
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -20,15 +30,15 @@ const FloatingWhatsApp = () => {
         </svg>
       </a>
 
-      {/* Floating WhatsApp */}
+      {/* Floating WhatsApp - 64px, bottom-right 28px; hidden on mobile (bottom bar has WhatsApp) */}
       <div
-        className="fixed bottom-6 right-6 z-[9999] flex items-center"
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
+        className="fixed bottom-7 right-7 z-[9999] hidden md:flex items-center"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         {showTooltip && (
           <div
-            className="absolute right-full mr-3 px-3.5 py-2 rounded-lg text-white text-sm font-body whitespace-nowrap shadow-lg"
+            className="absolute right-full mr-3 px-3.5 py-2 rounded-lg text-white text-sm font-body whitespace-nowrap shadow-lg transition-opacity duration-150"
             style={{ backgroundColor: "#25D366" }}
           >
             Order via WhatsApp
@@ -38,7 +48,7 @@ const FloatingWhatsApp = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative w-[60px] h-[60px] rounded-full flex items-center justify-center bg-[#25D366] text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-105 transition-transform wa-pulse"
+          className="relative w-16 h-16 rounded-full flex items-center justify-center bg-[#25D366] text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-105 transition-transform wa-pulse"
           aria-label="Order via WhatsApp"
         >
           <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-70 animate-pulse-ring" aria-hidden="true" />

@@ -1,80 +1,79 @@
 import { motion } from "framer-motion";
 import { BUSINESS } from "@/data/business";
-import { LANDING_TESTIMONIALS } from "@/data/landing";
+import { V2_REVIEWS, V2_FEATURED_QUOTE } from "@/data/v2";
 
-const CLIENT_LOGOES = [
-  { name: "Wipro", short: "Wipro" },
-  { name: "TTK Healthcare", short: "TTK" },
-  { name: "Reckitt Benckiser", short: "RB" },
-  { name: "Local Business", short: "LB1" },
-  { name: "Local Business", short: "LB2" },
-  { name: "Local Business", short: "LB3" },
-];
+const CLIENT_LOGOES = ["Wipro", "TTK Healthcare", "Reckitt", "Local Business", "Local Business", "Local Business"];
 
 const SocialProofSection = () => (
-  <section id="reviews" className="py-16 md:py-24 bg-cream">
+  <section id="reviews" className="py-20 md:py-24" style={{ backgroundColor: "var(--paper-white)" }}>
     <div className="max-w-7xl mx-auto px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-10"
-      >
-        <p className="text-gold text-xs font-body font-medium uppercase tracking-widest mb-2" style={{ color: "var(--color-gold)" }}>
-          TRUSTED BY INDIA&apos;S BEST BRANDS
-        </p>
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-          {CLIENT_LOGOES.map((client) => (
-            <div
-              key={client.short}
-              className="w-24 h-12 flex items-center justify-center bg-white rounded-lg border border-gray-200 text-navy font-display font-bold text-sm"
-            >
-              {client.short}
-            </div>
-          ))}
-        </div>
-      </motion.div>
+      <div className="flex overflow-x-auto gap-8 pb-6 mb-10 -mx-6 px-6 scrollbar-hide">
+        {CLIENT_LOGOES.map((name) => (
+          <div
+            key={name}
+            className="shrink-0 w-28 h-14 flex items-center justify-center rounded-lg border border-border-light bg-white font-display font-bold text-sm text-ink-black/70"
+          >
+            {name}
+          </div>
+        ))}
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-10"
+        className="text-center mb-12"
       >
-        <p className="text-gold text-xs font-body font-medium uppercase tracking-widest mb-2" style={{ color: "var(--color-gold)" }}>
-          WHAT OUR CUSTOMERS SAY
+        <p className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
+          WHAT CLIENTS SAY
         </p>
-        <h2 className="font-display font-semibold text-3xl md:text-[40px] text-navy mb-2">
-          10,000+ Happy Clients
+        <h2 className="font-display font-bold text-ink-black text-3xl md:text-4xl">
+          10,000+ Satisfied Customers
         </h2>
       </motion.div>
 
+      {/* Featured quote */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="rounded-xl p-8 md:p-10 mb-10 text-center"
+        style={{ backgroundColor: "var(--navy-deep)" }}
+      >
+        <span className="text-6xl text-gold/40 font-serif leading-none" style={{ color: "var(--gold)" }}>&ldquo;</span>
+        <p className="font-display text-xl md:text-2xl text-white font-medium max-w-3xl mx-auto -mt-4">
+          {V2_FEATURED_QUOTE.quote}
+        </p>
+        <p className="font-body text-white/70 text-sm mt-3">{V2_FEATURED_QUOTE.author}</p>
+      </motion.div>
+
+      {/* Masonry-style grid of review cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {LANDING_TESTIMONIALS.map((review, i) => (
+        {V2_REVIEWS.map((review, i) => (
           <motion.div
             key={review.name}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className="bg-white rounded-2xl p-7 border border-gray-200 shadow-card"
+            className="bg-white rounded-xl p-6 border border-border-light shadow-sm"
           >
-            <div className="text-gold text-xl mb-3" style={{ color: "var(--color-gold)" }}>
-              ★★★★★
+            <div className="text-gold text-lg mb-2" style={{ color: "var(--gold)" }}>
+              {"★".repeat(review.stars)}
             </div>
-            <p className="font-body text-charcoal text-[15px] italic leading-relaxed mb-4">
+            <p className="font-body text-charcoal text-[15px] leading-relaxed mb-4 line-clamp-4">
               &ldquo;{review.quote}&rdquo;
             </p>
-            <div className="flex items-center gap-3">
+            <div className="border-t border-border-light pt-4 flex items-center gap-3">
               <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-sm"
-                style={{ backgroundColor: "var(--color-gold)" }}
+                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-sm shrink-0"
+                style={{ backgroundColor: "var(--gold)" }}
               >
                 {review.initials}
               </div>
               <div>
-                <p className="font-body font-medium text-sm text-navy">{review.name}</p>
-                <p className="font-body text-xs text-gray-text">{review.service}</p>
+                <p className="font-body font-semibold text-sm text-ink-black">{review.name}</p>
+                <p className="font-body text-xs text-gray-text">{review.role}</p>
               </div>
             </div>
           </motion.div>
@@ -85,18 +84,17 @@ const SocialProofSection = () => (
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="text-center mt-8"
+        className="text-center mt-10"
       >
         <a
           href={BUSINESS.googleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-gray-text font-body text-sm hover:text-gold transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 font-body text-sm hover:border-gold hover:text-gold transition-colors"
+          style={{ borderColor: "var(--border-light)", color: "var(--ink-black)" }}
         >
-          <span>Google</span>
-          <span className="text-gold" style={{ color: "var(--color-gold)" }}>4.8 ★</span>
-          <span>on Google Reviews</span>
-          <span>View all reviews →</span>
+          <span className="text-gold" style={{ color: "var(--gold)" }}>⭐ 4.8</span>
+          on Google Reviews — View all
         </a>
       </motion.div>
     </div>
