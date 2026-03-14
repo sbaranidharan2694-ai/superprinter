@@ -43,7 +43,7 @@ const UnifiedHeader = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenu]);
 
-  const isTransparent = !scrolled;
+  const atTop = !scrolled;
   const linkClass = (id: string) =>
     `px-4 py-2 text-[13px] font-medium rounded-full transition-all ${
       activeId === id ? "text-gold border-b-2 border-gold" : "text-inherit hover:text-gold"
@@ -52,10 +52,11 @@ const UnifiedHeader = () => {
   return (
     <header
       className={`fixed top-11 left-0 right-0 z-[101] transition-all duration-300 ${
-        isTransparent
-          ? "bg-transparent text-white"
+        atTop
+          ? "text-white backdrop-blur-md border-b border-white/10"
           : "bg-white/95 text-ink-black shadow-lg backdrop-blur-md border-b border-gray-100"
       }`}
+      style={atTop ? { backgroundColor: "rgba(13,13,13,0.92)" } : undefined}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <button
@@ -71,7 +72,7 @@ const UnifiedHeader = () => {
           </span>
           <div className="flex flex-col">
             <span className="font-display font-bold text-xl text-inherit leading-tight">Super Printers</span>
-            <span className={`text-[11px] font-body ${isTransparent ? "text-gold" : "text-gold-muted"}`}>
+            <span className={`text-[11px] font-body ${atTop ? "text-gold" : "text-gold-muted"}`}>
               Est. 1990 · Pallavaram
             </span>
           </div>
@@ -140,7 +141,7 @@ const UnifiedHeader = () => {
 
         <div className="flex items-center gap-3">
           <a href="tel:+919840199878" className="hidden md:inline text-sm font-medium hover:opacity-90">
-            {isTransparent ? "📞 Call" : "📞 +91 98401 99878"}
+            {atTop ? "📞 Call" : "📞 +91 98401 99878"}
           </a>
           <button
             onClick={() => {
