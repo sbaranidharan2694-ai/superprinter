@@ -2,7 +2,10 @@ const px = (id: number, w = 1200, h = 800) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}&h=${h}&dpr=1`;
 
 export const IMG = {
-  // Hero & Background
+  // Redesign: Unsplash hero & about
+  heroUnsplash: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1600",
+  aboutUnsplash: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800",
+  // Hero & Background (legacy)
   hero: px(3825586, 1920, 1080),
   pressWide: px(4481326, 1920, 800),
   

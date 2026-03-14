@@ -1,74 +1,103 @@
-import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 
+const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+};
+
+const QUICK_LINKS = [
+  { label: "Home", id: "" },
+  { label: "About", id: "about" },
+  { label: "Services", id: "services" },
+  { label: "Wedding Cards", id: "wedding-cards" },
+  { label: "Portfolio", id: "portfolio" },
+  { label: "Contact", id: "contact" },
+  { label: "Get a Quote", id: "quote-form" },
+];
+
+const SERVICE_LINKS = [
+  "Business Cards",
+  "Letterheads",
+  "Brochures",
+  "Bill Books",
+  "Booklets",
+  "Catalogues",
+  "Envelopes",
+  "Screen Printing",
+  "Wedding Cards",
+];
+
 const UnifiedFooter = () => (
-  <footer className="bg-[hsl(220,26%,10%)] pt-16 pb-8 px-6">
+  <footer
+    className="bg-navy-dark pt-16 pb-8 px-6 text-white/70 font-body text-sm"
+    style={{ backgroundColor: "var(--color-navy-dark)" }}
+  >
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
       <div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
-            <span className="font-display font-bold text-base text-secondary-foreground">SP</span>
-          </div>
-          <div>
-            <div className="font-display text-foreground font-bold">Super Printers</div>
-            <div className="font-tamil text-muted-foreground text-[10px]">சுப்பர் பிரிண்டர்ஸ்</div>
-          </div>
+        <div className="font-display font-bold text-2xl text-white mb-1">Super Printers</div>
+        <p className="text-white/60 text-sm mb-4">Quality Printing Since 1990</p>
+        <div className="flex gap-3 mb-4">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors" aria-label="Facebook">
+            f
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors" aria-label="Instagram">
+            i
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors" aria-label="YouTube">
+            y
+          </a>
+          <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors" aria-label="WhatsApp">
+            💬
+          </a>
         </div>
-        <p className="text-muted-foreground text-sm leading-relaxed">Chennai's finest printing press since 1990. Premium quality, fast delivery.</p>
+        <p className="text-white/60 text-xs">⭐ 4.8 on Google Reviews</p>
       </div>
 
       <div>
-        <h4 className="text-foreground font-semibold text-sm mb-4">Quick Links</h4>
-        {[
-          { label: "Home", to: "/" },
-          { label: "Products", to: "/products" },
-          { label: "Services", to: "/services" },
-          { label: "Gallery", to: "/gallery" },
-          { label: "About Us", to: "/about" },
-          { label: "Contact", to: "/contact" },
-        ].map((l) => (
-          <Link key={l.label} to={l.to} className="block text-muted-foreground text-sm py-1.5 hover:text-foreground transition-colors">
-            {l.label}
-          </Link>
-        ))}
+        <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+        <div className="space-y-2">
+          {QUICK_LINKS.map((link) => (
+            <button
+              key={link.id || "home"}
+              onClick={() => (link.id ? scrollToSection(link.id) : window.scrollTo({ top: 0, behavior: "smooth" }))}
+              className="block text-left text-white/60 hover:text-gold transition-colors text-sm"
+            >
+              {link.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div>
-        <h4 className="text-foreground font-semibold text-sm mb-4">Our Products</h4>
-        {[
-          { label: "Visiting Cards", to: "/visiting-cards" },
-          { label: "Wedding Invitations", to: "/wedding-cards" },
-          { label: "Brochures", to: "/services" },
-          { label: "Bill Books", to: "/services" },
-          { label: "Letterheads", to: "/services" },
-          { label: "Banners", to: "/services" },
-          { label: "T-Shirts", to: "/services" },
-        ].map((l) => (
-          <Link key={l.label} to={l.to} className="block text-muted-foreground text-sm py-1.5 hover:text-foreground transition-colors">
-            {l.label}
-          </Link>
-        ))}
+        <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Our Services</h4>
+        <div className="space-y-2">
+          {SERVICE_LINKS.map((name) => (
+            <button
+              key={name}
+              onClick={() => scrollToSection(name === "Wedding Cards" ? "wedding-cards" : "services")}
+              className="block text-left text-white/60 hover:text-gold transition-colors text-sm"
+            >
+              {name}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div>
-        <h4 className="text-foreground font-semibold text-sm mb-4">Get in Touch</h4>
-        <div className="space-y-1.5 text-muted-foreground text-sm">
-          <p>{BUSINESS.address}</p>
-          <p>{BUSINESS.city}, Chennai – {BUSINESS.postalCode}</p>
-          <a href={BUSINESS.phoneTel} className="block hover:text-foreground transition-colors">{BUSINESS.phone}</a>
-          <a href={`mailto:${BUSINESS.email}`} className="block hover:text-foreground transition-colors">{BUSINESS.email}</a>
-          <p>{BUSINESS.hours}</p>
+        <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Reach Us</h4>
+        <div className="space-y-2 text-white/60">
+          <p>No. 6, Saraswathy Colony<br />Pallavaram, Chennai – 600043</p>
+          <a href={BUSINESS.phoneTel} className="block hover:text-gold transition-colors">📞 +91 98401 99878</a>
+          <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="block hover:text-gold transition-colors">💬 WhatsApp: +91 98401 99878</a>
+          <a href={`mailto:${BUSINESS.email}`} className="block hover:text-gold transition-colors">📧 {BUSINESS.email}</a>
+          <p>🕐 {BUSINESS.hoursShort}</p>
         </div>
       </div>
     </div>
 
-    <div className="max-w-6xl mx-auto border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p className="text-muted-foreground/50 text-xs">© {new Date().getFullYear()} Super Printers. All Rights Reserved.</p>
-      <div className="flex items-center gap-4">
-        <a href={BUSINESS.whatsapp} className="text-muted-foreground/50 hover:text-foreground transition-colors text-xs">WhatsApp</a>
-        <a href={BUSINESS.phoneTel} className="text-muted-foreground/50 hover:text-foreground transition-colors text-xs">Call Us</a>
-        <a href={`mailto:${BUSINESS.email}`} className="text-muted-foreground/50 hover:text-foreground transition-colors text-xs">Email</a>
-      </div>
+    <div className="max-w-6xl mx-auto border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p className="text-white/50 text-xs">© 2025 Super Printers. All rights reserved.</p>
+      <p className="text-white/50 text-xs">Serving Pallavaram & Chennai since 1990</p>
     </div>
   </footer>
 );

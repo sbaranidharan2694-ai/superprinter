@@ -1,88 +1,95 @@
-import { useInView } from "@/hooks/useInView";
+import { motion } from "framer-motion";
 import { IMG } from "@/data/images";
+import { TIMELINE } from "@/data/landing";
 
-const STRIP = [
-  { img: IMG.P01, label: "Our Press" },
-  { img: IMG.P02, label: "Offset" },
-  { img: IMG.P06, label: "Wedding Cards" },
-  { img: IMG.P09, label: "Visiting Cards" },
-  { img: IMG.P13, label: "Brochures" },
-];
-
-const AboutSection = () => {
-  const { ref, isVisible } = useInView(0.1);
-
-  return (
-    <section ref={ref} className="bg-brand-cream">
-      <div className={`max-w-7xl mx-auto px-4 py-16 md:py-24 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Left images */}
-          <div className="lg:w-[45%]">
-            <div className="relative">
-              <img
-                src={IMG.P01}
-                alt="Super Printers workshop"
-                className="w-full h-[400px] object-cover rounded-2xl"
-                style={{ boxShadow: "0 0 0 6px hsl(6,63%,46%), 0 0 0 12px hsl(48,88%,44%)" }}
-                loading="lazy"
-                width="600"
-                height="400"
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-2 mt-3">
-              <img src={IMG.P16} alt="Man in print workshop" className="w-full h-[180px] object-cover rounded-xl" loading="lazy" width="300" height="180" />
-              <img src={IMG.P19} alt="Colorful printing ink" className="w-full h-[180px] object-cover rounded-xl" loading="lazy" width="300" height="180" />
-            </div>
+const AboutSection = () => (
+  <section id="about" className="py-16 md:py-24 bg-gold-pale" style={{ backgroundColor: "var(--color-gold-pale)" }}>
+    <div className="max-w-6xl mx-auto px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="relative"
+        >
+          <img
+            src={IMG.aboutUnsplash}
+            alt="Super Printers workshop"
+            className="w-full rounded-3xl shadow-card border-[3px] border-gold/30"
+            style={{ borderColor: "rgba(201,151,58,0.3)" }}
+            loading="lazy"
+            width={800}
+            height={500}
+          />
+          <div
+            className="absolute bottom-4 left-4 bg-gold text-white font-display font-medium text-base px-5 py-3 rounded-xl"
+            style={{ backgroundColor: "var(--color-gold)" }}
+          >
+            Est. 1990 · Pallavaram
           </div>
+        </motion.div>
 
-          {/* Right text */}
-          <div className="lg:w-[55%]">
-            <span className="text-brand-gold font-body text-sm uppercase tracking-widest">Our Story</span>
-            <h2 className="font-display text-3xl md:text-[42px] text-brand-dark font-bold mt-2 mb-6 leading-tight">
-              A Family Business Built on Quality
-            </h2>
+        <div>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-gold text-xs font-body font-medium uppercase tracking-widest mb-2"
+            style={{ color: "var(--color-gold)" }}
+          >
+            OUR STORY
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-display font-semibold text-3xl md:text-[40px] text-navy mb-6"
+          >
+            35 Years of Ink, Craft & Community
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-body text-charcoal text-base leading-relaxed space-y-4"
+            style={{ color: "var(--color-charcoal)", lineHeight: "1.8" }}
+          >
+            <p>
+              Founded in 1990 by N. Baranidharan in the heart of Pallavaram, Super Printers began as a single-press workshop with a single mission: deliver quality printing that local businesses could actually afford.
+            </p>
+            <p>
+              Over three and a half decades, we&apos;ve grown into one of Chennai&apos;s most trusted printing partners — but we&apos;ve never lost the values that started it all: craftsmanship, reliability, and treating every client like family.
+            </p>
+            <p>
+              From Wipro&apos;s corporate stationery to a neighbour&apos;s daughter&apos;s wedding invitations, every job gets our full attention.
+            </p>
+          </motion.div>
 
-            <div className="mb-6 overflow-hidden">
-              <img src={IMG.P17} alt="Printed paper output" className="float-right w-[160px] h-[110px] rounded-[10px] object-cover ml-5 mb-2" loading="lazy" width="160" height="110" />
-              <p className="font-body text-base text-muted-foreground leading-relaxed">
-                Super Printers was founded in 1990 as a small family printing press in Chennai. Over 35 years we have grown into a full-service printing house — but we have never lost the personal care and craftsmanship of a family business that knows every client by name.
-              </p>
-            </div>
-
-            <div className="mb-6 overflow-hidden">
-              <img src={IMG.P25} alt="Screen printing workshop" className="float-left w-[160px] h-[110px] rounded-[10px] object-cover mr-5 mb-2" loading="lazy" width="160" height="110" />
-              <p className="font-body text-base text-muted-foreground leading-relaxed">
-                From a single offset press to a complete facility offering digital printing, large format, lamination and binding — we have grown with Chennai's businesses, wedding families and creative professionals for three decades.
-              </p>
-            </div>
-
-            <div className="mb-8 overflow-hidden">
-              <img src={IMG.P33} alt="Color swatches" className="float-right w-[160px] h-[110px] rounded-[10px] object-cover ml-5 mb-2" loading="lazy" width="160" height="110" />
-              <p className="font-body text-base text-muted-foreground leading-relaxed">
-                Our state-of-the-art presses, expert team and commitment to quality mean every job — whether 50 visiting cards or 50,000 brochures — receives the same careful attention.
-              </p>
-            </div>
-
-            <a href="/about" className="inline-block border-2 border-brand-red text-brand-red font-body text-sm font-semibold px-8 py-3 rounded-full hover:bg-brand-red hover:text-white transition-colors">
-              Learn More About Us
-            </a>
+          <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap gap-6 sm:gap-8">
+            {TIMELINE.map((milestone, i) => (
+              <motion.div
+                key={milestone.year}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="flex items-start gap-3"
+              >
+                <span
+                  className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0"
+                  style={{ backgroundColor: "var(--color-gold)" }}
+                />
+                <div>
+                  <span className="font-display font-semibold text-navy">{milestone.year}</span>
+                  <span className="text-charcoal font-body text-sm ml-2">{milestone.text}</span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Strip of 5 images */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-1">
-        {STRIP.map((s) => (
-          <div key={s.label} className="relative overflow-hidden group h-[200px]">
-            <img src={s.img} alt={s.label} className="w-full h-full object-cover group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-300" loading="lazy" width="400" height="200" />
-            <div className="absolute bottom-0 left-0 right-0 h-[30px] bg-black/65 flex items-center justify-center">
-              <span className="text-white font-body text-xs">{s.label}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default AboutSection;
