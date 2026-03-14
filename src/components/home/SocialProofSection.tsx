@@ -5,7 +5,7 @@ import { V2_REVIEWS, V2_FEATURED_QUOTE } from "@/data/v2";
 const CLIENT_LOGOES = ["Wipro", "TTK Healthcare", "Reckitt", "Local Business", "Local Business", "Local Business"];
 
 const SocialProofSection = () => (
-  <section id="reviews" className="py-20 md:py-24" style={{ backgroundColor: "var(--paper-white)" }}>
+  <section id="reviews" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-white)" }}>
     <div className="max-w-7xl mx-auto px-6">
       <div className="flex overflow-x-auto gap-8 pb-6 mb-10 -mx-6 px-6 scrollbar-hide">
         {CLIENT_LOGOES.map((name) => (
@@ -38,17 +38,31 @@ const SocialProofSection = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="rounded-3xl p-8 md:p-10 mb-10 text-center shadow-card"
-        style={{ backgroundColor: "var(--navy-deep)" }}
+        className="relative rounded-r-2xl pl-[56px] pr-12 py-12 mb-10 border-l-4 shadow-card"
+        style={{
+          background: "linear-gradient(135deg, #FDF8F2 0%, #FFFFFF 100%)",
+          borderLeftColor: "var(--gold)",
+        }}
       >
-        <span className="text-6xl text-gold/40 font-serif leading-none" style={{ color: "var(--gold)" }}>&ldquo;</span>
-        <p className="font-display text-xl md:text-2xl text-white font-medium max-w-3xl mx-auto -mt-4">
+        <span className="absolute left-6 top-8 font-display text-[160px] leading-none select-none" style={{ color: "rgba(212,168,67,0.12)" }}>&ldquo;</span>
+        <p className="font-display italic font-semibold text-navy text-2xl md:text-[28px] leading-snug relative z-10 max-w-3xl">
           {V2_FEATURED_QUOTE.quote}
         </p>
-        <p className="font-body text-white/70 text-sm mt-3">{V2_FEATURED_QUOTE.author}</p>
+        <div className="flex items-center gap-4 mt-6">
+          <div
+            className="w-12 h-12 rounded-full flex items-center justify-center text-ink-black font-display font-bold text-sm shrink-0"
+            style={{ backgroundColor: "var(--gold)" }}
+          >
+            {V2_FEATURED_QUOTE.author.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+          </div>
+          <div>
+            <p className="font-ui font-semibold text-[15px] text-ink-black">{V2_FEATURED_QUOTE.author}</p>
+            <p className="font-ui text-[13px] font-light text-gray-500">Verified customer</p>
+          </div>
+        </div>
       </motion.div>
 
-      {/* Masonry-style grid of review cards */}
+      {/* Review cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {V2_REVIEWS.map((review, i) => (
           <motion.div
@@ -57,24 +71,26 @@ const SocialProofSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 400, damping: 28, delay: i * 0.05 }}
-            className="bg-white rounded-3xl p-6 border border-border-light shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
+            className="bg-white rounded-2xl p-6 border border-border-light shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
           >
-            <div className="text-gold text-lg mb-2" style={{ color: "var(--gold)" }}>
-              {"★".repeat(review.stars)}
+            <div className="flex gap-0.5 mb-3" style={{ color: "var(--gold)" }} aria-label={`${review.stars} stars`}>
+              {[1,2,3,4,5].map((s) => (
+                <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              ))}
             </div>
-            <p className="font-body text-charcoal text-[15px] leading-relaxed mb-4 line-clamp-4">
+            <p className="font-ui text-[14px] italic leading-relaxed mb-4 line-clamp-4 text-ink-black" style={{ lineHeight: 1.8 }}>
               &ldquo;{review.quote}&rdquo;
             </p>
             <div className="border-t border-border-light pt-4 flex items-center gap-3">
               <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-sm shrink-0"
+                className="w-10 h-10 rounded-full flex items-center justify-center text-ink-black font-display font-bold text-sm shrink-0"
                 style={{ backgroundColor: "var(--gold)" }}
               >
                 {review.initials}
               </div>
-              <div>
-                <p className="font-body font-semibold text-sm text-ink-black">{review.name}</p>
-                <p className="font-body text-xs text-gray-text">{review.role}</p>
+              <div className="min-w-0">
+                <p className="font-ui font-semibold text-sm text-ink-black">{review.name}</p>
+                <p className="font-ui text-xs text-gray-500 truncate">{review.role}</p>
               </div>
             </div>
           </motion.div>

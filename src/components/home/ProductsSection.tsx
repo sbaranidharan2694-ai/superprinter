@@ -12,51 +12,47 @@ const ProductsSection = () => {
     : V2_PRODUCTS.filter((p) => p.category === activeTab);
 
   return (
-    <section id="products" className="py-20 md:py-24" style={{ backgroundColor: "var(--ink-black)" }}>
+    <section id="products" className="section-pad" style={{ backgroundColor: "var(--bg-white)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          className="text-center mb-12"
+          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12"
         >
-          <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "var(--gold)" }} />
-            What we print
-          </p>
-          <h2 className="font-display font-bold text-white text-3xl md:text-4xl mb-3">
-            Every Product. Every Finish. Every Budget.
-          </h2>
-          <p className="text-white/60 font-body text-base max-w-2xl mx-auto">
-            From visiting cards to catalogues — offset, digital, and special finishes. Starting from ₹149.
-          </p>
+          <div>
+            <p className="font-ui text-[12px] font-light tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
+              WHAT WE PRINT
+            </p>
+            <h2 className="font-display font-semibold text-navy text-3xl md:text-5xl lg:text-[52px] leading-tight">
+              Every Product.<br />Every Finish.
+            </h2>
+          </div>
+          <div className="flex overflow-x-auto gap-2 scrollbar-hide lg:shrink-0">
+            {V2_PRODUCT_TABS.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-ui font-medium transition-all duration-300 ease-spring ${
+                  activeTab === tab.id
+                    ? "bg-gold text-ink-black"
+                    : "text-navy border border-navy/20 hover:border-gold"
+                }`}
+                style={activeTab === tab.id ? { backgroundColor: "var(--gold)", color: "var(--ink-black)" } : undefined}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </motion.div>
-
-        {/* Tabs */}
-        <div className="flex overflow-x-auto gap-2 pb-6 mb-8 scrollbar-hide -mx-6 px-6">
-          {V2_PRODUCT_TABS.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-ui font-medium transition-all duration-300 ease-spring ${
-                activeTab === tab.id
-                  ? "bg-gold text-ink-black"
-                  : "text-white border border-gold/60 hover:border-gold"
-              }`}
-              style={activeTab === tab.id ? { backgroundColor: "var(--gold)", color: "var(--ink-black)" } : undefined}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
 
         {/* Product grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
           {filtered.length === 0 ? (
             <div className="col-span-full text-center py-16 px-6">
-              <p className="text-white/70 font-body text-lg mb-4">No products in this category yet.</p>
-              <p className="text-white/50 font-body text-sm mb-6">Wedding cards and event invitations are in our dedicated section.</p>
+              <p className="text-gray-text font-body text-lg mb-4">No products in this category yet.</p>
+              <p className="text-gray-text/80 font-body text-sm mb-6">Wedding cards and event invitations are in our dedicated section.</p>
               <button
                 onClick={() => scrollToSection("wedding-cards")}
                 className="inline-flex items-center justify-center px-6 py-3 rounded-full font-ui font-semibold text-ink-black bg-gold hover:shadow-gold transition-all duration-300 ease-spring"
@@ -67,58 +63,54 @@ const ProductsSection = () => {
             </div>
           ) : (
           <AnimatePresence mode="popLayout">
-            {filtered.map((product, i) => (
-              <motion.article
-                key={product.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ type: "spring", stiffness: 400, damping: 28, delay: i * 0.04 }}
-                className="group rounded-3xl overflow-hidden bg-[#161616] border border-white/8 shadow-card hover:border-gold/40 hover:-translate-y-1 hover:shadow-hover transition-all duration-300 ease-spring"
-              >
-                <div className="aspect-[4/3] overflow-hidden relative">
-                  <img
-                    src={product.image}
-                    alt=""
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {product.badge && (
-                    <span
-                      className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-body font-semibold"
-                      style={{
-                        backgroundColor: product.badge === "Most Popular" ? "var(--gold)" : "var(--wedding-deep)",
-                        color: product.badge === "Premium" ? "var(--pure-white)" : "var(--ink-black)",
-                      }}
-                    >
-                      {product.badge}
-                    </span>
-                  )}
-                </div>
-                <div className="p-4">
-                  <h3 className="font-display font-semibold text-white text-lg mb-1">{product.name}</h3>
-                  <div className="flex flex-wrap gap-1.5 mb-2">
-                    {product.specs.map((s) => (
-                      <span key={s} className="px-2 py-0.5 rounded text-[11px] font-body bg-white/10 text-white/80">
-                        {s}
+            {filtered.map((product, i) => {
+              const fromPrice = product.priceFrom != null ? `₹${product.priceFrom}` : (product.price.match(/₹\d+/)?.[0] ?? "Quote");
+              const qty = product.qty ?? "pcs";
+              return (
+                <motion.article
+                  key={product.id}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 28, delay: i * 0.04 }}
+                  className="group rounded-[20px] overflow-hidden bg-white border transition-all duration-300 ease-spring hover:-translate-y-2 hover:shadow-hover hover:border-gold/40 cursor-pointer"
+                  style={{ borderColor: "rgba(26,44,91,0.08)" }}
+                >
+                  <div className="aspect-[4/3] overflow-hidden relative bg-[#F8F6F2]">
+                    <img
+                      src={product.image}
+                      alt=""
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {product.badge && (
+                      <span
+                        className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-ui font-semibold bg-gold text-ink-black"
+                        style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
+                      >
+                        {product.badge}
                       </span>
-                    ))}
+                    )}
                   </div>
-                  <p className="text-gold font-body font-semibold text-sm mb-3" style={{ color: "var(--gold)" }}>
-                    {product.price}
-                  </p>
-                  <a
-                    href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(product.waMessage)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm font-body font-medium text-gold hover:underline"
-                    style={{ color: "var(--gold)" }}
-                  >
-                    Order via WhatsApp →
-                  </a>
-                </div>
-              </motion.article>
-            ))}
+                  <div className="px-5 pt-4 pb-5">
+                    <h3 className="font-ui font-semibold text-ink-black text-[17px] mb-2">{product.name}</h3>
+                    <div className="flex items-baseline gap-1 mb-3">
+                      <span className="font-display font-semibold text-2xl" style={{ color: "var(--gold)" }}>from {fromPrice}</span>
+                      <span className="font-ui text-[13px] text-gray-500">/{qty}</span>
+                    </div>
+                    <a
+                      href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(product.waMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center py-2.5 rounded-[10px] font-ui font-medium text-sm text-white bg-navy hover:bg-gold hover:text-ink-black transition-colors"
+                      style={{ backgroundColor: "var(--navy)" }}
+                    >
+                      Order →
+                    </a>
+                  </div>
+                </motion.article>
+              );
+            })}
           </AnimatePresence>
           )}
         </div>
@@ -130,7 +122,7 @@ const ProductsSection = () => {
               <span
                 key={name}
                 className="px-4 py-2 rounded-full text-sm font-body font-medium shrink-0"
-                style={{ backgroundColor: "var(--paper-white)", color: "var(--ink-black)" }}
+                style={{ backgroundColor: "var(--bg-cream)", color: "var(--ink-black)" }}
               >
                 {name}
               </span>

@@ -1,135 +1,161 @@
 import { motion } from "framer-motion";
 import { scrollToSection } from "@/utils/scroll";
+import WhatsAppStatus from "@/components/WhatsAppStatus";
+import { useLang } from "@/contexts/LangContext";
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?w=900&q=85";
+const HERO_PRODUCTS = [
+  { name: "Business Cards", from: "₹149", image: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=400&q=85", span: 2 },
+  { name: "Brochures", from: "₹499", image: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=400&q=85", span: 1 },
+  { name: "Foil Cards", from: "₹799", image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&q=85", span: 1 },
+  { name: "Wedding Cards", from: "₹8/card", image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=85", span: 1 },
+  { name: "Bill Books", from: "₹250", image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=85", span: 1 },
+];
 
-const HeroSection = () => (
-  <section className="relative min-h-[100svh] min-h-[700px] flex flex-col lg:flex-row">
-    {/* Left panel — 55% */}
-    <div
-      className="relative flex-1 min-h-[60vh] lg:min-h-[100svh] flex items-center px-6 sm:px-12 lg:px-20 py-20 lg:py-24"
-      style={{ backgroundColor: "var(--ink-black)", minHeight: "min(100svh, 700px)" }}
-    >
-      <div className="max-w-xl">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          className="inline-flex items-center px-5 py-2.5 rounded-full border text-[13px] font-ui font-medium mb-6 bg-gold/10"
-          style={{ borderColor: "var(--gold)", color: "var(--gold)", backgroundColor: "rgba(212,168,67,0.1)" }}
-        >
-          Chennai&apos;s Premier Printing Studio Since 1990
-        </motion.div>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 380, damping: 24, delay: 0.08 }}
-          className="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.12] mb-3"
-        >
-          <span className="italic font-display font-bold" style={{ color: "var(--gold)" }}>Where Every</span>
-          <br />
-          <span className="relative inline-block">
-            Print Tells
-            <span className="absolute bottom-1 left-0 right-0 h-1 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-light)] shadow-[0_0_12px_rgba(212,168,67,0.4)]" />
-          </span>
-          <br />
-          <span className="text-white">a Story.</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="text-white/70 font-ui text-lg max-w-md mb-8"
-        >
-          Business cards to wedding invitations — crafted with care, delivered in 48 hours. Trusted by Wipro, TTK & 10,000+ businesses in Chennai.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.6 }}
-          className="flex flex-wrap gap-4 mb-10"
-        >
-          <button
-            onClick={() => scrollToSection("quote-form")}
-            className="bg-gold text-ink-black font-ui font-semibold text-base px-8 py-3.5 rounded-full shadow-gold hover:scale-[1.02] hover:shadow-xl transition-all duration-300 ease-spring"
-            style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
+const HeroSection = () => {
+  const { t } = useLang();
+  return (
+    <section className="relative min-h-[100svh] min-h-[700px] flex flex-col lg:flex-row">
+      {/* Left panel — 55% */}
+      <div
+        className="relative flex-1 min-h-[60vh] lg:min-h-[100svh] flex items-center px-6 sm:px-12 lg:px-20 py-20 lg:py-24"
+        style={{ backgroundColor: "var(--bg-charcoal)", minHeight: "min(100svh, 700px)" }}
+      >
+        <div className="max-w-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex items-center gap-3 mb-6"
           >
-            Get Instant Quote →
-          </button>
-          <button
-            onClick={() => scrollToSection("products")}
-            className="border-2 border-white/60 text-white font-ui font-medium text-base px-8 py-3.5 rounded-full hover:bg-white hover:text-ink-black hover:border-white transition-all duration-300 ease-spring"
+            <span className="w-[60px] h-px shrink-0" style={{ backgroundColor: "var(--gold)" }} />
+            <span className="font-ui text-[13px] font-light" style={{ color: "var(--gold)" }}>
+              Est. 1990 · Pallavaram, Chennai
+            </span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="font-display font-bold text-white text-[44px] sm:text-5xl lg:text-[80px] leading-[0.95] tracking-tight mb-4"
+            style={{ letterSpacing: "-0.02em" }}
           >
-            View Our Products →
-          </button>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="flex items-center gap-5 text-white/80 text-sm font-ui"
-        >
-          <span>35+ Years</span>
-          <span className="w-px h-5 rounded-full bg-gold" style={{ backgroundColor: "var(--gold)" }} />
-          <span>10,000+ Clients</span>
-          <span className="w-px h-5 rounded-full bg-gold" style={{ backgroundColor: "var(--gold)" }} />
-          <span>48Hr Delivery</span>
-        </motion.div>
+            <span className="block">Chennai&apos;s</span>
+            <span className="flex items-center gap-2 flex-wrap">
+              <span className="italic font-display font-bold" style={{ color: "var(--gold)" }}>Finest</span>
+              <span className="text-white/60 text-base lg:text-xl" style={{ opacity: 0.6 }}>· ◆ ·</span>
+            </span>
+            <span className="block text-white">Print Studio.</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.7 }}
+            className="font-ui text-lg max-w-[460px] mb-8 leading-[1.7]"
+            style={{ color: "rgba(255,255,255,0.65)" }}
+          >
+            Offset · Digital · Screen Printing since 1990. Wedding invitations to corporate stationery. Delivered in Pallavaram in 48 hours.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.85 }}
+            className="flex flex-wrap gap-4 mb-10"
+          >
+            <button
+              onClick={() => scrollToSection("quote-form")}
+              className="btn-gold font-ui font-semibold text-base px-8 py-3.5 rounded-full transition-all duration-300"
+            >
+              {t("Get Instant Quote")} →
+            </button>
+            <button
+              onClick={() => scrollToSection("products")}
+              className="border-2 border-white/60 text-white font-ui font-medium text-base px-8 py-3.5 rounded-full hover:bg-white hover:text-ink-black hover:border-white transition-all duration-300 ease-spring"
+            >
+              {t("View Our Products")} →
+            </button>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="flex flex-wrap items-center gap-4 mb-2"
+          >
+            <WhatsAppStatus />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="flex items-center gap-2 text-sm font-ui"
+            style={{ color: "rgba(255,255,255,0.5)" }}
+          >
+            <span className="font-display italic font-semibold text-[32px] mr-1" style={{ color: "var(--gold)" }}>35</span>
+            <span className="text-[13px]">Years</span>
+            <span className="text-gold/70">◆</span>
+            <span className="font-display italic font-semibold text-[32px] mr-1" style={{ color: "var(--gold)" }}>10K+</span>
+            <span className="text-[13px]">Clients</span>
+            <span className="text-gold/70">◆</span>
+            <span className="font-display italic font-semibold text-[32px] mr-1" style={{ color: "var(--gold)" }}>48</span>
+            <span className="text-[13px]">{t("48Hr Delivery")}</span>
+          </motion.div>
+        </div>
       </div>
-    </div>
 
-    {/* Right panel — 45%: image + floating cards */}
-    <div className="relative flex-1 min-h-[40vh] lg:min-h-[100svh] hidden sm:block">
-      <img
-        src={HERO_IMAGE}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-ink-black/60 via-transparent to-ink-black/40" />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="absolute right-[10%] top-[25%] w-[200px] rounded-3xl p-4 shadow-xl backdrop-blur-md border border-white/20"
-        style={{ backgroundColor: "rgba(255,255,255,0.92)", color: "var(--ink-black)" }}
+      {/* Right panel — 45%: product grid */}
+      <div
+        className="relative flex-1 min-h-[40vh] lg:min-h-[100svh] hidden sm:block p-4 lg:p-10 pl-2 lg:pl-5"
+        style={{ backgroundColor: "var(--bg-charcoal)" }}
       >
-        <p className="font-display font-semibold text-lg">Business Cards</p>
-        <p className="text-sm font-ui text-gray-600 mt-0.5">From ₹149 / 100 pcs</p>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
-        className="absolute right-[15%] bottom-[30%] w-[200px] rounded-3xl p-4 shadow-xl backdrop-blur-md border border-white/20"
-        style={{ backgroundColor: "rgba(255,255,255,0.92)", color: "var(--ink-black)" }}
-      >
-        <p className="font-display font-semibold text-lg">Wedding Cards</p>
-        <p className="text-sm font-ui text-gray-600 mt-0.5">From ₹8 per card</p>
-      </motion.div>
-    </div>
+        <div className="grid grid-cols-2 grid-rows-3 gap-3 h-full max-h-[100svh] min-h-[400px]">
+          {HERO_PRODUCTS.map((item, i) => (
+            <motion.div
+              key={item.name}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 + i * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
+              className={`rounded-2xl overflow-hidden relative group cursor-default transition-all duration-300 border border-white/10 group-hover:border-gold ${item.span === 2 ? "row-span-2" : ""} hover:scale-[1.04] hover:shadow-gold`}
+              style={{ background: "rgba(255,255,255,0.05)" }}
+            >
+              <img
+                src={item.image}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-spring group-hover:scale-105"
+              />
+              <div
+                className="absolute inset-x-0 bottom-0 h-10 flex items-center justify-between px-3 backdrop-blur-md"
+                style={{ background: "rgba(0,0,0,0.7)" }}
+              >
+                <span className="font-ui text-xs text-white truncate">{item.name}</span>
+                <span className="font-ui text-xs text-white/90 shrink-0">from {item.from}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
-    {/* Mobile: scroll hint */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.2 }}
-      className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 lg:hidden"
-    >
-      <button
-        onClick={() => scrollToSection("products")}
-        className="flex flex-col items-center text-white/70 hover:text-white transition-colors"
-        aria-label="Scroll to products"
+      {/* Mobile: scroll hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 lg:hidden"
       >
-        <motion.span
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="text-2xl"
+        <button
+          onClick={() => scrollToSection("products")}
+          className="flex flex-col items-center text-white/70 hover:text-white transition-colors"
+          aria-label="Scroll to products"
         >
-          ⌄
-        </motion.span>
-      </button>
-    </motion.div>
-  </section>
-);
+          <motion.span
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="text-2xl"
+          >
+            ⌄
+          </motion.span>
+        </button>
+      </motion.div>
+    </section>
+  );
+};
 
 export default HeroSection;

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { V2_PAPER_WEIGHTS, V2_FINISHES } from "@/data/v2";
 
 const FinishesSection = () => (
-  <section id="finishes" className="py-20 md:py-24" style={{ backgroundColor: "var(--paper-white)" }}>
+  <section id="finishes" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-white)" }}>
     <div className="max-w-7xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

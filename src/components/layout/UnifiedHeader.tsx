@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { scrollToSection } from "@/utils/scroll";
 import { V2_MEGA_MENU } from "@/data/v2";
+import WhatsAppStatus from "@/components/WhatsAppStatus";
+import { useLang } from "@/contexts/LangContext";
 
-const SECTION_IDS = ["products", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "quote-form", "about", "faq", "contact"] as const;
+const SECTION_IDS = ["products", "price-calculator", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "templates", "quote-form", "about", "faq", "contact"] as const;
 
 const NAV_LINKS: { label: string; id: string }[] = [
   { label: "Home", id: "" },
@@ -14,6 +16,7 @@ const NAV_LINKS: { label: string; id: string }[] = [
 ];
 
 const UnifiedHeader = () => {
+  const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
@@ -54,9 +57,13 @@ const UnifiedHeader = () => {
       className={`fixed top-11 left-0 right-0 z-[101] transition-all duration-300 ${
         atTop
           ? "text-white backdrop-blur-md border-b border-white/10"
-          : "bg-white/95 text-ink-black shadow-lg backdrop-blur-md border-b border-gray-100"
+          : "bg-white/98 backdrop-blur-md border-b border-gray-100"
       }`}
-      style={atTop ? { backgroundColor: "rgba(17,17,17,0.92)" } : undefined}
+      style={
+        atTop
+          ? { backgroundColor: "rgba(17,19,24,0.92)" }
+          : { boxShadow: "0 2px 20px rgba(26,44,91,0.08), inset 0 1px 0 rgba(255,255,255,0.9)" }
+      }
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <button
@@ -65,14 +72,21 @@ const UnifiedHeader = () => {
           aria-label="Super Printers Home"
         >
           <span
-            className="w-10 h-10 rounded-full flex items-center justify-center font-display font-bold text-lg shrink-0"
-            style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
+            className="w-10 h-10 rounded-full flex items-center justify-center font-display font-bold text-lg shrink-0 border"
+            style={{
+              backgroundColor: "var(--gold)",
+              color: "var(--ink-black)",
+              borderColor: atTop ? "rgba(255,255,255,0.2)" : "var(--navy)",
+              borderWidth: "1px",
+            }}
           >
             SP
           </span>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-xl text-inherit leading-tight">Super Printers</span>
-            <span className={`text-[12px] font-ui ${atTop ? "text-gold" : "text-gold-muted"}`}>
+            <span className={`font-display font-semibold text-[20px] leading-tight ${atTop ? "text-white" : "text-navy"}`}>
+              Super Printers
+            </span>
+            <span className="font-ui text-[11px] font-light" style={{ color: "var(--gold)" }}>
               Est. 1990 · Pallavaram
             </span>
           </div>
@@ -89,7 +103,7 @@ const UnifiedHeader = () => {
                     onClick={() => setProductsOpen(!productsOpen)}
                     className={`${linkClass("products")} flex items-center gap-1`}
                   >
-                    {link.label}
+                    {t(link.label)}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                   </button>
                   {productsOpen && (
@@ -131,7 +145,7 @@ const UnifiedHeader = () => {
                   }}
                   className={linkClass(link.id)}
                 >
-                  {link.label}
+                  {t(link.label)}
                 </button>
               )}
             </div>
@@ -139,6 +153,9 @@ const UnifiedHeader = () => {
         </nav>
 
         <div className="flex items-center gap-3">
+          <div className="hidden lg:flex">
+            <WhatsAppStatus />
+          </div>
           <a href="tel:+919840199878" className="hidden md:inline text-sm font-medium hover:opacity-90">
             {atTop ? "📞 Call" : "📞 +91 98401 99878"}
           </a>
@@ -147,8 +164,7 @@ const UnifiedHeader = () => {
               scrollToSection("quote-form");
               setMobileMenu(false);
             }}
-            className="bg-gold text-ink-black font-ui font-semibold text-sm px-5 py-2.5 rounded-full hover:shadow-gold transition-all duration-300 ease-spring hover:scale-[1.02]"
-            style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
+            className="btn-gold font-ui font-semibold text-sm px-5 py-2.5 rounded-full"
           >
             WhatsApp Order
           </button>
@@ -187,7 +203,7 @@ const UnifiedHeader = () => {
               }}
               className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
             >
-              {link.label}
+              {t(link.label)}
             </button>
           ))}
           <button

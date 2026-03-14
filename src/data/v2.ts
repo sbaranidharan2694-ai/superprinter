@@ -43,33 +43,41 @@ export interface V2Product {
   category: ProductCategory;
   waMessage: string;
   badge?: "Most Popular" | "Premium";
+  priceFrom?: string;
+  qty?: string;
 }
 
 export const V2_PRODUCTS: V2Product[] = [
   {
     id: "gloss-cards",
     name: "Gloss Visiting Cards",
-    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=500&q=85",
     specs: ["300 GSM", "Front & Back", "Gloss Lam"],
     price: "₹299 / 100 pcs · ₹499 / 250 pcs · ₹699 / 500 pcs",
+    priceFrom: "299",
+    qty: "100 pcs",
     category: "Visiting Cards",
     waMessage: "Hi! I need Gloss Visiting Cards — can I get a quote?",
   },
   {
     id: "matt-cards",
     name: "Matt Visiting Cards",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&q=85",
     specs: ["300 GSM", "Front & Back", "Matt Lam"],
     price: "₹349 / 100 pcs · ₹549 / 250 pcs · ₹799 / 500 pcs",
+    priceFrom: "349",
+    qty: "100 pcs",
     category: "Visiting Cards",
     waMessage: "Hi! I need Matt Lamination Visiting Cards — can I get a quote?",
   },
   {
     id: "spot-uv",
     name: "Spot UV Cards",
-    image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=500&q=85",
     specs: ["300 GSM", "Spot UV Front", "Premium Finish"],
     price: "₹599 / 100 pcs · ₹999 / 250 pcs",
+    priceFrom: "599",
+    qty: "100 pcs",
     category: "Visiting Cards",
     waMessage: "Hi! I need Spot UV Business Cards — can I get a quote?",
     badge: "Most Popular",
@@ -77,9 +85,11 @@ export const V2_PRODUCTS: V2Product[] = [
   {
     id: "foil-cards",
     name: "Foil Stamping Cards",
-    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&q=85",
     specs: ["400 GSM", "Gold/Silver Foil", "Velvet Lam"],
     price: "₹799 / 100 pcs",
+    priceFrom: "799",
+    qty: "100 pcs",
     category: "Visiting Cards",
     waMessage: "Hi! I need Foil Stamping Business Cards — can I get a quote?",
     badge: "Premium",
@@ -87,72 +97,88 @@ export const V2_PRODUCTS: V2Product[] = [
   {
     id: "diecut-cards",
     name: "Die-cut Shaped Cards",
-    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=85",
     specs: ["300 GSM", "Custom Shape", "16 Die Patterns"],
     price: "₹699 / 100 pcs",
+    priceFrom: "699",
+    qty: "100 pcs",
     category: "Visiting Cards",
     waMessage: "Hi! I need Die-cut Shaped Cards — can I get a quote?",
   },
   {
     id: "letterheads",
     name: "Letterheads",
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=500&q=85",
     specs: ["90 GSM Bond", "Full Colour", "A4 Size"],
     price: "₹299 / 100 pcs · ₹499 / 250 pcs",
+    priceFrom: "299",
+    qty: "100 pcs",
     category: "Stationery",
     waMessage: "Hi! I need Letterheads — can I get a quote?",
   },
   {
     id: "brochures",
     name: "Brochures (Trifold / Bifold)",
-    image: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=500&q=85",
     specs: ["130 GSM Art Paper", "4-Colour", "A4 Trifold"],
     price: "₹499 / 100 pcs · ₹899 / 250 pcs",
+    priceFrom: "499",
+    qty: "100 pcs",
     category: "Stationery",
     waMessage: "Hi! I need Brochures — can I get a quote?",
   },
   {
     id: "bill-books",
     name: "Bill Books (Carbonless GST)",
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=500&q=85",
     specs: ["Carbonless NCR", "2-Part / 3-Part", "Serial Numbered"],
     price: "₹250 / 25 sets · ₹450 / 50 sets",
+    priceFrom: "250",
+    qty: "25 sets",
     category: "Stationery",
     waMessage: "Hi! I need Bill Books — can I get a quote?",
   },
   {
     id: "catalogues",
     name: "Catalogues",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=85",
     specs: ["170 GSM Art Paper", "Full Colour", "Any Page Count"],
     price: "Custom Quote",
+    priceFrom: "Quote",
+    qty: "on request",
     category: "Stationery",
     waMessage: "Hi! I need Catalogues — can I get a quote?",
   },
   {
     id: "envelopes",
     name: "Envelopes",
-    image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=500&q=85",
     specs: ["Branded", "DL / C4 / C5", "Offset Printed"],
     price: "₹199 / 100 pcs · ₹349 / 250 pcs",
+    priceFrom: "199",
+    qty: "100 pcs",
     category: "Stationery",
     waMessage: "Hi! I need Envelopes — can I get a quote?",
   },
   {
     id: "posters",
     name: "Posters & Flyers",
-    image: "https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=500&q=85",
     specs: ["130–170 GSM", "A4 / A3 / A2", "Single/Double Side"],
     price: "₹199 / 50 pcs",
+    priceFrom: "199",
+    qty: "50 pcs",
     category: "Posters & Promo",
     waMessage: "Hi! I need Posters/Flyers — can I get a quote?",
   },
   {
     id: "screen-printing",
     name: "Screen Printing (Fabric/Paper)",
-    image: "https://images.unsplash.com/photo-1558618047-f4f37ee1d6d0?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1558618047-f4f37ee1d6d0?w=500&q=85",
     specs: ["Fabric & Paper", "Spot Colours", "Bulk Welcome"],
     price: "Custom Quote",
+    priceFrom: "Quote",
+    qty: "on request",
     category: "Special Finishes",
     waMessage: "Hi! I need Screen Printing — can I get a quote?",
   },
@@ -281,6 +307,39 @@ export const V2_COMPARISON_ROWS: { feature: string; super: string; others: strin
   { feature: "Special Finishes", super: "✅ Yes", others: "❌ Limited" },
   { feature: "Pallavaram Pickup", super: "✅ Yes", others: "❌ No" },
   { feature: "Same-Day Available", super: "✅ Yes", others: "❌ Rarely" },
+];
+
+/** V3: Why Super Printers beats ordering from Coimbatore / outstation */
+export const V3_COIMBATORE_ROWS: { factor: string; super: string; coimbatore: string }[] = [
+  { factor: "Location", super: "Pallavaram, Chennai ✓", coimbatore: "300km away ✗" },
+  { factor: "Pickup", super: "Same-day available ✓", coimbatore: "Courier only ✗" },
+  { factor: "Communication", super: "WhatsApp direct ✓", coimbatore: "Phone/email only ✗" },
+  { factor: "Delivery speed", super: "48 hours ✓", coimbatore: "3-5 days + shipping ✗" },
+  { factor: "Local knowledge", super: "35 years in Chennai ✓", coimbatore: "Outside market ✗" },
+  { factor: "Shipping cost", super: "Free pickup ✓", coimbatore: "₹150-500 courier ✗" },
+];
+
+/** V3: Awards / credibility strip badges */
+export const V3_CREDIBILITY_BADGES = [
+  "🏆 Est. 1990",
+  "✓ GST Registered",
+  "⭐ 4.8 Google Rating",
+  "💼 Trusted by Wipro",
+  "📋 14+ Years Digital Printing",
+  "🚀 48-Hour Delivery Guarantee",
+  "📱 WhatsApp Orders Welcome",
+];
+
+/** V3: Free print templates (download via WhatsApp) */
+export const V3_TEMPLATES: { id: string; name: string; specs: string; formats: string[] }[] = [
+  { id: "visiting", name: "Standard Visiting Card", specs: "89×52mm | 300 DPI | 3mm bleed", formats: ["PDF", "AI", "PSD"] },
+  { id: "letterhead", name: "Letterhead A4", specs: "210×297mm | 300 DPI", formats: ["PDF", "AI", "PSD"] },
+  { id: "brochure", name: "Trifold Brochure", specs: "99×210mm per panel | 300 DPI", formats: ["PDF", "AI", "PSD"] },
+  { id: "envelope", name: "DL Envelope", specs: "220×110mm | 300 DPI", formats: ["PDF", "AI"] },
+  { id: "flyer", name: "A4 Flyer", specs: "210×297mm | 300 DPI", formats: ["PDF", "AI", "PSD"] },
+  { id: "wedding", name: "Wedding Card (standard)", specs: "148×105mm | 300 DPI", formats: ["PDF", "AI"] },
+  { id: "billbook", name: "Bill Book", specs: "127×203mm (5×8 inch) | 300 DPI", formats: ["PDF", "AI"] },
+  { id: "poster", name: "A3 Poster", specs: "420×297mm | 300 DPI", formats: ["PDF", "AI"] },
 ];
 
 export interface WeddingCollectionCard {

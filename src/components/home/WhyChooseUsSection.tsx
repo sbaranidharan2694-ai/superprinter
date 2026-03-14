@@ -1,46 +1,28 @@
 import { motion } from "framer-motion";
-import { V2_WHY_CHOOSE, V2_COMPARISON_ROWS } from "@/data/v2";
-import { BUSINESS } from "@/data/business";
+import { V3_COIMBATORE_ROWS } from "@/data/v2";
 
-const cardBg = (highlight: string) => {
-  switch (highlight) {
-    case "gold":
-      return "var(--gold)";
-    case "navy":
-      return "var(--navy-deep)";
-    case "wedding":
-      return "var(--wedding-deep)";
-    default:
-      return "var(--pure-white)";
-  }
-};
+const WHY_FEATURES = [
+  { num: "01", title: "35 Years of Craft", body: "Founded when quality meant hand-checking every sheet." },
+  { num: "02", title: "48-Hour Delivery", body: "Business cards ready in 48 hours. Same-day available." },
+  { num: "03", title: "Chennai's Own", body: "Pallavaram-based for 35 years. No Coimbatore shipping delays." },
+];
 
-const cardBorder = (highlight: string) => {
-  if (highlight === "white") return "1px solid var(--border-light)";
-  return "none";
-};
-
-const cardText = (highlight: string) => {
-  if (highlight === "navy" || highlight === "wedding") return "text-white";
-  if (highlight === "gold") return "text-ink-black";
-  return "text-ink-black";
-};
+const WHY_IMAGE = "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=85";
 
 const WhyChooseUsSection = () => (
-  <section id="why-us" className="py-20 md:py-24" style={{ backgroundColor: "var(--paper-white)" }}>
+  <section id="why-us" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-light)" }}>
     <div className="max-w-7xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ type: "spring", stiffness: 400, damping: 25 }}
         className="text-center mb-14"
       >
         <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
           <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
           Why choose us
         </p>
-        <h2 className="font-display font-bold text-ink-black text-3xl md:text-4xl mb-3">
+        <h2 className="font-display font-bold text-navy text-3xl md:text-4xl mb-3">
           35 Years Ahead of the Competition
         </h2>
         <p className="text-gray-text font-body text-base max-w-2xl mx-auto">
@@ -48,72 +30,76 @@ const WhyChooseUsSection = () => (
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        {V2_WHY_CHOOSE.map((card, i) => (
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 mb-16">
+        <div className="lg:col-span-3 space-y-10">
+          {WHY_FEATURES.map((feat, i) => (
+            <motion.div
+              key={feat.num}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <div className="font-display font-bold text-[64px] leading-none mb-2" style={{ color: "rgba(212,168,67,0.15)" }}>
+                {feat.num}
+              </div>
+              <h3 className="font-ui font-semibold text-navy text-[22px] mb-2">{feat.title}</h3>
+              <p className="font-ui text-[15px] text-gray-text">{feat.body}</p>
+              <div className="mt-3 w-[60px] h-0.5 rounded-full" style={{ backgroundColor: "var(--gold)" }} />
+            </motion.div>
+          ))}
+        </div>
+        <div className="lg:col-span-2 relative">
           <motion.div
-            key={card.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ type: "spring", stiffness: 400, damping: 28, delay: i * 0.06 }}
-            className="rounded-3xl p-6 border shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
-            style={{
-              backgroundColor: cardBg(card.highlight),
-              border: cardBorder(card.highlight),
-            }}
+            viewport={{ once: true }}
+            className="rounded-3xl overflow-hidden shadow-hover relative"
           >
-            <span className="text-2xl mb-3 block">{card.icon}</span>
-            <h3 className={`font-display font-semibold text-lg mb-2 ${cardText(card.highlight)}`}>
-              {card.title}
-            </h3>
-            <p className={`font-body text-sm leading-relaxed ${card.highlight === "navy" || card.highlight === "wedding" ? "text-white/85" : card.highlight === "gold" ? "text-ink-black/90" : "text-gray-700"}`}>
-              {card.body}
-            </p>
-            {card.id === "whatsapp" && (
-              <a
-                href={BUSINESS.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full text-sm font-ui font-semibold text-white bg-whatsapp hover:opacity-90 transition-all duration-300 ease-spring"
-              >
-                💬 WhatsApp us
-              </a>
-            )}
+            <img src={WHY_IMAGE} alt="Printing press" className="w-full aspect-[4/3] object-cover" />
+            <div
+              className="absolute bottom-4 left-4 right-4 sm:right-auto sm:w-[220px] bg-white rounded-2xl p-4 shadow-card"
+              style={{ boxShadow: "var(--shadow-card)" }}
+            >
+              <div className="flex items-center gap-1 text-gold text-sm mb-1" style={{ color: "var(--gold)" }}>
+                {"★".repeat(4)}<span className="text-gold">★</span>
+                <span className="font-ui font-medium text-navy text-sm ml-1">4.8 Google Rating</span>
+              </div>
+              <p className="font-ui text-xs text-gray-500">147 verified reviews</p>
+              <p className="font-display italic text-navy text-sm mt-1">Trusted since 1990</p>
+            </div>
           </motion.div>
-        ))}
+        </div>
       </div>
 
-      {/* Comparison table */}
+      {/* Coimbatore table */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        className="overflow-x-auto rounded-xl border border-border-light shadow-md"
+        className="overflow-x-auto rounded-3xl border border-border-light shadow-card"
         style={{ backgroundColor: "var(--pure-white)" }}
       >
         <table className="w-full min-w-[500px] text-left">
           <thead>
             <tr style={{ backgroundColor: "var(--gold)" }}>
-              <th className="px-6 py-4 font-display font-semibold text-ink-black">Feature</th>
+              <th className="px-6 py-4 font-display font-semibold text-ink-black">Factor</th>
               <th className="px-6 py-4 font-display font-semibold text-ink-black">Super Printers</th>
-              <th className="px-6 py-4 font-display font-semibold text-ink-black">Others</th>
+              <th className="px-6 py-4 font-display font-semibold text-ink-black">Coimbatore / outstation printers</th>
             </tr>
           </thead>
           <tbody>
-            {V2_COMPARISON_ROWS.map((row, i) => (
-              <tr
-                key={row.feature}
-                className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
-              >
-                <td className="px-6 py-3 font-body text-sm text-ink-black">{row.feature}</td>
-                <td className="px-6 py-3 font-body text-sm text-gray-700">{row.super}</td>
-                <td className="px-6 py-3 font-body text-sm text-gray-500">{row.others}</td>
+            {V3_COIMBATORE_ROWS.map((row, i) => (
+              <tr key={row.factor} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                <td className="px-6 py-3 font-ui text-sm text-ink-black">{row.factor}</td>
+                <td className="px-6 py-3 font-ui text-sm text-gray-800">{row.super}</td>
+                <td className="px-6 py-3 font-ui text-sm text-gray-500">{row.coimbatore}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <p className="px-6 py-3 text-xs font-body text-gray-500 border-t border-border-light">
-          Super Printers vs. Other Chennai Printers
+        <p className="px-6 py-3 text-xs font-ui text-gray-500 border-t border-border-light">
+          Why Super Printers beats ordering from Coimbatore / outstation printers
         </p>
       </motion.div>
     </div>

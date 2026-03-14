@@ -7,7 +7,7 @@ const FAQSectionNew = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-20 md:py-24" style={{ backgroundColor: "var(--ink-black)" }}>
+    <section id="faq" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-cream)" }}>
       <div className="max-w-3xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,20 +19,20 @@ const FAQSectionNew = () => {
             <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
             Common questions
           </p>
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-2">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-ink-black mb-2">
             Everything You Need to Know
           </h2>
         </motion.div>
 
-        <div className="space-y-0 border-t border-white/10">
+        <div className="space-y-0 border-t border-border-light">
           {V2_FAQ.map((faq, i) => (
-            <div key={i} className="border-b border-white/10">
+            <div key={i} className="border-b border-border-light">
               <button
                 id={`faq-question-${i}`}
                 aria-controls={`faq-answer-${i}`}
                 aria-expanded={openIndex === i}
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full text-left py-5 flex items-center justify-between gap-4 font-body font-medium text-white text-[17px] hover:text-gold transition-colors"
+                className="w-full text-left py-5 flex items-center justify-between gap-4 font-body font-medium text-ink-black text-[17px] hover:text-gold transition-colors"
               >
                 {faq.q}
                 <span
@@ -54,7 +54,7 @@ const FAQSectionNew = () => {
                     transition={{ duration: 0.25, ease: "easeOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="font-body text-white/60 text-[15px] leading-relaxed pb-5 pr-8">
+                    <p className="font-body text-gray-text text-[15px] leading-relaxed pb-5 pr-8">
                       {faq.a}
                     </p>
                   </motion.div>
@@ -70,7 +70,7 @@ const FAQSectionNew = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-white/80 font-body text-sm mb-4">Still have a question?</p>
+          <p className="text-gray-text font-body text-sm mb-4">Still have a question?</p>
           <a
             href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi, I have a question about your printing services.")}`}
             target="_blank"

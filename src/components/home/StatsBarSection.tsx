@@ -38,8 +38,8 @@ const CountUp = ({ target, suffix, duration = 1.5 }: { target: number; suffix: s
 const StatsBarSection = () => (
   <section
     id="stats"
-    className="py-16 w-full"
-    style={{ backgroundColor: "var(--paper-white)" }}
+    className="section-pad-sm w-full"
+    style={{ backgroundColor: "var(--bg-cream)" }}
   >
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
@@ -51,14 +51,15 @@ const StatsBarSection = () => (
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.45, delay: i * 0.07 }}
             className={`flex flex-col items-center text-center py-2 ${
-              i < STATS.length - 1 ? "lg:border-r border-gray-300" : ""
+              i < STATS.length - 1 ? "lg:border-r" : ""
             }`}
+            style={i < STATS.length - 1 ? { borderColor: "rgba(26,44,91,0.12)" } : undefined}
           >
-            <div className="font-display font-extrabold text-5xl lg:text-[56px] leading-none text-ink-black">
+            <div className="font-display font-bold text-4xl lg:text-[52px] leading-none text-ink-black">
               <CountUp target={stat.value} suffix={stat.suffix} />
             </div>
-            <div className="font-ui font-semibold text-ink-black text-sm mt-1">{stat.label}</div>
-            <div className="font-ui text-xs mt-0.5" style={{ color: "var(--gold)" }}>{stat.sub}</div>
+            <div className="font-ui font-medium text-[15px] mt-1" style={{ color: "rgba(17,19,24,0.65)" }}>{stat.label}</div>
+            <div className="font-ui text-xs mt-0.5" style={{ color: "rgba(17,19,24,0.45)" }}>{stat.sub}</div>
           </motion.div>
         ))}
       </div>

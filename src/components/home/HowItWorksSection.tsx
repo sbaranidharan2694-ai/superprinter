@@ -9,7 +9,7 @@ const STEPS = [
 ];
 
 const HowItWorksSection = () => (
-  <section id="process" className="py-20 md:py-24 relative" style={{ backgroundColor: "var(--navy-deep)" }}>
+  <section id="process" className="py-20 md:py-24 relative" style={{ backgroundColor: "var(--bg-cream)" }}>
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -21,7 +21,7 @@ const HowItWorksSection = () => (
           <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
           Simple ordering
         </p>
-        <h2 className="font-display font-bold text-white text-3xl md:text-4xl">
+        <h2 className="font-display font-bold text-ink-black text-3xl md:text-4xl">
           Ready in 4 Steps
         </h2>
       </motion.div>
@@ -40,8 +40,8 @@ const HowItWorksSection = () => (
               {step.num}
             </div>
             <div className="text-4xl mb-3">{step.icon}</div>
-            <h3 className="font-display font-semibold text-xl text-white mb-2">{step.title}</h3>
-            <p className="font-body text-white/70 text-sm leading-relaxed max-w-[200px]">
+            <h3 className="font-display font-semibold text-xl text-ink-black mb-2">{step.title}</h3>
+            <p className="font-body text-gray-text text-sm leading-relaxed max-w-[200px]">
               {step.body}
             </p>
             {i < STEPS.length - 1 && (
@@ -66,7 +66,7 @@ const HowItWorksSection = () => (
         >
           Start Your Order on WhatsApp
         </a>
-        <p className="text-white/60 font-body text-sm mt-3">Quote in 30 minutes · No obligation</p>
+        <p className="text-gray-text font-body text-sm mt-3">Quote in 30 minutes · No obligation</p>
       </motion.div>
     </div>
   </section>

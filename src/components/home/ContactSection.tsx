@@ -3,7 +3,7 @@ import { BUSINESS } from "@/data/business";
 import { V2_AREAS_SERVED } from "@/data/v2";
 
 const ContactSection = () => (
-  <section id="contact" className="py-20 md:py-24" style={{ backgroundColor: "var(--paper-white)" }}>
+  <section id="contact" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-white)" }}>
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

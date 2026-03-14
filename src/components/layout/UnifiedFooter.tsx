@@ -27,25 +27,35 @@ const PRODUCT_LINKS = [
 
 const UnifiedFooter = () => (
   <footer
-    className="bg-ink-black pt-16 pb-6 px-6 text-white/80 font-ui text-sm"
-    style={{ backgroundColor: "var(--ink-black)" }}
+    className="relative pt-16 pb-6 px-6 font-ui text-sm"
+    style={{ backgroundColor: "var(--navy)" }}
   >
+    <div
+      className="absolute top-0 left-0 right-0 h-[3px]"
+      style={{ background: "linear-gradient(90deg, transparent 0%, var(--gold) 20%, var(--gold-light) 50%, var(--gold) 80%, transparent 100%)" }}
+      aria-hidden
+    />
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
       <div>
-        <div className="flex items-center gap-3 mb-2">
+        <div className="flex items-center gap-4 mb-3">
           <span
-            className="w-10 h-10 rounded-full flex items-center justify-center font-display font-bold text-lg"
-            style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
+            className="w-14 h-14 rounded-full flex items-center justify-center font-display font-bold text-2xl shrink-0"
+            style={{ color: "var(--gold)", border: "2px solid rgba(212,168,67,0.5)" }}
           >
             SP
           </span>
-          <span className="font-display font-bold text-xl text-white">Super Printers</span>
+          <div>
+            <span className="font-display font-semibold text-2xl text-white block">Super Printers</span>
+            <span className="font-ui text-[13px] font-light" style={{ color: "rgba(255,255,255,0.5)" }}>
+              Est. 1990, Pallavaram, Chennai
+            </span>
+          </div>
         </div>
         <p className="text-white/60 text-sm mb-4">Chennai&apos;s Premier Printing Studio Since 1990</p>
         <div className="flex gap-3 mb-4">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink-black transition-colors" aria-label="Facebook">f</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink-black transition-colors" aria-label="Instagram">i</a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink-black transition-colors" aria-label="YouTube">y</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-ink-black transition-colors" style={{ color: "var(--gold)" }} aria-label="Facebook">f</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-ink-black transition-colors" style={{ color: "var(--gold)" }} aria-label="Instagram">i</a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-ink-black transition-colors" style={{ color: "var(--gold)" }} aria-label="YouTube">y</a>
           <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-whatsapp hover:text-white transition-colors" aria-label="WhatsApp">💬</a>
         </div>
         <a href={BUSINESS.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white/70 text-xs hover:text-gold transition-colors">
@@ -60,7 +70,8 @@ const UnifiedFooter = () => (
             <button
               key={link.id || "home"}
               onClick={() => (link.id ? scrollToSection(link.id) : window.scrollTo({ top: 0, behavior: "smooth" }))}
-              className="block text-left text-white/60 hover:text-gold transition-colors text-sm"
+              className="block text-left font-light text-[14px] transition-colors hover:text-gold"
+              style={{ color: "rgba(255,255,255,0.6)" }}
             >
               {link.label}
             </button>
@@ -75,7 +86,8 @@ const UnifiedFooter = () => (
             <button
               key={name}
               onClick={() => scrollToSection(name === "Wedding Cards" ? "wedding-cards" : "products")}
-              className="block text-left text-white/60 hover:text-gold transition-colors text-sm"
+              className="block text-left font-light text-[14px] transition-colors hover:text-gold"
+              style={{ color: "rgba(255,255,255,0.6)" }}
             >
               {name}
             </button>
@@ -104,10 +116,10 @@ const UnifiedFooter = () => (
       </div>
     </div>
 
-    <div className="max-w-6xl mx-auto border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p className="text-white/50 text-xs">© 2025 Super Printers. All rights reserved.</p>
-      <p className="text-white/50 text-xs">Serving Chennai since 1990</p>
-      <p className="text-white/50 text-xs">Made with love in Pallavaram</p>
+    <div className="max-w-6xl mx-auto border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
+      <p className="text-white/50 text-xs">© 2025 Super Printers</p>
+      <p className="font-display italic text-white/60 text-sm">Quality printing since 1990</p>
+      <p className="text-white/50 text-xs">Made in Pallavaram ♥</p>
     </div>
   </footer>
 );

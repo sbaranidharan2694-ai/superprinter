@@ -21,7 +21,7 @@ const QuoteFormSection = () => {
   };
 
   return (
-    <section id="quote-form" className="py-20 md:py-24" style={{ backgroundColor: "var(--ink-black)" }}>
+    <section id="quote-form" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-charcoal)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
           {/* Left 40% */}

@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', 'serif'],
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         body: ['"Outfit"', 'sans-serif'],
         ui: ['"Outfit"', 'sans-serif'],
         tamil: ['"Noto Sans Tamil"', 'sans-serif'],

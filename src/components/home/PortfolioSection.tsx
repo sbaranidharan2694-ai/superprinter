@@ -46,7 +46,7 @@ const PortfolioSection = () => {
   const aspectClasses = ["aspect-[4/3]", "aspect-square", "aspect-[3/4]", "aspect-[4/3]", "aspect-square", "aspect-[3/4]"];
 
   return (
-    <section id="portfolio" className="py-20 md:py-24" style={{ backgroundColor: "var(--ink-black)" }}>
+    <section id="portfolio" className="py-20 md:py-24" style={{ backgroundColor: "var(--navy)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,12 +54,11 @@ const PortfolioSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
-            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
-            Our work
+          <p className="font-ui text-[12px] font-light tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
+            OUR WORK
           </p>
-          <h2 className="font-display font-bold text-white text-3xl md:text-4xl italic">
-            35 Years of Beautiful Print
+          <h2 className="font-display font-semibold italic text-white text-3xl md:text-4xl lg:text-[52px]">
+            35 Years of Beautiful Print.
           </h2>
         </motion.div>
 
@@ -80,14 +79,17 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div
+          className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3"
+          style={{ columnGap: "12px" }}
+        >
           {filtered.map((item, index) => (
             <motion.div
               key={item.id}
               layout
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`relative overflow-hidden rounded-3xl group cursor-zoom-in ${aspectClasses[index % aspectClasses.length]}`}
+              className={`relative overflow-hidden rounded-[14px] group cursor-zoom-in break-inside-avoid mb-3 ${aspectClasses[index % aspectClasses.length]}`}
               onClick={() => openLightbox(index)}
             >
               <img
@@ -97,13 +99,9 @@ const PortfolioSection = () => {
                 loading="lazy"
               />
               <div
-                className="absolute inset-0 bg-ink-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"
-                style={{ backgroundColor: "rgba(13,13,13,0.6)" }}
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 bg-gradient-to-t from-black/80 to-transparent"
               >
-                <span className="text-white font-body font-medium">{item.label}</span>
-                <span className="ml-2 px-2 py-0.5 rounded text-xs bg-gold/90 text-ink-black" style={{ backgroundColor: "var(--gold)" }}>
-                  {item.category}
-                </span>
+                <span className="text-white font-ui text-[13px]">{item.label}</span>
               </div>
             </motion.div>
           ))}

@@ -12,11 +12,11 @@ const WeddingCardsSection = () => (
     <section id="wedding-cards" className="relative grid grid-cols-1 lg:grid-cols-5 min-h-[500px] lg:min-h-[600px]">
       <div className="relative lg:col-span-2 h-64 lg:h-auto">
         <img src={HERO_IMG_LEFT} alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-wedding-deep/80" style={{ backgroundColor: "rgba(74,14,34,0.8)" }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(123,26,48,0.88)" }} />
       </div>
       <div className="relative lg:col-span-3 h-64 lg:h-auto">
         <img src={HERO_IMG_RIGHT} alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-wedding-deep/70" style={{ backgroundColor: "rgba(74,14,34,0.7)" }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(123,26,48,0.82)" }} />
       </div>
       <div className="absolute inset-0 z-10 flex items-center justify-center p-6">
         <div className="text-center max-w-2xl">
@@ -34,9 +34,11 @@ const WeddingCardsSection = () => (
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4"
+            className="font-display font-bold italic text-3xl md:text-4xl lg:text-[60px] text-white leading-tight mb-4"
           >
-            Invitations as Unforgettable as Your Special Day.
+            Invitations as Unforgettable
+            <span className="block text-gold/90 text-2xl lg:text-3xl my-2">— —  ◆  — —</span>
+            as Your Day.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -73,7 +75,7 @@ const WeddingCardsSection = () => (
     </section>
 
     {/* Collections grid */}
-    <section className="py-20 md:py-24" style={{ backgroundColor: "var(--paper-white)" }}>
+    <section className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-cream)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.h3
           initial={{ opacity: 0, y: 12 }}
@@ -91,28 +93,41 @@ const WeddingCardsSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="rounded-3xl overflow-hidden bg-white border border-border-light shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
+              className="rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5 p-[2px] outline outline-4 outline-offset-[-8px]"
+              style={{
+                backgroundColor: "#FFF8F0",
+                border: "2px solid rgba(212,168,67,0.3)",
+                outlineColor: "rgba(212,168,67,0.08)",
+              }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={card.image} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-                {card.badge && (
-                  <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-body font-semibold text-ink-black" style={{ backgroundColor: "var(--gold)" }}>
-                    {card.badge}
-                  </span>
-                )}
-              </div>
-              <div className="p-5">
-                <h4 className="font-display font-semibold text-lg text-ink-black mb-2">{card.name}</h4>
-                <p className="font-body text-sm text-gray-600 mb-4 line-clamp-2">{card.description}</p>
-                <a
-                  href={BUSINESS.whatsappWedding}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm font-body font-medium text-gold hover:underline"
-                  style={{ color: "var(--gold)" }}
-                >
-                  View Designs →
-                </a>
+              <div className="rounded-2xl overflow-hidden bg-[#FFF8F0]">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img src={card.image} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-3 left-3 w-8 h-8 flex items-center justify-center text-gold" style={{ color: "var(--gold)" }} aria-hidden>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="opacity-90"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </div>
+                  {card.badge && (
+                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-ui font-semibold text-ink-black" style={{ backgroundColor: "var(--gold)" }}>
+                      {card.badge}
+                    </span>
+                  )}
+                </div>
+                <div className="p-5">
+                  <h4 className="font-display font-semibold italic text-[18px] text-navy mb-2">{card.name}</h4>
+                  <p className="font-ui text-[13px] font-light text-gray-600 mb-3 line-clamp-2" style={{ color: "rgba(17,19,24,0.7)" }}>{card.description}</p>
+                  {card.price && (
+                    <p className="font-display font-bold text-[22px] mb-3" style={{ color: "var(--gold)" }}>{card.price}</p>
+                  )}
+                  <a
+                    href={BUSINESS.whatsappWedding}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm font-ui font-medium hover:underline"
+                    style={{ color: "var(--gold)" }}
+                  >
+                    View Designs →
+                  </a>
+                </div>
               </div>
             </motion.article>
           ))}
