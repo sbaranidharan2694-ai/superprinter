@@ -26,25 +26,6 @@ const HeroSection = () => {
         }}
       >
         <div className="relative z-10 max-w-xl">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-8 max-w-[240px] sm:max-w-[280px]"
-          >
-            <img
-              src="/super-printers-logo.png"
-              alt="Super Printers — 35 Years Experience"
-              className="w-full h-auto object-contain drop-shadow-lg"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (target.getAttribute("data-fallback") !== "done") {
-                  target.setAttribute("data-fallback", "done");
-                  target.src = "/super-printers-logo.svg";
-                }
-              }}
-            />
-          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
