@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { scrollToSection } from "@/utils/scroll";
-import { CATALOG_CATEGORIES } from "@/data/catalog";
 import WhatsAppStatus from "@/components/WhatsAppStatus";
 import SuperPrintersLogo from "@/components/SuperPrintersLogo";
 import { useLang } from "@/contexts/LangContext";
 
 const SECTION_IDS = ["products", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "quote-form", "about", "faq", "contact"] as const;
 
-/** Nav items that scroll to section on home page */
-const SCROLL_NAV: { label: string; id: string }[] = [
+/** Main nav: scroll-to-section on home, or hash on other pages */
+const MAIN_NAV: { label: string; id: string }[] = [
   { label: "Home", id: "" },
   { label: "Portfolio", id: "portfolio" },
   { label: "About", id: "about" },
@@ -21,7 +20,6 @@ const UnifiedHeader = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [activeId, setActiveId] = useState("");
   const isHome = location.pathname === "/";
 
@@ -50,17 +48,20 @@ const UnifiedHeader = () => {
   }, [mobileMenu]);
 
   const atTop = !scrolled;
+  const baseNavClass = "nav-link px-4 py-2.5 text-[14px] font-ui font-medium rounded-full transition-all duration-300 ease-spring";
+  const inactiveClass = atTop
+    ? "text-white/90 hover:text-gold hover:bg-white/5"
+    : "text-inherit hover:text-gold hover:bg-white/5";
   const linkClass = (id: string) =>
-    `nav-link px-4 py-2.5 text-[14px] font-ui font-medium rounded-full transition-all duration-300 ease-spring ${
-      activeId === id ? "text-gold bg-gold/10" : "text-inherit hover:text-gold hover:bg-white/5"
-    }`;
+    `${baseNavClass} ${activeId === id ? "text-gold bg-gold/10" : inactiveClass}`;
+  const isProducts = location.pathname === "/products";
 
   return (
     <header
       className={`fixed top-11 left-0 right-0 z-[101] transition-all duration-300 ${
         atTop
           ? "text-white backdrop-blur-md border-b border-white/10"
-          : "bg-white/98 backdrop-blur-md border-b border-gray-100"
+          : "bg-white/98 backdrop-blur-md border-b border-gray-100 text-ink-black"
       }`}
       style={
         atTop
@@ -86,7 +87,7 @@ const UnifiedHeader = () => {
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-2">
           <button
             onClick={() => (isHome ? scrollToSection("") : window.location.assign("/"))}
             className={linkClass("")}
@@ -95,63 +96,11 @@ const UnifiedHeader = () => {
           </button>
           <Link
             to="/products"
-            className={`px-4 py-2.5 text-[14px] font-ui font-medium rounded-full transition-all duration-300 ${
-              location.pathname === "/products" ? "text-gold bg-gold/10" : "text-inherit hover:text-gold hover:bg-white/5"
-            }`}
+            className={`${baseNavClass} ${isProducts ? "text-gold bg-gold/10" : inactiveClass}`}
           >
             {t("All Products")}
           </Link>
-          {CATALOG_CATEGORIES.map((cat) => (
-            <div
-              key={cat.id}
-              className="relative"
-              onMouseEnter={() => setOpenDropdown(cat.slug)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              {cat.subcategories.length > 0 ? (
-                <>
-                  <button
-                    onClick={() => setOpenDropdown(openDropdown === cat.slug ? null : cat.slug)}
-                    className={`${linkClass("")} flex items-center gap-1`}
-                  >
-                    {cat.label}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  {openDropdown === cat.slug && (
-                    <div className="absolute top-full left-0 pt-2 min-w-[200px]">
-                      <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-2 text-left">
-                        {cat.subcategories.map((sub) => (
-                          <Link
-                            key={sub.slug}
-                            to={`/products?category=${encodeURIComponent(cat.slug)}&sub=${encodeURIComponent(sub.slug)}`}
-                            onClick={() => setOpenDropdown(null)}
-                            className="block px-4 py-2 text-sm font-ui text-gray-700 hover:bg-gold/10 hover:text-gold transition-colors"
-                          >
-                            {sub.label}
-                            {sub.badge === "NEW" && (
-                              <span className="ml-1.5 text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-500 text-white">
-                                NEW
-                              </span>
-                            )}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </>
-              ) : (
-                <Link
-                  to={`/products?category=${encodeURIComponent(cat.slug)}`}
-                  className={linkClass("")}
-                >
-                  {cat.label}
-                </Link>
-              )}
-            </div>
-          ))}
-          {SCROLL_NAV.filter((l) => l.id).map((link) => (
+          {MAIN_NAV.filter((l) => l.id).map((link) => (
             <button
               key={link.id}
               onClick={() => {
@@ -170,7 +119,7 @@ const UnifiedHeader = () => {
           <div className="hidden lg:flex">
             <WhatsAppStatus />
           </div>
-          <a href="tel:+919840199878" className="hidden md:inline text-sm font-medium hover:opacity-90">
+          <a href="tel:+919840199878" className={`hidden md:inline text-sm font-medium hover:opacity-90 ${atTop ? "text-white/90" : "text-ink-black"}`}>
             {atTop ? "📞 Call" : "📞 +91 98401 99878"}
           </a>
           <button
@@ -222,22 +171,7 @@ const UnifiedHeader = () => {
           >
             {t("All Products")}
           </Link>
-          {CATALOG_CATEGORIES.map((cat) => {
-            const href = cat.subcategories.length > 0
-              ? `/products?category=${encodeURIComponent(cat.slug)}&sub=${encodeURIComponent(cat.subcategories[0].slug)}`
-              : `/products?category=${encodeURIComponent(cat.slug)}`;
-            return (
-              <Link
-                key={cat.id}
-                to={href}
-                onClick={() => setMobileMenu(false)}
-                className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
-              >
-                {cat.label}
-              </Link>
-            );
-          })}
-          {SCROLL_NAV.filter((l) => l.id).map((link) => (
+          {MAIN_NAV.filter((l) => l.id).map((link) => (
             <button
               key={link.id}
               onClick={() => {
@@ -250,26 +184,6 @@ const UnifiedHeader = () => {
               {t(link.label)}
             </button>
           ))}
-          <button
-            onClick={() => {
-              setMobileMenu(false);
-              if (isHome) scrollToSection("why-us");
-              else window.location.assign("/#why-us");
-            }}
-            className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
-          >
-            Why Choose Us
-          </button>
-          <button
-            onClick={() => {
-              setMobileMenu(false);
-              if (isHome) scrollToSection("finishes");
-              else window.location.assign("/#finishes");
-            }}
-            className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
-          >
-            Paper & Finishes
-          </button>
           <div className="mt-8 flex flex-col gap-3 px-6 w-full">
             <a
               href="https://wa.me/919840199878?text=Hi%20Super%20Printers!%20I%20need%20a%20printing%20quote."
