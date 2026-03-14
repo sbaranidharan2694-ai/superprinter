@@ -1,6 +1,21 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
+
+/** Sample design gallery: 10 visiting card images. Place files in public/visiting-cards/ as visiting-card-01.png … visiting-card-10.png */
+const VISITING_CARD_DESIGNS = [
+  { src: "/visiting-cards/visiting-card-01.png", label: "Black & Gold Luxury" },
+  { src: "/visiting-cards/visiting-card-02.png", label: "Modern Green & Teal" },
+  { src: "/visiting-cards/visiting-card-03.png", label: "Blue & Purple Waves" },
+  { src: "/visiting-cards/visiting-card-04.png", label: "Diagonal Blue Layout" },
+  { src: "/visiting-cards/visiting-card-05.png", label: "Yellow & Orange Geometric" },
+  { src: "/visiting-cards/visiting-card-06.png", label: "Minimal Red & Black" },
+  { src: "/visiting-cards/visiting-card-07.png", label: "Black Hexagon & Red Accent" },
+  { src: "/visiting-cards/visiting-card-08.png", label: "Watercolor Brush Strokes" },
+  { src: "/visiting-cards/visiting-card-09.png", label: "Monochrome Geometric" },
+  { src: "/visiting-cards/visiting-card-10.png", label: "Lime Green & Dark" },
+];
 
 const SPEC_ROWS = [
   { type: "Standard Gloss", paper: "300 GSM", finish: "Gloss Lam", minQty: "100 pcs", price: "₹299", delivery: "48 hrs" },
@@ -10,7 +25,53 @@ const SPEC_ROWS = [
   { type: "No Lam", paper: "300 GSM", finish: "No Lam", minQty: "100 pcs", price: "₹249", delivery: "48 hrs" },
 ];
 
-const VisitingCardsPage = () => (
+function VisitingCardGalleryItem({
+  design,
+  index,
+  onClick,
+}: {
+  design: { src: string; label: string };
+  index: number;
+  onClick: () => void;
+}) {
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="group rounded-2xl overflow-hidden border border-border-light bg-white shadow-sm hover:shadow-md transition-shadow text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+      aria-label={`View ${design.label} design`}
+    >
+      <div className="aspect-[3.5/2] bg-gray-100 relative overflow-hidden">
+        {!error ? (
+          <img
+            src={design.src}
+            alt={design.label}
+            className={`w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
+            loading="lazy"
+            onLoad={() => setLoaded(true)}
+            onError={() => setError(true)}
+          />
+        ) : null}
+        {error && (
+          <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-ui text-sm">
+            Sample {index + 1}
+          </div>
+        )}
+      </div>
+      <p className="px-3 py-2 font-ui text-sm text-ink-black truncate" title={design.label}>
+        {design.label}
+      </p>
+    </button>
+  );
+}
+
+const VisitingCardsPage = () => {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const lightboxDesign = lightboxIndex != null ? VISITING_CARD_DESIGNS[lightboxIndex] : null;
+
+  return (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
       title="Visiting Card Printing Pallavaram Chennai | Gloss, Matt, Spot UV | From ₹149 | Super Printers"
@@ -53,6 +114,25 @@ const VisitingCardsPage = () => (
             </a>
           </div>
         </header>
+
+        <section className="mb-14" aria-labelledby="design-gallery-heading">
+          <h2 id="design-gallery-heading" className="font-display font-semibold text-xl text-ink-black mb-2">
+            Sample designs
+          </h2>
+          <p className="font-ui text-gray-600 mb-6">
+            Get inspired — we print all styles: luxury black &amp; gold, modern colour blocks, minimal, and more.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {VISITING_CARD_DESIGNS.map((design, i) => (
+              <VisitingCardGalleryItem
+                key={design.src}
+                design={design}
+                index={i}
+                onClick={() => setLightboxIndex(i)}
+              />
+            ))}
+          </div>
+        </section>
 
         <section className="mb-14">
           <h2 className="font-display font-semibold text-xl text-ink-black mb-4">Specs &amp; Pricing</h2>
@@ -116,7 +196,41 @@ const VisitingCardsPage = () => (
         </section>
       </div>
     </div>
-  </div>
-);
+
+      {/* Lightbox for sample design */}
+      {lightboxDesign && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="View design"
+          onClick={() => setLightboxIndex(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setLightboxIndex(null)}
+            className="absolute top-4 right-4 text-white/90 hover:text-white text-2xl font-bold w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <div
+            className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={lightboxDesign.src}
+              alt={lightboxDesign.label}
+              className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+            />
+            <p className="absolute bottom-0 left-0 right-0 py-2 text-center font-ui text-sm text-white bg-black/50 rounded-b-lg">
+              {lightboxDesign.label}
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default VisitingCardsPage;
