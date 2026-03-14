@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { scrollToSection } from "@/utils/scroll";
 import WhatsAppStatus from "@/components/WhatsAppStatus";
-import SuperPrintersLogo from "@/components/SuperPrintersLogo";
 import { useLang } from "@/contexts/LangContext";
 
 const SECTION_IDS = ["products", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "quote-form", "about", "faq", "contact"] as const;
@@ -74,30 +73,33 @@ const UnifiedHeader = () => {
         <Link
           to="/"
           onClick={(e) => { if (isHome) { e.preventDefault(); scrollToSection(""); } }}
-          className="flex items-center gap-4 text-left shrink-0"
+          className="flex items-center gap-3 text-left shrink-0"
           aria-label="Super Printers Home"
         >
           {!logoImgFailed ? (
             <img
               src="/super-printers-logo.png"
               alt="Super Printers — 35 Years Experience"
-              className="h-16 sm:h-[72px] w-auto object-contain"
+              className="h-14 sm:h-16 w-auto object-contain"
               onError={() => setLogoImgFailed(true)}
             />
           ) : (
-            <SuperPrintersLogo variant="header" size="lg" />
+            <span
+              className="flex items-center justify-center rounded-full border-2 font-display font-bold text-lg shrink-0"
+              style={{
+                width: 48,
+                height: 48,
+                borderColor: "var(--gold)",
+                color: "var(--gold)",
+              }}
+              aria-hidden
+            >
+              SP
+            </span>
           )}
-          <div className="flex flex-col justify-center min-w-0">
-            <span className={`font-ui text-[11px] sm:text-xs font-medium uppercase tracking-wider ${atTop ? "text-white/80" : "text-navy/80"}`}>
-              Est. 1990
-            </span>
-            <span className={`font-display font-bold text-xl sm:text-2xl leading-tight tracking-tight ${atTop ? "text-white" : "text-navy"}`}>
-              Super Printers
-            </span>
-            <span className="font-ui text-[11px] sm:text-xs mt-0.5" style={{ color: "var(--gold)" }}>
-              Pallavaram, Chennai
-            </span>
-          </div>
+          <span className={`font-display font-bold text-xl sm:text-2xl leading-tight tracking-tight ${atTop ? "text-white" : "text-navy"}`}>
+            Super Printers
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-2">
