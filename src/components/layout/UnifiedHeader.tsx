@@ -71,45 +71,42 @@ const UnifiedHeader = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[72px] py-2">
         <Link
-          to="/"
-          onClick={(e) => { if (isHome) { e.preventDefault(); scrollToSection(""); } }}
-          className="flex items-center gap-3 text-left shrink-0"
-          aria-label="Super Printers Home"
-        >
-          {!logoImgFailed ? (
-            <img
-              src="/super-printers-logo.png"
-              alt="Super Printers — 35 Years Experience"
-              className="h-14 sm:h-16 w-auto object-contain"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (target.getAttribute("data-fallback") !== "done") {
-                  target.setAttribute("data-fallback", "done");
-                  target.src = "/super-printers-logo.svg";
-                  target.onerror = () => setLogoImgFailed(true);
-                } else {
-                  setLogoImgFailed(true);
-                }
-              }}
-            />
-          ) : (
-            <span
-              className="flex items-center justify-center rounded-full border-2 font-display font-bold text-lg shrink-0"
-              style={{
-                width: 48,
-                height: 48,
-                borderColor: "var(--gold)",
-                color: "var(--gold)",
-              }}
-              aria-hidden
-            >
-              SP
-            </span>
-          )}
-          <span className={`font-display font-bold text-xl sm:text-2xl leading-tight tracking-tight ${atTop ? "text-white" : "text-navy"}`}>
-            Super Printers
-          </span>
-        </Link>
+            to="/"
+            onClick={(e) => { if (isHome) { e.preventDefault(); scrollToSection(""); } }}
+            className="flex items-center gap-3 text-left shrink-0"
+            aria-label="Super Printers Home"
+          >
+            {!logoImgFailed ? (
+              <img
+                src="/super-printers-logo.png"
+                alt="Super Printers — 35 Years Experience"
+                className="h-14 sm:h-16 w-auto object-contain max-w-[200px]"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.getAttribute("data-fallback") !== "done") {
+                    target.setAttribute("data-fallback", "done");
+                    target.src = "/super-printers-logo.svg";
+                    target.onerror = () => setLogoImgFailed(true);
+                  } else {
+                    setLogoImgFailed(true);
+                  }
+                }}
+              />
+            ) : (
+              <>
+                <span
+                  className="flex items-center justify-center rounded-full border-2 font-display font-bold text-lg shrink-0"
+                  style={{ width: 48, height: 48, borderColor: "var(--gold)", color: "var(--gold)" }}
+                  aria-hidden
+                >
+                  SP
+                </span>
+                <span className={`font-display font-bold text-xl sm:text-2xl leading-tight tracking-tight ${atTop ? "text-white" : "text-navy"}`}>
+                  Super Printers
+                </span>
+              </>
+            )}
+          </Link>
 
         <nav className="hidden lg:flex items-center gap-2">
           <button

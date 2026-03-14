@@ -41,12 +41,12 @@ const UnifiedFooter = () => {
     />
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
       <div>
-        <div className="flex items-start gap-4 mb-3">
+        <div className="mb-4">
           {!logoImgFailed ? (
             <img
               src="/super-printers-logo.png"
               alt="Super Printers — 35 Years Experience"
-              className="h-16 w-auto object-contain flex-shrink-0"
+              className="h-20 w-auto object-contain max-w-[220px]"
               onError={(e) => {
                 const target = e.currentTarget;
                 if (target.getAttribute("data-fallback") !== "done") {
@@ -59,14 +59,16 @@ const UnifiedFooter = () => {
               }}
             />
           ) : (
-            <SuperPrintersLogo variant="footer" size="lg" />
+            <div className="flex items-start gap-4">
+              <SuperPrintersLogo variant="footer" size="lg" />
+              <div>
+                <span className="font-display font-semibold text-2xl text-white block">Super Printers</span>
+                <span className="font-ui text-[13px] font-light" style={{ color: "rgba(255,255,255,0.5)" }}>
+                  Est. 1990, Pallavaram, Chennai
+                </span>
+              </div>
+            </div>
           )}
-          <div>
-            <span className="font-display font-semibold text-2xl text-white block">Super Printers</span>
-            <span className="font-ui text-[13px] font-light" style={{ color: "rgba(255,255,255,0.5)" }}>
-              Est. 1990, Pallavaram, Chennai
-            </span>
-          </div>
         </div>
         <p className="text-white/60 text-sm mb-2">Chennai&apos;s Premier Printing Studio Since 1990</p>
         <div className="font-display italic text-base mb-4" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Playfair Display', serif", marginTop: "8px" }}>

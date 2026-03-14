@@ -30,7 +30,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-8 max-w-[280px] sm:max-w-[320px]"
+            className="mb-8 max-w-[240px] sm:max-w-[280px]"
           >
             <img
               src="/super-printers-logo.png"
@@ -45,22 +45,11 @@ const HeroSection = () => {
               }}
             />
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center gap-3 mb-6"
-          >
-            <span className="w-[60px] h-px shrink-0" style={{ backgroundColor: "var(--gold)" }} />
-            <span className="font-ui text-[13px] font-light" style={{ color: "var(--gold)" }}>
-              Est. 1990 · Pallavaram, Chennai
-            </span>
-          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.35 }}
-            className="hero-h1 text-white mb-4"
+            className="hero-h1 text-white mb-8"
             style={{
               fontFamily: "'Playfair Display', serif",
               fontWeight: 900,

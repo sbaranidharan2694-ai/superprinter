@@ -1,31 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
-  <!-- Decorative wreath dots -->
-  <circle cx="25" cy="35" r="4" fill="#3B82F6"/>
-  <circle cx="95" cy="40" r="4" fill="#F59E0B"/>
-  <circle cx="60" cy="18" r="4" fill="#10B981"/>
-  <circle cx="35" cy="75" r="3" fill="#EC4899"/>
-  <circle cx="85" cy="70" r="3" fill="#8B5CF6"/>
-  <!-- Hexagon -->
-  <path d="M60 28 L88 46 L88 82 L60 100 L32 82 L32 46 Z" fill="url(#hexGrad)" stroke="#1e293b" stroke-width="1.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
   <defs>
-    <linearGradient id="hexGrad" x1="32" y1="28" x2="88" y2="100" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3B82F6"/>
-      <stop offset="0.5" stop-color="#F59E0B"/>
-      <stop offset="1" stop-color="#EC4899"/>
+    <linearGradient id="hexG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="35%" stop-color="#F59E0B"/>
+      <stop offset="70%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="ribbonG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="40%" stop-color="#EC4899"/>
+      <stop offset="60%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="circleG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="33%" stop-color="#EC4899"/>
+      <stop offset="66%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#10B981"/>
     </linearGradient>
   </defs>
-  <!-- SP text -->
-  <text x="60" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="700" font-size="28" fill="#111318">SP</text>
-  <!-- SUPER PRINTERS -->
-  <text x="60" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="700" font-size="14" letter-spacing="0.05em" fill="#1e3a5f">SUPER PRINTERS</text>
-  <!-- 35 YEARS ribbon -->
-  <rect x="30" y="122" width="60" height="14" rx="4" fill="url(#ribbon)"/>
-  <defs>
-    <linearGradient id="ribbon" x1="30" y1="129" x2="90" y2="129" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#EC4899"/>
-      <stop offset="0.5" stop-color="#F59E0B"/>
-      <stop offset="1" stop-color="#3B82F6"/>
-    </linearGradient>
-  </defs>
-  <text x="60" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="8" fill="white">35 YEARS EXPERIENCE</text>
+  <circle cx="100" cy="90" r="68" stroke="url(#circleG)" stroke-width="3" fill="white" fill-opacity="0.95"/>
+  <circle cx="50" cy="45" r="5" fill="#10B981" opacity="0.9"/>
+  <circle cx="152" cy="40" r="5" fill="#F59E0B" opacity="0.9"/>
+  <circle cx="168" cy="75" r="4" fill="#EC4899" opacity="0.9"/>
+  <circle cx="40" cy="110" r="4" fill="#3B82F6" opacity="0.9"/>
+  <circle cx="35" cy="80" r="3.5" fill="#8B5CF6" opacity="0.9"/>
+  <circle cx="165" cy="110" r="3.5" fill="#10B981" opacity="0.9"/>
+  <circle cx="75" cy="22" r="4" fill="#EC4899" opacity="0.9"/>
+  <circle cx="125" cy="20" r="3.5" fill="#3B82F6" opacity="0.9"/>
+  <ellipse cx="55" cy="55" rx="8" ry="4" fill="#F59E0B" opacity="0.7" transform="rotate(-45 55 55)"/>
+  <ellipse cx="148" cy="55" rx="8" ry="4" fill="#3B82F6" opacity="0.7" transform="rotate(45 148 55)"/>
+  <ellipse cx="60" cy="130" rx="8" ry="4" fill="#EC4899" opacity="0.7" transform="rotate(-30 60 130)"/>
+  <ellipse cx="145" cy="125" rx="8" ry="4" fill="#10B981" opacity="0.7" transform="rotate(30 145 125)"/>
+  <path d="M100 52 L126 67 L126 97 L100 112 L74 97 L74 67 Z" fill="url(#hexG)" stroke="#111318" stroke-width="1.5"/>
+  <text x="100" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="26" fill="#111318" letter-spacing="-1">SP</text>
+  <text x="230" y="72" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="32" fill="#1e3a5f" letter-spacing="1">SUPER</text>
+  <text x="230" y="110" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="32" fill="#1e3a5f" letter-spacing="1">PRINTERS</text>
+  <rect x="155" y="125" width="150" height="22" rx="4" fill="url(#ribbonG)"/>
+  <text x="230" y="141" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="11" fill="white" letter-spacing="2">35 YEARS EXPERIENCE</text>
+  <text x="230" y="168" text-anchor="middle" font-family="serif" font-size="14" fill="#D4A843" opacity="0.7">✦ ❧ ✦</text>
 </svg>

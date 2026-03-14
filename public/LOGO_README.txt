@@ -1,4 +1,5 @@
-Logo (used beside "Super Printers" in header, hero, and footer):
+Logo (header, hero, footer):
 
-  • super-printers-logo.svg — included: hexagon SP + "SUPER PRINTERS" + "35 YEARS EXPERIENCE" (placeholder).
-  • super-printers-logo.png — add your full logo image here; it will be used instead of the SVG when present.
+  • super-printers-logo.png — ADD YOUR LOGO HERE. Save your "SUPER PRINTERS – 35 YEARS EXPERIENCE"
+    image (hexagon SP badge, rainbow wreath, ribbon) as this file. The app looks for it in public/.
+  • super-printers-logo.svg — fallback used when the PNG is missing.
