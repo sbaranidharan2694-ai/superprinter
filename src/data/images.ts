@@ -78,6 +78,8 @@ export const IMG = {
   P32: px(1573825),
   P33: px(276267),
   P34: px(30171219),
+  P01_HERO: px(6621000, 1920, 1080),
+  P04_WIDE: px(19316517, 1920, 800),
 } as const;
 
 // Service images mapped to service slugs

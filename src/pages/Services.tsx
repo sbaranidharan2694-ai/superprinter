@@ -1,10 +1,37 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
-import { services } from "@/data/services";
-import { useInView } from "@/hooks/useInView";
+import PageHero from "@/components/shared/PageHero";
+import { services, type ServiceData } from "@/data/services";
+import { SERVICE_IMAGES } from "@/data/images";
+
+type FilterCat = "All" | "Corporate" | "Personal" | "Events";
+
+const SERVICE_CATEGORIES: Record<string, FilterCat[]> = {
+  "offset-printing": ["Corporate"],
+  "visiting-cards": ["Corporate", "Personal"],
+  "banner-printing": ["Events", "Corporate"],
+  "brochure-printing": ["Corporate"],
+  "bill-books": ["Corporate"],
+  "wedding-invitations": ["Personal", "Events"],
+  "t-shirt-printing": ["Events", "Personal"],
+  "rubber-stamps": ["Corporate"],
+  "stickers-labels": ["Corporate", "Personal"],
+  "letterheads": ["Corporate"],
+  "catalogues": ["Corporate"],
+  "pamphlet-printing": ["Corporate", "Events"],
+  "screen-printing": ["Events", "Corporate"],
+  "id-cards": ["Corporate"],
+};
+
+const FILTERS: FilterCat[] = ["All", "Corporate", "Personal", "Events"];
 
 const Services = () => {
-  const { ref, isVisible } = useInView();
+  const [active, setActive] = useState<FilterCat>("All");
+
+  const filtered = active === "All"
+    ? services
+    : services.filter(s => SERVICE_CATEGORIES[s.slug]?.includes(active));
 
   return (
     <>
@@ -12,48 +39,38 @@ const Services = () => {
         title="Printing Services in Chennai | Super Printers Pallavaram"
         description="Offset printing, visiting cards, banners, brochures, letterheads, bill books, rubber stamps, T-shirt printing and more in Chennai."
         canonical="/services"
-        keywords="printing services chennai, offset printing chennai, visiting card printing chennai, banner printing chennai, brochure printing chennai, super printers pallavaram"
       />
-      <main>
-        <section className="navy-gradient-hero dot-pattern py-16 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h1 className="font-display text-3xl md:text-5xl font-black text-primary-foreground mb-4">
-              Printing Services in Chennai
-            </h1>
-            <p className="text-primary-foreground/70 font-body text-lg">
-              From visiting cards to large-format banners — Super Printers has you covered with {services.length}+ professional printing services.
-            </p>
-          </div>
-        </section>
+      <PageHero title="Printing Services" subtitle={`${services.length}+ professional printing services for businesses, events, and personal needs.`} breadcrumbs={[{ label: "Home", to: "/" }, { label: "Services", to: "/services" }]} />
 
-        <section ref={ref} className={`py-16 bg-background transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((s, i) => (
-                <Link
-                  key={s.id}
-                  to={`/services/${s.slug}`}
-                  className="relative p-6 bg-card rounded-xl border border-border card-lift gold-border-hover group"
-                  style={{ transitionDelay: `${(i % 6) * 80}ms` }}
-                >
-                  {s.isNew && (
-                    <span className="absolute top-3 right-3 text-[10px] font-bold px-2 py-1 rounded-full bg-secondary text-secondary-foreground">NEW</span>
-                  )}
-                  <div className="text-4xl mb-3">{s.emoji}</div>
-                  <h2 className="font-display text-lg font-bold text-card-foreground mb-2">{s.name}</h2>
-                  <p className="text-muted-foreground text-sm font-body mb-3">{s.shortDesc}</p>
-                  {s.startingPrice && (
-                    <p className="text-secondary font-semibold text-sm font-body mb-2">From {s.startingPrice}</p>
-                  )}
-                  <span className="text-secondary text-sm font-semibold font-body group-hover:underline">
-                    View Details →
-                  </span>
-                </Link>
-              ))}
-            </div>
+      <section className="py-16 lg:py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Filters */}
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
+            {FILTERS.map(f => (
+              <button key={f} onClick={() => setActive(f)} className={`text-xs font-semibold px-5 py-2.5 rounded-full transition-all ${active === f ? "bg-primary text-primary-foreground" : "bg-accent text-muted-foreground hover:bg-border"}`}>
+                {f}
+              </button>
+            ))}
           </div>
-        </section>
-      </main>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((s) => (
+              <Link key={s.id} to={`/services/${s.slug}`} className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-xl transition-all">
+                <div className="relative h-48 overflow-hidden">
+                  <img src={SERVICE_IMAGES[s.slug] || ""} alt={s.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                  {s.isNew && <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-[10px] font-bold px-3 py-1 rounded-full">NEW</span>}
+                </div>
+                <div className="p-5">
+                  <h2 className="font-display text-lg font-bold text-foreground mb-2">{s.name}</h2>
+                  <p className="text-muted-foreground text-sm mb-3">{s.shortDesc}</p>
+                  {s.startingPrice && <p className="text-secondary font-semibold text-sm mb-2">From {s.startingPrice}</p>}
+                  <span className="text-primary text-sm font-semibold group-hover:underline">View Details →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };
