@@ -25,8 +25,18 @@ const ProductsSection = () => {
             <p className="font-ui text-[12px] font-light tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
               WHAT WE PRINT
             </p>
-            <h2 className="font-display font-semibold text-navy text-3xl md:text-5xl lg:text-[52px] leading-tight">
-              Every Product.<br />Every Finish.
+            <h2
+              className="section-h2 text-navy"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 700,
+                fontSize: "clamp(36px, 5vw, 56px)",
+                color: "#111318",
+                lineHeight: 1.1,
+              }}
+            >
+              Every Product.<br />
+              <span style={{ color: "#D4A843" }}>Every Finish.</span>
             </h2>
           </div>
           <div className="flex overflow-x-auto gap-2 scrollbar-hide lg:shrink-0">
@@ -74,10 +84,9 @@ const ProductsSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   transition={{ type: "spring", stiffness: 400, damping: 28, delay: i * 0.04 }}
-                  className="group rounded-[20px] overflow-hidden bg-white border transition-all duration-300 ease-spring hover:-translate-y-2 hover:shadow-hover hover:border-gold/40 cursor-pointer"
-                  style={{ borderColor: "rgba(26,44,91,0.08)" }}
+                  className="product-card group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden relative bg-[#F8F6F2]">
+                  <div className="product-card-image relative bg-[#F8F5F0]">
                     <img
                       src={product.image}
                       alt=""
@@ -92,18 +101,18 @@ const ProductsSection = () => {
                       </span>
                     )}
                   </div>
-                  <div className="px-5 pt-4 pb-5">
-                    <h3 className="font-ui font-semibold text-ink-black text-[17px] mb-2">{product.name}</h3>
+                  <div className="product-card-content px-5 pt-4 pb-5" style={{ padding: "16px 20px 20px" }}>
+                    <h3 className="product-card-name font-ui font-semibold text-ink-black text-[17px] mb-1.5">{product.name}</h3>
                     <div className="flex items-baseline gap-1 mb-3">
-                      <span className="font-display font-semibold text-2xl" style={{ color: "var(--gold)" }}>from {fromPrice}</span>
-                      <span className="font-ui text-[13px] text-gray-500">/{qty}</span>
+                      <span className="font-display font-bold text-[22px]" style={{ color: "#D4A843" }}>from {fromPrice}</span>
+                      <span className="product-card-unit font-ui text-[13px] ml-0.5" style={{ color: "rgba(17,19,24,0.45)" }}>/{qty}</span>
                     </div>
                     <a
                       href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(product.waMessage)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full text-center py-2.5 rounded-[10px] font-ui font-medium text-sm text-white bg-navy hover:bg-gold hover:text-ink-black transition-colors"
-                      style={{ backgroundColor: "var(--navy)" }}
+                      className="product-card-cta block w-full text-center py-2.5 rounded-[10px] font-ui font-medium text-sm text-white border-none cursor-pointer transition-all duration-200"
+                      style={{ backgroundColor: "#1A2C5B", marginTop: "12px" }}
                     >
                       Order →
                     </a>
@@ -122,7 +131,7 @@ const ProductsSection = () => {
               <span
                 key={name}
                 className="px-4 py-2 rounded-full text-sm font-body font-medium shrink-0"
-                style={{ backgroundColor: "var(--bg-cream)", color: "var(--ink-black)" }}
+                style={{ backgroundColor: "#F8F5F0", color: "var(--ink-black)" }}
               >
                 {name}
               </span>

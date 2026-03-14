@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
-import PriceCalculatorSection from "@/components/home/PriceCalculatorSection";
 import { BUSINESS } from "@/data/business";
 
 const SPEC_ROWS = [
@@ -36,13 +35,13 @@ const VisitingCardsPage = () => (
             Premium visiting cards from ₹149 per 100 pcs. Gloss, Matt, Spot UV, Foil — delivered in 48 hours.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a
-              href="#price-calculator"
+            <Link
+              to="/#quote-form"
               className="inline-flex items-center justify-center px-6 py-3.5 rounded-full font-ui font-semibold text-ink-black transition-all duration-300 ease-spring hover:scale-[1.02]"
               style={{ backgroundColor: "var(--gold)" }}
             >
-              Get Instant Price
-            </a>
+              Get Quote
+            </Link>
             <a
               href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi! I need visiting card printing. Please quote.")}`}
               target="_blank"
@@ -85,8 +84,6 @@ const VisitingCardsPage = () => (
             <p className="px-4 py-2 text-xs font-ui text-gray-500 border-t border-border-light">Prices incl. GST. Final quote via WhatsApp.</p>
           </div>
         </section>
-
-        <PriceCalculatorSection showSectionTitle={false} />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 mt-14">

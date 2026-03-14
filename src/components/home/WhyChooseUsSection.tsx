@@ -7,10 +7,10 @@ const WHY_FEATURES = [
   { num: "03", title: "Chennai's Own", body: "Pallavaram-based for 35 years. No Coimbatore shipping delays." },
 ];
 
-const WHY_IMAGE = "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=85";
+const WHY_IMAGE = "https://images.unsplash.com/photo-1504711434969-e33886198f5c?w=800&q=85";
 
 const WhyChooseUsSection = () => (
-  <section id="why-us" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-light)" }}>
+  <section id="why-us" className="py-20 md:py-24" style={{ backgroundColor: "#FFFFFF" }}>
     <div className="max-w-7xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ const WhyChooseUsSection = () => (
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 mb-16">
-        <div className="lg:col-span-3 space-y-10">
+        <div className="lg:col-span-3 space-y-6">
           {WHY_FEATURES.map((feat, i) => (
             <motion.div
               key={feat.num}
@@ -39,13 +39,14 @@ const WhyChooseUsSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
+              className="feature-card rounded-r-[14px] py-5 px-6 border-l-[3px] border-gold bg-white shadow-sm"
+              style={{ borderLeftColor: "#D4A843", boxShadow: "0 1px 8px rgba(26,44,91,0.06)" }}
             >
-              <div className="font-display font-bold text-[64px] leading-none mb-2" style={{ color: "rgba(212,168,67,0.15)" }}>
+              <div className="step-number font-display leading-none mb-2" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: "72px", color: "rgba(212,168,67,0.15)", lineHeight: 1 }}>
                 {feat.num}
               </div>
-              <h3 className="font-ui font-semibold text-navy text-[22px] mb-2">{feat.title}</h3>
-              <p className="font-ui text-[15px] text-gray-text">{feat.body}</p>
-              <div className="mt-3 w-[60px] h-0.5 rounded-full" style={{ backgroundColor: "var(--gold)" }} />
+              <h3 className="font-ui font-semibold text-[20px] text-ink-black mb-2" style={{ color: "#111318" }}>{feat.title}</h3>
+              <p className="font-ui text-[15px]" style={{ color: "#6B7280" }}>{feat.body}</p>
             </motion.div>
           ))}
         </div>
@@ -56,7 +57,7 @@ const WhyChooseUsSection = () => (
             viewport={{ once: true }}
             className="rounded-3xl overflow-hidden shadow-hover relative"
           >
-            <img src={WHY_IMAGE} alt="Printing press" className="w-full aspect-[4/3] object-cover" />
+            <img src={WHY_IMAGE} alt="35 years of printing heritage" className="w-full aspect-[4/3] object-cover rounded-3xl" />
             <div
               className="absolute bottom-4 left-4 right-4 sm:right-auto sm:w-[220px] bg-white rounded-2xl p-4 shadow-card"
               style={{ boxShadow: "var(--shadow-card)" }}

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
-import PriceCalculatorSection from "@/components/home/PriceCalculatorSection";
 import { BUSINESS } from "@/data/business";
 
 const SPEC_ROWS = [
@@ -34,13 +33,13 @@ const WeddingCardsPage = () => (
             Hindu, Christian, Muslim &amp; modern designs. Tamil, English &amp; bilingual. From ₹8 per card. Free proof in 24 hours.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a
-              href="#price-calculator"
+            <Link
+              to="/#quote-form"
               className="inline-flex items-center justify-center px-6 py-3.5 rounded-full font-ui font-semibold text-ink-black transition-all duration-300 ease-spring hover:scale-[1.02]"
               style={{ backgroundColor: "var(--gold)" }}
             >
-              Get Instant Price
-            </a>
+              Get Quote
+            </Link>
             <a
               href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi! I need wedding card printing. Please quote.")}`}
               target="_blank"
@@ -84,7 +83,6 @@ const WeddingCardsPage = () => (
           </div>
         </section>
 
-        <PriceCalculatorSection showSectionTitle={false} defaultProduct="weddingCards" />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 mt-14">

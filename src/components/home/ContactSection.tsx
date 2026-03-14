@@ -3,7 +3,7 @@ import { BUSINESS } from "@/data/business";
 import { V2_AREAS_SERVED } from "@/data/v2";
 
 const ContactSection = () => (
-  <section id="contact" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-white)" }}>
+  <section id="contact" className="py-20 md:py-24" style={{ backgroundColor: "#FFFFFF" }}>
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ const ContactSection = () => (
               className="rounded-3xl border border-border-light bg-white p-5 shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
             >
               <p className="font-display font-semibold text-ink-black mb-1">Address</p>
-              <p className="font-body text-sm text-gray-600 mb-2">{BUSINESS.addressFull}</p>
+              <p className="font-body text-gray-600 mb-2" style={{ fontSize: "15px" }}>{BUSINESS.addressFull}</p>
               <a
                 href={BUSINESS.googleMapsUrl}
                 target="_blank"
@@ -59,7 +59,7 @@ const ContactSection = () => (
               className="rounded-3xl border border-border-light bg-white p-5 shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
             >
               <p className="font-display font-semibold text-ink-black mb-1">Hours</p>
-              <p className="font-body text-sm text-gray-600">{BUSINESS.hours}</p>
+              <p className="font-body text-gray-600" style={{ fontSize: "15px" }}>{BUSINESS.hours}</p>
               <p className="font-body text-xs text-gray-500 mt-1">Sunday: Closed</p>
             </motion.div>
             <motion.div

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
-import PriceCalculatorSection from "@/components/home/PriceCalculatorSection";
 import { BUSINESS } from "@/data/business";
 
 const SPEC_ROWS = [
@@ -34,13 +33,13 @@ const BrochuresPage = () => (
             Trifold & bifold brochures from ₹499 per 100. Gloss or matt lamination. Full colour, 2-3 day delivery.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a
-              href="#price-calculator"
+            <Link
+              to="/#quote-form"
               className="inline-flex items-center justify-center px-6 py-3.5 rounded-full font-ui font-semibold text-ink-black transition-all duration-300 ease-spring hover:scale-[1.02]"
               style={{ backgroundColor: "var(--gold)" }}
             >
-              Get Instant Price
-            </a>
+              Get Quote
+            </Link>
             <a
               href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi! I need brochure printing. Please quote.")}`}
               target="_blank"
@@ -84,7 +83,6 @@ const BrochuresPage = () => (
           </div>
         </section>
 
-        <PriceCalculatorSection showSectionTitle={false} defaultProduct="brochures" />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 mt-14">

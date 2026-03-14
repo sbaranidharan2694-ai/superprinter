@@ -3,7 +3,7 @@ import { IMG } from "@/data/images";
 import { V2_TIMELINE } from "@/data/v2";
 
 const AboutSection = () => (
-  <section id="about" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-cream)" }}>
+  <section id="about" className="py-20 md:py-24" style={{ backgroundColor: "#FFFFFF" }}>
     <div className="max-w-6xl mx-auto px-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         <motion.div

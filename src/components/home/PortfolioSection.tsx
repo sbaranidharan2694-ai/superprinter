@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LANDING_PORTFOLIO } from "@/data/landing";
 
-const PORTFOLIO_FILTERS = ["All", "Visiting Cards", "Brochures", "Wedding Cards", "Stationery", "Special Finishes"] as const;
+const PORTFOLIO_FILTERS = ["All", "Visiting Cards", "Brochures", "Wedding Cards", "Stationery", "Special Finishes", "Corporate"] as const;
 
 const categoryMap: Record<string, string> = {
   "Business Cards": "Visiting Cards",
@@ -57,8 +57,18 @@ const PortfolioSection = () => {
           <p className="font-ui text-[12px] font-light tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
             OUR WORK
           </p>
-          <h2 className="font-display font-semibold italic text-white text-3xl md:text-4xl lg:text-[52px]">
-            35 Years of Beautiful Print.
+          <h2
+            className="font-display font-bold italic text-white"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontStyle: "italic",
+              fontWeight: 700,
+              fontSize: "clamp(36px, 5vw, 56px)",
+              lineHeight: 1.2,
+            }}
+          >
+            35 Years of<br />
+            <span style={{ color: "#D4A843" }}>Beautiful Print.</span>
           </h2>
         </motion.div>
 
@@ -79,17 +89,14 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        <div
-          className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3"
-          style={{ columnGap: "12px" }}
-        >
+        <div className="portfolio-masonry columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3" style={{ columnGap: "10px" }}>
           {filtered.map((item, index) => (
             <motion.div
               key={item.id}
               layout
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`relative overflow-hidden rounded-[14px] group cursor-zoom-in break-inside-avoid mb-3 ${aspectClasses[index % aspectClasses.length]}`}
+              className={`portfolio-item relative overflow-hidden rounded-xl group cursor-zoom-in break-inside-avoid mb-2.5 ${aspectClasses[index % aspectClasses.length]}`}
               onClick={() => openLightbox(index)}
             >
               <img

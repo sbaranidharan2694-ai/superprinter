@@ -1,5 +1,6 @@
 import { BUSINESS } from "@/data/business";
 import { scrollToSection } from "@/utils/scroll";
+import SuperPrintersLogo from "@/components/SuperPrintersLogo";
 
 const QUICK_LINKS = [
   { label: "Home", id: "" },
@@ -31,19 +32,14 @@ const UnifiedFooter = () => (
     style={{ backgroundColor: "var(--navy)" }}
   >
     <div
-      className="absolute top-0 left-0 right-0 h-[3px]"
-      style={{ background: "linear-gradient(90deg, transparent 0%, var(--gold) 20%, var(--gold-light) 50%, var(--gold) 80%, transparent 100%)" }}
+      className="absolute top-0 left-0 right-0 h-[2px]"
+      style={{ background: "linear-gradient(90deg, transparent 0%, #D4A843 30%, #F0C660 50%, #D4A843 70%, transparent 100%)" }}
       aria-hidden
     />
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
       <div>
         <div className="flex items-center gap-4 mb-3">
-          <span
-            className="w-14 h-14 rounded-full flex items-center justify-center font-display font-bold text-2xl shrink-0"
-            style={{ color: "var(--gold)", border: "2px solid rgba(212,168,67,0.5)" }}
-          >
-            SP
-          </span>
+          <SuperPrintersLogo variant="footer" size="lg" />
           <div>
             <span className="font-display font-semibold text-2xl text-white block">Super Printers</span>
             <span className="font-ui text-[13px] font-light" style={{ color: "rgba(255,255,255,0.5)" }}>
@@ -51,7 +47,10 @@ const UnifiedFooter = () => (
             </span>
           </div>
         </div>
-        <p className="text-white/60 text-sm mb-4">Chennai&apos;s Premier Printing Studio Since 1990</p>
+        <p className="text-white/60 text-sm mb-2">Chennai&apos;s Premier Printing Studio Since 1990</p>
+        <div className="font-display italic text-base mb-4" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Playfair Display', serif", marginTop: "8px" }}>
+          Quality printing since 1990.
+        </div>
         <div className="flex gap-3 mb-4">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-ink-black transition-colors" style={{ color: "var(--gold)" }} aria-label="Facebook">f</a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-ink-black transition-colors" style={{ color: "var(--gold)" }} aria-label="Instagram">i</a>

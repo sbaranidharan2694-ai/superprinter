@@ -4,7 +4,7 @@ import { V3_CREDIBILITY_BADGES } from "@/data/v2";
 const CredibilityStrip = () => (
   <section
     className="py-5 overflow-hidden"
-    style={{ backgroundColor: "var(--bg-cream)" }}
+    style={{ backgroundColor: "#FFFFFF" }}
     aria-label="Trust badges"
   >
     <div className="flex items-center justify-center gap-4 md:gap-6 overflow-x-auto scrollbar-hide px-6 py-1">

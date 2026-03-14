@@ -21,7 +21,7 @@ const QuoteFormSection = () => {
   };
 
   return (
-    <section id="quote-form" className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-charcoal)" }}>
+    <section id="quote-form" className="py-20 md:py-24" style={{ backgroundColor: "#111318" }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
           {/* Left 40% */}
@@ -42,7 +42,7 @@ const QuoteFormSection = () => {
               viewport={{ once: true }}
               className="font-display font-bold text-3xl md:text-4xl text-white mb-4"
             >
-              Your Quote in 30 Minutes
+              Your Quote in 30 Minutes.
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 12 }}
@@ -75,7 +75,8 @@ const QuoteFormSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               onSubmit={handleSubmit}
-              className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100"
+              className="quote-form-card rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100"
+              style={{ background: "#FFFDF9", boxShadow: "0 24px 64px rgba(0,0,0,0.3)" }}
             >
               {submitted ? (
                 <div className="text-center py-8">
@@ -167,8 +168,8 @@ const QuoteFormSection = () => {
                   </div>
                   <button
                     type="submit"
-                    className="mt-6 w-full py-4 rounded-full font-ui font-semibold text-base text-ink-black hover:shadow-gold hover:scale-[1.01] transition-all duration-300 ease-spring"
-                    style={{ backgroundColor: "var(--gold)" }}
+                    className="quote-submit-btn mt-6 w-full py-4 rounded-xl font-ui font-semibold text-base text-ink-black border-none cursor-pointer transition-all duration-250"
+                    style={{ backgroundColor: "#D4A843", boxShadow: "0 4px 16px rgba(212,168,67,0.4)" }}
                   >
                     Send Quote Request →
                   </button>

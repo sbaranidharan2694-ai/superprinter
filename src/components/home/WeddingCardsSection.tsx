@@ -3,22 +3,17 @@ import { scrollToSection } from "@/utils/scroll";
 import { BUSINESS } from "@/data/business";
 import { V2_WEDDING_COLLECTIONS, V2_WEDDING_PROCESS } from "@/data/v2";
 
-const HERO_IMG_LEFT = "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=600&q=80";
-const HERO_IMG_RIGHT = "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80";
+const WEDDING_HERO_IMG = "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=1200&q=85";
 
 const WeddingCardsSection = () => (
   <>
     {/* Hero strip */}
-    <section id="wedding-cards" className="relative grid grid-cols-1 lg:grid-cols-5 min-h-[500px] lg:min-h-[600px]">
-      <div className="relative lg:col-span-2 h-64 lg:h-auto">
-        <img src={HERO_IMG_LEFT} alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(123,26,48,0.88)" }} />
+    <section id="wedding-cards" className="relative min-h-[500px] lg:min-h-[600px] flex items-center justify-center">
+      <div className="absolute inset-0">
+        <img src={WEDDING_HERO_IMG} alt="Wedding invitation card" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(74,14,34,0.82)" }} />
       </div>
-      <div className="relative lg:col-span-3 h-64 lg:h-auto">
-        <img src={HERO_IMG_RIGHT} alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(123,26,48,0.82)" }} />
-      </div>
-      <div className="absolute inset-0 z-10 flex items-center justify-center p-6">
+      <div className="relative z-10 flex items-center justify-center p-6">
         <div className="text-center max-w-2xl">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -34,11 +29,18 @@ const WeddingCardsSection = () => (
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display font-bold italic text-3xl md:text-4xl lg:text-[60px] text-white leading-tight mb-4"
+            className="font-display font-bold italic text-white leading-tight mb-4"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 700,
+              fontStyle: "italic",
+              fontSize: "clamp(36px, 5vw, 64px)",
+              lineHeight: 1.1,
+            }}
           >
-            Invitations as Unforgettable
-            <span className="block text-gold/90 text-2xl lg:text-3xl my-2">— —  ◆  — —</span>
-            as Your Day.
+            Invitations as<br />
+            Unforgettable as<br />
+            <span style={{ color: "#D4A843" }}>Your Day.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -75,7 +77,7 @@ const WeddingCardsSection = () => (
     </section>
 
     {/* Collections grid */}
-    <section className="py-20 md:py-24" style={{ backgroundColor: "var(--bg-cream)" }}>
+    <section className="py-20 md:py-24" style={{ backgroundColor: "#FFFFFF" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.h3
           initial={{ opacity: 0, y: 12 }}

@@ -8,7 +8,7 @@ const TemplatesSection = () => (
   <section
     id="templates"
     className="py-20 md:py-24 scroll-mt-[108px]"
-    style={{ backgroundColor: "var(--bg-cream)" }}
+    style={{ backgroundColor: "#FFFFFF" }}
   >
     <div className="max-w-7xl mx-auto px-6">
       <motion.div

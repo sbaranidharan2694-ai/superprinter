@@ -51,7 +51,7 @@ export const V2_PRODUCTS: V2Product[] = [
   {
     id: "gloss-cards",
     name: "Gloss Visiting Cards",
-    image: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=500&q=85",
+    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&q=85",
     specs: ["300 GSM", "Front & Back", "Gloss Lam"],
     price: "₹299 / 100 pcs · ₹499 / 250 pcs · ₹699 / 500 pcs",
     priceFrom: "299",
@@ -62,7 +62,7 @@ export const V2_PRODUCTS: V2Product[] = [
   {
     id: "matt-cards",
     name: "Matt Visiting Cards",
-    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&q=85",
+    image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&q=85",
     specs: ["300 GSM", "Front & Back", "Matt Lam"],
     price: "₹349 / 100 pcs · ₹549 / 250 pcs · ₹799 / 500 pcs",
     priceFrom: "349",
@@ -141,7 +141,7 @@ export const V2_PRODUCTS: V2Product[] = [
   {
     id: "catalogues",
     name: "Catalogues",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=85",
+    image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=500&q=85",
     specs: ["170 GSM Art Paper", "Full Colour", "Any Page Count"],
     price: "Custom Quote",
     priceFrom: "Quote",
@@ -370,7 +370,7 @@ export const V2_WEDDING_COLLECTIONS: WeddingCollectionCard[] = [
     id: "muslim",
     name: "Muslim / Nikah",
     description: "Arabic calligraphy accents. Crescent & star motifs. Urdu / English / Tamil.",
-    image: "https://images.unsplash.com/photo-1578730169862-749bbfe5e470?w=500&q=80",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=85",
     price: "From ₹8 per card",
   },
   {

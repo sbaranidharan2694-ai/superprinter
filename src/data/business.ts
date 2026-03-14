@@ -41,6 +41,7 @@ export const BUSINESS = {
 export const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": `${BUSINESS.siteUrl}/#business`,
   "name": BUSINESS.name,
   "description": "Quality printing press in Pallavaram, Chennai. Business cards, brochures, wedding cards, bill books and more since 1990.",
   "url": BUSINESS.siteUrl,
@@ -55,6 +56,11 @@ export const LOCAL_BUSINESS_SCHEMA = {
     "postalCode": BUSINESS.postalCode,
     "addressCountry": "IN",
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": BUSINESS.lat,
+    "longitude": BUSINESS.lng,
+  },
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -66,6 +72,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
     "@type": "AggregateRating",
     "ratingValue": "4.8",
     "reviewCount": "147",
+    "bestRating": "5",
   },
   "hasMap": BUSINESS.googleMapsUrl,
 };

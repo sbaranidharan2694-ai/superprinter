@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { scrollToSection } from "@/utils/scroll";
 import { V2_MEGA_MENU } from "@/data/v2";
 import WhatsAppStatus from "@/components/WhatsAppStatus";
+import SuperPrintersLogo from "@/components/SuperPrintersLogo";
 import { useLang } from "@/contexts/LangContext";
 
-const SECTION_IDS = ["products", "price-calculator", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "templates", "quote-form", "about", "faq", "contact"] as const;
+const SECTION_IDS = ["products", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "templates", "quote-form", "about", "faq", "contact"] as const;
 
 const NAV_LINKS: { label: string; id: string }[] = [
   { label: "Home", id: "" },
@@ -48,7 +49,7 @@ const UnifiedHeader = () => {
 
   const atTop = !scrolled;
   const linkClass = (id: string) =>
-    `px-4 py-2.5 text-[14px] font-ui font-medium rounded-full transition-all duration-300 ease-spring ${
+    `nav-link px-4 py-2.5 text-[14px] font-ui font-medium rounded-full transition-all duration-300 ease-spring ${
       activeId === id ? "text-gold bg-gold/10" : "text-inherit hover:text-gold hover:bg-white/5"
     }`;
 
@@ -71,22 +72,12 @@ const UnifiedHeader = () => {
           className="flex items-center gap-3 text-left"
           aria-label="Super Printers Home"
         >
-          <span
-            className="w-10 h-10 rounded-full flex items-center justify-center font-display font-bold text-lg shrink-0 border"
-            style={{
-              backgroundColor: "var(--gold)",
-              color: "var(--ink-black)",
-              borderColor: atTop ? "rgba(255,255,255,0.2)" : "var(--navy)",
-              borderWidth: "1px",
-            }}
-          >
-            SP
-          </span>
+          <SuperPrintersLogo variant="header" size="md" />
           <div className="flex flex-col">
             <span className={`font-display font-semibold text-[20px] leading-tight ${atTop ? "text-white" : "text-navy"}`}>
               Super Printers
             </span>
-            <span className="font-ui text-[11px] font-light" style={{ color: "var(--gold)" }}>
+            <span className="font-ui text-[12px] font-normal" style={{ color: "#D4A843" }}>
               Est. 1990 · Pallavaram
             </span>
           </div>

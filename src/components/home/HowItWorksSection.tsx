@@ -9,7 +9,7 @@ const STEPS = [
 ];
 
 const HowItWorksSection = () => (
-  <section id="process" className="py-20 md:py-24 relative" style={{ backgroundColor: "var(--bg-cream)" }}>
+  <section id="process" className="py-20 md:py-24 relative" style={{ backgroundColor: "#FFFFFF" }}>
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -34,14 +34,14 @@ const HowItWorksSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            className="relative flex flex-col items-center text-center"
+            className="relative flex flex-col items-center text-center pt-8"
           >
-            <div className="font-display font-extrabold text-[80px] leading-none mb-2 opacity-15" style={{ color: "var(--gold)" }}>
+            <div className="step-number font-display leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: "96px", color: "rgba(212,168,67,0.12)", lineHeight: 1, position: "absolute", top: "-16px", left: "50%", transform: "translateX(-50%)", pointerEvents: "none", userSelect: "none" }}>
               {step.num}
             </div>
-            <div className="text-4xl mb-3">{step.icon}</div>
-            <h3 className="font-display font-semibold text-xl text-ink-black mb-2">{step.title}</h3>
-            <p className="font-body text-gray-text text-sm leading-relaxed max-w-[200px]">
+            <div className="w-[52px] h-[52px] rounded-full flex items-center justify-center text-2xl mb-3" style={{ backgroundColor: "var(--gold)" }}>{step.icon}</div>
+            <h3 className="font-ui font-semibold text-[20px] text-ink-black mb-2">{step.title}</h3>
+            <p className="font-ui text-[15px] leading-relaxed max-w-[200px]" style={{ color: "#6B7280" }}>
               {step.body}
             </p>
             {i < STEPS.length - 1 && (

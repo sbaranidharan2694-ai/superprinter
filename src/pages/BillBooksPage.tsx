@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
-import PriceCalculatorSection from "@/components/home/PriceCalculatorSection";
 import { BUSINESS } from "@/data/business";
 
 const SPEC_ROWS = [
@@ -33,13 +32,13 @@ const BillBooksPage = () => (
             Carbonless NCR bill books from ₹250 for 25 sets. 2-part and 3-part, serial numbered. GST-ready. 3-4 day delivery.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a
-              href="#price-calculator"
+            <Link
+              to="/#quote-form"
               className="inline-flex items-center justify-center px-6 py-3.5 rounded-full font-ui font-semibold text-ink-black transition-all duration-300 ease-spring hover:scale-[1.02]"
               style={{ backgroundColor: "var(--gold)" }}
             >
-              Get Instant Price
-            </a>
+              Get Quote
+            </Link>
             <a
               href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi! I need bill book printing. Please quote.")}`}
               target="_blank"
@@ -83,7 +82,6 @@ const BillBooksPage = () => (
           </div>
         </section>
 
-        <PriceCalculatorSection showSectionTitle={false} defaultProduct="billBooks" />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 mt-14">

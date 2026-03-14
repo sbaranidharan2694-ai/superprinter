@@ -188,21 +188,29 @@ export interface PortfolioItem {
   category: string;
 }
 
-export const PORTFOLIO_CATEGORIES = ["All", "Business Cards", "Brochures", "Bill Books", "Wedding Cards", "Letterheads", "Catalogues"] as const;
+export const PORTFOLIO_CATEGORIES = ["All", "Business Cards", "Brochures", "Bill Books", "Wedding Cards", "Letterheads", "Catalogues", "Corporate"] as const;
 
 export const LANDING_PORTFOLIO: PortfolioItem[] = [
-  { id: "1", img: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600", label: "Business Cards", category: "Business Cards" },
-  { id: "2", img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600", label: "Business Cards Luxury", category: "Business Cards" },
-  { id: "3", img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600", label: "Brochure Trifold", category: "Brochures" },
-  { id: "4", img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600", label: "Letterhead Desk", category: "Letterheads" },
-  { id: "5", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600", label: "Printing Press", category: "Catalogues" },
-  { id: "6", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600", label: "Bill Books", category: "Bill Books" },
-  { id: "7", img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600", label: "Wedding Card Gold", category: "Wedding Cards" },
-  { id: "8", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600", label: "Wedding Invitation", category: "Wedding Cards" },
-  { id: "9", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600", label: "Catalogue", category: "Catalogues" },
-  { id: "10", img: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600", label: "Envelope", category: "Letterheads" },
-  { id: "11", img: "https://images.unsplash.com/photo-1558618047-f4f37ee1d6d0?w=600", label: "Screen Printing", category: "Brochures" },
-  { id: "12", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600", label: "Print Colourful", category: "Catalogues" },
+  { id: "1", img: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=600&q=85", label: "Business Cards", category: "Business Cards" },
+  { id: "2", img: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=85", label: "Business Cards Luxury", category: "Business Cards" },
+  { id: "3", img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&q=85", label: "Premium Foil Cards", category: "Brochures" },
+  { id: "4", img: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=600&q=85", label: "Brochure Open", category: "Brochures" },
+  { id: "5", img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=85", label: "Letterhead", category: "Letterheads" },
+  { id: "6", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600&q=85", label: "Bill Books", category: "Bill Books" },
+  { id: "7", img: "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=600&q=85", label: "Wedding Invite", category: "Wedding Cards" },
+  { id: "8", img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=85", label: "Wedding Invitation", category: "Wedding Cards" },
+  { id: "9", img: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&q=85", label: "Envelopes", category: "Letterheads" },
+  { id: "10", img: "https://images.unsplash.com/photo-1558618047-f4f37ee1d6d0?w=600&q=85", label: "Screen Printing", category: "Brochures" },
+  { id: "11", img: "https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=600&q=85", label: "Poster Print", category: "Catalogues" },
+  { id: "12", img: "https://images.unsplash.com/photo-1504711434969-e33886198f5c?w=600&q=85", label: "Press Machinery", category: "Catalogues" },
+  { id: "client-1", img: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600", label: "Indian Oil Corporation", category: "Corporate" },
+  { id: "client-2", img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600", label: "GTK Foundation", category: "Corporate" },
+  { id: "client-3", img: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=600", label: "Fujitect", category: "Corporate" },
+  { id: "client-4", img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600", label: "NK Grand Palace", category: "Corporate" },
+  { id: "client-5", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600", label: "SSK Smart Logistics", category: "Corporate" },
+  { id: "client-6", img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600", label: "Contemporary Leathers", category: "Corporate" },
+  { id: "client-7", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600", label: "Uranus Oil Corporation", category: "Corporate" },
+  { id: "client-8", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600", label: "Jeganathan Medical College", category: "Corporate" },
 ];
 
 export interface TimelineMilestone {

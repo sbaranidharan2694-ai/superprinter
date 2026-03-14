@@ -8,6 +8,7 @@ interface SEOHeadProps {
   ogImage?: string;
   ogType?: string;
   keywords?: string;
+  robots?: string;
   schemaMarkup?: object | object[];
   breadcrumbs?: { name: string; url: string }[];
 }
@@ -19,6 +20,7 @@ const SEOHead = ({
   ogImage = `${BUSINESS.siteUrl}/og-image.jpg`,
   ogType = "website",
   keywords = "printers in chennai, printing press chennai, printing services chennai, super printers pallavaram",
+  robots = "index, follow",
   schemaMarkup,
   breadcrumbs,
 }: SEOHeadProps) => {
@@ -53,7 +55,7 @@ const SEOHead = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={BUSINESS.name} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robots} />
       <link rel="canonical" href={fullCanonical} />
 
       {/* Geo meta tags */}

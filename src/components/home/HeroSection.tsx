@@ -4,10 +4,10 @@ import WhatsAppStatus from "@/components/WhatsAppStatus";
 import { useLang } from "@/contexts/LangContext";
 
 const HERO_PRODUCTS = [
-  { name: "Business Cards", from: "₹149", image: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=400&q=85", span: 2 },
+  { name: "Visiting Cards", from: "₹149", image: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=400&q=85", span: 2 },
   { name: "Brochures", from: "₹499", image: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=400&q=85", span: 1 },
-  { name: "Foil Cards", from: "₹799", image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&q=85", span: 1 },
-  { name: "Wedding Cards", from: "₹8/card", image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=85", span: 1 },
+  { name: "Spot UV Cards", from: "₹599", image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&q=85", span: 1 },
+  { name: "Wedding Cards", from: "₹8/card", image: "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=400&q=85", span: 1 },
   { name: "Bill Books", from: "₹250", image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=85", span: 1 },
 ];
 
@@ -17,10 +17,15 @@ const HeroSection = () => {
     <section className="relative min-h-[100svh] min-h-[700px] flex flex-col lg:flex-row">
       {/* Left panel — 55% */}
       <div
-        className="relative flex-1 min-h-[60vh] lg:min-h-[100svh] flex items-center px-6 sm:px-12 lg:px-20 py-20 lg:py-24"
-        style={{ backgroundColor: "var(--bg-charcoal)", minHeight: "min(100svh, 700px)" }}
+        className="relative flex-1 min-h-[60vh] lg:min-h-[100svh] flex items-center px-6 sm:px-12 lg:px-20 py-20 lg:py-24 overflow-hidden"
+        style={{
+          minHeight: "min(100svh, 700px)",
+          backgroundImage: `linear-gradient(90deg, rgba(17,19,24,0.92) 0%, rgba(17,19,24,0.85) 55%, rgba(17,19,24,0.4) 100%), url('https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1600&q=85')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <div className="max-w-xl">
+        <div className="relative z-10 max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -36,14 +41,17 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.35 }}
-            className="font-display font-bold text-white text-[44px] sm:text-5xl lg:text-[80px] leading-[0.95] tracking-tight mb-4"
-            style={{ letterSpacing: "-0.02em" }}
+            className="hero-h1 text-white mb-4"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 900,
+              fontSize: "clamp(48px, 7vw, 88px)",
+              lineHeight: 1.0,
+              letterSpacing: "-0.02em",
+            }}
           >
             <span className="block">Chennai&apos;s</span>
-            <span className="flex items-center gap-2 flex-wrap">
-              <span className="italic font-display font-bold" style={{ color: "var(--gold)" }}>Finest</span>
-              <span className="text-white/60 text-base lg:text-xl" style={{ opacity: 0.6 }}>· ◆ ·</span>
-            </span>
+            <span className="block italic" style={{ color: "#D4A843" }}>Finest</span>
             <span className="block text-white">Print Studio.</span>
           </motion.h1>
           <motion.p
@@ -103,30 +111,30 @@ const HeroSection = () => {
 
       {/* Right panel — 45%: product grid */}
       <div
-        className="relative flex-1 min-h-[40vh] lg:min-h-[100svh] hidden sm:block p-4 lg:p-10 pl-2 lg:pl-5"
+        className="relative flex-1 min-h-[40vh] lg:min-h-[100svh] hidden sm:block p-4 lg:p-8 pl-2 lg:pl-4"
         style={{ backgroundColor: "var(--bg-charcoal)" }}
       >
-        <div className="grid grid-cols-2 grid-rows-3 gap-3 h-full max-h-[100svh] min-h-[400px]">
+        <div className="grid grid-cols-2 grid-rows-3 gap-2.5 h-full max-h-[100svh] min-h-[400px] content-center" style={{ padding: "32px 32px 32px 16px" }}>
           {HERO_PRODUCTS.map((item, i) => (
             <motion.div
               key={item.name}
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 + i * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
-              className={`rounded-2xl overflow-hidden relative group cursor-default transition-all duration-300 border border-white/10 group-hover:border-gold ${item.span === 2 ? "row-span-2" : ""} hover:scale-[1.04] hover:shadow-gold`}
+              transition={{ duration: 0.5, delay: 0.4 + i * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
+              className={`hero-product-card rounded-2xl overflow-hidden relative group cursor-default transition-all duration-300 border border-white/12 ${item.span === 2 ? "row-span-2" : ""} hover:scale-[1.02] hover:shadow-gold`}
               style={{ background: "rgba(255,255,255,0.05)" }}
             >
               <img
                 src={item.image}
-                alt=""
+                alt={item.name}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-spring group-hover:scale-105"
               />
               <div
-                className="absolute inset-x-0 bottom-0 h-10 flex items-center justify-between px-3 backdrop-blur-md"
-                style={{ background: "rgba(0,0,0,0.7)" }}
+                className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-3 py-2.5"
+                style={{ padding: "12px", fontFamily: "Outfit, sans-serif" }}
               >
-                <span className="font-ui text-xs text-white truncate">{item.name}</span>
-                <span className="font-ui text-xs text-white/90 shrink-0">from {item.from}</span>
+                <div className="text-white text-xs font-medium">{item.name}</div>
+                <div className="text-white/70 text-[11px]">from {item.from}</div>
               </div>
             </motion.div>
           ))}
