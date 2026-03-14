@@ -31,7 +31,7 @@ const QuoteFormSection = () => {
   };
 
   return (
-    <section id="quote-form" className="py-20 md:py-24" style={{ backgroundColor: "#111318" }}>
+    <section id="quote-form" className="py-20 md:py-24 bg-white border-t border-border-light" style={{ backgroundColor: "#FFFFFF" }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
           {/* Left 40% */}
@@ -50,7 +50,7 @@ const QuoteFormSection = () => {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-display font-bold text-3xl md:text-4xl text-white mb-4"
+              className="font-display font-bold text-3xl md:text-4xl text-ink-black mb-4"
             >
               Your Quote in 30 Minutes.
             </motion.h2>
@@ -58,19 +58,19 @@ const QuoteFormSection = () => {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-white/70 font-body text-base mb-6"
+              className="text-gray-600 font-body text-base mb-6"
             >
               Share your requirements and we&apos;ll WhatsApp you a quote within 30 minutes during business hours. No commitment.
             </motion.p>
             <div className="flex flex-wrap gap-2 mb-8">
               {["Free proof", "48H delivery", "No obligation"].map((badge) => (
-                <span key={badge} className="px-4 py-2 rounded-2xl text-xs font-body font-medium bg-white/10 text-white">
+                <span key={badge} className="px-4 py-2 rounded-2xl text-xs font-body font-medium bg-gold/20 text-ink-black" style={{ backgroundColor: "rgba(212,168,67,0.2)" }}>
                   {badge}
                 </span>
               ))}
             </div>
-            <p className="text-white/60 font-body text-sm mb-3">Or reach us directly:</p>
-            <div className="space-y-2 text-white/80 font-body text-sm">
+            <p className="text-gray-600 font-body text-sm mb-3">Or reach us directly:</p>
+            <div className="space-y-2 text-gray-700 font-body text-sm">
               <a href={BUSINESS.phoneTel} className="block hover:text-gold transition-colors">📞 {BUSINESS.phone}</a>
               <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="block hover:text-gold transition-colors">💬 WhatsApp</a>
               <p>📍 {BUSINESS.addressFull}</p>
@@ -86,7 +86,7 @@ const QuoteFormSection = () => {
               viewport={{ once: true }}
               onSubmit={handleSubmit}
               className="quote-form-card rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100"
-              style={{ background: "#FFFDF9", boxShadow: "0 24px 64px rgba(0,0,0,0.3)" }}
+              style={{ background: "#FFFFFF", boxShadow: "0 24px 64px rgba(0,0,0,0.12)", border: "1px solid var(--border-light)" }}
             >
               {submitted ? (
                 <div className="text-center py-8">

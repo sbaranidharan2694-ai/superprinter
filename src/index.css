@@ -83,8 +83,8 @@
     --color-gray-border: #E5E1D8;
     --color-gray-bg: #F9FAFB;
 
-    /* Shadcn compatibility */
-    --background: 40 25% 97%;
+    /* Shadcn compatibility — full white theme */
+    --background: 0 0% 100%;
     --foreground: 0 0% 17%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 17%;
@@ -328,7 +328,7 @@ header .btn-gold:hover {
 .product-card .product-card-image {
   aspect-ratio: 4/3;
   overflow: hidden;
-  background: #F8F5F0;
+  background: #FFFFFF;
 }
 .product-card .product-card-image img {
   width: 100%;
@@ -362,10 +362,10 @@ header .btn-gold:hover {
 
 /* Quote form card & submit button */
 .quote-form-card {
-  background: #FFFDF9;
+  background: #FFFFFF;
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
 }
 .quote-submit-btn {
   width: 100%;

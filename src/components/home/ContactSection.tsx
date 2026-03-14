@@ -95,8 +95,8 @@ const ContactSection = () => (
             </a>
             <a
               href={BUSINESS.phoneTel}
-              className="flex items-center justify-center gap-3 py-4 rounded-full font-ui font-semibold text-white hover:opacity-95 transition-all duration-300 ease-spring"
-              style={{ backgroundColor: "var(--navy-deep)" }}
+              className="flex items-center justify-center gap-3 py-4 rounded-full font-ui font-semibold text-ink-black hover:opacity-95 transition-all duration-300 ease-spring"
+              style={{ backgroundColor: "var(--gold)" }}
             >
               📞 Call Now
             </a>

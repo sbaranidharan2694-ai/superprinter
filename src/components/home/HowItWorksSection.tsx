@@ -9,7 +9,7 @@ const STEPS = [
 ];
 
 const HowItWorksSection = () => (
-  <section id="process" className="py-20 md:py-24 relative" style={{ backgroundColor: "#F8F5F0" }}>
+  <section id="process" className="py-20 md:py-24 relative bg-white" style={{ backgroundColor: "#FFFFFF" }}>
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

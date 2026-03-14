@@ -73,7 +73,7 @@ const RESELLER_FAQ = [
 ];
 
 const ResellerPage = () => (
-  <div className="font-body text-foreground overflow-x-hidden" style={{ backgroundColor: "var(--navy-deep)" }}>
+  <div className="font-body text-foreground overflow-x-hidden bg-white" style={{ backgroundColor: "#FFFFFF" }}>
     <SEOHead
       title="DTP Operator & Print Reseller Program Chennai | Bulk Printing Factory | Super Printers"
       description="Bulk printing for DTP operators, designers and resellers in Chennai. Factory pricing, GST invoice, 24hr turnaround. Partner program with up to 25% discount. WhatsApp: +91 98401 99878."
@@ -90,10 +90,10 @@ const ResellerPage = () => (
           <span className="inline-block px-4 py-2 rounded-full text-sm font-ui font-medium mb-4 text-gold border border-gold" style={{ color: "var(--gold)", borderColor: "var(--gold)" }}>
             FOR PROFESSIONALS
           </span>
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-4">
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-ink-black mb-4">
             Partner With Chennai&apos;s Most Experienced Print Factory
           </h1>
-          <p className="font-ui text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="font-ui text-lg text-gray-600 max-w-2xl mx-auto">
             35 years of printing expertise, now available to DTP operators, designers, and print resellers across Chennai and Tamil Nadu. Factory pricing. No middleman.
           </p>
         </motion.header>
@@ -105,18 +105,18 @@ const ResellerPage = () => (
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className={`rounded-3xl p-6 border ${tier.popular ? "border-gold shadow-lg" : "border-white/20"} bg-white/5 backdrop-blur`}
+              className={`rounded-3xl p-6 border ${tier.popular ? "border-gold shadow-lg" : "border-border-light"} bg-white shadow-card`}
             >
               {tier.popular && (
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-ui font-semibold text-ink-black mb-4" style={{ backgroundColor: "var(--gold)" }}>
                   Most Popular
                 </span>
               )}
-              <h3 className="font-display font-semibold text-xl text-white mb-1">{tier.label}</h3>
+              <h3 className="font-display font-semibold text-xl text-ink-black mb-1">{tier.label}</h3>
               <p className="font-ui text-gold text-lg font-medium mb-4" style={{ color: "var(--gold)" }}>{tier.price}</p>
               <ul className="space-y-2 mb-6">
                 {tier.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 font-ui text-sm text-white/90">
+                  <li key={f} className="flex items-start gap-2 font-ui text-sm text-ink-black/90">
                     <span className="text-gold shrink-0">✓</span>
                     {f}
                   </li>
@@ -141,15 +141,15 @@ const ResellerPage = () => (
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h2 className="font-display font-bold text-2xl text-white text-center mb-10">How Reseller Program Works</h2>
+          <h2 className="font-display font-bold text-2xl text-ink-black text-center mb-10">How Reseller Program Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {STEPS.map((step) => (
               <div key={step.num} className="text-center">
                 <span className="inline-flex w-12 h-12 rounded-full items-center justify-center font-display font-bold text-lg mb-3 text-ink-black" style={{ backgroundColor: "var(--gold)" }}>
                   {step.num}
                 </span>
-                <h4 className="font-display font-semibold text-white mb-2">{step.title}</h4>
-                <p className="font-ui text-sm text-white/70">{step.body}</p>
+                <h4 className="font-display font-semibold text-ink-black mb-2">{step.title}</h4>
+                <p className="font-ui text-sm text-ink-black/70">{step.body}</p>
               </div>
             ))}
           </div>
@@ -161,12 +161,12 @@ const ResellerPage = () => (
           viewport={{ once: true }}
           className="mb-14"
         >
-          <h2 className="font-display font-bold text-2xl text-white text-center mb-8">FAQ</h2>
+          <h2 className="font-display font-bold text-2xl text-ink-black text-center mb-8">FAQ</h2>
           <div className="space-y-4 max-w-3xl mx-auto">
             {RESELLER_FAQ.map((faq) => (
-              <div key={faq.q} className="rounded-2xl border border-white/20 bg-white/5 p-5">
-                <h3 className="font-display font-semibold text-white mb-2">{faq.q}</h3>
-                <p className="font-ui text-sm text-white/80">{faq.a}</p>
+              <div key={faq.q} className="rounded-2xl border border-border-light bg-gray-50/50 p-5">
+                <h3 className="font-display font-semibold text-ink-black mb-2">{faq.q}</h3>
+                <p className="font-ui text-sm text-ink-black/80">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -185,7 +185,7 @@ const ResellerPage = () => (
         </div>
 
         <p className="text-center mt-6">
-          <Link to="/" className="font-ui text-sm text-white/70 hover:text-gold transition-colors">← Back to Home</Link>
+          <Link to="/" className="font-ui text-sm text-ink-black/70 hover:text-gold transition-colors">← Back to Home</Link>
         </p>
       </div>
     </div>

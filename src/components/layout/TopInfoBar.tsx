@@ -19,8 +19,8 @@ const TopInfoBar = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[102] h-11 flex items-center overflow-hidden marquee-pause rounded-b-2xl shadow-md"
-      style={{ backgroundColor: "var(--ink-black)", color: "var(--gold)" }}
+      className="fixed top-0 left-0 right-0 z-[102] h-11 flex items-center overflow-hidden marquee-pause rounded-b-2xl border-b border-border-light bg-white shadow-sm"
+      style={{ color: "var(--navy)", backgroundColor: "#FFFFFF" }}
     >
       <div className="flex-1 min-w-0 overflow-hidden">
         <div className="flex shrink-0 animate-marquee-left whitespace-nowrap text-[14px] font-ui font-medium">
@@ -32,7 +32,7 @@ const TopInfoBar = () => {
         <button
           type="button"
           onClick={() => setLang("en")}
-          className={`px-2.5 py-1 rounded-full text-xs font-ui font-medium transition-all ${lang === "en" ? "bg-gold text-ink-black" : "text-gold/80 hover:text-gold"}`}
+          className={`px-2.5 py-1 rounded-full text-xs font-ui font-medium transition-all ${lang === "en" ? "bg-gold text-ink-black" : "text-navy hover:text-gold"}`}
           style={lang === "en" ? { backgroundColor: "var(--gold)", color: "var(--ink-black)" } : undefined}
         >
           EN
@@ -40,7 +40,7 @@ const TopInfoBar = () => {
         <button
           type="button"
           onClick={() => setLang("ta")}
-          className={`px-2.5 py-1 rounded-full text-xs font-ui font-medium transition-all ${lang === "ta" ? "bg-gold text-ink-black" : "text-gold/80 hover:text-gold"}`}
+          className={`px-2.5 py-1 rounded-full text-xs font-ui font-medium transition-all ${lang === "ta" ? "bg-gold text-ink-black" : "text-navy hover:text-gold"}`}
           style={lang === "ta" ? { backgroundColor: "var(--gold)", color: "var(--ink-black)" } : undefined}
         >
           தமிழ்

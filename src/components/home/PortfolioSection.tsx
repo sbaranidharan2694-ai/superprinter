@@ -46,7 +46,7 @@ const PortfolioSection = () => {
   const aspectClasses = ["aspect-[4/3]", "aspect-square", "aspect-[3/4]", "aspect-[4/3]", "aspect-square", "aspect-[3/4]"];
 
   return (
-    <section id="portfolio" className="py-20 md:py-24" style={{ backgroundColor: "var(--navy)" }}>
+    <section id="portfolio" className="py-20 md:py-24 bg-white border-t border-border-light" style={{ backgroundColor: "#FFFFFF" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const PortfolioSection = () => {
             OUR WORK
           </p>
           <h2
-            className="font-display font-bold italic text-white"
+            className="font-display font-bold italic text-ink-black"
             style={{
               fontFamily: "'Playfair Display', serif",
               fontStyle: "italic",
@@ -80,7 +80,7 @@ const PortfolioSection = () => {
               className={`px-4 py-2 rounded-full text-sm font-ui font-medium transition-all duration-300 ease-spring ${
                 activeCategory === cat
                   ? "bg-gold text-ink-black"
-                  : "text-white border border-white/30 hover:border-gold"
+                  : "text-ink-black border border-border-light hover:border-gold"
               }`}
               style={activeCategory === cat ? { backgroundColor: "var(--gold)", color: "var(--ink-black)" } : undefined}
             >

@@ -47,27 +47,16 @@ const UnifiedHeader = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenu]);
 
-  const atTop = !scrolled;
   const baseNavClass = "nav-link px-4 py-2.5 text-[14px] font-ui font-medium rounded-full transition-all duration-300 ease-spring";
-  const inactiveClass = atTop
-    ? "text-white/90 hover:text-gold hover:bg-white/5"
-    : "text-inherit hover:text-gold hover:bg-white/5";
+  const inactiveClass = "text-ink-black hover:text-gold hover:bg-gold/10";
   const linkClass = (id: string) =>
     `${baseNavClass} ${activeId === id ? "text-gold bg-gold/10" : inactiveClass}`;
   const isProducts = location.pathname === "/products";
 
   return (
     <header
-      className={`fixed top-11 left-0 right-0 z-[101] transition-all duration-300 ${
-        atTop
-          ? "text-white backdrop-blur-md border-b border-white/10"
-          : "bg-white/98 backdrop-blur-md border-b border-gray-100 text-ink-black"
-      }`}
-      style={
-        atTop
-          ? { backgroundColor: "rgba(17,19,24,0.92)" }
-          : { boxShadow: "0 2px 20px rgba(26,44,91,0.08), inset 0 1px 0 rgba(255,255,255,0.9)" }
-      }
+      className="fixed top-11 left-0 right-0 z-[101] transition-all duration-300 bg-white border-b border-border-light text-ink-black backdrop-blur-md"
+      style={{ boxShadow: "0 2px 20px rgba(26,44,91,0.06), inset 0 1px 0 rgba(255,255,255,0.9)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[72px] py-2">
         <Link
@@ -101,7 +90,7 @@ const UnifiedHeader = () => {
                 >
                   SP
                 </span>
-                <span className={`font-display font-bold text-xl sm:text-2xl leading-tight tracking-tight ${atTop ? "text-white" : "text-navy"}`}>
+                <span className="font-display font-bold text-xl sm:text-2xl leading-tight tracking-tight text-navy">
                   Super Printers
                 </span>
               </>
@@ -140,8 +129,8 @@ const UnifiedHeader = () => {
           <div className="hidden lg:flex">
             <WhatsAppStatus />
           </div>
-          <a href="tel:+919840199878" className={`hidden md:inline text-sm font-medium hover:opacity-90 ${atTop ? "text-white/90" : "text-ink-black"}`}>
-            {atTop ? "📞 Call" : "📞 +91 98401 99878"}
+          <a href="tel:+919840199878" className="hidden md:inline text-sm font-medium hover:opacity-90 text-ink-black">
+            📞 +91 98401 99878
           </a>
           <button
             onClick={() => {
@@ -167,13 +156,13 @@ const UnifiedHeader = () => {
       {/* Mobile full-screen overlay */}
       {mobileMenu && (
         <div
-          className="lg:hidden fixed inset-0 top-[116px] bottom-0 bg-ink-black z-50 flex flex-col items-center justify-start pt-12 gap-0 overflow-y-auto"
-          style={{ backgroundColor: "var(--ink-black)" }}
+          className="lg:hidden fixed inset-0 top-[116px] bottom-0 bg-white z-50 flex flex-col items-center justify-start pt-12 gap-0 overflow-y-auto border-t border-border-light"
+          style={{ backgroundColor: "#FFFFFF", boxShadow: "0 -4px 24px rgba(0,0,0,0.08)" }}
         >
           <button
             type="button"
             onClick={() => setMobileMenu(false)}
-            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full text-ink-black hover:bg-gray-100 transition-colors"
             aria-label="Close menu"
           >
             <span className="text-2xl leading-none">×</span>
@@ -181,14 +170,14 @@ const UnifiedHeader = () => {
           <Link
             to="/"
             onClick={(e) => { setMobileMenu(false); if (isHome) { e.preventDefault(); scrollToSection(""); } }}
-            className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
+            className="w-full py-5 px-6 text-left font-display text-2xl text-ink-black hover:text-gold transition-colors border-b border-border-light"
           >
             {t("Home")}
           </Link>
           <Link
             to="/products"
             onClick={() => setMobileMenu(false)}
-            className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
+            className="w-full py-5 px-6 text-left font-display text-2xl text-ink-black hover:text-gold transition-colors border-b border-border-light"
           >
             {t("All Products")}
           </Link>
@@ -200,7 +189,7 @@ const UnifiedHeader = () => {
                 if (isHome) scrollToSection(link.id);
                 else window.location.assign(`/#${link.id}`);
               }}
-              className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
+              className="w-full py-5 px-6 text-left font-display text-2xl text-ink-black hover:text-gold transition-colors border-b border-border-light"
             >
               {t(link.label)}
             </button>
@@ -216,7 +205,7 @@ const UnifiedHeader = () => {
             >
               WhatsApp Order
             </a>
-            <a href="tel:+919840199878" onClick={() => setMobileMenu(false)} className="w-full py-4 rounded-full font-ui font-semibold text-center text-white border-2 border-gold">
+            <a href="tel:+919840199878" onClick={() => setMobileMenu(false)} className="w-full py-4 rounded-full font-ui font-semibold text-center text-ink-black border-2 border-navy hover:bg-gray-50">
               Call Now
             </a>
           </div>

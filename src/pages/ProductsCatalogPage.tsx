@@ -55,8 +55,8 @@ function CatalogProductCard({ product }: { product: CatalogProduct }) {
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full text-center py-2.5 rounded-lg font-medium text-sm text-white transition-opacity hover:opacity-90"
-          style={{ backgroundColor: "#1A2C5B" }}
+          className="block w-full text-center py-2.5 rounded-lg font-medium text-sm text-ink-black transition-opacity hover:opacity-90"
+          style={{ backgroundColor: "var(--gold)" }}
         >
           Order →
         </a>

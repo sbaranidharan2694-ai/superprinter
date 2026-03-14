@@ -43,7 +43,7 @@ const cardVariants = {
 };
 
 const ProductBenefitsSection = () => (
-  <section id="product-benefits" className="py-16 md:py-20" style={{ backgroundColor: "var(--bg-cream)" }}>
+  <section id="product-benefits" className="py-16 md:py-20 bg-white" style={{ backgroundColor: "#FFFFFF" }}>
     <div className="max-w-7xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}

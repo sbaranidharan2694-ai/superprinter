@@ -71,7 +71,8 @@ const BenefitsListSection = () => (
   <section
     id="benefits"
     className="py-20 md:py-24"
-    style={{ backgroundColor: "var(--bg-cream)" }}
+    className="border-t border-border-light"
+    style={{ backgroundColor: "#FFFFFF" }}
     aria-labelledby="benefits-heading"
   >
     <div className="max-w-7xl mx-auto px-6">
