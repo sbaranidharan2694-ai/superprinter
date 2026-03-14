@@ -85,7 +85,7 @@ export const V2_PRODUCTS: V2Product[] = [
   {
     id: "foil-cards",
     name: "Foil Stamping Cards",
-    image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&q=85",
+    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=500&q=85",
     specs: ["400 GSM", "Gold/Silver Foil", "Velvet Lam"],
     price: "₹799 / 100 pcs",
     priceFrom: "799",
@@ -141,7 +141,7 @@ export const V2_PRODUCTS: V2Product[] = [
   {
     id: "catalogues",
     name: "Catalogues",
-    image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=500&q=85",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=85",
     specs: ["170 GSM Art Paper", "Full Colour", "Any Page Count"],
     price: "Custom Quote",
     priceFrom: "Quote",

@@ -9,7 +9,7 @@ const WHY_FEATURES = [
 const WHY_IMAGE = "https://images.unsplash.com/photo-1504711434969-e33886198f5c?w=800&q=85";
 
 const WhyChooseUsSection = () => (
-  <section id="why-us" className="py-20 md:py-24" style={{ backgroundColor: "#FFFFFF" }}>
+  <section id="why-us" className="py-20 md:py-24" style={{ backgroundColor: "#F8F5F0" }}>
     <div className="max-w-7xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

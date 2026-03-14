@@ -12,7 +12,7 @@ const FinishesSection = () => (
       >
         <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
           <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
-          Every finish we offer
+          Technical specifications
         </p>
         <h2 className="font-display font-bold text-ink-black text-3xl md:text-4xl mb-3">
           Every Finish We Offer

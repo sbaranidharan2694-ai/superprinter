@@ -11,10 +11,20 @@ const QuoteFormSection = () => {
   const [finish, setFinish] = useState("");
   const [notes, setNotes] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
+
+  const validate = () => {
+    const e: { name?: string; phone?: string } = {};
+    if (!name.trim()) e.name = "Please enter your name";
+    if (!phone.trim()) e.phone = "Please enter your phone number";
+    else if (!/^[\d\s+\-()]{7,}$/.test(phone.trim())) e.phone = "Please enter a valid phone number";
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !phone.trim()) return;
+    if (!validate()) return;
     const message = `Hi Super Printers! I need a quote:\n\nName: ${name}\nPhone: ${phone}\nProduct: ${product || "—"}\nQuantity: ${quantity || "—"}\nPaper/Finish: ${finish || "—"}\nNotes: ${notes || "—"}`;
     window.open(`${BUSINESS.whatsapp}?text=${encodeURIComponent(message)}`, "_blank");
     setSubmitted(true);
@@ -93,10 +103,12 @@ const QuoteFormSection = () => {
                         type="text"
                         required
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="w-full border border-border-light rounded-xl px-4 py-3 text-base font-body focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold"
+                        onChange={(e) => { setName(e.target.value); if (errors.name) setErrors((p) => ({ ...p, name: undefined })); }}
+                        className={`w-full border rounded-xl px-4 py-3 text-base font-body focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold ${errors.name ? "border-red-400 bg-red-50" : "border-border-light"}`}
                         placeholder="Your name"
+                        aria-describedby={errors.name ? "name-error" : undefined}
                       />
+                      {errors.name && <p id="name-error" className="mt-1 text-xs text-red-500">{errors.name}</p>}
                     </div>
                     <div>
                       <label htmlFor="quote-phone" className="block text-ink-black font-body text-sm font-medium mb-1">Phone / WhatsApp *</label>
@@ -105,10 +117,12 @@ const QuoteFormSection = () => {
                         type="tel"
                         required
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="w-full border border-border-light rounded-xl px-4 py-3 text-base font-body focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold"
+                        onChange={(e) => { setPhone(e.target.value); if (errors.phone) setErrors((p) => ({ ...p, phone: undefined })); }}
+                        className={`w-full border rounded-xl px-4 py-3 text-base font-body focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold ${errors.phone ? "border-red-400 bg-red-50" : "border-border-light"}`}
                         placeholder="+91"
+                        aria-describedby={errors.phone ? "phone-error" : undefined}
                       />
+                      {errors.phone && <p id="phone-error" className="mt-1 text-xs text-red-500">{errors.phone}</p>}
                     </div>
                     <div>
                       <label htmlFor="quote-product" className="block text-ink-black font-body text-sm font-medium mb-1">Product Type</label>

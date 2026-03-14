@@ -7,7 +7,7 @@ const FAQSectionNew = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-20 md:py-24" style={{ backgroundColor: "#FFFFFF" }}>
+    <section id="faq" className="py-20 md:py-24" style={{ backgroundColor: "#F8F5F0" }}>
       <div className="max-w-3xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -16,6 +16,7 @@ const translations: Record<string, { en: string; ta: string }> = {
   "Contact Us": { en: "Contact Us", ta: "தொடர்பு கொள்ளுங்கள்" },
   "View Our Products": { en: "View Our Products", ta: "எங்கள் தயாரிப்புகள்" },
   "48Hr Delivery": { en: "48Hr Delivery", ta: "48 மணி நேர டெலிவரி" },
+  "All Products": { en: "All Products", ta: "அனைத்து தயாரிப்புகள்" },
   "Home": { en: "Home", ta: "முகப்பு" },
   "Products": { en: "Products", ta: "தயாரிப்புகள்" },
   "Portfolio": { en: "Portfolio", ta: "போர்ட்ஃபோலியோ" },

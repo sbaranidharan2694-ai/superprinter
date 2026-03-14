@@ -5,7 +5,6 @@ import CredibilityStrip from "@/components/home/CredibilityStrip";
 import StatsBarSection from "@/components/home/StatsBarSection";
 import ProductsSection from "@/components/home/ProductsSection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
-import TrustedClients from "@/components/home/TrustedClients";
 import WeddingCardsSection from "@/components/home/WeddingCardsSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
@@ -29,7 +28,6 @@ const Index = () => (
     <StatsBarSection />
     <ProductsSection />
     <WhyChooseUsSection />
-    <TrustedClients />
     <WeddingCardsSection />
     <HowItWorksSection />
     <SocialProofSection />
