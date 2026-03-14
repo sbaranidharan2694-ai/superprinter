@@ -36,6 +36,13 @@ const HeroSection = () => {
               src="/super-printers-logo.png"
               alt="Super Printers — 35 Years Experience"
               className="w-full h-auto object-contain drop-shadow-lg"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (target.getAttribute("data-fallback") !== "done") {
+                  target.setAttribute("data-fallback", "done");
+                  target.src = "/super-printers-logo.svg";
+                }
+              }}
             />
           </motion.div>
           <motion.div

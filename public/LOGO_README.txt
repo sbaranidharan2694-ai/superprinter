@@ -1,4 +1,4 @@
-Place your Super Printers full logo image here as:
-  super-printers-logo.png
+Logo (used beside "Super Printers" in header, hero, and footer):
 
-It will appear in the header, hero section, and footer. If the file is missing, the site falls back to the existing SP circle logo.
+  • super-printers-logo.svg — included: hexagon SP + "SUPER PRINTERS" + "35 YEARS EXPERIENCE" (placeholder).
+  • super-printers-logo.png — add your full logo image here; it will be used instead of the SVG when present.

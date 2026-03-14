@@ -47,7 +47,16 @@ const UnifiedFooter = () => {
               src="/super-printers-logo.png"
               alt="Super Printers — 35 Years Experience"
               className="h-16 w-auto object-contain flex-shrink-0"
-              onError={() => setLogoImgFailed(true)}
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (target.getAttribute("data-fallback") !== "done") {
+                  target.setAttribute("data-fallback", "done");
+                  target.src = "/super-printers-logo.svg";
+                  target.onerror = () => setLogoImgFailed(true);
+                } else {
+                  setLogoImgFailed(true);
+                }
+              }}
             />
           ) : (
             <SuperPrintersLogo variant="footer" size="lg" />

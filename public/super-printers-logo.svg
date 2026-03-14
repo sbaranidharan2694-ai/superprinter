@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <!-- Decorative wreath dots -->
+  <circle cx="25" cy="35" r="4" fill="#3B82F6"/>
+  <circle cx="95" cy="40" r="4" fill="#F59E0B"/>
+  <circle cx="60" cy="18" r="4" fill="#10B981"/>
+  <circle cx="35" cy="75" r="3" fill="#EC4899"/>
+  <circle cx="85" cy="70" r="3" fill="#8B5CF6"/>
+  <!-- Hexagon -->
+  <path d="M60 28 L88 46 L88 82 L60 100 L32 82 L32 46 Z" fill="url(#hexGrad)" stroke="#1e293b" stroke-width="1.5"/>
+  <defs>
+    <linearGradient id="hexGrad" x1="32" y1="28" x2="88" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="0.5" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+  <!-- SP text -->
+  <text x="60" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="700" font-size="28" fill="#111318">SP</text>
+  <!-- SUPER PRINTERS -->
+  <text x="60" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="700" font-size="14" letter-spacing="0.05em" fill="#1e3a5f">SUPER PRINTERS</text>
+  <!-- 35 YEARS ribbon -->
+  <rect x="30" y="122" width="60" height="14" rx="4" fill="url(#ribbon)"/>
+  <defs>
+    <linearGradient id="ribbon" x1="30" y1="129" x2="90" y2="129" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EC4899"/>
+      <stop offset="0.5" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <text x="60" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="8" fill="white">35 YEARS EXPERIENCE</text>
+</svg>
