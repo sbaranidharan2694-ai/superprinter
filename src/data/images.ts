@@ -36,6 +36,13 @@ export const IMG = {
   envelopes: px(4226896, 900, 700),
   stickerSheets: px(4792285, 900, 700),
   brochures: px(6177670, 900, 700),
+
+  // Catalog: stickers, calendar, hospital files
+  mirrorSticker: px(4792285, 900, 700),
+  panchangam: px(28806603, 900, 700),
+  calendarMount: px(28806603, 900, 700),
+  hospitalPlastic: px(7034466, 900, 700),
+  hospitalGeneral: px(7034466, 900, 700),
   
   // Delivery
   delivery: px(4391470),

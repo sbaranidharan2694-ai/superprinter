@@ -13,6 +13,7 @@ import WeddingCardsPage from "./pages/WeddingCardsPage";
 import LetterheadsPage from "./pages/LetterheadsPage";
 import ResellerPage from "./pages/ResellerPage";
 import BlogPost from "./pages/BlogPost";
+import ProductsCatalogPage from "./pages/ProductsCatalogPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,8 @@ const App = () => (
           <Routes>
             <Route element={<UnifiedLayout />}>
               <Route path="/" element={<Index />} />
+              <Route path="/products" element={<ProductsCatalogPage />} />
+              <Route path="/products/:categorySlug" element={<ProductsCatalogPage />} />
               <Route path="/visiting-cards" element={<VisitingCardsPage />} />
               <Route path="/brochures" element={<BrochuresPage />} />
               <Route path="/bill-books" element={<BillBooksPage />} />

@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { scrollToSection } from "@/utils/scroll";
-import { V2_MEGA_MENU } from "@/data/v2";
+import { CATALOG_CATEGORIES } from "@/data/catalog";
 import WhatsAppStatus from "@/components/WhatsAppStatus";
 import SuperPrintersLogo from "@/components/SuperPrintersLogo";
 import { useLang } from "@/contexts/LangContext";
 
 const SECTION_IDS = ["products", "why-us", "wedding-cards", "process", "reviews", "portfolio", "finishes", "templates", "quote-form", "about", "faq", "contact"] as const;
 
-const NAV_LINKS: { label: string; id: string }[] = [
+/** Nav items that scroll to section on home page */
+const SCROLL_NAV: { label: string; id: string }[] = [
   { label: "Home", id: "" },
-  { label: "Products", id: "products" },
-  { label: "Wedding Cards", id: "wedding-cards" },
   { label: "Portfolio", id: "portfolio" },
   { label: "About", id: "about" },
   { label: "Contact", id: "contact" },
@@ -18,10 +18,12 @@ const NAV_LINKS: { label: string; id: string }[] = [
 
 const UnifiedHeader = () => {
   const { t } = useLang();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [activeId, setActiveId] = useState("");
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => {
@@ -67,8 +69,9 @@ const UnifiedHeader = () => {
       }
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-        <button
-          onClick={() => scrollToSection("")}
+        <Link
+          to="/"
+          onClick={(e) => { if (isHome) { e.preventDefault(); scrollToSection(""); } }}
           className="flex items-center gap-3 text-left"
           aria-label="Super Printers Home"
         >
@@ -81,65 +84,85 @@ const UnifiedHeader = () => {
               Est. 1990 · Pallavaram
             </span>
           </div>
-        </button>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
-          {NAV_LINKS.map((link) => (
-            <div key={link.id || "home"} className="relative">
-              {link.id === "products" ? (
+          <button
+            onClick={() => (isHome ? scrollToSection("") : window.location.assign("/"))}
+            className={linkClass("")}
+          >
+            {t("Home")}
+          </button>
+          <Link
+            to="/products"
+            className={`px-4 py-2.5 text-[14px] font-ui font-medium rounded-full transition-all duration-300 ${
+              location.pathname === "/products" ? "text-gold bg-gold/10" : "text-inherit hover:text-gold hover:bg-white/5"
+            }`}
+          >
+            {t("All Products")}
+          </Link>
+          {CATALOG_CATEGORIES.map((cat) => (
+            <div
+              key={cat.id}
+              className="relative"
+              onMouseEnter={() => setOpenDropdown(cat.slug)}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              {cat.subcategories.length > 0 ? (
                 <>
                   <button
-                    onMouseEnter={() => setProductsOpen(true)}
-                    onMouseLeave={() => setProductsOpen(false)}
-                    onClick={() => setProductsOpen(!productsOpen)}
-                    className={`${linkClass("products")} flex items-center gap-1`}
+                    onClick={() => setOpenDropdown(openDropdown === cat.slug ? null : cat.slug)}
+                    className={`${linkClass("")} flex items-center gap-1`}
                   >
-                    {t(link.label)}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                    {cat.label}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
                   </button>
-                  {productsOpen && (
-                    <div
-                      className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-full min-w-[320px] max-w-[min(640px,calc(100vw-2rem))]"
-                      onMouseEnter={() => setProductsOpen(true)}
-                      onMouseLeave={() => setProductsOpen(false)}
-                    >
-                      <div className="bg-white rounded-3xl shadow-xl border border-gray-100 py-4 px-6 grid grid-cols-4 gap-6 text-left">
-                        {V2_MEGA_MENU.map((col) => (
-                          <div key={col.title}>
-                            <h4 className="font-display font-semibold text-ink-black text-sm mb-3">{col.title}</h4>
-                            <ul className="space-y-2">
-                              {col.items.map((item) => (
-                                <li key={item.name}>
-                                  <button
-                                    onClick={() => {
-                                      scrollToSection(item.scrollTo);
-                                      setProductsOpen(false);
-                                    }}
-                                    className="text-sm font-ui text-gray-700 hover:text-gold transition-colors duration-300 block w-full text-left"
-                                  >
-                                    {item.name}
-                                  </button>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                  {openDropdown === cat.slug && (
+                    <div className="absolute top-full left-0 pt-2 min-w-[200px]">
+                      <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-2 text-left">
+                        {cat.subcategories.map((sub) => (
+                          <Link
+                            key={sub.slug}
+                            to={`/products?category=${encodeURIComponent(cat.slug)}&sub=${encodeURIComponent(sub.slug)}`}
+                            onClick={() => setOpenDropdown(null)}
+                            className="block px-4 py-2 text-sm font-ui text-gray-700 hover:bg-gold/10 hover:text-gold transition-colors"
+                          >
+                            {sub.label}
+                            {sub.badge === "NEW" && (
+                              <span className="ml-1.5 text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-500 text-white">
+                                NEW
+                              </span>
+                            )}
+                          </Link>
                         ))}
                       </div>
                     </div>
                   )}
                 </>
               ) : (
-                <button
-                  onClick={() => {
-                    scrollToSection(link.id);
-                    setMobileMenu(false);
-                  }}
-                  className={linkClass(link.id)}
+                <Link
+                  to={`/products?category=${encodeURIComponent(cat.slug)}`}
+                  className={linkClass("")}
                 >
-                  {t(link.label)}
-                </button>
+                  {cat.label}
+                </Link>
               )}
             </div>
+          ))}
+          {SCROLL_NAV.filter((l) => l.id).map((link) => (
+            <button
+              key={link.id}
+              onClick={() => {
+                if (isHome) scrollToSection(link.id);
+                else window.location.assign(`/#${link.id}`);
+                setMobileMenu(false);
+              }}
+              className={linkClass(link.id)}
+            >
+              {t(link.label)}
+            </button>
           ))}
         </nav>
 
@@ -185,12 +208,42 @@ const UnifiedHeader = () => {
           >
             <span className="text-2xl leading-none">×</span>
           </button>
-          {NAV_LINKS.map((link) => (
+          <Link
+            to="/"
+            onClick={(e) => { setMobileMenu(false); if (isHome) { e.preventDefault(); scrollToSection(""); } }}
+            className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
+          >
+            {t("Home")}
+          </Link>
+          <Link
+            to="/products"
+            onClick={() => setMobileMenu(false)}
+            className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
+          >
+            {t("All Products")}
+          </Link>
+          {CATALOG_CATEGORIES.map((cat) => {
+            const href = cat.subcategories.length > 0
+              ? `/products?category=${encodeURIComponent(cat.slug)}&sub=${encodeURIComponent(cat.subcategories[0].slug)}`
+              : `/products?category=${encodeURIComponent(cat.slug)}`;
+            return (
+              <Link
+                key={cat.id}
+                to={href}
+                onClick={() => setMobileMenu(false)}
+                className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
+              >
+                {cat.label}
+              </Link>
+            );
+          })}
+          {SCROLL_NAV.filter((l) => l.id).map((link) => (
             <button
-              key={link.id || "home"}
+              key={link.id}
               onClick={() => {
-                scrollToSection(link.id || "");
                 setMobileMenu(false);
+                if (isHome) scrollToSection(link.id);
+                else window.location.assign(`/#${link.id}`);
               }}
               className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
             >
@@ -199,8 +252,9 @@ const UnifiedHeader = () => {
           ))}
           <button
             onClick={() => {
-              scrollToSection("why-us");
               setMobileMenu(false);
+              if (isHome) scrollToSection("why-us");
+              else window.location.assign("/#why-us");
             }}
             className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
           >
@@ -208,8 +262,9 @@ const UnifiedHeader = () => {
           </button>
           <button
             onClick={() => {
-              scrollToSection("finishes");
               setMobileMenu(false);
+              if (isHome) scrollToSection("finishes");
+              else window.location.assign("/#finishes");
             }}
             className="w-full py-5 px-6 text-left font-display text-2xl text-white hover:text-gold transition-colors border-b border-white/10"
           >
@@ -220,12 +275,13 @@ const UnifiedHeader = () => {
               href="https://wa.me/919840199878?text=Hi%20Super%20Printers!%20I%20need%20a%20printing%20quote."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => setMobileMenu(false)}
               className="w-full py-4 rounded-full font-ui font-semibold text-center text-ink-black bg-gold"
               style={{ backgroundColor: "var(--gold)" }}
             >
               WhatsApp Order
             </a>
-            <a href="tel:+919840199878" className="w-full py-4 rounded-full font-ui font-semibold text-center text-white border-2 border-gold">
+            <a href="tel:+919840199878" onClick={() => setMobileMenu(false)} className="w-full py-4 rounded-full font-ui font-semibold text-center text-white border-2 border-gold">
               Call Now
             </a>
           </div>
