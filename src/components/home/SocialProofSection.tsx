@@ -11,7 +11,7 @@ const SocialProofSection = () => (
         {CLIENT_LOGOES.map((name) => (
           <div
             key={name}
-            className="shrink-0 w-28 h-14 flex items-center justify-center rounded-2xl border border-border-light bg-white font-display font-bold text-sm text-ink-black/70 shadow-sm"
+            className="shrink-0 w-28 h-14 flex items-center justify-center rounded-3xl border border-border-light bg-white font-display font-bold text-sm text-ink-black/70 shadow-sm"
           >
             {name}
           </div>
@@ -24,8 +24,9 @@ const SocialProofSection = () => (
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <p className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
-          WHAT CLIENTS SAY
+        <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
+          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
+          What clients say
         </p>
         <h2 className="font-display font-bold text-ink-black text-3xl md:text-4xl">
           10,000+ Satisfied Customers
@@ -37,7 +38,7 @@ const SocialProofSection = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="rounded-2xl p-8 md:p-10 mb-10 text-center shadow-lg"
+        className="rounded-3xl p-8 md:p-10 mb-10 text-center shadow-card"
         style={{ backgroundColor: "var(--navy-deep)" }}
       >
         <span className="text-6xl text-gold/40 font-serif leading-none" style={{ color: "var(--gold)" }}>&ldquo;</span>
@@ -55,8 +56,8 @@ const SocialProofSection = () => (
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
-            className="bg-white rounded-2xl p-6 border border-border-light shadow-md hover:shadow-lg transition-shadow duration-300"
+            transition={{ type: "spring", stiffness: 400, damping: 28, delay: i * 0.05 }}
+            className="bg-white rounded-3xl p-6 border border-border-light shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
           >
             <div className="text-gold text-lg mb-2" style={{ color: "var(--gold)" }}>
               {"★".repeat(review.stars)}

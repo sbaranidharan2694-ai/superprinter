@@ -10,8 +10,9 @@ const FinishesSection = () => (
         viewport={{ once: true }}
         className="text-center mb-14"
       >
-        <p className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
-          TECHNICAL SPECIFICATIONS
+        <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
+          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
+          Every finish we offer
         </p>
         <h2 className="font-display font-bold text-ink-black text-3xl md:text-4xl mb-3">
           Every Finish We Offer
@@ -27,7 +28,7 @@ const FinishesSection = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="overflow-hidden rounded-2xl border border-border-light bg-white shadow-md"
+          className="overflow-hidden rounded-3xl border border-border-light bg-white shadow-card"
         >
           <h3 className="font-display font-semibold text-lg text-ink-black px-6 py-4 border-b border-border-light">
             Paper Weights & Their Uses
@@ -63,7 +64,7 @@ const FinishesSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="rounded-2xl border border-border-light bg-white p-5 shadow-md hover:shadow-lg transition-all duration-300"
+              className="rounded-3xl border border-border-light bg-white p-5 shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
             >
               <span className="text-2xl mb-2 block">{finish.icon}</span>
               <h4 className="font-display font-semibold text-ink-black mb-1">{finish.name}</h4>

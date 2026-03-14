@@ -17,8 +17,9 @@ const HowItWorksSection = () => (
         viewport={{ once: true }}
         className="text-center mb-14"
       >
-        <p className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
-          SIMPLE ORDERING
+        <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
+          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
+          Simple ordering
         </p>
         <h2 className="font-display font-bold text-white text-3xl md:text-4xl">
           Ready in 4 Steps
@@ -60,7 +61,7 @@ const HowItWorksSection = () => (
           href={BUSINESS.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-gold text-ink-black font-body font-semibold text-lg px-10 py-4 rounded-2xl hover:shadow-gold hover:scale-[1.02] transition-all duration-300"
+          className="inline-flex items-center justify-center bg-gold text-ink-black font-ui font-semibold text-lg px-10 py-4 rounded-full hover:shadow-gold hover:scale-[1.02] transition-all duration-300 ease-spring"
           style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
         >
           Start Your Order on WhatsApp

@@ -54,8 +54,9 @@ const PortfolioSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
-            OUR WORK
+          <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
+            Our work
           </p>
           <h2 className="font-display font-bold text-white text-3xl md:text-4xl italic">
             35 Years of Beautiful Print
@@ -67,7 +68,7 @@ const PortfolioSection = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-2xl text-sm font-body font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm font-ui font-medium transition-all duration-300 ease-spring ${
                 activeCategory === cat
                   ? "bg-gold text-ink-black"
                   : "text-white border border-white/30 hover:border-gold"
@@ -86,7 +87,7 @@ const PortfolioSection = () => {
               layout
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`relative overflow-hidden rounded-xl group cursor-zoom-in ${aspectClasses[index % aspectClasses.length]}`}
+              className={`relative overflow-hidden rounded-3xl group cursor-zoom-in ${aspectClasses[index % aspectClasses.length]}`}
               onClick={() => openLightbox(index)}
             >
               <img

@@ -7,7 +7,7 @@ const MobileBottomCTA = () => (
   >
     <a
       href={BUSINESS.phoneTel}
-      className="flex-1 flex items-center justify-center gap-2 text-white font-body font-semibold text-sm"
+      className="flex-1 flex items-center justify-center gap-2 text-white font-ui font-semibold text-sm"
       aria-label="Call now"
     >
       <span className="text-lg">📞</span>
@@ -18,7 +18,7 @@ const MobileBottomCTA = () => (
       href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers! I need a printing quote.")}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex-1 flex items-center justify-center gap-2 text-white font-body font-semibold text-sm bg-whatsapp"
+      className="flex-1 flex items-center justify-center gap-2 text-white font-ui font-semibold text-sm bg-whatsapp"
       aria-label="WhatsApp"
     >
       <span className="text-lg">💬</span>

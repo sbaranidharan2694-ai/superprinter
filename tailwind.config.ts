@@ -15,8 +15,12 @@ export default {
     extend: {
       fontFamily: {
         display: ['"Playfair Display"', 'serif'],
-        body: ['"DM Sans"', 'sans-serif'],
+        body: ['"Outfit"', 'sans-serif'],
+        ui: ['"Outfit"', 'sans-serif'],
         tamil: ['"Noto Sans Tamil"', 'sans-serif'],
+      },
+      transitionTimingFunction: {
+        spring: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
       fontWeight: {
         display: "600",
@@ -103,6 +107,7 @@ export default {
         "8": "var(--radius-md)",
         "16": "var(--radius-lg)",
         "24": "var(--radius-xl)",
+        "3xl": "24px",
         full: "var(--radius-full)",
       },
       boxShadow: {

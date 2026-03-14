@@ -40,10 +40,11 @@ const AboutSection = () => (
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2"
+            className="text-gold font-ui text-sm font-medium mb-2 flex items-center gap-2"
             style={{ color: "var(--gold)" }}
           >
-            OUR STORY
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
+            Our story
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}

@@ -15,8 +15,9 @@ const FAQSectionNew = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
-            COMMON QUESTIONS
+          <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
+            Common questions
           </p>
           <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-2">
             Everything You Need to Know
@@ -74,7 +75,7 @@ const FAQSectionNew = () => {
             href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi, I have a question about your printing services.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-body font-semibold text-ink-black hover:shadow-gold hover:scale-[1.02] transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-full font-ui font-semibold text-ink-black hover:shadow-gold hover:scale-[1.02] transition-all duration-300 ease-spring"
             style={{ backgroundColor: "var(--gold)" }}
           >
             Ask us on WhatsApp

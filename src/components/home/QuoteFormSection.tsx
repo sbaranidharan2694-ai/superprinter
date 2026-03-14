@@ -30,10 +30,11 @@ const QuoteFormSection = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2"
+              className="text-gold font-ui text-sm font-medium mb-2 flex items-center gap-2"
               style={{ color: "var(--gold)" }}
             >
-              GET A QUOTE
+              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
+              Get a quote
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -74,7 +75,7 @@ const QuoteFormSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               onSubmit={handleSubmit}
-              className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl border border-gray-100"
+              className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100"
             >
               {submitted ? (
                 <div className="text-center py-8">
@@ -166,7 +167,7 @@ const QuoteFormSection = () => {
                   </div>
                   <button
                     type="submit"
-                    className="mt-6 w-full py-4 rounded-2xl font-body font-semibold text-base text-ink-black hover:shadow-gold hover:scale-[1.01] transition-all duration-300"
+                    className="mt-6 w-full py-4 rounded-full font-ui font-semibold text-base text-ink-black hover:shadow-gold hover:scale-[1.01] transition-all duration-300 ease-spring"
                     style={{ backgroundColor: "var(--gold)" }}
                   >
                     Send Quote Request →

@@ -18,9 +18,13 @@ const ProductsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
+          transition={{ type: "spring", stiffness: 400, damping: 25 }}
           className="text-center mb-12"
         >
-          <p className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2">WHAT WE PRINT</p>
+          <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "var(--gold)" }} />
+            What we print
+          </p>
           <h2 className="font-display font-bold text-white text-3xl md:text-4xl mb-3">
             Every Product. Every Finish. Every Budget.
           </h2>
@@ -35,7 +39,7 @@ const ProductsSection = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`shrink-0 px-5 py-2.5 rounded-2xl text-sm font-body font-medium transition-all duration-300 ${
+              className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-ui font-medium transition-all duration-300 ease-spring ${
                 activeTab === tab.id
                   ? "bg-gold text-ink-black"
                   : "text-white border border-gold/60 hover:border-gold"
@@ -55,7 +59,7 @@ const ProductsSection = () => {
               <p className="text-white/50 font-body text-sm mb-6">Wedding cards and event invitations are in our dedicated section.</p>
               <button
                 onClick={() => scrollToSection("wedding-cards")}
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full font-body font-semibold text-ink-black bg-gold hover:shadow-gold transition-all"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full font-ui font-semibold text-ink-black bg-gold hover:shadow-gold transition-all duration-300 ease-spring"
                 style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
               >
                 View Wedding Cards section
@@ -70,8 +74,8 @@ const ProductsSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.35, delay: i * 0.04 }}
-                className="group rounded-2xl overflow-hidden bg-[#161616] border border-white/8 shadow-lg hover:border-gold/40 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                transition={{ type: "spring", stiffness: 400, damping: 28, delay: i * 0.04 }}
+                className="group rounded-3xl overflow-hidden bg-[#161616] border border-white/8 shadow-card hover:border-gold/40 hover:-translate-y-1 hover:shadow-hover transition-all duration-300 ease-spring"
               >
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img

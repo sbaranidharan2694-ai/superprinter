@@ -24,10 +24,11 @@ const WeddingCardsSection = () => (
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-3"
+            className="text-gold font-ui text-sm font-medium mb-3 flex items-center justify-center gap-2"
             style={{ color: "var(--gold)" }}
           >
-            WEDDING & EVENT INVITATIONS
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
+            Wedding & event invitations
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -55,14 +56,14 @@ const WeddingCardsSection = () => (
               href={BUSINESS.whatsappWedding}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-gold text-ink-black font-body font-semibold px-8 py-3.5 rounded-2xl hover:shadow-gold hover:scale-[1.02] transition-all duration-300"
+              className="inline-flex items-center justify-center bg-gold text-ink-black font-ui font-semibold px-8 py-3.5 rounded-full hover:shadow-gold hover:scale-[1.02] transition-all duration-300 ease-spring"
               style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
             >
               Get Free Design Proof
             </a>
             <button
               onClick={() => scrollToSection("quote-form")}
-              className="inline-flex items-center justify-center border-2 border-white text-white font-body font-medium px-8 py-3.5 rounded-2xl hover:bg-white hover:text-wedding-deep transition-all duration-300"
+              className="inline-flex items-center justify-center border-2 border-white text-white font-ui font-medium px-8 py-3.5 rounded-full hover:bg-white hover:text-wedding-deep transition-all duration-300 ease-spring"
             >
               Request Quote
             </button>
@@ -90,7 +91,7 @@ const WeddingCardsSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="rounded-2xl overflow-hidden bg-white border border-border-light shadow-md hover:shadow-lg transition-all duration-300"
+              className="rounded-3xl overflow-hidden bg-white border border-border-light shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img src={card.image} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
@@ -140,7 +141,7 @@ const WeddingCardsSection = () => (
             href={BUSINESS.whatsappWedding}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-gold text-ink-black font-body font-semibold px-8 py-4 rounded-full hover:shadow-gold transition-all"
+            className="inline-flex items-center justify-center bg-gold text-ink-black font-ui font-semibold px-8 py-4 rounded-full hover:shadow-gold transition-all duration-300 ease-spring"
             style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
           >
             WhatsApp us now

@@ -27,7 +27,7 @@ const PRODUCT_LINKS = [
 
 const UnifiedFooter = () => (
   <footer
-    className="bg-ink-black pt-16 pb-6 px-6 text-white/80 font-body text-sm"
+    className="bg-ink-black pt-16 pb-6 px-6 text-white/80 font-ui text-sm"
     style={{ backgroundColor: "var(--ink-black)" }}
   >
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">

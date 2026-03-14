@@ -45,8 +45,8 @@ const UnifiedHeader = () => {
 
   const atTop = !scrolled;
   const linkClass = (id: string) =>
-    `px-4 py-2 text-[13px] font-medium rounded-full transition-all ${
-      activeId === id ? "text-gold border-b-2 border-gold" : "text-inherit hover:text-gold"
+    `px-4 py-2.5 text-[14px] font-ui font-medium rounded-full transition-all duration-300 ease-spring ${
+      activeId === id ? "text-gold bg-gold/10" : "text-inherit hover:text-gold hover:bg-white/5"
     }`;
 
   return (
@@ -56,7 +56,7 @@ const UnifiedHeader = () => {
           ? "text-white backdrop-blur-md border-b border-white/10"
           : "bg-white/95 text-ink-black shadow-lg backdrop-blur-md border-b border-gray-100"
       }`}
-      style={atTop ? { backgroundColor: "rgba(13,13,13,0.92)" } : undefined}
+      style={atTop ? { backgroundColor: "rgba(17,17,17,0.92)" } : undefined}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <button
@@ -72,7 +72,7 @@ const UnifiedHeader = () => {
           </span>
           <div className="flex flex-col">
             <span className="font-display font-bold text-xl text-inherit leading-tight">Super Printers</span>
-            <span className={`text-[11px] font-body ${atTop ? "text-gold" : "text-gold-muted"}`}>
+            <span className={`text-[12px] font-ui ${atTop ? "text-gold" : "text-gold-muted"}`}>
               Est. 1990 · Pallavaram
             </span>
           </div>
@@ -98,7 +98,7 @@ const UnifiedHeader = () => {
                       onMouseEnter={() => setProductsOpen(true)}
                       onMouseLeave={() => setProductsOpen(false)}
                     >
-                      <div className="bg-white rounded-2xl shadow-xl border border-gray-100 py-4 px-6 grid grid-cols-4 gap-6 text-left">
+                      <div className="bg-white rounded-3xl shadow-xl border border-gray-100 py-4 px-6 grid grid-cols-4 gap-6 text-left">
                         {V2_MEGA_MENU.map((col) => (
                           <div key={col.title}>
                             <h4 className="font-display font-semibold text-ink-black text-sm mb-3">{col.title}</h4>
@@ -110,7 +110,7 @@ const UnifiedHeader = () => {
                                       scrollToSection(item.scrollTo);
                                       setProductsOpen(false);
                                     }}
-                                    className="text-sm text-gray-700 hover:text-gold transition-colors block w-full text-left"
+                                    className="text-sm font-ui text-gray-700 hover:text-gold transition-colors duration-300 block w-full text-left"
                                   >
                                     {item.name}
                                   </button>
@@ -147,7 +147,7 @@ const UnifiedHeader = () => {
               scrollToSection("quote-form");
               setMobileMenu(false);
             }}
-            className="bg-gold text-ink-black font-body font-semibold text-sm px-5 py-2.5 rounded-2xl hover:shadow-gold transition-all duration-300 hover:scale-[1.02]"
+            className="bg-gold text-ink-black font-ui font-semibold text-sm px-5 py-2.5 rounded-full hover:shadow-gold transition-all duration-300 ease-spring hover:scale-[1.02]"
             style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
           >
             WhatsApp Order
@@ -213,12 +213,12 @@ const UnifiedHeader = () => {
               href="https://wa.me/919840199878?text=Hi%20Super%20Printers!%20I%20need%20a%20printing%20quote."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-4 rounded-full font-body font-semibold text-center text-ink-black bg-gold"
+              className="w-full py-4 rounded-full font-ui font-semibold text-center text-ink-black bg-gold"
               style={{ backgroundColor: "var(--gold)" }}
             >
               WhatsApp Order
             </a>
-            <a href="tel:+919840199878" className="w-full py-4 rounded-2xl font-body font-semibold text-center text-white border-2 border-gold">
+            <a href="tel:+919840199878" className="w-full py-4 rounded-full font-ui font-semibold text-center text-white border-2 border-gold">
               Call Now
             </a>
           </div>

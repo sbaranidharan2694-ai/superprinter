@@ -33,10 +33,12 @@ const WhyChooseUsSection = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
+        transition={{ type: "spring", stiffness: 400, damping: 25 }}
         className="text-center mb-14"
       >
-        <p className="text-gold text-xs font-body font-medium uppercase tracking-[0.2em] mb-2" style={{ color: "var(--gold)" }}>
-          WHY SUPER PRINTERS
+        <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
+          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
+          Why choose us
         </p>
         <h2 className="font-display font-bold text-ink-black text-3xl md:text-4xl mb-3">
           35 Years Ahead of the Competition
@@ -53,8 +55,8 @@ const WhyChooseUsSection = () => (
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: i * 0.06 }}
-            className="rounded-2xl p-6 border shadow-md hover:shadow-lg transition-all duration-300"
+            transition={{ type: "spring", stiffness: 400, damping: 28, delay: i * 0.06 }}
+            className="rounded-3xl p-6 border shadow-card hover:shadow-hover transition-all duration-300 ease-spring hover:-translate-y-0.5"
             style={{
               backgroundColor: cardBg(card.highlight),
               border: cardBorder(card.highlight),
@@ -72,7 +74,7 @@ const WhyChooseUsSection = () => (
                 href={BUSINESS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full text-sm font-body font-semibold text-white bg-whatsapp hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full text-sm font-ui font-semibold text-white bg-whatsapp hover:opacity-90 transition-all duration-300 ease-spring"
               >
                 💬 WhatsApp us
               </a>
