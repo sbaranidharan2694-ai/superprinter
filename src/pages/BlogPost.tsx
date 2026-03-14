@@ -25,7 +25,7 @@ const BlogPost = () => {
         ]}
       />
 
-      <article className="pt-[108px] pb-20">
+      <article className="pt-[116px] pb-20">
         <div className="max-w-3xl mx-auto px-6">
           <nav className="text-sm font-ui text-gray-500 mb-6" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-gold transition-colors">Home</Link>

@@ -80,7 +80,7 @@ const ResellerPage = () => (
       canonical="/reseller"
     />
 
-    <div className="pt-[108px] pb-20">
+    <div className="pt-[116px] pb-20">
       <div className="max-w-5xl mx-auto px-6">
         <motion.header
           initial={{ opacity: 0, y: 20 }}

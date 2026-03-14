@@ -227,7 +227,7 @@ const ProductsCatalogPage = () => {
         breadcrumbs={breadcrumbs}
       />
 
-      <div className="pt-[108px] pb-12">
+      <div className="pt-[116px] pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Breadcrumb */}
           <nav className="text-sm text-muted-foreground mb-6" aria-label="Breadcrumb">

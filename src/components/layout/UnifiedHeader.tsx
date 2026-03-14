@@ -21,6 +21,7 @@ const UnifiedHeader = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [activeId, setActiveId] = useState("");
+  const [logoImgFailed, setLogoImgFailed] = useState(false);
   const isHome = location.pathname === "/";
 
   useEffect(() => {
@@ -69,20 +70,32 @@ const UnifiedHeader = () => {
           : { boxShadow: "0 2px 20px rgba(26,44,91,0.08), inset 0 1px 0 rgba(255,255,255,0.9)" }
       }
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[72px] py-2">
         <Link
           to="/"
           onClick={(e) => { if (isHome) { e.preventDefault(); scrollToSection(""); } }}
-          className="flex items-center gap-3 text-left"
+          className="flex items-center gap-4 text-left shrink-0"
           aria-label="Super Printers Home"
         >
-          <SuperPrintersLogo variant="header" size="md" />
-          <div className="flex flex-col">
-            <span className={`font-display font-semibold text-[20px] leading-tight ${atTop ? "text-white" : "text-navy"}`}>
+          {!logoImgFailed ? (
+            <img
+              src="/super-printers-logo.png"
+              alt="Super Printers — 35 Years Experience"
+              className="h-16 sm:h-[72px] w-auto object-contain"
+              onError={() => setLogoImgFailed(true)}
+            />
+          ) : (
+            <SuperPrintersLogo variant="header" size="lg" />
+          )}
+          <div className="flex flex-col justify-center min-w-0">
+            <span className={`font-ui text-[11px] sm:text-xs font-medium uppercase tracking-wider ${atTop ? "text-white/80" : "text-navy/80"}`}>
+              Est. 1990
+            </span>
+            <span className={`font-display font-bold text-xl sm:text-2xl leading-tight tracking-tight ${atTop ? "text-white" : "text-navy"}`}>
               Super Printers
             </span>
-            <span className="font-ui text-[12px] font-normal" style={{ color: "#D4A843" }}>
-              Est. 1990 · Pallavaram
+            <span className="font-ui text-[11px] sm:text-xs mt-0.5" style={{ color: "var(--gold)" }}>
+              Pallavaram, Chennai
             </span>
           </div>
         </Link>
@@ -146,7 +159,7 @@ const UnifiedHeader = () => {
       {/* Mobile full-screen overlay */}
       {mobileMenu && (
         <div
-          className="lg:hidden fixed inset-0 top-[108px] bottom-0 bg-ink-black z-50 flex flex-col items-center justify-start pt-12 gap-0 overflow-y-auto"
+          className="lg:hidden fixed inset-0 top-[116px] bottom-0 bg-ink-black z-50 flex flex-col items-center justify-start pt-12 gap-0 overflow-y-auto"
           style={{ backgroundColor: "var(--ink-black)" }}
         >
           <button

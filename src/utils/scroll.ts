@@ -1,5 +1,5 @@
-/** Scroll offset: marquee (44px) + navbar (~64px) */
-export const SCROLL_OFFSET = 108;
+/** Scroll offset: top bar (44px) + header (72px) */
+export const SCROLL_OFFSET = 116;
 
 export function scrollToSection(id: string) {
   if (id === "") {

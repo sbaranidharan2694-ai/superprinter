@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BUSINESS } from "@/data/business";
 import { scrollToSection } from "@/utils/scroll";
 import SuperPrintersLogo from "@/components/SuperPrintersLogo";
@@ -26,7 +27,9 @@ const PRODUCT_LINKS = [
   "Screen Printing",
 ];
 
-const UnifiedFooter = () => (
+const UnifiedFooter = () => {
+  const [logoImgFailed, setLogoImgFailed] = useState(false);
+  return (
   <footer
     className="relative pt-16 pb-6 px-6 font-ui text-sm"
     style={{ backgroundColor: "var(--navy)" }}
@@ -38,8 +41,17 @@ const UnifiedFooter = () => (
     />
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
       <div>
-        <div className="flex items-center gap-4 mb-3">
-          <SuperPrintersLogo variant="footer" size="lg" />
+        <div className="flex items-start gap-4 mb-3">
+          {!logoImgFailed ? (
+            <img
+              src="/super-printers-logo.png"
+              alt="Super Printers — 35 Years Experience"
+              className="h-16 w-auto object-contain flex-shrink-0"
+              onError={() => setLogoImgFailed(true)}
+            />
+          ) : (
+            <SuperPrintersLogo variant="footer" size="lg" />
+          )}
           <div>
             <span className="font-display font-semibold text-2xl text-white block">Super Printers</span>
             <span className="font-ui text-[13px] font-light" style={{ color: "rgba(255,255,255,0.5)" }}>
@@ -121,6 +133,7 @@ const UnifiedFooter = () => (
       <p className="text-white/50 text-xs">Made in Pallavaram ♥</p>
     </div>
   </footer>
-);
+  );
+};
 
 export default UnifiedFooter;
