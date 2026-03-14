@@ -21,7 +21,7 @@ const ContactSection = () => (
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          <div className="rounded-xl overflow-hidden border border-border-light shadow-sm mb-6">
+          <div className="rounded-2xl overflow-hidden border border-border-light shadow-md mb-6">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9!2d80.1482!3d12.9672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzAyLjAiTiA4MMKwMDgnNTMuNSJF!5e0!3m2!1sen!2sin!4v1234567890"
               width="100%"
@@ -37,7 +37,7 @@ const ContactSection = () => (
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-xl border border-border-light bg-white p-5 shadow-sm"
+              className="rounded-2xl border border-border-light bg-white p-5 shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <p className="font-display font-semibold text-ink-black mb-1">Address</p>
               <p className="font-body text-sm text-gray-600 mb-2">{BUSINESS.addressFull}</p>
@@ -55,7 +55,7 @@ const ContactSection = () => (
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-xl border border-border-light bg-white p-5 shadow-sm"
+              className="rounded-2xl border border-border-light bg-white p-5 shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <p className="font-display font-semibold text-ink-black mb-1">Hours</p>
               <p className="font-body text-sm text-gray-600">{BUSINESS.hours}</p>
@@ -65,7 +65,7 @@ const ContactSection = () => (
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-xl border border-border-light bg-white p-5 shadow-sm"
+              className="rounded-2xl border border-border-light bg-white p-5 shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <p className="font-display font-semibold text-ink-black mb-1">Contact</p>
               <a href={BUSINESS.phoneTel} className="block font-body text-sm text-gray-600 hover:text-gold">📞 {BUSINESS.phone}</a>
@@ -88,13 +88,13 @@ const ContactSection = () => (
               href={BUSINESS.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 py-4 rounded-xl font-body font-semibold text-white bg-whatsapp hover:opacity-95 transition-opacity"
+              className="flex items-center justify-center gap-3 py-4 rounded-2xl font-body font-semibold text-white bg-whatsapp hover:opacity-95 transition-all duration-300"
             >
               💬 WhatsApp
             </a>
             <a
               href={BUSINESS.phoneTel}
-              className="flex items-center justify-center gap-3 py-4 rounded-xl font-body font-semibold text-white hover:opacity-95 transition-opacity"
+              className="flex items-center justify-center gap-3 py-4 rounded-2xl font-body font-semibold text-white hover:opacity-95 transition-all duration-300"
               style={{ backgroundColor: "var(--navy-deep)" }}
             >
               📞 Call Now

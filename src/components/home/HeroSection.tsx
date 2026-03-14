@@ -15,8 +15,8 @@ const HeroSection = () => (
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0 }}
-          className="inline-flex items-center px-4 py-2 rounded-full border text-[13px] font-body font-medium mb-6"
-          style={{ borderColor: "var(--gold)", color: "var(--gold)" }}
+          className="inline-flex items-center px-5 py-2.5 rounded-full border text-[13px] font-body font-medium mb-6 bg-gold/10"
+          style={{ borderColor: "var(--gold)", color: "var(--gold)", backgroundColor: "rgba(212,168,67,0.1)" }}
         >
           Chennai&apos;s Premier Printing Studio Since 1990
         </motion.div>
@@ -51,14 +51,14 @@ const HeroSection = () => (
         >
           <button
             onClick={() => scrollToSection("quote-form")}
-            className="bg-gold text-ink-black font-body font-semibold text-base px-8 py-3.5 rounded-full shadow-gold hover:scale-[1.02] transition-all duration-200"
+            className="bg-gold text-ink-black font-body font-semibold text-base px-8 py-3.5 rounded-2xl shadow-gold hover:scale-[1.02] hover:shadow-xl transition-all duration-300"
             style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
           >
             Get Instant Quote →
           </button>
           <button
             onClick={() => scrollToSection("products")}
-            className="border-2 border-white/60 text-white font-body font-medium text-base px-8 py-3.5 rounded-full hover:bg-white hover:text-ink-black transition-all duration-200"
+            className="border-2 border-white/60 text-white font-body font-medium text-base px-8 py-3.5 rounded-2xl hover:bg-white hover:text-ink-black hover:border-white transition-all duration-300"
           >
             View Our Products →
           </button>
@@ -85,16 +85,13 @@ const HeroSection = () => (
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-ink-black/60 via-transparent to-ink-black/40"
-        style={{ backgroundColor: "rgba(13,13,13,0.5)" }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-br from-ink-black/60 via-transparent to-ink-black/40" />
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="absolute right-[10%] top-[25%] w-[200px] rounded-xl p-4 shadow-lg backdrop-blur-sm"
-        style={{ backgroundColor: "rgba(255,255,255,0.95)", color: "var(--ink-black)" }}
+        className="absolute right-[10%] top-[25%] w-[200px] rounded-2xl p-4 shadow-xl backdrop-blur-md border border-white/20"
+        style={{ backgroundColor: "rgba(255,255,255,0.92)", color: "var(--ink-black)" }}
       >
         <p className="font-display font-semibold text-lg">Business Cards</p>
         <p className="text-sm font-body text-gray-600 mt-0.5">From ₹149 / 100 pcs</p>
@@ -103,8 +100,8 @@ const HeroSection = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.2 }}
-        className="absolute right-[15%] bottom-[30%] w-[200px] rounded-xl p-4 shadow-lg backdrop-blur-sm"
-        style={{ backgroundColor: "rgba(255,255,255,0.95)", color: "var(--ink-black)" }}
+        className="absolute right-[15%] bottom-[30%] w-[200px] rounded-2xl p-4 shadow-xl backdrop-blur-md border border-white/20"
+        style={{ backgroundColor: "rgba(255,255,255,0.92)", color: "var(--ink-black)" }}
       >
         <p className="font-display font-semibold text-lg">Wedding Cards</p>
         <p className="text-sm font-body text-gray-600 mt-0.5">From ₹8 per card</p>

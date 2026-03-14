@@ -27,7 +27,7 @@ const FinishesSection = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="overflow-hidden rounded-xl border border-border-light bg-white shadow-sm"
+          className="overflow-hidden rounded-2xl border border-border-light bg-white shadow-md"
         >
           <h3 className="font-display font-semibold text-lg text-ink-black px-6 py-4 border-b border-border-light">
             Paper Weights & Their Uses
@@ -63,7 +63,7 @@ const FinishesSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="rounded-xl border border-border-light bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
+              className="rounded-2xl border border-border-light bg-white p-5 shadow-md hover:shadow-lg transition-all duration-300"
             >
               <span className="text-2xl mb-2 block">{finish.icon}</span>
               <h4 className="font-display font-semibold text-ink-black mb-1">{finish.name}</h4>

@@ -54,7 +54,7 @@ const UnifiedHeader = () => {
       className={`fixed top-11 left-0 right-0 z-[101] transition-all duration-300 ${
         isTransparent
           ? "bg-transparent text-white"
-          : "bg-white text-ink-black shadow-md backdrop-blur-sm"
+          : "bg-white/95 text-ink-black shadow-lg backdrop-blur-md border-b border-gray-100"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
@@ -93,11 +93,11 @@ const UnifiedHeader = () => {
                   </button>
                   {productsOpen && (
                     <div
-                      className="absolute top-full left-0 pt-2 w-full min-w-[640px]"
+                      className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-full min-w-[320px] max-w-[min(640px,calc(100vw-2rem))]"
                       onMouseEnter={() => setProductsOpen(true)}
                       onMouseLeave={() => setProductsOpen(false)}
                     >
-                      <div className="bg-white rounded-xl shadow-lg border border-gray-200 py-4 px-6 grid grid-cols-4 gap-6 text-left">
+                      <div className="bg-white rounded-2xl shadow-xl border border-gray-100 py-4 px-6 grid grid-cols-4 gap-6 text-left">
                         {V2_MEGA_MENU.map((col) => (
                           <div key={col.title}>
                             <h4 className="font-display font-semibold text-ink-black text-sm mb-3">{col.title}</h4>
@@ -147,7 +147,7 @@ const UnifiedHeader = () => {
               scrollToSection("quote-form");
               setMobileMenu(false);
             }}
-            className="bg-gold text-ink-black font-body font-semibold text-sm px-5 py-2.5 rounded-full hover:shadow-gold transition-all duration-200 hover:scale-[1.02]"
+            className="bg-gold text-ink-black font-body font-semibold text-sm px-5 py-2.5 rounded-2xl hover:shadow-gold transition-all duration-300 hover:scale-[1.02]"
             style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
           >
             WhatsApp Order
@@ -170,6 +170,14 @@ const UnifiedHeader = () => {
           className="lg:hidden fixed inset-0 top-[108px] bottom-0 bg-ink-black z-50 flex flex-col items-center justify-start pt-12 gap-0 overflow-y-auto"
           style={{ backgroundColor: "var(--ink-black)" }}
         >
+          <button
+            type="button"
+            onClick={() => setMobileMenu(false)}
+            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            aria-label="Close menu"
+          >
+            <span className="text-2xl leading-none">×</span>
+          </button>
           {NAV_LINKS.map((link) => (
             <button
               key={link.id || "home"}
@@ -210,7 +218,7 @@ const UnifiedHeader = () => {
             >
               WhatsApp Order
             </a>
-            <a href="tel:+919840199878" className="w-full py-4 rounded-full font-body font-semibold text-center text-white border-2 border-gold">
+            <a href="tel:+919840199878" className="w-full py-4 rounded-2xl font-body font-semibold text-center text-white border-2 border-gold">
               Call Now
             </a>
           </div>

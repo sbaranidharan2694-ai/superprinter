@@ -1,20 +1,29 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { BUSINESS } from "@/data/business";
 
 const WHATSAPP_URL = `${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers! I need a printing quote.")}`;
 
 const FloatingWhatsApp = () => {
   const [showTooltip, setShowTooltip] = useState(false);
-  let tooltipTimeout: ReturnType<typeof setTimeout> | null = null;
+  const tooltipTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = () => {
-    tooltipTimeout = setTimeout(() => setShowTooltip(true), 200);
+    tooltipTimeoutRef.current = setTimeout(() => setShowTooltip(true), 200);
   };
 
   const handleMouseLeave = () => {
-    if (tooltipTimeout) clearTimeout(tooltipTimeout);
+    if (tooltipTimeoutRef.current) {
+      clearTimeout(tooltipTimeoutRef.current);
+      tooltipTimeoutRef.current = null;
+    }
     setShowTooltip(false);
   };
+
+  useEffect(() => {
+    return () => {
+      if (tooltipTimeoutRef.current) clearTimeout(tooltipTimeoutRef.current);
+    };
+  }, []);
 
   return (
     <>

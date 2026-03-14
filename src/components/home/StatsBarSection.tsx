@@ -58,7 +58,7 @@ const StatsBarSection = () => (
               <CountUp target={stat.value} suffix={stat.suffix} />
             </div>
             <div className="font-body font-semibold text-ink-black text-sm mt-1">{stat.label}</div>
-            <div className="font-body text-gray-text text-xs mt-0.5">{stat.sub}</div>
+            <div className="font-body text-xs mt-0.5" style={{ color: "var(--gold)" }}>{stat.sub}</div>
           </motion.div>
         ))}
       </div>

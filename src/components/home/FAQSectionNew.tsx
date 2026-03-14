@@ -27,9 +27,11 @@ const FAQSectionNew = () => {
           {V2_FAQ.map((faq, i) => (
             <div key={i} className="border-b border-white/10">
               <button
+                id={`faq-question-${i}`}
+                aria-controls={`faq-answer-${i}`}
+                aria-expanded={openIndex === i}
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full text-left py-5 flex items-center justify-between gap-4 font-body font-medium text-white text-[17px] hover:text-gold transition-colors"
-                aria-expanded={openIndex === i}
               >
                 {faq.q}
                 <span
@@ -42,6 +44,9 @@ const FAQSectionNew = () => {
               <AnimatePresence initial={false}>
                 {openIndex === i && (
                   <motion.div
+                    id={`faq-answer-${i}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${i}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -69,7 +74,7 @@ const FAQSectionNew = () => {
             href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi, I have a question about your printing services.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 rounded-full font-body font-semibold text-ink-black hover:shadow-gold transition-all"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-body font-semibold text-ink-black hover:shadow-gold hover:scale-[1.02] transition-all duration-300"
             style={{ backgroundColor: "var(--gold)" }}
           >
             Ask us on WhatsApp

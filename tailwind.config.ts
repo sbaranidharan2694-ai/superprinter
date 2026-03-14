@@ -109,9 +109,11 @@ export default {
         sm: "var(--shadow-sm)",
         md: "var(--shadow-md)",
         lg: "var(--shadow-lg)",
+        xl: "var(--shadow-xl)",
         gold: "var(--shadow-gold)",
         card: "var(--shadow-card)",
         hover: "var(--shadow-hover)",
+        glass: "var(--shadow-glass)",
       },
       maxWidth: {
         content: "var(--max-width)",

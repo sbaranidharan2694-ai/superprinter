@@ -53,7 +53,7 @@ const QuoteFormSection = () => {
             </motion.p>
             <div className="flex flex-wrap gap-2 mb-8">
               {["Free proof", "48H delivery", "No obligation"].map((badge) => (
-                <span key={badge} className="px-3 py-1.5 rounded-full text-xs font-body font-medium bg-white/10 text-white">
+                <span key={badge} className="px-4 py-2 rounded-2xl text-xs font-body font-medium bg-white/10 text-white">
                   {badge}
                 </span>
               ))}
@@ -74,7 +74,7 @@ const QuoteFormSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               onSubmit={handleSubmit}
-              className="bg-white rounded-2xl p-8 md:p-10 shadow-xl"
+              className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl border border-gray-100"
             >
               {submitted ? (
                 <div className="text-center py-8">
@@ -160,13 +160,13 @@ const QuoteFormSection = () => {
                         placeholder="Dimensions, colours, design details..."
                       />
                     </div>
-                    <div className="rounded-xl bg-gray-100 p-3 text-sm font-body text-gray-600">
+                    <div className="rounded-2xl bg-gray-100 p-4 text-sm font-body text-gray-600">
                       💡 You can attach your design file when we reply on WhatsApp.
                     </div>
                   </div>
                   <button
                     type="submit"
-                    className="mt-6 w-full py-4 rounded-xl font-body font-semibold text-base text-ink-black hover:shadow-gold transition-all"
+                    className="mt-6 w-full py-4 rounded-2xl font-body font-semibold text-base text-ink-black hover:shadow-gold hover:scale-[1.01] transition-all duration-300"
                     style={{ backgroundColor: "var(--gold)" }}
                   >
                     Send Quote Request →

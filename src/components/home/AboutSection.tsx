@@ -26,7 +26,7 @@ const AboutSection = () => (
           >
             Est. 1990 · Pallavaram, Chennai
           </div>
-          <div className="absolute -right-4 top-1/4 w-1/3 rounded-xl overflow-hidden border-2 border-white shadow-lg">
+          <div className="absolute -right-4 top-1/4 w-1/3 rounded-xl overflow-hidden border-2 border-white shadow-lg hidden lg:block">
             <img
               src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&q=80"
               alt="Print quality"

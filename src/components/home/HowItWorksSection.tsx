@@ -60,7 +60,7 @@ const HowItWorksSection = () => (
           href={BUSINESS.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-gold text-ink-black font-body font-semibold text-lg px-10 py-4 rounded-full hover:shadow-gold transition-all"
+          className="inline-flex items-center justify-center bg-gold text-ink-black font-body font-semibold text-lg px-10 py-4 rounded-2xl hover:shadow-gold hover:scale-[1.02] transition-all duration-300"
           style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
         >
           Start Your Order on WhatsApp

@@ -11,7 +11,7 @@ const SocialProofSection = () => (
         {CLIENT_LOGOES.map((name) => (
           <div
             key={name}
-            className="shrink-0 w-28 h-14 flex items-center justify-center rounded-lg border border-border-light bg-white font-display font-bold text-sm text-ink-black/70"
+            className="shrink-0 w-28 h-14 flex items-center justify-center rounded-2xl border border-border-light bg-white font-display font-bold text-sm text-ink-black/70 shadow-sm"
           >
             {name}
           </div>
@@ -37,7 +37,7 @@ const SocialProofSection = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="rounded-xl p-8 md:p-10 mb-10 text-center"
+        className="rounded-2xl p-8 md:p-10 mb-10 text-center shadow-lg"
         style={{ backgroundColor: "var(--navy-deep)" }}
       >
         <span className="text-6xl text-gold/40 font-serif leading-none" style={{ color: "var(--gold)" }}>&ldquo;</span>
@@ -56,7 +56,7 @@ const SocialProofSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className="bg-white rounded-xl p-6 border border-border-light shadow-sm"
+            className="bg-white rounded-2xl p-6 border border-border-light shadow-md hover:shadow-lg transition-shadow duration-300"
           >
             <div className="text-gold text-lg mb-2" style={{ color: "var(--gold)" }}>
               {"★".repeat(review.stars)}

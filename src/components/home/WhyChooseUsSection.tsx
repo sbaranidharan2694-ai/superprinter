@@ -5,7 +5,7 @@ import { BUSINESS } from "@/data/business";
 const cardBg = (highlight: string) => {
   switch (highlight) {
     case "gold":
-      return "var(--gold-bg)";
+      return "var(--gold)";
     case "navy":
       return "var(--navy-deep)";
     case "wedding":
@@ -22,6 +22,7 @@ const cardBorder = (highlight: string) => {
 
 const cardText = (highlight: string) => {
   if (highlight === "navy" || highlight === "wedding") return "text-white";
+  if (highlight === "gold") return "text-ink-black";
   return "text-ink-black";
 };
 
@@ -53,7 +54,7 @@ const WhyChooseUsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: i * 0.06 }}
-            className="rounded-xl p-6 border shadow-sm"
+            className="rounded-2xl p-6 border shadow-md hover:shadow-lg transition-all duration-300"
             style={{
               backgroundColor: cardBg(card.highlight),
               border: cardBorder(card.highlight),
@@ -63,7 +64,7 @@ const WhyChooseUsSection = () => (
             <h3 className={`font-display font-semibold text-lg mb-2 ${cardText(card.highlight)}`}>
               {card.title}
             </h3>
-            <p className={`font-body text-sm leading-relaxed ${card.highlight === "navy" || card.highlight === "wedding" ? "text-white/85" : "text-gray-700"}`}>
+            <p className={`font-body text-sm leading-relaxed ${card.highlight === "navy" || card.highlight === "wedding" ? "text-white/85" : card.highlight === "gold" ? "text-ink-black/90" : "text-gray-700"}`}>
               {card.body}
             </p>
             {card.id === "whatsapp" && (

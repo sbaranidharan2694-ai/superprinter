@@ -18,7 +18,7 @@ const WeddingCardsSection = () => (
         <img src={HERO_IMG_RIGHT} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-wedding-deep/70" style={{ backgroundColor: "rgba(74,14,34,0.7)" }} />
       </div>
-      <div className="absolute inset-0 flex items-center justify-center p-6">
+      <div className="absolute inset-0 z-10 flex items-center justify-center p-6">
         <div className="text-center max-w-2xl">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -55,14 +55,14 @@ const WeddingCardsSection = () => (
               href={BUSINESS.whatsappWedding}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-gold text-ink-black font-body font-semibold px-8 py-3.5 rounded-full hover:shadow-gold transition-all"
+              className="inline-flex items-center justify-center bg-gold text-ink-black font-body font-semibold px-8 py-3.5 rounded-2xl hover:shadow-gold hover:scale-[1.02] transition-all duration-300"
               style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
             >
               Get Free Design Proof
             </a>
             <button
               onClick={() => scrollToSection("quote-form")}
-              className="inline-flex items-center justify-center border-2 border-white text-white font-body font-medium px-8 py-3.5 rounded-full hover:bg-white hover:text-wedding-deep transition-all"
+              className="inline-flex items-center justify-center border-2 border-white text-white font-body font-medium px-8 py-3.5 rounded-2xl hover:bg-white hover:text-wedding-deep transition-all duration-300"
             >
               Request Quote
             </button>
@@ -90,7 +90,7 @@ const WeddingCardsSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="rounded-xl overflow-hidden bg-white border border-border-light shadow-sm hover:shadow-md transition-shadow"
+              className="rounded-2xl overflow-hidden bg-white border border-border-light shadow-md hover:shadow-lg transition-all duration-300"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img src={card.image} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />

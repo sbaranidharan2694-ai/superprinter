@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { V2_PRODUCTS, V2_PRODUCT_TABS, V2_FINISHES_STRIP } from "@/data/v2";
 import { BUSINESS } from "@/data/business";
+import { scrollToSection } from "@/utils/scroll";
 
 const ProductsSection = () => {
   const [activeTab, setActiveTab] = useState<string>("All");
@@ -34,7 +35,7 @@ const ProductsSection = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-body font-medium transition-all ${
+              className={`shrink-0 px-5 py-2.5 rounded-2xl text-sm font-body font-medium transition-all duration-300 ${
                 activeTab === tab.id
                   ? "bg-gold text-ink-black"
                   : "text-white border border-gold/60 hover:border-gold"
@@ -48,6 +49,19 @@ const ProductsSection = () => {
 
         {/* Product grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+          {filtered.length === 0 ? (
+            <div className="col-span-full text-center py-16 px-6">
+              <p className="text-white/70 font-body text-lg mb-4">No products in this category yet.</p>
+              <p className="text-white/50 font-body text-sm mb-6">Wedding cards and event invitations are in our dedicated section.</p>
+              <button
+                onClick={() => scrollToSection("wedding-cards")}
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full font-body font-semibold text-ink-black bg-gold hover:shadow-gold transition-all"
+                style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
+              >
+                View Wedding Cards section
+              </button>
+            </div>
+          ) : (
           <AnimatePresence mode="popLayout">
             {filtered.map((product, i) => (
               <motion.article
@@ -57,7 +71,7 @@ const ProductsSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35, delay: i * 0.04 }}
-                className="group rounded-xl overflow-hidden bg-[#161616] border border-white/5 hover:border-gold/40 hover:-translate-y-2 transition-all duration-300"
+                className="group rounded-2xl overflow-hidden bg-[#161616] border border-white/8 shadow-lg hover:border-gold/40 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
               >
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img
@@ -70,7 +84,7 @@ const ProductsSection = () => {
                       className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-body font-semibold"
                       style={{
                         backgroundColor: product.badge === "Most Popular" ? "var(--gold)" : "var(--wedding-deep)",
-                        color: "var(--ink-black)",
+                        color: product.badge === "Premium" ? "var(--pure-white)" : "var(--ink-black)",
                       }}
                     >
                       {product.badge}
@@ -102,6 +116,7 @@ const ProductsSection = () => {
               </motion.article>
             ))}
           </AnimatePresence>
+          )}
         </div>
 
         {/* Finishes strip */}
