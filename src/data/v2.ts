@@ -1,542 +1,137 @@
-/* V2 Ultimate Redesign — data */
+/* V2 — central data for Super Printers site */
 
 export const MARQUEE_ITEMS = [
   "📞 +91 98401 99878",
-  "⚡ 48-Hour Business Card Delivery",
-  "🏆 Quality Printing Since 1990",
-  "📍 Pallavaram, Chennai",
-  "💬 WhatsApp Orders Welcome",
-  "🎊 Wedding Cards from ₹8 per card",
-  "✓ Trusted by Wipro & TTK Healthcare",
+  "Est. 1990 — 35 Years of Quality",
+  "Trusted by Wipro & TTK",
+  "Wedding Cards from ₹8/card",
+  "48-Hour Delivery Guarantee",
+  "⭐ 4.8 on Google",
+  "10,000+ Happy Customers",
+  "GST Registered Business",
 ];
 
-export const MARQUEE_ROW1 = [
-  "Business Cards",
-  "Letterheads",
-  "Brochures",
-  "Bill Books",
-  "Catalogues",
-  "Envelopes",
-  "Stickers",
-  "Posters",
-];
-
-export const MARQUEE_ROW2 = [
-  "Screen Printing",
-  "Spot UV Cards",
-  "Foil Cards",
-  "Wedding Cards",
-  "Die-cut Cards",
-  "Calendars",
-  "Booklets",
-  "Lamination",
-];
-
-export type ProductCategory = "Visiting Cards" | "Stationery" | "Wedding & Events" | "Posters & Promo" | "Special Finishes";
-
-export interface V2Product {
-  id: string;
-  name: string;
-  image: string;
-  specs: string[];
-  price: string;
-  category: ProductCategory;
-  waMessage: string;
-  badge?: "Most Popular" | "Premium";
-  priceFrom?: string;
-  qty?: string;
-}
-
-export const V2_PRODUCTS: V2Product[] = [
-  {
-    id: "gloss-cards",
-    name: "Gloss Visiting Cards",
-    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&q=85",
-    specs: ["300 GSM", "Front & Back", "Gloss Lam"],
-    price: "₹299 / 100 pcs · ₹499 / 250 pcs · ₹699 / 500 pcs",
-    priceFrom: "299",
-    qty: "100 pcs",
-    category: "Visiting Cards",
-    waMessage: "Hi! I need Gloss Visiting Cards — can I get a quote?",
-  },
-  {
-    id: "matt-cards",
-    name: "Matt Visiting Cards",
-    image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&q=85",
-    specs: ["300 GSM", "Front & Back", "Matt Lam"],
-    price: "₹349 / 100 pcs · ₹549 / 250 pcs · ₹799 / 500 pcs",
-    priceFrom: "349",
-    qty: "100 pcs",
-    category: "Visiting Cards",
-    waMessage: "Hi! I need Matt Lamination Visiting Cards — can I get a quote?",
-  },
-  {
-    id: "spot-uv",
-    name: "Spot UV Cards",
-    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=500&q=85",
-    specs: ["300 GSM", "Spot UV Front", "Premium Finish"],
-    price: "₹599 / 100 pcs · ₹999 / 250 pcs",
-    priceFrom: "599",
-    qty: "100 pcs",
-    category: "Visiting Cards",
-    waMessage: "Hi! I need Spot UV Business Cards — can I get a quote?",
-    badge: "Most Popular",
-  },
-  {
-    id: "foil-cards",
-    name: "Foil Stamping Cards",
-    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=500&q=85",
-    specs: ["400 GSM", "Gold/Silver Foil", "Velvet Lam"],
-    price: "₹799 / 100 pcs",
-    priceFrom: "799",
-    qty: "100 pcs",
-    category: "Visiting Cards",
-    waMessage: "Hi! I need Foil Stamping Business Cards — can I get a quote?",
-    badge: "Premium",
-  },
-  {
-    id: "diecut-cards",
-    name: "Die-cut Shaped Cards",
-    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=85",
-    specs: ["300 GSM", "Custom Shape", "16 Die Patterns"],
-    price: "₹699 / 100 pcs",
-    priceFrom: "699",
-    qty: "100 pcs",
-    category: "Visiting Cards",
-    waMessage: "Hi! I need Die-cut Shaped Cards — can I get a quote?",
-  },
-  {
-    id: "letterheads",
-    name: "Letterheads",
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=500&q=85",
-    specs: ["90 GSM Bond", "Full Colour", "A4 Size"],
-    price: "₹299 / 100 pcs · ₹499 / 250 pcs",
-    priceFrom: "299",
-    qty: "100 pcs",
-    category: "Stationery",
-    waMessage: "Hi! I need Letterheads — can I get a quote?",
-  },
-  {
-    id: "brochures",
-    name: "Brochures (Trifold / Bifold)",
-    image: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=500&q=85",
-    specs: ["130 GSM Art Paper", "4-Colour", "A4 Trifold"],
-    price: "₹499 / 100 pcs · ₹899 / 250 pcs",
-    priceFrom: "499",
-    qty: "100 pcs",
-    category: "Stationery",
-    waMessage: "Hi! I need Brochures — can I get a quote?",
-  },
-  {
-    id: "bill-books",
-    name: "Bill Books (Carbonless GST)",
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=500&q=85",
-    specs: ["Carbonless NCR", "2-Part / 3-Part", "Serial Numbered"],
-    price: "₹250 / 25 sets · ₹450 / 50 sets",
-    priceFrom: "250",
-    qty: "25 sets",
-    category: "Stationery",
-    waMessage: "Hi! I need Bill Books — can I get a quote?",
-  },
-  {
-    id: "catalogues",
-    name: "Catalogues",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=85",
-    specs: ["170 GSM Art Paper", "Full Colour", "Any Page Count"],
-    price: "Custom Quote",
-    priceFrom: "Quote",
-    qty: "on request",
-    category: "Stationery",
-    waMessage: "Hi! I need Catalogues — can I get a quote?",
-  },
-  {
-    id: "envelopes",
-    name: "Envelopes",
-    image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=500&q=85",
-    specs: ["Branded", "DL / C4 / C5", "Offset Printed"],
-    price: "₹199 / 100 pcs · ₹349 / 250 pcs",
-    priceFrom: "199",
-    qty: "100 pcs",
-    category: "Stationery",
-    waMessage: "Hi! I need Envelopes — can I get a quote?",
-  },
-  {
-    id: "posters",
-    name: "Posters & Flyers",
-    image: "https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=500&q=85",
-    specs: ["130–170 GSM", "A4 / A3 / A2", "Single/Double Side"],
-    price: "₹199 / 50 pcs",
-    priceFrom: "199",
-    qty: "50 pcs",
-    category: "Posters & Promo",
-    waMessage: "Hi! I need Posters/Flyers — can I get a quote?",
-  },
-  {
-    id: "screen-printing",
-    name: "Screen Printing (Fabric/Paper)",
-    image: "https://images.unsplash.com/photo-1558618047-f4f37ee1d6d0?w=500&q=85",
-    specs: ["Fabric & Paper", "Spot Colours", "Bulk Welcome"],
-    price: "Custom Quote",
-    priceFrom: "Quote",
-    qty: "on request",
-    category: "Special Finishes",
-    waMessage: "Hi! I need Screen Printing — can I get a quote?",
-  },
-];
-
-export interface MegaMenuItem {
-  title: string;
-  items: { name: string; scrollTo: string }[];
-}
-
-export const V2_MEGA_MENU: MegaMenuItem[] = [
-  {
-    title: "Visiting Cards",
-    items: [
-      { name: "Gloss / Matt Cards", scrollTo: "products" },
-      { name: "Spot UV Cards", scrollTo: "products" },
-      { name: "Foil Stamping", scrollTo: "products" },
-      { name: "Die-cut Shaped", scrollTo: "products" },
-    ],
-  },
-  {
-    title: "Print & Stationery",
-    items: [
-      { name: "Letterheads", scrollTo: "products" },
-      { name: "Brochures", scrollTo: "products" },
-      { name: "Bill Books", scrollTo: "products" },
-      { name: "Catalogues", scrollTo: "products" },
-      { name: "Envelopes", scrollTo: "products" },
-    ],
-  },
-  {
-    title: "Packaging & Promo",
-    items: [
-      { name: "Posters & Flyers", scrollTo: "products" },
-      { name: "Stickers", scrollTo: "products" },
-      { name: "Calendars", scrollTo: "products" },
-    ],
-  },
-  {
-    title: "Special",
-    items: [
-      { name: "Wedding Cards", scrollTo: "wedding-cards" },
-      { name: "Screen Printing", scrollTo: "products" },
-    ],
-  },
-];
-
-export const V2_PRODUCT_TABS: { id: string; label: string }[] = [
-  { id: "All", label: "All" },
-  { id: "Visiting Cards", label: "Visiting Cards" },
-  { id: "Stationery", label: "Stationery" },
-  { id: "Wedding & Events", label: "Wedding & Events" },
-  { id: "Posters & Promo", label: "Posters & Promo" },
-  { id: "Special Finishes", label: "Special Finishes" },
-];
-
-export const V2_FINISHES_STRIP = [
-  "Gloss Lamination",
-  "Matt Lamination",
-  "Spot UV",
-  "Gold Foil",
-  "Silver Foil",
-  "Die-cut",
-  "Velvet Lamination",
-  "Embossing",
-  "Screen Printing",
-];
-
-export interface WhyChooseCard {
-  id: string;
-  title: string;
-  body: string;
-  icon: string;
-  highlight: "gold" | "navy" | "wedding" | "white";
-}
-
-export const V2_WHY_CHOOSE: WhyChooseCard[] = [
-  {
-    id: "heritage",
-    title: "35 Years of Craft",
-    body: "Founded in 1990 by N. Baranidharan — when quality meant hand-checking every sheet. That standard hasn't changed.",
-    icon: "🏛️",
-    highlight: "gold",
-  },
-  {
-    id: "speed",
-    title: "48-Hour Delivery",
-    body: "Business cards ready in 48 hours. Same-day available for urgent jobs. WhatsApp us before noon for same-day at Pallavaram.",
-    icon: "⚡",
-    highlight: "white",
-  },
-  {
-    id: "trust",
-    title: "Trusted by Corporates",
-    body: "Wipro, TTK Healthcare, Reckitt Benckiser — and 10,000+ small businesses across Chennai rely on us every month.",
-    icon: "🤝",
-    highlight: "white",
-  },
-  {
-    id: "technical",
-    title: "Spot UV. Foil. Die-cut.",
-    body: "We match the technical specs of any offset printer in Tamil Nadu — at Pallavaram prices, with local pickup and fast turnaround.",
-    icon: "✨",
-    highlight: "white",
-  },
-  {
-    id: "whatsapp",
-    title: "Order in 60 Seconds",
-    body: "No complicated website forms. WhatsApp your file + specs and get a quote in 30 minutes — or call directly.",
-    icon: "💬",
-    highlight: "navy",
-  },
-  {
-    id: "wedding",
-    title: "Chennai's Wedding Card Specialist",
-    body: "Hindu, Christian, Muslim, Tamil & English — wedding invitations crafted with care since 1990.",
-    icon: "💍",
-    highlight: "wedding",
-  },
-];
-
-export const V2_COMPARISON_ROWS: { feature: string; super: string; others: string }[] = [
-  { feature: "Years in Business", super: "✅ 35 Years", others: "❌ 5–20 Years" },
-  { feature: "WhatsApp Ordering", super: "✅ Yes", others: "❌ Rarely" },
-  { feature: "Wedding Card Focus", super: "✅ Yes", others: "❌ Rarely" },
-  { feature: "Special Finishes", super: "✅ Yes", others: "❌ Limited" },
-  { feature: "Pallavaram Pickup", super: "✅ Yes", others: "❌ No" },
-  { feature: "Same-Day Available", super: "✅ Yes", others: "❌ Rarely" },
-];
-
-/** V3: Awards / credibility strip badges */
-export const V3_CREDIBILITY_BADGES = [
-  "🏆 Est. 1990",
-  "✓ GST Registered",
-  "⭐ 4.8 Google Rating",
-  "💼 Trusted by Wipro",
-  "📋 14+ Years Digital Printing",
-  "🚀 48-Hour Delivery Guarantee",
-  "📱 WhatsApp Orders Welcome",
-];
-
-export interface WeddingCollectionCard {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-  price: string;
-  badge?: string;
-}
-
-export const V2_WEDDING_COLLECTIONS: WeddingCollectionCard[] = [
-  {
-    id: "hindu",
-    name: "Traditional Hindu",
-    description: "Shubh Muhurat designs. Lord Ganesha motifs. Red & gold. Tamil / English / Bilingual.",
-    image: "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=500&q=80",
-    price: "From ₹8 per card",
-  },
-  {
-    id: "christian",
-    name: "Christian Wedding",
-    description: "Church & garden themes. Cross motifs. Elegant typography. English / Tamil.",
-    image: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=500&q=80",
-    price: "From ₹8 per card",
-  },
-  {
-    id: "muslim",
-    name: "Muslim / Nikah",
-    description: "Arabic calligraphy accents. Crescent & star motifs. Urdu / English / Tamil.",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=85",
-    price: "From ₹8 per card",
-  },
-  {
-    id: "modern",
-    name: "Modern Minimalist",
-    description: "Clean typography. Muted tones. No-fuss design. Perfect for intimate weddings.",
-    image: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=500&q=80",
-    price: "From ₹10 per card",
-  },
-  {
-    id: "floral",
-    name: "Premium Floral",
-    description: "Full-bleed botanical illustration. Velvet lamination available. Luxury feel.",
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500&q=80",
-    price: "From ₹15 per card",
-    badge: "Premium",
-  },
-  {
-    id: "events",
-    name: "Events & Occasions",
-    description: "Birthdays, housewarming, baby showers, product launches, and office events.",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&q=80",
-    price: "Get Custom Quote",
-  },
-];
-
-export const V2_WEDDING_PROCESS = [
-  { step: 1, title: "Share Your Details", body: "WhatsApp us your date, names, language preference, and quantity" },
-  { step: 2, title: "Get a Free Design Proof", body: "We create a digital proof within 24 hours at no cost" },
-  { step: 3, title: "Print & Collect", body: "Cards ready in 3–5 working days from approval. Free pickup in Pallavaram." },
-];
-
-export const V2_PAPER_WEIGHTS: { gsm: string; feel: string; bestFor: string }[] = [
-  { gsm: "90", feel: "Standard", bestFor: "Letterheads, photocopier paper" },
-  { gsm: "130", feel: "Medium", bestFor: "Leaflets, small brochures" },
-  { gsm: "170", feel: "Thick", bestFor: "Brochures, posters, flyers" },
-  { gsm: "220", feel: "Very Thick", bestFor: "Premium brochures, card inserts" },
-  { gsm: "300", feel: "Card", bestFor: "Standard visiting cards" },
-  { gsm: "400", feel: "Premium", bestFor: "Luxury visiting cards, menus" },
-];
-
-export interface FinishCard {
-  id: string;
-  name: string;
-  description: string;
-  icon: string;
-}
-
-export const V2_FINISHES: FinishCard[] = [
-  { id: "gloss", name: "Gloss Lamination", description: "Vibrant shine. Protects print. Best for photos.", icon: "🌟" },
-  { id: "matt", name: "Matt Lamination", description: "Soft, no-glare finish. Professional look.", icon: "🤍" },
-  { id: "velvet", name: "Velvet Lamination", description: "Luxury soft-touch. Premium feel.", icon: "🖤" },
-  { id: "spotuv", name: "Spot UV", description: "Selective high-gloss over matt base. Standout effect.", icon: "✨" },
-  { id: "goldfoil", name: "Gold Foil", description: "Metallic gold stamping. For logos and text.", icon: "🥇" },
-  { id: "diecut", name: "Die-cut Shaping", description: "Custom shapes: rounded, scalloped, arch.", icon: "✂️" },
-];
-
-export interface V2FAQItem {
-  q: string;
-  a: string;
-}
-
-export const V2_FAQ: V2FAQItem[] = [
-  {
-    q: "How quickly can you print business cards?",
-    a: "Standard orders are ready in 48–72 hours. Same-day printing is available for urgent jobs (order before 11AM). WhatsApp us for same-day availability.",
-  },
-  {
-    q: "What's the minimum order quantity?",
-    a: "50 pcs for visiting cards, 100 for brochures and letterheads, 50 sets for bill books, and 50 cards for wedding invitations. We also accept higher volumes with bulk pricing.",
-  },
-  {
-    q: "What file format should I send?",
-    a: "PDF in CMYK, 300 DPI is ideal. We also accept AI, PSD, EPS, and PNG. Send via WhatsApp or email. Our team checks every file before printing and flags any issues.",
-  },
-  {
-    q: "Can I see a proof before you print?",
-    a: "Always. We send a digital PDF proof for approval — no sheet is printed without your written sign-off. Free proofing for all orders.",
-  },
-  {
-    q: "Do you offer design services?",
-    a: "Yes! Share your logo and preferences and we'll design a proof within 24 hours. Free for orders over ₹1,000, otherwise from ₹299.",
-  },
-  {
-    q: "Do you print wedding cards in Tamil?",
-    a: "Yes — Tamil, English, or bilingual. We support all Indian language scripts. Bring your content or our team can typeset it for you. Available in Hindu, Christian, Muslim and modern designs.",
-  },
-  {
-    q: "Can you match Pantone or specific brand colours?",
-    a: "For offset printing we support Pantone colour matching. For digital printing we work in CMYK and come very close to most brand guidelines. Share your hex codes or Pantone references.",
-  },
-  {
-    q: "Do you deliver outside Pallavaram?",
-    a: "Pickup is free from Pallavaram. For bulk orders (5,000+ pcs) or orders over ₹3,000, we can arrange courier delivery within Chennai. Contact us for rates.",
-  },
-];
-
-export interface V2Review {
-  initials: string;
-  name: string;
-  role: string;
-  quote: string;
-  stars: number;
-  /** Optional avatar/photo URL (e.g. Indian/South Asian portrait). */
-  image?: string;
-}
-
-/** Unsplash Indian/South Asian portrait URLs (w=200&q=80). Replace with your own if needed. */
-const REVIEW_AVATARS = {
-  indianMan1: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80",
-  indianWoman1: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80",
-  indianMan2: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-  indianWoman2: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
-  indianMan3: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
-  indianWoman3: "https://images.unsplash.com/photo-1544004123-ea1b81b4653d?w=200&q=80",
-} as const;
-
-export const V2_REVIEWS: V2Review[] = [
-  { initials: "RM", name: "Rajesh M.", role: "Wipro · Business Cards", quote: "We have counted on Super Printers for many years for all our printing needs. Exceptional quality and their team is always professional and reliable.", stars: 5, image: REVIEW_AVATARS.indianMan1 },
-  { initials: "PS", name: "Priya S.", role: "Business Cards · Chennai", quote: "I was genuinely surprised by the quality — received my business cards in just 2 days. Will be ordering again for sure.", stars: 5, image: REVIEW_AVATARS.indianWoman1 },
-  { initials: "KR", name: "Karthik R.", role: "Brochures · Adyar", quote: "The quality exceeded all expectations. I got incredible value for money on my brochures. Highly recommended.", stars: 5, image: REVIEW_AVATARS.indianMan2 },
-  { initials: "MV", name: "Meena & Vijay", role: "Wedding Cards · Pallavaram", quote: "Beautiful wedding cards — exactly what we dreamed of. Our guests kept admiring them. Perfect Tamil and English layout.", stars: 5, image: REVIEW_AVATARS.indianWoman2 },
-  { initials: "SP", name: "Suresh P.", role: "Bill Books · Tambaram", quote: "Fast, professional, and more affordable than any other printer I'd tried. Our GST bill books are excellent quality.", stars: 5, image: REVIEW_AVATARS.indianMan3 },
-  { initials: "AT", name: "Ananya T.", role: "Catalogues · T. Nagar", quote: "Ordered 5,000 brochures for our product launch. Delivered on time, perfect colour. Now our permanent print partner.", stars: 5, image: REVIEW_AVATARS.indianWoman3 },
-];
-
-export interface V2FeaturedQuote {
-  quote: string;
-  author: string;
-  /** Optional avatar/photo URL for the featured quote author (Indian/Tamil Nadu style). */
-  image?: string;
-}
-
-export const V2_FEATURED_QUOTE: V2FeaturedQuote = {
-  quote: "35 years in Pallavaram and their quality has never once let us down.",
-  author: "Rajesh M., Wipro Chennai",
-  image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80",
+export const HERO = {
+  microLabel: "PALLAVARAM'S MOST TRUSTED SINCE 1990",
+  h1: "Professional Printing\nin Chennai.",
+  accent: "Wedding Cards · Business Cards · Brochures · More",
+  body: "Offset, digital and screen printing since 1990.\n48-hour delivery guaranteed. 10,000+ happy customers.\nWhatsApp us and receive a quote in 30 minutes.",
+  ctaPrimary: "💬 WhatsApp for Instant Quote",
+  ctaSecondary: "View All Products →",
+  badges: [
+    { icon: "⭐", label: "4.8 Google Rating" },
+    { icon: "✅", label: "GST Registered" },
+    { icon: "🏆", label: "35 Years Experience" },
+  ],
 };
 
-export const V2_TIMELINE: { year: string; text: string }[] = [
-  { year: "1990", text: "Founded by N. Baranidharan, Pallavaram" },
-  { year: "2000", text: "Expanded to offset printing" },
-  { year: "2010", text: "Digital printing and screen printing added" },
-  { year: "2020", text: "Online & WhatsApp ordering launched" },
-  { year: "2025", text: "35 years · 10,000+ clients · 50+ products" },
+export const HERO_PRODUCTS = [
+  { name: "Wedding Cards", price: "From ₹8", img: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" },
+  { name: "Visiting Cards", price: "From ₹149", img: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80" },
+  { name: "Brochures", price: "From ₹3.50", img: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80" },
+  { name: "Bill Books", price: "From ₹299", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80" },
 ];
 
-export const V2_AREAS_SERVED = [
-  "Pallavaram",
-  "Tambaram",
-  "Chromepet",
-  "Medavakkam",
-  "Perungudi",
-  "Guindy",
-  "Adyar",
-  "Velachery",
-  "Thoraipakkam",
-  "Sholinganallur",
+export const SOCIAL_PROOF_STATS = [
+  { value: "35+", label: "Years in Business" },
+  { value: "10,000+", label: "Happy Clients" },
+  { value: "4.8 ⭐", label: "Google Rating" },
+  { value: "147", label: "Reviews" },
+  { value: "48hr", label: "Delivery" },
 ];
 
-export const V2_QUOTE_PRODUCTS: { value: string; label: string; emoji: string }[] = [
-  { value: "", label: "Select Product", emoji: "" },
-  { value: "Visiting Cards (Gloss / Matt / Spot UV / Foil / Die-cut)", label: "Visiting Cards (Gloss / Matt / Spot UV / Foil / Die-cut)", emoji: "🃏" },
-  { value: "Letterheads", label: "Letterheads", emoji: "📄" },
-  { value: "Brochures & Leaflets", label: "Brochures & Leaflets", emoji: "📋" },
-  { value: "Bill Books (Carbonless)", label: "Bill Books (Carbonless)", emoji: "📒" },
-  { value: "Booklets & Catalogues", label: "Booklets & Catalogues", emoji: "📚" },
-  { value: "Envelopes", label: "Envelopes", emoji: "✉️" },
-  { value: "Posters & Flyers", label: "Posters & Flyers", emoji: "📌" },
-  { value: "Screen Printing (Fabric / Paper)", label: "Screen Printing (Fabric / Paper)", emoji: "👕" },
-  { value: "Wedding & Event Cards", label: "Wedding & Event Cards", emoji: "💌" },
-  { value: "Other / Custom Job", label: "Other / Custom Job", emoji: "🎁" },
+export const PRODUCT_TABS = ["All", "Corporate", "Personal", "Events"] as const;
+
+export const PRODUCTS = [
+  { name: "Visiting Cards", price: "From ₹149", category: "Corporate", img: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80", delivery: "48hr" },
+  { name: "Letterheads", price: "From ₹2.50", category: "Corporate", img: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80", delivery: "48hr" },
+  { name: "Brochures", price: "From ₹3.50", category: "Corporate", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80", delivery: "48hr" },
+  { name: "Bill Books", price: "From ₹299", category: "Corporate", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80", delivery: "3 days" },
+  { name: "Wedding Cards", price: "From ₹8/card", category: "Events", img: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80", delivery: "5 days" },
+  { name: "Pamphlets", price: "From ₹1.50", category: "Corporate", img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&q=80", delivery: "48hr" },
+  { name: "Banners", price: "From ₹499", category: "Events", img: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=400&q=80", delivery: "24hr" },
+  { name: "Stickers", price: "From ₹199", category: "Personal", img: "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=400&q=80", delivery: "48hr" },
+  { name: "Catalogues", price: "From ₹25", category: "Corporate", img: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=400&q=80", delivery: "5 days" },
+  { name: "T-Shirts", price: "From ₹199", category: "Personal", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80", delivery: "3 days" },
+  { name: "Rubber Stamps", price: "From ₹149", category: "Corporate", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&q=80", delivery: "24hr" },
+  { name: "PVC ID Cards", price: "From ₹49", category: "Corporate", img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80", delivery: "48hr" },
+  { name: "Screen Printing", price: "From ₹5/pc", category: "Personal", img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80", delivery: "3 days" },
+  { name: "Offset Printing", price: "Custom Quote", category: "Corporate", img: "https://images.unsplash.com/photo-1504270997636-07ddfbd48945?w=400&q=80", delivery: "5 days" },
 ];
 
-export const V2_QUOTE_QUANTITY = [
-  "50 – 100 pcs",
-  "100 – 500 pcs",
-  "500 – 1,000 pcs",
-  "1,000 – 5,000 pcs",
-  "5,000+ pcs (bulk)",
-  "Not sure yet",
+export const WEDDING_IMAGES = [
+  "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80",
+  "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80",
+  "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80",
 ];
 
-export const V2_QUOTE_FINISH = [
-  "Standard (90–130 GSM)",
-  "Medium (170 GSM Art Paper)",
-  "Premium Card (300 GSM)",
-  "Luxury (400 GSM + Velvet Lam)",
-  "Special Finish (Spot UV / Foil / Die-cut)",
-  "Not sure – please recommend",
+export const WEDDING_FEATURES = [
+  "Hindu · Christian · Muslim · Modern designs",
+  "Tamil, English & Bilingual available",
+  "Free design proof within 24 hours",
+  "Delivery in 3–5 working days",
+  "Minimum order: 100 cards",
+  "Customised envelopes available",
+];
+
+export const WHY_ITEMS = [
+  { icon: "🏆", title: "35 Years of Craft", desc: "Founded in 1990 by N. Baranidharan. Quality checked by the owner personally." },
+  { icon: "⚡", title: "48-Hour Delivery", desc: "Business cards and brochures ready in 48 hours. Same-day available for urgent orders." },
+  { icon: "📍", title: "Pallavaram-Based", desc: "Walk in, collect same-day. No courier delays or damaged shipments." },
+  { icon: "💰", title: "Transparent Pricing", desc: "All prices listed upfront. No hidden charges. GST invoice included." },
+  { icon: "🏢", title: "Trusted by Corporates", desc: "Wipro, TTK Healthcare, Reliance and 10,000+ clients trust us for their print needs." },
+  { icon: "💬", title: "WhatsApp Ordering", desc: "Send requirements on WhatsApp. Get a quote in 30 minutes, approve proof, done." },
+];
+
+export const PROCESS_STEPS = [
+  { step: 1, title: "💬 WhatsApp Us", time: "2 minutes", desc: "Send your requirements on WhatsApp. Include quantity, size, and any design files." },
+  { step: 2, title: "🎨 Free Design Proof", time: "Within 24 hours", desc: "Our designer creates your proof. Free revisions until you're 100% satisfied." },
+  { step: 3, title: "✅ You Approve", time: "Same day", desc: "Review the digital proof and give us the green light to start printing." },
+  { step: 4, title: "📦 Print & Deliver", time: "48 hours", desc: "Your order is printed, quality-checked, and ready for pickup or delivery." },
+];
+
+export const TESTIMONIALS = [
+  { name: "Priya Rajan", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Absolutely beautiful wedding cards. The gold foil finish was stunning and all 500 cards were delivered on time. Highly recommended!" },
+  { name: "Karthik S.", location: "Chromepet", product: "Visiting Cards", rating: 5, text: "Best visiting cards I've ever had printed. The spot UV finish looks premium. Got 500 cards in just 2 days!" },
+  { name: "Lakshmi Devi", location: "Pallavaram", product: "Brochures", rating: 5, text: "We've been using Super Printers for our company brochures for 10 years. Consistent quality every single time." },
+  { name: "Mohammed Farooq", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Printed 1000 nikah invitation cards. Beautiful design, on-time delivery, and very reasonable pricing." },
+  { name: "Anand Kumar", location: "Perungalathur", product: "Bill Books", rating: 5, text: "Quick turnaround on bill books. Quality paper and clear printing. Our go-to printer for all business needs." },
+  { name: "Deepa M.", location: "Chrompet", product: "Letterheads", rating: 5, text: "Professional letterheads with perfect colour matching. The team is very helpful and responsive on WhatsApp." },
+];
+
+export const FAQ_ITEMS = [
+  { q: "What is the minimum order for visiting cards?", a: "We print visiting cards starting from just 100 cards. Prices start at ₹149 for 100 cards with standard finish. Premium finishes like Spot UV, Velvet, and Gold Foil are available at additional cost." },
+  { q: "How long does printing take?", a: "Business cards and letterheads: 48 hours. Brochures: 2–3 days. Wedding cards: 3–5 working days. Same-day printing is available for urgent orders — WhatsApp us before 12PM." },
+  { q: "Do you offer design services?", a: "Yes! Wedding card design is free with your order. For other products, we offer professional design services at a small fee, or you can send your own print-ready file." },
+  { q: "Can I see a proof before printing?", a: "Absolutely. We send a digital proof via WhatsApp before we start printing. You can request unlimited revisions until you're 100% happy with the design." },
+  { q: "Do you deliver outside Pallavaram?", a: "Yes. We serve all of Chennai and ship across Tamil Nadu. Local pickup from our Pallavaram shop is also available at no extra cost." },
+  { q: "How do I place an order from outside Pallavaram?", a: "Simply WhatsApp us your requirements and design files. We'll send a digital proof, and once approved, we can ship your order or arrange pickup. We serve all of Chennai." },
+  { q: "Do you offer bulk discounts for 1,000+ cards?", a: "Yes! We offer tiered pricing for bulk orders. WhatsApp us with your quantity for a custom quote." },
+  { q: "Can you print in Tamil script?", a: "Absolutely. We print in Tamil, English, Hindi, Telugu, and bilingual formats. We specialise in Tamil wedding invitations." },
+  { q: "Do you design the cards or do I need to send a file?", a: "Both options are available. We offer free design for wedding cards. For other products, we can design for a small fee or use your print-ready file." },
+  { q: "Do you provide a GST invoice?", a: "Yes. We are a GST-registered business and provide GST invoices for all corporate orders." },
+];
+
+export const PORTFOLIO_IMAGES = [
+  { src: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=600&q=80", alt: "Wedding invitation cards", cat: "Wedding" },
+  { src: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=600&q=80", alt: "Premium visiting cards", cat: "Visiting Cards" },
+  { src: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&q=80", alt: "Corporate brochures", cat: "Brochures" },
+  { src: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80", alt: "Offset printing press", cat: "Printing" },
+  { src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80", alt: "Wedding invitation suite", cat: "Wedding" },
+  { src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80", alt: "Floral wedding card", cat: "Wedding" },
+  { src: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&q=80", alt: "Pamphlet design", cat: "Brochures" },
+  { src: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600&q=80", alt: "Bill books and registers", cat: "Corporate" },
+];
+
+export const TIMELINE = [
+  { year: "1990", title: "Founded", desc: "N. Baranidharan opens Super Printers in Pallavaram with a single offset press." },
+  { year: "2000", title: "Digital Expansion", desc: "Added digital printing to serve the growing corporate stationery demand in Chennai." },
+  { year: "2010", title: "Wedding Specialist", desc: "Became Pallavaram's top wedding card printer. Introduced premium finishes." },
+  { year: "2020", title: "WhatsApp Ordering", desc: "Launched WhatsApp-first ordering for faster quotes and contactless service." },
+  { year: "2025", title: "10,000+ Clients", desc: "Serving 10,000+ happy customers. Trusted by Wipro, TTK and leading companies." },
+];
+
+export const SERVICE_OPTIONS = [
+  "Wedding Cards", "Visiting Cards", "Brochures", "Pamphlets",
+  "Bill Books", "Letterheads", "Catalogues", "Other",
 ];

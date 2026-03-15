@@ -1,148 +1,98 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
-import { scrollToSection } from "@/utils/scroll";
-import SuperPrintersLogo from "@/components/SuperPrintersLogo";
 
-const QUICK_LINKS = [
-  { label: "Home", id: "" },
-  { label: "Products", id: "products" },
-  { label: "Why Choose Us", id: "why-us" },
-  { label: "Wedding Cards", id: "wedding-cards" },
-  { label: "Portfolio", id: "portfolio" },
-  { label: "Paper & Finishes", id: "finishes" },
-  { label: "Get a Quote", id: "quote-form" },
-  { label: "About", id: "about" },
-  { label: "Contact", id: "contact" },
+const SERVICES_LINKS = [
+  { label: "Wedding Cards", to: "/wedding-cards" },
+  { label: "Visiting Cards", to: "/visiting-cards" },
+  { label: "Brochures", to: "/services" },
+  { label: "Bill Books", to: "/services" },
+  { label: "Letterheads", to: "/services" },
+  { label: "Offset Printing", to: "/services" },
+  { label: "Digital Printing", to: "/services" },
+  { label: "Screen Printing", to: "/services" },
 ];
 
-const PRODUCT_LINKS = [
-  "Visiting Cards",
-  "Letterheads",
-  "Brochures",
-  "Bill Books",
-  "Catalogues",
-  "Envelopes",
-  "Posters & Flyers",
-  "Wedding Cards",
-  "Screen Printing",
-];
+const UnifiedFooter = () => (
+  <footer style={{ backgroundColor: "var(--color-dark-section)" }} className="text-white/80">
+    <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* Brand */}
+        <div>
+          <h3 className="font-display font-bold text-xl text-white mb-3">{BUSINESS.name}</h3>
+          <p className="text-sm leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)" }}>
+            Pallavaram's most trusted printing press since 1990.
+          </p>
+          <p className="text-xs mb-2" style={{ color: "var(--gold)" }}>✅ GST Registered Business</p>
+          <p className="text-xs" style={{ color: "var(--gold)" }}>⭐ {BUSINESS.googleRating} Google Rating · {BUSINESS.googleReviewCount} Reviews</p>
+        </div>
 
-const UnifiedFooter = () => {
-  const [logoImgFailed, setLogoImgFailed] = useState(false);
-  return (
-  <footer
-    className="relative pt-16 pb-6 px-6 font-ui text-sm bg-white border-t border-border-light"
-    style={{ backgroundColor: "#FFFFFF" }}
-  >
-    <div
-      className="absolute top-0 left-0 right-0 h-[2px]"
-      style={{ background: "linear-gradient(90deg, transparent 0%, #D4A843 30%, #F0C660 50%, #D4A843 70%, transparent 100%)" }}
-      aria-hidden
-    />
-    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-      <div>
-        <div className="mb-4">
-          {!logoImgFailed ? (
-            <img
-              src="/super-printers-logo.png"
-              alt="Super Printers — 35 Years Experience"
-              className="h-20 w-auto object-contain max-w-[220px]"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (target.getAttribute("data-fallback") !== "done") {
-                  target.setAttribute("data-fallback", "done");
-                  target.src = "/super-printers-logo.svg";
-                  target.onerror = () => setLogoImgFailed(true);
-                } else {
-                  setLogoImgFailed(true);
-                }
-              }}
-            />
-          ) : (
-            <div className="flex items-start gap-4">
-              <SuperPrintersLogo variant="footer" size="lg" />
-              <div>
-                <span className="font-display font-semibold text-2xl text-navy block">Super Printers</span>
-                <span className="font-ui text-[13px] font-light text-gray-600">
-                  Est. 1990, Pallavaram, Chennai
-                </span>
-              </div>
-            </div>
-          )}
-        </div>
-        <p className="text-gray-600 text-sm mb-2">Chennai&apos;s Premier Printing Studio Since 1990</p>
-        <div className="font-display italic text-base mb-4 text-gray-500" style={{ fontFamily: "'Playfair Display', serif", marginTop: "8px" }}>
-          Quality printing since 1990.
-        </div>
-        <div className="flex gap-3 mb-4">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-navy hover:bg-gold hover:text-ink-black transition-colors" aria-label="Facebook">f</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-navy hover:bg-gold hover:text-ink-black transition-colors" aria-label="Instagram">i</a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-navy hover:bg-gold hover:text-ink-black transition-colors" aria-label="YouTube">y</a>
-          <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center hover:bg-whatsapp hover:text-white transition-colors" aria-label="WhatsApp">💬</a>
-        </div>
-        <a href={BUSINESS.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-gray-600 text-xs hover:text-gold transition-colors">
-          ⭐ 4.8 on Google Reviews
-        </a>
-      </div>
-
-      <div>
-        <h4 className="text-ink-black font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
-        <div className="space-y-2">
-          {QUICK_LINKS.map((link) => (
-            <button
-              key={link.id || "home"}
-              onClick={() => (link.id ? scrollToSection(link.id) : window.scrollTo({ top: 0, behavior: "smooth" }))}
-              className="block text-left font-light text-[14px] text-gray-600 transition-colors hover:text-gold"
-            >
-              {link.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h4 className="text-ink-black font-semibold text-sm uppercase tracking-wider mb-4">Our Products</h4>
-        <div className="space-y-2">
-          {PRODUCT_LINKS.map((name) => (
-            <button
-              key={name}
-              onClick={() => scrollToSection(name === "Wedding Cards" ? "wedding-cards" : "products")}
-              className="block text-left font-light text-[14px] text-gray-600 transition-colors hover:text-gold"
-            >
-              {name}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h4 className="text-ink-black font-semibold text-sm uppercase tracking-wider mb-4">Contact</h4>
-        <div className="space-y-3 text-gray-600 text-sm">
-          <p>No. 6, Saraswathy Colony<br />Pallavaram, Chennai – 600043</p>
-          <a href={BUSINESS.phoneTel} className="block hover:text-gold transition-colors">📞 +91 98401 99878</a>
-          <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="block hover:text-gold transition-colors">💬 WhatsApp</a>
-          <a href={`mailto:${BUSINESS.email}`} className="block hover:text-gold transition-colors">📧 {BUSINESS.email}</a>
-        </div>
-        <div className="mt-4">
-          <p className="text-gray-600 text-xs mb-2">Opening hours</p>
-          <div className="flex flex-wrap gap-1">
-            {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
-              <span key={d} className="px-2 py-1 rounded text-[10px] font-medium" style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}>{d}</span>
+        {/* Services */}
+        <div>
+          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4" style={{ fontFamily: "var(--font-body)" }}>Services</h4>
+          <div className="space-y-2">
+            {SERVICES_LINKS.map((s) => (
+              <Link
+                key={s.label}
+                to={s.to}
+                className="block text-sm hover:text-white transition-colors"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                {s.label}
+              </Link>
             ))}
-            <span className="px-2 py-1 rounded text-[10px] text-gray-500 bg-gray-100">Sun</span>
           </div>
-          <p className="text-gray-500 text-xs mt-1">Mon–Sat: 9AM – 7PM · Sun: Closed</p>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4" style={{ fontFamily: "var(--font-body)" }}>Contact</h4>
+          <div className="space-y-3 text-sm" style={{ fontFamily: "var(--font-body)" }}>
+            <p>📍 {BUSINESS.addressFull}</p>
+            <a href={BUSINESS.phoneTel} className="block hover:text-white transition-colors">
+              📞 {BUSINESS.phone}
+            </a>
+            <a
+              href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers, I need a quote")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block hover:text-white transition-colors"
+            >
+              💬 WhatsApp: {BUSINESS.phone}
+            </a>
+            <p>⏰ {BUSINESS.hours}</p>
+            <p>⏰ {BUSINESS.hoursSunday}</p>
+          </div>
+        </div>
+
+        {/* WhatsApp CTA */}
+        <div>
+          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4" style={{ fontFamily: "var(--font-body)" }}>Get a Quote</h4>
+          <p className="text-sm mb-4" style={{ fontFamily: "var(--font-body)" }}>
+            Send us your requirements on WhatsApp and receive a quote in 30 minutes.
+          </p>
+          <a
+            href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers, I need a quote for ")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-bold text-white transition-transform hover:scale-[1.03]"
+            style={{ backgroundColor: "var(--color-cta)", fontFamily: "var(--font-accent)" }}
+          >
+            💬 WhatsApp Now
+          </a>
         </div>
       </div>
     </div>
 
-    <div className="max-w-6xl mx-auto border-t border-border-light pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p className="text-gray-500 text-xs">© 2025 Super Printers</p>
-      <p className="font-display italic text-gray-600 text-sm">Quality printing since 1990</p>
-      <p className="text-gray-500 text-xs">Made in Pallavaram ♥</p>
+    {/* Bottom bar */}
+    <div className="border-t border-white/10 py-5">
+      <p
+        className="text-center text-xs"
+        style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}
+      >
+        © 2026 {BUSINESS.name}, Pallavaram, Chennai. Best Printing Press in Chennai Since 1990.
+      </p>
     </div>
   </footer>
-  );
-};
+);
 
 export default UnifiedFooter;
