@@ -97,7 +97,7 @@ const About = () => (
             "Fast 1–7 day turnaround on all services",
             "Premium quality offset, digital, and screen printing",
             "Conveniently located near Pallavaram Railway Station",
-            "Serving all of Chennai — Pallavaram, Chromepet, Tambaram & beyond",
+            "Serving throughout Chennai and Tamil Nadu",
             "Free design assistance for all printing orders",
             "Home delivery available across Chennai",
           ].map((item, i) => (
@@ -133,7 +133,7 @@ const About = () => (
       <div className="max-w-4xl mx-auto">
         <h2 className="font-display text-2xl font-bold text-foreground mb-6">Find Us in Pallavaram</h2>
         <p className="text-muted-foreground leading-relaxed mb-6">
-          Our shop is located at {BUSINESS.address}, right next to Pallavaram Railway Station Road. Easy to reach from Chromepet, Tambaram, Pammal, Alandur, and all of South Chennai. Walk in anytime {BUSINESS.hours}. We also offer delivery across Chennai.
+          Our shop is located at {BUSINESS.address}, right next to Pallavaram Railway Station Road. We serve throughout Chennai and Tamil Nadu. Walk in anytime {BUSINESS.hours} or we can deliver across Chennai and Tamil Nadu.
         </p>
         <div className="rounded-xl overflow-hidden border border-border mb-8">
           <iframe src={BUSINESS.mapEmbed} width="100%" height="300" style={{ border: 0 }} loading="lazy" title="Super Printers and Wedding Cards location" allowFullScreen />

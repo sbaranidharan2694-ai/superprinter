@@ -54,6 +54,7 @@ const UnifiedFooter = () => (
         {/* Areas Served */}
         <div>
           <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4" style={{ fontFamily: "var(--font-body)" }}>Areas Served</h4>
+          <p className="text-sm text-white/90 mb-3" style={{ fontFamily: "var(--font-body)" }}>Throughout Chennai and Tamil Nadu</p>
           <div className="space-y-2">
             {AREAS_LINKS.map((a) => (
               <Link
@@ -101,7 +102,7 @@ const UnifiedFooter = () => (
 
       {/* Area-served blurb */}
       <p className="mt-10 pt-8 border-t border-white/10 text-sm text-white/70 max-w-3xl" style={{ fontFamily: "var(--font-body)" }}>
-        Serving Pallavaram, Chromepet, Tambaram, Pammal, Perungalathur, Alandur, Guindy, Adyar, and all of South Chennai. Walk-in orders welcome at No. 6, Saraswathy Colony, Pallavaram 600043. Near Pallavaram Railway Station.
+        Serving throughout Chennai and Tamil Nadu. Walk-in orders welcome at No. 6, Saraswathy Colony, Pallavaram 600043. Near Pallavaram Railway Station.
       </p>
     </div>
 

@@ -134,7 +134,7 @@ const Contact = () => {
             <div className="mt-12 p-6 rounded-xl bg-muted/50 border border-border">
               <h2 className="font-display text-xl font-bold text-foreground mb-3">How to Reach Us</h2>
               <p className="text-muted-foreground font-body text-sm leading-relaxed">
-                We are located right next to Pallavaram Railway Station Road. Easily accessible from Chromepet, Tambaram, Pammal, Alandur, and all of South Chennai.
+                We are located right next to Pallavaram Railway Station Road. We serve throughout Chennai and Tamil Nadu.
               </p>
             </div>
 
@@ -165,7 +165,7 @@ const Contact = () => {
                 <div className="flex items-start gap-3">
                   <span className="text-2xl" aria-hidden="true">🚚</span>
                   <p className="text-muted-foreground text-sm font-body leading-relaxed">
-                    We offer home delivery and courier dispatch across Chennai, Pallavaram, Chromepet, Tambaram, Pammal, Alandur, and all of South Chennai. Free delivery for orders above ₹2,000. WhatsApp us to confirm delivery charges for your area.
+                    We offer home delivery and courier dispatch throughout Chennai and Tamil Nadu. Free delivery for orders above ₹2,000. WhatsApp us to confirm delivery charges for your area.
                   </p>
                 </div>
               </div>

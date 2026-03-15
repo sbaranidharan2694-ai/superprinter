@@ -19,8 +19,8 @@ const DEFAULT_FAQS: ServiceFaqItem[] = [
     acceptedAnswer: { text: "Yes. We offer free design assistance for wedding cards and can help with layout and file preparation. Send your ideas or reference via WhatsApp and we'll send a proof." },
   },
   {
-    name: "Do you deliver across Chennai?",
-    acceptedAnswer: { text: "Yes. We deliver to Pallavaram, Chromepet, Tambaram, Pammal, Perungalathur, Alandur, Adyar, and all of South Chennai. You can also pick up from our press at No. 6, Saraswathy Colony, Pallavaram." },
+    name: "Do you deliver across Chennai and Tamil Nadu?",
+    acceptedAnswer: { text: "Yes. We deliver throughout Chennai and Tamil Nadu. You can also pick up from our press at No. 6, Saraswathy Colony, Pallavaram." },
   },
 ];
 

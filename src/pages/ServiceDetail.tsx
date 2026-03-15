@@ -41,7 +41,7 @@ const ServiceDetail = () => {
     "name": `${service.name} in Chennai`,
     "description": service.seoDescription,
     "provider": { "@type": "LocalBusiness", "name": BUSINESS.shortName, "url": BUSINESS.siteUrl },
-    "areaServed": "Chennai",
+    "areaServed": ["Chennai", "Tamil Nadu"],
     "offers": {
       "@type": "Offer",
       "priceCurrency": "INR",
