@@ -1,5 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
-  <rect width="200" height="80" fill="#fff" rx="6" stroke="#e5e7eb" stroke-width="1"/>
-  <text x="100" y="38" font-family="Arial, system-ui, sans-serif" font-size="16" font-weight="700" fill="#1a1a1a" text-anchor="middle">JEGANATHAN</text>
-  <text x="100" y="58" font-family="Arial, system-ui, sans-serif" font-size="14" font-weight="600" fill="#333" text-anchor="middle">HOSPITAL</text>
+  <defs>
+    <linearGradient id="jh-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f9ff"/>
+      <stop offset="100%" style="stop-color:#e0f2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="80" fill="url(#jh-bg)" rx="8" stroke="#bae6fd" stroke-width="1"/>
+  <!-- Medical cross icon -->
+  <rect x="28" y="22" width="14" height="36" fill="#0ea5e9" rx="2"/>
+  <rect x="18" y="32" width="34" height="14" fill="#0ea5e9" rx="2"/>
+  <text x="100" y="38" font-family="Arial, system-ui, sans-serif" font-size="15" font-weight="700" fill="#0c4a6e" text-anchor="middle">JEGANATHAN</text>
+  <text x="100" y="58" font-family="Arial, system-ui, sans-serif" font-size="14" font-weight="600" fill="#0369a1" text-anchor="middle">HOSPITAL</text>
 </svg>

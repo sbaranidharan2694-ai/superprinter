@@ -48,7 +48,7 @@ const CTASection = () => (
         transition={{ delay: 0.1 }}
         className="font-ui text-lg text-gray-600 max-w-xl mx-auto mb-10"
       >
-        Quality printing in 48 hours. Share your requirements and we&apos;ll send a quick quote.
+        Quality printing in 24 hours. Share your requirements and we&apos;ll send a quick quote.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 12 }}

@@ -55,7 +55,7 @@ const HowItWorksSection = () => (
         className="text-center text-sm mt-8"
         style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}
       >
-        Average turnaround: <strong>48 hours from approval.</strong> Same-day printing available — WhatsApp before 12PM.
+        Average turnaround: <strong>24 hours from approval.</strong> Same-day printing available — WhatsApp before 12PM.
       </p>
 
       <motion.div

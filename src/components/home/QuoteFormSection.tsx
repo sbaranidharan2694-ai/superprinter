@@ -25,7 +25,7 @@ const QuoteFormSection = () => {
         <div className="max-w-xl mx-auto px-6 text-center">
           <div className="text-5xl mb-4">✅</div>
           <h3 className="font-display font-bold text-2xl mb-3" style={{ color: "var(--color-primary)" }}>Quote Request Sent!</h3>
-          <p className="mb-6" style={{ color: "#6B7280", fontFamily: "var(--font-body)" }}>
+          <p className="mb-6" style={{ color: "var(--color-text)", fontFamily: "var(--font-body)" }}>
             We'll respond on WhatsApp within 30 minutes during business hours.
           </p>
           <button
@@ -55,10 +55,10 @@ const QuoteFormSection = () => {
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4" style={{ color: "var(--color-primary)" }}>
               Request a Free Quote
             </h2>
-            <p className="mb-8 leading-relaxed" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>
+            <p className="mb-8 leading-relaxed" style={{ color: "var(--color-text)", fontFamily: "var(--font-body)" }}>
               Tell us what you need and we'll get back to you with a quote within 30 minutes on WhatsApp.
             </p>
-            <div className="space-y-4 text-sm" style={{ color: "#6B7280", fontFamily: "var(--font-body)" }}>
+            <div className="space-y-4 text-sm font-medium" style={{ color: "var(--color-text)", fontFamily: "var(--font-body)" }}>
               <a href={BUSINESS.phoneTel} className="block hover:opacity-80 transition-opacity" style={{ color: "var(--color-primary)" }}>📞 {BUSINESS.phone}</a>
               <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity" style={{ color: "var(--color-primary)" }}>💬 WhatsApp</a>
               <p>📍 {BUSINESS.addressFull}</p>
@@ -83,7 +83,7 @@ const QuoteFormSection = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                style={{ fontFamily: "var(--font-body)" }}
+                style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
               />
               <input
                 type="tel"
@@ -92,13 +92,13 @@ const QuoteFormSection = () => {
                 value={whatsapp}
                 onChange={(e) => setWhatsapp(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                style={{ fontFamily: "var(--font-body)" }}
+                style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
               />
               <select
                 value={service}
                 onChange={(e) => setService(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                style={{ fontFamily: "var(--font-body)" }}
+                style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
               >
                 <option value="">Select Service</option>
                 {SERVICE_OPTIONS.map((s) => (
@@ -112,7 +112,7 @@ const QuoteFormSection = () => {
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                  style={{ fontFamily: "var(--font-body)" }}
+                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
                 />
                 <input
                   type="date"
@@ -120,7 +120,7 @@ const QuoteFormSection = () => {
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                  style={{ fontFamily: "var(--font-body)" }}
+                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
                 />
               </div>
               <textarea
@@ -129,17 +129,17 @@ const QuoteFormSection = () => {
                 value={msg}
                 onChange={(e) => setMsg(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none resize-none"
-                style={{ fontFamily: "var(--font-body)" }}
+                style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
               />
-              <p className="text-xs text-gray-400" style={{ fontFamily: "var(--font-body)" }}>
+              <p className="text-xs" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
                 Attach your design file (.pdf .ai .jpg .png) via WhatsApp after submitting.
               </p>
             </div>
             <button type="submit" className="quote-submit-btn mt-6">
               Send My Quote Request →
             </button>
-            <p className="text-xs text-center text-gray-400 mt-3" style={{ fontFamily: "var(--font-body)" }}>
-              We respond within 30 minutes on WhatsApp. Mon–Sat, 9AM–8PM.
+            <p className="text-xs text-center mt-3" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
+              Mon–Sat, 9AM–8PM.
             </p>
           </motion.form>
         </div>

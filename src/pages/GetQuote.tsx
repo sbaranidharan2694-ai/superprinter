@@ -58,7 +58,7 @@ const GetQuote = () => {
             <h1 className="font-display text-3xl md:text-5xl font-black mb-4" style={{ color: "var(--color-primary)" }}>
               Get an Instant Print Quote
             </h1>
-            <p className="font-body text-lg" style={{ color: "#4B5563" }}>
+            <p className="font-body text-lg font-medium" style={{ color: "var(--color-text)" }}>
               Select your service, quantity, and finish. We'll respond on WhatsApp within 30 minutes.
             </p>
           </div>

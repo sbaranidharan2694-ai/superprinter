@@ -12,7 +12,7 @@
     --color-gold-light: #F5D88A;
     --color-cream: #F5F0E8;
     --color-cta: #E63946;
-    --color-text: #2D2D2D;
+    --color-text: #1a1a1a;
     --color-white: #FFFFFF;
     --color-dark-section: #111122;
 
@@ -34,8 +34,8 @@
     --paper-white: #FAFAF9;
     --pure-white: #FFFFFF;
     --accent-soft: #E8F5E9;
-    --charcoal: #2D2D2D;
-    --gray-text: #6B7280;
+    --charcoal: #1a1a1a;
+    --gray-text: #374151;
     --gray-light: #F3F4F6;
     --border-light: #E5E1D8;
     --wedding: #7B1A30;
@@ -85,25 +85,25 @@
     --color-navy: #1A1A2E;
     --color-navy-dark: #111122;
     --color-gold-pale: #FDF3DC;
-    --color-charcoal: #2D2D2D;
-    --color-gray-text: #6B7280;
+    --color-charcoal: #1a1a1a;
+    --color-gray-text: #374151;
     --color-gray-border: #E5E1D8;
     --color-gray-bg: #F9FAFB;
     --color-navy-light: #2C2C54;
 
-    /* Shadcn compatibility */
+    /* Shadcn compatibility — darker text for readability */
     --background: 0 0% 100%;
-    --foreground: 229 25% 14%;
+    --foreground: 229 25% 8%;
     --card: 0 0% 100%;
-    --card-foreground: 229 25% 14%;
+    --card-foreground: 229 25% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 229 25% 14%;
+    --popover-foreground: 229 25% 8%;
     --primary: 43 46% 54%;
-    --primary-foreground: 229 25% 14%;
+    --primary-foreground: 229 25% 8%;
     --secondary: 43 46% 54%;
-    --secondary-foreground: 229 25% 14%;
+    --secondary-foreground: 229 25% 8%;
     --muted: 30 18% 94%;
-    --muted-foreground: 220 9% 46%;
+    --muted-foreground: 220 9% 28%;
     --accent: 30 18% 94%;
     --accent-foreground: 229 25% 14%;
     --destructive: 355 70% 56%;
@@ -127,10 +127,15 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
     text-rendering: optimizeLegibility;
+  }
+  p {
+    color: var(--color-text);
   }
   h1, .hero-h1 {
     font-family: var(--font-display);

@@ -1,13 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import { BUSINESS } from "@/data/business";
-import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
 
+/* WhatsApp & Call are in the header on mobile — no duplicate here */
 const TABS = [
   { label: "Home", icon: "🏠", to: "/" },
   { label: "Services", icon: "📋", to: "/services" },
-  { label: "WhatsApp", icon: "💬", href: `${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers! I need a quote.")}`, external: true },
   { label: "Gallery", icon: "📸", to: "/gallery" },
-  { label: "Call", icon: "📞", href: BUSINESS.phoneTel, external: true },
+  { label: "Contact", icon: "✉️", to: "/contact" },
 ];
 
 const MobileBottomCTA = () => {
@@ -24,15 +22,12 @@ const MobileBottomCTA = () => {
           isActive ? "text-[var(--color-primary)]" : "text-gray-600 hover:bg-gray-50"
         }`;
         if (tab.external && tab.href) {
-          const isWa = tab.label === "WhatsApp";
-          const isCall = tab.label === "Call";
           return (
             <a
               key={tab.label}
               href={tab.href}
               target={tab.href.startsWith("http") ? "_blank" : undefined}
               rel={tab.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              onClick={() => { if (isWa) trackWhatsAppClick("mobile_nav"); if (isCall) trackPhoneClick("mobile_nav"); }}
               className={className}
               aria-label={tab.label}
             >

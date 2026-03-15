@@ -31,26 +31,33 @@ const SocialProofSection = () => (
             transition={{ delay: i * 0.08 }}
             className="review-card bg-white rounded-2xl p-6 shadow-sm"
           >
-            {/* Stars */}
-            <div className="flex gap-0.5 mb-3">
-              {Array.from({ length: review.rating }).map((_, s) => (
-                <span key={s} style={{ color: "var(--gold)" }}>★</span>
-              ))}
+            <div className="flex items-start gap-4 mb-4">
+              <img
+                src={review.avatar}
+                alt=""
+                className="w-14 h-14 rounded-full object-cover flex-shrink-0 ring-2 ring-amber-100"
+                loading="lazy"
+              />
+              <div className="min-w-0 flex-1">
+                <p className="font-bold text-sm" style={{ color: "var(--color-primary)", fontFamily: "var(--font-accent)" }}>
+                  {review.name}
+                </p>
+                <p className="text-xs mb-2" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
+                  {review.location} · {review.product}
+                </p>
+                <div className="flex gap-0.5">
+                  {Array.from({ length: review.rating }).map((_, s) => (
+                    <span key={s} style={{ color: "var(--gold)" }}>★</span>
+                  ))}
+                </div>
+              </div>
             </div>
             <p
-              className="text-sm leading-relaxed mb-4"
+              className="text-sm leading-relaxed"
               style={{ color: "var(--color-text)", fontFamily: "var(--font-body)" }}
             >
               {review.text}
             </p>
-            <div>
-              <p className="font-bold text-sm" style={{ color: "var(--color-primary)", fontFamily: "var(--font-accent)" }}>
-                {review.name}
-              </p>
-              <p className="text-xs" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
-                {review.location} · {review.product}
-              </p>
-            </div>
           </motion.div>
         ))}
       </div>

@@ -90,13 +90,15 @@ export const PROCESS_STEPS = [
   { step: 4, title: "📦 Print & Deliver", time: "24 hours", desc: "Your order is printed, quality-checked, and ready for pickup or delivery within 24 hours." },
 ];
 
+// Avatar images: real portraits (Unsplash), face-cropped. Women → clearly female photos; men → clearly male photos; match names.
+const AVATAR_PARAMS = "w=160&h=160&fit=crop&crop=face&q=80";
 export const TESTIMONIALS = [
-  { name: "Priya Rajan", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Absolutely beautiful wedding cards. The gold foil finish was stunning and all 500 cards were delivered on time. Highly recommended!" },
-  { name: "Karthik S.", location: "Chromepet", product: "Visiting Cards", rating: 5, text: "Best visiting cards I've ever had printed. The spot UV finish looks premium. Got 500 cards in just 2 days!" },
-  { name: "Lakshmi Devi", location: "Pallavaram", product: "Brochures", rating: 5, text: "We've been using Super Printers for our company brochures for 10 years. Consistent quality every single time." },
-  { name: "Mohammed Farooq", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Printed 1000 nikah invitation cards. Beautiful design, on-time delivery, and very reasonable pricing." },
-  { name: "Anand Kumar", location: "Perungalathur", product: "Bill Books", rating: 5, text: "Quick turnaround on bill books. Quality paper and clear printing. Our go-to printer for all business needs." },
-  { name: "Deepa M.", location: "Chrompet", product: "Letterheads", rating: 5, text: "Professional letterheads with perfect colour matching. The team is very helpful and responsive on WhatsApp." },
+  { name: "Priya Rajan", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Absolutely beautiful wedding cards. The gold foil finish was stunning and all 500 cards were delivered on time. Highly recommended!", avatar: `https://images.unsplash.com/photo-1580471260026-2a8acbc7c7a7?${AVATAR_PARAMS}` },
+  { name: "Karthik S.", location: "Chromepet", product: "Visiting Cards", rating: 5, text: "Best visiting cards I've ever had printed. The spot UV finish looks premium. Got 500 cards in just 2 days!", avatar: `https://images.unsplash.com/photo-1712425718137-491250cfde88?${AVATAR_PARAMS}` },
+  { name: "Lakshmi Devi", location: "Pallavaram", product: "Brochures", rating: 5, text: "We've been using Super Printers for our company brochures for 10 years. Consistent quality every single time.", avatar: `https://images.unsplash.com/photo-1605284909169-5e93b375cd4d?${AVATAR_PARAMS}` },
+  { name: "Mohammed Farooq", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Printed 1000 nikah invitation cards. Beautiful design, on-time delivery, and very reasonable pricing.", avatar: `https://images.unsplash.com/photo-1705513054794-d18a8eb0af6c?${AVATAR_PARAMS}` },
+  { name: "Anand Kumar", location: "Perungalathur", product: "Bill Books", rating: 5, text: "Quick turnaround on bill books. Quality paper and clear printing. Our go-to printer for all business needs.", avatar: `https://images.unsplash.com/photo-1596633816484-10da10b748e4?${AVATAR_PARAMS}` },
+  { name: "Deepa M.", location: "Chrompet", product: "Letterheads", rating: 5, text: "Professional letterheads with perfect colour matching. The team is very helpful and responsive on WhatsApp.", avatar: `https://images.unsplash.com/photo-1659451335972-c3f976f4e567?${AVATAR_PARAMS}` },
 ];
 
 export const FAQ_ITEMS = [

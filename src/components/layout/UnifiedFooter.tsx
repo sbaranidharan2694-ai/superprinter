@@ -72,37 +72,48 @@ const UnifiedFooter = () => (
         {/* Contact */}
         <div>
           <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4" style={{ fontFamily: "var(--font-body)" }}>Contact</h4>
-          <div className="space-y-3 text-sm" style={{ fontFamily: "var(--font-body)" }}>
-            <a href={BUSINESS.phoneTel} onClick={() => trackPhoneClick("footer")} className="block hover:text-white transition-colors">📞 {BUSINESS.phone}</a>
-            <a
-              href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers, I need a quote")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("footer")}
-              className="block hover:text-white transition-colors"
-            >
-              💬 WhatsApp
-            </a>
-            <a href={`mailto:${BUSINESS.email}`} className="block hover:text-white transition-colors">📧 {BUSINESS.email}</a>
-            <p>📍 {BUSINESS.addressFull}</p>
-            <p>🕐 Mon–Sat: 9:00 AM – 7:00 PM</p>
-          </div>
+          <ul className="space-y-3 text-sm list-none p-0 m-0" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.9)" }}>
+            <li>
+              <a href={BUSINESS.phoneTel} onClick={() => trackPhoneClick("footer")} className="flex items-center gap-2 hover:text-white transition-colors">
+                <span className="text-white/70" aria-hidden>📞</span>
+                <span>{BUSINESS.phone}</span>
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${BUSINESS.email}`} className="flex items-center gap-2 hover:text-white transition-colors break-all">
+                <span className="text-white/70 shrink-0" aria-hidden>📧</span>
+                <span>{BUSINESS.email}</span>
+              </a>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-white/70 shrink-0" aria-hidden>📍</span>
+              <address className="not-italic leading-relaxed">
+                {BUSINESS.addressFull}
+              </address>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-white/70" aria-hidden>🕐</span>
+              <span>Mon–Sat: 9:00 AM – 7:00 PM</span>
+            </li>
+          </ul>
           <a
             href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers, I need a quote for ")}`}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("footer_cta")}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold text-white mt-3 transition-transform hover:scale-[1.03]"
-            style={{ backgroundColor: "var(--color-cta)", fontFamily: "var(--font-accent)" }}
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white mt-5 transition-transform hover:scale-[1.02] w-full sm:w-auto"
+            style={{ backgroundColor: "#25D366", fontFamily: "var(--font-accent)" }}
+            aria-label="Chat on WhatsApp"
           >
-            💬 WhatsApp Now
+            <span aria-hidden>💬</span>
+            WhatsApp Now
           </a>
         </div>
       </div>
 
       {/* Area-served blurb */}
       <p className="mt-10 pt-8 border-t border-white/10 text-sm text-white/70 max-w-3xl" style={{ fontFamily: "var(--font-body)" }}>
-        Serving throughout Chennai and Tamil Nadu. Walk-in orders welcome at No. 6, Saraswathy Colony, Pallavaram 600043. Near Pallavaram Railway Station.
+        Serving throughout Chennai and Tamil Nadu. Walk-in welcome. Near Pallavaram Railway Station.
       </p>
     </div>
 
