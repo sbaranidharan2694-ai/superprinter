@@ -30,8 +30,8 @@ const BULK_PRICING = [
 const WeddingCards = () => (
   <>
     <SEOHead
-      title="Wedding Card Printing Chennai | From ₹1,999 | Super Printers"
-      description="Beautiful wedding invitation printing in Chennai. Traditional Tamil, modern minimalist, laser-cut, foil options. From ₹1,999/100 cards. Super Printers Pallavaram."
+      title="Wedding Card Printing Chennai | Super Printers"
+      description="Beautiful wedding invitation printing in Chennai. Traditional Tamil, modern minimalist, laser-cut, foil options. Super Printers Pallavaram."
       canonical="/wedding-cards"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Products", url: "/products" }, { name: "Wedding Cards", url: "/wedding-cards" }]}
     />

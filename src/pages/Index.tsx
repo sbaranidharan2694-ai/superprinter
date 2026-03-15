@@ -20,7 +20,7 @@ const Index = () => (
   <div className="text-foreground bg-background overflow-x-hidden" style={{ fontFamily: "var(--font-body)" }}>
     <SEOHead
       title="Super Printers Chennai | Wedding Cards & Printing Press Since 1990 | Pallavaram"
-      description="Best printing press in Chennai since 1990. Wedding cards from ₹8, visiting cards from ₹149, brochures, offset & digital printing in Pallavaram. 48-hour delivery. Call +91 98401 99878."
+      description="Best printing press in Chennai since 1990. Wedding cards, visiting cards, brochures, offset & digital printing in Pallavaram. Call +91 98401 99878."
       canonical="/"
     />
     <HeroSection />

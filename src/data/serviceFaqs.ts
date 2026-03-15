@@ -12,7 +12,7 @@ const DEFAULT_FAQS: ServiceFaqItem[] = [
   },
   {
     name: "How long does printing take?",
-    acceptedAnswer: { text: "Standard turnaround is 48 hours for visiting cards and brochures. Wedding cards and bulk offset jobs take 3–7 days. Urgent same-day printing is available for select products—ask us on WhatsApp." },
+    acceptedAnswer: { text: "We deliver within 24 hours. WhatsApp us your requirements and we'll confirm the timeline." },
   },
   {
     name: "Do you provide design support?",

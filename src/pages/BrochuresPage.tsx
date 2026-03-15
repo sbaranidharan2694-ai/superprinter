@@ -3,16 +3,16 @@ import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 
 const SPEC_ROWS = [
-  { type: "Gloss Lam", paper: "130–170 GSM", finish: "Gloss Lam", minQty: "100 pcs", price: "₹499", delivery: "2-3 days" },
-  { type: "Matt Lam", paper: "130–170 GSM", finish: "Matt Lam", minQty: "100 pcs", price: "₹549", delivery: "2-3 days" },
-  { type: "No Lam", paper: "130 GSM", finish: "No Lam", minQty: "100 pcs", price: "₹399", delivery: "2-3 days" },
+  { type: "Gloss Lam", paper: "130–170 GSM", finish: "Gloss Lam", minQty: "100 pcs", delivery: "24 hours" },
+  { type: "Matt Lam", paper: "130–170 GSM", finish: "Matt Lam", minQty: "100 pcs", delivery: "24 hours" },
+  { type: "No Lam", paper: "130 GSM", finish: "No Lam", minQty: "100 pcs", delivery: "24 hours" },
 ];
 
 const BrochuresPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Brochure Printing Chennai Pallavaram | Trifold, Bifold | From ₹499 | Super Printers"
-      description="Brochure printing in Pallavaram, Chennai. Trifold & bifold, gloss or matt lamination. From ₹499 per 100. 2-3 day delivery. GST invoice. WhatsApp: +91 98401 99878."
+      title="Brochure Printing Chennai Pallavaram | Trifold, Bifold | Super Printers"
+      description="Brochure printing in Pallavaram, Chennai. Trifold & bifold, gloss or matt lamination. GST invoice. WhatsApp: +91 98401 99878."
       canonical="/brochures"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Brochures", url: "/brochures" }]}
     />
@@ -30,7 +30,7 @@ const BrochuresPage = () => (
             Brochure Printing in Pallavaram, Chennai
           </h1>
           <p className="font-ui text-lg text-gray-600 mb-6">
-            Trifold & bifold brochures from ₹499 per 100. Gloss or matt lamination. Full colour, 2-3 day delivery.
+            Trifold & bifold brochures. Gloss or matt lamination. Full colour.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -53,17 +53,15 @@ const BrochuresPage = () => (
         </header>
 
         <section className="mb-14">
-          <h2 className="font-display font-semibold text-xl text-ink-black mb-4">Specs &amp; Pricing</h2>
+          <h2 className="font-display font-semibold text-xl text-ink-black mb-4">Specs &amp; Options</h2>
           <div className="overflow-x-auto rounded-3xl border border-border-light shadow-card">
-            <table className="w-full min-w-[600px] text-left">
+            <table className="w-full min-w-[500px] text-left">
               <thead>
                 <tr style={{ backgroundColor: "var(--gold)" }}>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Type</th>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Paper</th>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Finish</th>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Min Qty</th>
-                  <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Price/100</th>
-                  <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Delivery</th>
                 </tr>
               </thead>
               <tbody>
@@ -73,13 +71,11 @@ const BrochuresPage = () => (
                     <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.paper}</td>
                     <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.finish}</td>
                     <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.minQty}</td>
-                    <td className="px-4 py-3 font-ui text-sm font-medium text-ink-black">{row.price}</td>
-                    <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.delivery}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <p className="px-4 py-2 text-xs font-ui text-gray-500 border-t border-border-light">Prices incl. GST. Final quote via WhatsApp.</p>
+            <p className="px-4 py-2 text-xs font-ui text-gray-500 border-t border-border-light">Quote via WhatsApp.</p>
           </div>
         </section>
 

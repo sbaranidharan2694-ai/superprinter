@@ -3,15 +3,15 @@ import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 
 const SPEC_ROWS = [
-  { type: "2-Part NCR", paper: "Carbonless", finish: "2-Part", minQty: "25 sets", price: "₹250", delivery: "3-4 days" },
-  { type: "3-Part NCR", paper: "Carbonless", finish: "3-Part", minQty: "25 sets", price: "₹320", delivery: "3-4 days" },
+  { type: "2-Part NCR", paper: "Carbonless", finish: "2-Part", minQty: "25 sets", delivery: "24 hours" },
+  { type: "3-Part NCR", paper: "Carbonless", finish: "3-Part", minQty: "25 sets", delivery: "24 hours" },
 ];
 
 const BillBooksPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="GST Bill Book Printing Chennai Tambaram | Carbonless NCR | From ₹250 | Super Printers"
-      description="Carbonless GST bill book printing in Chennai. 2-part and 3-part NCR bill books, serial numbered. From ₹250 for 25 sets. Pallavaram, Tambaram. Call +91 98401 99878."
+      title="GST Bill Book Printing Chennai Tambaram | Carbonless NCR | Super Printers"
+      description="Carbonless GST bill book printing in Chennai. 2-part and 3-part NCR bill books, serial numbered. Pallavaram, Tambaram. Call +91 98401 99878."
       canonical="/bill-books"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Bill Books", url: "/bill-books" }]}
     />
@@ -29,7 +29,7 @@ const BillBooksPage = () => (
             GST Bill Book Printing in Pallavaram, Chennai
           </h1>
           <p className="font-ui text-lg text-gray-600 mb-6">
-            Carbonless NCR bill books from ₹250 for 25 sets. 2-part and 3-part, serial numbered. GST-ready. 3-4 day delivery.
+            Carbonless NCR bill books. 2-part and 3-part, serial numbered. GST-ready.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -52,17 +52,15 @@ const BillBooksPage = () => (
         </header>
 
         <section className="mb-14">
-          <h2 className="font-display font-semibold text-xl text-ink-black mb-4">Specs &amp; Pricing</h2>
+          <h2 className="font-display font-semibold text-xl text-ink-black mb-4">Specs &amp; Options</h2>
           <div className="overflow-x-auto rounded-3xl border border-border-light shadow-card">
-            <table className="w-full min-w-[600px] text-left">
+            <table className="w-full min-w-[500px] text-left">
               <thead>
                 <tr style={{ backgroundColor: "var(--gold)" }}>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Type</th>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Paper</th>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Finish</th>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Min Qty</th>
-                  <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Price</th>
-                  <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Delivery</th>
                 </tr>
               </thead>
               <tbody>
@@ -72,13 +70,11 @@ const BillBooksPage = () => (
                     <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.paper}</td>
                     <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.finish}</td>
                     <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.minQty}</td>
-                    <td className="px-4 py-3 font-ui text-sm font-medium text-ink-black">{row.price}</td>
-                    <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.delivery}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <p className="px-4 py-2 text-xs font-ui text-gray-500 border-t border-border-light">Prices incl. GST. 5×8 inch (127×203mm). Serial numbering available.</p>
+            <p className="px-4 py-2 text-xs font-ui text-gray-500 border-t border-border-light">Quote via WhatsApp. 5×8 inch (127×203mm). Serial numbering available.</p>
           </div>
         </section>
 

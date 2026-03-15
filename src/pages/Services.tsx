@@ -63,7 +63,7 @@ const Services = () => {
                 <div className="p-5">
                   <h2 className="font-display text-lg font-bold text-foreground mb-2">{s.name}</h2>
                   <p className="text-muted-foreground text-sm mb-3">{s.shortDesc}</p>
-                  {s.startingPrice && <p className="text-secondary font-semibold text-sm mb-2">From {s.startingPrice}</p>}
+                  <p className="text-secondary font-semibold text-sm mb-2">{s.shortDesc}</p>
                   <span className="text-primary text-sm font-semibold group-hover:underline">View Details →</span>
                 </div>
               </Link>

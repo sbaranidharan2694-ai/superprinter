@@ -2,9 +2,9 @@ import { BUSINESS } from "@/data/business";
 
 const ROWS = [
   { feature: "Best For", offset: "500+ copies", digital: "Under 200 copies" },
-  { feature: "Cost Per Unit", offset: "Very low at scale", digital: "Fixed per unit" },
+  { feature: "Scale", offset: "High volume", digital: "Low volume" },
   { feature: "Quality", offset: "Premium, Pantone accurate", digital: "Good for photos" },
-  { feature: "Turnaround", offset: "2–3 days", digital: "Same day / 24 hrs" },
+  { feature: "Turnaround", offset: "Fast", digital: "Fast" },
   { feature: "Min. Quantity", offset: "100 pcs", digital: "1 pc" },
   { feature: "Paper Options", offset: "All types", digital: "Standard stocks" },
 ];

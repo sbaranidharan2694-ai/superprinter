@@ -3,15 +3,15 @@ import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 
 const SPEC_ROWS = [
-  { type: "Standard 90GSM", paper: "90 GSM Bond", finish: "Standard", minQty: "100 pcs", price: "₹299", delivery: "2-3 days" },
-  { type: "Premium 120GSM", paper: "120 GSM Bond", finish: "Premium", minQty: "100 pcs", price: "₹399", delivery: "2-3 days" },
+  { type: "Standard 90GSM", paper: "90 GSM Bond", finish: "Standard", minQty: "100 pcs", delivery: "24 hours" },
+  { type: "Premium 120GSM", paper: "120 GSM Bond", finish: "Premium", minQty: "100 pcs", delivery: "24 hours" },
 ];
 
 const LetterheadsPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Letterhead Printing Chennai Pallavaram | A4 Letterheads | From ₹299 | Super Printers"
-      description="Letterhead printing in Pallavaram, Chennai. 90 GSM & 120 GSM bond. From ₹299 per 100. 2-3 day delivery. GST invoice. Call +91 98401 99878."
+      title="Letterhead Printing Chennai Pallavaram | A4 Letterheads | Super Printers"
+      description="Letterhead printing in Pallavaram, Chennai. 90 GSM & 120 GSM bond. GST invoice. Call +91 98401 99878."
       canonical="/letterheads"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Letterheads", url: "/letterheads" }]}
     />
@@ -29,7 +29,7 @@ const LetterheadsPage = () => (
             Letterhead Printing in Pallavaram, Chennai
           </h1>
           <p className="font-ui text-lg text-gray-600 mb-6">
-            A4 letterheads from ₹299 per 100. 90 GSM and 120 GSM bond. Full colour. 2-3 day delivery.
+            A4 letterheads. 90 GSM and 120 GSM bond. Full colour.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -52,17 +52,15 @@ const LetterheadsPage = () => (
         </header>
 
         <section className="mb-14">
-          <h2 className="font-display font-semibold text-xl text-ink-black mb-4">Specs &amp; Pricing</h2>
+          <h2 className="font-display font-semibold text-xl text-ink-black mb-4">Specs &amp; Options</h2>
           <div className="overflow-x-auto rounded-3xl border border-border-light shadow-card">
-            <table className="w-full min-w-[600px] text-left">
+            <table className="w-full min-w-[500px] text-left">
               <thead>
                 <tr style={{ backgroundColor: "var(--gold)" }}>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Type</th>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Paper</th>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Finish</th>
                   <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Min Qty</th>
-                  <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Price/100</th>
-                  <th className="px-4 py-3 font-ui font-semibold text-ink-black text-sm">Delivery</th>
                 </tr>
               </thead>
               <tbody>
@@ -72,13 +70,11 @@ const LetterheadsPage = () => (
                     <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.paper}</td>
                     <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.finish}</td>
                     <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.minQty}</td>
-                    <td className="px-4 py-3 font-ui text-sm font-medium text-ink-black">{row.price}</td>
-                    <td className="px-4 py-3 font-ui text-sm text-gray-700">{row.delivery}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <p className="px-4 py-2 text-xs font-ui text-gray-500 border-t border-border-light">Prices incl. GST. Final quote via WhatsApp.</p>
+            <p className="px-4 py-2 text-xs font-ui text-gray-500 border-t border-border-light">Quote via WhatsApp.</p>
           </div>
         </section>
 

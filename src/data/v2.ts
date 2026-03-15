@@ -4,8 +4,8 @@ export const MARQUEE_ITEMS = [
   "📞 +91 98401 99878",
   "Est. 1990 — 35 Years of Quality",
   "Trusted by Wipro & TTK",
-  "Wedding Cards from ₹8/card",
-  "48-Hour Delivery Guarantee",
+  "Wedding Cards",
+  "Fast Turnaround",
   "⭐ 4.8 on Google",
   "10,000+ Happy Customers",
   "GST Registered Business",
@@ -26,10 +26,10 @@ export const HERO = {
 };
 
 export const HERO_PRODUCTS = [
-  { name: "Wedding Cards", price: "From ₹8", img: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" },
-  { name: "Visiting Cards", price: "From ₹149", img: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80" },
-  { name: "Brochures", price: "From ₹3.50", img: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80" },
-  { name: "Bill Books", price: "From ₹299", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80" },
+  { name: "Wedding Cards", img: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" },
+  { name: "Visiting Cards", img: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80" },
+  { name: "Brochures", img: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80" },
+  { name: "Bill Books", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80" },
 ];
 
 export const SOCIAL_PROOF_STATS = [
@@ -37,26 +37,26 @@ export const SOCIAL_PROOF_STATS = [
   { value: "10,000+", label: "Happy Clients" },
   { value: "4.8 ⭐", label: "Google Rating" },
   { value: "147", label: "Reviews" },
-  { value: "48hr", label: "Delivery" },
+  { value: "Fast", label: "Delivery" },
 ];
 
 export const PRODUCT_TABS = ["All", "Corporate", "Personal", "Events"] as const;
 
 export const PRODUCTS = [
-  { name: "Visiting Cards", price: "From ₹149", category: "Corporate", img: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80", delivery: "48hr" },
-  { name: "Letterheads", price: "From ₹2.50", category: "Corporate", img: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80", delivery: "48hr" },
-  { name: "Brochures", price: "From ₹3.50", category: "Corporate", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80", delivery: "48hr" },
-  { name: "Bill Books", price: "From ₹299", category: "Corporate", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80", delivery: "3 days" },
-  { name: "Wedding Cards", price: "From ₹8/card", category: "Events", img: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80", delivery: "5 days" },
-  { name: "Pamphlets", price: "From ₹1.50", category: "Corporate", img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&q=80", delivery: "48hr" },
-  { name: "Banners", price: "From ₹499", category: "Events", img: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=400&q=80", delivery: "24hr" },
-  { name: "Stickers", price: "From ₹199", category: "Personal", img: "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=400&q=80", delivery: "48hr" },
-  { name: "Catalogues", price: "From ₹25", category: "Corporate", img: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=400&q=80", delivery: "5 days" },
-  { name: "T-Shirts", price: "From ₹199", category: "Personal", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80", delivery: "3 days" },
-  { name: "Rubber Stamps", price: "From ₹149", category: "Corporate", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&q=80", delivery: "24hr" },
-  { name: "PVC ID Cards", price: "From ₹49", category: "Corporate", img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80", delivery: "48hr" },
-  { name: "Screen Printing", price: "From ₹5/pc", category: "Personal", img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80", delivery: "3 days" },
-  { name: "Offset Printing", price: "Custom Quote", category: "Corporate", img: "https://images.unsplash.com/photo-1504270997636-07ddfbd48945?w=400&q=80", delivery: "5 days" },
+  { name: "Visiting Cards", category: "Corporate", img: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80", delivery: "24hr" },
+  { name: "Letterheads", category: "Corporate", img: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80", delivery: "24hr" },
+  { name: "Brochures", category: "Corporate", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80", delivery: "24hr" },
+  { name: "Bill Books", category: "Corporate", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80", delivery: "24hr" },
+  { name: "Wedding Cards", category: "Events", img: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80", delivery: "24hr" },
+  { name: "Pamphlets", category: "Corporate", img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&q=80", delivery: "24hr" },
+  { name: "Banners", category: "Events", img: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=400&q=80", delivery: "24hr" },
+  { name: "Stickers", category: "Personal", img: "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=400&q=80", delivery: "24hr" },
+  { name: "Catalogues", category: "Corporate", img: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=400&q=80", delivery: "24hr" },
+  { name: "T-Shirts", category: "Personal", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80", delivery: "24hr" },
+  { name: "Rubber Stamps", category: "Corporate", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&q=80", delivery: "24hr" },
+  { name: "PVC ID Cards", category: "Corporate", img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80", delivery: "24hr" },
+  { name: "Screen Printing", category: "Personal", img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80", delivery: "24hr" },
+  { name: "Offset Printing", category: "Corporate", img: "https://images.unsplash.com/photo-1504270997636-07ddfbd48945?w=400&q=80", delivery: "24hr" },
 ];
 
 export const WEDDING_IMAGES = [
@@ -69,7 +69,7 @@ export const WEDDING_FEATURES = [
   "Hindu · Christian · Muslim · Modern designs",
   "Tamil, English & Bilingual available",
   "Free design proof within 24 hours",
-  "Delivery in 3–5 working days",
+  "Fast turnaround",
   "Minimum order: 100 cards",
   "Customised envelopes available",
 ];
@@ -87,7 +87,7 @@ export const PROCESS_STEPS = [
   { step: 1, title: "💬 WhatsApp Us", time: "2 minutes", desc: "Send your requirements on WhatsApp. Include quantity, size, and any design files." },
   { step: 2, title: "🎨 Free Design Proof", time: "Within 24 hours", desc: "Our designer creates your proof. Free revisions until you're 100% satisfied." },
   { step: 3, title: "✅ You Approve", time: "Same day", desc: "Review the digital proof and give us the green light to start printing." },
-  { step: 4, title: "📦 Print & Deliver", time: "48 hours", desc: "Your order is printed, quality-checked, and ready for pickup or delivery." },
+  { step: 4, title: "📦 Print & Deliver", time: "24 hours", desc: "Your order is printed, quality-checked, and ready for pickup or delivery within 24 hours." },
 ];
 
 export const TESTIMONIALS = [
@@ -100,13 +100,13 @@ export const TESTIMONIALS = [
 ];
 
 export const FAQ_ITEMS = [
-  { q: "What is the minimum order for visiting cards?", a: "We print visiting cards starting from just 100 cards. Prices start at ₹149 for 100 cards with standard finish. Premium finishes like Spot UV, Velvet, and Gold Foil are available at additional cost." },
-  { q: "How long does printing take?", a: "Business cards and letterheads: 48 hours. Brochures: 2–3 days. Wedding cards: 3–5 working days. Same-day printing is available for urgent orders — WhatsApp us before 12PM." },
+  { q: "What is the minimum order for visiting cards?", a: "We print visiting cards starting from just 100 cards. Standard and premium finishes like Spot UV, Velvet, and Gold Foil available. WhatsApp us for a quote." },
+  { q: "How long does printing take?", a: "We deliver within 24 hours. WhatsApp us your requirements and we'll confirm the timeline." },
   { q: "Do you offer design services?", a: "Yes! Wedding card design is free with your order. For other products, we offer professional design services at a small fee, or you can send your own print-ready file." },
   { q: "Can I see a proof before printing?", a: "Absolutely. We send a digital proof via WhatsApp before we start printing. You can request unlimited revisions until you're 100% happy with the design." },
   { q: "Do you deliver outside Pallavaram?", a: "Yes. We serve all of Chennai and ship across Tamil Nadu. Local pickup from our Pallavaram shop is also available at no extra cost." },
   { q: "How do I place an order from outside Pallavaram?", a: "Simply WhatsApp us your requirements and design files. We'll send a digital proof, and once approved, we can ship your order or arrange pickup. We serve all of Chennai." },
-  { q: "Do you offer bulk discounts for 1,000+ cards?", a: "Yes! We offer tiered pricing for bulk orders. WhatsApp us with your quantity for a custom quote." },
+  { q: "Do you offer bulk discounts for 1,000+ cards?", a: "Yes! WhatsApp us with your quantity for a custom quote." },
   { q: "Can you print in Tamil script?", a: "Absolutely. We print in Tamil, English, Hindi, Telugu, and bilingual formats. We specialise in Tamil wedding invitations." },
   { q: "Do you design the cards or do I need to send a file?", a: "Both options are available. We offer free design for wedding cards. For other products, we can design for a small fee or use your print-ready file." },
   { q: "Do you provide a GST invoice?", a: "Yes. We are a GST-registered business and provide GST invoices for all corporate orders." },

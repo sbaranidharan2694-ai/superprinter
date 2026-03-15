@@ -27,12 +27,7 @@ const ServiceDetail = () => {
     "@type": "Product",
     "name": `${service.name} — Super Printers Chennai`,
     "description": service.seoDescription,
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "INR",
-      "price": service.startingPrice?.replace(/[^\d]/g, "") || "0",
-      "availability": "https://schema.org/InStock",
-    },
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" },
   };
 
   const serviceSchema = {
@@ -42,12 +37,7 @@ const ServiceDetail = () => {
     "description": service.seoDescription,
     "provider": { "@type": "LocalBusiness", "name": BUSINESS.shortName, "url": BUSINESS.siteUrl },
     "areaServed": ["Chennai", "Tamil Nadu"],
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "INR",
-      "price": service.startingPrice?.replace(/[^\d]/g, "") || "0",
-      "availability": "https://schema.org/InStock",
-    },
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" },
   };
 
   const faqPageSchema = getFaqPageSchema(service.slug);
@@ -83,9 +73,6 @@ const ServiceDetail = () => {
                 <h1 className="font-display text-3xl md:text-5xl font-black leading-tight" style={{ color: "var(--color-primary)" }}>
                   {service.name} in Chennai
                 </h1>
-                {service.startingPrice && (
-                  <p className="text-lg font-body mt-2" style={{ color: "#4B5563" }}>Starting from {service.startingPrice}</p>
-                )}
                 {(() => {
                   const now = new Date();
                   const isBeforeNoon = now.getHours() < 12;
@@ -141,7 +128,6 @@ const ServiceDetail = () => {
                       <tr style={{ backgroundColor: "var(--color-primary)", color: "#FFFFFF" }}>
                         <th className="text-left px-4 py-3 font-semibold">Paper / Finish</th>
                         <th className="text-left px-4 py-3 font-semibold">Quantity</th>
-                        <th className="text-left px-4 py-3 font-semibold">Starting Price</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -149,14 +135,13 @@ const ServiceDetail = () => {
                         <tr key={i} className="border-t border-border">
                           <td className="px-4 py-3 text-card-foreground">{row.paper}</td>
                           <td className="px-4 py-3 text-muted-foreground">{row.quantity}</td>
-                          <td className="px-4 py-3 font-bold text-secondary">{row.price}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
                 <p className="text-muted-foreground text-xs font-body mb-12">
-                  Final prices depend on paper, finish, and quantity. WhatsApp us for exact quote.
+                  WhatsApp us for a quote.
                 </p>
               </>
             )}

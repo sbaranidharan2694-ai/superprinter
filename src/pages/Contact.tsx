@@ -165,7 +165,7 @@ const Contact = () => {
                 <div className="flex items-start gap-3">
                   <span className="text-2xl" aria-hidden="true">🚚</span>
                   <p className="text-muted-foreground text-sm font-body leading-relaxed">
-                    We offer home delivery and courier dispatch throughout Chennai and Tamil Nadu. Free delivery for orders above ₹2,000. WhatsApp us to confirm delivery charges for your area.
+                    We offer home delivery and courier dispatch throughout Chennai and Tamil Nadu. WhatsApp us to confirm delivery for your area.
                   </p>
                 </div>
               </div>

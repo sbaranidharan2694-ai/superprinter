@@ -23,11 +23,9 @@ const ProductsSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {filtered.map((product, i) => (
             <motion.div key={product.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="product-card group relative">
-              <span className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full text-[11px] font-bold" style={{ backgroundColor: "var(--gold)", color: "var(--color-primary)", fontFamily: "var(--font-accent)" }}>{product.delivery}</span>
               <div className="product-card-image"><img src={product.img} alt={product.name} loading="lazy" /></div>
               <div className="p-4">
                 <h3 className="font-display font-bold text-base mb-1" style={{ color: "var(--color-primary)" }}>{product.name}</h3>
-                <p className="text-sm font-bold mb-2" style={{ color: "var(--gold)", fontFamily: "var(--font-accent)" }}>{product.price}</p>
                 <a href={`${BUSINESS.whatsappQuote}${encodeURIComponent(product.name)}`} target="_blank" rel="noopener noreferrer" className="text-xs font-medium hover:underline" style={{ color: "var(--color-cta)", fontFamily: "var(--font-body)" }}>💬 Order on WhatsApp</a>
               </div>
             </motion.div>

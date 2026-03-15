@@ -6,12 +6,12 @@ import { IMG } from "@/data/images";
 import { BUSINESS } from "@/data/business";
 
 const CARD_TYPES = [
-  { name: "Gloss Lamination", spec: "300 GSM Art Card", price: "₹299/100 pcs", days: "1-2 Days", img: IMG.glossCard },
-  { name: "Matt Lamination", spec: "300 GSM Art Card", price: "₹299/100 pcs", days: "1-2 Days", img: IMG.mattCard },
-  { name: "Spot UV", spec: "300 GSM Art Card", price: "₹499/100 pcs", days: "6-10 Days", img: IMG.spotUvCard },
-  { name: "Velvet Lamination", spec: "400 GSM Art Card", price: "₹799/100 pcs", days: "10-15 Days", img: IMG.velvetCard },
-  { name: "Gold Foil Stamping", spec: "400 GSM + Foil", price: "₹999/100 pcs", days: "10-15 Days", img: IMG.goldFoilCard },
-  { name: "Synthetic (Non-Tear)", spec: "Non-Tearable Paper", price: "₹499/100 pcs", days: "2-4 Days", img: IMG.syntheticCard },
+  { name: "Gloss Lamination", spec: "300 GSM Art Card", img: IMG.glossCard },
+  { name: "Matt Lamination", spec: "300 GSM Art Card", img: IMG.mattCard },
+  { name: "Spot UV", spec: "300 GSM Art Card", img: IMG.spotUvCard },
+  { name: "Velvet Lamination", spec: "400 GSM Art Card", img: IMG.velvetCard },
+  { name: "Gold Foil Stamping", spec: "400 GSM + Foil", img: IMG.goldFoilCard },
+  { name: "Synthetic (Non-Tear)", spec: "Non-Tearable Paper", img: IMG.syntheticCard },
 ];
 
 const MATERIALS = [
@@ -23,8 +23,8 @@ const MATERIALS = [
 
 const FAQ = [
   { q: "What is the minimum order quantity?", a: "Minimum order is 100 visiting cards." },
-  { q: "Can I get a sample before bulk order?", a: "Yes, we offer sample prints for ₹99 (adjusted against bulk order)." },
-  { q: "Do you offer design services?", a: "Yes, our in-house design team can create your card design at no extra charge for orders above ₹500." },
+  { q: "Can I get a sample before bulk order?", a: "Yes, we offer sample prints. WhatsApp us for details." },
+  { q: "Do you offer design services?", a: "Yes, our in-house design team can create your card design. WhatsApp us for a quote." },
   { q: "What file formats do you accept?", a: "We accept PDF, CDR (CorelDRAW), AI (Illustrator), and high-resolution JPG/PNG files." },
   { q: "What is the standard card size?", a: "Standard visiting card size is 90×53mm (3.5×2 inches)." },
 ];
@@ -32,8 +32,8 @@ const FAQ = [
 const VisitingCards = () => (
   <>
     <SEOHead
-      title="Visiting Card Printing Chennai | From ₹299 | Super Printers"
-      description="Premium visiting card printing in Chennai. Gloss, Matt, Spot UV, Velvet, Gold Foil options from ₹299/100 pcs. 1-2 day delivery. Super Printers Pallavaram."
+      title="Visiting Card Printing Chennai | Super Printers"
+      description="Premium visiting card printing in Chennai. Gloss, Matt, Spot UV, Velvet, Gold Foil options. Super Printers Pallavaram."
       canonical="/visiting-cards"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Products", url: "/products" }, { name: "Visiting Cards", url: "/visiting-cards" }]}
     />
@@ -52,10 +52,7 @@ const VisitingCards = () => (
               <div className="p-5">
                 <h3 className="font-display font-bold text-lg text-foreground mb-1">{card.name}</h3>
                 <p className="text-muted-foreground text-xs mb-3">{card.spec}</p>
-                <div className="flex items-center justify-between">
-                  <span className="font-display font-bold text-primary text-lg">{card.price}</span>
-                  <span className="bg-primary/10 text-primary text-[10px] font-semibold px-3 py-1 rounded-full">{card.days}</span>
-                </div>
+                <a href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(`Hi! I need ${card.name} visiting cards. Please quote.`)}`} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-primary hover:underline">Get quote →</a>
               </div>
             </div>
           ))}
@@ -63,18 +60,16 @@ const VisitingCards = () => (
       </div>
     </section>
 
-    {/* Pricing Table */}
+    {/* Options Table */}
     <section className="py-16 px-6 bg-accent">
       <div className="max-w-4xl mx-auto">
-        <h2 className="font-display font-black text-3xl text-foreground mb-8 text-center">Pricing</h2>
+        <h2 className="font-display font-black text-3xl text-foreground mb-8 text-center">Options</h2>
         <div className="bg-card rounded-2xl border border-border overflow-hidden">
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
                 <th className="text-left p-4 text-sm font-semibold text-foreground">Type</th>
                 <th className="text-left p-4 text-sm font-semibold text-foreground">Spec</th>
-                <th className="text-right p-4 text-sm font-semibold text-foreground">Price</th>
-                <th className="text-right p-4 text-sm font-semibold text-foreground hidden sm:table-cell">Delivery</th>
               </tr>
             </thead>
             <tbody>
@@ -82,13 +77,12 @@ const VisitingCards = () => (
                 <tr key={i} className="border-b border-border last:border-0 hover:bg-accent/50 transition-colors">
                   <td className="p-4 text-sm text-foreground font-medium">{card.name}</td>
                   <td className="p-4 text-sm text-muted-foreground">{card.spec}</td>
-                  <td className="p-4 text-sm text-primary font-semibold text-right">{card.price}</td>
-                  <td className="p-4 text-sm text-muted-foreground text-right hidden sm:table-cell">{card.days}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <p className="text-center text-sm text-muted-foreground mt-4">Quote via WhatsApp.</p>
       </div>
     </section>
 

@@ -1,7 +1,7 @@
 const BADGES = [
   "⭐ 4.8 Google Rating (147 Reviews)",
   "🏅 Est. 1990 — 35 Years",
-  "📦 48-Hour Delivery",
+  "📦 Delivered Within 24 Hours",
   "🧾 GST Invoice Included",
   "✅ 10,000+ Happy Customers",
   "💬 WhatsApp Ordering",

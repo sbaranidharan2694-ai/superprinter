@@ -48,8 +48,8 @@ function CatalogProductCard({ product }: { product: CatalogProduct }) {
       <div className="p-4">
         <h3 className="font-semibold text-foreground text-sm mb-1 line-clamp-2">{product.name}</h3>
         <p className="text-muted-foreground text-xs mb-2">{product.specs}</p>
-        <p className="font-bold text-lg mb-3" style={{ color: "var(--gold, #D4A843)" }}>
-          {product.price}
+        <p className="font-medium text-sm mb-3 text-muted-foreground">
+          Quote on WhatsApp
         </p>
         <a
           href={waUrl}
