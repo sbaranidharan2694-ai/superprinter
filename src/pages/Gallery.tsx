@@ -1,111 +1,181 @@
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
+import { trackWhatsAppClick } from "@/utils/analytics";
 import { useInView } from "@/hooks/useInView";
-
-const galleryItems = [
-  { emoji: "📇", label: "Business Cards", desc: "Premium visiting card samples", wa: "Hi, I need visiting card printing" },
-  { emoji: "💌", label: "Wedding Invitations", desc: "Traditional & modern designs", wa: "Hi, I need wedding invitation printing" },
-  { emoji: "📖", label: "Brochures", desc: "Marketing collateral samples", wa: "Hi, I need brochure printing" },
-  { emoji: "🧾", label: "Bill Books", desc: "GST-compliant NCR books", wa: "Hi, I need bill book printing" },
-  { emoji: "📄", label: "Letterheads", desc: "Corporate stationery", wa: "Hi, I need letterhead printing" },
-  { emoji: "🏗️", label: "Banners", desc: "Flex & vinyl banners", wa: "Hi, I need banner printing" },
-  { emoji: "👕", label: "T-Shirts", desc: "Custom printed apparel", wa: "Hi, I need T-shirt printing" },
-  { emoji: "🔏", label: "Rubber Stamps", desc: "Self-inking & wooden stamps", wa: "Hi, I need rubber stamp" },
-  { emoji: "🏷️", label: "Stickers & Labels", desc: "Product labels & die-cuts", wa: "Hi, I need sticker printing" },
-  { emoji: "📋", label: "Catalogues", desc: "Product & menu booklets", wa: "Hi, I need catalogue printing" },
-  { emoji: "⚙️", label: "Offset Printing", desc: "Bulk commercial prints", wa: "Hi, I need offset printing" },
-  { emoji: "🎨", label: "Screen Printing", desc: "Bags, banners & merchandise", wa: "Hi, I need screen printing" },
-];
+import {
+  GALLERY_IMAGES,
+  GALLERY_CATEGORIES,
+  type GalleryCategory,
+} from "@/data/gallery";
 
 const corporateClients = [
-  { name: "Wipro Limited", monogram: "W", desc: "Corporate stationery, ID cards & branded materials", bg: "bg-navy" },
-  { name: "Reliance Smart Bazaar", monogram: "R", desc: "Retail signage, banners & promotional prints", bg: "bg-navy" },
-  { name: "Fujitec", monogram: "F", desc: "Technical manuals, letterheads & visiting cards", bg: "bg-navy" },
-  { name: "NK Grand Palace", monogram: "NK", desc: "Event invitations, menus & wedding stationery", bg: "bg-navy" },
+  { name: "Reliance", monogram: "R", desc: "Corporate stationery, ID cards & branded materials" },
+  { name: "Fujitec", monogram: "F", desc: "Technical manuals, letterheads & visiting cards" },
+  { name: "BHARAT PETROLEUM", monogram: "BP", desc: "Retail signage, promotional prints" },
+  { name: "GTK Foundation", monogram: "GTK", desc: "Event invitations, letterheads & brochures" },
 ];
 
 const serviceLinks = [
-  { emoji: "📇", name: "Visiting Cards", slug: "visiting-cards" },
-  { emoji: "💌", name: "Wedding Invitations", slug: "wedding-invitations" },
-  { emoji: "📖", name: "Brochures", slug: "brochure-printing" },
-  { emoji: "🏗️", name: "Banners", slug: "banner-printing" },
-  { emoji: "🧾", name: "Bill Books", slug: "bill-books" },
-  { emoji: "👕", name: "T-Shirts", slug: "t-shirt-printing" },
+  { emoji: "📇", name: "Visiting Cards", to: "/visiting-cards" },
+  { emoji: "💌", name: "Wedding Cards", to: "/wedding-cards" },
+  { emoji: "📖", name: "Brochures", to: "/brochures" },
+  { emoji: "🧾", name: "Bill Books", to: "/bill-books" },
+  { emoji: "📄", name: "Letterheads", to: "/letterheads" },
+  { emoji: "📋", name: "Catalogues", to: "/products" },
 ];
 
 const Gallery = () => {
-  const { ref, isVisible } = useInView();
+  const [category, setCategory] = useState<GalleryCategory>("All");
+  const ref = useInView().ref;
+
+  const filteredImages = useMemo(
+    () =>
+      category === "All"
+        ? GALLERY_IMAGES
+        : GALLERY_IMAGES.filter((img) => img.category === category),
+    [category]
+  );
 
   return (
     <>
       <SEOHead
         title="Printing Portfolio Chennai | Our Work | Super Printers Pallavaram"
-        description="Browse Super Printers' printing portfolio — visiting cards, wedding invitations, brochures, banners and more. Serving Chennai since 1990."
+        description="Browse Super Printers' printing portfolio — visiting cards, wedding invitations, brochures, bill books, letterheads and more. Serving Chennai since 1990."
         canonical="/gallery"
-        keywords="printing portfolio chennai, printing samples pallavaram, super printers work"
+        keywords="printing portfolio chennai, printing samples pallavaram, super printers work, wedding cards, visiting cards gallery"
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Gallery", url: "/gallery" },
         ]}
       />
       <main>
-        <section ref={ref} className={`py-16 md:py-24 bg-background transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="max-w-5xl mx-auto px-4 text-center">
-            <h1 className="font-display text-3xl md:text-5xl font-black text-foreground mb-4">Printing Portfolio — Super Printers Chennai</h1>
-            <p className="text-muted-foreground font-body mb-6">A showcase of our printing excellence across Chennai.</p>
-
-            <h2 className="font-display text-2xl font-bold text-foreground mb-8">Browse Our Work by Category</h2>
-
-            {/* Info box */}
-            <div className="bg-muted/50 border border-border rounded-xl p-4 mb-10 text-left">
-              <h2 className="font-display text-lg font-bold text-foreground mb-1">Upload Your Own Photos</h2>
-              <p className="text-muted-foreground text-sm font-body">
-                These are placeholder layouts. To add your real portfolio photos, replace the image slots in the code with your actual JPG/PNG files.
+        <section
+          ref={ref}
+          className="py-12 md:py-20 bg-background"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            {/* Header */}
+            <div className="text-center mb-10">
+              <h1 className="font-display text-3xl md:text-4xl font-black text-foreground mb-3">
+                Printing Portfolio
+              </h1>
+              <p className="text-muted-foreground font-body max-w-2xl mx-auto">
+                A showcase of our printing work — wedding cards, visiting cards, brochures, bill books, letterheads and more. Serving Chennai and Tamil Nadu.
               </p>
             </div>
 
-            {/* Gallery grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {galleryItems.map((item) => (
-                <div key={item.label} className="aspect-square rounded-xl navy-gradient flex items-center justify-center text-center p-6">
-                  <div>
-                    <div className="text-5xl mb-3" aria-hidden="true">{item.emoji}</div>
-                    <h3 className="text-primary-foreground/90 text-sm font-display font-bold mb-1">{item.label}</h3>
-                    <p className="text-primary-foreground/50 text-xs font-body mb-2">{item.desc}</p>
-                    <p className="text-primary-foreground/30 text-[11px] font-body mb-3">Sample photos available on request — WhatsApp us</p>
-                    <a
-                      href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(item.wa)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="wa-button inline-block px-3 py-1.5 rounded-lg text-[11px] font-semibold"
-                    >
-                      Get Quote →
-                    </a>
-                  </div>
-                </div>
+            {/* Category filter */}
+            <div className="flex flex-wrap justify-center gap-2 mb-10">
+              {GALLERY_CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setCategory(cat)}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                    category === cat
+                      ? "bg-[var(--color-primary)] text-white shadow-md"
+                      : "bg-muted/80 text-muted-foreground hover:bg-muted hover:text-foreground"
+                  }`}
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  {cat}
+                </button>
               ))}
             </div>
 
-            {/* Corporate clients work */}
-            <div className="mt-16">
-              <h2 className="font-display text-2xl font-bold text-foreground mb-6">Work Done for Our Corporate Clients</h2>
+            {/* Image grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
+              <AnimatePresence mode="popLayout">
+                {filteredImages.map((item, i) => (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.2, delay: i % 20 * 0.02 }}
+                    className="group relative aspect-square rounded-2xl overflow-hidden bg-muted shadow-sm"
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      onError={(e) => {
+                        const t = e.currentTarget;
+                        if (t.dataset.fallback) return;
+                        t.dataset.fallback = "1";
+                        t.src = "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=600&q=80";
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
+                      <p className="text-white text-sm font-semibold line-clamp-2" style={{ fontFamily: "var(--font-body)" }}>
+                        {item.alt}
+                      </p>
+                      <span
+                        className="inline-flex text-xs font-bold px-2 py-0.5 rounded-full mt-2 w-fit"
+                        style={{ backgroundColor: "var(--gold)", color: "var(--color-primary)" }}
+                      >
+                        {item.category}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+
+            {filteredImages.length === 0 && (
+              <p className="text-center text-muted-foreground py-12 font-body">No images in this category.</p>
+            )}
+
+            {/* CTA strip */}
+            <div className="mt-12 text-center">
+              <p className="text-foreground font-body mb-4">Need something similar? Get a quote on WhatsApp.</p>
+              <a
+                href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers, I'd like a quote for printing.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("gallery_cta")}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-bold text-sm transition-transform hover:scale-[1.02]"
+                style={{ backgroundColor: "#25D366", fontFamily: "var(--font-accent)" }}
+                aria-label="Get quote on WhatsApp"
+              >
+                💬 Get Quote on WhatsApp
+              </a>
+            </div>
+
+            {/* Corporate clients */}
+            <div className="mt-20">
+              <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-6 text-center">
+                Trusted by Leading Brands
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {corporateClients.map((c) => (
-                  <div key={c.name} className="p-6 rounded-xl navy-gradient text-left flex items-start gap-4">
-                    <div className="w-14 h-14 shrink-0 rounded-full bg-gold/20 flex items-center justify-center">
-                      <span className="font-display text-xl font-bold text-gold-light">{c.monogram}</span>
+                  <div
+                    key={c.name}
+                    className="p-6 rounded-2xl border border-border bg-card flex items-start gap-4"
+                  >
+                    <div
+                      className="w-14 h-14 shrink-0 rounded-full flex items-center justify-center text-white font-display text-lg font-bold"
+                      style={{ backgroundColor: "var(--color-primary)" }}
+                    >
+                      {c.monogram}
                     </div>
                     <div>
-                      <h3 className="font-display text-lg font-bold text-primary-foreground mb-1">{c.name}</h3>
-                      <p className="text-primary-foreground/60 text-sm font-body mb-3">{c.desc}</p>
+                      <h3 className="font-display font-bold text-foreground mb-1">{c.name}</h3>
+                      <p className="text-muted-foreground text-sm font-body mb-3">{c.desc}</p>
                       <a
                         href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(`Hi, I need similar printing work as done for ${c.name}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="wa-button inline-block px-3 py-1.5 rounded-lg text-[11px] font-semibold"
+                        onClick={() => trackWhatsAppClick("gallery_corporate")}
+                        className="inline-flex items-center gap-1 text-sm font-semibold"
+                        style={{ color: "var(--color-primary)", fontFamily: "var(--font-accent)" }}
                       >
-                        Get Similar Work →
+                        Get similar work →
                       </a>
                     </div>
                   </div>
@@ -115,10 +185,16 @@ const Gallery = () => {
 
             {/* Service links */}
             <div className="mt-16">
-              <h2 className="font-display text-2xl font-bold text-foreground mb-6">Ready to Order? Explore Our Services</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              <h2 className="font-display text-xl font-bold text-foreground mb-6 text-center">
+                Explore Our Services
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 {serviceLinks.map((s) => (
-                  <Link key={s.slug} to={`/services/${s.slug}`} className="p-4 rounded-xl bg-card border border-border card-lift text-center">
+                  <Link
+                    key={s.to}
+                    to={s.to}
+                    className="p-4 rounded-xl bg-card border border-border hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all text-center"
+                  >
                     <span className="text-2xl block mb-2" aria-hidden="true">{s.emoji}</span>
                     <span className="font-body font-semibold text-xs text-card-foreground">{s.name}</span>
                   </Link>

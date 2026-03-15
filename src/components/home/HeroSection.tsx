@@ -27,7 +27,13 @@ const HeroSection = () => (
           <div className="grid grid-cols-2 gap-3">
             {HERO_PRODUCTS.map((product, i) => (
               <motion.div key={product.name} initial={{ opacity: 0, x: 24, scale: 0.95 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }} className="hero-product-card group relative rounded-2xl overflow-hidden aspect-square cursor-pointer">
-                <img src={product.img} alt={product.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading={i < 2 ? "eager" : "lazy"} />
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading={i < 2 ? "eager" : "lazy"}
+                  onError={(e) => { const t = e.currentTarget; if (t.dataset.fallback) return; t.dataset.fallback = "1"; t.src = "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80"; }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <p className="text-white font-semibold text-sm" style={{ fontFamily: "var(--font-body)" }}>{product.name}</p>

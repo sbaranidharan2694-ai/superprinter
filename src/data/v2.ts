@@ -27,7 +27,7 @@ export const HERO = {
 
 export const HERO_PRODUCTS = [
   { name: "Wedding Cards", img: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" },
-  { name: "Visiting Cards", img: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80" },
+  { name: "Visiting Cards", img: "/images/hero-visiting-cards.png" },
   { name: "Brochures", img: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80" },
   { name: "Bill Books", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80" },
 ];
