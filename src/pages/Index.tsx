@@ -1,11 +1,14 @@
 import SEOHead from "@/components/SEOHead";
 import HeroSection from "@/components/home/HeroSection";
+import TrustBadgesStrip from "@/components/home/TrustBadgesStrip";
 import SocialProofBar from "@/components/home/SocialProofBar";
 import ProductsSection from "@/components/home/ProductsSection";
+import ComparisonTableSection from "@/components/home/ComparisonTableSection";
 import WeddingCardsSection from "@/components/home/WeddingCardsSection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
 import PortfolioSection from "@/components/home/PortfolioSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
+import PartnerSection from "@/components/home/PartnerSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
 import QuoteFormSection from "@/components/home/QuoteFormSection";
 import AboutSection from "@/components/home/AboutSection";
@@ -27,6 +30,7 @@ const Index = () => (
     <WhyChooseUsSection />
     <PortfolioSection />
     <HowItWorksSection />
+    <PartnerSection />
     <SocialProofSection />
     <QuoteFormSection />
     <AboutSection />

@@ -101,7 +101,72 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://superprinter.lovable.app/tambaram-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/chromepet-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/pammal-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/perungalathur-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://superprinter.lovable.app/printing-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/blog/how-to-choose-visiting-card-finish</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/blog/wedding-card-printing-guide-chennai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/blog/offset-vs-digital-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/blog/gst-bill-book-printing-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/blog/bulk-printing-discounts-chennai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/blog/how-to-prepare-files-for-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/blog/gsm-paper-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/blog/spot-uv-vs-foil</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -13,9 +13,12 @@ const SocialProofSection = () => (
         <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
           CUSTOMER REVIEWS
         </p>
-        <h2 className="font-display font-bold text-3xl md:text-4xl" style={{ color: "var(--color-primary)" }}>
+        <h2 className="font-display font-bold text-3xl md:text-4xl mb-3" style={{ color: "var(--color-primary)" }}>
           What Our Customers Say
         </h2>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-amber-50 text-sm font-bold" style={{ color: "var(--color-primary)" }}>
+          4.8 ★ on Google
+        </span>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -60,7 +63,7 @@ const SocialProofSection = () => (
         className="text-center mt-10"
       >
         <a
-          href="https://g.page/r/super-printers/review"
+          href="https://www.google.com/maps/search/?api=1&query=Super+printers+and+wedding+cards"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 text-sm font-semibold transition-colors hover:bg-white"
@@ -70,7 +73,7 @@ const SocialProofSection = () => (
             fontFamily: "var(--font-accent)",
           }}
         >
-          ⭐ Read All 147 Reviews on Google →
+          View All 147 Reviews on Google →
         </a>
       </motion.div>
     </div>

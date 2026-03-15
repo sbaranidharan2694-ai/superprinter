@@ -1,0 +1,13 @@
+{
+  "name": "Super Printers Chennai",
+  "short_name": "Super Printers",
+  "description": "Chennai's premier printing press since 1990. Pallavaram.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    { "src": "/super-printers-logo.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/logo.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

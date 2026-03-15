@@ -30,10 +30,26 @@
     <meta name="twitter:image" content="https://superprinter.lovable.app/og-image.jpg">
 
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1600&q=85" fetchpriority="high" />
-    <link rel="preload" as="image" href="/super-printers-logo.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="/super-printers-logo.svg" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400;500&display=swap" /></noscript>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Super Printers" />
+    <link rel="alternate" hreflang="en-IN" href="https://superprinter.lovable.app/" />
+    <link rel="alternate" hreflang="ta-IN" href="https://superprinter.lovable.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://superprinter.lovable.app/" />
+    <style>
+      #lovable-badge{display:none!important;}
+      /* Critical above-the-fold: prevent FOUC */
+      body{background:#ffffff;margin:0;color:#1a1a2e;}
+      #root{min-height:100vh;display:flex;flex-direction:column;}
+      [data-critical-header]{background:#fff;border-bottom:1px solid rgba(201,168,76,0.25);}
+    </style>
 
     <script type="application/ld+json">
     {
@@ -86,6 +102,14 @@
       },
       "hasMap": "https://www.google.com/maps/search/?api=1&query=Super+printers+and+wedding+cards"
     }
+    </script>
+    <!-- Google Analytics 4 — Replace G-XXXXXXXXXX with actual GA4 measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
     </script>
   </head>
 

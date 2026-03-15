@@ -11,6 +11,16 @@ const BlogPost = () => {
     return <Navigate to="/" replace />;
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "author": { "@type": "Organization", "name": BUSINESS.shortName },
+    "publisher": { "@type": "Organization", "name": BUSINESS.shortName, "url": BUSINESS.siteUrl },
+    "datePublished": post.date,
+    "dateModified": "2026-03-15",
+  };
+
   return (
     <div className="font-body text-foreground bg-background overflow-x-hidden">
       <SEOHead
@@ -18,6 +28,7 @@ const BlogPost = () => {
         description={post.description}
         canonical={`/blog/${post.slug}`}
         keywords={post.keyword}
+        schemaMarkup={articleSchema}
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Blog", url: "/blog" },

@@ -18,7 +18,7 @@ export const BUSINESS = {
     "https://wa.me/919840199878?text=Hi%2C%20I%20need%20a%20quote",
   whatsappWedding:
     "https://wa.me/919840199878?text=Hi%2C%20I%20need%20wedding%20card%20printing",
-  email: "superprintersmdu@gmail.com",
+  email: "SuperPrntrs@yahoo.com",
   address: "No. 6, Saraswathy Colony",
   addressFull: "No. 6, Saraswathy Colony, Pallavaram, Chennai 600043",
   addressShort: "Pallavaram, Chennai 600043",

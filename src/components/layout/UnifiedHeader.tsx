@@ -31,6 +31,7 @@ const UnifiedHeader = () => {
 
   return (
     <header
+      data-critical-header
       className="fixed top-11 left-0 right-0 z-[101] transition-all duration-300"
       style={{
         backgroundColor: "#FFFFFF",
@@ -105,6 +106,13 @@ const UnifiedHeader = () => {
           >
             +91 98401 99878
           </a>
+          <Link
+            to="/get-quote"
+            className="hidden min-[600px]:inline-flex items-center justify-center px-4 py-2.5 rounded-md text-sm font-bold text-white transition-transform hover:scale-[1.02]"
+            style={{ backgroundColor: "var(--color-primary)", fontFamily: "var(--font-accent)" }}
+          >
+            Get Quote
+          </Link>
           <a
             href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers, I need a quote for ")}`}
             target="_blank"

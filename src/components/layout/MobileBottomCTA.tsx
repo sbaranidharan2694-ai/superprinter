@@ -1,30 +1,55 @@
+import { Link, useLocation } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
+import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
 
-const MobileBottomCTA = () => (
-  <div
-    className="fixed bottom-0 left-0 right-0 z-[100] md:hidden h-16 flex items-stretch border-t border-border-light bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.06)]"
-    style={{ backgroundColor: "#FFFFFF" }}
-  >
-    <a
-      href={BUSINESS.phoneTel}
-      className="flex-1 flex items-center justify-center gap-2 text-ink-black font-ui font-semibold text-sm hover:bg-gray-50 transition-colors"
-      aria-label="Call now"
+const TABS = [
+  { label: "Home", icon: "🏠", to: "/" },
+  { label: "Services", icon: "📋", to: "/services" },
+  { label: "WhatsApp", icon: "💬", href: `${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers! I need a quote.")}`, external: true },
+  { label: "Gallery", icon: "📸", to: "/gallery" },
+  { label: "Call", icon: "📞", href: BUSINESS.phoneTel, external: true },
+];
+
+const MobileBottomCTA = () => {
+  const location = useLocation();
+
+  return (
+    <nav
+      className="fixed bottom-0 left-0 right-0 z-[100] md:hidden h-[60px] flex items-stretch border-t border-gray-200 bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.08)]"
+      aria-label="Mobile navigation"
     >
-      <span className="text-lg">📞</span>
-      Call Now
-    </a>
-    <div className="w-px bg-border-light" style={{ backgroundColor: "var(--border-light)" }} />
-    <a
-      href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers! I need a printing quote.")}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex-1 flex items-center justify-center gap-2 text-white font-ui font-semibold text-sm bg-whatsapp"
-      aria-label="WhatsApp"
-    >
-      <span className="text-lg">💬</span>
-      WhatsApp
-    </a>
-  </div>
-);
+      {TABS.map((tab) => {
+        const isActive = !tab.external && tab.to === location.pathname;
+        const className = `flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-xs font-medium transition-colors ${
+          isActive ? "text-[var(--color-primary)]" : "text-gray-600 hover:bg-gray-50"
+        }`;
+        if (tab.external && tab.href) {
+          const isWa = tab.label === "WhatsApp";
+          const isCall = tab.label === "Call";
+          return (
+            <a
+              key={tab.label}
+              href={tab.href}
+              target={tab.href.startsWith("http") ? "_blank" : undefined}
+              rel={tab.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              onClick={() => { if (isWa) trackWhatsAppClick("mobile_nav"); if (isCall) trackPhoneClick("mobile_nav"); }}
+              className={className}
+              aria-label={tab.label}
+            >
+              <span className="text-lg leading-none">{tab.icon}</span>
+              <span>{tab.label}</span>
+            </a>
+          );
+        }
+        return (
+          <Link key={tab.label} to={tab.to as string} className={className} aria-label={tab.label}>
+            <span className="text-lg leading-none">{tab.icon}</span>
+            <span>{tab.label}</span>
+          </Link>
+        );
+      })}
+    </nav>
+  );
+};
 
 export default MobileBottomCTA;

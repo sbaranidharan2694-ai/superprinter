@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { services } from "@/data/services";
 import { BUSINESS } from "@/data/business";
+import { getFaqPageSchema } from "@/data/serviceFaqs";
+import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
 import { useInView } from "@/hooks/useInView";
 
 const ServiceDetail = () => {
@@ -33,6 +35,23 @@ const ServiceDetail = () => {
     },
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `${service.name} in Chennai`,
+    "description": service.seoDescription,
+    "provider": { "@type": "LocalBusiness", "name": BUSINESS.shortName, "url": BUSINESS.siteUrl },
+    "areaServed": "Chennai",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR",
+      "price": service.startingPrice?.replace(/[^\d]/g, "") || "0",
+      "availability": "https://schema.org/InStock",
+    },
+  };
+
+  const faqPageSchema = getFaqPageSchema(service.slug);
+
   return (
     <>
       <SEOHead
@@ -40,7 +59,7 @@ const ServiceDetail = () => {
         description={service.seoDescription}
         canonical={`/services/${service.slug}`}
         keywords={service.keywords}
-        schemaMarkup={productSchema}
+        schemaMarkup={[productSchema, serviceSchema, faqPageSchema]}
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Services", url: "/services" },
@@ -67,6 +86,25 @@ const ServiceDetail = () => {
                 {service.startingPrice && (
                   <p className="text-lg font-body mt-2" style={{ color: "#4B5563" }}>Starting from {service.startingPrice}</p>
                 )}
+                {(() => {
+                  const now = new Date();
+                  const isBeforeNoon = now.getHours() < 12;
+                  const tomorrow = new Date(now.getTime() + 86400000);
+                  const tomorrowStr = tomorrow.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
+                  return (
+                    <p className="mt-3">
+                      {isBeforeNoon ? (
+                        <span className="inline-block px-3 py-1.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                          ✅ Order before 12PM today for same-day printing
+                        </span>
+                      ) : (
+                        <span className="inline-block px-3 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                          📦 Order now — delivery by {tomorrowStr}
+                        </span>
+                      )}
+                    </p>
+                  );
+                })()}
               </div>
             </div>
             {service.isNew && (
@@ -146,11 +184,12 @@ const ServiceDetail = () => {
                 href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(service.waMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("service_page")}
                 className="wa-button px-8 py-4 rounded-xl text-base font-bold flex items-center justify-center gap-2"
               >
                 💬 Get Quote on WhatsApp
               </a>
-              <a href={BUSINESS.phoneTel} className="px-8 py-4 rounded-xl text-base font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors flex items-center justify-center gap-2">
+              <a href={BUSINESS.phoneTel} onClick={() => trackPhoneClick("service_page")} className="px-8 py-4 rounded-xl text-base font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors flex items-center justify-center gap-2">
                 📞 Call {BUSINESS.phone}
               </a>
             </div>

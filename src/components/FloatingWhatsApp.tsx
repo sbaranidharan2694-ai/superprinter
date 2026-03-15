@@ -1,74 +1,46 @@
-import { useState, useRef, useEffect } from "react";
 import { BUSINESS } from "@/data/business";
+import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
 
 const WHATSAPP_URL = `${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers! I need a printing quote.")}`;
 
 const FloatingWhatsApp = () => {
-  const [showWATooltip, setShowWATooltip] = useState(false);
-  const [showCallTooltip, setShowCallTooltip] = useState(false);
-  const waTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const callTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (waTimeout.current) clearTimeout(waTimeout.current);
-      if (callTimeout.current) clearTimeout(callTimeout.current);
-    };
-  }, []);
+  const floatingStyle = {
+    borderRadius: 50,
+    padding: "12px 20px",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+    transition: "transform 0.2s ease",
+    minHeight: 48,
+  };
 
   return (
     <>
-      {/* Phone button — bottom-left */}
-      <div
-        className="fixed bottom-7 left-7 z-[9998] hidden md:flex items-center"
-        onMouseEnter={() => { callTimeout.current = setTimeout(() => setShowCallTooltip(true), 200); }}
-        onMouseLeave={() => { if (callTimeout.current) clearTimeout(callTimeout.current); setShowCallTooltip(false); }}
-      >
-        {showCallTooltip && (
-          <div
-            className="absolute left-full ml-3 px-3.5 py-2 rounded-lg text-white text-sm whitespace-nowrap shadow-lg"
-            style={{ backgroundColor: "var(--color-primary)", fontFamily: "var(--font-body)" }}
-          >
-            Call Now
-          </div>
-        )}
-        <a
-          href={BUSINESS.phoneTel}
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-white shadow-lg transition-transform hover:scale-[1.08]"
-          style={{ backgroundColor: "var(--color-primary)" }}
-          aria-label="Call now"
-        >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1v3.15c0 .25.1.49.27.67.17.18.42.28.67.28.12 0 .24-.02.35-.05z" />
-          </svg>
-        </a>
-      </div>
-
-      {/* WhatsApp button — bottom-right */}
-      <div
-        className="fixed bottom-7 right-7 z-[9999] hidden md:flex items-center"
-        onMouseEnter={() => { waTimeout.current = setTimeout(() => setShowWATooltip(true), 200); }}
-        onMouseLeave={() => { if (waTimeout.current) clearTimeout(waTimeout.current); setShowWATooltip(false); }}
-      >
-        {showWATooltip && (
-          <div
-            className="absolute right-full mr-3 px-3.5 py-2 rounded-lg text-white text-sm whitespace-nowrap shadow-lg"
-            style={{ backgroundColor: "#25D366", fontFamily: "var(--font-body)" }}
-          >
-            Chat with us on WhatsApp
-          </div>
-        )}
+      {/* Desktop: stacked floating buttons bottom-right */}
+      <div className="fixed z-[9999] hidden md:flex flex-col gap-[10px] items-end" style={{ bottom: 80, right: 20 }}>
         <a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center bg-[#25D366] text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-transform duration-300 hover:scale-[1.12] hover:rotate-[-5deg] wa-pulse"
-          aria-label="Chat with us on WhatsApp"
+          onClick={() => trackWhatsAppClick("floating_desktop")}
+          className="flex items-center gap-2 text-white font-semibold hover:scale-[1.05]"
+          style={{ ...floatingStyle, backgroundColor: "#25D366", fontFamily: "var(--font-accent)" }}
+          aria-label="Chat on WhatsApp"
         >
-          <span className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-pulse-ring" aria-hidden="true" />
-          <svg className="w-7 h-7 relative z-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.865 9.865 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
+          <span>WhatsApp</span>
+        </a>
+        <a
+          href={BUSINESS.phoneTel}
+          onClick={() => trackPhoneClick("floating_desktop")}
+          className="flex items-center gap-2 text-white font-semibold hover:scale-[1.05]"
+          style={{ ...floatingStyle, backgroundColor: "#1a73e8", fontFamily: "var(--font-body)" }}
+          aria-label="Call now"
+        >
+          <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1v3.15c0 .25.1.49.27.67.17.18.42.28.67.28.12 0 .24-.02.35-.05z" />
+          </svg>
+          <span>Call Now</span>
         </a>
       </div>
 
@@ -76,6 +48,7 @@ const FloatingWhatsApp = () => {
       <div className="fixed bottom-4 left-4 right-4 z-[9999] flex md:hidden gap-2 justify-between">
         <a
           href={BUSINESS.phoneTel}
+          onClick={() => trackPhoneClick("floating_mobile")}
           className="w-[52px] h-[52px] rounded-full flex items-center justify-center text-white shadow-lg"
           style={{ backgroundColor: "var(--color-primary)" }}
           aria-label="Call now"
@@ -88,6 +61,7 @@ const FloatingWhatsApp = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWhatsAppClick("floating_mobile")}
           className="w-[52px] h-[52px] rounded-full flex items-center justify-center bg-[#25D366] text-white shadow-lg wa-pulse"
           aria-label="Chat on WhatsApp"
         >

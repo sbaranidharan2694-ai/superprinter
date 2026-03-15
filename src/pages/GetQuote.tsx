@@ -2,7 +2,11 @@ import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 import { services } from "@/data/services";
+import { trackWhatsAppClick } from "@/utils/analytics";
 import { useInView } from "@/hooks/useInView";
+
+const ACCEPT_FILES = ".pdf,.ai,.psd,.jpg,.jpeg,.png,.cdr";
+const MAX_FILE_MB = 10;
 
 const GetQuote = () => {
   const { ref, isVisible } = useInView();
@@ -11,9 +15,26 @@ const GetQuote = () => {
   const [quantity, setQuantity] = useState("");
   const [paper, setPaper] = useState("Standard");
   const [phone, setPhone] = useState("");
+  const [designFile, setDesignFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState("");
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFileError("");
+    const f = e.target.files?.[0];
+    if (!f) { setDesignFile(null); return; }
+    if (f.size > MAX_FILE_MB * 1024 * 1024) {
+      setFileError(`File must be under ${MAX_FILE_MB}MB.`);
+      setDesignFile(null);
+      e.target.value = "";
+      return;
+    }
+    setDesignFile(f);
+  };
 
   const handleGetQuote = () => {
-    const msg = `Hi, I need a quote for ${service} x ${quantity} pcs on ${paper} finish. My number is ${phone}.`;
+    trackWhatsAppClick("get_quote_submit");
+    let msg = `Hi, I need a quote for ${service} x ${quantity} pcs on ${paper} finish. My number is ${phone}.`;
+    if (designFile) msg += " I have a design file ready to share.";
     window.open(`${BUSINESS.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -141,6 +162,24 @@ const GetQuote = () => {
                     placeholder="e.g. 9840199878"
                     className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
                   />
+
+                  {/* File upload (optional) */}
+                  <div className="mt-4">
+                    <label className="block font-body text-sm font-medium text-foreground mb-1">Upload Your Design File (Optional)</label>
+                    <input
+                      type="file"
+                      accept={ACCEPT_FILES}
+                      onChange={handleFileChange}
+                      className="w-full text-sm text-muted-foreground file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-secondary file:text-secondary-foreground"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">Supported: PDF, AI, PSD, JPG, PNG, CDR. Max {MAX_FILE_MB}MB.</p>
+                    {designFile && <p className="text-xs text-green-600 mt-1">✓ {designFile.name} ({(designFile.size / 1024).toFixed(1)} KB)</p>}
+                    {fileError && <p className="text-xs text-destructive mt-1">{fileError}</p>}
+                    <p className="text-xs mt-1">
+                      Don't have a design?{" "}
+                      <a href={BUSINESS.whatsappWedding} target="_blank" rel="noopener noreferrer" className="underline text-secondary-foreground">We'll design it for free for wedding cards.</a>
+                    </p>
+                  </div>
 
                   {/* Summary */}
                   <div className="mt-4 p-4 rounded-lg bg-muted/50 border border-border text-sm font-body space-y-1">

@@ -13,6 +13,7 @@ import WeddingCardsPage from "./pages/WeddingCardsPage";
 import LetterheadsPage from "./pages/LetterheadsPage";
 import ResellerPage from "./pages/ResellerPage";
 import BlogPost from "./pages/BlogPost";
+import BlogIndex from "./pages/BlogIndex";
 import ProductsCatalogPage from "./pages/ProductsCatalogPage";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
@@ -20,6 +21,7 @@ import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import Services from "./pages/Services";
 import GetQuote from "./pages/GetQuote";
+import AreaPrintingPage from "./pages/AreaPrintingPage";
 
 const queryClient = new QueryClient();
 
@@ -45,7 +47,12 @@ const App = () => (
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/services" element={<Services />} />
               <Route path="/get-quote" element={<GetQuote />} />
+              <Route path="/tambaram-printing" element={<AreaPrintingPage />} />
+              <Route path="/chromepet-printing" element={<AreaPrintingPage />} />
+              <Route path="/pammal-printing" element={<AreaPrintingPage />} />
+              <Route path="/perungalathur-printing" element={<AreaPrintingPage />} />
               <Route path="/reseller" element={<ResellerPage />} />
+              <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="*" element={<NotFound />} />
             </Route>

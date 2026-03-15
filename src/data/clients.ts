@@ -13,7 +13,7 @@ export const CLIENTS: Client[] = [
   { name: "Reliance", tag: "Elevators & Technology", logo: "/clients/reliance-fujitec.svg" },
   { name: "Fujitec", tag: "Elevators & Technology", logo: "/clients/fujitec.svg" },
   { name: "GTK Foundation", tag: "Foundation", logo: "/clients/gtk-foundation.svg" },
-  { name: "HP Oil", tag: "Oil & Energy", logo: "/clients/hp-oil.svg" },
+  { name: "BHARAT PETROLEUM", tag: "Oil & Energy", logo: "/clients/bharat-petroleum.svg" },
   { name: "Uranus Oil", tag: "Oil & Energy", logo: "/clients/uranus-oil.svg" },
   { name: "Jeganathan Hospital", tag: "Healthcare", logo: "/clients/jeganathan-hospital.svg" },
   { name: "SSK Smart Move Logistic", tag: "Logistics", logo: "/clients/ssk-smart-move-logistic.svg" },
