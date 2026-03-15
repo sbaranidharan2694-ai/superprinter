@@ -91,7 +91,7 @@ const Contact = () => {
                     📞 Call Now
                   </a>
                   <a
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${BUSINESS.lat},${BUSINESS.lng}`}
+                    href={BUSINESS.mapLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-3 rounded-lg text-sm font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors flex items-center justify-center gap-2"
@@ -108,14 +108,14 @@ const Contact = () => {
               {/* Google Maps Embed */}
               <div className="rounded-xl overflow-hidden border border-border min-h-[400px]">
                 <iframe
-                  src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4!2d${BUSINESS.lng}!3d${BUSINESS.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzAzLjAiTiA4MMKwMDgnNTYuOCJF!5e0!3m2!1sen!2sin!4v1700000000000`}
+                  src={BUSINESS.mapEmbed}
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: "400px" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Super Printers Pallavaram Chennai location on Google Maps"
+                  title="Super Printers and Wedding Cards location on Google Maps"
                 ></iframe>
               </div>
             </div>
@@ -127,7 +127,7 @@ const Contact = () => {
                 {waButtons.map((btn) => (
                   <a
                     key={btn.label}
-                    href={`https://wa.me/919840199878?text=${encodeURIComponent(btn.msg)}`}
+                    href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(btn.msg)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="wa-button px-4 py-3 rounded-xl text-sm font-semibold text-center flex items-center justify-center gap-2"

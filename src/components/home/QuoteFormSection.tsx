@@ -21,11 +21,11 @@ const QuoteFormSection = () => {
 
   if (sent) {
     return (
-      <section id="quote-form" className="section-pad" style={{ backgroundColor: "var(--color-dark-section)" }}>
+      <section id="quote-form" className="section-pad" style={{ backgroundColor: "var(--color-cream)" }}>
         <div className="max-w-xl mx-auto px-6 text-center">
           <div className="text-5xl mb-4">✅</div>
-          <h3 className="font-display font-bold text-2xl text-white mb-3">Quote Request Sent!</h3>
-          <p className="text-white/70 mb-6" style={{ fontFamily: "var(--font-body)" }}>
+          <h3 className="font-display font-bold text-2xl mb-3" style={{ color: "var(--color-primary)" }}>Quote Request Sent!</h3>
+          <p className="mb-6" style={{ color: "#6B7280", fontFamily: "var(--font-body)" }}>
             We'll respond on WhatsApp within 30 minutes during business hours.
           </p>
           <button
@@ -40,7 +40,7 @@ const QuoteFormSection = () => {
   }
 
   return (
-    <section id="quote-form" className="section-pad" style={{ backgroundColor: "var(--color-dark-section)" }}>
+    <section id="quote-form" className="section-pad" style={{ backgroundColor: "var(--color-cream)" }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left — Info */}
@@ -52,15 +52,15 @@ const QuoteFormSection = () => {
             <p className="text-xs font-bold tracking-[0.15em] uppercase mb-3" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
               GET A QUOTE
             </p>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4" style={{ color: "var(--color-primary)" }}>
               Request a Free Quote
             </h2>
-            <p className="text-white/70 mb-8 leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
+            <p className="mb-8 leading-relaxed" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>
               Tell us what you need and we'll get back to you with a quote within 30 minutes on WhatsApp.
             </p>
-            <div className="space-y-4 text-white/60 text-sm" style={{ fontFamily: "var(--font-body)" }}>
-              <a href={BUSINESS.phoneTel} className="block hover:text-white transition-colors">📞 {BUSINESS.phone}</a>
-              <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">💬 WhatsApp</a>
+            <div className="space-y-4 text-sm" style={{ color: "#6B7280", fontFamily: "var(--font-body)" }}>
+              <a href={BUSINESS.phoneTel} className="block hover:opacity-80 transition-opacity" style={{ color: "var(--color-primary)" }}>📞 {BUSINESS.phone}</a>
+              <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity" style={{ color: "var(--color-primary)" }}>💬 WhatsApp</a>
               <p>📍 {BUSINESS.addressFull}</p>
               <p>🕐 {BUSINESS.hours}</p>
               <p>🕐 {BUSINESS.hoursSunday}</p>

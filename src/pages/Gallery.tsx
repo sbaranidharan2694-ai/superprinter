@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import { BUSINESS } from "@/data/business";
 import { useInView } from "@/hooks/useInView";
 
 const galleryItems = [
@@ -74,7 +75,7 @@ const Gallery = () => {
                     <p className="text-primary-foreground/50 text-xs font-body mb-2">{item.desc}</p>
                     <p className="text-primary-foreground/30 text-[11px] font-body mb-3">Sample photos available on request — WhatsApp us</p>
                     <a
-                      href={`https://wa.me/919840199878?text=${encodeURIComponent(item.wa)}`}
+                      href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(item.wa)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="wa-button inline-block px-3 py-1.5 rounded-lg text-[11px] font-semibold"
@@ -99,7 +100,7 @@ const Gallery = () => {
                       <h3 className="font-display text-lg font-bold text-primary-foreground mb-1">{c.name}</h3>
                       <p className="text-primary-foreground/60 text-sm font-body mb-3">{c.desc}</p>
                       <a
-                        href={`https://wa.me/919840199878?text=${encodeURIComponent(`Hi, I need similar printing work as done for ${c.name}`)}`}
+                        href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(`Hi, I need similar printing work as done for ${c.name}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="wa-button inline-block px-3 py-1.5 rounded-lg text-[11px] font-semibold"

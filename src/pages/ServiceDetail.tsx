@@ -4,8 +4,6 @@ import { services } from "@/data/services";
 import { BUSINESS } from "@/data/business";
 import { useInView } from "@/hooks/useInView";
 
-const WA_BASE = "https://wa.me/919840199878?text=";
-
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = services.find((s) => s.slug === slug);
@@ -51,23 +49,23 @@ const ServiceDetail = () => {
       />
       <main>
         {/* Hero */}
-        <section className="navy-gradient-hero dot-pattern py-14 md:py-20">
+        <section className="navy-gradient-hero dot-pattern py-14 md:py-20" style={{ borderBottom: "1px solid rgba(201,168,76,0.15)" }}>
           <div className="max-w-4xl mx-auto px-4">
-            <nav className="text-primary-foreground/50 text-sm font-body mb-6" aria-label="Breadcrumb">
-              <Link to="/" className="hover:text-gold-light">Home</Link>
+            <nav className="text-gray-400 text-sm font-body mb-6" aria-label="Breadcrumb">
+              <Link to="/" className="hover:opacity-80" style={{ color: "var(--color-primary)" }}>Home</Link>
               <span className="mx-2">›</span>
-              <Link to="/services" className="hover:text-gold-light">Services</Link>
+              <Link to="/services" className="hover:opacity-80" style={{ color: "var(--color-primary)" }}>Services</Link>
               <span className="mx-2">›</span>
-              <span className="text-primary-foreground">{service.name}</span>
+              <span style={{ color: "var(--color-primary)" }}>{service.name}</span>
             </nav>
             <div className="flex items-start gap-4 mb-4">
               <span className="text-5xl">{service.emoji}</span>
               <div>
-                <h1 className="font-display text-3xl md:text-5xl font-black text-primary-foreground leading-tight">
+                <h1 className="font-display text-3xl md:text-5xl font-black leading-tight" style={{ color: "var(--color-primary)" }}>
                   {service.name} in Chennai
                 </h1>
                 {service.startingPrice && (
-                  <p className="text-gold-light text-lg font-body mt-2">Starting from {service.startingPrice}</p>
+                  <p className="text-lg font-body mt-2" style={{ color: "#4B5563" }}>Starting from {service.startingPrice}</p>
                 )}
               </div>
             </div>
@@ -102,7 +100,7 @@ const ServiceDetail = () => {
                 <div className="overflow-hidden rounded-xl border border-border mb-4">
                   <table className="w-full text-sm font-body">
                     <thead>
-                      <tr className="navy-gradient text-primary-foreground">
+                      <tr style={{ backgroundColor: "var(--color-primary)", color: "#FFFFFF" }}>
                         <th className="text-left px-4 py-3 font-semibold">Paper / Finish</th>
                         <th className="text-left px-4 py-3 font-semibold">Quantity</th>
                         <th className="text-left px-4 py-3 font-semibold">Starting Price</th>
@@ -145,7 +143,7 @@ const ServiceDetail = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <a
-                href={`${WA_BASE}${encodeURIComponent(service.waMessage)}`}
+                href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(service.waMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="wa-button px-8 py-4 rounded-xl text-base font-bold flex items-center justify-center gap-2"

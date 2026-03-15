@@ -4,12 +4,12 @@ import { BUSINESS } from "@/data/business";
 const SERVICES_LINKS = [
   { label: "Wedding Cards", to: "/wedding-cards" },
   { label: "Visiting Cards", to: "/visiting-cards" },
-  { label: "Brochures", to: "/services" },
-  { label: "Bill Books", to: "/services" },
-  { label: "Letterheads", to: "/services" },
-  { label: "Offset Printing", to: "/services" },
-  { label: "Digital Printing", to: "/services" },
-  { label: "Screen Printing", to: "/services" },
+  { label: "Brochures", to: "/brochures" },
+  { label: "Bill Books", to: "/bill-books" },
+  { label: "Letterheads", to: "/letterheads" },
+  { label: "All Services", to: "/services" },
+  { label: "Get a Quote", to: "/get-quote" },
+  { label: "Gallery", to: "/gallery" },
 ];
 
 const UnifiedFooter = () => (
@@ -22,7 +22,7 @@ const UnifiedFooter = () => (
           <p className="text-sm leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)" }}>
             Pallavaram's most trusted printing press since 1990.
           </p>
-          <p className="text-xs mb-2" style={{ color: "var(--gold)" }}>✅ GST Registered Business</p>
+          <p className="text-xs mb-2" style={{ color: "var(--gold)" }}>✅ GST Registered · {BUSINESS.gstNumber}</p>
           <p className="text-xs" style={{ color: "var(--gold)" }}>⭐ {BUSINESS.googleRating} Google Rating · {BUSINESS.googleReviewCount} Reviews</p>
         </div>
 

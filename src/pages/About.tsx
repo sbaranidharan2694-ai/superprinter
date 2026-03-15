@@ -70,7 +70,7 @@ const About = () => (
           Our shop is located at {BUSINESS.address}, right next to Pallavaram Railway Station Road. Easy to reach from Chromepet, Tambaram, Pammal, Alandur, and all of South Chennai. Walk in anytime {BUSINESS.hours}. We also offer delivery across Chennai.
         </p>
         <div className="rounded-xl overflow-hidden border border-border mb-8">
-          <iframe src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d${BUSINESS.lng}!3d${BUSINESS.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525fcc22e3457d%3A0x8e423468eccddee2!2sSuper%20Printers%20-%20Wedding%20Cards%20%26%20Printing!5e0!3m2!1sen!2sin!4v1`} width="100%" height="300" style={{ border: 0 }} loading="lazy" title="Super Printers Location" allowFullScreen />
+          <iframe src={BUSINESS.mapEmbed} width="100%" height="300" style={{ border: 0 }} loading="lazy" title="Super Printers and Wedding Cards location" allowFullScreen />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3">

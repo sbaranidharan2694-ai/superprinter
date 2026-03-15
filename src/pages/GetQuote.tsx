@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
+import { BUSINESS } from "@/data/business";
 import { services } from "@/data/services";
 import { useInView } from "@/hooks/useInView";
 
@@ -13,7 +14,7 @@ const GetQuote = () => {
 
   const handleGetQuote = () => {
     const msg = `Hi, I need a quote for ${service} x ${quantity} pcs on ${paper} finish. My number is ${phone}.`;
-    window.open(`https://wa.me/919840199878?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`${BUSINESS.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   const selectedService = services.find((s) => s.name === service);
@@ -33,10 +34,10 @@ const GetQuote = () => {
       <main>
         <section className="navy-gradient-hero dot-pattern py-14 md:py-20">
           <div className="max-w-3xl mx-auto px-4 text-center">
-            <h1 className="font-display text-3xl md:text-5xl font-black text-primary-foreground mb-4">
+            <h1 className="font-display text-3xl md:text-5xl font-black mb-4" style={{ color: "var(--color-primary)" }}>
               Get an Instant Print Quote
             </h1>
-            <p className="text-primary-foreground/70 font-body text-lg">
+            <p className="font-body text-lg" style={{ color: "#4B5563" }}>
               Select your service, quantity, and finish. We'll respond on WhatsApp within 30 minutes.
             </p>
           </div>

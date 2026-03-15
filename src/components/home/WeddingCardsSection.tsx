@@ -3,15 +3,23 @@ import { BUSINESS } from "@/data/business";
 import { WEDDING_IMAGES, WEDDING_FEATURES } from "@/data/v2";
 
 const WeddingCardsSection = () => (
-  <section id="wedding-cards" className="section-pad" style={{ backgroundColor: "var(--color-primary)" }}>
+  <section
+    id="wedding-cards"
+    className="section-pad"
+    style={{
+      background: "linear-gradient(135deg, #FFF4F6 0%, #FFF0F3 50%, #FFF8F0 100%)",
+      borderTop: "1px solid rgba(201,168,76,0.15)",
+      borderBottom: "1px solid rgba(201,168,76,0.15)",
+    }}
+  >
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
           <p className="text-xs font-bold tracking-[0.15em] uppercase mb-3" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>WEDDING INVITATIONS PALLAVARAM</p>
-          <h2 className="font-display font-bold text-3xl md:text-[42px] leading-tight text-white mb-6" style={{ whiteSpace: "pre-line" }}>{"Beautiful Wedding Cards\nFrom ₹8 per card."}</h2>
+          <h2 className="font-display font-bold text-3xl md:text-[42px] leading-tight mb-6" style={{ color: "var(--color-primary)", whiteSpace: "pre-line" }}>{"Beautiful Wedding Cards\nFrom ₹8 per card."}</h2>
           <ul className="space-y-3 mb-8">
             {WEDDING_FEATURES.map((feat) => (
-              <li key={feat} className="flex items-start gap-3 text-white/80 text-base" style={{ fontFamily: "var(--font-body)" }}>
+              <li key={feat} className="flex items-start gap-3 text-base" style={{ color: "#374151", fontFamily: "var(--font-body)" }}>
                 <span style={{ color: "var(--gold)" }}>✅</span><span>{feat}</span>
               </li>
             ))}

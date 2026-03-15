@@ -477,3 +477,76 @@ header .btn-gold:hover {
   .section-pad-lg { padding: 72px 0; }
   .section-pad-sm { padding: 40px 0; }
 }
+
+/* ============================================
+   MISSING UTILITY CLASSES — added by debug pass
+   ============================================ */
+
+/* Used in ServiceDetail, GetQuote pages */
+.navy-gradient-hero {
+  background: linear-gradient(135deg, #FFFDF7 0%, #FFF8EC 60%, #FFF3E0 100%);
+  position: relative;
+}
+
+.navy-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2C2C54 100%);
+}
+
+.dot-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23C9A84C'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* Used in Contact, GetQuote, ServiceDetail pages */
+.gold-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gold);
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+  font-weight: 700;
+  transition: opacity 0.2s, transform 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.gold-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+.gold-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Used in Contact, ServiceDetail pages */
+.wa-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366;
+  color: #ffffff;
+  font-family: var(--font-accent);
+  font-weight: 700;
+  transition: opacity 0.2s, transform 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.wa-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+.wa-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Used in Gallery.tsx corporateClients */
+.bg-navy {
+  background-color: var(--color-primary);
+}

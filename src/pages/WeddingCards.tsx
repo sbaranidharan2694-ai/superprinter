@@ -131,7 +131,7 @@ const WeddingCards = () => (
     </section>
 
     {/* Order CTA */}
-    <section className="py-16 px-6 bg-secondary/10">
+    <section className="py-16 px-6" style={{ backgroundColor: "#FFF4F6" }}>
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="font-display font-black text-3xl text-foreground mb-4">Order Wedding Invitations</h2>
         <p className="text-muted-foreground mb-8">Beautiful wedding cards delivered in 5-7 business days. Free design consultation available.</p>
