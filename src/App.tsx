@@ -15,6 +15,11 @@ import ResellerPage from "./pages/ResellerPage";
 import BlogPost from "./pages/BlogPost";
 import ProductsCatalogPage from "./pages/ProductsCatalogPage";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Gallery from "./pages/Gallery";
+import Services from "./pages/Services";
+import GetQuote from "./pages/GetQuote";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +40,11 @@ const App = () => (
               <Route path="/bill-books" element={<BillBooksPage />} />
               <Route path="/wedding-cards" element={<WeddingCardsPage />} />
               <Route path="/letterheads" element={<LetterheadsPage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/get-quote" element={<GetQuote />} />
               <Route path="/reseller" element={<ResellerPage />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="*" element={<NotFound />} />

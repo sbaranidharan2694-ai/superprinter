@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 import { BUSINESS } from "@/data/business";
-
-const STEPS = [
-  { num: 1, title: "WhatsApp or Call", body: "Share your requirements — product, quantity, and files. We respond within 30 minutes.", icon: "💬" },
-  { num: 2, title: "Proof in 24 Hours", body: "Get a digital proof for approval. No print goes ahead without your sign-off.", icon: "📄" },
-  { num: 3, title: "Print with Precision", body: "We print on our offset and digital presses. Quality check on every job.", icon: "🖨️" },
-  { num: 4, title: "Collect or Receive", body: "Pick up from Pallavaram or we deliver within Chennai for bulk orders.", icon: "📦" },
-];
+import { PROCESS_STEPS } from "@/data/v2";
 
 const HowItWorksSection = () => (
   <section id="process" className="py-20 md:py-24 relative bg-white" style={{ backgroundColor: "#FFFFFF" }}>
@@ -27,9 +21,9 @@ const HowItWorksSection = () => (
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 relative">
-        {STEPS.map((step, i) => (
+        {PROCESS_STEPS.map((step, i) => (
           <motion.div
-            key={step.num}
+            key={step.step}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -37,19 +31,32 @@ const HowItWorksSection = () => (
             className="relative flex flex-col items-center text-center pt-8"
           >
             <div className="step-number font-display leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: "96px", color: "rgba(212,168,67,0.12)", lineHeight: 1, position: "absolute", top: "-16px", left: "50%", transform: "translateX(-50%)", pointerEvents: "none", userSelect: "none" }}>
-              {step.num}
+              {step.step}
             </div>
-            <div className="w-[52px] h-[52px] rounded-full flex items-center justify-center text-2xl mb-3" style={{ backgroundColor: "var(--gold)" }}>{step.icon}</div>
+            <div className="w-[52px] h-[52px] rounded-full flex items-center justify-center text-2xl mb-3" style={{ backgroundColor: "var(--gold)" }}>{[...step.title][0]}</div>
+            <span
+              className="text-xs font-bold px-2 py-0.5 rounded-full mb-2"
+              style={{ backgroundColor: "var(--gold)", color: "var(--color-primary)", fontFamily: "var(--font-accent)" }}
+            >
+              {step.time}
+            </span>
             <h3 className="font-ui font-semibold text-[20px] text-ink-black mb-2">{step.title}</h3>
             <p className="font-ui text-[15px] leading-relaxed max-w-[200px]" style={{ color: "#6B7280" }}>
-              {step.body}
+              {step.desc}
             </p>
-            {i < STEPS.length - 1 && (
+            {i < PROCESS_STEPS.length - 1 && (
               <div className="hidden md:block absolute top-16 left-[55%] w-[90%] h-px border-t border-dashed border-gold/40" style={{ borderColor: "rgba(212,168,67,0.4)" }} />
             )}
           </motion.div>
         ))}
       </div>
+
+      <p
+        className="text-center text-sm mt-8"
+        style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}
+      >
+        Average turnaround: <strong>48 hours from approval.</strong> Same-day printing available — WhatsApp before 12PM.
+      </p>
 
       <motion.div
         initial={{ opacity: 0 }}

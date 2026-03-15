@@ -10,6 +10,7 @@ import SocialProofSection from "@/components/home/SocialProofSection";
 import QuoteFormSection from "@/components/home/QuoteFormSection";
 import AboutSection from "@/components/home/AboutSection";
 import FAQSectionNew from "@/components/home/FAQSectionNew";
+import CTASection from "@/components/home/CTASection";
 import ContactSection from "@/components/home/ContactSection";
 
 const Index = () => (
@@ -30,6 +31,7 @@ const Index = () => (
     <QuoteFormSection />
     <AboutSection />
     <FAQSectionNew />
+    <CTASection />
     <ContactSection />
   </div>
 );

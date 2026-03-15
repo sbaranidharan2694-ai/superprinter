@@ -10,7 +10,8 @@ export interface Client {
 }
 
 export const CLIENTS: Client[] = [
-  { name: "Reliance Fujitec", tag: "Elevators & Technology", logo: "/clients/reliance-fujitec.svg" },
+  { name: "Reliance", tag: "Elevators & Technology", logo: "/clients/reliance-fujitec.svg" },
+  { name: "Fujitec", tag: "Elevators & Technology", logo: "/clients/fujitec.svg" },
   { name: "GTK Foundation", tag: "Foundation", logo: "/clients/gtk-foundation.svg" },
   { name: "HP Oil", tag: "Oil & Energy", logo: "/clients/hp-oil.svg" },
   { name: "Uranus Oil", tag: "Oil & Energy", logo: "/clients/uranus-oil.svg" },
