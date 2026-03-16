@@ -27,7 +27,7 @@ const UnifiedFooter = () => (
         {/* About */}
         <div>
           <h3 className="font-display font-bold text-xl text-white mb-3">{BUSINESS.shortName}</h3>
-          <p className="text-sm leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)" }}>
+          <p className="text-sm leading-relaxed mb-4 font-bold text-white" style={{ fontFamily: "var(--font-body)" }}>
             Chennai's trusted printing press since 1990. 35+ years of quality.
           </p>
           <p className="text-xs mb-2" style={{ color: "var(--gold)" }}>✅ GST Registered · {BUSINESS.gstNumber}</p>
