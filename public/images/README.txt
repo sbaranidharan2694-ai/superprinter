@@ -3,6 +3,8 @@ IMAGE FILES FOR SUPER PRINTERS — All paths are local for fast loading.
 QUICK SETUP WITH YOUR 10 IMAGES:
 1. Save your 10 business card/design images into:  public/images/my-cards/
    as  01.png, 02.png, 03.png, 04.png, 05.png, 06.png, 07.png, 08.png, 09.png, 10.png
+   (If you added images in Cursor chat, copy them from the project's assets folder
+   into my-cards/ and rename to 01.png ... 10.png.)
 2. From project root run:  .\scripts\copy-my-images.ps1
 3. In src/data/imagePaths.ts ensure  USE_LOCAL_IMAGES = true
 
