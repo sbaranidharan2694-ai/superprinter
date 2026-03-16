@@ -91,7 +91,7 @@ export const PROCESS_STEPS = [
   { step: 4, title: "📦 Print & Deliver", time: "24 hours", desc: "Your order is printed, quality-checked, and ready for pickup or delivery within 24 hours." },
 ];
 
-// Avatar images: local public/images/avatars/01.jpg … 06.jpg for fast loading.
+// Avatar images: local public/images/avatars/01.png … 06.png (gender-matched to testimonials).
 export const TESTIMONIALS = [
   { name: "Priya Rajan", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Absolutely beautiful wedding cards. The gold foil finish was stunning and all 500 cards were delivered on time. Highly recommended!", avatar: IMAGE_PATHS.avatar(1) },
   { name: "Karthik S.", location: "Chromepet", product: "Visiting Cards", rating: 5, text: "Best visiting cards I've ever had printed. The spot UV finish looks premium. Got 500 cards in just 2 days!", avatar: IMAGE_PATHS.avatar(2) },
