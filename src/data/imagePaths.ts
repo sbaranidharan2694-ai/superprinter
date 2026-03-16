@@ -44,7 +44,7 @@ export const IMAGE_PATHS = {
     visiting: USE_LOCAL_IMAGES ? local("hero/visiting.jpg") : U("1606293926075-69a00dbfde81", 400),
     brochures: USE_LOCAL_IMAGES ? local("hero/brochures.jpg") : U("1586075010923-2dd4570fb338", 400),
     billBooks: USE_LOCAL_IMAGES ? local("hero/bill-books.jpg") : U("1568667256549-094345857637", 400),
-    visitingCards: USE_LOCAL_IMAGES ? local("hero-visiting-cards.png") : U("1606293926075-69a00dbfde81", 400),
+    visitingCards: USE_LOCAL_IMAGES ? local("hero/visiting.jpg") : U("1606293926075-69a00dbfde81", 400),
   },
 
   gallery: (id: string) =>
@@ -61,7 +61,7 @@ export const IMAGE_PATHS = {
   letterhead: USE_LOCAL_IMAGES ? local("letterhead.jpg") : U("1586281380349-632531db7ed4"),
   brochures: USE_LOCAL_IMAGES ? local("brochures.jpg") : U("1586075010923-2dd4570fb338"),
   billBook: USE_LOCAL_IMAGES ? local("bill-book.jpg") : U("1568667256549-094345857637"),
-  visitingCard: USE_LOCAL_IMAGES ? local("visiting-card.jpg") : U("1606293926075-69a00dbfde81"),
+  visitingCard: USE_LOCAL_IMAGES ? local("hero/visiting.jpg") : U("1606293926075-69a00dbfde81"),
   weddingInvite: USE_LOCAL_IMAGES ? local("wedding-invite.jpg") : U("1607344645866-009c320b63e0"),
   envelope: USE_LOCAL_IMAGES ? local("envelope.jpg") : U("1618005198919-d3d4b5a92ead"),
   stickerSheet: USE_LOCAL_IMAGES ? local("sticker-sheet.jpg") : U("1607000975631-4bd2e12d00da"),
