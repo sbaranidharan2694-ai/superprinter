@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { IMAGE_PATHS } from "@/data/imagePaths";
 import { TESTIMONIALS } from "@/data/v2";
 
 const SocialProofSection = () => (
@@ -37,6 +38,7 @@ const SocialProofSection = () => (
                 alt=""
                 className="w-14 h-14 rounded-full object-cover flex-shrink-0 ring-2 ring-amber-100"
                 loading="lazy"
+                onError={(e) => { const t = e.currentTarget; if (t.dataset.fallback) return; t.dataset.fallback = "1"; t.src = IMAGE_PATHS.placeholder; }}
               />
               <div className="min-w-0 flex-1">
                 <p className="font-bold text-sm" style={{ color: "var(--color-primary)", fontFamily: "var(--font-accent)" }}>

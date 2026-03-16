@@ -10,6 +10,7 @@ import {
   GALLERY_CATEGORIES,
   type GalleryCategory,
 } from "@/data/gallery";
+import { IMAGE_PATHS } from "@/data/imagePaths";
 
 const corporateClients = [
   { name: "Reliance", monogram: "R", desc: "Corporate stationery, ID cards & branded materials" },
@@ -108,7 +109,7 @@ const Gallery = () => {
                         const t = e.currentTarget;
                         if (t.dataset.fallback) return;
                         t.dataset.fallback = "1";
-                        t.src = "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=600&q=80";
+                        t.src = IMAGE_PATHS.placeholder;
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">

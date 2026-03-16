@@ -1,4 +1,5 @@
 /* V2 — central data for Super Printers site */
+import { IMAGE_PATHS } from "./imagePaths";
 
 export const MARQUEE_ITEMS = [
   "📞 +91 98401 99878",
@@ -26,10 +27,10 @@ export const HERO = {
 };
 
 export const HERO_PRODUCTS = [
-  { name: "Wedding Cards", img: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" },
-  { name: "Visiting Cards", img: "/images/hero-visiting-cards.png" },
-  { name: "Brochures", img: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80" },
-  { name: "Bill Books", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80" },
+  { name: "Wedding Cards", img: IMAGE_PATHS.hero.wedding },
+  { name: "Visiting Cards", img: IMAGE_PATHS.hero.visitingCards },
+  { name: "Brochures", img: IMAGE_PATHS.hero.brochures },
+  { name: "Bill Books", img: IMAGE_PATHS.hero.billBooks },
 ];
 
 export const SOCIAL_PROOF_STATS = [
@@ -43,26 +44,26 @@ export const SOCIAL_PROOF_STATS = [
 export const PRODUCT_TABS = ["All", "Corporate", "Personal", "Events"] as const;
 
 export const PRODUCTS = [
-  { name: "Visiting Cards", category: "Corporate", img: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80", delivery: "24hr" },
-  { name: "Letterheads", category: "Corporate", img: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80", delivery: "24hr" },
-  { name: "Brochures", category: "Corporate", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80", delivery: "24hr" },
-  { name: "Bill Books", category: "Corporate", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80", delivery: "24hr" },
-  { name: "Wedding Cards", category: "Events", img: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80", delivery: "24hr" },
-  { name: "Pamphlets", category: "Corporate", img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&q=80", delivery: "24hr" },
-  { name: "Banners", category: "Events", img: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=400&q=80", delivery: "24hr" },
-  { name: "Stickers", category: "Personal", img: "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=400&q=80", delivery: "24hr" },
-  { name: "Catalogues", category: "Corporate", img: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=400&q=80", delivery: "24hr" },
-  { name: "T-Shirts", category: "Personal", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80", delivery: "24hr" },
-  { name: "Rubber Stamps", category: "Corporate", img: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&q=80", delivery: "24hr" },
-  { name: "PVC ID Cards", category: "Corporate", img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80", delivery: "24hr" },
-  { name: "Screen Printing", category: "Personal", img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80", delivery: "24hr" },
-  { name: "Offset Printing", category: "Corporate", img: "https://images.unsplash.com/photo-1504270997636-07ddfbd48945?w=400&q=80", delivery: "24hr" },
+  { name: "Visiting Cards", category: "Corporate", img: IMAGE_PATHS.visitingCard, delivery: "24hr" },
+  { name: "Letterheads", category: "Corporate", img: IMAGE_PATHS.letterhead, delivery: "24hr" },
+  { name: "Brochures", category: "Corporate", img: IMAGE_PATHS.brochures, delivery: "24hr" },
+  { name: "Bill Books", category: "Corporate", img: IMAGE_PATHS.billBook, delivery: "24hr" },
+  { name: "Wedding Cards", category: "Events", img: IMAGE_PATHS.hero.wedding, delivery: "24hr" },
+  { name: "Pamphlets", category: "Corporate", img: IMAGE_PATHS.brochures, delivery: "24hr" },
+  { name: "Banners", category: "Events", img: IMAGE_PATHS.gallery("co1"), delivery: "24hr" },
+  { name: "Stickers", category: "Personal", img: IMAGE_PATHS.stickerSheet, delivery: "24hr" },
+  { name: "Catalogues", category: "Corporate", img: IMAGE_PATHS.gallery("c1"), delivery: "24hr" },
+  { name: "T-Shirts", category: "Personal", img: IMAGE_PATHS.gallery("p3"), delivery: "24hr" },
+  { name: "Rubber Stamps", category: "Corporate", img: IMAGE_PATHS.gallery("co6"), delivery: "24hr" },
+  { name: "PVC ID Cards", category: "Corporate", img: IMAGE_PATHS.gallery("co6"), delivery: "24hr" },
+  { name: "Screen Printing", category: "Personal", img: IMAGE_PATHS.gallery("p3"), delivery: "24hr" },
+  { name: "Offset Printing", category: "Corporate", img: IMAGE_PATHS.offsetPress, delivery: "24hr" },
 ];
 
 export const WEDDING_IMAGES = [
-  "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80",
-  "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80",
-  "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80",
+  IMAGE_PATHS.gallery("w1"),
+  IMAGE_PATHS.gallery("w2"),
+  IMAGE_PATHS.gallery("w3"),
 ];
 
 export const WEDDING_FEATURES = [
@@ -90,15 +91,14 @@ export const PROCESS_STEPS = [
   { step: 4, title: "📦 Print & Deliver", time: "24 hours", desc: "Your order is printed, quality-checked, and ready for pickup or delivery within 24 hours." },
 ];
 
-// Avatar images: real portraits (Unsplash), face-cropped. Women → clearly female photos; men → clearly male photos; match names.
-const AVATAR_PARAMS = "w=160&h=160&fit=crop&crop=face&q=80";
+// Avatar images: local public/images/avatars/01.jpg … 06.jpg for fast loading.
 export const TESTIMONIALS = [
-  { name: "Priya Rajan", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Absolutely beautiful wedding cards. The gold foil finish was stunning and all 500 cards were delivered on time. Highly recommended!", avatar: `https://images.unsplash.com/photo-1580471260026-2a8acbc7c7a7?${AVATAR_PARAMS}` },
-  { name: "Karthik S.", location: "Chromepet", product: "Visiting Cards", rating: 5, text: "Best visiting cards I've ever had printed. The spot UV finish looks premium. Got 500 cards in just 2 days!", avatar: `https://images.unsplash.com/photo-1712425718137-491250cfde88?${AVATAR_PARAMS}` },
-  { name: "Lakshmi Devi", location: "Pallavaram", product: "Brochures", rating: 5, text: "We've been using Super Printers for our company brochures for 10 years. Consistent quality every single time.", avatar: `https://images.unsplash.com/photo-1605284909169-5e93b375cd4d?${AVATAR_PARAMS}` },
-  { name: "Mohammed Farooq", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Printed 1000 nikah invitation cards. Beautiful design, on-time delivery, and very reasonable pricing.", avatar: `https://images.unsplash.com/photo-1705513054794-d18a8eb0af6c?${AVATAR_PARAMS}` },
-  { name: "Anand Kumar", location: "Perungalathur", product: "Bill Books", rating: 5, text: "Quick turnaround on bill books. Quality paper and clear printing. Our go-to printer for all business needs.", avatar: `https://images.unsplash.com/photo-1596633816484-10da10b748e4?${AVATAR_PARAMS}` },
-  { name: "Deepa M.", location: "Chrompet", product: "Letterheads", rating: 5, text: "Professional letterheads with perfect colour matching. The team is very helpful and responsive on WhatsApp.", avatar: `https://images.unsplash.com/photo-1659451335972-c3f976f4e567?${AVATAR_PARAMS}` },
+  { name: "Priya Rajan", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Absolutely beautiful wedding cards. The gold foil finish was stunning and all 500 cards were delivered on time. Highly recommended!", avatar: IMAGE_PATHS.avatar(1) },
+  { name: "Karthik S.", location: "Chromepet", product: "Visiting Cards", rating: 5, text: "Best visiting cards I've ever had printed. The spot UV finish looks premium. Got 500 cards in just 2 days!", avatar: IMAGE_PATHS.avatar(2) },
+  { name: "Lakshmi Devi", location: "Pallavaram", product: "Brochures", rating: 5, text: "We've been using Super Printers for our company brochures for 10 years. Consistent quality every single time.", avatar: IMAGE_PATHS.avatar(3) },
+  { name: "Mohammed Farooq", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Printed 1000 nikah invitation cards. Beautiful design, on-time delivery, and very reasonable pricing.", avatar: IMAGE_PATHS.avatar(4) },
+  { name: "Anand Kumar", location: "Perungalathur", product: "Bill Books", rating: 5, text: "Quick turnaround on bill books. Quality paper and clear printing. Our go-to printer for all business needs.", avatar: IMAGE_PATHS.avatar(5) },
+  { name: "Deepa M.", location: "Chrompet", product: "Letterheads", rating: 5, text: "Professional letterheads with perfect colour matching. The team is very helpful and responsive on WhatsApp.", avatar: IMAGE_PATHS.avatar(6) },
 ];
 
 export const FAQ_ITEMS = [
@@ -115,14 +115,14 @@ export const FAQ_ITEMS = [
 ];
 
 export const PORTFOLIO_IMAGES = [
-  { src: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=600&q=80", alt: "Wedding invitation cards", cat: "Wedding" },
-  { src: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=600&q=80", alt: "Premium visiting cards", cat: "Visiting Cards" },
-  { src: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&q=80", alt: "Corporate brochures", cat: "Brochures" },
-  { src: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80", alt: "Offset printing press", cat: "Printing" },
-  { src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80", alt: "Wedding invitation suite", cat: "Wedding" },
-  { src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80", alt: "Floral wedding card", cat: "Wedding" },
-  { src: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&q=80", alt: "Pamphlet design", cat: "Brochures" },
-  { src: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600&q=80", alt: "Bill books and registers", cat: "Corporate" },
+  { src: IMAGE_PATHS.gallery("w1"), alt: "Wedding invitation cards", cat: "Wedding" },
+  { src: IMAGE_PATHS.gallery("v1"), alt: "Premium visiting cards", cat: "Visiting Cards" },
+  { src: IMAGE_PATHS.gallery("b1"), alt: "Corporate brochures", cat: "Brochures" },
+  { src: IMAGE_PATHS.gallery("p1"), alt: "Offset printing press", cat: "Printing" },
+  { src: IMAGE_PATHS.gallery("w2"), alt: "Wedding invitation suite", cat: "Wedding" },
+  { src: IMAGE_PATHS.gallery("w3"), alt: "Floral wedding card", cat: "Wedding" },
+  { src: IMAGE_PATHS.gallery("b3"), alt: "Pamphlet design", cat: "Brochures" },
+  { src: IMAGE_PATHS.gallery("bb1"), alt: "Bill books and registers", cat: "Corporate" },
 ];
 
 export const TIMELINE = [

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
+import { IMAGE_PATHS } from "@/data/imagePaths";
 import { HERO, HERO_PRODUCTS } from "@/data/v2";
 
 const HeroSection = () => (
@@ -32,7 +33,7 @@ const HeroSection = () => (
                   alt={product.name}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading={i < 2 ? "eager" : "lazy"}
-                  onError={(e) => { const t = e.currentTarget; if (t.dataset.fallback) return; t.dataset.fallback = "1"; t.src = "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=400&q=80"; }}
+                  onError={(e) => { const t = e.currentTarget; if (t.dataset.fallback) return; t.dataset.fallback = "1"; t.src = IMAGE_PATHS.placeholder; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3">

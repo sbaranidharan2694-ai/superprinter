@@ -1,9 +1,9 @@
 /**
- * Gallery page images — all from Unsplash (free for commercial use).
- * Categories: Wedding Cards, Visiting Cards, Brochures, Bill Books, Letterheads, Catalogues, Corporate, Printing.
+ * Gallery page images — all from local public/images/gallery/ for fast loading.
+ * File names: w1.jpg, w2.jpg, ... (see public/images/README.txt).
  */
 
-const W = "?w=600&q=85";
+import { IMAGE_PATHS } from "./imagePaths";
 
 export type GalleryCategory =
   | "All"
@@ -36,62 +36,53 @@ export const GALLERY_CATEGORIES: GalleryCategory[] = [
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
-  // Wedding Cards
-  { id: "w1", src: `https://images.unsplash.com/photo-1607344645866-009c320b63e0${W}`, alt: "Wedding invitation cards", category: "Wedding Cards" },
-  { id: "w2", src: `https://images.unsplash.com/photo-1519741497674-611481863552${W}`, alt: "Wedding invitation suite", category: "Wedding Cards" },
-  { id: "w3", src: `https://images.unsplash.com/photo-1583939003579-730e3918a45a${W}`, alt: "Floral wedding card", category: "Wedding Cards" },
-  { id: "w4", src: `https://images.unsplash.com/photo-1607000975631-4bd2e12d00da${W}`, alt: "Elegant wedding invite", category: "Wedding Cards" },
-  { id: "w5", src: `https://images.unsplash.com/photo-1511285560929-80b456fea0bc${W}`, alt: "Wedding invitation design", category: "Wedding Cards" },
-  { id: "w6", src: `https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d${W}`, alt: "Wedding stationery", category: "Wedding Cards" },
-  // Visiting / Business Cards
-  { id: "v1", src: `https://images.unsplash.com/photo-1606293926075-69a00dbfde81${W}`, alt: "Premium visiting cards", category: "Visiting Cards" },
-  { id: "v2", src: `https://images.unsplash.com/photo-1589739900243-4b52cd9b104e${W}`, alt: "Business cards", category: "Visiting Cards" },
-  { id: "v3", src: `https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da${W}`, alt: "Luxury business cards", category: "Visiting Cards" },
-  { id: "v4", src: `https://images.unsplash.com/photo-1572044162444-ad60f128bdea${W}`, alt: "Premium foil visiting cards", category: "Visiting Cards" },
-  { id: "v5", src: `https://images.unsplash.com/photo-1586953208448-b95a79798f07${W}`, alt: "Corporate visiting cards", category: "Visiting Cards" },
-  { id: "v6", src: `https://images.unsplash.com/photo-1558618666-fcd25c85cd64${W}`, alt: "Minimal business cards", category: "Visiting Cards" },
-  // Brochures
-  { id: "b1", src: `https://images.unsplash.com/photo-1586075010923-2dd4570fb338${W}`, alt: "Corporate brochures", category: "Brochures" },
-  { id: "b2", src: `https://images.unsplash.com/photo-1541506618330-7c369fc759b5${W}`, alt: "Trifold brochure", category: "Brochures" },
-  { id: "b3", src: `https://images.unsplash.com/photo-1572044162444-ad60f128bdea${W}`, alt: "Pamphlet and brochure", category: "Brochures" },
-  { id: "b4", src: `https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d${W}`, alt: "Marketing brochure", category: "Brochures" },
-  { id: "b5", src: `https://images.unsplash.com/photo-1548036328-c9fa89d128fa${W}`, alt: "Brochure design", category: "Brochures" },
-  { id: "b6", src: `https://images.unsplash.com/photo-1557804506-669a67965ba0${W}`, alt: "Sales brochure", category: "Brochures" },
-  // Bill Books
-  { id: "bb1", src: `https://images.unsplash.com/photo-1568667256549-094345857637${W}`, alt: "Bill books and registers", category: "Bill Books" },
-  { id: "bb2", src: `https://images.unsplash.com/photo-1568667256549-094345857637${W}`, alt: "NCR bill book", category: "Bill Books" },
-  { id: "bb3", src: `https://images.unsplash.com/photo-1586281380349-632531db7ed4${W}`, alt: "Invoice and bill book", category: "Bill Books" },
-  { id: "bb4", src: `https://images.unsplash.com/photo-1586075010923-2dd4570fb338${W}`, alt: "Carbonless bill book", category: "Bill Books" },
-  // Letterheads
-  { id: "l1", src: `https://images.unsplash.com/photo-1586281380349-632531db7ed4${W}`, alt: "Letterhead printing", category: "Letterheads" },
-  { id: "l2", src: `https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead${W}`, alt: "Envelopes and letterheads", category: "Letterheads" },
-  { id: "l3", src: `https://images.unsplash.com/photo-1586075010923-2dd4570fb338${W}`, alt: "Corporate letterhead", category: "Letterheads" },
-  { id: "l4", src: `https://images.unsplash.com/photo-1557804506-669a67965ba0${W}`, alt: "Stationery set", category: "Letterheads" },
-  // Catalogues
-  { id: "c1", src: `https://images.unsplash.com/photo-1558618666-fcd25c85cd64${W}`, alt: "Product catalogue", category: "Catalogues" },
-  { id: "c2", src: `https://images.unsplash.com/photo-1541506618330-7c369fc759b5${W}`, alt: "Catalogue booklet", category: "Catalogues" },
-  { id: "c3", src: `https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d${W}`, alt: "Print catalogue", category: "Catalogues" },
-  { id: "c4", src: `https://images.unsplash.com/photo-1512820790803-83ca734da794${W}`, alt: "Menu and catalogue", category: "Catalogues" },
-  // Corporate
-  { id: "co1", src: `https://images.unsplash.com/photo-1634973357973-f2ed2657db3c${W}`, alt: "Poster and print", category: "Corporate" },
-  { id: "co2", src: `https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5${W}`, alt: "Print production", category: "Corporate" },
-  { id: "co3", src: `https://images.unsplash.com/photo-1586953208448-b95a79798f07${W}`, alt: "Corporate stationery", category: "Corporate" },
-  { id: "co4", src: `https://images.unsplash.com/photo-1557804506-669a67965ba0${W}`, alt: "Branded materials", category: "Corporate" },
-  { id: "co5", src: `https://images.unsplash.com/photo-1607000975631-4bd2e12d00da${W}`, alt: "Stickers and labels", category: "Corporate" },
-  { id: "co6", src: `https://images.unsplash.com/photo-1611532736597-de2d4265fba3${W}`, alt: "ID cards and corporate", category: "Corporate" },
-  // Printing
-  { id: "p1", src: `https://images.unsplash.com/photo-1504711434969-e33886168f5c${W}`, alt: "Offset printing press", category: "Printing" },
-  { id: "p2", src: `https://images.unsplash.com/photo-1504270997636-07ddfbd48945${W}`, alt: "Printing machinery", category: "Printing" },
-  { id: "p3", src: `https://images.unsplash.com/photo-1558618047-f4f37ee1d6d0${W}`, alt: "Screen printing", category: "Printing" },
-  { id: "p4", src: `https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5${W}`, alt: "Digital printing", category: "Printing" },
-  { id: "p5", src: `https://images.unsplash.com/photo-1513542789411-b6a5d4f31634${W}`, alt: "Print workshop", category: "Printing" },
-  { id: "p6", src: `https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d${W}`, alt: "Printing press", category: "Printing" },
-  // Extra variety (more wedding, cards, stationery)
-  { id: "w7", src: `https://images.unsplash.com/photo-1519741497674-611481863552${W}`, alt: "Wedding invitation flat lay", category: "Wedding Cards" },
-  { id: "w8", src: `https://images.unsplash.com/photo-1583939003579-730e3918a45a${W}`, alt: "Invitation cards", category: "Wedding Cards" },
-  { id: "v7", src: `https://images.unsplash.com/photo-1589739900243-4b52cd9b104e${W}`, alt: "Business card design", category: "Visiting Cards" },
-  { id: "b7", src: `https://images.unsplash.com/photo-1586281380349-632531db7ed4${W}`, alt: "Company brochure", category: "Brochures" },
-  { id: "l5", src: `https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead${W}`, alt: "Office stationery", category: "Letterheads" },
-  { id: "co7", src: `https://images.unsplash.com/photo-1634973357973-f2ed2657db3c${W}`, alt: "Corporate branding", category: "Corporate" },
-  { id: "co8", src: `https://images.unsplash.com/photo-1557804506-669a67965ba0${W}`, alt: "Marketing print", category: "Corporate" },
+  { id: "w1", src: IMAGE_PATHS.gallery("w1"), alt: "Wedding invitation cards", category: "Wedding Cards" },
+  { id: "w2", src: IMAGE_PATHS.gallery("w2"), alt: "Wedding invitation suite", category: "Wedding Cards" },
+  { id: "w3", src: IMAGE_PATHS.gallery("w3"), alt: "Floral wedding card", category: "Wedding Cards" },
+  { id: "w4", src: IMAGE_PATHS.gallery("w4"), alt: "Elegant wedding invite", category: "Wedding Cards" },
+  { id: "w5", src: IMAGE_PATHS.gallery("w5"), alt: "Wedding invitation design", category: "Wedding Cards" },
+  { id: "w6", src: IMAGE_PATHS.gallery("w6"), alt: "Wedding stationery", category: "Wedding Cards" },
+  { id: "v1", src: IMAGE_PATHS.gallery("v1"), alt: "Premium visiting cards", category: "Visiting Cards" },
+  { id: "v2", src: IMAGE_PATHS.gallery("v2"), alt: "Business cards", category: "Visiting Cards" },
+  { id: "v3", src: IMAGE_PATHS.gallery("v3"), alt: "Luxury business cards", category: "Visiting Cards" },
+  { id: "v4", src: IMAGE_PATHS.gallery("v4"), alt: "Premium foil visiting cards", category: "Visiting Cards" },
+  { id: "v5", src: IMAGE_PATHS.gallery("v5"), alt: "Corporate visiting cards", category: "Visiting Cards" },
+  { id: "v6", src: IMAGE_PATHS.gallery("v6"), alt: "Minimal business cards", category: "Visiting Cards" },
+  { id: "b1", src: IMAGE_PATHS.gallery("b1"), alt: "Corporate brochures", category: "Brochures" },
+  { id: "b2", src: IMAGE_PATHS.gallery("b2"), alt: "Trifold brochure", category: "Brochures" },
+  { id: "b3", src: IMAGE_PATHS.gallery("b3"), alt: "Pamphlet and brochure", category: "Brochures" },
+  { id: "b4", src: IMAGE_PATHS.gallery("b4"), alt: "Marketing brochure", category: "Brochures" },
+  { id: "b5", src: IMAGE_PATHS.gallery("b5"), alt: "Brochure design", category: "Brochures" },
+  { id: "b6", src: IMAGE_PATHS.gallery("b6"), alt: "Sales brochure", category: "Brochures" },
+  { id: "bb1", src: IMAGE_PATHS.gallery("bb1"), alt: "Bill books and registers", category: "Bill Books" },
+  { id: "bb2", src: IMAGE_PATHS.gallery("bb2"), alt: "NCR bill book", category: "Bill Books" },
+  { id: "bb3", src: IMAGE_PATHS.gallery("bb3"), alt: "Invoice and bill book", category: "Bill Books" },
+  { id: "bb4", src: IMAGE_PATHS.gallery("bb4"), alt: "Carbonless bill book", category: "Bill Books" },
+  { id: "l1", src: IMAGE_PATHS.gallery("l1"), alt: "Letterhead printing", category: "Letterheads" },
+  { id: "l2", src: IMAGE_PATHS.gallery("l2"), alt: "Envelopes and letterheads", category: "Letterheads" },
+  { id: "l3", src: IMAGE_PATHS.gallery("l3"), alt: "Corporate letterhead", category: "Letterheads" },
+  { id: "l4", src: IMAGE_PATHS.gallery("l4"), alt: "Stationery set", category: "Letterheads" },
+  { id: "c1", src: IMAGE_PATHS.gallery("c1"), alt: "Product catalogue", category: "Catalogues" },
+  { id: "c2", src: IMAGE_PATHS.gallery("c2"), alt: "Catalogue booklet", category: "Catalogues" },
+  { id: "c3", src: IMAGE_PATHS.gallery("c3"), alt: "Print catalogue", category: "Catalogues" },
+  { id: "c4", src: IMAGE_PATHS.gallery("c4"), alt: "Menu and catalogue", category: "Catalogues" },
+  { id: "co1", src: IMAGE_PATHS.gallery("co1"), alt: "Poster and print", category: "Corporate" },
+  { id: "co2", src: IMAGE_PATHS.gallery("co2"), alt: "Print production", category: "Corporate" },
+  { id: "co3", src: IMAGE_PATHS.gallery("co3"), alt: "Corporate stationery", category: "Corporate" },
+  { id: "co4", src: IMAGE_PATHS.gallery("co4"), alt: "Branded materials", category: "Corporate" },
+  { id: "co5", src: IMAGE_PATHS.gallery("co5"), alt: "Stickers and labels", category: "Corporate" },
+  { id: "co6", src: IMAGE_PATHS.gallery("co6"), alt: "ID cards and corporate", category: "Corporate" },
+  { id: "p1", src: IMAGE_PATHS.gallery("p1"), alt: "Offset printing press", category: "Printing" },
+  { id: "p2", src: IMAGE_PATHS.gallery("p2"), alt: "Printing machinery", category: "Printing" },
+  { id: "p3", src: IMAGE_PATHS.gallery("p3"), alt: "Screen printing", category: "Printing" },
+  { id: "p4", src: IMAGE_PATHS.gallery("p4"), alt: "Digital printing", category: "Printing" },
+  { id: "p5", src: IMAGE_PATHS.gallery("p5"), alt: "Print workshop", category: "Printing" },
+  { id: "p6", src: IMAGE_PATHS.gallery("p6"), alt: "Printing press", category: "Printing" },
+  { id: "w7", src: IMAGE_PATHS.gallery("w7"), alt: "Wedding invitation flat lay", category: "Wedding Cards" },
+  { id: "w8", src: IMAGE_PATHS.gallery("w8"), alt: "Invitation cards", category: "Wedding Cards" },
+  { id: "v7", src: IMAGE_PATHS.gallery("v7"), alt: "Business card design", category: "Visiting Cards" },
+  { id: "b7", src: IMAGE_PATHS.gallery("b7"), alt: "Company brochure", category: "Brochures" },
+  { id: "l5", src: IMAGE_PATHS.gallery("l5"), alt: "Office stationery", category: "Letterheads" },
+  { id: "co7", src: IMAGE_PATHS.gallery("co7"), alt: "Corporate branding", category: "Corporate" },
+  { id: "co8", src: IMAGE_PATHS.gallery("co8"), alt: "Marketing print", category: "Corporate" },
 ];

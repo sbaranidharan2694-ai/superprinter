@@ -1,98 +1,75 @@
-const px = (id: number, w = 1200, h = 800) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}&h=${h}&dpr=1`;
+/**
+ * All image paths — local files in public/images/ for fast loading.
+ * Single source: imagePaths.ts; this file re-exports and adds IMG map for legacy usage.
+ */
+
+import { IMAGE_PATHS } from "./imagePaths";
+
+const P = IMAGE_PATHS;
 
 export const IMG = {
-  // Redesign: Unsplash hero & about
-  heroUnsplash: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1600",
-  aboutUnsplash: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800",
-  // Hero & Background (legacy)
-  hero: px(3825586, 1920, 1080),
-  pressWide: px(4481326, 1920, 800),
-  
-  // Offset Press & Workshop
-  offsetPress: px(4481323),
-  inkRollers: px(4481258),
-  workshop: px(4481259),
-  printShop: px(7034467, 900, 700),
-  
-  // Visiting Cards
-  glossCard: px(6177618, 900, 700),
-  mattCard: px(5632386, 900, 700),
-  spotUvCard: px(6177608, 900, 700),
-  velvetCard: px(4792506, 900, 700),
-  goldFoilCard: px(6801647, 900, 700),
-  syntheticCard: px(6801648, 900, 700),
-  premiumCards: px(6802042, 900, 700),
-  stackedCards: px(5632388, 900, 700),
-  
-  // Wedding Invitations
-  weddingInvite1: px(2253870, 900, 700),
-  weddingInvite2: px(1616113, 900, 700),
-  weddingInvite3: px(1043902, 900, 700),
-  weddingCeremony: px(1024993),
-  
-  // Stationery
-  letterhead: px(5632397, 900, 700),
-  envelopes: px(4226896, 900, 700),
-  stickerSheets: px(4792285, 900, 700),
-  brochures: px(6177670, 900, 700),
-
-  // Catalog: stickers, calendar, hospital files
-  mirrorSticker: px(4792285, 900, 700),
-  panchangam: px(28806603, 900, 700),
-  calendarMount: px(28806603, 900, 700),
-  hospitalPlastic: px(7034466, 900, 700),
-  hospitalGeneral: px(7034466, 900, 700),
-  
-  // Delivery
-  delivery: px(4391470),
-  parcel: px(4246120, 900, 700),
-  
-  // Quality & Process
-  qualityCheck: px(7034466, 900, 700),
-  inkPress: px(4481324, 900, 700),
-  digitalPrint: px(7034465, 900, 700),
-
-  // Additional from old images.ts
-  P01: px(6621000),
-  P02: px(6620992),
-  P03: px(4140923),
-  P04: px(19316517),
-  P05: px(28806603),
-  P06: px(18748938),
-  P07: px(28845664),
-  P08: px(7162700),
-  P09: px(4466176),
-  P10: px(5632397),
-  P11: px(269843),
-  P12: px(17536002),
-  P13: px(6208086),
-  P14: px(3894378),
-  P15: px(3201783),
-  P16: px(19905870),
-  P17: px(6209791),
-  P18: px(1070536),
-  P19: px(300860),
-  P20: px(2881262),
-  P21: px(4440796),
-  P22: px(6169002),
-  P23: px(8276914),
-  P24: px(7843999),
-  P25: px(3966277),
-  P26: px(4348404),
-  P27: px(3194518),
-  P28: px(33650428),
-  P29: px(4466175),
-  P30: px(1266808),
-  P31: px(8293714),
-  P32: px(1573825),
-  P33: px(276267),
-  P34: px(30171219),
-  P01_HERO: px(6621000, 1920, 1080),
-  P04_WIDE: px(19316517, 1920, 800),
+  hero: P.hero.wedding,
+  heroUnsplash: P.hero.wedding,
+  aboutUnsplash: P.about,
+  pressWide: P.offsetPress,
+  offsetPress: P.offsetPress,
+  workshop: P.workshop,
+  printShop: P.workshop,
+  glossCard: P.glossCard,
+  mattCard: P.mattCard,
+  spotUvCard: P.spotUvCard,
+  velvetCard: P.velvetCard,
+  goldFoilCard: P.gallery("v4"),
+  syntheticCard: P.gallery("v5"),
+  premiumCards: P.premiumCards,
+  stackedCards: P.stackedCards,
+  weddingInvite1: P.hero.wedding,
+  weddingInvite2: P.gallery("w2"),
+  weddingInvite3: P.gallery("w3"),
+  weddingCeremony: P.gallery("w1"),
+  letterhead: P.letterhead,
+  envelopes: P.envelope,
+  stickerSheets: P.stickerSheet,
+  brochures: P.brochures,
+  digitalPrint: P.digitalPrint,
+  P01: P.gallery("v1"),
+  P02: P.gallery("v2"),
+  P03: P.gallery("v3"),
+  P04: P.gallery("b1"),
+  P05: P.gallery("co1"),
+  P06: P.gallery("p1"),
+  P07: P.gallery("co2"),
+  P08: P.gallery("l1"),
+  P09: P.gallery("c1"),
+  P10: P.letterhead,
+  P11: P.billBook,
+  P12: P.gallery("c2"),
+  P13: P.gallery("co6"),
+  P14: P.gallery("bb1"),
+  P15: P.gallery("p2"),
+  P16: P.gallery("p3"),
+  P17: P.gallery("b2"),
+  P18: P.gallery("p3"),
+  P19: P.catalog("stamp"),
+  P20: P.gallery("co5"),
+  P21: P.gallery("v4"),
+  P22: P.gallery("b3"),
+  P23: P.gallery("l2"),
+  P24: P.gallery("c3"),
+  P25: P.gallery("co3"),
+  P26: P.gallery("bb2"),
+  P27: P.gallery("b4"),
+  P28: P.gallery("w4"),
+  P29: P.gallery("l3"),
+  P30: P.gallery("p4"),
+  P31: P.gallery("co4"),
+  P32: P.gallery("v5"),
+  P33: P.gallery("p5"),
+  P34: P.gallery("p6"),
+  P01_HERO: P.hero.wedding,
+  P04_WIDE: P.gallery("b1"),
 } as const;
 
-// Service images mapped to service slugs
 export const SERVICE_IMAGES: Record<string, string> = {
   "offset-printing": IMG.offsetPress,
   "visiting-cards": IMG.glossCard,

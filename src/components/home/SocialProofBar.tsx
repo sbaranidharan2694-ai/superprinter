@@ -18,7 +18,7 @@ const SocialProofBar = () => (
       style={{ background: "linear-gradient(90deg, transparent, var(--gold), transparent)" }}
     />
     <div className="max-w-6xl mx-auto px-6 relative z-10">
-      {/* Stats Row — light cards on dark for contrast */}
+      {/* Stats Row — bright, bold cards on dark for strong contrast */}
       <div className="flex flex-wrap items-stretch justify-center gap-4 md:gap-5 mb-12">
         {SOCIAL_PROOF_STATS.map((stat, i) => (
           <motion.div
@@ -27,21 +27,21 @@ const SocialProofBar = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.06 }}
-            className="flex items-center justify-center min-w-[120px] md:min-w-[140px] px-5 py-4 rounded-2xl bg-white/98 border border-white/20 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200"
+            className="flex items-center justify-center min-w-[128px] md:min-w-[150px] px-6 py-5 rounded-2xl border-2 border-amber-100 bg-white shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-200"
             style={{
-              boxShadow: "0 4px 20px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.08)",
+              boxShadow: "0 6px 24px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.9), 0 0 0 3px rgba(201,168,76,0.15)",
             }}
           >
             <div className="text-center">
               <div
-                className="font-display font-extrabold text-2xl md:text-3xl leading-tight"
+                className="font-display font-black text-3xl md:text-4xl leading-tight tracking-tight"
                 style={{ color: "var(--color-primary)" }}
               >
                 {stat.value}
               </div>
               <div
-                className="text-xs md:text-sm mt-1 font-semibold"
-                style={{ color: "#374151", fontFamily: "var(--font-body)" }}
+                className="text-xs md:text-sm mt-2 font-bold uppercase tracking-wide"
+                style={{ color: "#1f2937", fontFamily: "var(--font-body)" }}
               >
                 {stat.label}
               </div>

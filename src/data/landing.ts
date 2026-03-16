@@ -1,3 +1,5 @@
+import { IMAGE_PATHS } from "./imagePaths";
+
 export interface LandingServiceCard {
   id: string;
   emoji: string;
@@ -191,26 +193,26 @@ export interface PortfolioItem {
 export const PORTFOLIO_CATEGORIES = ["All", "Business Cards", "Brochures", "Bill Books", "Wedding Cards", "Letterheads", "Catalogues", "Corporate"] as const;
 
 export const LANDING_PORTFOLIO: PortfolioItem[] = [
-  { id: "1",        img: "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=600&q=85",  label: "Business Cards",          category: "Business Cards"   },
-  { id: "2",        img: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=85",  label: "Business Cards Luxury",   category: "Business Cards"   },
-  { id: "3",        img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&q=85",  label: "Premium Foil Cards",      category: "Business Cards"   },
-  { id: "4",        img: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=600&q=85",  label: "Trifold Brochure",        category: "Brochures"        },
-  { id: "5",        img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=85",  label: "Letterhead",              category: "Letterheads"      },
-  { id: "6",        img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600&q=85",  label: "Bill Books",              category: "Bill Books"       },
-  { id: "7",        img: "https://images.unsplash.com/photo-1607000975631-4bd2e12d00da?w=600&q=85",  label: "Wedding Invite",          category: "Wedding Cards"    },
-  { id: "8",        img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=85",  label: "Wedding Invitation",      category: "Wedding Cards"    },
-  { id: "9",        img: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&q=85",  label: "Envelopes",               category: "Letterheads"      },
-  { id: "10",       img: "https://images.unsplash.com/photo-1558618047-f4f37ee1d6d0?w=600&q=85",    label: "Screen Printing",         category: "Special Finishes" },
-  { id: "11",       img: "https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=600&q=85",  label: "Poster Print",            category: "Corporate"        },
-  { id: "12",       img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=85",  label: "Press Machinery",         category: "Corporate"        },
-  { id: "client-1", img: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600",       label: "Corporate Visiting Cards", category: "Corporate"        },
-  { id: "client-2", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600",          label: "Product Catalogue",       category: "Catalogues"       },
-  { id: "client-3", img: "https://images.unsplash.com/photo-1541506618330-7c369fc759b5?w=600",       label: "Brochure Design",         category: "Brochures"        },
-  { id: "client-4", img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600",       label: "Wedding Collection",      category: "Wedding Cards"    },
-  { id: "client-5", img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600",       label: "Carbonless Bill Books",   category: "Bill Books"       },
-  { id: "client-6", img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600",       label: "Corporate Letterheads",   category: "Letterheads"      },
-  { id: "client-7", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600",       label: "Print Production",        category: "Special Finishes" },
-  { id: "client-8", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600",          label: "Product Booklet",         category: "Catalogues"       },
+  { id: "1",        img: IMAGE_PATHS.gallery("v1"),  label: "Business Cards",          category: "Business Cards"   },
+  { id: "2",        img: IMAGE_PATHS.gallery("v2"),  label: "Business Cards Luxury",   category: "Business Cards"   },
+  { id: "3",        img: IMAGE_PATHS.gallery("v4"),  label: "Premium Foil Cards",      category: "Business Cards"   },
+  { id: "4",        img: IMAGE_PATHS.gallery("b2"),  label: "Trifold Brochure",        category: "Brochures"        },
+  { id: "5",        img: IMAGE_PATHS.gallery("l1"),  label: "Letterhead",              category: "Letterheads"      },
+  { id: "6",        img: IMAGE_PATHS.gallery("bb1"), label: "Bill Books",              category: "Bill Books"       },
+  { id: "7",        img: IMAGE_PATHS.gallery("w4"),  label: "Wedding Invite",          category: "Wedding Cards"    },
+  { id: "8",        img: IMAGE_PATHS.gallery("w5"),  label: "Wedding Invitation",      category: "Wedding Cards"    },
+  { id: "9",        img: IMAGE_PATHS.gallery("l2"),  label: "Envelopes",               category: "Letterheads"      },
+  { id: "10",       img: IMAGE_PATHS.gallery("p3"),  label: "Screen Printing",         category: "Special Finishes" },
+  { id: "11",       img: IMAGE_PATHS.gallery("co1"), label: "Poster Print",            category: "Corporate"        },
+  { id: "12",       img: IMAGE_PATHS.gallery("p1"),  label: "Press Machinery",         category: "Corporate"        },
+  { id: "client-1", img: IMAGE_PATHS.gallery("v5"),  label: "Corporate Visiting Cards", category: "Corporate"        },
+  { id: "client-2", img: IMAGE_PATHS.gallery("c1"),  label: "Product Catalogue",       category: "Catalogues"       },
+  { id: "client-3", img: IMAGE_PATHS.gallery("b2"),  label: "Brochure Design",         category: "Brochures"        },
+  { id: "client-4", img: IMAGE_PATHS.gallery("w5"),  label: "Wedding Collection",      category: "Wedding Cards"    },
+  { id: "client-5", img: IMAGE_PATHS.gallery("bb2"), label: "Carbonless Bill Books",   category: "Bill Books"       },
+  { id: "client-6", img: IMAGE_PATHS.gallery("l3"),  label: "Corporate Letterheads",   category: "Letterheads"      },
+  { id: "client-7", img: IMAGE_PATHS.gallery("co2"), label: "Print Production",        category: "Special Finishes" },
+  { id: "client-8", img: IMAGE_PATHS.gallery("c2"),  label: "Product Booklet",         category: "Catalogues"       },
 ];
 
 export interface TimelineMilestone {
