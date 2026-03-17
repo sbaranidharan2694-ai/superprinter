@@ -52,7 +52,7 @@ export const IMAGE_PATHS = {
 
   avatar: (index: number) =>
     USE_LOCAL_IMAGES
-      ? local(`avatars/${String(index).padStart(2, "0")}.png`)
+      ? local(`avatars/${String(index).padStart(2, "0")}.jpg`)
       : `https://images.unsplash.com/photo-${AVATAR_PHOTOS[index - 1] || AVATAR_PHOTOS[0]}?w=160&h=160&fit=crop&crop=face&q=80`,
 
   about: USE_LOCAL_IMAGES ? local("about.jpg") : U("1504711434969-e33886168f5c", 800),
