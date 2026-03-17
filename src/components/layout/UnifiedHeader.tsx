@@ -52,7 +52,7 @@ const UnifiedHeader = () => {
         <Link to="/" className="flex items-center shrink-0" aria-label="Super Printers Home">
           {!logoImgFailed ? (
             <img
-              src="/super-printers-logo.svg"
+              src="/super-printers-logo.png"
               alt="Super Printers — 35 Years Experience"
               className="h-16 sm:h-20 md:h-24 lg:h-[88px] w-auto object-contain object-left max-w-[280px] sm:max-w-[320px] md:max-w-[360px] drop-shadow-sm"
               style={{ minHeight: 64 }}
