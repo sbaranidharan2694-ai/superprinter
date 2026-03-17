@@ -54,8 +54,8 @@ const UnifiedHeader = () => {
             <img
               src="/super-printers-logo.png"
               alt="Super Printers — 35 Years Experience"
-              className="h-16 sm:h-20 md:h-24 lg:h-[88px] w-auto object-contain object-left max-w-[280px] sm:max-w-[320px] md:max-w-[360px] drop-shadow-sm"
-              style={{ minHeight: 64 }}
+              className="h-20 sm:h-24 md:h-28 lg:h-[110px] w-auto object-contain object-left max-w-[340px] sm:max-w-[400px] md:max-w-[460px] drop-shadow-sm"
+              style={{ minHeight: 80 }}
               onError={(e) => {
                 const target = e.currentTarget;
                 if (target.getAttribute("data-fallback") !== "done") {
