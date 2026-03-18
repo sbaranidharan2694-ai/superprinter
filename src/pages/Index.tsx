@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import { HOMEPAGE_FAQ_SCHEMA } from "@/data/seoSchemas";
 import HeroSection from "@/components/home/HeroSection";
 import TrustBadgesStrip from "@/components/home/TrustBadgesStrip";
 import SocialProofBar from "@/components/home/SocialProofBar";
@@ -19,9 +20,11 @@ import ContactSection from "@/components/home/ContactSection";
 const Index = () => (
   <div className="text-foreground bg-background overflow-x-hidden" style={{ fontFamily: "var(--font-body)" }}>
     <SEOHead
-      title="Super Printers Chennai | Wedding Cards & Printing Press Since 1990 | Pallavaram"
-      description="Best printing press in Chennai since 1990. Wedding cards, visiting cards, brochures, offset & digital printing in Pallavaram. Call +91 98401 99878."
+      title="Printing Press Chennai | Wedding Cards, Visiting Cards, Brochures | Super Printers Pallavaram"
+      description="Top printing press in Chennai since 1990. Wedding cards, visiting cards, brochures, bill books, letterheads, banners, rubber stamps, T-shirt printing, pamphlets. Fast delivery Pallavaram, Chromepet, Tambaram. Call +91 98401 99878."
       canonical="/"
+      keywords="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards Chennai, brochure printing, bill book printing Chennai, banner printing, rubber stamp Chennai, offset printing, pamphlet printing, T shirt printing Chennai, letterhead printing, GST invoice books"
+      schemaMarkup={HOMEPAGE_FAQ_SCHEMA}
     />
     <HeroSection />
     <SocialProofBar />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
+import { serviceLandingSchema } from "@/data/seoSchemas";
 
 /** Sample design gallery: 10 visiting card images. Place files in public/visiting-cards/ as visiting-card-01.png … visiting-card-10.png */
 const VISITING_CARD_DESIGNS = [
@@ -74,10 +75,18 @@ const VisitingCardsPage = () => {
   return (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Visiting Card Printing Pallavaram Chennai | Gloss, Matt, Spot UV | Super Printers"
-      description="Best visiting card printing in Pallavaram, Chennai. Gloss, Matt, Spot UV, Foil cards. GST invoice. Call +91 98401 99878."
+      title="Visiting Card Printing Chennai Pallavaram | Business Cards Gloss Matt Spot UV Foil | Super Printers"
+      description="Visiting card printing Chennai: gloss, matt, Spot UV, foil, premium GSM. Corporate business cards. GST invoice. Pallavaram workshop. WhatsApp +91 98401 99878."
       canonical="/visiting-cards"
+      keywords="visiting card printing Chennai, business cards Pallavaram, Spot UV cards Chennai, corporate visiting cards, name card printing Tamil Nadu"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Visiting Cards", url: "/visiting-cards" }]}
+      schemaMarkup={serviceLandingSchema({
+        path: "/visiting-cards",
+        name: "Visiting card printing — Super Printers",
+        serviceType: "Business and visiting card printing",
+        description:
+          "Premium visiting cards: gloss, matt, Spot UV, foil; 300–400 GSM; minimum quantities; design support; Pallavaram, Chennai.",
+      })}
     />
 
     <div className="pt-[116px] pb-20">

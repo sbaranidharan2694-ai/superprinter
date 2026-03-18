@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
+import { serviceLandingSchema } from "@/data/seoSchemas";
 
 const SPEC_ROWS = [
   { type: "Matt 300GSM", paper: "300 GSM", finish: "Matt", minQty: "50 pcs", delivery: "24 hours" },
@@ -11,10 +12,18 @@ const SPEC_ROWS = [
 const WeddingCardsPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Wedding Card Printing Chennai | Hindu, Christian, Muslim | Tamil & English | Super Printers Since 1990"
-      description="Wedding invitation printing in Chennai. Hindu, Christian, Muslim & modern designs. Tamil & English. 35 years experience. WhatsApp: +91 98401 99878."
+      title="Wedding Card Printing Chennai | Invitation Cards Pallavaram | Tamil English Hindi | Super Printers"
+      description="Wedding invitation printing Chennai & Pallavaram. Hindu, Christian, Muslim, modern cards. Tamil, English, bilingual. Matt, velvet, foil. Free proof. Order on WhatsApp +91 98401 99878. Since 1990."
       canonical="/wedding-cards"
+      keywords="wedding card printing Chennai, wedding invitation Pallavaram, Tamil wedding cards, Christian wedding cards Chennai, Muslim wedding cards, marriage invitation printing, budget wedding cards Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Wedding Cards", url: "/wedding-cards" }]}
+      schemaMarkup={serviceLandingSchema({
+        path: "/wedding-cards",
+        name: "Wedding card printing Chennai — Super Printers",
+        serviceType: "Wedding invitation design and printing",
+        description:
+          "Wedding invitation cards for Hindu, Christian, and Muslim ceremonies; Tamil and English; matt, velvet, foil finishes; digital proof; pickup Pallavaram or delivery across Chennai.",
+      })}
     />
 
     <div className="pt-[116px] pb-20">

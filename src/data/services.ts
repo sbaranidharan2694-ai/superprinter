@@ -95,9 +95,11 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["offset-printing", "brochure-printing"],
     waMessage: "Hi Super Printers, I need banner printing. Size: Quantity: ",
-    seoTitle: "Banner Printing in Chennai | Super Printers",
-    seoDescription: "Affordable banner printing in Chennai — flex, vinyl, fabric banners and standees. Fast delivery from Super Printers Pallavaram. Call for instant quotes!",
-    keywords: "banner printing chennai, flex banner chennai, vinyl banner pallavaram",
+    seoTitle: "Banner Printing Chennai | Flex Vinyl Roll-Up Standee | Super Printers Pallavaram",
+    seoDescription:
+      "Event & shop banner printing Chennai: flex, vinyl, fabric banners, roll-up standees, outdoor displays. Fast quotes Pallavaram, Chromepet, Tambaram. WhatsApp +91 98401 99878.",
+    keywords:
+      "banner printing Chennai, flex banner Chennai, vinyl banner, roll up standee Chennai, event banner printing, shop banner Pallavaram, outdoor banner Tamil Nadu",
   },
   {
     id: "brochure-printing",
@@ -176,9 +178,11 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["banner-printing", "brochure-printing"],
     waMessage: "Hi Super Printers, I need wedding invitations. Date: Quantity: Style preference: ",
-    seoTitle: "Wedding Card Printing Chennai | Super Printers",
-    seoDescription: "Beautiful wedding invitation printing in Chennai from ₹1,999/100 cards. Traditional, modern, laser-cut, foil options. Super Printers Pallavaram.",
-    keywords: "wedding card printing chennai, wedding invitation chennai, wedding cards pallavaram tambaram",
+    seoTitle: "Wedding Invitation Printing Chennai | Cards Pallavaram Tamil English | Super Printers",
+    seoDescription:
+      "Wedding card & invitation printing Chennai: traditional & modern, Tamil English, laser-cut foil from ₹1,999/100. Digital proof. Pallavaram +91 98401 99878.",
+    keywords:
+      "wedding invitation printing Chennai, wedding cards Pallavaram, Tamil wedding cards, marriage card printing Tambaram Chromepet, laser cut wedding cards Chennai",
   },
   {
     id: "t-shirt-printing",
@@ -202,9 +206,11 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["banner-printing", "stickers-labels"],
     waMessage: "Hi Super Printers, I need T-shirt printing. Design: Quantity: Sizes: ",
-    seoTitle: "T-Shirt Printing in Chennai | Super Printers",
-    seoDescription: "Custom T-shirt printing in Chennai from ₹199/piece. Screen printing & heat transfer. Events, teams, corporate wear. Super Printers Pallavaram.",
-    keywords: "t-shirt printing chennai, custom tshirt printing pallavaram, screen printing tshirts chennai",
+    seoTitle: "T-Shirt Printing Chennai | Custom Corporate Event Tees | Super Printers Pallavaram",
+    seoDescription:
+      "Custom T-shirt printing Chennai from ₹199/pc: screen print & heat transfer for events, teams, corporates. Bulk pricing Pallavaram. WhatsApp quote.",
+    keywords:
+      "T shirt printing Chennai, custom tee printing, corporate T shirt printing, event T shirts Chennai, bulk T shirt Pallavaram, team jersey printing",
   },
   {
     id: "rubber-stamps",
@@ -228,9 +234,11 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["visiting-cards", "letterheads"],
     waMessage: "Hi Super Printers, I need a rubber stamp. Text/Design: Type: ",
-    seoTitle: "Rubber Stamp Making Chennai | Super Printers",
-    seoDescription: "Custom rubber stamps in Chennai — self-inking, pre-inked, wooden stamps. Fast 1-2 day delivery. Super Printers Pallavaram. Call for instant quotes!",
-    keywords: "rubber stamp chennai, stamp making chennai, self inking stamp pallavaram",
+    seoTitle: "Rubber Stamp Making Chennai | Self-Inking Company Seal | Super Printers Pallavaram",
+    seoDescription:
+      "Rubber stamps Chennai: self-inking, pre-inked, wooden, company seal, date stamp. 1–2 day turnaround Pallavaram. GST. +91 98401 99878.",
+    keywords:
+      "rubber stamp making Chennai, self inking stamp Chennai, company seal stamp Pallavaram, date stamp printing, notary stamp Chennai, rubber stamp near me",
   },
   {
     id: "stickers-labels",
@@ -254,9 +262,11 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["brochure-printing", "visiting-cards"],
     waMessage: "Hi Super Printers, I need sticker/label printing. Size: Quantity: ",
-    seoTitle: "Sticker & Label Printing Chennai | Super Printers",
-    seoDescription: "Custom sticker and label printing in Chennai from ₹499. Product labels, die-cut stickers, waterproof options. Super Printers Pallavaram.",
-    keywords: "sticker printing chennai, label printing chennai, custom stickers pallavaram",
+    seoTitle: "Sticker & Label Printing Chennai | Product Labels Die-Cut Waterproof | Super Printers",
+    seoDescription:
+      "Sticker & label printing Chennai from ₹499: product labels, die-cut, waterproof vinyl, sheet stickers. Packaging & retail Pallavaram.",
+    keywords:
+      "sticker printing Chennai, product label printing, waterproof stickers Chennai, die cut stickers, packaging labels Pallavaram, custom label printing",
   },
   {
     id: "letterheads",
@@ -306,9 +316,11 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["brochure-printing", "letterheads"],
     waMessage: "Hi Super Printers, I need catalogue printing. Type: Pages: Quantity: ",
-    seoTitle: "Catalogue Printing Chennai | Super Printers",
-    seoDescription: "Professional catalogue & booklet printing in Chennai from ₹2,499. Product catalogues, menus, price lists. Super Printers Pallavaram.",
-    keywords: "catalogue printing chennai, booklet printing chennai, menu printing pallavaram",
+    seoTitle: "Catalogue & Booklet Printing Chennai | Menu Product Catalog | Super Printers",
+    seoDescription:
+      "Catalogue & booklet printing Chennai from ₹2,499: perfect bound, saddle stitch, menus, product catalogs, price lists Pallavaram.",
+    keywords:
+      "catalogue printing Chennai, booklet printing Chennai, product catalog printing, menu book printing Pallavaram, perfect binding Chennai, company catalog",
   },
   // --- NEW SERVICES ---
   {
@@ -333,9 +345,11 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["brochure-printing", "offset-printing"],
     waMessage: "Hi Super Printers, I need pamphlet/leaflet printing. Type: Quantity: ",
-    seoTitle: "Pamphlet & Leaflet Printing Chennai | Super Printers Pallavaram",
-    seoDescription: "High-impact pamphlet and leaflet printing in Chennai from ₹499/500 pcs. Single-fold, bi-fold, tri-fold, A4 flyers. Fast turnaround at Super Printers Pallavaram.",
-    keywords: "pamphlet printing chennai, leaflet printing chennai, flyer printing pallavaram, pamphlet near me",
+    seoTitle: "Pamphlet & Flyer Printing Chennai | A4 A5 Leaflets Bulk | Super Printers Pallavaram",
+    seoDescription:
+      "Pamphlet & flyer printing Chennai from ₹499/500: A4 A5, tri-fold, handbills, election flyers. Bulk rates Pallavaram. WhatsApp quote.",
+    keywords:
+      "pamphlet printing Chennai, flyer printing Chennai, leaflet printing Pallavaram, handbill printing, election pamphlet Chennai, cheap flyer bulk",
   },
   {
     id: "screen-printing",
@@ -359,9 +373,11 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["t-shirt-printing", "stickers-labels"],
     waMessage: "Hi Super Printers, I need screen printing. Item: Quantity: ",
-    seoTitle: "Screen Printing Chennai | T-Shirts, Bags & Merchandise | Super Printers",
-    seoDescription: "Professional screen printing in Chennai for bulk merchandise, corporate gifts, event T-shirts and promotional items. Super Printers Pallavaram.",
-    keywords: "screen printing chennai, screen print t-shirts chennai, bag printing pallavaram, merchandise printing",
+    seoTitle: "Screen Printing Chennai | T-Shirts Bags Caps Merchandise | Super Printers Pallavaram",
+    seoDescription:
+      "Screen printing Chennai: T-shirts, tote bags, caps, jute bags, bulk merch & corporate gifts. Durable prints Pallavaram.",
+    keywords:
+      "screen printing Chennai, screen print T shirt, bag screen printing, cap printing Chennai, promotional merchandise Pallavaram, jute bag printing",
   },
   {
     id: "id-cards",
@@ -385,9 +401,11 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["visiting-cards", "rubber-stamps"],
     waMessage: "Hi Super Printers, I need ID card printing. Type: Quantity: ",
-    seoTitle: "PVC ID Card Printing Chennai | Super Printers Pallavaram",
-    seoDescription: "Durable PVC and laminated ID card printing in Chennai from ₹25/card. Same-day and next-day delivery available. Super Printers Pallavaram.",
-    keywords: "id card printing chennai, pvc id card chennai, employee id card pallavaram, student id card printing",
+    seoTitle: "PVC ID Card Printing Chennai | Employee Student Photo ID | Super Printers Pallavaram",
+    seoDescription:
+      "PVC & laminated ID cards Chennai from ₹25/card: employee, student, event passes, barcode option. Fast bulk Pallavaram +91 98401 99878.",
+    keywords:
+      "PVC ID card printing Chennai, employee ID card printing, student ID card Chennai, photo ID badge Pallavaram, corporate ID bulk, event ID card",
   },
 ];
 

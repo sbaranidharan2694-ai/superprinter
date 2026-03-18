@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
+import { serviceLandingSchema } from "@/data/seoSchemas";
 
 const SPEC_ROWS = [
   { type: "Gloss Lam", paper: "130–170 GSM", finish: "Gloss Lam", minQty: "100 pcs", delivery: "24 hours" },
@@ -11,10 +12,17 @@ const SPEC_ROWS = [
 const BrochuresPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Brochure Printing Chennai Pallavaram | Trifold, Bifold | Super Printers"
-      description="Brochure printing in Pallavaram, Chennai. Trifold & bifold, gloss or matt lamination. GST invoice. WhatsApp: +91 98401 99878."
+      title="Brochure Printing Chennai | Trifold Bifold Pamphlets | Super Printers Pallavaram"
+      description="Brochure and pamphlet printing Chennai. Tri-fold, bi-fold, gloss/matt lam. Corporate marketing collateral. GST. +91 98401 99878."
       canonical="/brochures"
+      keywords="brochure printing Chennai, pamphlet printing, trifold brochure Pallavaram, corporate brochure printing"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Brochures", url: "/brochures" }]}
+      schemaMarkup={serviceLandingSchema({
+        path: "/brochures",
+        name: "Brochure printing — Super Printers",
+        serviceType: "Brochure and pamphlet printing",
+        description: "Tri-fold and bi-fold brochures, laminated finishes, corporate quantities, Pallavaram Chennai.",
+      })}
     />
 
     <div className="pt-[116px] pb-20">

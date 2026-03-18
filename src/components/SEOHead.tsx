@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { BUSINESS, LOCAL_BUSINESS_SCHEMA } from "@/data/business";
+import { BUSINESS } from "@/data/business";
 
 interface SEOHeadProps {
   title: string;
@@ -28,7 +28,7 @@ const SEOHead = ({
     ? `${BUSINESS.siteUrl}${canonical}`
     : BUSINESS.siteUrl;
 
-  const schemas: object[] = [LOCAL_BUSINESS_SCHEMA];
+  const schemas: object[] = [];
 
   if (Array.isArray(schemaMarkup)) {
     schemas.push(...schemaMarkup);

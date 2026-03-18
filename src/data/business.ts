@@ -43,29 +43,54 @@ export const BUSINESS = {
   sameAs: ["https://wa.me/919840199878"],
 };
 
+/**
+ * LocalBusiness JSON-LD — mirror of the script in index.html (no-JS crawlers).
+ * If you change NAP or hours, update both this object and index.html ld+json.
+ */
 export const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": BUSINESS.name,
-  "description": "Professional printing press in Pallavaram, Chennai offering wedding cards, visiting cards, brochures, offset and digital printing since 1990.",
-  "url": BUSINESS.siteUrl,
-  "telephone": "+91-98401-99878",
-  "address": {
+  "@id": `${BUSINESS.siteUrl}/#business`,
+  name: BUSINESS.name,
+  description:
+    "Professional printing press in Pallavaram, Chennai — wedding cards, visiting cards, brochures, offset and digital printing since 1990.",
+  url: BUSINESS.siteUrl,
+  telephone: "+919840199878",
+  email: BUSINESS.email,
+  foundingDate: "1990",
+  founder: { "@type": "Person", name: BUSINESS.founder },
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": BUSINESS.address,
-    "addressLocality": "Pallavaram",
-    "addressRegion": "Tamil Nadu",
-    "postalCode": "600043",
-    "addressCountry": "IN",
+    streetAddress: BUSINESS.address,
+    addressLocality: "Pallavaram",
+    addressRegion: "Tamil Nadu",
+    postalCode: "600043",
+    addressCountry: "IN",
   },
-  "foundingDate": "1990",
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "147" },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "20:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "16:00" },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: "20:00",
+    },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "16:00" },
   ],
-  "priceRange": "₹₹",
-  "taxID": BUSINESS.gstNumber,
-  "areaServed": BUSINESS.areas,
-  "sameAs": BUSINESS.sameAs,
+  priceRange: "₹₹",
+  taxID: BUSINESS.gstNumber,
+  areaServed: ["Chennai", "Pallavaram", "Chromepet", "Tambaram", "Perungalathur", "Pammal", "Alandur"],
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "147", bestRating: "5" },
+  sameAs: BUSINESS.sameAs,
+  hasMap: BUSINESS.googleMapsUrl,
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Printing services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Visiting Cards" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Wedding Cards" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Brochures" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Letterheads" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bill Books" } },
+    ],
+  },
 };

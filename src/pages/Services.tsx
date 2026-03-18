@@ -4,6 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import PageHero from "@/components/shared/PageHero";
 import { services, type ServiceData } from "@/data/services";
 import { SERVICE_IMAGES } from "@/data/images";
+import { servicesItemListSchema } from "@/data/seoSchemas";
 
 type FilterCat = "All" | "Corporate" | "Personal" | "Events";
 
@@ -36,9 +37,11 @@ const Services = () => {
   return (
     <>
       <SEOHead
-        title="Printing Services in Chennai | Super Printers Pallavaram"
-        description="Offset printing, visiting cards, banners, brochures, letterheads, bill books, rubber stamps, T-shirt printing and more in Chennai."
+        title="Printing Services Chennai | Offset, Cards, Banners, Brochures | Super Printers"
+        description="Full-service printing in Chennai: offset & digital, visiting cards, wedding invitations, banners, brochures, bill books, letterheads, rubber stamps, T-shirts, pamphlets, ID cards. Pallavaram since 1990."
         canonical="/services"
+        keywords="printing services Chennai, offset printing, digital printing Pallavaram, corporate printing, wedding card printer Chennai"
+        schemaMarkup={servicesItemListSchema()}
       />
       <PageHero title="Printing Services" subtitle={`${services.length}+ professional printing services for businesses, events, and personal needs.`} breadcrumbs={[{ label: "Home", to: "/" }, { label: "Services", to: "/services" }]} />
 
@@ -63,7 +66,6 @@ const Services = () => {
                 <div className="p-5">
                   <h2 className="font-display text-lg font-bold text-foreground mb-2">{s.name}</h2>
                   <p className="text-muted-foreground text-sm mb-3">{s.shortDesc}</p>
-                  <p className="text-secondary font-semibold text-sm mb-2">{s.shortDesc}</p>
                   <span className="text-primary text-sm font-semibold group-hover:underline">View Details →</span>
                 </div>
               </Link>

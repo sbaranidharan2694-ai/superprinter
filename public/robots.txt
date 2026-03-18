@@ -22,3 +22,25 @@ Allow: /
 
 User-agent: Claude-Web
 Allow: /
+
+# AI search & assistants (allow crawling for visibility in ChatGPT, Perplexity, Copilot, etc.)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /

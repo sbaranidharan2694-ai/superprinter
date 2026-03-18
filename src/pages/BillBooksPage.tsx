@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
+import { serviceLandingSchema } from "@/data/seoSchemas";
 
 const SPEC_ROWS = [
   { type: "2-Part NCR", paper: "Carbonless", finish: "2-Part", minQty: "25 sets", delivery: "24 hours" },
@@ -10,10 +11,17 @@ const SPEC_ROWS = [
 const BillBooksPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="GST Bill Book Printing Chennai Tambaram | Carbonless NCR | Super Printers"
-      description="Carbonless GST bill book printing in Chennai. 2-part and 3-part NCR bill books, serial numbered. Pallavaram, Tambaram. Call +91 98401 99878."
+      title="GST Bill Book Printing Chennai | NCR Carbonless Books | Super Printers Pallavaram"
+      description="GST bill book printing Chennai: 2-part & 3-part NCR carbonless, serial numbered. Invoice books for shops & companies. Pallavaram. +91 98401 99878."
       canonical="/bill-books"
+      keywords="GST bill book printing Chennai, NCR bill book Pallavaram, carbonless invoice book, duplicate triplicate books"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Bill Books", url: "/bill-books" }]}
+      schemaMarkup={serviceLandingSchema({
+        path: "/bill-books",
+        name: "GST bill book printing — Super Printers",
+        serviceType: "GST-compliant NCR bill book printing",
+        description: "Carbonless duplicate and triplicate bill books, serial numbering, GST invoices, Chennai.",
+      })}
     />
 
     <div className="pt-[116px] pb-20">

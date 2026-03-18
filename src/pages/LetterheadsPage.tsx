@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
+import { serviceLandingSchema } from "@/data/seoSchemas";
 
 const SPEC_ROWS = [
   { type: "Standard 90GSM", paper: "90 GSM Bond", finish: "Standard", minQty: "100 pcs", delivery: "24 hours" },
@@ -10,10 +11,17 @@ const SPEC_ROWS = [
 const LetterheadsPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Letterhead Printing Chennai Pallavaram | A4 Letterheads | Super Printers"
-      description="Letterhead printing in Pallavaram, Chennai. 90 GSM & 120 GSM bond. GST invoice. Call +91 98401 99878."
+      title="Letterhead Printing Chennai | A4 Bond Letterheads Corporate | Super Printers"
+      description="Letterhead printing Chennai: 90 & 120 GSM bond, full colour, corporate stationery. Pallavaram. GST invoice. +91 98401 99878."
       canonical="/letterheads"
+      keywords="letterhead printing Chennai, corporate letterhead Pallavaram, A4 letterhead printing, company stationery"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Letterheads", url: "/letterheads" }]}
+      schemaMarkup={serviceLandingSchema({
+        path: "/letterheads",
+        name: "Letterhead printing — Super Printers",
+        serviceType: "Corporate letterhead printing",
+        description: "A4 bond letterheads, 90–120 GSM, full colour, business stationery, Chennai Pallavaram.",
+      })}
     />
 
     <div className="pt-[116px] pb-20">

@@ -3,6 +3,7 @@ import SEOHead from "@/components/SEOHead";
 import { services } from "@/data/services";
 import { BUSINESS } from "@/data/business";
 import { getFaqPageSchema } from "@/data/serviceFaqs";
+import { serviceLandingSchema } from "@/data/seoSchemas";
 import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
 import { useInView } from "@/hooks/useInView";
 
@@ -22,23 +23,15 @@ const ServiceDetail = () => {
 
   const relatedServices = services.filter((s) => service.relatedServices.includes(s.id));
 
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": `${service.name} — Super Printers Chennai`,
-    "description": service.seoDescription,
-    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" },
-  };
+  const schemaDescription =
+    service.heroDesc.length > 520 ? `${service.heroDesc.slice(0, 517).trim()}…` : service.heroDesc;
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": `${service.name} in Chennai`,
-    "description": service.seoDescription,
-    "provider": { "@type": "LocalBusiness", "name": BUSINESS.shortName, "url": BUSINESS.siteUrl },
-    "areaServed": ["Chennai", "Tamil Nadu"],
-    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" },
-  };
+  const richServiceSchema = serviceLandingSchema({
+    path: `/services/${service.slug}`,
+    name: `${service.name} — Super Printers, Chennai`,
+    serviceType: `${service.name} (design & printing)`,
+    description: schemaDescription,
+  });
 
   const faqPageSchema = getFaqPageSchema(service.slug);
 
@@ -49,7 +42,7 @@ const ServiceDetail = () => {
         description={service.seoDescription}
         canonical={`/services/${service.slug}`}
         keywords={service.keywords}
-        schemaMarkup={[productSchema, serviceSchema, faqPageSchema]}
+        schemaMarkup={[richServiceSchema, faqPageSchema]}
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Services", url: "/services" },

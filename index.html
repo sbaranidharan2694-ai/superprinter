@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Super Printers Chennai | Wedding Cards & Printing Press Since 1990 | Pallavaram</title>
-    <meta name="description" content="Chennai's premier printing studio since 1990. Wedding cards, business cards, brochures, letterheads. Delivered within 24 hours. Trusted by Wipro & TTK. Pallavaram.">
-    <meta name="keywords" content="printing press Chennai, business cards Pallavaram, wedding cards Chennai, brochure printing Chennai, bill book printing, letterhead printing Chennai, offset printing Pallavaram, wedding invitations Chennai">
+    <title>Printing Press Chennai | Wedding Cards, Visiting Cards, Brochures | Super Printers Pallavaram</title>
+    <meta name="description" content="Printing press Chennai since 1990. Wedding cards, visiting cards, brochures, bill books, banners, rubber stamps, T-shirt printing, pamphlets. Pallavaram, Chromepet, Tambaram. +91 98401 99878.">
+    <meta name="keywords" content="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards, brochure printing, bill books, banner printing, rubber stamps, offset printing, pamphlet printing, T shirt printing Chennai">
     <meta name="author" content="Super Printers" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://superprinter.lovable.app/" />
@@ -18,7 +18,6 @@
     <meta property="og:title" content="Super Printers — Chennai's Premier Printing Studio | Est. 1990">
     <meta property="og:description" content="35 years of quality printing. Wedding cards, business cards, brochures. Delivered within 24 hours. Trusted by Wipro & TTK. Pallavaram, Chennai.">
     <meta property="og:image" content="https://superprinter.lovable.app/og-image.jpg">
-    <!-- og:image recommended size: 1200x630 -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://superprinter.lovable.app/" />
     <meta property="og:site_name" content="Super Printers" />
@@ -29,8 +28,9 @@
     <meta name="twitter:description" content="35 years of quality printing. Wedding cards, business cards, brochures. Delivered within 24 hours. Pallavaram, Chennai.">
     <meta name="twitter:image" content="https://superprinter.lovable.app/og-image.jpg">
 
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1600&q=85" fetchpriority="high" />
-    <link rel="preload" as="image" href="/super-printers-logo.svg" fetchpriority="high" />
+    <!-- LCP: first hero tile + header logo (matches local images + UnifiedHeader PNG) -->
+    <link rel="preload" as="image" href="/images/hero/wedding.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/super-printers-logo.png" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
@@ -45,65 +45,20 @@
     <link rel="alternate" hreflang="x-default" href="https://superprinter.lovable.app/" />
     <style>
       #lovable-badge{display:none!important;}
-      /* Critical above-the-fold: prevent FOUC */
       body{background:#ffffff;margin:0;color:#1a1a2e;}
       #root{min-height:100vh;display:flex;flex-direction:column;}
       [data-critical-header]{background:#fff;border-bottom:1px solid rgba(201,168,76,0.25);}
     </style>
 
+    <!-- LocalBusiness for crawlers without JS — keep in sync with LOCAL_BUSINESS_SCHEMA in src/data/business.ts -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://superprinter.lovable.app/#business",
-      "name": "Super Printers",
-      "description": "Chennai's premier printing studio since 1990. Business cards, wedding cards, brochures, letterheads. 48-hour delivery. Trusted by Wipro & TTK.",
-      "url": "https://superprinter.lovable.app",
-      "telephone": "+919840199878",
-      "email": "superprintersmdu@gmail.com",
-      "foundingDate": "1990",
-      "founder": {
-        "@type": "Person",
-        "name": "N. Baranidharan"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "No. 6, Saraswathy Colony",
-        "addressLocality": "Pallavaram",
-        "addressRegion": "Tamil Nadu",
-        "postalCode": "600043",
-        "addressCountry": "IN"
-      },
-      "openingHoursSpecification": [{
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-        "opens": "09:00",
-        "closes": "19:00"
-      }],
-      "priceRange": "₹",
-      "taxID": "33AAGPB7462F1Z1",
-      "areaServed": ["Chennai", "Pallavaram", "Chromepet", "Tambaram", "Perungalathur", "Pammal", "Alandur"],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "147",
-        "bestRating": "5"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Printing services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Visiting Cards" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wedding Cards" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brochures" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Letterheads" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bill Books" } }
-        ]
-      },
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=Super+printers+and+wedding+cards"
-    }
+    {"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://superprinter.lovable.app/#business","name":"Super Printers & Wedding Cards","description":"Professional printing press in Pallavaram, Chennai — wedding cards, visiting cards, brochures, offset and digital printing since 1990.","url":"https://superprinter.lovable.app","telephone":"+919840199878","email":"SuperPrntrs@yahoo.com","foundingDate":"1990","founder":{"@type":"Person","name":"N. Baranidharan"},"address":{"@type":"PostalAddress","streetAddress":"No. 6, Saraswathy Colony","addressLocality":"Pallavaram","addressRegion":"Tamil Nadu","postalCode":"600043","addressCountry":"IN"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"16:00"}],"priceRange":"₹₹","taxID":"33AAGPB7462F1Z1","areaServed":["Chennai","Pallavaram","Chromepet","Tambaram","Perungalathur","Pammal","Alandur"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"147","bestRating":"5"},"sameAs":["https://wa.me/919840199878"],"hasMap":"https://www.google.com/maps/search/?api=1&query=Super+printers+and+wedding+cards","hasOfferCatalog":{"@type":"OfferCatalog","name":"Printing services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Visiting Cards"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Wedding Cards"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Brochures"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Letterheads"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bill Books"}}]}}
     </script>
-    <!-- Google Analytics 4 — Replace G-XXXXXXXXXX with actual GA4 measurement ID -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://superprinter.lovable.app/#website","url":"https://superprinter.lovable.app","name":"Super Printers & Wedding Cards","description":"Printing press in Chennai — wedding cards, visiting cards, brochures, corporate printing since 1990.","inLanguage":"en-IN","publisher":{"@id":"https://superprinter.lovable.app/#organization"}},{"@type":"Organization","@id":"https://superprinter.lovable.app/#organization","name":"Super Printers & Wedding Cards","alternateName":"Super Printers","url":"https://superprinter.lovable.app","logo":{"@type":"ImageObject","url":"https://superprinter.lovable.app/super-printers-logo.png"},"foundingDate":"1990","telephone":"+919840199878","email":"SuperPrntrs@yahoo.com","sameAs":["https://wa.me/919840199878"]}]}
+    </script>
+    <!-- Google Analytics: uncomment and set your GA4 ID (replaces placeholder). -->
+    <!--
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -111,6 +66,7 @@
       gtag('js', new Date());
       gtag('config', 'G-XXXXXXXXXX');
     </script>
+    -->
   </head>
 
   <body>
