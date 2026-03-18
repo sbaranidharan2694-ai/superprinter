@@ -81,7 +81,7 @@ const SocialProofBar = () => (
             <img
               src={client.logo}
               alt={client.name}
-              className="h-7 md:h-8 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-90 group-hover:opacity-100 transition-opacity flex-shrink-0"
+              className="h-8 md:h-9 w-auto max-w-[120px] md:max-w-[140px] object-contain opacity-90 group-hover:opacity-100 transition-opacity flex-shrink-0"
               loading="lazy"
             />
             <span
