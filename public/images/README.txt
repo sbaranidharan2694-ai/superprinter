@@ -12,6 +12,12 @@ The script copies your images to hero/, gallery/, avatars/, and other slots so t
 
 MANUAL SETUP — Place files in public/images/ (and subfolders) as listed below.
 
+T-SHIRT, RUBBER STAMP & BANNERS (add your own images here):
+  public/images/tshirt/tshirt.jpg    — T-shirt printing (Products, Services, hero).
+  public/images/catalog/stamp.jpg    — Rubber stamp (Products, Services, hero).
+  public/images/banner/banner.jpg    — Main banner image (Products, Services, gallery “Event Banner”, hero).
+  public/images/banner/standee.jpg   — Roll-up standee (gallery “Roll-Up Standee”).
+
 FALLBACK (required for error fallback):
   placeholder.jpg          — Used when any image fails to load (e.g. a simple logo or generic print image).
 
@@ -24,6 +30,9 @@ HERO (public/images/hero/):
 ROOT (public/images/):
   hero-visiting-cards.png  — Custom visiting card image for the second hero tile (recommended 400×400+).
   about.jpg                — About page / general.
+
+CATALOG (public/images/catalog/):
+  stamp.jpg                — Rubber stamp image (Products, Services, hero product tiles).
   offset-press.jpg         — Offset press / machinery.
   workshop.jpg             — Workshop / print shop.
   letterhead.jpg           — Letterhead samples.

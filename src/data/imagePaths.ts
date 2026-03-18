@@ -72,6 +72,14 @@ export const IMAGE_PATHS = {
   premiumCards: USE_LOCAL_IMAGES ? local("premium-cards.jpg") : U("1558618666-fcd25c85cd64"),
   stackedCards: USE_LOCAL_IMAGES ? local("stacked-cards.jpg") : U("1586953208448-b95a79798f07"),
   digitalPrint: USE_LOCAL_IMAGES ? local("digital-print.jpg") : U("1526374965328-7f61d4dc18c5"),
+  /** Rubber stamp image — add file at public/images/catalog/stamp.jpg */
+  rubberStamp: USE_LOCAL_IMAGES ? local("catalog/stamp.jpg") : U("1513542789411-b6a5d4f31634"),
+  /** T-shirt printing — uses public/images/tshirt/ts1.jpg */
+  tshirt: USE_LOCAL_IMAGES ? local("tshirt/ts1.jpg") : U("1558618047-f4f37ee1d6d0"),
+  /** Banner — uses public/images/banner/bn1.jpg */
+  banner: USE_LOCAL_IMAGES ? local("banner/bn1.jpg") : U("1634973357973-f2ed2657db3c"),
+  /** Roll-up standee — uses public/images/banner/bn2.jpg */
+  bannerStandee: USE_LOCAL_IMAGES ? local("banner/bn2.jpg") : U("1526374965328-7f61d4dc18c5"),
   catalog: (id: string) =>
     USE_LOCAL_IMAGES ? local(`catalog/${id}.jpg`) : U("1513542789411-b6a5d4f31634"),
 } as const;
