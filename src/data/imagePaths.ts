@@ -37,7 +37,8 @@ function local(path: string) {
 }
 
 export const IMAGE_PATHS = {
-  placeholder: USE_LOCAL_IMAGES ? local("placeholder.jpg") : U("1606293926075-69a00dbfde81", 600, 80),
+  /** Fallback image when others fail. Bump ?v= when you replace public/images/placeholder.jpg to avoid cache. */
+  placeholder: USE_LOCAL_IMAGES ? local("placeholder.jpg") + "?v=2" : U("1606293926075-69a00dbfde81", 600, 80),
 
   hero: {
     wedding: USE_LOCAL_IMAGES ? local("hero/wedding.jpg") : U("1607344645866-009c320b63e0", 400),
