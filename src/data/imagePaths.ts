@@ -64,6 +64,7 @@ export const IMAGE_PATHS = {
   visitingCard: USE_LOCAL_IMAGES ? local("hero/visiting.jpg") : U("1606293926075-69a00dbfde81"),
   weddingInvite: USE_LOCAL_IMAGES ? local("wedding-invite.jpg") : U("1607344645866-009c320b63e0"),
   envelope: USE_LOCAL_IMAGES ? local("envelope.jpg") : U("1618005198919-d3d4b5a92ead"),
+  /** Stickers & Labels — public/images/sticker-sheet.jpg */
   stickerSheet: USE_LOCAL_IMAGES ? local("sticker-sheet.jpg") : U("1607000975631-4bd2e12d00da"),
   glossCard: USE_LOCAL_IMAGES ? local("gloss-card.jpg") : U("1606293926075-69a00dbfde81"),
   mattCard: USE_LOCAL_IMAGES ? local("matt-card.jpg") : U("1607082348824-0a96f2a4b9da"),

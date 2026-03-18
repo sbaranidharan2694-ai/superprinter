@@ -41,7 +41,7 @@ CATALOG (public/images/catalog/):
   visiting-card.jpg        — Visiting card samples.
   wedding-invite.jpg       — Wedding invitation.
   envelope.jpg             — Envelope / stationery.
-  sticker-sheet.jpg        — Stickers.
+  sticker-sheet.jpg        — Stickers & Labels (Products, gallery). If missing, site uses gallery/co5.jpg. Add this file to use your own image.
   gloss-card.jpg, matt-card.jpg, spot-uv-card.jpg, velvet-card.jpg, premium-cards.jpg, stacked-cards.jpg — Card finishes.
   digital-print.jpg        — Digital printing.
 
