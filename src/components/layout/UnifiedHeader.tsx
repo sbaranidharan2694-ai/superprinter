@@ -45,7 +45,7 @@ const UnifiedHeader = () => {
       }}
     >
       <div
-        className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[80px] md:min-h-[96px] py-3"
+        className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[160px] md:min-h-[192px] py-3"
         style={{ color: "#1A1A2E" }}
       >
         {/* Logo only — large and prominent */}
@@ -54,8 +54,8 @@ const UnifiedHeader = () => {
             <img
               src="/super-printers-logo.png"
               alt="Super Printers — 35 Years Experience"
-              className="h-20 sm:h-24 md:h-28 lg:h-[110px] w-auto object-contain object-left max-w-[340px] sm:max-w-[400px] md:max-w-[460px] drop-shadow-sm"
-              style={{ minHeight: 80 }}
+              className="h-40 sm:h-48 md:h-56 lg:h-[220px] w-auto object-contain object-left max-w-[680px] sm:max-w-[800px] md:max-w-[920px] drop-shadow-sm"
+              style={{ minHeight: 160 }}
               onError={(e) => {
                 const target = e.currentTarget;
                 if (target.getAttribute("data-fallback") !== "done") {
