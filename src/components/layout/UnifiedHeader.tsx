@@ -45,17 +45,17 @@ const UnifiedHeader = () => {
       }}
     >
       <div
-        className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[160px] md:min-h-[192px] py-3"
+        className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[96px] md:min-h-[115px] py-3"
         style={{ color: "#1A1A2E" }}
       >
         {/* Logo only — large and prominent */}
         <Link to="/" className="flex items-center shrink-0" aria-label="Super Printers Home">
           {!logoImgFailed ? (
             <img
-              src="/super-printers-logo.png"
+              src="/super-printers-logo.png?v=2"
               alt="Super Printers — 35 Years Experience"
-              className="h-40 sm:h-48 md:h-56 lg:h-[220px] w-auto object-contain object-left max-w-[680px] sm:max-w-[800px] md:max-w-[920px] drop-shadow-sm"
-              style={{ minHeight: 160 }}
+              className="h-[96px] sm:h-[115px] md:h-[134px] lg:h-[132px] w-auto object-contain object-left max-w-[408px] sm:max-w-[480px] md:max-w-[552px] drop-shadow-sm"
+              style={{ minHeight: 96 }}
               onError={(e) => {
                 const target = e.currentTarget;
                 if (target.getAttribute("data-fallback") !== "done") {
