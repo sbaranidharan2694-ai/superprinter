@@ -20,6 +20,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import GetQuote from "./pages/GetQuote";
 import AreaPrintingPage from "./pages/AreaPrintingPage";
 
@@ -46,6 +47,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/get-quote" element={<GetQuote />} />
               <Route path="/tambaram-printing" element={<AreaPrintingPage />} />
               <Route path="/chromepet-printing" element={<AreaPrintingPage />} />

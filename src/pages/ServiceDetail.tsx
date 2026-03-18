@@ -155,10 +155,10 @@ const ServiceDetail = () => {
                 { step: "3", title: "Confirm", desc: "Approve the proof and confirm your order" },
                 { step: "4", title: "Deliver", desc: "Pick up from Pallavaram or get it delivered" },
               ].map((s) => (
-                <div key={s.step} className="navy-gradient p-5 rounded-xl text-center">
-                  <div className="text-gold-light font-display text-2xl font-bold mb-1">{s.step}</div>
-                  <div className="text-primary-foreground font-body font-semibold text-sm">{s.title}</div>
-                  <div className="text-primary-foreground/60 font-body text-xs mt-1">{s.desc}</div>
+                <div key={s.step} className="navy-gradient p-5 rounded-xl text-center text-white shadow-md">
+                  <div className="font-display text-2xl font-bold mb-1" style={{ color: "var(--gold-light)" }}>{s.step}</div>
+                  <div className="font-body font-semibold text-sm text-white">{s.title}</div>
+                  <div className="font-body text-xs mt-1 text-white/80">{s.desc}</div>
                 </div>
               ))}
             </div>

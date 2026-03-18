@@ -60,6 +60,8 @@ export const IMAGE_PATHS = {
   workshop: USE_LOCAL_IMAGES ? local("workshop.jpg") : U("1504270997636-07ddfbd48945"),
   letterhead: USE_LOCAL_IMAGES ? local("letterhead.jpg") : U("1586281380349-632531db7ed4"),
   brochures: USE_LOCAL_IMAGES ? local("brochures.jpg") : U("1586075010923-2dd4570fb338"),
+  /** Pamphlets — add your image at public/images/pamphlet.jpg (Products section, pamphlet-printing service) */
+  pamphlet: USE_LOCAL_IMAGES ? local("pamphlet.jpg") : U("1586528116311-ad8dd3c8310d"),
   billBook: USE_LOCAL_IMAGES ? local("bill-book.jpg") : U("1568667256549-094345857637"),
   visitingCard: USE_LOCAL_IMAGES ? local("hero/visiting.jpg") : U("1606293926075-69a00dbfde81"),
   weddingInvite: USE_LOCAL_IMAGES ? local("wedding-invite.jpg") : U("1607344645866-009c320b63e0"),

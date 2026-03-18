@@ -37,6 +37,7 @@ CATALOG (public/images/catalog/):
   workshop.jpg             — Workshop / print shop.
   letterhead.jpg           — Letterhead samples.
   brochures.jpg            — Brochure samples.
+  pamphlet.jpg             — Pamphlets (Products section, Pamphlet Printing service). Add here for your pamphlet photo.
   bill-book.jpg            — Bill book samples.
   visiting-card.jpg        — Visiting card samples.
   wedding-invite.jpg       — Wedding invitation.

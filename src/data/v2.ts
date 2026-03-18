@@ -49,7 +49,7 @@ export const PRODUCTS = [
   { name: "Brochures", category: "Corporate", img: IMAGE_PATHS.brochures, delivery: "24hr" },
   { name: "Bill Books", category: "Corporate", img: IMAGE_PATHS.billBook, delivery: "24hr" },
   { name: "Wedding Cards", category: "Events", img: IMAGE_PATHS.hero.wedding, delivery: "24hr" },
-  { name: "Pamphlets", category: "Corporate", img: IMAGE_PATHS.brochures, delivery: "24hr" },
+  { name: "Pamphlets", category: "Corporate", img: IMAGE_PATHS.pamphlet, delivery: "24hr" },
   { name: "Banners", category: "Events", img: IMAGE_PATHS.banner, delivery: "24hr" },
   { name: "Stickers", category: "Personal", img: IMAGE_PATHS.stickerSheet, delivery: "24hr" },
   { name: "Catalogues", category: "Corporate", img: IMAGE_PATHS.gallery("c1"), delivery: "24hr" },

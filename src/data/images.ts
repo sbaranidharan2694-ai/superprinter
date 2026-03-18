@@ -31,6 +31,7 @@ export const IMG = {
   envelopes: P.envelope,
   stickerSheets: P.stickerSheet,
   brochures: P.brochures,
+  pamphlet: P.pamphlet,
   digitalPrint: P.digitalPrint,
   P01: P.gallery("v1"),
   P02: P.gallery("v2"),
@@ -82,7 +83,7 @@ export const SERVICE_IMAGES: Record<string, string> = {
   "stickers-labels": IMG.stickerSheets,
   "letterheads": IMG.letterhead,
   "catalogues": IMG.P12,
-  "pamphlet-printing": IMG.P17,
+  "pamphlet-printing": IMG.pamphlet,
   "screen-printing": IMG.P18,
   "id-cards": IMG.P13,
 };
