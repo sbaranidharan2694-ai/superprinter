@@ -134,6 +134,18 @@ export const TIMELINE = [
 ];
 
 export const SERVICE_OPTIONS = [
-  "Wedding Cards", "Visiting Cards", "Brochures", "Pamphlets",
-  "Bill Books", "Letterheads", "Catalogues", "Other",
+  "Wedding Cards",
+  "Visiting Cards",
+  "Brochures",
+  "Pamphlets",
+  "Bill Books",
+  "Letterheads",
+  "Banners",
+  "T-Shirts",
+  "Rubber Stamps",
+  "Stickers & Labels",
+  "Catalogues",
+  "ID Cards",
+  "Offset Printing",
+  "Other",
 ];

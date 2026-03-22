@@ -13,9 +13,9 @@ const BrochuresPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
       title="Brochure Printing Chennai | Trifold Bifold Pamphlets | Super Printers Pallavaram"
-      description="Brochure and pamphlet printing Chennai. Tri-fold, bi-fold, gloss/matt lam. Corporate marketing collateral. GST. +91 98401 99878."
+      description="Brochure and pamphlet printing in Pallavaram, Chennai. Tri-fold, bi-fold, gloss and matt lamination. Fast 24-hour turnaround. Free proof before print. Call +91 98401 99878."
       canonical="/brochures"
-      keywords="brochure printing Chennai, pamphlet printing, trifold brochure Pallavaram, corporate brochure printing"
+      keywords="brochure printing Chennai, pamphlet printing Chennai, trifold brochure Pallavaram, corporate brochure printing, bifold brochure Chennai, marketing brochure printing, cheap brochure printing Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Brochures", url: "/brochures" }]}
       schemaMarkup={serviceLandingSchema({
         path: "/brochures",

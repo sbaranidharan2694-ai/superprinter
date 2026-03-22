@@ -12,9 +12,9 @@ const BillBooksPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
       title="GST Bill Book Printing Chennai | NCR Carbonless Books | Super Printers Pallavaram"
-      description="GST bill book printing Chennai: 2-part & 3-part NCR carbonless, serial numbered. Invoice books for shops & companies. Pallavaram. +91 98401 99878."
+      description="GST bill book printing in Pallavaram, Chennai. 2-part and 3-part NCR carbonless books, serial numbered, ready in 24 hours. Trusted by 10,000+ Chennai businesses. Call +91 98401 99878."
       canonical="/bill-books"
-      keywords="GST bill book printing Chennai, NCR bill book Pallavaram, carbonless invoice book, duplicate triplicate books"
+      keywords="GST bill book printing Chennai, NCR bill book Pallavaram, carbonless invoice book Chennai, duplicate bill book, triplicate bill book, receipt book printing Chennai, cash memo book printing"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Bill Books", url: "/bill-books" }]}
       schemaMarkup={serviceLandingSchema({
         path: "/bill-books",

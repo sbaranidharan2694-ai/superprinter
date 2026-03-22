@@ -36,7 +36,7 @@ const Contact = () => {
     <>
       <SEOHead
         title="Contact Super Printers | Printing Press Pallavaram Chennai"
-        description="Visit Super Printers at Saraswathi Colony, Pallavaram. Open Mon–Sat 9:30AM–6:30PM. WhatsApp +91 98401 99878 for instant quotes."
+        description="Visit Super Printers at Saraswathi Colony, Pallavaram. Open Mon–Sat 9:00AM–8:00PM, Sun 10:00AM–4:00PM. WhatsApp +91 98401 99878 for instant quotes."
         canonical="/contact"
         keywords="contact super printers, printing press pallavaram, printing shop chennai, super printers phone number"
         breadcrumbs={[
@@ -117,7 +117,8 @@ const Contact = () => {
                   <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("contact")} className="flex items-center gap-3 text-sm font-body hover:opacity-80">💬 WhatsApp: Chat Now</a>
                   <a href={`mailto:${BUSINESS.email}`} className="flex items-center gap-3 text-sm font-body hover:opacity-80">📧 {BUSINESS.email}</a>
                   <p className="flex items-start gap-3 text-sm text-muted-foreground font-body">📍 {BUSINESS.addressFull}</p>
-                  <p className="flex items-start gap-3 text-sm text-muted-foreground font-body">🕐 Monday–Saturday: 9:00 AM – 7:00 PM</p>
+                  <p className="flex items-start gap-3 text-sm text-muted-foreground font-body">🕐 Monday–Saturday: 9:00 AM – 8:00 PM</p>
+                  <p className="flex items-start gap-3 text-sm text-muted-foreground font-body">🕐 Sunday: 10:00 AM – 4:00 PM</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a href={BUSINESS.phoneTel} onClick={() => trackPhoneClick("contact_cta")} className="gold-button px-6 py-3 rounded-lg text-sm flex items-center justify-center gap-2">

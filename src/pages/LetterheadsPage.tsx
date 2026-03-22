@@ -12,9 +12,9 @@ const LetterheadsPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
       title="Letterhead Printing Chennai | A4 Bond Letterheads Corporate | Super Printers"
-      description="Letterhead printing Chennai: 90 & 120 GSM bond, full colour, corporate stationery. Pallavaram. GST invoice. +91 98401 99878."
+      description="Company letterhead printing in Pallavaram, Chennai. 90 GSM and 120 GSM bond paper, full colour, fast 24-hour delivery. Corporate stationery for businesses across Chennai. Call +91 98401 99878."
       canonical="/letterheads"
-      keywords="letterhead printing Chennai, corporate letterhead Pallavaram, A4 letterhead printing, company stationery"
+      keywords="letterhead printing Chennai, corporate letterhead Pallavaram, company letterhead printing, A4 letterhead printing Chennai, business stationery printing, office letterhead Chennai, cheap letterhead printing"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Letterheads", url: "/letterheads" }]}
       schemaMarkup={serviceLandingSchema({
         path: "/letterheads",

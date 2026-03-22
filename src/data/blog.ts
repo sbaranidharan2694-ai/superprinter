@@ -6,9 +6,11 @@ export interface BlogPostData {
   slug: string;
   title: string;
   description: string;
-  keyword: string;
+  keyword?: string;
   content: string;
   date: string;
+  readTime?: string;
+  category?: string;
 }
 
 export const BLOG_POSTS: BlogPostData[] = [
@@ -188,6 +190,33 @@ export const BLOG_POSTS: BlogPostData[] = [
 
       <p>At Super Printers in Pallavaram we offer both Spot UV and foil business cards with quick turnaround. Send your design via WhatsApp and we'll recommend the best finish for your brand.</p>
     `,
+  },
+  {
+    slug: "visiting-card-printing-guide-chennai",
+    title: "Complete Guide to Visiting Card Printing in Chennai (2026)",
+    description: "Everything you need to know about visiting card printing in Chennai — finishes, paper, pricing, and how to order from Super Printers Pallavaram.",
+    date: "2026-03-01",
+    readTime: "5 min read",
+    category: "Guide",
+    content: `## Visiting Card Printing in Chennai\n\nVisiting cards are the first impression of your business. In Chennai, you can get 100 cards printed from as low as ₹149 at Super Printers, Pallavaram.\n\n## Paper Options\n\n**300 GSM** is the standard for visiting cards. Thicker paper feels more premium and makes a better impression. Avoid anything below 300 GSM for business cards.\n\n## Finish Options\n\n- **Gloss lamination** — Shiny, bright colours, affordable\n- **Matt lamination** — Elegant, professional, muted colours\n- **Spot UV** — Matt base with glossy design elements raised up\n- **Gold/Silver foil** — Premium, luxury feel\n- **Velvet lamination** — Soft touch, ultra premium\n\n## Pricing Guide\n\n| Finish | 100 cards | 500 cards |\n|--------|-----------|----------|\n| Gloss SS | ₹149 | ₹700 |\n| Matt SS | ₹175 | ₹800 |\n| Spot UV | ₹350 | ₹1,400 |\n| Foil | ₹500 | ₹2,000 |\n\n## How to Order\n\n1. WhatsApp your design to +91 98401 99878\n2. Get a digital proof within 24 hours\n3. Approve and collect in 24 hours\n\nSuper Printers in Pallavaram has been printing visiting cards since 1990. We serve all of Chennai with free pickup and delivery.`,
+  },
+  {
+    slug: "banner-printing-guide-chennai",
+    title: "Flex Banner Printing in Chennai: Sizes, Prices & Tips (2026)",
+    description: "Complete guide to flex banner printing in Chennai. Sizes, prices, materials and how to order flex banners for events, shops and promotions.",
+    date: "2026-03-05",
+    readTime: "4 min read",
+    category: "Guide",
+    content: `## Flex Banner Printing in Chennai\n\nBanners are one of the most cost-effective ways to advertise your business in Chennai. At Super Printers, flex banners start from ₹12 per square foot.\n\n## Banner Types\n\n- **Star Flex** — Standard outdoor banner, durable and affordable\n- **Premium Vinyl** — Weather resistant, vibrant colours\n- **Fabric Banner** — For exhibitions and indoor events\n- **Roll-up Standee** — Portable, reusable for events\n\n## Standard Sizes\n\n| Size | Use |\n|------|-----|\n| 2ft x 3ft | Shop counter display |\n| 3ft x 6ft | Shop front banner |\n| 4ft x 6ft | Event backdrop |\n| 6ft x 10ft | Large outdoor banner |\n\n## Pricing\n\nFlex banners are priced per square foot. Star flex starts at ₹12/sqft, premium vinyl at ₹18/sqft.\n\n## How to Order\n\nWhatsApp your design file or requirements to +91 98401 99878. We print and deliver across Chennai within 24 hours.`,
+  },
+  {
+    slug: "rubber-stamp-printing-chennai",
+    title: "Rubber Stamp Making in Chennai — Types, Prices & How to Order",
+    description: "Get custom rubber stamps made in Chennai. Self-inking stamps, pre-inked stamps, traditional stamps. Fast delivery from Super Printers Pallavaram.",
+    date: "2026-03-10",
+    readTime: "3 min read",
+    category: "Guide",
+    content: `## Rubber Stamp Making in Chennai\n\nRubber stamps are essential for businesses, offices, hospitals and schools in Chennai. Super Printers makes custom rubber stamps in Pallavaram with fast same-day delivery.\n\n## Types of Rubber Stamps\n\n- **Self-inking stamps** — Built-in ink pad, no separate pad needed\n- **Pre-inked stamps** — Cleaner impression, long-lasting\n- **Traditional stamps** — Used with separate ink pad\n- **Date stamps** — Adjustable date for receipts and records\n- **Signature stamps** — For approvals and correspondence\n\n## Common Uses\n\n- Company name and address stamp\n- PAID / RECEIVED stamp\n- Hospital and clinic stamps\n- School name stamps\n- Signature stamps\n\n## How to Order\n\nWhatsApp your stamp text and size requirements to +91 98401 99878. We design, make and deliver your stamp within 24 hours anywhere in Chennai.`,
   },
 ];
 
