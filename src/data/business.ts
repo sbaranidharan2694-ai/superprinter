@@ -33,7 +33,7 @@ export const BUSINESS = {
   googleRating: "4.8",
   googleReviewCount: 147,
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Super+printers+and+wedding+cards",
-  siteUrl: "https://superprinter.lovable.app",
+  siteUrl: "https://superprinters.net",
   hours: "Mon–Sat: 9:00 AM – 8:00 PM",
   hoursSunday: "Sunday: 10:00 AM – 4:00 PM",
   yearsExperience: 35,

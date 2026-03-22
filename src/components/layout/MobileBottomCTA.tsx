@@ -3,9 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 /* WhatsApp & Call are in the header on mobile — no duplicate here */
 const TABS = [
   { label: "Home", icon: "🏠", to: "/" },
-  { label: "Services", icon: "📋", to: "/services" },
+  { label: "Products", icon: "📦", to: "/products" },
   { label: "Gallery", icon: "📸", to: "/gallery" },
-  { label: "Contact", icon: "✉️", to: "/contact" },
+  { label: "Quote", icon: "💬", to: "/get-quote" },
 ];
 
 const MobileBottomCTA = () => {

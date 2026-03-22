@@ -39,7 +39,7 @@ const CTASection = () => (
           lineHeight: 1.15,
         }}
       >
-        Get Your Quote Today
+        Ready to Print? Let's Talk.
       </motion.h2>
       <motion.p
         initial={{ opacity: 0, y: 8 }}
@@ -48,7 +48,7 @@ const CTASection = () => (
         transition={{ delay: 0.1 }}
         className="font-ui text-lg text-gray-600 max-w-xl mx-auto mb-10"
       >
-        Quality printing in 24 hours. Share your requirements and we&apos;ll send a quick quote.
+        WhatsApp us your requirements and get a quote in 30 minutes. Proof in 24 hours. Cards in your hands in 48 hours.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 12 }}

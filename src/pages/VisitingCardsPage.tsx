@@ -75,10 +75,10 @@ const VisitingCardsPage = () => {
   return (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Visiting Card Printing Chennai Pallavaram | Business Cards Gloss Matt Spot UV Foil | Super Printers"
-      description="Visiting card printing Chennai: gloss, matt, Spot UV, foil, premium GSM. Corporate business cards. GST invoice. Pallavaram workshop. WhatsApp +91 98401 99878."
+      title="Visiting Card Printing Chennai | From ₹149 for 100 Cards | Gloss, Matt, Spot UV | Super Printers"
+      description="Best visiting card printing in Chennai from ₹149. Gloss, Matt, Spot UV, Velvet, Gold Foil finishes. Free proof before print. Ready in 24 hours. Pickup Pallavaram or delivery across Chennai. WhatsApp +91 98401 99878."
       canonical="/visiting-cards"
-      keywords="visiting card printing Chennai, business cards Pallavaram, Spot UV cards Chennai, corporate visiting cards, name card printing Tamil Nadu"
+      keywords="visiting card printing Chennai, business card printing Pallavaram, visiting cards 100 pcs Chennai, spot UV visiting cards Chennai, matt visiting cards, gloss business cards Chennai, cheap visiting cards Chennai, fast visiting card printing, visiting card near me Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Visiting Cards", url: "/visiting-cards" }]}
       schemaMarkup={serviceLandingSchema({
         path: "/visiting-cards",

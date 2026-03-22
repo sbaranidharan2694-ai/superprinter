@@ -4,12 +4,14 @@ import { IMAGE_PATHS } from "./imagePaths";
 export const MARQUEE_ITEMS = [
   "📞 +91 98401 99878",
   "Est. 1990 — 35 Years of Quality",
-  "Trusted by Wipro & TTK",
-  "Wedding Cards",
-  "Fast Turnaround",
-  "⭐ 4.8 on Google",
+  "🎨 Free Design Proof on Every Order",
+  "Wedding Cards from ₹5/card",
+  "⭐ 4.8 on Google — 147 Reviews",
+  "Visiting Cards · Brochures · Banners",
+  "T-Shirt Printing · Rubber Stamps · Stickers",
+  "⚡ Orders Ready in 24 Hours",
+  "🚚 Pickup or Delivery Across Chennai",
   "10,000+ Happy Customers",
-  "GST Registered Business",
 ];
 
 export const HERO = {
@@ -76,12 +78,12 @@ export const WEDDING_FEATURES = [
 ];
 
 export const WHY_ITEMS = [
-  { icon: "🏆", title: "35 Years of Craft", desc: "Founded in 1990 by N. Baranidharan. Quality checked by the owner personally." },
-  { icon: "⚡", title: "48-Hour Delivery", desc: "Business cards and brochures ready in 48 hours. Same-day available for urgent orders." },
-  { icon: "📍", title: "Pallavaram-Based", desc: "Walk in, collect same-day. No courier delays or damaged shipments." },
-  { icon: "💰", title: "Transparent Pricing", desc: "All prices listed upfront. No hidden charges. GST invoice included." },
-  { icon: "🏢", title: "Trusted by Corporates", desc: "Wipro, TTK Healthcare, Reliance and 10,000+ clients trust us for their print needs." },
-  { icon: "💬", title: "WhatsApp Ordering", desc: "Send requirements on WhatsApp. Get a quote in 30 minutes, approve proof, done." },
+  { icon: "🏆", title: "35 Years of Craft", desc: "Founded in 1990 by N. Baranidharan. Every order is quality-checked personally. Three generations of Chennai families trust us." },
+  { icon: "⚡", title: "24-Hour Turnaround", desc: "Visiting cards, brochures and bill books ready within 24 hours of proof approval. Same-day printing available for urgent orders." },
+  { icon: "🎨", title: "Free Design & Proof", desc: "Our in-house designer creates your artwork free of cost. We share a WhatsApp proof before printing a single sheet." },
+  { icon: "💰", title: "Factory-Direct Pricing", desc: "No middlemen, no retail markup. You pay press price directly. Cheaper than most card shops in Chennai." },
+  { icon: "🏢", title: "Trusted by Corporates", desc: "Wipro, TTK Healthcare, Reliance Fujitec and 10,000+ clients trust us for their regular print needs." },
+  { icon: "💬", title: "WhatsApp Ordering", desc: "Send your requirements on WhatsApp. Get a quote in 30 minutes, approve the proof, and your order is ready. No shop visit needed." },
 ];
 
 export const PROCESS_STEPS = [
@@ -102,16 +104,16 @@ export const TESTIMONIALS = [
 ];
 
 export const FAQ_ITEMS = [
-  { q: "What is the minimum order for visiting cards?", a: "We print visiting cards starting from just 100 cards. Standard and premium finishes like Spot UV, Velvet, and Gold Foil available. WhatsApp us for a quote." },
-  { q: "How long does printing take?", a: "We deliver within 24 hours. WhatsApp us your requirements and we'll confirm the timeline." },
-  { q: "Do you offer design services?", a: "Yes! Wedding card design is free with your order. For other products, we offer professional design services at a small fee, or you can send your own print-ready file." },
-  { q: "Can I see a proof before printing?", a: "Absolutely. We send a digital proof via WhatsApp before we start printing. You can request unlimited revisions until you're 100% happy with the design." },
-  { q: "Do you deliver outside Pallavaram?", a: "Yes. We serve all of Chennai and ship across Tamil Nadu. Local pickup from our Pallavaram shop is also available at no extra cost." },
-  { q: "How do I place an order from outside Pallavaram?", a: "Simply WhatsApp us your requirements and design files. We'll send a digital proof, and once approved, we can ship your order or arrange pickup. We serve all of Chennai." },
-  { q: "Do you offer bulk discounts for 1,000+ cards?", a: "Yes! WhatsApp us with your quantity for a custom quote." },
-  { q: "Can you print in Tamil script?", a: "Absolutely. We print in Tamil, English, Hindi, Telugu, and bilingual formats. We specialise in Tamil wedding invitations." },
-  { q: "Do you design the cards or do I need to send a file?", a: "Both options are available. We offer free design for wedding cards. For other products, we can design for a small fee or use your print-ready file." },
-  { q: "Do you provide a GST invoice?", a: "Yes. We are a GST-registered business and provide GST invoices for all corporate orders." },
+  { q: "What is the minimum order for visiting cards?", a: "We print visiting cards from just 100 cards. Available in Gloss, Matt, Spot UV, Velvet, Gold Foil and more. WhatsApp us for pricing." },
+  { q: "How long does printing take?", a: "Most orders are ready within 24 hours of proof approval. Wedding cards take 48–72 hours. Urgent same-day printing is available — just ask." },
+  { q: "Do you offer free design?", a: "Yes! Wedding card design is always free. For visiting cards and other products we offer design at a small fee, or you can send your own print-ready file." },
+  { q: "Can I see a proof before printing?", a: "Absolutely — we share a digital WhatsApp proof before printing every single order. Unlimited revisions until you are 100% happy. No extra charge." },
+  { q: "Do you deliver outside Pallavaram?", a: "Yes. We deliver across all of Chennai — Tambaram, Chromepet, Velachery, Adyar, Guindy and more. Pickup from our Pallavaram shop is always free." },
+  { q: "How do I order from outside Chennai?", a: "Simply WhatsApp us your requirements and design files. We send a digital proof, you approve it, and we courier your order anywhere in Tamil Nadu." },
+  { q: "Do you offer bulk discounts?", a: "Yes! The more you print, the lower the cost per card. WhatsApp us your quantity for an instant custom quote." },
+  { q: "Can you print in Tamil?", a: "Absolutely. We specialise in Tamil, English, Hindi, Telugu and bilingual formats. We are the go-to printer for Tamil wedding invitations in South Chennai." },
+  { q: "How is Super Printers cheaper than other shops?", a: "We own our press and print everything in-house — no outsourcing, no middlemen. You pay factory-direct price. That is why we are cheaper than most card shops in Chennai." },
+  { q: "What areas do you serve?", a: "We serve all of Chennai and Tamil Nadu. Our shop is in Pallavaram — easily accessible from Tambaram, Chromepet, Velachery, Guindy, Adyar, Nanganallur and Medavakkam." },
 ];
 
 export const PORTFOLIO_IMAGES = [
@@ -126,11 +128,11 @@ export const PORTFOLIO_IMAGES = [
 ];
 
 export const TIMELINE = [
-  { year: "1990", title: "Founded", desc: "N. Baranidharan opens Super Printers in Pallavaram with a single offset press." },
-  { year: "2000", title: "Digital Expansion", desc: "Added digital printing to serve the growing corporate stationery demand in Chennai." },
-  { year: "2010", title: "Wedding Specialist", desc: "Became Pallavaram's top wedding card printer. Introduced premium finishes." },
-  { year: "2020", title: "WhatsApp Ordering", desc: "Launched WhatsApp-first ordering for faster quotes and contactless service." },
-  { year: "2025", title: "10,000+ Clients", desc: "Serving 10,000+ happy customers. Trusted by Wipro, TTK and leading companies." },
+  { year: "1990", title: "Founded", desc: "N. Baranidharan opens Super Printers in Pallavaram with a single offset press and a commitment to quality." },
+  { year: "2000", title: "Digital Expansion", desc: "Added digital printing to serve the growing corporate stationery demand across Chennai." },
+  { year: "2010", title: "Wedding Specialist", desc: "Became Pallavaram's most trusted wedding card printer. Introduced premium foil, velvet, and spot UV finishes." },
+  { year: "2020", title: "WhatsApp Ordering", desc: "Launched WhatsApp-first ordering for faster quotes, digital proofs, and contactless delivery." },
+  { year: "2026", title: "10,000+ Clients", desc: "Proudly serving 10,000+ happy customers. Trusted by Wipro, TTK, Reliance and hundreds of Chennai businesses." },
 ];
 
 export const SERVICE_OPTIONS = [

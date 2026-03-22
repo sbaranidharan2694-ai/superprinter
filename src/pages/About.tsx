@@ -19,8 +19,8 @@ const EQUIPMENT = ["Offset printing", "Digital printing", "Screen printing", "Di
 const About = () => (
   <>
     <SEOHead
-      title="About Super Printers | Printing Press in Pallavaram, Chennai Since 1990"
-      description="Founded in 1990, Super Printers is Pallavaram's most trusted printing press. 35+ years serving businesses and families across Chennai."
+      title="About Super Printers | Pallavaram's Best Printing Press Since 1990 | Chennai"
+      description="Super Printers — Pallavaram's most trusted printing press since 1990. Founded by N. Baranidharan. 35+ years serving 10,000+ customers. Trusted by Wipro, TTK, Reliance. Wedding cards, visiting cards, brochures, banners and more."
       canonical="/about"
     />
     <PageHero title="About Super Printers" subtitle="Chennai's trusted printing press since 1990 — 35+ years of printing excellence." image={IMG.hero} breadcrumbs={[{ label: "Home", to: "/" }, { label: "About", to: "/about" }]} />

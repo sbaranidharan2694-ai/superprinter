@@ -18,6 +18,11 @@ const AREAS_LINKS = [
   { label: "Chromepet", to: "/chromepet-printing" },
   { label: "Pammal", to: "/pammal-printing" },
   { label: "Perungalathur", to: "/perungalathur-printing" },
+  { label: "Velachery", to: "/velachery-printing" },
+  { label: "Nanganallur", to: "/nanganallur-printing" },
+  { label: "Medavakkam", to: "/medavakkam-printing" },
+  { label: "Guindy", to: "/guindy-printing" },
+  { label: "Adyar", to: "/adyar-printing" },
 ];
 
 const UnifiedFooter = () => (
@@ -93,7 +98,7 @@ const UnifiedFooter = () => (
             </li>
             <li className="flex items-center gap-2">
               <span className="text-white/70" aria-hidden>🕐</span>
-              <span>Mon–Sat: 9:00 AM – 7:00 PM</span>
+              <span>Mon–Sat: 9:00 AM – 8:00 PM | Sun: 10:00 AM – 4:00 PM</span>
             </li>
           </ul>
           <a

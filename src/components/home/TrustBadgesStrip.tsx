@@ -1,10 +1,11 @@
 const BADGES = [
-  "⭐ 4.8 Google Rating (147 Reviews)",
-  "🏅 Est. 1990 — 35 Years",
-  "📦 Delivered Within 24 Hours",
-  "🧾 GST Invoice Included",
+  "⭐ 4.8 Google Rating — 147 Reviews",
+  "🏅 Printing Since 1990 — 35 Years",
+  "⚡ Orders Ready in 24 Hours",
+  "🎨 Free Design Proof on Every Order",
   "✅ 10,000+ Happy Customers",
-  "💬 WhatsApp Ordering",
+  "💬 Quote in 30 Minutes on WhatsApp",
+  "🚚 Pickup or Delivery Across Chennai",
 ];
 
 const TrustBadgesStrip = () => (
