@@ -16,9 +16,9 @@ export const HERO = {
   microLabel: "PALLAVARAM'S MOST TRUSTED SINCE 1990",
   h1: "Professional Printing\nin Chennai.",
   accent: "Wedding Cards · Business Cards · Brochures · More",
-  body: "Offset, digital and screen printing since 1990.\n48-hour delivery guaranteed. 10,000+ happy customers.\nWhatsApp us and receive a quote in 30 minutes.",
-  ctaPrimary: "💬 WhatsApp for Instant Quote",
-  ctaSecondary: "View All Products →",
+  body: "Proof shared before every print run — no surprises, no reprints.\nOrders ready within 24 hours of approval, with pickup or delivery across Chennai.\nWhatsApp us during business hours for a quote in 30 minutes.",
+  ctaPrimary: "Get Instant Quote",
+  ctaSecondary: "Chat on WhatsApp",
   badges: [
     { icon: "⭐", label: "4.8 Google Rating" },
     { icon: "✅", label: "GST Registered" },
