@@ -6,9 +6,9 @@ import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
 const WHATSAPP_URL = `${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers! I need a printing quote.")}`;
 
 const NAV_LINKS = [
-  { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
-  { label: "Wedding Cards", to: "/wedding-cards" },
+  { label: "Products", to: "/products" },
+  { label: "Weddings", to: "/wedding-cards" },
   { label: "Gallery", to: "/gallery" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
@@ -45,7 +45,7 @@ const UnifiedHeader = () => {
       }}
     >
       <div
-        className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[96px] md:min-h-[115px] py-3"
+        className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[72px] md:min-h-[88px] py-2"
         style={{ color: "#1A1A2E" }}
       >
         {/* Logo only — large and prominent */}
@@ -54,7 +54,7 @@ const UnifiedHeader = () => {
             <img
               src="/super-printers-logo.png?v=2"
               alt="Super Printers — 35 Years Experience"
-              className="h-[96px] sm:h-[115px] md:h-[134px] lg:h-[132px] w-auto object-contain object-left max-w-[408px] sm:max-w-[480px] md:max-w-[552px] drop-shadow-sm"
+              className="h-[72px] sm:h-[80px] md:h-[88px] lg:h-[88px] w-auto object-contain object-left max-w-[280px] sm:max-w-[320px] md:max-w-[360px] drop-shadow-sm"
               style={{ minHeight: 96 }}
               onError={(e) => {
                 const target = e.currentTarget;
@@ -86,7 +86,7 @@ const UnifiedHeader = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`nav-link px-4 py-2.5 text-[14px] font-bold rounded-full transition-all duration-300 ${
+                className={`nav-link px-3 py-2 text-[13px] font-bold rounded-full transition-all duration-300 ${
                   isActive ? "bg-amber-50" : "hover:bg-gray-50"
                 }`}
                 style={{
@@ -105,7 +105,7 @@ const UnifiedHeader = () => {
           <a
             href={BUSINESS.phoneTel}
             onClick={() => trackPhoneClick("header")}
-            className="hidden min-[600px]:inline text-sm font-semibold hover:opacity-90"
+            className="hidden text-sm font-semibold hover:opacity-90"
             style={{ color: "#1A1A2E", fontFamily: "var(--font-body)" }}
           >
             +91 98401 99878

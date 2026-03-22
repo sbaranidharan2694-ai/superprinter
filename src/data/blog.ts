@@ -17,7 +17,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     title: "How to Prepare Print Files: A Complete Guide for Chennai Designers",
     description: "A complete print file preparation guide for India: CMYK, DPI, bleed, and file formats. Get your files print-ready for visiting cards, brochures, and more.",
     keyword: "print file preparation guide India",
-    date: "2025-03-01",
+    date: "2026-01-10",
     content: `
       <p>Whether you're sending visiting cards, brochures, or wedding invitations to a Chennai printer, getting your files right the first time saves time, money, and reprints. Here's a concise guide to preparing print-ready files in India.</p>
 
@@ -44,7 +44,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     title: "Paper GSM Guide: Which Paper Weight for Which Print Job?",
     description: "Understand paper GSM for printing in India. When to use 90 GSM, 170 GSM, or 300 GSM for letterheads, brochures, and visiting cards.",
     keyword: "paper GSM guide printing India",
-    date: "2025-03-05",
+    date: "2026-01-20",
     content: `
       <p>GSM (grams per square metre) is the standard measure of paper weight. Choosing the right GSM ensures your print job looks and feels right. Here's a quick guide for common print jobs in India.</p>
 
@@ -166,7 +166,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     title: "Spot UV vs Gold Foil: Which Business Card Finish is Right for You?",
     description: "Compare Spot UV and gold foil finishes for business cards in India. Pros, cons, and when to choose each for maximum impact.",
     keyword: "spot UV vs foil business cards India",
-    date: "2025-03-10",
+    date: "2026-02-05",
     content: `
       <p>Two of the most popular premium finishes for business cards in India are Spot UV and gold foil. Both make your card stand out, but they look and feel different. Here's how to choose.</p>
 

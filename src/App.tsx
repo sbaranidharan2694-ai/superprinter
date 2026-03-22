@@ -72,6 +72,11 @@ const App = () => (
                 <Route path="/chromepet-printing" element={<AreaPrintingPage />} />
                 <Route path="/pammal-printing" element={<AreaPrintingPage />} />
                 <Route path="/perungalathur-printing" element={<AreaPrintingPage />} />
+                <Route path="/velachery-printing" element={<AreaPrintingPage />} />
+                <Route path="/nanganallur-printing" element={<AreaPrintingPage />} />
+                <Route path="/medavakkam-printing" element={<AreaPrintingPage />} />
+                <Route path="/guindy-printing" element={<AreaPrintingPage />} />
+                <Route path="/adyar-printing" element={<AreaPrintingPage />} />
                 <Route path="/reseller" element={<ResellerPage />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />

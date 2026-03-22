@@ -156,6 +156,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://superprinter.lovable.app/velachery-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/nanganallur-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/medavakkam-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/guindy-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://superprinter.lovable.app/adyar-printing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://superprinter.lovable.app/printing-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

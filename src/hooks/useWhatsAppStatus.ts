@@ -8,16 +8,20 @@ export function useWhatsAppStatus(): boolean {
   const [isOnline, setIsOnline] = useState(false);
 
   const check = () => {
-    const now = new Date();
-    const day = now.getDay(); // 0 = Sun, 6 = Sat
+    const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+    const day = now.getDay();
     const hour = now.getHours();
     const minute = now.getMinutes();
-    const isWeekday = day >= 1 && day <= 6;
     const minutesSinceMidnight = hour * 60 + minute;
-    const open = 9 * 60;   // 9:00
-    const close = 19 * 60; // 19:00
-    const isBusinessHour = minutesSinceMidnight >= open && minutesSinceMidnight < close;
-    setIsOnline(isWeekday && isBusinessHour);
+    const isWeekday = day >= 1 && day <= 6;
+    const isSunday = day === 0;
+    const weekdayOpen = 9 * 60;
+    const weekdayClose = 20 * 60;
+    const sundayOpen = 10 * 60;
+    const sundayClose = 16 * 60;
+    const isWeekdayHours = isWeekday && minutesSinceMidnight >= weekdayOpen && minutesSinceMidnight < weekdayClose;
+    const isSundayHours = isSunday && minutesSinceMidnight >= sundayOpen && minutesSinceMidnight < sundayClose;
+    setIsOnline(isWeekdayHours || isSundayHours);
   };
 
   useEffect(() => {
