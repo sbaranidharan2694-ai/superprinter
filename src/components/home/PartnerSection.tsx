@@ -5,10 +5,10 @@ const PartnerSection = () => (
   <section className="py-16 px-4 sm:px-6" style={{ backgroundColor: "#1a1a2e" }}>
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">
-        Are You a DTP Operator or Print Reseller?
+        Bulk Orders? Corporate Printing? Partner with Us.
       </h2>
       <p className="text-white/90 text-base md:text-lg mb-8 max-w-2xl mx-auto" style={{ fontFamily: "var(--font-body)" }}>
-        35 years of factory-direct printing. Partner pricing with up to 25% discount. GST invoice. 24-hour turnaround. Dedicated WhatsApp account manager.
+        Serving corporates, event planners, wedding planners, DTP operators and print resellers across Chennai. Factory-direct pricing with up to 25% bulk discount. Dedicated WhatsApp account manager. 24-hour turnaround guaranteed.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Link

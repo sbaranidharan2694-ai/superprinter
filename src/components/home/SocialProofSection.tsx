@@ -15,10 +15,10 @@ const SocialProofSection = () => (
           CUSTOMER REVIEWS
         </p>
         <h2 className="font-display font-bold text-3xl md:text-4xl mb-3" style={{ color: "var(--color-primary)" }}>
-          What Our Customers Say
+          What Chennai Customers Say About Us
         </h2>
         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-50 text-sm font-bold" style={{ color: "var(--color-primary)" }}>
-          4.8 ★ on Google
+          ⭐ 4.8 on Google · 147 Verified Reviews
         </span>
       </motion.div>
 

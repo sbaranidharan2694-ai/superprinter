@@ -2,11 +2,12 @@ import { BUSINESS } from "@/data/business";
 
 const ROWS = [
   { feature: "Best For", offset: "500+ copies", digital: "Under 200 copies" },
-  { feature: "Scale", offset: "High volume", digital: "Low volume" },
-  { feature: "Quality", offset: "Premium, Pantone accurate", digital: "Good for photos" },
-  { feature: "Turnaround", offset: "Fast", digital: "Fast" },
+  { feature: "Cost Per Piece", offset: "Lower at high volume", digital: "Affordable for small runs" },
+  { feature: "Quality", offset: "Premium, Pantone accurate", digital: "Good for photos & colour" },
+  { feature: "Turnaround", offset: "24–48 hours", digital: "Same day possible" },
   { feature: "Min. Quantity", offset: "100 pcs", digital: "1 pc" },
-  { feature: "Paper Options", offset: "All types", digital: "Standard stocks" },
+  { feature: "Paper Options", offset: "All types including premium", digital: "Standard stocks" },
+  { feature: "Best Products", offset: "Wedding cards, letterheads, bill books", digital: "Visiting cards, flyers, posters" },
 ];
 
 const ComparisonTableSection = () => (

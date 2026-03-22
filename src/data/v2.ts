@@ -46,20 +46,18 @@ export const SOCIAL_PROOF_STATS = [
 export const PRODUCT_TABS = ["All", "Corporate", "Personal", "Events"] as const;
 
 export const PRODUCTS = [
-  { name: "Visiting Cards", category: "Corporate", img: IMAGE_PATHS.visitingCard, delivery: "24hr" },
-  { name: "Letterheads", category: "Corporate", img: IMAGE_PATHS.letterhead, delivery: "24hr" },
-  { name: "Brochures", category: "Corporate", img: IMAGE_PATHS.brochures, delivery: "24hr" },
-  { name: "Bill Books", category: "Corporate", img: IMAGE_PATHS.billBook, delivery: "24hr" },
-  { name: "Wedding Cards", category: "Events", img: IMAGE_PATHS.hero.wedding, delivery: "24hr" },
-  { name: "Pamphlets", category: "Corporate", img: IMAGE_PATHS.pamphlet, delivery: "24hr" },
-  { name: "Banners", category: "Events", img: IMAGE_PATHS.banner, delivery: "24hr" },
-  { name: "Stickers", category: "Personal", img: IMAGE_PATHS.stickerSheet, delivery: "24hr" },
-  { name: "Catalogues", category: "Corporate", img: IMAGE_PATHS.gallery("c1"), delivery: "24hr" },
-  { name: "T-Shirts", category: "Personal", img: IMAGE_PATHS.tshirt, delivery: "24hr" },
-  { name: "Rubber Stamps", category: "Corporate", img: IMAGE_PATHS.rubberStamp, delivery: "24hr" },
-  { name: "PVC ID Cards", category: "Corporate", img: IMAGE_PATHS.gallery("co6"), delivery: "24hr" },
-  { name: "Screen Printing", category: "Personal", img: IMAGE_PATHS.gallery("p3"), delivery: "24hr" },
-  { name: "Offset Printing", category: "Corporate", img: IMAGE_PATHS.offsetPress, delivery: "24hr" },
+  { name: "Visiting Cards", category: "Corporate", img: IMAGE_PATHS.visitingCard, delivery: "24hr", price: "From ₹149" },
+  { name: "Letterheads", category: "Corporate", img: IMAGE_PATHS.letterhead, delivery: "24hr", price: "From ₹1,235" },
+  { name: "Brochures", category: "Corporate", img: IMAGE_PATHS.brochures, delivery: "24hr", price: "Get Quote" },
+  { name: "Bill Books", category: "Corporate", img: IMAGE_PATHS.billBook, delivery: "24hr", price: "Get Quote" },
+  { name: "Wedding Cards", category: "Events", img: IMAGE_PATHS.hero.wedding, delivery: "48hr", price: "From ₹5/card" },
+  { name: "Pamphlets", category: "Corporate", img: IMAGE_PATHS.pamphlet, delivery: "24hr", price: "Get Quote" },
+  { name: "Banners", category: "Events", img: IMAGE_PATHS.banner, delivery: "24hr", price: "From ₹12/sqft" },
+  { name: "Stickers", category: "Personal", img: IMAGE_PATHS.stickerSheet, delivery: "24hr", price: "Get Quote" },
+  { name: "Catalogues", category: "Corporate", img: IMAGE_PATHS.gallery("c1"), delivery: "48hr", price: "Get Quote" },
+  { name: "T-Shirts", category: "Personal", img: IMAGE_PATHS.tshirt, delivery: "48hr", price: "Get Quote" },
+  { name: "Rubber Stamps", category: "Corporate", img: IMAGE_PATHS.rubberStamp, delivery: "24hr", price: "Get Quote" },
+  { name: "PVC ID Cards", category: "Corporate", img: IMAGE_PATHS.gallery("co6"), delivery: "24hr", price: "Get Quote" },
 ];
 
 export const WEDDING_IMAGES = [
@@ -69,12 +67,12 @@ export const WEDDING_IMAGES = [
 ];
 
 export const WEDDING_FEATURES = [
+  "From ₹5 per card — cheaper than Menaka, Olympic & Lovely Cards",
   "Hindu · Christian · Muslim · Modern designs",
-  "Tamil, English & Bilingual available",
-  "Free design proof within 24 hours",
-  "Fast turnaround",
-  "Minimum order: 100 cards",
-  "Customised envelopes available",
+  "Tamil, English & bilingual — we specialise in Tamil wedding invitations",
+  "Free in-house design — unlimited revisions at no cost",
+  "Proof on WhatsApp before a single card is printed",
+  "Ready in 24–48 hours · Minimum order just 100 cards",
 ];
 
 export const WHY_ITEMS = [
@@ -95,12 +93,12 @@ export const PROCESS_STEPS = [
 
 // Avatar images: local public/images/avatars/01.jpg … 06.jpg (gender-matched to testimonials).
 export const TESTIMONIALS = [
-  { name: "Priya Rajan", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Absolutely beautiful wedding cards. The gold foil finish was stunning and all 500 cards were delivered on time. Highly recommended!", avatar: IMAGE_PATHS.avatar(1) },
-  { name: "Karthik S.", location: "Chromepet", product: "Visiting Cards", rating: 5, text: "Best visiting cards I've ever had printed. The spot UV finish looks premium. Got 500 cards in just 2 days!", avatar: IMAGE_PATHS.avatar(2) },
-  { name: "Lakshmi Devi", location: "Pallavaram", product: "Brochures", rating: 5, text: "We've been using Super Printers for our company brochures for 10 years. Consistent quality every single time.", avatar: IMAGE_PATHS.avatar(3) },
-  { name: "Mohammed Farooq", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Printed 1000 nikah invitation cards. Beautiful design, on-time delivery, and very reasonable pricing.", avatar: IMAGE_PATHS.avatar(4) },
-  { name: "Anand Kumar", location: "Perungalathur", product: "Bill Books", rating: 5, text: "Quick turnaround on bill books. Quality paper and clear printing. Our go-to printer for all business needs.", avatar: IMAGE_PATHS.avatar(5) },
-  { name: "Deepa M.", location: "Chrompet", product: "Letterheads", rating: 5, text: "Professional letterheads with perfect colour matching. The team is very helpful and responsive on WhatsApp.", avatar: IMAGE_PATHS.avatar(6) },
+  { name: "Priya Rajan", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Got 500 wedding cards with gold foil finish. Proof shared on WhatsApp within a day, cards ready in 48 hours. Price was nearly half of what Menaka Cards quoted. Absolutely stunning quality.", avatar: IMAGE_PATHS.avatar(1) },
+  { name: "Karthik S.", location: "Chromepet", product: "Visiting Cards", rating: 5, text: "Ordered 500 spot UV visiting cards. Proof the same day, 2 revisions done instantly, delivered in 24 hours. Cards look extremely premium. ₹1,800 for 500 — unbeatable price in Chennai.", avatar: IMAGE_PATHS.avatar(2) },
+  { name: "Lakshmi Devi", location: "Pallavaram", product: "Brochures", rating: 5, text: "We have been printing company brochures at Super Printers for over 10 years. Consistent quality every single time and pricing has always been fair. Truly the most reliable printer in Chennai.", avatar: IMAGE_PATHS.avatar(3) },
+  { name: "Mohammed Farooq", location: "Tambaram", product: "Wedding Cards", rating: 5, text: "Printed 1000 nikah invitation cards in Tamil and English. The design team understood exactly what we wanted. Beautiful cards, on-time delivery, and very reasonable pricing.", avatar: IMAGE_PATHS.avatar(4) },
+  { name: "Anand Kumar", location: "Perungalathur", product: "Bill Books", rating: 5, text: "Ordered 50 NCR bill books. Ready the next day. Clear print, good paper quality. Have been coming here for 5 years for all my business printing needs. Never disappointed.", avatar: IMAGE_PATHS.avatar(5) },
+  { name: "Deepa M.", location: "Chromepet", product: "Letterheads", rating: 5, text: "Needed 1000 letterheads urgently. WhatsApp at 10am, proof by noon, approved it, collected by 5pm the same day. Incredible speed and the colour matching was perfect.", avatar: IMAGE_PATHS.avatar(6) },
 ];
 
 export const FAQ_ITEMS = [

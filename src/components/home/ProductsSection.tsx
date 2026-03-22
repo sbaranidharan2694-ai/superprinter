@@ -25,7 +25,8 @@ const ProductsSection = () => {
             <motion.div key={product.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="product-card group relative">
               <div className="product-card-image"><img src={product.img} alt={product.name} loading="lazy" /></div>
               <div className="p-4">
-                <h3 className="font-display font-bold text-base mb-1" style={{ color: "var(--color-primary)" }}>{product.name}</h3>
+                <h3 className="font-display font-bold text-base mb-0.5" style={{ color: "var(--color-primary)" }}>{product.name}</h3>
+                <p className="text-xs font-bold mb-1" style={{ color: "var(--gold)" }}>{product.price}</p>
                 <a href={`${BUSINESS.whatsappQuote}${encodeURIComponent(product.name)}`} target="_blank" rel="noopener noreferrer" className="text-xs font-medium hover:underline" style={{ color: "var(--color-cta)", fontFamily: "var(--font-body)" }}>💬 Order on WhatsApp</a>
               </div>
             </motion.div>
