@@ -78,6 +78,11 @@ export const IMAGE_PATHS = {
   digitalPrint: USE_LOCAL_IMAGES ? local("digital-print.jpg") : U("1526374965328-7f61d4dc18c5"),
   /** Rubber stamp image — add file at public/images/catalog/stamp.jpg */
   rubberStamp: USE_LOCAL_IMAGES ? local("catalog/stamp.jpg") : U("1513542789411-b6a5d4f31634"),
+  mirrorSticker: USE_LOCAL_IMAGES ? local("mirror-sticker.jpg") : U("1607000975631-4bd2e12d00da"),
+  panchangam: USE_LOCAL_IMAGES ? local("panchangam.jpg") : U("1513542789411-b6a5d4f31634"),
+  calendarMount: USE_LOCAL_IMAGES ? local("calendar-mount.jpg") : U("1513542789411-b6a5d4f31634"),
+  hospitalPlastic: USE_LOCAL_IMAGES ? local("hospital-plastic.jpg") : U("1586281380349-632531db7ed4"),
+  hospitalGeneral: USE_LOCAL_IMAGES ? local("hospital-general.jpg") : U("1586281380349-632531db7ed4"),
   /** T-shirt printing — uses public/images/tshirt/ts1.jpg */
   tshirt: USE_LOCAL_IMAGES ? local("tshirt/ts1.jpg") : U("1558618047-f4f37ee1d6d0"),
   /** Banner — uses public/images/banner/bn1.jpg */

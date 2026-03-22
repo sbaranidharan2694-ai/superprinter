@@ -14,7 +14,9 @@ export type GalleryCategory =
   | "Letterheads"
   | "Catalogues"
   | "Corporate"
-  | "Printing";
+  | "Printing"
+  | "T-Shirts"
+  | "Banners";
 
 export interface GalleryImage {
   id: string;
@@ -33,6 +35,8 @@ export const GALLERY_CATEGORIES: GalleryCategory[] = [
   "Catalogues",
   "Corporate",
   "Printing",
+  "T-Shirts",
+  "Banners",
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
@@ -85,4 +89,11 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   { id: "l5", src: IMAGE_PATHS.gallery("l5"), alt: "Office stationery", category: "Letterheads" },
   { id: "co7", src: IMAGE_PATHS.gallery("co7"), alt: "Corporate branding", category: "Corporate" },
   { id: "co8", src: IMAGE_PATHS.gallery("co8"), alt: "Marketing print", category: "Corporate" },
+  { id: "ts1", src: "/images/tshirt/ts1.jpg", alt: "Custom printed t-shirts", category: "T-Shirts" },
+  { id: "ts2", src: "/images/tshirt/ts2.jpg", alt: "Bulk t-shirt printing", category: "T-Shirts" },
+  { id: "ts3", src: "/images/tshirt/ts3.jpg", alt: "Corporate uniform t-shirts", category: "T-Shirts" },
+  { id: "bn1", src: "/images/banner/bn1.jpg", alt: "Flex banner printing", category: "Banners" },
+  { id: "bn2", src: "/images/banner/bn2.jpg", alt: "Vinyl banner outdoor", category: "Banners" },
+  { id: "bn3", src: "/images/banner/bn3.jpg", alt: "Roll-up standee banner", category: "Banners" },
+  { id: "bn4", src: "/images/banner/bn4.jpg", alt: "Event fabric banner", category: "Banners" },
 ];
