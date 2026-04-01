@@ -19,7 +19,7 @@
 - **Email:** SuperPrntrs@yahoo.com
 - **Address:** No. 6, Saraswathy Colony, Pallavaram, Chennai 600043, Tamil Nadu, India
 - **Hours:** Mon–Sat 9:00–20:00; Sun 10:00–16:00
-- **Website:** https://superprinter.lovable.app (update base URL if the site moves to a custom domain)
+- **Website:** https://superprinters.net
 
 ## Key URLs (deep links for answers)
 
@@ -58,7 +58,7 @@ Each service has its own SEO page with FAQs and structured data:
 - /services/screen-printing — merch, bags, caps
 - /services/id-cards — PVC ID badges
 
-Base: `https://superprinter.lovable.app/services/{slug}`
+Base: `https://superprinters.net/services/{slug}`
 
 ## Trust signals
 
