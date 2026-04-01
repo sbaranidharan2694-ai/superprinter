@@ -72,3 +72,35 @@ export function servicesItemListSchema() {
     })),
   };
 }
+
+/** HowTo schema — "How to order printing from Super Printers". Use on service landing pages. */
+export const howToOrderSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Order Printing from Super Printers Chennai",
+  "description": "Order visiting cards, wedding cards, brochures, or any printing from Super Printers Pallavaram via WhatsApp in 3 simple steps.",
+  "totalTime": "PT30M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Send your requirements on WhatsApp",
+      "text": "WhatsApp +91 98401 99878 with your product (e.g. visiting cards), quantity, and any design files or references. Get a quote reply in 30 minutes.",
+      "url": "https://superprinters.net/get-quote"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Approve the digital proof",
+      "text": "We send a PDF or image proof via WhatsApp before printing a single copy. Review, request any changes, and approve when you're satisfied — unlimited revisions, no extra charge.",
+      "url": "https://superprinters.net/get-quote"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Receive your order",
+      "text": "Once proof is approved, most orders are printed and ready within 24 hours. Collect from our Pallavaram shop or get it delivered across Chennai and Tamil Nadu.",
+      "url": "https://superprinters.net/contact"
+    }
+  ]
+};

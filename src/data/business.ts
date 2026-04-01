@@ -76,7 +76,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
     },
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "16:00" },
   ],
-  priceRange: "₹₹",
+  priceRange: "₹",
   taxID: BUSINESS.gstNumber,
   areaServed: ["Chennai", "Pallavaram", "Chromepet", "Tambaram", "Perungalathur", "Pammal", "Alandur"],
   aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "147", bestRating: "5" },

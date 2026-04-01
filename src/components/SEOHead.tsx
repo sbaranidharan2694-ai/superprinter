@@ -85,6 +85,12 @@ const SEOHead = ({
           {JSON.stringify(schema)}
         </script>
       ))}
+      {/* AI search and citation signals */}
+      <meta name="author" content="Super Printers & Wedding Cards" />
+      <meta name="copyright" content="Super Printers & Wedding Cards" />
+      <meta name="language" content="en-IN" />
+      <meta name="revisit-after" content="7 days" />
+      <link rel="me" href="https://wa.me/919840199878" />
     </Helmet>
   );
 };

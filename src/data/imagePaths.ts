@@ -56,7 +56,7 @@ export const IMAGE_PATHS = {
       ? local(`avatars/${String(index).padStart(2, "0")}.jpg`)
       : `https://images.unsplash.com/photo-${AVATAR_PHOTOS[index - 1] || AVATAR_PHOTOS[0]}?w=160&h=160&fit=crop&crop=face&q=80`,
 
-  about: USE_LOCAL_IMAGES ? local("about.jpg") : U("1504711434969-e33886168f5c", 800),
+  about: USE_LOCAL_IMAGES ? local("workshop.jpg") : U("1504711434969-e33886168f5c", 800),
   offsetPress: USE_LOCAL_IMAGES ? local("offset-press.jpg") : U("1504711434969-e33886168f5c"),
   workshop: USE_LOCAL_IMAGES ? local("workshop.jpg") : U("1504270997636-07ddfbd48945"),
   letterhead: USE_LOCAL_IMAGES ? local("letterhead.jpg") : U("1586281380349-632531db7ed4"),
@@ -83,7 +83,7 @@ export const IMAGE_PATHS = {
   calendarMount: USE_LOCAL_IMAGES ? local("calendar-mount.jpg") : U("1513542789411-b6a5d4f31634"),
   hospitalPlastic: USE_LOCAL_IMAGES ? local("hospital-plastic.jpg") : U("1586281380349-632531db7ed4"),
   hospitalGeneral: USE_LOCAL_IMAGES ? local("hospital-general.jpg") : U("1586281380349-632531db7ed4"),
-  flyer: USE_LOCAL_IMAGES ? local("flyer.jpg") : U("1586528116311-ad8dd3c8310d"),
+  flyer: USE_LOCAL_IMAGES ? local("pamphlet.jpg") : U("1586528116311-ad8dd3c8310d"),
   poster: USE_LOCAL_IMAGES ? local("gallery/c4.jpg") : U("1634973357973-f2ed2657db3c"),
   /** T-shirt printing — uses public/images/tshirt/ts1.jpg */
   tshirt: USE_LOCAL_IMAGES ? local("tshirt/ts1.jpg") : U("1558618047-f4f37ee1d6d0"),

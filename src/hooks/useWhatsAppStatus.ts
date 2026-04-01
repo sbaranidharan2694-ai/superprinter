@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 /**
- * Business hours: Mon–Sat 9:00–19:00 (Chennai).
+ * Business hours: Mon–Sat 9:00–20:00, Sunday 10:00–16:00 (Asia/Kolkata).
  * Returns true if currently within business hours.
  */
 export function useWhatsAppStatus(): boolean {

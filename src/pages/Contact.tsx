@@ -29,6 +29,8 @@ const Contact = () => {
       return;
     }
     setErrors({});
+    const waText = `Hi Super Printers! I have an enquiry.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nService: ${formData.service}\nMessage: ${formData.message || "No additional details"}`;
+    window.open(`${BUSINESS.whatsapp}?text=${encodeURIComponent(waText)}`, "_blank");
     setSubmitted(true);
   };
 
@@ -63,7 +65,7 @@ const Contact = () => {
                   <div className="p-8 rounded-xl bg-card border border-border text-center">
                     <span className="text-4xl block mb-3" aria-hidden="true">✅</span>
                     <h3 className="font-display text-xl font-bold text-foreground mb-2">Thank you!</h3>
-                    <p className="text-muted-foreground font-body">We'll call you back within 2 hours during business hours.</p>
+                    <p className="text-muted-foreground font-body">Your message has been sent via WhatsApp. We'll respond within 30 minutes during business hours.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4 p-6 rounded-xl bg-card border border-border">

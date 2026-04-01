@@ -1,5 +1,6 @@
 import SEOHead from "@/components/SEOHead";
 import { HOMEPAGE_FAQ_SCHEMA } from "@/data/seoSchemas";
+import { LOCAL_BUSINESS_SCHEMA } from "@/data/business";
 import HeroSection from "@/components/home/HeroSection";
 import TrustBadgesStrip from "@/components/home/TrustBadgesStrip";
 import SocialProofBar from "@/components/home/SocialProofBar";
@@ -24,7 +25,7 @@ const Index = () => (
       description="Top printing press in Chennai since 1990. Wedding cards, visiting cards, brochures, bill books, letterheads, banners, rubber stamps, T-shirt printing, pamphlets. Fast delivery Pallavaram, Chromepet, Tambaram. Call +91 98401 99878."
       canonical="/"
       keywords="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards Chennai, brochure printing, bill book printing Chennai, banner printing, rubber stamp Chennai, offset printing, pamphlet printing, T shirt printing Chennai, letterhead printing, GST invoice books"
-      schemaMarkup={HOMEPAGE_FAQ_SCHEMA}
+      schemaMarkup={[HOMEPAGE_FAQ_SCHEMA, LOCAL_BUSINESS_SCHEMA]}
     />
     <HeroSection />
     <SocialProofBar />
