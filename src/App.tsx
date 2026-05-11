@@ -19,6 +19,7 @@ const StickersPage = lazy(() => import("./pages/StickersPage"));
 const RubberStampsPage = lazy(() => import("./pages/RubberStampsPage"));
 const CataloguesPage = lazy(() => import("./pages/CataloguesPage"));
 const PvcIdCardsPage = lazy(() => import("./pages/PvcIdCardsPage"));
+const PrintingGuide = lazy(() => import("./pages/PrintingGuide"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex"));
 const ProductsCatalogPage = lazy(() => import("./pages/ProductsCatalogPage"));
@@ -91,6 +92,7 @@ const App = () => (
                 <Route path="/reseller" element={<ResellerPage />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/printing-guide" element={<PrintingGuide />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
