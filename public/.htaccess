@@ -63,6 +63,9 @@ ErrorDocument 404 /404.html
   </FilesMatch>
   Header set X-Content-Type-Options "nosniff"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # HSTS: tell browsers to use HTTPS for the next ~6 months. `preload` makes us
+  # eligible for the Chromium HSTS preload list once we submit the domain.
+  Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
 </IfModule>
 
 <IfModule mod_expires.c>
