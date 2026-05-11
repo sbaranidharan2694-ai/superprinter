@@ -72,7 +72,7 @@ const ServiceCard = ({ name, price, delivery, img, href }: ServiceCardProps) => 
             className="flex-1 text-center px-3 py-2 rounded-full text-xs font-semibold font-ui transition-colors hover:bg-ink-black/90"
             style={{ backgroundColor: "var(--ink-black)", color: "white" }}
           >
-            View details
+            View Details
           </Link>
           <a
             href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(waMsg)}`}
