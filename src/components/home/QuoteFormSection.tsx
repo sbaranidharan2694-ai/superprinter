@@ -76,8 +76,12 @@ const QuoteFormSection = () => {
             className="quote-form-card"
           >
             <div className="space-y-4">
+              <label htmlFor="quote-name" className="sr-only">Your name</label>
               <input
+                id="quote-name"
+                name="name"
                 type="text"
+                autoComplete="name"
                 placeholder="Your Name *"
                 required
                 value={name}
@@ -85,8 +89,14 @@ const QuoteFormSection = () => {
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
                 style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
               />
+              <label htmlFor="quote-whatsapp" className="sr-only">WhatsApp number</label>
               <input
+                id="quote-whatsapp"
+                name="whatsapp"
                 type="tel"
+                autoComplete="tel"
+                inputMode="tel"
+                pattern="[0-9+\-\s]{10,}"
                 placeholder="WhatsApp Number *"
                 required
                 value={whatsapp}
@@ -94,7 +104,10 @@ const QuoteFormSection = () => {
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
                 style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
               />
+              <label htmlFor="quote-service" className="sr-only">Service required</label>
               <select
+                id="quote-service"
+                name="service"
                 value={service}
                 onChange={(e) => setService(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
@@ -106,24 +119,39 @@ const QuoteFormSection = () => {
                 ))}
               </select>
               <div className="grid grid-cols-2 gap-4">
-                <input
-                  type="number"
-                  placeholder="Quantity"
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
-                />
-                <input
-                  type="date"
-                  placeholder="When do you need it?"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
-                />
+                <div>
+                  <label htmlFor="quote-quantity" className="sr-only">Quantity</label>
+                  <input
+                    id="quote-quantity"
+                    name="quantity"
+                    type="number"
+                    inputMode="numeric"
+                    min={1}
+                    placeholder="Quantity"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
+                    style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="quote-date" className="sr-only">When do you need it</label>
+                  <input
+                    id="quote-date"
+                    name="date"
+                    type="date"
+                    placeholder="When do you need it?"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
+                    style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
+                  />
+                </div>
               </div>
+              <label htmlFor="quote-message" className="sr-only">Additional details</label>
               <textarea
+                id="quote-message"
+                name="message"
                 placeholder="Additional details (size, design, finish, etc.)"
                 rows={3}
                 value={msg}
