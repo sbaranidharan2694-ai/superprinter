@@ -1,54 +1,37 @@
-import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { LangProvider } from "@/contexts/LangContext";
 import UnifiedLayout from "./components/layout/UnifiedLayout";
 import Index from "./pages/Index";
-
-const VisitingCardsPage = lazy(() => import("./pages/VisitingCardsPage"));
-const BrochuresPage = lazy(() => import("./pages/BrochuresPage"));
-const BillBooksPage = lazy(() => import("./pages/BillBooksPage"));
-const WeddingCardsPage = lazy(() => import("./pages/WeddingCardsPage"));
-const LetterheadsPage = lazy(() => import("./pages/LetterheadsPage"));
-const ResellerPage = lazy(() => import("./pages/ResellerPage"));
-const BannersPage = lazy(() => import("./pages/BannersPage"));
-const StickersPage = lazy(() => import("./pages/StickersPage"));
-const RubberStampsPage = lazy(() => import("./pages/RubberStampsPage"));
-const CataloguesPage = lazy(() => import("./pages/CataloguesPage"));
-const PvcIdCardsPage = lazy(() => import("./pages/PvcIdCardsPage"));
-const PrintingGuide = lazy(() => import("./pages/PrintingGuide"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const BlogIndex = lazy(() => import("./pages/BlogIndex"));
-const ProductsCatalogPage = lazy(() => import("./pages/ProductsCatalogPage"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Gallery = lazy(() => import("./pages/Gallery"));
-const Services = lazy(() => import("./pages/Services"));
-const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
-const GetQuote = lazy(() => import("./pages/GetQuote"));
-const AreaPrintingPage = lazy(() => import("./pages/AreaPrintingPage"));
+import VisitingCardsPage from "./pages/VisitingCardsPage";
+import BrochuresPage from "./pages/BrochuresPage";
+import BillBooksPage from "./pages/BillBooksPage";
+import WeddingCardsPage from "./pages/WeddingCardsPage";
+import LetterheadsPage from "./pages/LetterheadsPage";
+import ResellerPage from "./pages/ResellerPage";
+import BannersPage from "./pages/BannersPage";
+import StickersPage from "./pages/StickersPage";
+import RubberStampsPage from "./pages/RubberStampsPage";
+import CataloguesPage from "./pages/CataloguesPage";
+import PvcIdCardsPage from "./pages/PvcIdCardsPage";
+import PrintingGuide from "./pages/PrintingGuide";
+import BlogPost from "./pages/BlogPost";
+import BlogIndex from "./pages/BlogIndex";
+import ProductsCatalogPage from "./pages/ProductsCatalogPage";
+import NotFound from "./pages/NotFound";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Gallery from "./pages/Gallery";
+import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
+import GetQuote from "./pages/GetQuote";
+import AreaPrintingPage from "./pages/AreaPrintingPage";
+import Orders from "./pages/Orders";
 
 const queryClient = new QueryClient();
-
-const RouteFallback = () => (
-  <div
-    className="min-h-[50vh] flex flex-col items-center justify-center gap-3"
-    style={{ background: "var(--background, #fff)", color: "var(--foreground, #1a1a2e)" }}
-  >
-    <div
-      className="h-9 w-9 rounded-full border-2 border-t-transparent animate-spin shrink-0"
-      style={{ borderColor: "var(--gold, #c9a84c)", borderTopColor: "transparent" }}
-      aria-hidden
-    />
-    <p className="text-sm opacity-70" style={{ fontFamily: "var(--font-body)" }}>
-      Loading…
-    </p>
-  </div>
-);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -56,48 +39,45 @@ const App = () => (
       <Toaster />
       <Sonner />
       <LangProvider>
-        <BrowserRouter>
-          <Suspense fallback={<RouteFallback />}>
-            <Routes>
-              <Route element={<UnifiedLayout />}>
-                <Route path="/" element={<Index />} />
-                <Route path="/products" element={<ProductsCatalogPage />} />
-                <Route path="/products/:categorySlug" element={<ProductsCatalogPage />} />
-                <Route path="/visiting-cards" element={<VisitingCardsPage />} />
-                <Route path="/brochures" element={<BrochuresPage />} />
-                <Route path="/bill-books" element={<BillBooksPage />} />
-                <Route path="/wedding-cards" element={<WeddingCardsPage />} />
-                <Route path="/letterheads" element={<LetterheadsPage />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/gallery" element={<Gallery />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/services/:slug" element={<ServiceDetail />} />
-                <Route path="/get-quote" element={<GetQuote />} />
-                <Route path="/banners" element={<BannersPage />} />
-                <Route path="/stickers" element={<StickersPage />} />
-                <Route path="/rubber-stamps" element={<RubberStampsPage />} />
-                <Route path="/catalogues" element={<CataloguesPage />} />
-                <Route path="/pvc-id-cards" element={<PvcIdCardsPage />} />
-                <Route path="/printing-press-pallavaram" element={<AreaPrintingPage />} />
-                <Route path="/printing-press-tambaram" element={<AreaPrintingPage />} />
-                <Route path="/printing-press-chromepet" element={<AreaPrintingPage />} />
-                <Route path="/printing-press-pammal" element={<AreaPrintingPage />} />
-                <Route path="/printing-press-perungalathur" element={<AreaPrintingPage />} />
-                <Route path="/printing-press-velachery" element={<AreaPrintingPage />} />
-                <Route path="/printing-press-nanganallur" element={<AreaPrintingPage />} />
-                <Route path="/printing-press-medavakkam" element={<AreaPrintingPage />} />
-                <Route path="/printing-press-guindy" element={<AreaPrintingPage />} />
-                <Route path="/printing-press-adyar" element={<AreaPrintingPage />} />
-                <Route path="/reseller" element={<ResellerPage />} />
-                <Route path="/blog" element={<BlogIndex />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/printing-guide" element={<PrintingGuide />} />
-                <Route path="*" element={<NotFound />} />
-              </Route>
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
+        <Routes>
+          <Route element={<UnifiedLayout />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/products" element={<ProductsCatalogPage />} />
+            <Route path="/products/:categorySlug" element={<ProductsCatalogPage />} />
+            <Route path="/visiting-cards" element={<VisitingCardsPage />} />
+            <Route path="/brochures" element={<BrochuresPage />} />
+            <Route path="/bill-books" element={<BillBooksPage />} />
+            <Route path="/wedding-cards" element={<WeddingCardsPage />} />
+            <Route path="/letterheads" element={<LetterheadsPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/:slug" element={<ServiceDetail />} />
+            <Route path="/get-quote" element={<GetQuote />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/banners" element={<BannersPage />} />
+            <Route path="/stickers" element={<StickersPage />} />
+            <Route path="/rubber-stamps" element={<RubberStampsPage />} />
+            <Route path="/catalogues" element={<CataloguesPage />} />
+            <Route path="/pvc-id-cards" element={<PvcIdCardsPage />} />
+            <Route path="/printing-press-pallavaram" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-tambaram" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-chromepet" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-pammal" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-perungalathur" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-velachery" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-nanganallur" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-medavakkam" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-guindy" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-adyar" element={<AreaPrintingPage />} />
+            <Route path="/reseller" element={<ResellerPage />} />
+            <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/printing-guide" element={<PrintingGuide />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
       </LangProvider>
     </TooltipProvider>
   </QueryClientProvider>

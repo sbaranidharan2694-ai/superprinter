@@ -1,19 +1,27 @@
 # Super Printers — Hostinger LiteSpeed config
-# Without this file every client-side route (/wedding-cards, /contact, etc.)
-# returns 404 from the server, hiding the entire site from crawlers and direct
-# visitors. The Netlify-style _redirects file in this directory is ignored by
-# LiteSpeed.
+#
+# Two responsibilities:
+#  1. Force canonical host (https + apex, no www).
+#  2. Serve prerendered route directories so crawlers see real HTML on first
+#     response — falling back to the SPA shell only for unknown paths.
+#
+# IMPORTANT: this file must be present in the *deployed root*. Some FTP clients
+# skip dot-files by default — make sure .htaccess is included in your upload.
+
+Options -MultiViews
+DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # ── Canonical host: force apex (drop www) and HTTPS ────────────────────────
+  # ── Canonical host: force apex + HTTPS ───────────────────────────────────
   RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [OR]
   RewriteCond %{HTTP_HOST} ^www\.superprinters\.net$ [NC]
   RewriteRule ^(.*)$ https://superprinters.net/$1 [R=301,L]
 
-  # ── 301 redirects: rename area pages to /printing-press-{area} ─────────────
+  # ── Legacy URL → canonical area pages ────────────────────────────────────
   RewriteRule ^tambaram-printing/?$         /printing-press-tambaram         [R=301,L]
   RewriteRule ^chromepet-printing/?$        /printing-press-chromepet        [R=301,L]
   RewriteRule ^pammal-printing/?$           /printing-press-pammal           [R=301,L]
@@ -24,26 +32,52 @@
   RewriteRule ^guindy-printing/?$           /printing-press-guindy           [R=301,L]
   RewriteRule ^adyar-printing/?$            /printing-press-adyar            [R=301,L]
 
-  # ── SPA fallback: serve index.html for any non-file, non-directory path ────
+  # ── Strip trailing slash (canonical form is no trailing slash) ───────────
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} ^(.+)/$
+  RewriteRule ^ %1 [R=301,L]
+
+  # ── Serve prerendered HTML when /<route>/index.html exists ───────────────
+  # This is what makes the site crawlable without executing JS.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+  RewriteRule ^(.*)$ /$1/index.html [L]
+
+  # ── SPA fallback for anything not prerendered (client-side route) ────────
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ /index.html [L]
 </IfModule>
 
-# ── Caching: long for hashed assets, short for index.html ───────────────────
+# ── Custom 404 (prerendered NotFound with noindex,nofollow) ────────────────
+ErrorDocument 404 /404.html
+
+# ── Caching ─────────────────────────────────────────────────────────────────
 <IfModule mod_headers.c>
   <FilesMatch "\.(?:js|css|woff2?|ttf|otf|eot|svg|ico|png|jpg|jpeg|gif|webp|avif)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
-  <FilesMatch "index\.html$">
+  <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
 # ── Compression ─────────────────────────────────────────────────────────────
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml font/woff2
 </IfModule>
-
-# Pretty 404 → SPA also handles /404 internally
-ErrorDocument 404 /index.html

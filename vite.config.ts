@@ -18,4 +18,9 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Bundle CJS-only deps that don't expose ESM named exports so the SSR entry
+  // can `import { HelmetProvider }` cleanly under Node's ESM loader.
+  ssr: {
+    noExternal: ["react-helmet-async"],
+  },
 }));
