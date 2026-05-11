@@ -40,7 +40,17 @@ export const BUSINESS = {
   happyClients: "10,000+",
   mapEmbed: "https://www.google.com/maps?q=Super+printers+and+wedding+cards&output=embed",
   mapLink: "https://www.google.com/maps/search/?api=1&query=Super+printers+and+wedding+cards",
-  sameAs: ["https://wa.me/919840199878"],
+  // Profile URLs published in LocalBusiness/Organization JSON-LD `sameAs`.
+  // Replace each placeholder once the corresponding profile is created and
+  // verified. Keeping placeholders out of `sameAs` until then prevents
+  // Google's Knowledge Graph from picking up a dead link.
+  sameAs: [
+    "https://wa.me/919840199878",
+    // "https://www.google.com/maps/place/?q=place_id:REPLACE_WITH_GBP_PLACE_ID",
+    // "https://www.instagram.com/superprinters",
+    // "https://www.facebook.com/superprinters",
+    // "https://www.youtube.com/@superprinters",
+  ],
 };
 
 /**
@@ -49,7 +59,7 @@ export const BUSINESS = {
  */
 export const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "ProfessionalService"],
   "@id": `${BUSINESS.siteUrl}/#business`,
   name: BUSINESS.name,
   description:

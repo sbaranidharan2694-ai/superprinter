@@ -2,33 +2,36 @@ import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
 
+// Descriptive anchor text matters more than terse labels for SEO — search
+// engines weight the visible link text. Each entry is the canonical anchor
+// users (and crawlers) see in the sitemap footer.
 const SERVICES_LINKS = [
-  { label: "Wedding Cards", to: "/wedding-cards" },
-  { label: "Visiting Cards", to: "/visiting-cards" },
-  { label: "Brochures", to: "/brochures" },
-  { label: "Bill Books", to: "/bill-books" },
-  { label: "Letterheads", to: "/letterheads" },
-  { label: "Banners", to: "/banners" },
-  { label: "Stickers & Labels", to: "/stickers" },
-  { label: "Rubber Stamps", to: "/rubber-stamps" },
-  { label: "Catalogues", to: "/catalogues" },
-  { label: "PVC ID Cards", to: "/pvc-id-cards" },
-  { label: "All Services", to: "/services" },
-  { label: "Get a Quote", to: "/get-quote" },
-  { label: "Gallery", to: "/gallery" },
+  { label: "Wedding card printing in Chennai", to: "/wedding-cards" },
+  { label: "Visiting card printing in Chennai", to: "/visiting-cards" },
+  { label: "Brochure printing in Chennai", to: "/brochures" },
+  { label: "Bill book printing (GST)", to: "/bill-books" },
+  { label: "Letterhead printing in Chennai", to: "/letterheads" },
+  { label: "Banner printing in Chennai", to: "/banners" },
+  { label: "Sticker & label printing", to: "/stickers" },
+  { label: "Rubber stamp maker", to: "/rubber-stamps" },
+  { label: "Catalogue printing", to: "/catalogues" },
+  { label: "PVC ID card printing", to: "/pvc-id-cards" },
+  { label: "All printing services", to: "/services" },
+  { label: "Get a printing quote", to: "/get-quote" },
+  { label: "Print samples gallery", to: "/gallery" },
 ];
 
 const AREAS_LINKS = [
-  { label: "Pallavaram", to: "/printing-press-pallavaram" },
-  { label: "Chromepet", to: "/printing-press-chromepet" },
-  { label: "Tambaram", to: "/printing-press-tambaram" },
-  { label: "Pammal", to: "/printing-press-pammal" },
-  { label: "Perungalathur", to: "/printing-press-perungalathur" },
-  { label: "Velachery", to: "/printing-press-velachery" },
-  { label: "Nanganallur", to: "/printing-press-nanganallur" },
-  { label: "Medavakkam", to: "/printing-press-medavakkam" },
-  { label: "Guindy", to: "/printing-press-guindy" },
-  { label: "Adyar", to: "/printing-press-adyar" },
+  { label: "Printing press in Pallavaram", to: "/printing-press-pallavaram" },
+  { label: "Printing press in Chromepet", to: "/printing-press-chromepet" },
+  { label: "Printing press in Tambaram", to: "/printing-press-tambaram" },
+  { label: "Printing press in Pammal", to: "/printing-press-pammal" },
+  { label: "Printing press in Perungalathur", to: "/printing-press-perungalathur" },
+  { label: "Printing press in Velachery", to: "/printing-press-velachery" },
+  { label: "Printing press in Nanganallur", to: "/printing-press-nanganallur" },
+  { label: "Printing press in Medavakkam", to: "/printing-press-medavakkam" },
+  { label: "Printing press in Guindy", to: "/printing-press-guindy" },
+  { label: "Printing press in Adyar", to: "/printing-press-adyar" },
 ];
 
 const UnifiedFooter = () => (

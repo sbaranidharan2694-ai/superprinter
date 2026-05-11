@@ -60,5 +60,33 @@ try {
   console.error("[prerender] ✗ 404.html:", err.message);
 }
 
-console.log(`\n[prerender] done — ${ok} ok, ${failed} failed (of ${routes.length})`);
-process.exit(failed > 0 ? 1 : 0);
+// ---- Post-render assertions ------------------------------------------------
+// Catch regressions that historically broke SEO: duplicate <link rel="canonical">,
+// duplicate <title>, or duplicate <meta name="description">. Failing the build
+// here is cheaper than re-running an external SEO crawl.
+let assertionFailures = 0;
+function assertSingle(file, tagDescriber, pattern) {
+  const html = fs.readFileSync(file, "utf8");
+  const count = (html.match(pattern) || []).length;
+  if (count !== 1) {
+    console.error(`[prerender] ✗ ${path.relative(distDir, file)} has ${count} ${tagDescriber} — expected 1`);
+    assertionFailures++;
+  }
+}
+
+for (const route of routes) {
+  const file =
+    route === "/"
+      ? path.join(distDir, "index.html")
+      : path.join(distDir, route.replace(/^\//, ""), "index.html");
+  if (!fs.existsSync(file)) continue;
+  assertSingle(file, '<link rel="canonical">', /rel="canonical"/g);
+  assertSingle(file, "<title>", /<title[\s>]/g);
+  assertSingle(file, '<meta name="description">', /name="description"/g);
+  assertSingle(file, '<meta name="robots">', /name="robots"/g);
+}
+
+console.log(
+  `\n[prerender] done — ${ok} ok, ${failed} failed (of ${routes.length}); ${assertionFailures} post-render assertion failures`
+);
+process.exit(failed > 0 || assertionFailures > 0 ? 1 : 0);
