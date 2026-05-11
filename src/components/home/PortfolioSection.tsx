@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { GALLERY_IMAGES } from "@/data/gallery";
 import { IMAGE_PATHS } from "@/data/imagePaths";
 
-/** Show first 24 gallery images on homepage; link to full gallery. */
-const HOME_GALLERY_LIMIT = 24;
+/** Show first 12 gallery images on homepage; link to full gallery.
+ *  Was 24 — produced an 8,000px Portfolio section on mobile. */
+const HOME_GALLERY_LIMIT = 12;
 const homeImages = GALLERY_IMAGES.slice(0, HOME_GALLERY_LIMIT);
 
 const PortfolioSection = () => (

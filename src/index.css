@@ -452,8 +452,11 @@ header .btn-gold:hover {
 @media (max-width: 768px) {
   .portfolio-masonry { columns: 2; }
 }
+/* Was 1 column — gave an 8,000px section on phones. 2 columns
+   halves vertical space while staying readable down to 320px. */
 @media (max-width: 480px) {
-  .portfolio-masonry { columns: 1; }
+  .portfolio-masonry { columns: 2; column-gap: 6px; }
+  .portfolio-item    { margin-bottom: 6px; }
 }
 
 /* Section divider */
