@@ -86,7 +86,7 @@ const UnifiedHeader = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`nav-link px-3 py-2 text-[13px] font-bold rounded-full transition-all duration-300 ${
+                className={`nav-link px-3 py-2 text-[13px] font-bold rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
                   isActive ? "bg-amber-50" : "hover:bg-gray-50"
                 }`}
                 style={{
