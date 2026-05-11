@@ -1,5 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { services } from "@/data/services";
 
@@ -174,6 +175,12 @@ const AreaPrintingPage = () => {
             </a>
           </div>
         </section>
+
+        <ServicePageFooter
+          currentSlug={slug}
+          serviceName={`Printing in ${config.name}`}
+          whatsappPrompt={`Hi, I need printing and I'm from ${config.name}. Please send me a quote.`}
+        />
       </main>
     </>
   );

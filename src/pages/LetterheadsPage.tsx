@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema } from "@/data/seoSchemas";
 
@@ -115,6 +116,8 @@ const LetterheadsPage = () => (
             WhatsApp for design
           </a>
         </section>
+
+        <ServicePageFooter currentSlug="letterheads" serviceName="Letterhead printing" whatsappPrompt="Hi! I need letterhead printing. Quantity & GSM:" />
       </div>
     </div>
   </div>

@@ -218,6 +218,72 @@ export const BLOG_POSTS: BlogPostData[] = [
     category: "Guide",
     content: `## Rubber Stamp Making in Chennai\n\nRubber stamps are essential for businesses, offices, hospitals and schools in Chennai. Super Printers makes custom rubber stamps in Pallavaram with fast same-day delivery.\n\n## Types of Rubber Stamps\n\n- **Self-inking stamps** — Built-in ink pad, no separate pad needed\n- **Pre-inked stamps** — Cleaner impression, long-lasting\n- **Traditional stamps** — Used with separate ink pad\n- **Date stamps** — Adjustable date for receipts and records\n- **Signature stamps** — For approvals and correspondence\n\n## Common Uses\n\n- Company name and address stamp\n- PAID / RECEIVED stamp\n- Hospital and clinic stamps\n- School name stamps\n- Signature stamps\n\n## How to Order\n\nWhatsApp your stamp text and size requirements to +91 98401 99878. We design, make and deliver your stamp within 24 hours anywhere in Chennai.`,
   },
+  {
+    slug: "wedding-card-tamil-traditional-designs",
+    title: "Tamil Wedding Cards in Chennai — Traditional Designs, Pricing & Customs",
+    description: "Tamil wedding card printing in Chennai — Hindu, Christian and Muslim designs in Tamil and English. Traditional motifs, modern layouts, gold foil and laser-cut. From ₹5 per card at Super Printers Pallavaram.",
+    keyword: "Tamil wedding cards Chennai",
+    date: "2026-05-11",
+    readTime: "5 min read",
+    category: "Wedding",
+    content: `<p>Choosing a wedding card in Chennai is more than picking a design — the right card honours family traditions, gets the kalyana muhurtham details exactly right, and arrives at every guest's door in time. Here's how to navigate Tamil wedding card design, language conventions and pricing without overthinking it.</p>
+
+<h2>Tamil vs English vs bilingual — what works for whom</h2>
+<p>Three patterns are common in Chennai weddings:</p>
+<ul>
+<li><strong>Tamil-only cards</strong> — for traditional families and elder guests. The kalyana azhaippithazh (கல்யாண அழைப்பிதழ்) reads in formal literary Tamil. Best when most guests are Tamil-speaking.</li>
+<li><strong>Bilingual cards</strong> — Tamil on one side and English on the other, or stacked layout. The most popular choice today because it works for both elder relatives and city-based friends.</li>
+<li><strong>English-only cards</strong> — for younger urban couples, NRI weddings, or destination weddings where most guests are non-Tamil.</li>
+</ul>
+<p>Even on an English-only card, including the bride's and groom's names in Tamil on the inside is a small touch that elders deeply appreciate.</p>
+
+<h2>Must-have details on a Tamil wedding card</h2>
+<ul>
+<li><strong>Vinayagar / Lakshmi-Pillaiyaar invocation</strong> at the top — pillaiyaar suzhi (பிள்ளையார் சுழி) or a small Ganesha icon</li>
+<li><strong>Parents' names</strong> with appropriate prefixes (Thiru / Thirumathi)</li>
+<li><strong>Bride and groom names</strong> in Tamil and English</li>
+<li><strong>Muhurtham date and time</strong> in both Tamil and Gregorian calendars</li>
+<li><strong>Mandapam name and full address</strong></li>
+<li><strong>Reception details</strong> if separate</li>
+<li><strong>Family elders mentioned with respect</strong></li>
+<li><strong>Map or QR code</strong> to the venue — a modern addition that guests love</li>
+</ul>
+
+<h2>Designs that suit different communities</h2>
+<ul>
+<li><strong>Iyer / Iyengar weddings</strong> — Maroon and gold, peacock and kalasam motifs, Sanskrit slokas alongside Tamil</li>
+<li><strong>Tamil Christian weddings</strong> — Pastel colours, dove and cross motifs, biblical verse on the cover</li>
+<li><strong>Mudaliyar / Chettiar weddings</strong> — Rich red and gold, traditional Tamil scrollwork, kolam patterns</li>
+<li><strong>Modern minimalist</strong> — Off-white card stock, single-line gold foil typography, no heavy ornaments</li>
+<li><strong>Laser-cut cards</strong> — Intricate mandala or peacock laser-cut covers, lined with foil paper inside</li>
+</ul>
+
+<h2>Wedding card pricing in Chennai (2026)</h2>
+<p>A practical guide for ordering 200–500 cards:</p>
+<ul>
+<li><strong>Economy single-fold (300 GSM card)</strong> — from ₹5 per card</li>
+<li><strong>Mid-range two-fold with gold foil text</strong> — ₹12 to ₹25 per card</li>
+<li><strong>Premium laser-cut + foil + multi-panel</strong> — ₹35 to ₹80 per card</li>
+<li><strong>Luxury hardbox with sweet box and dry fruits compartment</strong> — ₹120 upwards</li>
+</ul>
+<p>You usually pay extra for: spot UV finishing, embossing, wax seals, custom envelopes, return-gift stickers, and Tamil calligraphy by hand. We give a clear per-card price with every add-on before you confirm, so there are no surprises later.</p>
+
+<h2>How many cards should you actually print?</h2>
+<p>The traditional rule is "one card per family invited" — not one per person. A safe formula:</p>
+<ul>
+<li>Count families on the bride's side and the groom's side separately</li>
+<li>Add 15–20% as spares for last-minute relatives and for the wedding album</li>
+<li>Don't forget the bridal party, mandapam staff, priest, photographers and caterers</li>
+</ul>
+
+<h2>How early should you order?</h2>
+<p>Order your wedding cards <strong>at least 30–45 days before the muhurtham</strong>. Design and proofing takes 3 to 7 days, offset printing takes 5 to 7 days, and distribution to relatives in villages needs another 7 to 10 days. Relatives abroad need 15+ days.</p>
+
+<h2>Ordering Tamil wedding cards from Super Printers, Pallavaram</h2>
+<p>WhatsApp +91 98401 99878 with your muhurtham details and a rough idea of budget. We send 4–6 sample designs that match your community and price band, you pick one, we share a digital proof with all your details in place, you approve, and your cards are ready in 48–72 hours. Pickup from our Pallavaram press is free; we also deliver across Chennai — Tambaram, Chromepet, Velachery, Adyar — for a small charge.</p>
+
+<p>Visit our <a href="/wedding-cards">wedding cards page</a> for design samples and a full price list, or our <a href="/printing-press-pallavaram">Pallavaram printing press</a> page for directions to the shop.</p>`,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPostData | undefined {

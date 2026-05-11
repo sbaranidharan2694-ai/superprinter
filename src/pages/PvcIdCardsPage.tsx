@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema } from "@/data/seoSchemas";
 
@@ -120,6 +121,8 @@ const PvcIdCardsPage = () => (
             </div>
           </div>
         </section>
+
+        <ServicePageFooter currentSlug="pvc-id-cards" serviceName="PVC ID card printing" whatsappPrompt="Hi! I need PVC ID cards. Quantity & type:" />
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema } from "@/data/seoSchemas";
 
@@ -119,6 +120,8 @@ const CataloguesPage = () => (
             </div>
           </div>
         </section>
+
+        <ServicePageFooter currentSlug="catalogues" serviceName="Catalogue printing" whatsappPrompt="Hi! I need a catalogue printed. Pages, size & quantity:" />
       </div>
     </div>
   </div>

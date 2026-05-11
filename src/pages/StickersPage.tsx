@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema } from "@/data/seoSchemas";
 
@@ -110,6 +111,8 @@ const StickersPage = () => (
             </div>
           </div>
         </section>
+
+        <ServicePageFooter currentSlug="stickers" serviceName="Sticker printing" whatsappPrompt="Hi! I need stickers printed. Size, quantity & material:" />
       </div>
     </div>
   </div>

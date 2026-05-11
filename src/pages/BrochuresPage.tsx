@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema } from "@/data/seoSchemas";
 
@@ -117,6 +118,8 @@ const BrochuresPage = () => (
             WhatsApp for design
           </a>
         </section>
+
+        <ServicePageFooter currentSlug="brochures" serviceName="Brochure printing" whatsappPrompt="Hi! I need brochure printing. Quantity & fold style:" />
       </div>
     </div>
   </div>

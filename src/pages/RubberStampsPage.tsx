@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema } from "@/data/seoSchemas";
 
@@ -119,6 +120,8 @@ const RubberStampsPage = () => (
             </div>
           </div>
         </section>
+
+        <ServicePageFooter currentSlug="rubber-stamps" serviceName="Rubber stamp making" whatsappPrompt="Hi! I need a rubber stamp. Text to include:" />
       </div>
     </div>
   </div>

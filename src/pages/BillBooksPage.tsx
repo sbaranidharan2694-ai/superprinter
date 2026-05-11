@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema } from "@/data/seoSchemas";
 
@@ -115,6 +116,8 @@ const BillBooksPage = () => (
             WhatsApp for quote
           </a>
         </section>
+
+        <ServicePageFooter currentSlug="bill-books" serviceName="GST bill book printing" whatsappPrompt="Hi! I need bill book printing. Please quote." />
       </div>
     </div>
   </div>
