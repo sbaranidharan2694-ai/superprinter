@@ -17,16 +17,6 @@ const HeroSection = () => (
     className="relative overflow-hidden"
     style={{ background: "linear-gradient(180deg, #FFFDF7 0%, #FFFAF0 100%)" }}
   >
-    {/* Subtle dotted gold texture — printing-press paper feel, not SaaS gradient */}
-    <div
-      className="absolute inset-0 opacity-[0.04] pointer-events-none"
-      aria-hidden
-      style={{
-        backgroundImage:
-          "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23C9A84C'/%3E%3C/svg%3E\")",
-      }}
-    />
-
     <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-28 lg:py-32 w-full">
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         {/* Copy column */}
