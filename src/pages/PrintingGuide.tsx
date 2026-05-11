@@ -93,6 +93,21 @@ const PrintingGuide = () => {
           { name: "Home", url: "/" },
           { name: "Printing Guide", url: "/printing-guide" },
         ]}
+        schemaMarkup={{
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to Order Custom Printing from Super Printers Chennai",
+          "description": "Step-by-step guide to ordering custom printing in Chennai — preparing files, choosing paper, getting a quote, and receiving your prints.",
+          "totalTime": "PT30M",
+          "estimatedCost": { "@type": "MonetaryAmount", "currency": "INR", "value": "100" },
+          "step": [
+            { "@type": "HowToStep", "name": "Prepare your design", "text": "Export your design as a print-ready PDF at 300 DPI with 3mm bleed and CMYK colors." },
+            { "@type": "HowToStep", "name": "Choose paper and finish", "text": "Pick paper GSM (300–400 for visiting cards, 250–300 for wedding cards) and finish (matte, gloss, spot UV, foil)." },
+            { "@type": "HowToStep", "name": "Request a quote", "text": "WhatsApp +91 98401 99878 with your file, quantity, and finish. We respond within 30 minutes." },
+            { "@type": "HowToStep", "name": "Approve free design proof", "text": "We send a digital proof for your approval before printing. Free revisions included." },
+            { "@type": "HowToStep", "name": "Receive your prints", "text": "Most orders ready in 24–48 hours. Pickup from Pallavaram or delivery across Chennai." }
+          ]
+        }}
       />
       <main>
         <section className="navy-gradient-hero dot-pattern py-14 md:py-20">

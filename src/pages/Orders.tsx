@@ -26,6 +26,7 @@ const Orders = () => {
         title="Track Your Order | Super Printers Chennai"
         description="Track your printing order status at Super Printers Chennai. Enter your order ID and phone number to check progress."
         canonical="/orders"
+        robots="noindex, nofollow"
       />
       <PageHero title="Order Tracking" subtitle="Enter your order details to check the status of your printing order." breadcrumbs={[{ label: "Home", to: "/" }, { label: "Orders", to: "/orders" }]} />
 

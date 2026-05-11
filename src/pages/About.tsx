@@ -22,6 +22,25 @@ const About = () => (
       title="About Super Printers | Pallavaram's Best Printing Press Since 1990 | Chennai"
       description="Super Printers — Pallavaram's most trusted printing press since 1990. Founded by N. Baranidharan. 35+ years serving 10,000+ customers. Trusted by Wipro, TTK, Reliance. Wedding cards, visiting cards, brochures, banners and more."
       canonical="/about"
+      breadcrumbs={[{ name: "Home", url: "/" }, { name: "About", url: "/about" }]}
+      schemaMarkup={{
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Super Printers",
+        "url": `${BUSINESS.siteUrl}/about`,
+        "mainEntity": {
+          "@type": "Organization",
+          "name": BUSINESS.name,
+          "foundingDate": "1990",
+          "founder": { "@type": "Person", "name": BUSINESS.founder },
+          "url": BUSINESS.siteUrl,
+          "logo": `${BUSINESS.siteUrl}/super-printers-logo.png`,
+          "description": "Pallavaram's trusted printing press since 1990 — wedding cards, visiting cards, brochures, banners and more.",
+          "address": { "@type": "PostalAddress", "streetAddress": "No. 6, Saraswathy Colony", "addressLocality": "Pallavaram", "addressRegion": "Tamil Nadu", "postalCode": "600043", "addressCountry": "IN" },
+          "telephone": "+919840199878",
+          "areaServed": ["Chennai", "Pallavaram", "Chromepet", "Tambaram"]
+        }
+      }}
     />
     <PageHero title="About Super Printers" subtitle="Chennai's trusted printing press since 1990 — 35+ years of printing excellence." image={IMG.hero} breadcrumbs={[{ label: "Home", to: "/" }, { label: "About", to: "/about" }]} />
 

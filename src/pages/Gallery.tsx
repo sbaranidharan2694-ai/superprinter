@@ -51,6 +51,14 @@ const Gallery = () => {
           { name: "Home", url: "/" },
           { name: "Gallery", url: "/gallery" },
         ]}
+        schemaMarkup={{
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          "name": "Super Printers Gallery",
+          "url": "https://superprinters.net/gallery",
+          "description": "Gallery of wedding cards, visiting cards, brochures, banners and other printed work by Super Printers Pallavaram, Chennai.",
+          "publisher": { "@type": "Organization", "name": "Super Printers & Wedding Cards", "url": "https://superprinters.net" }
+        }}
       />
       <main>
         <section

@@ -62,6 +62,19 @@ const GetQuote = () => {
           { name: "Home", url: "/" },
           { name: "Get Quote", url: "/get-quote" },
         ]}
+        schemaMarkup={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Get a Print Quote",
+          "url": "https://superprinters.net/get-quote",
+          "potentialAction": {
+            "@type": "RequestQuoteAction",
+            "name": "Request a printing quote",
+            "target": "https://wa.me/919840199878",
+            "expectsAcceptanceOf": { "@type": "Offer", "priceCurrency": "INR" }
+          },
+          "about": { "@type": "LocalBusiness", "name": "Super Printers & Wedding Cards", "telephone": "+919840199878" }
+        }}
       />
       <main>
         <section className="navy-gradient-hero py-14 md:py-20">

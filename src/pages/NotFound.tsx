@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 
 const NotFound = () => (
-  <div className="min-h-[70vh] flex items-center justify-center px-6">
-    <div className="text-center max-w-md">
+  <>
+    <SEOHead
+      title="Page Not Found | Super Printers Chennai"
+      description="The page you're looking for doesn't exist. Browse our printing services or contact Super Printers Pallavaram on WhatsApp."
+      robots="noindex, nofollow"
+    />
+    <div className="min-h-[70vh] flex items-center justify-center px-6">
+      <div className="text-center max-w-md">
       <div className="w-20 h-20 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: "rgba(201,151,58,0.1)" }}>
         <span className="font-display font-bold text-3xl text-gold">SP</span>
       </div>
@@ -17,8 +24,9 @@ const NotFound = () => (
           WhatsApp Us
         </a>
       </div>
+      </div>
     </div>
-  </div>
+  </>
 );
 
 export default NotFound;
