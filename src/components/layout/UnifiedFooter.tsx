@@ -8,21 +8,27 @@ const SERVICES_LINKS = [
   { label: "Brochures", to: "/brochures" },
   { label: "Bill Books", to: "/bill-books" },
   { label: "Letterheads", to: "/letterheads" },
+  { label: "Banners", to: "/banners" },
+  { label: "Stickers & Labels", to: "/stickers" },
+  { label: "Rubber Stamps", to: "/rubber-stamps" },
+  { label: "Catalogues", to: "/catalogues" },
+  { label: "PVC ID Cards", to: "/pvc-id-cards" },
   { label: "All Services", to: "/services" },
   { label: "Get a Quote", to: "/get-quote" },
   { label: "Gallery", to: "/gallery" },
 ];
 
 const AREAS_LINKS = [
-  { label: "Tambaram", to: "/tambaram-printing" },
-  { label: "Chromepet", to: "/chromepet-printing" },
-  { label: "Pammal", to: "/pammal-printing" },
-  { label: "Perungalathur", to: "/perungalathur-printing" },
-  { label: "Velachery", to: "/velachery-printing" },
-  { label: "Nanganallur", to: "/nanganallur-printing" },
-  { label: "Medavakkam", to: "/medavakkam-printing" },
-  { label: "Guindy", to: "/guindy-printing" },
-  { label: "Adyar", to: "/adyar-printing" },
+  { label: "Pallavaram", to: "/printing-press-pallavaram" },
+  { label: "Chromepet", to: "/printing-press-chromepet" },
+  { label: "Tambaram", to: "/printing-press-tambaram" },
+  { label: "Pammal", to: "/printing-press-pammal" },
+  { label: "Perungalathur", to: "/printing-press-perungalathur" },
+  { label: "Velachery", to: "/printing-press-velachery" },
+  { label: "Nanganallur", to: "/printing-press-nanganallur" },
+  { label: "Medavakkam", to: "/printing-press-medavakkam" },
+  { label: "Guindy", to: "/printing-press-guindy" },
+  { label: "Adyar", to: "/printing-press-adyar" },
 ];
 
 const UnifiedFooter = () => (

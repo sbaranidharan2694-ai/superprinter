@@ -4,55 +4,61 @@ import { BUSINESS } from "@/data/business";
 import { services } from "@/data/services";
 
 const AREA_CONFIG: Record<string, { name: string; title: string; intro: string; distance: string }> = {
-  "tambaram-printing": {
+  "printing-press-pallavaram": {
+    name: "Pallavaram",
+    title: "Printing Press in Pallavaram, Chennai | Super Printers Since 1990",
+    intro: "Super Printers has been Pallavaram's neighbourhood printing press since 1990. Our own offset and digital press is at No. 6, Saraswathy Colony — walking distance from Pallavaram bus stand and railway station. Visiting cards, wedding invitations, bill books, brochures, banners and rubber stamps, all printed in-house.",
+    distance: "Located at No. 6, Saraswathy Colony, Pallavaram — beside Pallavaram Market, opposite Pallavaram police station road.",
+  },
+  "printing-press-tambaram": {
     name: "Tambaram",
     title: "Printing Press Near Tambaram | Super Printers Pallavaram",
     intro: "Super Printers serves Tambaram and surrounding areas with fast, reliable printing. From visiting cards to wedding invitations and bulk offset printing — we deliver to Tambaram in 48 hours.",
     distance: "Just minutes from Tambaram Railway Station and GST Road.",
   },
-  "chromepet-printing": {
+  "printing-press-chromepet": {
     name: "Chromepet",
     title: "Printing Press Near Chromepet | Super Printers Pallavaram",
     intro: "Chromepet businesses and residents rely on Super Printers for visiting cards, brochures, bill books, and wedding card printing. Quality printing at factory-direct prices with quick delivery to Chromepet.",
     distance: "Easily accessible from Chromepet — short drive to Pallavaram.",
   },
-  "pammal-printing": {
+  "printing-press-pammal": {
     name: "Pammal",
     title: "Printing Press Near Pammal | Super Printers Pallavaram",
     intro: "Serving Pammal and nearby localities with professional printing since 1990. Wedding cards, business cards, letterheads, and more. We deliver to Pammal or you can pick up from our Pallavaram press.",
     distance: "Convenient for Pammal — close to Pallavaram and St. Thomas Mount.",
   },
-  "perungalathur-printing": {
+  "printing-press-perungalathur": {
     name: "Perungalathur",
     title: "Printing Press Near Perungalathur | Super Printers Pallavaram",
     intro: "Perungalathur customers get the same 35-year quality and 48-hour turnaround. Visiting cards from ₹149, wedding cards from ₹8, brochures, and offset printing — all delivered to Perungalathur.",
     distance: "Well connected from Perungalathur via Grand Southern Trunk Road.",
   },
-  "velachery-printing": {
+  "printing-press-velachery": {
     name: "Velachery",
     title: "Printing Press Near Velachery | Super Printers Pallavaram",
     intro: "Super Printers delivers quality printing to Velachery — visiting cards, wedding invitations, brochures, banners, and bill books. 35 years of trusted printing with 24-hour turnaround.",
     distance: "Easily accessible from Velachery via Velachery Main Road and GST Road.",
   },
-  "nanganallur-printing": {
+  "printing-press-nanganallur": {
     name: "Nanganallur",
     title: "Printing Press Near Nanganallur | Super Printers Pallavaram",
     intro: "Nanganallur businesses and families trust Super Printers for all printing needs. Professional visiting cards, wedding cards, letterheads, and brochures delivered to Nanganallur.",
     distance: "Conveniently located near Nanganallur — quick drive via Shankar Nagar Road.",
   },
-  "medavakkam-printing": {
+  "printing-press-medavakkam": {
     name: "Medavakkam",
     title: "Printing Press Near Medavakkam | Super Printers Pallavaram",
     intro: "From Medavakkam to Pallavaram in minutes — Super Printers offers fast, affordable printing. Visiting cards from ₹149, wedding cards, banners, brochures, and bulk corporate printing.",
     distance: "Well connected from Medavakkam via Medavakkam Main Road.",
   },
-  "guindy-printing": {
+  "printing-press-guindy": {
     name: "Guindy",
     title: "Printing Press Near Guindy | Super Printers Pallavaram",
     intro: "Guindy's corporate offices and businesses rely on Super Printers for visiting cards, letterheads, brochures, and bulk printing. Fast delivery with proof approval before every print run.",
     distance: "Short drive from Guindy Industrial Estate and Guindy station via GST Road.",
   },
-  "adyar-printing": {
+  "printing-press-adyar": {
     name: "Adyar",
     title: "Printing Press Near Adyar | Super Printers Pallavaram",
     intro: "Adyar residents and businesses get premium printing from Super Printers — wedding cards, visiting cards, brochures, and more. Quality printing since 1990 with delivery across Chennai.",
@@ -62,7 +68,7 @@ const AREA_CONFIG: Record<string, { name: string; title: string; intro: string; 
 
 const TOP_SERVICES = services.slice(0, 5).filter((s) => s.startingPrice && s.startingPrice !== "Varies");
 
-const AREA_SLUGS = ["tambaram-printing", "chromepet-printing", "pammal-printing", "perungalathur-printing", "velachery-printing", "nanganallur-printing", "medavakkam-printing", "guindy-printing", "adyar-printing"];
+const AREA_SLUGS = Object.keys(AREA_CONFIG);
 
 const AreaPrintingPage = () => {
   const location = useLocation();
