@@ -16,8 +16,8 @@ export const MARQUEE_ITEMS = [
 
 export const HERO = {
   microLabel: "PALLAVARAM'S PRINTING PRESS SINCE 1990",
-  h1: "Printing, done properly.",
-  accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house.",
+  h1: "Printing Press in Chennai — Wedding & Visiting Cards Since 1990",
+  accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house in Pallavaram.",
   body: "Proof shared before every print run. Most orders ready in 24 hours. WhatsApp us for a quote in 30 minutes.",
   ctaPrimary: "Get Quote",
   ctaSecondary: "WhatsApp",

@@ -35,7 +35,7 @@ const SocialProofSection = () => (
             <div className="flex items-start gap-4 mb-4">
               <img
                 src={review.avatar}
-                alt=""
+                alt={`${review.name} — verified customer review for Super Printers Chennai`}
                 className="w-14 h-14 rounded-full object-cover flex-shrink-0 ring-2 ring-amber-100"
                 loading="lazy"
                 onError={(e) => { const t = e.currentTarget; if (t.dataset.fallback) return; t.dataset.fallback = "1"; t.src = IMAGE_PATHS.placeholder; }}

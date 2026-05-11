@@ -35,7 +35,7 @@ function CatalogProductCard({ product }: { product: CatalogProduct }) {
       <div className="aspect-square bg-muted relative overflow-hidden">
         <img
           src={imgSrc}
-          alt=""
+          alt={`${product.name} — ${product.specs} | Super Printers Chennai`}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           loading="lazy"
         />

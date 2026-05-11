@@ -29,10 +29,10 @@ import ContactSection from "@/components/home/ContactSection";
 const Index = () => (
   <div className="text-foreground bg-background overflow-x-hidden" style={{ fontFamily: "var(--font-body)" }}>
     <SEOHead
-      title="Printing Press Chennai | Wedding Cards, Visiting Cards, Brochures | Super Printers Pallavaram"
-      description="Top printing press in Chennai since 1990. Wedding cards, visiting cards, brochures, bill books, letterheads, banners, rubber stamps, T-shirt printing, pamphlets. Fast delivery Pallavaram, Chromepet, Tambaram. Call +91 98401 99878."
+      title="Printing Press in Chennai | Wedding & Visiting Cards"
+      description="Pallavaram printing press since 1990. Wedding cards from ₹5, visiting cards, brochures, banners, bill books. Free proof, ready in 24 hours."
       canonical="/"
-      keywords="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards Chennai, brochure printing, bill book printing Chennai, banner printing, rubber stamp Chennai, offset printing, pamphlet printing, T shirt printing Chennai, letterhead printing, GST invoice books"
+      keywords="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards Chennai, brochure printing Chennai"
       schemaMarkup={[HOMEPAGE_FAQ_SCHEMA, LOCAL_BUSINESS_SCHEMA]}
     />
     <HeroSection />
