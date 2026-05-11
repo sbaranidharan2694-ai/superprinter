@@ -7,6 +7,7 @@ import { useInView } from "@/hooks/useInView";
 
 const ACCEPT_FILES = ".pdf,.ai,.psd,.jpg,.jpeg,.png,.cdr";
 const MAX_FILE_MB = 10;
+const STEP_LABELS = ["Service", "Quantity", "Finish", "WhatsApp"];
 
 const GetQuote = () => {
   const { ref, isVisible } = useInView();
@@ -31,7 +32,10 @@ const GetQuote = () => {
     setDesignFile(f);
   };
 
+  const phoneValid = /^[0-9+\-\s]{10,}$/.test(phone.trim());
+
   const handleGetQuote = () => {
+    if (!phoneValid) return;
     trackWhatsAppClick("get_quote_submit");
     let msg = `Hi, I need a quote for ${service} x ${quantity} pcs on ${paper} finish. My number is ${phone}.`;
     if (designFile) msg += " I have a design file ready to share.";
@@ -39,161 +43,250 @@ const GetQuote = () => {
   };
 
   const selectedService = services.find((s) => s.name === service);
+  const quantityNum = Number(quantity);
+  const quantityValid = quantityNum > 0;
+
+  // Shared classes
+  const inputCls = "w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:border-transparent";
+  const primaryBtn = "flex-1 gold-button py-3 rounded-lg text-sm font-bold disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2";
+  const backBtn = "flex-1 py-3 rounded-lg text-sm font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2";
 
   return (
     <>
       <SEOHead
-        title="Get Instant Print Quote | Super Printers Chennai"
-        description="Get an instant printing quote from Super Printers Pallavaram. Select your service, quantity, and finish — receive a WhatsApp quote in 30 minutes."
+        title="Get a Print Quote | Super Printers Pallavaram Chennai"
+        description="Tell us what you need to print and we'll send a quote on WhatsApp in 30 minutes — wedding cards, visiting cards, brochures, bill books, banners, stickers and more."
         canonical="/get-quote"
-        keywords="print quote chennai, printing quote pallavaram, instant print quote, super printers quote"
+        keywords="print quote chennai, printing quote pallavaram, super printers quote, wedding card quote, visiting card quote"
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Get Quote", url: "/get-quote" },
         ]}
       />
       <main>
-        <section className="navy-gradient-hero dot-pattern py-14 md:py-20">
+        <section className="navy-gradient-hero py-14 md:py-20">
           <div className="max-w-3xl mx-auto px-4 text-center">
-            <h1 className="font-display text-3xl md:text-5xl font-black mb-4" style={{ color: "var(--color-primary)" }}>
-              Get an Instant Print Quote
+            <p className="text-[11px] font-bold tracking-[0.22em] uppercase mb-3 font-ui" style={{ color: "var(--gold-dark)" }}>
+              4 quick steps &middot; quote in 30 min
+            </p>
+            <h1 className="font-display text-3xl md:text-5xl font-bold mb-4" style={{ color: "var(--ink-black)" }}>
+              Get a print quote
             </h1>
-            <p className="font-body text-lg font-medium" style={{ color: "var(--color-text)" }}>
-              Select your service, quantity, and finish. We'll respond on WhatsApp within 30 minutes.
+            <p className="font-body text-lg max-w-xl mx-auto" style={{ color: "var(--gray-text)" }}>
+              Tell us what you need. We&rsquo;ll reply on WhatsApp within 30 minutes during business hours.
             </p>
           </div>
         </section>
 
         <section ref={ref} className={`py-16 bg-background transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-xl mx-auto px-4">
-            {/* Progress */}
-            <div className="flex items-center justify-between mb-8">
-              {[1, 2, 3, 4].map((s) => (
-                <div key={s} className="flex items-center gap-2">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold font-body ${step >= s ? "bg-secondary text-secondary-foreground" : "bg-muted text-muted-foreground"}`}>
-                    {s}
-                  </div>
-                  {s < 4 && <div className={`hidden sm:block w-12 h-0.5 ${step > s ? "bg-secondary" : "bg-border"}`} />}
-                </div>
-              ))}
+            {/* Progress with named step */}
+            <div className="mb-6">
+              <p className="text-xs font-ui font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--gray-text)" }}>
+                Step {step} of 4 &middot; {STEP_LABELS[step - 1]}
+              </p>
+              <div className="flex items-center gap-2">
+                {[1, 2, 3, 4].map((s) => (
+                  <div
+                    key={s}
+                    className={`h-1.5 flex-1 rounded-full transition-colors ${step >= s ? "bg-gold" : "bg-border"}`}
+                    aria-hidden
+                  />
+                ))}
+              </div>
             </div>
 
             <div className="p-6 rounded-xl bg-card border border-border">
-              {/* Step 1 */}
+              {/* Step 1 — Service */}
               {step === 1 && (
                 <div>
-                  <h2 className="font-display text-xl font-bold text-foreground mb-4">Select Service</h2>
+                  <h2 className="font-display text-xl font-semibold text-foreground mb-1">What do you need printed?</h2>
+                  <p className="text-sm text-muted-foreground font-body mb-4">Pick one. You can mention extras in the WhatsApp message.</p>
+                  <label htmlFor="gq-service" className="sr-only">Service</label>
                   <select
+                    id="gq-service"
+                    name="service"
                     value={service}
                     onChange={(e) => setService(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                    className={inputCls}
                   >
-                    <option value="">Choose a printing service</option>
+                    <option value="">Choose a printing service…</option>
                     {services.map((s) => (
                       <option key={s.id} value={s.name}>{s.emoji} {s.name}{s.startingPrice ? ` — from ${s.startingPrice}` : ""}</option>
                     ))}
                   </select>
                   <button
+                    type="button"
                     onClick={() => service && setStep(2)}
                     disabled={!service}
-                    className="gold-button w-full py-3 rounded-lg text-sm font-bold mt-4 disabled:opacity-50"
+                    className={`${primaryBtn} w-full mt-4`}
                   >
-                    Next →
+                    Next &rarr;
                   </button>
                 </div>
               )}
 
-              {/* Step 2 */}
+              {/* Step 2 — Quantity */}
               {step === 2 && (
                 <div>
-                  <h2 className="font-display text-xl font-bold text-foreground mb-2">Enter Quantity</h2>
-                  {selectedService?.startingPrice && (
-                    <p className="text-muted-foreground text-sm font-body mb-4">Starting from {selectedService.startingPrice}</p>
-                  )}
+                  <h2 className="font-display text-xl font-semibold text-foreground mb-1">How many?</h2>
+                  <p className="text-sm text-muted-foreground font-body mb-4">
+                    {selectedService?.startingPrice ? `Starting from ${selectedService.startingPrice}.` : "Quantities below 100 may use digital print."}
+                  </p>
+                  <label htmlFor="gq-quantity" className="sr-only">Quantity</label>
                   <input
+                    id="gq-quantity"
+                    name="quantity"
                     type="number"
+                    inputMode="numeric"
+                    min={1}
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
                     placeholder="e.g. 500"
-                    min="1"
-                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                    className={inputCls}
                   />
+                  {/* Quick-pick chips for common runs */}
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {[100, 250, 500, 1000].map((q) => (
+                      <button
+                        key={q}
+                        type="button"
+                        onClick={() => setQuantity(String(q))}
+                        className="px-3 py-1.5 rounded-full text-xs font-medium font-ui border border-border hover:border-gold hover:bg-gold/5 transition-colors"
+                      >
+                        {q}
+                      </button>
+                    ))}
+                  </div>
                   <div className="flex gap-3 mt-4">
-                    <button onClick={() => setStep(1)} className="flex-1 py-3 rounded-lg text-sm font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors">← Back</button>
-                    <button onClick={() => quantity && setStep(3)} disabled={!quantity} className="flex-1 gold-button py-3 rounded-lg text-sm font-bold disabled:opacity-50">Next →</button>
+                    <button type="button" onClick={() => setStep(1)} className={backBtn}>&larr; Back</button>
+                    <button type="button" onClick={() => quantityValid && setStep(3)} disabled={!quantityValid} className={primaryBtn}>Next &rarr;</button>
                   </div>
                 </div>
               )}
 
-              {/* Step 3 */}
+              {/* Step 3 — Finish */}
               {step === 3 && (
                 <div>
-                  <h2 className="font-display text-xl font-bold text-foreground mb-4">Select Paper / Finish</h2>
+                  <h2 className="font-display text-xl font-semibold text-foreground mb-1">Pick a finish</h2>
+                  <p className="text-sm text-muted-foreground font-body mb-4">Not sure? Pick Standard &mdash; we&rsquo;ll suggest options based on your job.</p>
                   <div className="space-y-2">
                     {["Standard", "Premium", "Luxury"].map((opt) => (
-                      <label key={opt} className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer transition-colors ${paper === opt ? "border-secondary bg-secondary/5" : "border-border hover:bg-muted/50"}`}>
-                        <input type="radio" name="paper" value={opt} checked={paper === opt} onChange={() => setPaper(opt)} className="accent-secondary" />
+                      <label key={opt} className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-colors ${paper === opt ? "border-gold bg-gold/5" : "border-border hover:bg-muted/50"}`}>
+                        <input
+                          type="radio"
+                          name="paper"
+                          value={opt}
+                          checked={paper === opt}
+                          onChange={() => setPaper(opt)}
+                          className="accent-gold mt-1"
+                        />
                         <div>
                           <div className="font-body font-semibold text-sm text-card-foreground">{opt}</div>
                           <div className="text-muted-foreground text-xs font-body">
                             {opt === "Standard" && "Basic paper and finish — most affordable"}
-                            {opt === "Premium" && "Better paper stock with lamination options"}
-                            {opt === "Luxury" && "Premium card stock, foil, or specialty finish"}
+                            {opt === "Premium" && "Heavier card stock with lamination options"}
+                            {opt === "Luxury" && "Foil, embossing, or specialty finish"}
                           </div>
                         </div>
                       </label>
                     ))}
                   </div>
                   <div className="flex gap-3 mt-4">
-                    <button onClick={() => setStep(2)} className="flex-1 py-3 rounded-lg text-sm font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors">← Back</button>
-                    <button onClick={() => setStep(4)} className="flex-1 gold-button py-3 rounded-lg text-sm font-bold">Next →</button>
+                    <button type="button" onClick={() => setStep(2)} className={backBtn}>&larr; Back</button>
+                    <button type="button" onClick={() => setStep(4)} className={primaryBtn}>Next &rarr;</button>
                   </div>
                 </div>
               )}
 
-              {/* Step 4 */}
+              {/* Step 4 — WhatsApp + file + send */}
               {step === 4 && (
                 <div>
-                  <h2 className="font-display text-xl font-bold text-foreground mb-4">Your WhatsApp Number</h2>
+                  <h2 className="font-display text-xl font-semibold text-foreground mb-1">Where do we send the quote?</h2>
+                  <p className="text-sm text-muted-foreground font-body mb-4">Your WhatsApp number. We reply within 30 minutes during business hours.</p>
+
+                  <label htmlFor="gq-phone" className="sr-only">WhatsApp number</label>
                   <input
+                    id="gq-phone"
+                    name="phone"
                     type="tel"
+                    autoComplete="tel"
+                    inputMode="tel"
+                    pattern="[0-9+\-\s]{10,}"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. 9840199878"
-                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                    aria-invalid={phone.length > 0 && !phoneValid}
+                    aria-describedby={phone.length > 0 && !phoneValid ? "gq-phone-err" : undefined}
+                    className={inputCls}
                   />
+                  {phone.length > 0 && !phoneValid && (
+                    <p id="gq-phone-err" className="text-xs text-destructive mt-1.5 font-ui">Enter a valid 10-digit phone number.</p>
+                  )}
 
-                  {/* File upload (optional) */}
-                  <div className="mt-4">
-                    <label className="block font-body text-sm font-medium text-foreground mb-1">Upload Your Design File (Optional)</label>
+                  {/* File upload */}
+                  <div className="mt-5">
+                    <label htmlFor="gq-file" className="block font-ui text-sm font-semibold text-foreground mb-2">
+                      Upload design file <span className="text-muted-foreground font-normal">(optional)</span>
+                    </label>
                     <input
+                      id="gq-file"
+                      name="design"
                       type="file"
                       accept={ACCEPT_FILES}
                       onChange={handleFileChange}
-                      className="w-full text-sm text-muted-foreground file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-secondary file:text-secondary-foreground"
+                      className="w-full text-sm text-muted-foreground file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-ink-black file:text-white hover:file:bg-ink-black/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                     />
-                    <p className="text-xs text-muted-foreground mt-1">Supported: PDF, AI, PSD, JPG, PNG, CDR. Max {MAX_FILE_MB}MB.</p>
-                    {designFile && <p className="text-xs text-green-600 mt-1">✓ {designFile.name} ({(designFile.size / 1024).toFixed(1)} KB)</p>}
-                    {fileError && <p className="text-xs text-destructive mt-1">{fileError}</p>}
-                    <p className="text-xs mt-1">
-                      Don't have a design?{" "}
-                      <a href={BUSINESS.whatsappWedding} target="_blank" rel="noopener noreferrer" className="underline text-secondary-foreground">We'll design it for free for wedding cards.</a>
+                    <p className="text-xs text-muted-foreground mt-1.5">Accepted: PDF, AI, PSD, JPG, PNG, CDR. Max {MAX_FILE_MB} MB.</p>
+                    {designFile && (
+                      <p className="text-xs mt-1.5 inline-flex items-center gap-1.5" style={{ color: "var(--color-success)" }}>
+                        <span aria-hidden>&#10003;</span>
+                        {designFile.name} &middot; {(designFile.size / 1024).toFixed(1)} KB
+                      </p>
+                    )}
+                    {fileError && <p className="text-xs text-destructive mt-1.5" role="alert">{fileError}</p>}
+                    <p className="text-xs mt-2 text-muted-foreground">
+                      Don&rsquo;t have a design?{" "}
+                      <a href={BUSINESS.whatsappWedding} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold">
+                        WhatsApp us
+                      </a>
+                      {" "}&mdash; free design help for wedding cards.
                     </p>
                   </div>
 
                   {/* Summary */}
-                  <div className="mt-4 p-4 rounded-lg bg-muted/50 border border-border text-sm font-body space-y-1">
-                    <div className="text-muted-foreground">Service: <span className="text-foreground font-semibold">{service}</span></div>
-                    <div className="text-muted-foreground">Quantity: <span className="text-foreground font-semibold">{quantity} pcs</span></div>
-                    <div className="text-muted-foreground">Finish: <span className="text-foreground font-semibold">{paper}</span></div>
+                  <div className="mt-5 p-4 rounded-lg bg-muted/40 border border-border text-sm font-body space-y-1.5">
+                    <p className="text-xs font-ui font-semibold uppercase tracking-wider text-muted-foreground mb-2">Your quote request</p>
+                    <div className="flex justify-between"><span className="text-muted-foreground">Service</span><span className="text-foreground font-semibold">{service}</span></div>
+                    <div className="flex justify-between"><span className="text-muted-foreground">Quantity</span><span className="text-foreground font-semibold">{quantity} pcs</span></div>
+                    <div className="flex justify-between"><span className="text-muted-foreground">Finish</span><span className="text-foreground font-semibold">{paper}</span></div>
+                    {designFile && <div className="flex justify-between"><span className="text-muted-foreground">Design file</span><span className="text-foreground font-semibold">attached</span></div>}
                   </div>
 
-                  <div className="flex gap-3 mt-4">
-                    <button onClick={() => setStep(3)} className="flex-1 py-3 rounded-lg text-sm font-semibold border-2 border-border text-foreground hover:bg-muted transition-colors">← Back</button>
-                    <button onClick={handleGetQuote} disabled={!phone} className="flex-1 wa-button py-3 rounded-lg text-sm font-bold disabled:opacity-50 flex items-center justify-center gap-2">
-                      💬 Get Quote on WhatsApp
+                  <div className="flex gap-3 mt-5">
+                    <button type="button" onClick={() => setStep(3)} className={backBtn}>&larr; Back</button>
+                    <button
+                      type="button"
+                      onClick={handleGetQuote}
+                      disabled={!phoneValid}
+                      className="flex-1 wa-button py-3 rounded-lg text-sm font-bold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden>
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.865 9.865 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+                      </svg>
+                      Send on WhatsApp
                     </button>
                   </div>
+
+                  {/* Fallback alternative paths — replenish the goodwill reservoir */}
+                  <p className="text-xs text-center mt-4 text-muted-foreground font-ui">
+                    Prefer to talk?{" "}
+                    <a href="tel:+919840199878" className="underline hover:text-gold">Call +91 98401 99878</a>
+                    {" "}&middot;{" "}
+                    <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold">
+                      Chat directly
+                    </a>
+                  </p>
                 </div>
               )}
             </div>
