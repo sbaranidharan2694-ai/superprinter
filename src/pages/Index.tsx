@@ -2,22 +2,30 @@ import SEOHead from "@/components/SEOHead";
 import { HOMEPAGE_FAQ_SCHEMA } from "@/data/seoSchemas";
 import { LOCAL_BUSINESS_SCHEMA } from "@/data/business";
 import HeroSection from "@/components/home/HeroSection";
-import TrustBadgesStrip from "@/components/home/TrustBadgesStrip";
 import SocialProofBar from "@/components/home/SocialProofBar";
 import ProductsSection from "@/components/home/ProductsSection";
-import ComparisonTableSection from "@/components/home/ComparisonTableSection";
 import WeddingCardsSection from "@/components/home/WeddingCardsSection";
-import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
 import PortfolioSection from "@/components/home/PortfolioSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
-import PartnerSection from "@/components/home/PartnerSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
 import QuoteFormSection from "@/components/home/QuoteFormSection";
 import AboutSection from "@/components/home/AboutSection";
+import PartnerSection from "@/components/home/PartnerSection";
 import FAQSectionNew from "@/components/home/FAQSectionNew";
-import CTASection from "@/components/home/CTASection";
 import ContactSection from "@/components/home/ContactSection";
 
+/**
+ * Homepage section order — re-sequenced after the May 2026 UX audit.
+ *
+ * Removed from the active layout (files preserved; unmount only):
+ *  - WhyChooseUsSection      (6 USPs that duplicated SocialProofBar facts)
+ *  - CTASection              (redundant with sticky mobile bar + footer CTA)
+ *  - TrustBadgesStrip        (duplicated SocialProofBar)
+ *  - ComparisonTableSection  (overlap with WhyChooseUs)
+ *
+ * Reordered: SocialProofSection (testimonials) now sits BEFORE the quote
+ * form, so trust signals arrive before the conversion ask, not after it.
+ */
 const Index = () => (
   <div className="text-foreground bg-background overflow-x-hidden" style={{ fontFamily: "var(--font-body)" }}>
     <SEOHead
@@ -31,15 +39,13 @@ const Index = () => (
     <SocialProofBar />
     <ProductsSection />
     <WeddingCardsSection />
-    <WhyChooseUsSection />
     <PortfolioSection />
     <HowItWorksSection />
-    <PartnerSection />
     <SocialProofSection />
     <QuoteFormSection />
     <AboutSection />
+    <PartnerSection />
     <FAQSectionNew />
-    <CTASection />
     <ContactSection />
   </div>
 );

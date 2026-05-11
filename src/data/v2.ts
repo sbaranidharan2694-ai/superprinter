@@ -15,16 +15,16 @@ export const MARQUEE_ITEMS = [
 ];
 
 export const HERO = {
-  microLabel: "PALLAVARAM'S MOST TRUSTED SINCE 1990",
-  h1: "Professional Printing\nin Chennai.",
-  accent: "Wedding Cards · Business Cards · Brochures · More",
-  body: "Proof shared before every print run — no surprises, no reprints.\nOrders ready within 24 hours of approval, with pickup or delivery across Chennai.\nWhatsApp us during business hours for a quote in 30 minutes.",
-  ctaPrimary: "Get Instant Quote",
-  ctaSecondary: "Chat on WhatsApp",
+  microLabel: "PALLAVARAM'S PRINTING PRESS SINCE 1990",
+  h1: "Printing, done properly.",
+  accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house.",
+  body: "Proof shared before every print run. Most orders ready in 24 hours. WhatsApp us for a quote in 30 minutes.",
+  ctaPrimary: "Get Quote",
+  ctaSecondary: "WhatsApp",
   badges: [
-    { icon: "⭐", label: "4.8 Google Rating" },
-    { icon: "✅", label: "GST Registered" },
-    { icon: "🏆", label: "35 Years Experience" },
+    { icon: "⭐", label: "4.8 · 147 reviews" },
+    { icon: "🏆", label: "35 years in Pallavaram" },
+    { icon: "✅", label: "GST registered" },
   ],
 };
 

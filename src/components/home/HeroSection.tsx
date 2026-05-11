@@ -1,63 +1,156 @@
 import { motion } from "framer-motion";
-import { scrollToSection } from "@/utils/scroll";
+import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 import { IMAGE_PATHS } from "@/data/imagePaths";
-import { HERO, HERO_PRODUCTS } from "@/data/v2";
+import { HERO } from "@/data/v2";
 
+/**
+ * Hero — editorial print-shop, not SaaS. One headline, one body line, one
+ * primary CTA, one secondary CTA, one inline proof line, one editorial image.
+ *
+ * Was: H1 + 3-line body + 2 CTAs + 3 badge pills + 4-product mosaic grid
+ * (which duplicated ProductsSection right below). That's 7 visual layers
+ * competing for the first viewport. New: 5 layers, clearer hierarchy.
+ */
 const HeroSection = () => (
-  <section className="relative min-h-[70vh] md:min-h-[90vh] flex items-center overflow-hidden" style={{ background: "linear-gradient(135deg, #FFFDF7 0%, #FFF8EC 60%, #FFF3E0 100%)" }}>
-    <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23C9A84C'/%3E%3C/svg%3E")` }} aria-hidden />
-    <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32 w-full">
-      <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-        <div className="lg:col-span-3">
-          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xs font-bold tracking-[0.15em] uppercase mb-4" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>{HERO.microLabel}</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="font-display font-extrabold text-4xl sm:text-5xl lg:text-[56px] leading-[1.05] mb-4" style={{ color: "var(--color-primary)", whiteSpace: "pre-line" }}>{HERO.h1}</motion.h1>
-          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="font-display italic text-lg md:text-xl mb-6" style={{ color: "var(--gold-dark, #9E7A2A)" }}>{HERO.accent}</motion.p>
-          <motion.div
+  <section
+    className="relative overflow-hidden"
+    style={{ background: "linear-gradient(180deg, #FFFDF7 0%, #FFFAF0 100%)" }}
+  >
+    {/* Subtle dotted gold texture — printing-press paper feel, not SaaS gradient */}
+    <div
+      className="absolute inset-0 opacity-[0.04] pointer-events-none"
+      aria-hidden
+      style={{
+        backgroundImage:
+          "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23C9A84C'/%3E%3C/svg%3E\")",
+      }}
+    />
+
+    <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-28 lg:py-32 w-full">
+      <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        {/* Copy column */}
+        <div className="lg:col-span-7">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
+            className="text-[11px] font-bold tracking-[0.22em] uppercase mb-5 font-ui"
+            style={{ color: "var(--gold-dark)" }}
+          >
+            {HERO.microLabel}
+          </motion.p>
+
+          <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45 }}
-            className="mb-8 max-w-lg space-y-4"
-            style={{ color: "var(--color-text)", fontFamily: "var(--font-body)" }}
+            transition={{ delay: 0.1, duration: 0.55 }}
+            className="font-display font-bold text-[40px] sm:text-5xl lg:text-[64px] leading-[1.04] tracking-[-0.01em] mb-5"
+            style={{ color: "var(--ink-black)" }}
           >
-            {HERO.body.split("\n").map((paragraph) => (
-              <p key={paragraph} className="text-base leading-relaxed font-medium">
-                {paragraph}
-              </p>
-            ))}
-          </motion.div>
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }} className="flex flex-col sm:flex-row gap-3 mb-8">
-            <button type="button" onClick={() => scrollToSection("quote-form")} className="btn-cta inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base">
+            {HERO.h1}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="font-display italic text-lg md:text-xl mb-5 max-w-xl"
+            style={{ color: "var(--gold-dark)" }}
+          >
+            {HERO.accent}
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-base md:text-lg leading-relaxed mb-8 max-w-xl"
+            style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}
+          >
+            {HERO.body}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-3 mb-7"
+          >
+            <Link
+              to="/get-quote"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-semibold transition-transform hover:scale-[1.02] active:scale-[0.99]"
+              style={{ backgroundColor: "var(--ink-black)", color: "white", fontFamily: "var(--font-accent)" }}
+            >
               {HERO.ctaPrimary}
-            </button>
-            <a href={BUSINESS.whatsappGeneral} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-semibold border-2 transition-all hover:bg-amber-50" style={{ borderColor: "var(--gold)", color: "var(--color-primary)", fontFamily: "var(--font-accent)" }}>{HERO.ctaSecondary}</a>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </Link>
+            <a
+              href={BUSINESS.whatsappGeneral}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-semibold border-2 transition-colors hover:bg-white/60"
+              style={{ borderColor: "var(--ink-black)", color: "var(--ink-black)", fontFamily: "var(--font-accent)" }}
+            >
+              <svg viewBox="0 0 24 24" fill="#25D366" className="w-4 h-4">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.865 9.865 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+              </svg>
+              {HERO.ctaSecondary}
+            </a>
           </motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className="flex flex-wrap gap-3">
-            {HERO.badges.map((badge) => (
-              <span key={badge.label} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border bg-white" style={{ borderColor: "rgba(201,168,76,0.4)", color: "var(--color-primary)", fontFamily: "var(--font-body)", boxShadow: "0 1px 4px rgba(26,26,46,0.07)" }}>{badge.icon} {badge.label}</span>
+
+          {/* Single proof line — replaces 3 badge pills */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.55 }}
+            className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-ui"
+            style={{ color: "var(--gray-text)" }}
+          >
+            {HERO.badges.map((b, i) => (
+              <span key={b.label} className="inline-flex items-center gap-1.5">
+                {i > 0 && <span aria-hidden className="text-gray-300">&middot;</span>}
+                <span aria-hidden>{b.icon}</span>
+                <span>{b.label}</span>
+              </span>
             ))}
           </motion.div>
         </div>
-        <div className="lg:col-span-2">
-          <div className="grid grid-cols-2 gap-3">
-            {HERO_PRODUCTS.map((product, i) => (
-              <motion.div key={product.name} initial={{ opacity: 0, x: 24, scale: 0.95 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }} className="hero-product-card group relative rounded-2xl overflow-hidden aspect-square cursor-pointer">
-                <img
-                  src={product.img}
-                  alt={product.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading={i < 2 ? "eager" : "lazy"}
-                  onError={(e) => { const t = e.currentTarget; if (t.dataset.fallback) return; t.dataset.fallback = "1"; t.src = IMAGE_PATHS.placeholder; }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <p className="text-white font-semibold text-sm" style={{ fontFamily: "var(--font-body)" }}>{product.name}</p>
-                </div>
-                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-gold/40 transition-colors" />
-              </motion.div>
-            ))}
+
+        {/* Single editorial image — replaces 4-product grid that duplicated ProductsSection */}
+        <motion.div
+          initial={{ opacity: 0, x: 16 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.25, duration: 0.55 }}
+          className="lg:col-span-5 relative"
+        >
+          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-amber-50 to-rose-50 shadow-[0_24px_80px_-32px_rgba(26,26,46,0.35)]">
+            <img
+              src={IMAGE_PATHS.hero.wedding}
+              alt="Wedding card with gold foil printed by Super Printers, Pallavaram"
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover"
+              onError={(e) => {
+                const t = e.currentTarget;
+                if (t.dataset.fallback) return;
+                t.dataset.fallback = "1";
+                t.src = IMAGE_PATHS.placeholder;
+              }}
+            />
+            {/* Caption tab — handmade-press feel */}
+            <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur rounded-2xl px-4 py-3 border border-border-light">
+              <p className="text-[11px] font-bold tracking-[0.18em] uppercase font-ui" style={{ color: "var(--gold-dark)" }}>
+                Featured work
+              </p>
+              <p className="text-sm font-display font-semibold mt-0.5" style={{ color: "var(--ink-black)" }}>
+                Tamil wedding card &mdash; foil + laser-cut
+              </p>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   </section>

@@ -136,7 +136,7 @@ const QuoteFormSection = () => {
               </p>
             </div>
             <button type="submit" className="quote-submit-btn mt-6">
-              Send My Quote Request →
+              Get Quote →
             </button>
             <p className="text-xs text-center mt-3" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
               Mon–Sat, 9AM–8PM.
