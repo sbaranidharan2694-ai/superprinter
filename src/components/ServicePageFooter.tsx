@@ -73,23 +73,18 @@ const ServicePageFooter = ({ currentSlug, serviceName, whatsappPrompt }: Service
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
 
       <div className="max-w-4xl mx-auto px-6">
-        {/* Trust strip — appears below every service page */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <div className="text-center p-4 rounded-2xl bg-white border border-border-light shadow-card">
-            <p className="font-display font-bold text-2xl text-ink-black">35+</p>
-            <p className="text-xs font-ui text-gray-600 mt-1">Years in Pallavaram<br/>since 1990</p>
+        {/* Trust strip — two facts that actually matter, said once.
+            GST + 24h turnaround are documented in the footer / per-page copy already. */}
+        <div className="grid grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto">
+          <div className="text-center p-5 rounded-2xl bg-white border border-border-light shadow-card">
+            <p className="font-display font-bold text-3xl" style={{ color: "var(--ink-black)" }}>Est. 1990</p>
+            <p className="text-xs font-ui text-gray-600 mt-1">35 years in Pallavaram</p>
           </div>
-          <div className="text-center p-4 rounded-2xl bg-white border border-border-light shadow-card">
-            <p className="font-display font-bold text-2xl text-ink-black">⭐ {BUSINESS.googleRating}</p>
-            <p className="text-xs font-ui text-gray-600 mt-1">{BUSINESS.googleReviewCount}+ Google<br/>reviews</p>
-          </div>
-          <div className="text-center p-4 rounded-2xl bg-white border border-border-light shadow-card">
-            <p className="font-display font-bold text-base text-ink-black break-all">GST</p>
-            <p className="text-xs font-ui text-gray-600 mt-1">Registered<br/>33AAGPB7462F1Z1</p>
-          </div>
-          <div className="text-center p-4 rounded-2xl bg-white border border-border-light shadow-card">
-            <p className="font-display font-bold text-2xl text-ink-black">24h</p>
-            <p className="text-xs font-ui text-gray-600 mt-1">Typical<br/>turnaround</p>
+          <div className="text-center p-5 rounded-2xl bg-white border border-border-light shadow-card">
+            <p className="font-display font-bold text-3xl" style={{ color: "var(--ink-black)" }}>
+              ★ {BUSINESS.googleRating}
+            </p>
+            <p className="text-xs font-ui text-gray-600 mt-1">{BUSINESS.googleReviewCount}+ Google reviews</p>
           </div>
         </div>
 
