@@ -41,9 +41,11 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Super Printers" />
-    <link rel="alternate" hreflang="en-IN" href="https://superprinters.net/" />
-    <link rel="alternate" hreflang="ta-IN" href="https://superprinters.net/" />
-    <link rel="alternate" hreflang="x-default" href="https://superprinters.net/" />
+    <!-- Hreflang intentionally omitted: the site has no Tamil-language pages
+         today, so declaring ta-IN against the same English URL was triggering
+         Seobility's "hreflang language mismatch" flag. Re-add only when an
+         actual translated variant exists, with each variant pointing at its
+         own URL. -->
     <style>
       #lovable-badge{display:none!important;}
       body{background:#ffffff;margin:0;color:#1a1a2e;}

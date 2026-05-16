@@ -53,7 +53,9 @@ const SEOHead = ({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
+      {/* `keywords` meta is intentionally not emitted: Google has ignored it
+          since 2009 and Bing treats it as a spam signal. We still accept the
+          prop so existing call sites compile; it's just a no-op. */}
       <meta name="author" content={BUSINESS.name} />
       <meta name="robots" content={robots} />
       <link rel="canonical" href={fullCanonical} />
