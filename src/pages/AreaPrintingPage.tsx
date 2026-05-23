@@ -73,7 +73,10 @@ const AREA_SLUGS = Object.keys(AREA_CONFIG);
 
 const AreaPrintingPage = () => {
   const location = useLocation();
-  const slug = location.pathname.replace(/^\//, "") || "";
+  // Strip both leading AND trailing slash. Apache strips trailing slashes via
+  // .htaccess in production, but in dev/preview (and on any client navigation
+  // that lands with a slash) we still need the slug to match.
+  const slug = location.pathname.replace(/^\/+|\/+$/g, "") || "";
   const config = AREA_SLUGS.includes(slug) ? AREA_CONFIG[slug] : null;
 
   if (!config) {
