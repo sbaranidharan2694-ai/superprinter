@@ -76,58 +76,77 @@ const QuoteFormSection = () => {
             className="quote-form-card"
           >
             <div className="space-y-4">
-              <label htmlFor="quote-name" className="sr-only">Your name</label>
-              <input
-                id="quote-name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                placeholder="Your Name *"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
-              />
-              <label htmlFor="quote-whatsapp" className="sr-only">WhatsApp number</label>
-              <input
-                id="quote-whatsapp"
-                name="whatsapp"
-                type="tel"
-                autoComplete="tel"
-                inputMode="tel"
-                pattern="[0-9+\-\s]{10,}"
-                placeholder="WhatsApp Number *"
-                required
-                value={whatsapp}
-                onChange={(e) => setWhatsapp(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
-              />
-              <label htmlFor="quote-service" className="sr-only">Service required</label>
-              <select
-                id="quote-service"
-                name="service"
-                value={service}
-                onChange={(e) => setService(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
-                style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
-              >
-                <option value="">Select Service</option>
-                {SERVICE_OPTIONS.map((s) => (
-                  <option key={s} value={s}>{s}</option>
-                ))}
-              </select>
+              {/* Visible labels (not sr-only): the original placeholder-only
+                  pattern fails for users who clear the placeholder while
+                  typing — they lose the field context. Small uppercase
+                  micro-labels keep the visual rhythm tight while satisfying
+                  WCAG 3.3.2 Labels or Instructions. */}
+              <div>
+                <label htmlFor="quote-name" className="block text-[11px] font-bold tracking-[0.12em] uppercase mb-1.5" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
+                  Your name <span className="text-destructive" aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="quote-name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  placeholder="e.g. Priya Ramesh"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
+                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
+                />
+              </div>
+              <div>
+                <label htmlFor="quote-whatsapp" className="block text-[11px] font-bold tracking-[0.12em] uppercase mb-1.5" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
+                  WhatsApp number <span className="text-destructive" aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="quote-whatsapp"
+                  name="whatsapp"
+                  type="tel"
+                  autoComplete="tel"
+                  inputMode="tel"
+                  pattern="[0-9+\-\s]{10,}"
+                  placeholder="e.g. 9840199878"
+                  required
+                  value={whatsapp}
+                  onChange={(e) => setWhatsapp(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
+                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
+                />
+              </div>
+              <div>
+                <label htmlFor="quote-service" className="block text-[11px] font-bold tracking-[0.12em] uppercase mb-1.5" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
+                  Service required
+                </label>
+                <select
+                  id="quote-service"
+                  name="service"
+                  value={service}
+                  onChange={(e) => setService(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
+                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
+                >
+                  <option value="">Select a printing service</option>
+                  {SERVICE_OPTIONS.map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
+              </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="quote-quantity" className="sr-only">Quantity</label>
+                  <label htmlFor="quote-quantity" className="block text-[11px] font-bold tracking-[0.12em] uppercase mb-1.5" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
+                    Quantity
+                  </label>
                   <input
                     id="quote-quantity"
                     name="quantity"
                     type="number"
                     inputMode="numeric"
                     min={1}
-                    placeholder="Quantity"
+                    placeholder="e.g. 500"
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
@@ -135,12 +154,13 @@ const QuoteFormSection = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="quote-date" className="sr-only">When do you need it</label>
+                  <label htmlFor="quote-date" className="block text-[11px] font-bold tracking-[0.12em] uppercase mb-1.5" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
+                    Needed by
+                  </label>
                   <input
                     id="quote-date"
                     name="date"
                     type="date"
-                    placeholder="When do you need it?"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none"
@@ -148,17 +168,21 @@ const QuoteFormSection = () => {
                   />
                 </div>
               </div>
-              <label htmlFor="quote-message" className="sr-only">Additional details</label>
-              <textarea
-                id="quote-message"
-                name="message"
-                placeholder="Additional details (size, design, finish, etc.)"
-                rows={3}
-                value={msg}
-                onChange={(e) => setMsg(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none resize-none"
-                style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
-              />
+              <div>
+                <label htmlFor="quote-message" className="block text-[11px] font-bold tracking-[0.12em] uppercase mb-1.5" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
+                  Additional details
+                </label>
+                <textarea
+                  id="quote-message"
+                  name="message"
+                  placeholder="Size, design, finish, anything specific."
+                  rows={3}
+                  value={msg}
+                  onChange={(e) => setMsg(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-gold focus:border-transparent outline-none resize-none"
+                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}
+                />
+              </div>
               <p className="text-xs" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
                 Attach your design file (.pdf .ai .jpg .png) via WhatsApp after submitting.
               </p>
