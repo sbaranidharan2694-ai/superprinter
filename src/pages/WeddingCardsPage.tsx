@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
-import { serviceLandingSchema } from "@/data/seoSchemas";
+import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { services } from "@/data/services";
 import PageHero from "@/components/shared/PageHero";
+
+const WEDDING_SVC = services.find((s) => s.slug === "wedding-invitations")!;
 
 const SPEC_ROWS = [
   { type: "Matt 300GSM", paper: "300 GSM", finish: "Matt Lamination", minQty: "100 pcs", price: "From ₹5/card", delivery: "24–48 hrs" },
@@ -40,12 +43,20 @@ const WeddingCardsPage = () => (
       canonical="/wedding-cards"
       keywords="cheapest wedding card printing Chennai, wedding cards from 5 rupees Chennai, wedding invitation printing Pallavaram, Tamil wedding cards Chennai, Hindu wedding cards Chennai, Christian wedding cards Chennai, Muslim nikah invitation Chennai, wedding card printing near me, budget wedding cards Chennai, wedding cards cheaper than Menaka Cards, wedding invitation 24 hours Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Wedding Cards", url: "/wedding-cards" }]}
-      schemaMarkup={serviceLandingSchema({
-        path: "/wedding-cards",
-        name: "Cheapest Wedding Card Printing Chennai — Super Printers",
-        serviceType: "Wedding invitation design and printing",
-        description: "Cheapest wedding card printing in Chennai from ₹5 per card. Free design, proof before print, 24-hour turnaround. Hindu, Christian, Muslim cards in Tamil and English.",
-      })}
+      schemaMarkup={[
+        serviceLandingSchema({
+          path: "/wedding-cards",
+          name: "Cheapest Wedding Card Printing Chennai — Super Printers",
+          serviceType: "Wedding invitation design and printing",
+          description: "Cheapest wedding card printing in Chennai from ₹5 per card. Free design, proof before print, 24-hour turnaround. Hindu, Christian, Muslim cards in Tamil and English.",
+        }),
+        productSchema({
+          service: WEDDING_SVC,
+          path: "/wedding-cards",
+          description: "Wedding invitation card printing in Chennai from ₹5 per card. Hindu, Christian, Muslim and modern designs in Tamil and English. Free design proof; 24–48 hour turnaround.",
+          imageUrl: `${BUSINESS.siteUrl}/images/hero/wedding.jpg`,
+        }),
+      ]}
     />
 
     <PageHero

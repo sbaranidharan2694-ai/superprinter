@@ -1,5 +1,6 @@
 import SEOHead from "@/components/SEOHead";
-import { HOMEPAGE_FAQ_SCHEMA } from "@/data/seoSchemas";
+import { HOMEPAGE_FAQ_SCHEMA, HOMEPAGE_REVIEWS_SCHEMA } from "@/data/seoSchemas";
+import { FOUNDER_PERSON_SCHEMA } from "@/data/business";
 import HeroSection from "@/components/home/HeroSection";
 import SocialProofBar from "@/components/home/SocialProofBar";
 import ProductsSection from "@/components/home/ProductsSection";
@@ -33,7 +34,7 @@ const Index = () => (
       description="Pallavaram printing press since 1990. Wedding cards from ₹5, visiting cards, brochures, banners, bill books. Free proof, ready in 24 hours."
       canonical="/"
       keywords="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards Chennai, brochure printing Chennai"
-      schemaMarkup={[HOMEPAGE_FAQ_SCHEMA]}
+      schemaMarkup={[HOMEPAGE_FAQ_SCHEMA, FOUNDER_PERSON_SCHEMA, ...HOMEPAGE_REVIEWS_SCHEMA]}
     />
     <HeroSection />
     <SocialProofBar />

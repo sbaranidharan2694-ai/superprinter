@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
-import { serviceLandingSchema } from "@/data/seoSchemas";
+import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { services } from "@/data/services";
 import Picture from "@/components/ui/Picture";
+
+const VC_SVC = services.find((s) => s.slug === "visiting-cards")!;
 
 /** Sample design gallery: 10 visiting card images. Place files in public/visiting-cards/ as visiting-card-01.png … visiting-card-10.png */
 const VISITING_CARD_DESIGNS = [
@@ -84,13 +87,21 @@ const VisitingCardsPage = () => {
       canonical="/visiting-cards"
       keywords="visiting card printing Chennai, business card printing Pallavaram, visiting cards 100 pcs Chennai, spot UV visiting cards Chennai, matt visiting cards, gloss business cards Chennai, cheap visiting cards Chennai, fast visiting card printing, visiting card near me Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Visiting Cards", url: "/visiting-cards" }]}
-      schemaMarkup={serviceLandingSchema({
-        path: "/visiting-cards",
-        name: "Visiting card printing — Super Printers",
-        serviceType: "Business and visiting card printing",
-        description:
-          "Premium visiting cards: gloss, matt, Spot UV, foil; 300–400 GSM; minimum quantities; design support; Pallavaram, Chennai.",
-      })}
+      schemaMarkup={[
+        serviceLandingSchema({
+          path: "/visiting-cards",
+          name: "Visiting card printing — Super Printers",
+          serviceType: "Business and visiting card printing",
+          description:
+            "Premium visiting cards: gloss, matt, Spot UV, foil; 300–400 GSM; minimum quantities; design support; Pallavaram, Chennai.",
+        }),
+        productSchema({
+          service: VC_SVC,
+          path: "/visiting-cards",
+          description: "Visiting card printing in Chennai from ₹1/card at 1000+ qty. Gloss, matt, Spot UV, foil and PVC finishes on 300–400 GSM stock. Same-day for most designs.",
+          imageUrl: `${BUSINESS.siteUrl}/images/hero/visiting.jpg`,
+        }),
+      ]}
     />
 
     <div className="pt-[116px] pb-20">

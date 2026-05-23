@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
-import { serviceLandingSchema } from "@/data/seoSchemas";
+import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { services } from "@/data/services";
+
+const BANNER_SVC = services.find((s) => s.slug === "banner-printing")!;
 
 const SPEC_ROWS = [
   { type: "Flex Banner",      material: "Frontlit / Backlit Flex", finish: "Matte / Glossy", minQty: "1 sq ft", delivery: "Same / next day" },
@@ -19,12 +22,19 @@ const BannersPage = () => (
       canonical="/banners"
       keywords="banner printing Chennai, flex banner printing Pallavaram, vinyl banner Chennai, roll-up standee Chennai, outdoor banner printing Pallavaram, shop banner Chennai, wedding banner Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Banners", url: "/banners" }]}
-      schemaMarkup={serviceLandingSchema({
-        path: "/banners",
-        name: "Banner printing — Super Printers",
-        serviceType: "Flex, vinyl and roll-up banner printing",
-        description: "Flex, vinyl, canvas and roll-up banner printing in Chennai. Same-day delivery for most sizes.",
-      })}
+      schemaMarkup={[
+        serviceLandingSchema({
+          path: "/banners",
+          name: "Banner printing — Super Printers",
+          serviceType: "Flex, vinyl and roll-up banner printing",
+          description: "Flex, vinyl, canvas and roll-up banner printing in Chennai. Same-day delivery for most sizes.",
+        }),
+        productSchema({
+          service: BANNER_SVC,
+          path: "/banners",
+          description: "Flex, vinyl, canvas and roll-up banner printing in Chennai. Most standard sizes delivered the same day from our Pallavaram press.",
+        }),
+      ]}
     />
 
     <div className="pt-[116px] pb-20">

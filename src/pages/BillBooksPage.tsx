@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
-import { serviceLandingSchema } from "@/data/seoSchemas";
+import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { services } from "@/data/services";
+
+const BB_SVC = services.find((s) => s.slug === "bill-books")!;
 
 const SPEC_ROWS = [
   { type: "2-Part NCR", paper: "Carbonless", finish: "2-Part", minQty: "25 sets", delivery: "24 hours" },
@@ -17,12 +20,20 @@ const BillBooksPage = () => (
       canonical="/bill-books"
       keywords="GST bill book printing Chennai, NCR bill book Pallavaram, carbonless invoice book Chennai, duplicate bill book, triplicate bill book, receipt book printing Chennai, cash memo book printing"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Bill Books", url: "/bill-books" }]}
-      schemaMarkup={serviceLandingSchema({
-        path: "/bill-books",
-        name: "GST bill book printing — Super Printers",
-        serviceType: "GST-compliant NCR bill book printing",
-        description: "Carbonless duplicate and triplicate bill books, serial numbering, GST invoices, Chennai.",
-      })}
+      schemaMarkup={[
+        serviceLandingSchema({
+          path: "/bill-books",
+          name: "GST bill book printing — Super Printers",
+          serviceType: "GST-compliant NCR bill book printing",
+          description: "Carbonless duplicate and triplicate bill books, serial numbering, GST invoices, Chennai.",
+        }),
+        productSchema({
+          service: BB_SVC,
+          path: "/bill-books",
+          description: "Carbonless (NCR) duplicate and triplicate bill books with serial numbering, GST-ready invoice formats. Chennai delivery.",
+          imageUrl: `${BUSINESS.siteUrl}/images/hero/bill-books.jpg`,
+        }),
+      ]}
     />
 
     <div className="pt-[116px] pb-20">

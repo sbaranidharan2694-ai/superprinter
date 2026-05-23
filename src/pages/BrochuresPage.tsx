@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
-import { serviceLandingSchema } from "@/data/seoSchemas";
+import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { services } from "@/data/services";
+
+const BROCHURE_SVC = services.find((s) => s.slug === "brochure-printing")!;
 
 const SPEC_ROWS = [
   { type: "Gloss Lam", paper: "130–170 GSM", finish: "Gloss Lam", minQty: "100 pcs", delivery: "24 hours" },
@@ -18,12 +21,20 @@ const BrochuresPage = () => (
       canonical="/brochures"
       keywords="brochure printing Chennai, pamphlet printing Chennai, trifold brochure Pallavaram, corporate brochure printing, bifold brochure Chennai, marketing brochure printing, cheap brochure printing Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Brochures", url: "/brochures" }]}
-      schemaMarkup={serviceLandingSchema({
-        path: "/brochures",
-        name: "Brochure printing — Super Printers",
-        serviceType: "Brochure and pamphlet printing",
-        description: "Tri-fold and bi-fold brochures, laminated finishes, corporate quantities, Pallavaram Chennai.",
-      })}
+      schemaMarkup={[
+        serviceLandingSchema({
+          path: "/brochures",
+          name: "Brochure printing — Super Printers",
+          serviceType: "Brochure and pamphlet printing",
+          description: "Tri-fold and bi-fold brochures, laminated finishes, corporate quantities, Pallavaram Chennai.",
+        }),
+        productSchema({
+          service: BROCHURE_SVC,
+          path: "/brochures",
+          description: "Tri-fold and bi-fold brochures with laminated finishes in Chennai. Corporate quantities, fast turnaround from our Pallavaram press.",
+          imageUrl: `${BUSINESS.siteUrl}/images/hero/brochures.jpg`,
+        }),
+      ]}
     />
 
     <div className="pt-[116px] pb-20">

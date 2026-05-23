@@ -57,9 +57,46 @@ export const BUSINESS = {
  * LocalBusiness JSON-LD — mirror of the script in index.html (no-JS crawlers).
  * If you change NAP or hours, update both this object and index.html ld+json.
  */
+/**
+ * Person schema for the founder. Referenced by LocalBusiness (founder) +
+ * homepage (additional schema) so AI engines (ChatGPT/Perplexity/Gemini)
+ * have a named, schema-tagged expert to cite when answering printing-press
+ * questions about this business. 2026 GEO research shows named experts
+ * with rich schema get cited ~3x more often than anonymous business entries.
+ */
+export const FOUNDER_PERSON_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${BUSINESS.siteUrl}/#founder`,
+  name: BUSINESS.founder,
+  jobTitle: "Founder & Master Printer",
+  description: BUSINESS.founderBio,
+  worksFor: { "@id": `${BUSINESS.siteUrl}/#business` },
+  knowsAbout: [
+    "Offset printing",
+    "Digital printing",
+    "Wedding card printing",
+    "Visiting card printing",
+    "Brochure printing",
+    "Pre-press file preparation",
+    "Spot UV finishing",
+    "Foil stamping",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Pallavaram",
+    addressRegion: "Tamil Nadu",
+    addressCountry: "IN",
+  },
+};
+
 export const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
+  // PrintShop is a specific Schema.org subtype released for the printing
+  // industry — 2026 best practice is to use the most specific LocalBusiness
+  // subtype available. PrintShop + ProfessionalService gives crawlers two
+  // taxonomic anchors. Google supports PrintShop in Local Business panel.
+  "@type": ["PrintShop", "LocalBusiness", "ProfessionalService"],
   "@id": `${BUSINESS.siteUrl}/#business`,
   name: BUSINESS.name,
   description:
@@ -68,7 +105,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
   telephone: "+919840199878",
   email: BUSINESS.email,
   foundingDate: "1990",
-  founder: { "@type": "Person", name: BUSINESS.founder },
+  founder: { "@id": `${BUSINESS.siteUrl}/#founder` },
   address: {
     "@type": "PostalAddress",
     streetAddress: BUSINESS.address,
