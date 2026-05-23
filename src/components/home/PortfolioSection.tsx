@@ -29,8 +29,11 @@ const PortfolioSection = () => (
             <img
               src={img.src}
               alt={img.alt}
+              width={800}
+              height={600}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
+              decoding="async"
               onError={(e) => {
                 const t = e.currentTarget;
                 if (t.dataset.fallback) return;

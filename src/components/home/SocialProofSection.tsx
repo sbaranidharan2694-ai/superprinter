@@ -36,8 +36,11 @@ const SocialProofSection = () => (
               <img
                 src={review.avatar}
                 alt={`${review.name} — verified customer review for Super Printers Chennai`}
+                width={56}
+                height={56}
                 className="w-14 h-14 rounded-full object-cover flex-shrink-0 ring-2 ring-amber-100"
                 loading="lazy"
+                decoding="async"
                 onError={(e) => { const t = e.currentTarget; if (t.dataset.fallback) return; t.dataset.fallback = "1"; t.src = IMAGE_PATHS.placeholder; }}
               />
               <div className="min-w-0 flex-1">

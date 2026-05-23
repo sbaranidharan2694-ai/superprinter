@@ -37,7 +37,7 @@ const Products = () => (
         {PRODUCT_CATEGORIES.map((cat, i) => (
           <Link key={i} to={cat.to} className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-xl transition-all">
             <div className="relative h-48 overflow-hidden">
-              <img src={cat.img} alt={cat.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+              <img src={cat.img} alt={cat.name} width={800} height={600} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" decoding="async" />
               {cat.badge && <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-[10px] font-bold px-3 py-1 rounded-full">{cat.badge}</span>}
             </div>
             <div className="p-5">

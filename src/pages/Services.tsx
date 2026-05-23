@@ -60,7 +60,7 @@ const Services = () => {
             {filtered.map((s) => (
               <Link key={s.id} to={`/services/${s.slug}`} className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-xl transition-all">
                 <div className="relative h-48 overflow-hidden">
-                  <img src={SERVICE_IMAGES[s.slug] || ""} alt={s.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                  <img src={SERVICE_IMAGES[s.slug] || ""} alt={s.name} width={800} height={600} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" decoding="async" />
                   {s.isNew && <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-[10px] font-bold px-3 py-1 rounded-full">NEW</span>}
                 </div>
                 <div className="p-5">

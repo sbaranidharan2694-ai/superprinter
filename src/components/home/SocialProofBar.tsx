@@ -68,8 +68,11 @@ const SocialProofBar = () => (
             <img
               src={client.logo}
               alt={client.name}
+              width={140}
+              height={36}
               className="h-7 md:h-9 w-auto max-w-[100px] md:max-w-[140px] object-contain opacity-90 group-hover:opacity-100 transition-opacity flex-shrink-0"
               loading="lazy"
+              decoding="async"
             />
             <span
               className="mt-1.5 text-center text-[9px] md:text-xs font-semibold leading-tight line-clamp-2 max-w-[100px] md:max-w-[130px] font-ui"

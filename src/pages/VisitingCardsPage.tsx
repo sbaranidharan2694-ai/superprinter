@@ -49,8 +49,11 @@ function VisitingCardGalleryItem({
           <img
             src={design.src}
             alt={design.label}
+            width={700}
+            height={400}
             className={`w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
             loading="lazy"
+            decoding="async"
             onLoad={() => setLoaded(true)}
             onError={() => setError(true)}
           />
@@ -226,6 +229,9 @@ const VisitingCardsPage = () => {
             <img
               src={lightboxDesign.src}
               alt={lightboxDesign.label}
+              width={1400}
+              height={800}
+              decoding="async"
               className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
             />
             <p className="absolute bottom-0 left-0 right-0 py-2 text-center font-ui text-sm text-white bg-black/50 rounded-b-lg">

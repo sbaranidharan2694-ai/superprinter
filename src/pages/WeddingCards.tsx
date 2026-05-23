@@ -45,7 +45,7 @@ const WeddingCards = () => (
           {STYLES.map((style, i) => (
             <div key={i} className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-secondary/30 transition-all">
               <div className="relative h-64 overflow-hidden">
-                <img src={style.img} alt={style.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <img src={style.img} alt={style.name} width={800} height={600} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               </div>
               <div className="p-6">
                 <h3 className="font-display font-bold text-xl text-foreground mb-2">{style.name}</h3>
@@ -80,7 +80,7 @@ const WeddingCards = () => (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[IMG.weddingInvite1, IMG.weddingInvite2, IMG.weddingInvite3, IMG.weddingCeremony, IMG.P20, IMG.P21, IMG.P22, IMG.P23].map((img, i) => (
             <div key={i} className="rounded-xl overflow-hidden group">
-              <img src={img} alt="Wedding card sample" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src={img} alt="Wedding card sample" width={400} height={300} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
             </div>
           ))}
         </div>

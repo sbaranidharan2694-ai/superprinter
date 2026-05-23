@@ -111,6 +111,10 @@ const Gallery = () => {
                     <img
                       src={item.src}
                       alt={item.alt}
+                      width={800}
+                      height={800}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"

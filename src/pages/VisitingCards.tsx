@@ -47,7 +47,7 @@ const VisitingCards = () => (
           {CARD_TYPES.map((card, i) => (
             <div key={i} className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 transition-all">
               <div className="relative h-48 overflow-hidden">
-                <img src={card.img} alt={card.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <img src={card.img} alt={card.name} width={800} height={600} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               </div>
               <div className="p-5">
                 <h3 className="font-display font-bold text-lg text-foreground mb-1">{card.name}</h3>
@@ -108,7 +108,7 @@ const VisitingCards = () => (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {[IMG.glossCard, IMG.mattCard, IMG.spotUvCard, IMG.velvetCard, IMG.goldFoilCard, IMG.syntheticCard, IMG.premiumCards, IMG.stackedCards].map((img, i) => (
             <div key={i} className="rounded-xl overflow-hidden group">
-              <img src={img} alt="Visiting card sample" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src={img} alt="Visiting card sample" width={400} height={300} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
             </div>
           ))}
         </div>

@@ -23,7 +23,12 @@ function walk(dir) {
 }
 
 function check(file) {
-  const src = fs.readFileSync(file, "utf8");
+  let src = fs.readFileSync(file, "utf8");
+  // Strip JSX block comments `{/* ... */}` and JS block comments before
+  // scanning. Otherwise an `<img>` literal mentioned in a comment gets
+  // flagged as a real tag.
+  src = src.replace(/\{\/\*[\s\S]*?\*\/\}/g, "");
+  src = src.replace(/\/\*[\s\S]*?\*\//g, "");
   // Match the full <img ...> opening tag, including JSX multi-line tags.
   const re = /<img\b[^>]*\/?>/gs;
   let m;

@@ -117,21 +117,29 @@ const HeroSection = () => (
           className="lg:col-span-5 relative"
         >
           <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-amber-50 to-rose-50 shadow-[0_24px_80px_-32px_rgba(26,26,46,0.35)]">
-            <img
-              src={IMAGE_PATHS.hero.wedding}
-              alt="Wedding card with gold foil printed by Super Printers, Pallavaram"
-              width={800}
-              height={600}
-              fetchPriority="high"
-              decoding="async"
-              className="absolute inset-0 w-full h-full object-cover"
-              onError={(e) => {
-                const t = e.currentTarget;
-                if (t.dataset.fallback) return;
-                t.dataset.fallback = "1";
-                t.src = IMAGE_PATHS.placeholder;
-              }}
-            />
+            {/* <picture> with AVIF/WebP/JPG fallback. AVIF (~65% smaller) is
+                tried first, WebP (~65% smaller) next, JPG as the universal
+                fallback. The <img> is the LCP candidate so it keeps
+                fetchPriority="high". */}
+            <picture>
+              <source srcSet="/images/hero/wedding.avif" type="image/avif" />
+              <source srcSet="/images/hero/wedding.webp" type="image/webp" />
+              <img
+                src={IMAGE_PATHS.hero.wedding}
+                alt="Wedding card with gold foil printed by Super Printers, Pallavaram"
+                width={800}
+                height={600}
+                fetchPriority="high"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover"
+                onError={(e) => {
+                  const t = e.currentTarget;
+                  if (t.dataset.fallback) return;
+                  t.dataset.fallback = "1";
+                  t.src = IMAGE_PATHS.placeholder;
+                }}
+              />
+            </picture>
             {/* Caption tab — handmade-press feel */}
             <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur rounded-2xl px-4 py-3 border border-border-light">
               <p className="text-[11px] font-bold tracking-[0.18em] uppercase font-ui" style={{ color: "var(--gold-dark)" }}>

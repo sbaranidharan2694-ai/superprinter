@@ -135,7 +135,7 @@ const About = () => (
             { title: "Events & Personal", desc: "Wedding invitations, banners, T-shirts, rubber stamps — for every occasion.", img: IMG.weddingInvite1 },
           ].map((cap, i) => (
             <div key={i} className="bg-card rounded-xl overflow-hidden border border-border">
-              <img src={cap.img} alt={cap.title} className="w-full h-40 object-cover" loading="lazy" />
+              <img src={cap.img} alt={cap.title} width={500} height={320} className="w-full h-40 object-cover" loading="lazy" decoding="async" />
               <div className="p-5">
                 <h3 className="font-display text-lg font-bold text-foreground mb-2">{cap.title}</h3>
                 <p className="text-muted-foreground text-sm">{cap.desc}</p>

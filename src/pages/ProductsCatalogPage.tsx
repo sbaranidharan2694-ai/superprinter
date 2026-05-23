@@ -36,8 +36,11 @@ function CatalogProductCard({ product }: { product: CatalogProduct }) {
         <img
           src={imgSrc}
           alt={`${product.name} — ${product.specs} | Super Printers Chennai`}
+          width={600}
+          height={600}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           loading="lazy"
+          decoding="async"
         />
         {product.badge === "NEW" && (
           <span className="absolute top-2 left-2 px-2 py-0.5 rounded text-xs font-semibold bg-amber-500 text-white">
