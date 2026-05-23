@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
+import Picture from "@/components/ui/Picture";
 import { BUSINESS } from "@/data/business";
 import { trackWhatsAppClick } from "@/utils/analytics";
 import { useInView } from "@/hooks/useInView";
@@ -108,7 +109,7 @@ const Gallery = () => {
                     transition={{ duration: 0.2, delay: i % 20 * 0.02 }}
                     className="group relative aspect-square rounded-2xl overflow-hidden bg-muted shadow-sm"
                   >
-                    <img
+                    <Picture
                       src={item.src}
                       alt={item.alt}
                       width={800}

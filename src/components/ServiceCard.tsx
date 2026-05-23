@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
+import Picture from "@/components/ui/Picture";
 
 /**
  * Single canonical product / service card. Used in ProductsSection grids and
@@ -44,7 +45,7 @@ const ServiceCard = ({ name, price, delivery, img, href }: ServiceCardProps) => 
   return (
     <article className="group flex flex-col h-full bg-white border border-border-light rounded-2xl overflow-hidden transition-shadow duration-300 hover:shadow-card">
       <Link to={target} className="block aspect-[4/3] overflow-hidden bg-gray-50" aria-label={`View ${name}`}>
-        <img
+        <Picture
           src={img}
           alt={`${name} printed by Super Printers, Pallavaram Chennai`}
           width={800}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 import { trackPhoneClick, trackWhatsAppClick } from "@/utils/analytics";
+import { whatsappTextFor } from "@/utils/whatsapp";
 
 /**
  * Mobile-only sticky conversion bar.
@@ -18,40 +19,6 @@ import { trackPhoneClick, trackWhatsAppClick } from "@/utils/analytics";
  * Bottom padding honours `env(safe-area-inset-bottom)` so iPhone X+ users
  * don't have the icons clipped by the home-indicator bar.
  */
-
-// Per-route WhatsApp prefill. Keep messages short, factual, and in the
-// brand voice; the customer's reply does the rest.
-const WHATSAPP_MESSAGES: Record<string, string> = {
-  "/wedding-cards": "Hi! I need a quote for wedding card printing.",
-  "/visiting-cards": "Hi! I need a quote for visiting cards.",
-  "/brochures": "Hi! I need a quote for brochure printing.",
-  "/bill-books": "Hi! I need a quote for bill book printing.",
-  "/letterheads": "Hi! I need a quote for letterhead printing.",
-  "/banners": "Hi! I need a quote for banner printing.",
-  "/stickers": "Hi! I need a quote for sticker printing.",
-  "/rubber-stamps": "Hi! I need a rubber stamp.",
-  "/catalogues": "Hi! I need a quote for catalogue printing.",
-  "/pvc-id-cards": "Hi! I need a quote for PVC ID card printing.",
-  "/printing-guide": "Hi! I have a question about printing.",
-  "/reseller": "Hi! I'd like to learn about the reseller program.",
-};
-
-function whatsappTextFor(pathname: string): string {
-  // Exact match first, then prefix match for /services/:slug, /blog/:slug,
-  // /printing-press-<area>, /products/:slug — keep the page-context intent.
-  if (WHATSAPP_MESSAGES[pathname]) return WHATSAPP_MESSAGES[pathname];
-  if (pathname.startsWith("/printing-press-")) {
-    const area = pathname
-      .replace("/printing-press-", "")
-      .replace(/-/g, " ")
-      .replace(/\b\w/g, (c) => c.toUpperCase());
-    return `Hi! I need printing services in ${area}.`;
-  }
-  if (pathname.startsWith("/services/")) return "Hi! I'd like a quote for printing services.";
-  if (pathname.startsWith("/products/")) return "Hi! I'd like a quote for one of your products.";
-  if (pathname.startsWith("/blog/")) return "Hi! I have a question after reading your printing guide.";
-  return "Hi! I'd like a printing quote from Super Printers.";
-}
 
 /**
  * Detect whether the on-screen keyboard is open. Uses visualViewport when

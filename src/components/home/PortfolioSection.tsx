@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { GALLERY_IMAGES } from "@/data/gallery";
 import { IMAGE_PATHS } from "@/data/imagePaths";
+import Picture from "@/components/ui/Picture";
 
 /** Show first 12 gallery images on homepage; link to full gallery.
  *  Was 24 — produced an 8,000px Portfolio section on mobile. */
@@ -26,7 +27,7 @@ const PortfolioSection = () => (
             transition={{ delay: i * 0.04 }}
             className="portfolio-item group relative overflow-hidden rounded-2xl"
           >
-            <img
+            <Picture
               src={img.src}
               alt={img.alt}
               width={800}

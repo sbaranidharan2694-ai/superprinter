@@ -3,6 +3,7 @@ import TopInfoBar from "./TopInfoBar";
 import UnifiedHeader from "./UnifiedHeader";
 import UnifiedFooter from "./UnifiedFooter";
 import MobileBottomCTA from "./MobileBottomCTA";
+import DesktopStickyCTA from "./DesktopStickyCTA";
 import FloatingWhatsApp from "../FloatingWhatsApp";
 import ScrollToTop from "../ScrollToTop";
 import { SCROLL_OFFSET } from "@/utils/scroll";
@@ -23,6 +24,7 @@ const UnifiedLayout = () => (
     </main>
     <UnifiedFooter />
     <MobileBottomCTA />
+    <DesktopStickyCTA />
     {/* Floating buttons: on mobile they sit above the 64px bottom bar; layout hides overlap via padding-bottom on main */}
     <FloatingWhatsApp />
   </div>

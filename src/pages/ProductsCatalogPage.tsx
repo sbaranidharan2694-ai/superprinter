@@ -8,6 +8,7 @@ import { IMG } from "@/data/images";
 import { BUSINESS } from "@/data/business";
 import { cn } from "@/lib/utils";
 import { ChevronDown, PanelLeft } from "lucide-react";
+import Picture from "@/components/ui/Picture";
 
 const DEFAULT_CATEGORY = "visiting-cards";
 const DEFAULT_SUB = "standard-cards";
@@ -33,7 +34,7 @@ function CatalogProductCard({ product }: { product: CatalogProduct }) {
   return (
     <article className="rounded-xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       <div className="aspect-square bg-muted relative overflow-hidden">
-        <img
+        <Picture
           src={imgSrc}
           alt={`${product.name} — ${product.specs} | Super Printers Chennai`}
           width={600}

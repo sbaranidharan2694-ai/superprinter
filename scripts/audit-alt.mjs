@@ -24,13 +24,18 @@ function walk(dir) {
 
 function check(file) {
   let src = fs.readFileSync(file, "utf8");
-  // Strip JSX block comments `{/* ... */}` and JS block comments before
-  // scanning. Otherwise an `<img>` literal mentioned in a comment gets
-  // flagged as a real tag.
+  // Strip JSX block comments `{/* ... */}`, JS block comments, and JS
+  // single-line `//` comments before scanning. Otherwise an `<img>`
+  // literal mentioned in a comment gets flagged as a real tag.
   src = src.replace(/\{\/\*[\s\S]*?\*\/\}/g, "");
   src = src.replace(/\/\*[\s\S]*?\*\//g, "");
+  src = src.replace(/^[ \t]*\/\/.*$/gm, "");
   // Match the full <img ...> opening tag, including JSX multi-line tags.
   const re = /<img\b[^>]*\/?>/gs;
+  // Wrapper components (e.g. <Picture>) spread their props onto an inner
+  // <img>, e.g. `<img src={src} {...imgProps} />`. The actual alt comes from
+  // the caller. Treat any `{...x}` spread as a delegated-alt marker so the
+  // audit doesn't flag the wrapper itself.
   let m;
   while ((m = re.exec(src))) {
     scanned++;
@@ -38,6 +43,11 @@ function check(file) {
     const hasAlt = /\balt\s*=\s*[{"'`]/.test(tag);
     const emptyAlt = /\balt\s*=\s*(["'`])\s*\1/.test(tag);
     const ariaHidden = /\baria-hidden\s*=\s*(["'`]?)true\1/.test(tag);
+    const delegatedAlt = /\{\s*\.\.\.\s*\w+\s*\}/.test(tag);
+    if (delegatedAlt) {
+      // Wrapper component — alt is provided by the caller. Skip.
+      continue;
+    }
 
     if (!hasAlt) {
       const line = src.slice(0, m.index).split("\n").length;
