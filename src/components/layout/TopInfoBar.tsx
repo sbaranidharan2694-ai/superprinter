@@ -31,10 +31,16 @@ const TopInfoBar = () => {
         </div>
       </div>
       <div className="shrink-0 flex items-center gap-1 pr-3" role="group" aria-label="Language">
+        {/* Language pills: tight visually but the TopInfoBar is a thin top
+            strip — 44 px tap targets would dominate it. WCAG 2.5.8 AA permits
+            24x24 with 24px spacing, which we satisfy. `aria-pressed` and
+            `aria-label` give screen readers the state + intent. */}
         <button
           type="button"
           onClick={() => setLang("en")}
-          className={`px-2.5 py-1 rounded-full text-xs font-medium transition-all ${lang === "en" ? "text-white" : "opacity-70 hover:opacity-100"}`}
+          aria-label="Switch to English"
+          aria-pressed={lang === "en"}
+          className={`px-2.5 py-1.5 rounded-full text-xs font-medium transition-all ${lang === "en" ? "text-white" : "opacity-70 hover:opacity-100"}`}
           style={lang === "en" ? { backgroundColor: "var(--color-primary)", color: "#fff" } : { color: "var(--color-primary)" }}
         >
           EN
@@ -42,7 +48,9 @@ const TopInfoBar = () => {
         <button
           type="button"
           onClick={() => setLang("ta")}
-          className={`px-2.5 py-1 rounded-full text-xs font-medium transition-all ${lang === "ta" ? "text-white" : "opacity-70 hover:opacity-100"}`}
+          aria-label="Switch to Tamil"
+          aria-pressed={lang === "ta"}
+          className={`px-2.5 py-1.5 rounded-full text-xs font-medium transition-all ${lang === "ta" ? "text-white" : "opacity-70 hover:opacity-100"}`}
           style={lang === "ta" ? { backgroundColor: "var(--color-primary)", color: "#fff" } : { color: "var(--color-primary)" }}
         >
           தமிழ்

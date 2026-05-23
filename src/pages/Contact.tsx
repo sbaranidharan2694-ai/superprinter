@@ -86,29 +86,81 @@ const Contact = () => {
                     <p className="text-muted-foreground font-body">Your message has been sent via WhatsApp. We'll respond within 30 minutes during business hours.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4 p-6 rounded-xl bg-card border border-border">
+                  <form onSubmit={handleSubmit} noValidate className="space-y-4 p-6 rounded-xl bg-card border border-border">
                     <div>
-                      <label className="block text-sm font-semibold text-card-foreground font-body mb-1">Name *</label>
-                      <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring" placeholder="Your name" />
-                      {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
+                      <label htmlFor="contact-name" className="block text-sm font-semibold text-card-foreground font-body mb-1">
+                        Name <span className="text-destructive" aria-hidden="true">*</span>
+                        <span className="sr-only">required</span>
+                      </label>
+                      <input
+                        id="contact-name"
+                        name="name"
+                        type="text"
+                        required
+                        autoComplete="name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        aria-invalid={!!errors.name}
+                        aria-describedby={errors.name ? "contact-name-err" : undefined}
+                        className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                        placeholder="Your name"
+                      />
+                      {errors.name && <p id="contact-name-err" role="alert" className="text-destructive text-xs mt-1">{errors.name}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-card-foreground font-body mb-1">Phone Number *</label>
-                      <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring" placeholder="Your phone number" />
-                      {errors.phone && <p className="text-destructive text-xs mt-1">{errors.phone}</p>}
+                      <label htmlFor="contact-phone" className="block text-sm font-semibold text-card-foreground font-body mb-1">
+                        Phone Number <span className="text-destructive" aria-hidden="true">*</span>
+                        <span className="sr-only">required</span>
+                      </label>
+                      <input
+                        id="contact-phone"
+                        name="phone"
+                        type="tel"
+                        required
+                        autoComplete="tel"
+                        inputMode="tel"
+                        pattern="[0-9+\-\s]{10,}"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        aria-invalid={!!errors.phone}
+                        aria-describedby={errors.phone ? "contact-phone-err" : undefined}
+                        className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                        placeholder="Your phone number"
+                      />
+                      {errors.phone && <p id="contact-phone-err" role="alert" className="text-destructive text-xs mt-1">{errors.phone}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-card-foreground font-body mb-1">Service Required *</label>
-                      <select value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring">
+                      <label htmlFor="contact-service" className="block text-sm font-semibold text-card-foreground font-body mb-1">
+                        Service Required <span className="text-destructive" aria-hidden="true">*</span>
+                        <span className="sr-only">required</span>
+                      </label>
+                      <select
+                        id="contact-service"
+                        name="service"
+                        required
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        aria-invalid={!!errors.service}
+                        aria-describedby={errors.service ? "contact-service-err" : undefined}
+                        className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                      >
                         <option value="">Select a service</option>
                         {services.map((s) => (<option key={s.id} value={s.name}>{s.name}</option>))}
                         <option value="Other">Other</option>
                       </select>
-                      {errors.service && <p className="text-destructive text-xs mt-1">{errors.service}</p>}
+                      {errors.service && <p id="contact-service-err" role="alert" className="text-destructive text-xs mt-1">{errors.service}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-card-foreground font-body mb-1">Message</label>
-                      <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} rows={4} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none" placeholder="Tell us about your printing needs..." />
+                      <label htmlFor="contact-message" className="block text-sm font-semibold text-card-foreground font-body mb-1">Message</label>
+                      <textarea
+                        id="contact-message"
+                        name="message"
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        rows={4}
+                        className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+                        placeholder="Tell us about your printing needs..."
+                      />
                     </div>
                     <button type="submit" className="gold-button w-full py-3 rounded-lg text-sm font-bold">
                       Send Enquiry →

@@ -129,7 +129,7 @@ const UnifiedHeader = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("header")}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold text-white transition-transform hover:scale-[1.03] shrink-0"
+            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold text-white transition-transform hover:scale-[1.03] shrink-0 min-h-[44px]"
             style={{ backgroundColor: "#25D366", fontFamily: "var(--font-accent)" }}
             aria-label="Chat on WhatsApp"
           >
@@ -141,7 +141,7 @@ const UnifiedHeader = () => {
           <a
             href={BUSINESS.phoneTel}
             onClick={() => trackPhoneClick("header_mobile")}
-            className="inline-flex min-[600px]:hidden items-center justify-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold border-2 shrink-0 transition-transform hover:scale-[1.03]"
+            className="inline-flex min-[600px]:hidden items-center justify-center gap-1.5 px-3 py-2.5 rounded-full text-xs font-bold border-2 shrink-0 transition-transform hover:scale-[1.03] min-h-[44px]"
             style={{ borderColor: "var(--color-primary)", color: "var(--color-primary)", fontFamily: "var(--font-accent)" }}
             aria-label="Call now"
           >
@@ -152,8 +152,10 @@ const UnifiedHeader = () => {
           </a>
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
-            className="min-[600px]:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+            className="min-[600px]:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-gray-100 transition-colors"
             aria-label="Toggle menu"
+            aria-expanded={mobileMenu}
+            aria-controls="mobile-menu-panel"
           >
             <span className={`w-5 h-0.5 rounded-full transition-all ${mobileMenu ? "rotate-45 translate-y-2" : ""}`} style={{ backgroundColor: "var(--color-primary)" }} />
             <span className={`w-5 h-0.5 rounded-full transition-all ${mobileMenu ? "opacity-0" : ""}`} style={{ backgroundColor: "var(--color-primary)" }} />
