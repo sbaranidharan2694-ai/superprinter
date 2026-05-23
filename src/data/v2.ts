@@ -15,23 +15,35 @@ export const MARQUEE_ITEMS = [
 ];
 
 export const HERO = {
-  // SEO posture:
+  // SEO posture (refined against the Google May 2026 Core Update, rolled
+  // out May 21 2026 — emphasises E-E-A-T, intent match over keyword
+  // stuffing, and clear extractable content for AI Overviews):
+  //
   //  - Eyebrow carries trust + city anchor ("EST. 1990 · PALLAVARAM, CHENNAI")
   //  - Title tag is keyword-led ("Printing Press in Chennai | Wedding &
   //    Visiting Cards") — see src/pages/Index.tsx
-  //  - H1 is breadth-led with hyper-local + concrete anchors. The earlier
-  //    draft ("Wedding & Visiting Card Printing in Pallavaram, Chennai")
-  //    boxed the business into 2 of 14 services, costing organic rank for
-  //    brochures / banners / bill books / rubber stamps / etc. queries.
-  //    Current pattern:
-  //      • "Printing Press in Pallavaram, Chennai" — head term + local pack
-  //      • "Cards, Brochures, Banners" — three concrete category anchors
-  //        that cover the highest-volume product queries while letting
-  //        BERT/MUM semantically map "Cards" to wedding+visiting+business
-  //      • "& More" — explicit breadth signal Google understands well
-  //        (Amazon, Etsy, IKEA category-page convention).
+  //  - H1 is breadth-led with hyper-local + concrete category anchors.
+  //
+  //  Length: 56 chars — within the 2026 H1 sweet spot of 50-60 chars
+  //  (long H1s push content down the page and hurt AI-Overview extraction).
+  //
+  //  Word choices:
+  //    • "Printing Press in Pallavaram" — head term + local-pack anchor.
+  //      Dropped ", Chennai" because Google's knowledge graph maps
+  //      Pallavaram → Chennai natively, the title tag carries "Chennai",
+  //      and the eyebrow above also has it. Spending 9 chars on a
+  //      duplicate signal isn't worth it post-May-2026 (specificity wins).
+  //    • "Cards, Brochures, Banners" — three concrete category anchors
+  //      that explicitly match three high-volume product queries
+  //      (wedding/visiting cards, brochure printing, banner printing).
+  //      Google's BERT/MUM map "Cards" → wedding cards + visiting cards
+  //      + business cards, so one word covers three subcategories.
+  //    • Dropped "& More" — the May 2026 update rewards specific keywords
+  //      over generic breadth signals. The other 11 services we offer are
+  //      surfaced via internal links, footer, sitemap, and dedicated
+  //      pages with their own H1s.
   microLabel: "EST. 1990 · PALLAVARAM, CHENNAI",
-  h1: "Printing Press in Pallavaram, Chennai — Cards, Brochures, Banners & More",
+  h1: "Printing Press in Pallavaram — Cards, Brochures, Banners",
   accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house in Pallavaram.",
   body: "Proof shared before every print run. Most orders ready in 24 hours. WhatsApp us for a quote in 30 minutes.",
   ctaPrimary: "Get Quote",
