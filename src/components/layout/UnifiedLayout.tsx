@@ -12,7 +12,13 @@ const UnifiedLayout = () => (
     <ScrollToTop />
     <TopInfoBar />
     <UnifiedHeader />
-    <main className="pb-20 md:pb-0" style={{ paddingTop: SCROLL_OFFSET }}>
+    {/* `pb-[calc(...)]` Tailwind arbitrary value: 5rem (80px) clears the
+        sticky MobileBottomCTA, env() extends it by the iPhone home-indicator
+        height so iOS users don't get content clipped. Reset to 0 on md+. */}
+    <main
+      className="pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0"
+      style={{ paddingTop: SCROLL_OFFSET }}
+    >
       <Outlet />
     </main>
     <UnifiedFooter />
