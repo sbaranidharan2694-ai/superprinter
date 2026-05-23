@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 import { services } from "@/data/services";
@@ -18,6 +18,17 @@ const GetQuote = () => {
   const [phone, setPhone] = useState("");
   const [designFile, setDesignFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState("");
+
+  // Ref to the current step's <h2>. On step change we focus it so screen
+  // reader users hear the new step heading announced; sighted users get
+  // the visible scroll position too.
+  const stepHeadingRef = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    // Skip the very first render — the page-level <h1> is the natural
+    // entry point. Only act on subsequent step changes.
+    if (step === 1) return;
+    stepHeadingRef.current?.focus();
+  }, [step]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFileError("");
@@ -93,12 +104,21 @@ const GetQuote = () => {
 
         <section ref={ref} className={`py-16 bg-background transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-xl mx-auto px-4">
-            {/* Progress with named step */}
-            <div className="mb-6">
+            {/* Progress, also serving as the polite live region. Each step
+                change updates this text → screen reader announces
+                "Step 2 of 4: How many?" without interrupting other speech. */}
+            <div className="mb-6" role="status" aria-live="polite" aria-atomic="true">
               <p className="text-xs font-ui font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--gray-text)" }}>
                 Step {step} of 4 &middot; {STEP_LABELS[step - 1]}
               </p>
-              <div className="flex items-center gap-2">
+              <div
+                className="flex items-center gap-2"
+                role="progressbar"
+                aria-valuenow={step}
+                aria-valuemin={1}
+                aria-valuemax={4}
+                aria-label={`Quote progress: step ${step} of 4`}
+              >
                 {[1, 2, 3, 4].map((s) => (
                   <div
                     key={s}
@@ -109,11 +129,23 @@ const GetQuote = () => {
               </div>
             </div>
 
-            <div className="p-6 rounded-xl bg-card border border-border">
+            {/* Wrapped in a <form> so Enter inside any input advances the
+                step. Each step's primary button keeps onClick + type guard
+                so the same handler fires from both pointer and keyboard. */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (step === 1 && service) setStep(2);
+                else if (step === 2 && quantityValid) setStep(3);
+                else if (step === 3) setStep(4);
+                else if (step === 4 && phoneValid) handleGetQuote();
+              }}
+              className="p-6 rounded-xl bg-card border border-border"
+            >
               {/* Step 1 — Service */}
               {step === 1 && (
                 <div>
-                  <h2 className="font-display text-xl font-semibold text-foreground mb-1">What do you need printed?</h2>
+                  <h2 ref={stepHeadingRef} tabIndex={-1} className="font-display text-xl font-semibold text-foreground mb-1 focus:outline-none">What do you need printed?</h2>
                   <p className="text-sm text-muted-foreground font-body mb-4">Pick one. You can mention extras in the WhatsApp message.</p>
                   <label htmlFor="gq-service" className="sr-only">Service</label>
                   <select
@@ -142,7 +174,7 @@ const GetQuote = () => {
               {/* Step 2 — Quantity */}
               {step === 2 && (
                 <div>
-                  <h2 className="font-display text-xl font-semibold text-foreground mb-1">How many?</h2>
+                  <h2 ref={stepHeadingRef} tabIndex={-1} className="font-display text-xl font-semibold text-foreground mb-1 focus:outline-none">How many?</h2>
                   <p className="text-sm text-muted-foreground font-body mb-4">
                     {selectedService?.startingPrice ? `Starting from ${selectedService.startingPrice}.` : "Quantities below 100 may use digital print."}
                   </p>
@@ -181,9 +213,9 @@ const GetQuote = () => {
               {/* Step 3 — Finish */}
               {step === 3 && (
                 <div>
-                  <h2 className="font-display text-xl font-semibold text-foreground mb-1">Pick a finish</h2>
+                  <h2 ref={stepHeadingRef} tabIndex={-1} id="gq-finish-label" className="font-display text-xl font-semibold text-foreground mb-1 focus:outline-none">Pick a finish</h2>
                   <p className="text-sm text-muted-foreground font-body mb-4">Not sure? Pick Standard &mdash; we&rsquo;ll suggest options based on your job.</p>
-                  <div className="space-y-2">
+                  <div className="space-y-2" role="radiogroup" aria-labelledby="gq-finish-label">
                     {["Standard", "Premium", "Luxury"].map((opt) => (
                       <label key={opt} className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-colors ${paper === opt ? "border-gold bg-gold/5" : "border-border hover:bg-muted/50"}`}>
                         <input
@@ -215,7 +247,7 @@ const GetQuote = () => {
               {/* Step 4 — WhatsApp + file + send */}
               {step === 4 && (
                 <div>
-                  <h2 className="font-display text-xl font-semibold text-foreground mb-1">Where do we send the quote?</h2>
+                  <h2 ref={stepHeadingRef} tabIndex={-1} className="font-display text-xl font-semibold text-foreground mb-1 focus:outline-none">Where do we send the quote?</h2>
                   <p className="text-sm text-muted-foreground font-body mb-4">Your WhatsApp number. We reply within 30 minutes during business hours.</p>
 
                   <label htmlFor="gq-phone" className="sr-only">WhatsApp number</label>
@@ -234,7 +266,7 @@ const GetQuote = () => {
                     className={inputCls}
                   />
                   {phone.length > 0 && !phoneValid && (
-                    <p id="gq-phone-err" className="text-xs text-destructive mt-1.5 font-ui">Enter a valid 10-digit phone number.</p>
+                    <p id="gq-phone-err" role="alert" className="text-xs text-destructive mt-1.5 font-ui">Enter a valid 10-digit phone number.</p>
                   )}
 
                   {/* File upload */}
@@ -302,7 +334,7 @@ const GetQuote = () => {
                   </p>
                 </div>
               )}
-            </div>
+            </form>
           </div>
         </section>
       </main>
