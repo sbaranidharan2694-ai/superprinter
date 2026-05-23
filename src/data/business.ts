@@ -77,6 +77,11 @@ export const LOCAL_BUSINESS_SCHEMA = {
     postalCode: "600043",
     addressCountry: "IN",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: BUSINESS.lat,
+    longitude: BUSINESS.lng,
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -86,12 +91,35 @@ export const LOCAL_BUSINESS_SCHEMA = {
     },
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "16:00" },
   ],
-  priceRange: "₹",
+  // Schema.org's priceRange vocabulary is $/$$/$$$/$$$$ — "₹" is rejected by
+  // Google's Rich Results Test. "$" reflects entry-level pricing; the
+  // currency itself is declared via currenciesAccepted.
+  priceRange: "$",
+  currenciesAccepted: "INR",
   taxID: BUSINESS.gstNumber,
-  areaServed: ["Chennai", "Pallavaram", "Chromepet", "Tambaram", "Perungalathur", "Pammal", "Alandur"],
+  areaServed: [
+    "Chennai",
+    "Pallavaram",
+    "Chromepet",
+    "Tambaram",
+    "Pammal",
+    "Perungalathur",
+    "Velachery",
+    "Nanganallur",
+    "Medavakkam",
+    "Guindy",
+    "Adyar",
+    "Alandur",
+  ],
   aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "147", bestRating: "5" },
   sameAs: BUSINESS.sameAs,
   hasMap: BUSINESS.googleMapsUrl,
+  // image as an array satisfies Google's preferred-image guidance; the first
+  // entry is the logo (1:1), second is the OG share image (16:9).
+  image: [
+    `${BUSINESS.siteUrl}/super-printers-logo.png`,
+    `${BUSINESS.siteUrl}/og-image.jpg`,
+  ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Printing services",

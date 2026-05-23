@@ -54,6 +54,8 @@ const UnifiedHeader = () => {
             <img
               src="/super-printers-logo.png?v=2"
               alt="Super Printers — 35 Years Experience"
+              width={300}
+              height={200}
               className="h-[72px] sm:h-[80px] md:h-[88px] lg:h-[88px] w-auto object-contain object-left max-w-[280px] sm:max-w-[320px] md:max-w-[360px] drop-shadow-sm"
               style={{ minHeight: 96 }}
               onError={(e) => {

@@ -120,6 +120,8 @@ const HeroSection = () => (
             <img
               src={IMAGE_PATHS.hero.wedding}
               alt="Wedding card with gold foil printed by Super Printers, Pallavaram"
+              width={800}
+              height={600}
               fetchPriority="high"
               decoding="async"
               className="absolute inset-0 w-full h-full object-cover"

@@ -28,11 +28,11 @@ const WeddingCardsSection = () => (
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-3">
           <div className="space-y-3">
-            <img src={WEDDING_IMAGES[0]} alt="Wedding card design" className="w-full rounded-2xl object-cover aspect-[3/4]" loading="lazy" />
+            <img src={WEDDING_IMAGES[0]} alt="Wedding card design" width={600} height={800} className="w-full rounded-2xl object-cover aspect-[3/4]" loading="lazy" decoding="async" />
           </div>
           <div className="space-y-3 pt-6">
-            <img src={WEDDING_IMAGES[1]} alt="Wedding invitation suite" className="w-full rounded-2xl object-cover aspect-square" loading="lazy" />
-            <img src={WEDDING_IMAGES[2]} alt="Floral wedding card" className="w-full rounded-2xl object-cover aspect-[4/3]" loading="lazy" />
+            <img src={WEDDING_IMAGES[1]} alt="Wedding invitation suite" width={600} height={600} className="w-full rounded-2xl object-cover aspect-square" loading="lazy" decoding="async" />
+            <img src={WEDDING_IMAGES[2]} alt="Floral wedding card" width={800} height={600} className="w-full rounded-2xl object-cover aspect-[4/3]" loading="lazy" decoding="async" />
           </div>
         </motion.div>
       </div>
