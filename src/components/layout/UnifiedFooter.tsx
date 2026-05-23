@@ -36,27 +36,31 @@ const AREAS_LINKS = [
 
 const UnifiedFooter = () => (
   <footer style={{ backgroundColor: "var(--color-dark-section)" }} className="text-white/80">
-    <div className="max-w-7xl mx-auto px-6 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div className="max-w-7xl mx-auto px-6 py-14">
+      {/* gap-x-8 keeps columns from spreading; gap-y-10 preserves breathing
+          room when the grid stacks on mobile. */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
         {/* About */}
         <div>
           <h3 className="font-display font-bold text-xl text-white mb-3">{BUSINESS.shortName}</h3>
-          <p className="text-sm leading-relaxed mb-4 font-bold text-white" style={{ fontFamily: "var(--font-body)" }}>
+          <p className="text-sm leading-snug mb-3 font-bold text-white" style={{ fontFamily: "var(--font-body)" }}>
             Chennai's trusted printing press since 1990. 35+ years of quality.
           </p>
-          <p className="text-xs mb-2" style={{ color: "var(--gold)" }}>✅ GST Registered · {BUSINESS.gstNumber}</p>
+          <p className="text-xs mb-1.5" style={{ color: "var(--gold)" }}>✅ GST Registered · {BUSINESS.gstNumber}</p>
           <p className="text-xs" style={{ color: "var(--gold)" }}>⭐ {BUSINESS.googleRating} Google Rating · {BUSINESS.googleReviewCount} Reviews</p>
         </div>
 
-        {/* Services */}
+        {/* Services — denser stack: text-sm with leading-snug (1.375) and
+            space-y-1.5 (6px) instead of space-y-2. Same descriptive anchors,
+            just tighter rhythm. */}
         <div>
-          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4" style={{ fontFamily: "var(--font-body)" }}>Services</h4>
-          <div className="space-y-2">
+          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-3" style={{ fontFamily: "var(--font-body)" }}>Services</h4>
+          <div className="space-y-1.5">
             {SERVICES_LINKS.map((s) => (
               <Link
                 key={s.label}
                 to={s.to}
-                className="block text-sm hover:text-white transition-colors"
+                className="block text-sm leading-snug hover:text-white transition-colors"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {s.label}
@@ -67,14 +71,14 @@ const UnifiedFooter = () => (
 
         {/* Areas Served */}
         <div>
-          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4" style={{ fontFamily: "var(--font-body)" }}>Areas Served</h4>
-          <p className="text-sm text-white/90 mb-3" style={{ fontFamily: "var(--font-body)" }}>Throughout Chennai and Tamil Nadu</p>
-          <div className="space-y-2">
+          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-3" style={{ fontFamily: "var(--font-body)" }}>Areas Served</h4>
+          <p className="text-sm text-white/90 mb-2 leading-snug" style={{ fontFamily: "var(--font-body)" }}>Throughout Chennai and Tamil Nadu</p>
+          <div className="space-y-1.5">
             {AREAS_LINKS.map((a) => (
               <Link
                 key={a.to}
                 to={a.to}
-                className="block text-sm hover:text-white transition-colors"
+                className="block text-sm leading-snug hover:text-white transition-colors"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {a.label}
@@ -85,8 +89,8 @@ const UnifiedFooter = () => (
 
         {/* Contact */}
         <div>
-          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4" style={{ fontFamily: "var(--font-body)" }}>Contact</h4>
-          <ul className="space-y-3 text-sm list-none p-0 m-0" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.9)" }}>
+          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-3" style={{ fontFamily: "var(--font-body)" }}>Contact</h4>
+          <ul className="space-y-2.5 text-sm list-none p-0 m-0 leading-snug" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.9)" }}>
             <li>
               <a href={BUSINESS.phoneTel} onClick={() => trackPhoneClick("footer")} className="flex items-center gap-2 hover:text-white transition-colors">
                 <span className="text-white/70" aria-hidden>📞</span>
