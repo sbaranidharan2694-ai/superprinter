@@ -15,8 +15,12 @@ export const MARQUEE_ITEMS = [
 ];
 
 export const HERO = {
-  microLabel: "PALLAVARAM'S PRINTING PRESS SINCE 1990",
-  h1: "Printing Press in Chennai — Wedding & Visiting Cards Since 1990",
+  // Eyebrow holds trust + location; H1 holds primary keywords. Earlier draft
+  // repeated "Since 1990" in both, which read as keyword padding. The price
+  // anchor (Wedding Cards from ₹5) is preserved via MARQUEE_ITEMS, body
+  // line, FAQs and OG image so the H1 stays clean.
+  microLabel: "EST. 1990 · PALLAVARAM, CHENNAI",
+  h1: "Chennai's Wedding & Visiting Card Printing Press",
   accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house in Pallavaram.",
   body: "Proof shared before every print run. Most orders ready in 24 hours. WhatsApp us for a quote in 30 minutes.",
   ctaPrimary: "Get Quote",

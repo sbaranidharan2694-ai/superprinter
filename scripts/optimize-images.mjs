@@ -15,21 +15,31 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const imagesDir = path.resolve(__dirname, "..", "public", "images");
+const publicDir = path.resolve(__dirname, "..", "public");
 
 const WEBP_QUALITY = 78;
+
+// Skip dot-dirs (.well-known) and any future asset folders the build pipeline
+// shouldn't touch. Everything else under public/ that's a raster image gets
+// a .webp sibling so the <Picture> helper has a valid WebP source to point
+// at. If the .webp didn't exist, <picture> would 404 on the source URL and
+// the browser would NOT fall back to the <img> tag — it would render broken.
+const SKIP_DIRS = new Set([".well-known"]);
 
 function walk(dir) {
   const out = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...walk(full));
-    else if (/\.(jpe?g|png)$/i.test(entry.name)) out.push(full);
+    if (entry.isDirectory()) {
+      if (SKIP_DIRS.has(entry.name)) continue;
+      out.push(...walk(path.join(dir, entry.name)));
+    } else if (/\.(jpe?g|png)$/i.test(entry.name)) {
+      out.push(path.join(dir, entry.name));
+    }
   }
   return out;
 }
 
-const files = walk(imagesDir);
+const files = walk(publicDir);
 console.log(`Found ${files.length} source images.\n`);
 
 let totalIn = 0;
@@ -54,7 +64,7 @@ for (const file of files) {
   converted++;
 
   const pct = ((1 - outStat.size / srcStat.size) * 100).toFixed(0);
-  console.log(`  ${path.relative(imagesDir, file).padEnd(36)}  ${(srcStat.size / 1024).toFixed(0).padStart(5)} → ${(outStat.size / 1024).toFixed(0).padStart(5)} KB  (-${pct}%)`);
+  console.log(`  ${path.relative(publicDir, file).padEnd(40)}  ${(srcStat.size / 1024).toFixed(0).padStart(5)} → ${(outStat.size / 1024).toFixed(0).padStart(5)} KB  (-${pct}%)`);
 }
 
 console.log(`\nConverted ${converted}, skipped ${skipped}.`);
