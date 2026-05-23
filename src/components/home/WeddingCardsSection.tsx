@@ -7,10 +7,14 @@ const WeddingCardsSection = () => (
   <section
     id="wedding-cards"
     className="section-pad"
+    // Was a pink/cream gradient (#FFF4F6 → #FFF0F3 → #FFF8F0) that clashed
+    // with the rest of the site's navy/gold/cream palette. Replaced with a
+    // cream-only gradient that reads as a "warm soft" backdrop without
+    // introducing a new colour key.
     style={{
-      background: "linear-gradient(135deg, #FFF4F6 0%, #FFF0F3 50%, #FFF8F0 100%)",
-      borderTop: "1px solid rgba(201,168,76,0.15)",
-      borderBottom: "1px solid rgba(201,168,76,0.15)",
+      background: "linear-gradient(135deg, #FFFCF5 0%, #FFF8EC 50%, #FFFCF5 100%)",
+      borderTop: "1px solid rgba(201,168,76,0.18)",
+      borderBottom: "1px solid rgba(201,168,76,0.18)",
     }}
   >
     <div className="max-w-7xl mx-auto px-6">
