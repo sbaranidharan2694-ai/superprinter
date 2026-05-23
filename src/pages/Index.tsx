@@ -5,6 +5,7 @@ import SocialProofBar from "@/components/home/SocialProofBar";
 import ProductsSection from "@/components/home/ProductsSection";
 import WeddingCardsSection from "@/components/home/WeddingCardsSection";
 import PortfolioSection from "@/components/home/PortfolioSection";
+import FeaturedCraftSection from "@/components/home/FeaturedCraftSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
 import QuoteFormSection from "@/components/home/QuoteFormSection";
@@ -39,6 +40,7 @@ const Index = () => (
     <ProductsSection />
     <WeddingCardsSection />
     <PortfolioSection />
+    <FeaturedCraftSection />
     <HowItWorksSection />
     <SocialProofSection />
     <QuoteFormSection />
