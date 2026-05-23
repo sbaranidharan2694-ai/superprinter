@@ -19,13 +19,19 @@ export const HERO = {
   //  - Eyebrow carries trust + city anchor ("EST. 1990 · PALLAVARAM, CHENNAI")
   //  - Title tag is keyword-led ("Printing Press in Chennai | Wedding &
   //    Visiting Cards") — see src/pages/Index.tsx
-  //  - H1 is product-led with hyper-local. Leads with the actual search
-  //    stems ("wedding card printing", "visiting card printing"), then
-  //    Pallavaram + Chennai for the local-pack double-hit. "Printing Press"
-  //    exact match stays in the title and eyebrow so Google sees the brand
-  //    category there; the H1 doesn't repeat it.
+  //  - H1 is breadth-led with hyper-local + concrete anchors. The earlier
+  //    draft ("Wedding & Visiting Card Printing in Pallavaram, Chennai")
+  //    boxed the business into 2 of 14 services, costing organic rank for
+  //    brochures / banners / bill books / rubber stamps / etc. queries.
+  //    Current pattern:
+  //      • "Printing Press in Pallavaram, Chennai" — head term + local pack
+  //      • "Cards, Brochures, Banners" — three concrete category anchors
+  //        that cover the highest-volume product queries while letting
+  //        BERT/MUM semantically map "Cards" to wedding+visiting+business
+  //      • "& More" — explicit breadth signal Google understands well
+  //        (Amazon, Etsy, IKEA category-page convention).
   microLabel: "EST. 1990 · PALLAVARAM, CHENNAI",
-  h1: "Wedding & Visiting Card Printing in Pallavaram, Chennai",
+  h1: "Printing Press in Pallavaram, Chennai — Cards, Brochures, Banners & More",
   accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house in Pallavaram.",
   body: "Proof shared before every print run. Most orders ready in 24 hours. WhatsApp us for a quote in 30 minutes.",
   ctaPrimary: "Get Quote",
