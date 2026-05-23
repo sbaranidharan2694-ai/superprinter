@@ -15,12 +15,17 @@ export const MARQUEE_ITEMS = [
 ];
 
 export const HERO = {
-  // Eyebrow holds trust + location; H1 holds primary keywords. Earlier draft
-  // repeated "Since 1990" in both, which read as keyword padding. The price
-  // anchor (Wedding Cards from ₹5) is preserved via MARQUEE_ITEMS, body
-  // line, FAQs and OG image so the H1 stays clean.
+  // SEO posture:
+  //  - Eyebrow carries trust + city anchor ("EST. 1990 · PALLAVARAM, CHENNAI")
+  //  - Title tag is keyword-led ("Printing Press in Chennai | Wedding &
+  //    Visiting Cards") — see src/pages/Index.tsx
+  //  - H1 is product-led with hyper-local. Leads with the actual search
+  //    stems ("wedding card printing", "visiting card printing"), then
+  //    Pallavaram + Chennai for the local-pack double-hit. "Printing Press"
+  //    exact match stays in the title and eyebrow so Google sees the brand
+  //    category there; the H1 doesn't repeat it.
   microLabel: "EST. 1990 · PALLAVARAM, CHENNAI",
-  h1: "Chennai's Wedding & Visiting Card Printing Press",
+  h1: "Wedding & Visiting Card Printing in Pallavaram, Chennai",
   accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house in Pallavaram.",
   body: "Proof shared before every print run. Most orders ready in 24 hours. WhatsApp us for a quote in 30 minutes.",
   ctaPrimary: "Get Quote",
