@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 import { IMAGE_PATHS } from "@/data/imagePaths";
 import { HERO } from "@/data/v2";
+import HeroTiltCard from "@/components/home/HeroTiltCard";
+import { Spotlight } from "@/components/ui/Spotlight";
 
 /**
  * Hero — editorial print-shop, not SaaS. One headline, one body line, one
@@ -116,40 +118,56 @@ const HeroSection = () => (
           transition={{ delay: 0.25, duration: 0.55 }}
           className="lg:col-span-5 relative"
         >
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-amber-50 to-rose-50 shadow-[0_24px_80px_-32px_rgba(26,26,46,0.35)]">
-            {/* <picture> with AVIF/WebP/JPG fallback. AVIF (~65% smaller) is
-                tried first, WebP (~65% smaller) next, JPG as the universal
-                fallback. The <img> is the LCP candidate so it keeps
-                fetchPriority="high". */}
-            <picture>
-              <source srcSet="/images/hero/wedding.avif" type="image/avif" />
-              <source srcSet="/images/hero/wedding.webp" type="image/webp" />
-              <img
-                src={IMAGE_PATHS.hero.wedding}
-                alt="Wedding card with gold foil printed by Super Printers, Pallavaram"
-                width={800}
-                height={600}
-                fetchPriority="high"
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) => {
-                  const t = e.currentTarget;
-                  if (t.dataset.fallback) return;
-                  t.dataset.fallback = "1";
-                  t.src = IMAGE_PATHS.placeholder;
-                }}
-              />
-            </picture>
-            {/* Caption tab — handmade-press feel */}
-            <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur rounded-2xl px-4 py-3 border border-border-light">
-              <p className="text-[11px] font-bold tracking-[0.18em] uppercase font-ui" style={{ color: "var(--gold-dark)" }}>
-                Featured work
-              </p>
-              <p className="text-sm font-display font-semibold mt-0.5" style={{ color: "var(--ink-black)" }}>
-                Tamil wedding card &mdash; foil + laser-cut
-              </p>
+          {/* HeroTiltCard applies a desktop-only 3D tilt on cursor move. On
+              touch / mobile / reduced-motion it's a no-op pass-through, so
+              the SSR DOM and the mobile experience are unaffected. */}
+          <HeroTiltCard className="relative">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-amber-50 to-rose-50 shadow-[0_24px_80px_-32px_rgba(26,26,46,0.35)]">
+              {/* Decorative sweeping spotlight (pure SVG + CSS keyframe). */}
+              <Spotlight className="-top-32 -left-20 md:left-10" fill="rgba(255,235,170,0.9)" />
+              {/* <picture> with AVIF/WebP/JPG fallback. AVIF (~65% smaller) is
+                  tried first, WebP (~65% smaller) next, JPG as the universal
+                  fallback. The <img> is the LCP candidate so it keeps
+                  fetchPriority="high". */}
+              <picture>
+                <source srcSet="/images/hero/wedding.avif" type="image/avif" />
+                <source srcSet="/images/hero/wedding.webp" type="image/webp" />
+                <img
+                  src={IMAGE_PATHS.hero.wedding}
+                  alt="Wedding card with gold foil printed by Super Printers, Pallavaram"
+                  width={800}
+                  height={600}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => {
+                    const t = e.currentTarget;
+                    if (t.dataset.fallback) return;
+                    t.dataset.fallback = "1";
+                    t.src = IMAGE_PATHS.placeholder;
+                  }}
+                />
+              </picture>
+              {/* Caption tab — handmade-press feel. The eyebrow has a
+                  gold-foil shimmer that mirrors the actual foil-stamped
+                  product on the card behind it. */}
+              <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur rounded-2xl px-4 py-3 border border-border-light">
+                <p
+                  className="text-[11px] font-bold tracking-[0.18em] uppercase font-ui bg-clip-text text-transparent animate-foil-shimmer"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(110deg, var(--gold-dark) 0%, var(--gold-dark) 35%, #fff5d0 50%, var(--gold-dark) 65%, var(--gold-dark) 100%)",
+                    backgroundSize: "200% 100%",
+                  }}
+                >
+                  Featured work
+                </p>
+                <p className="text-sm font-display font-semibold mt-0.5" style={{ color: "var(--ink-black)" }}>
+                  Tamil wedding card &mdash; foil + laser-cut
+                </p>
+              </div>
             </div>
-          </div>
+          </HeroTiltCard>
         </motion.div>
       </div>
     </div>

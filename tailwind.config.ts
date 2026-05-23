@@ -149,12 +149,26 @@ export default {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0)" },
         },
+        // Aceternity-style spotlight: a wide soft ellipse sweeps in once,
+        // then holds. Used as a one-shot light reveal on the hero card.
+        spotlight: {
+          "0%": { opacity: "0", transform: "translate(-72%, -62%) scale(0.5)" },
+          "100%": { opacity: "1", transform: "translate(-50%, -40%) scale(1)" },
+        },
+        // Diagonal sweep that mimics gold-foil reflection: a thin highlight
+        // moves across the element periodically. Used on the foil caption.
+        "foil-shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "60%, 100%": { backgroundPosition: "200% 0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "pulse-ring": "pulse-ring 2.5s ease-out infinite",
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+        spotlight: "spotlight 2s ease 0.3s 1 forwards",
+        "foil-shimmer": "foil-shimmer 4.5s ease-in-out infinite",
       },
     },
   },
