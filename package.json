@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "lint:alt": "node scripts/audit-alt.mjs",
-    "prebuild": "node scripts/audit-alt.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "prebuild": "node scripts/audit-alt.mjs && node scripts/optimize-images.mjs",
     "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs",
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist/server",
@@ -87,6 +88,7 @@
     "globals": "^15.15.0",
     "jsdom": "^20.0.3",
     "lovable-tagger": "^1.1.13",
+    "png-to-ico": "^3.0.1",
     "postcss": "^8.5.6",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.17",
