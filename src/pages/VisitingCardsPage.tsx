@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { getFaqPageSchema } from "@/data/serviceFaqs";
 import { services } from "@/data/services";
 import Picture from "@/components/ui/Picture";
+import ServicePageFaqs from "@/components/shared/ServicePageFaqs";
 
 const VC_SVC = services.find((s) => s.slug === "visiting-cards")!;
 
@@ -101,6 +103,7 @@ const VisitingCardsPage = () => {
           description: "Visiting card printing in Chennai from ₹1/card at 1000+ qty. Gloss, matt, Spot UV, foil and PVC finishes on 300–400 GSM stock. Same-day for most designs.",
           imageUrl: `${BUSINESS.siteUrl}/images/hero/visiting.jpg`,
         }),
+        getFaqPageSchema("visiting-cards"),
       ]}
     />
 
@@ -215,6 +218,7 @@ const VisitingCardsPage = () => {
           </a>
         </section>
       </div>
+      <ServicePageFaqs serviceSlug="visiting-cards" heading="Visiting card printing — common questions" />
     </div>
 
       {/* Lightbox for sample design */}

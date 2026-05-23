@@ -3,7 +3,9 @@ import SEOHead from "@/components/SEOHead";
 import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { getFaqPageSchema } from "@/data/serviceFaqs";
 import { services } from "@/data/services";
+import ServicePageFaqs from "@/components/shared/ServicePageFaqs";
 
 const BROCHURE_SVC = services.find((s) => s.slug === "brochure-printing")!;
 
@@ -34,6 +36,7 @@ const BrochuresPage = () => (
           description: "Tri-fold and bi-fold brochures with laminated finishes in Chennai. Corporate quantities, fast turnaround from our Pallavaram press.",
           imageUrl: `${BUSINESS.siteUrl}/images/hero/brochures.jpg`,
         }),
+        getFaqPageSchema("brochure-printing"),
       ]}
     />
 
@@ -133,6 +136,7 @@ const BrochuresPage = () => (
         <ServicePageFooter currentSlug="brochures" serviceName="Brochure printing" whatsappPrompt="Hi! I need brochure printing. Quantity & fold style:" />
       </div>
     </div>
+    <ServicePageFaqs serviceSlug="brochure-printing" heading="Brochure printing — common questions" />
   </div>
 );
 

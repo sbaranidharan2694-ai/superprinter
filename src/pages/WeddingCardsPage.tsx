@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { getFaqPageSchema } from "@/data/serviceFaqs";
 import { services } from "@/data/services";
 import PageHero from "@/components/shared/PageHero";
+import ServicePageFaqs from "@/components/shared/ServicePageFaqs";
 
 const WEDDING_SVC = services.find((s) => s.slug === "wedding-invitations")!;
 
@@ -56,6 +58,7 @@ const WeddingCardsPage = () => (
           description: "Wedding invitation card printing in Chennai from ₹5 per card. Hindu, Christian, Muslim and modern designs in Tamil and English. Free design proof; 24–48 hour turnaround.",
           imageUrl: `${BUSINESS.siteUrl}/images/hero/wedding.jpg`,
         }),
+        getFaqPageSchema("wedding-invitations"),
       ]}
     />
 
@@ -254,6 +257,7 @@ const WeddingCardsPage = () => (
       </div>
 
     </div>
+    <ServicePageFaqs serviceSlug="wedding-invitations" heading="Wedding card printing — common questions" />
   </div>
 );
 

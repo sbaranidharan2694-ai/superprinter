@@ -3,7 +3,9 @@ import SEOHead from "@/components/SEOHead";
 import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { getFaqPageSchema } from "@/data/serviceFaqs";
 import { services } from "@/data/services";
+import ServicePageFaqs from "@/components/shared/ServicePageFaqs";
 
 const BB_SVC = services.find((s) => s.slug === "bill-books")!;
 
@@ -33,6 +35,7 @@ const BillBooksPage = () => (
           description: "Carbonless (NCR) duplicate and triplicate bill books with serial numbering, GST-ready invoice formats. Chennai delivery.",
           imageUrl: `${BUSINESS.siteUrl}/images/hero/bill-books.jpg`,
         }),
+        getFaqPageSchema("bill-books"),
       ]}
     />
 
@@ -131,6 +134,7 @@ const BillBooksPage = () => (
         <ServicePageFooter currentSlug="bill-books" serviceName="GST bill book printing" whatsappPrompt="Hi! I need bill book printing. Please quote." />
       </div>
     </div>
+    <ServicePageFaqs serviceSlug="bill-books" heading="GST bill book printing — common questions" />
   </div>
 );
 

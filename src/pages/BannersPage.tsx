@@ -3,7 +3,9 @@ import SEOHead from "@/components/SEOHead";
 import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema, productSchema } from "@/data/seoSchemas";
+import { getFaqPageSchema } from "@/data/serviceFaqs";
 import { services } from "@/data/services";
+import ServicePageFaqs from "@/components/shared/ServicePageFaqs";
 
 const BANNER_SVC = services.find((s) => s.slug === "banner-printing")!;
 
@@ -34,6 +36,7 @@ const BannersPage = () => (
           path: "/banners",
           description: "Flex, vinyl, canvas and roll-up banner printing in Chennai. Most standard sizes delivered the same day from our Pallavaram press.",
         }),
+        getFaqPageSchema("banner-printing"),
       ]}
     />
 
@@ -134,6 +137,7 @@ const BannersPage = () => (
         <ServicePageFooter currentSlug="banners" serviceName="Banner printing" whatsappPrompt="Hi! I need a banner printed. Size & material:" />
       </div>
     </div>
+    <ServicePageFaqs serviceSlug="banner-printing" heading="Banner printing — common questions" />
   </div>
 );
 
