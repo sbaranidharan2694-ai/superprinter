@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 import { serviceLandingSchema } from "@/data/seoSchemas";
+import Picture from "@/components/ui/Picture";
 
 /** Sample design gallery: 10 visiting card images. Place files in public/visiting-cards/ as visiting-card-01.png … visiting-card-10.png */
 const VISITING_CARD_DESIGNS = [
@@ -46,7 +47,7 @@ function VisitingCardGalleryItem({
     >
       <div className="aspect-[3.5/2] bg-gray-100 relative overflow-hidden">
         {!error ? (
-          <img
+          <Picture
             src={design.src}
             alt={design.label}
             width={700}
@@ -226,7 +227,7 @@ const VisitingCardsPage = () => {
             className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
+            <Picture
               src={lightboxDesign.src}
               alt={lightboxDesign.label}
               width={1400}

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { SOCIAL_PROOF_STATS } from "@/data/v2";
 import { CLIENTS } from "@/data/clients";
+import Picture from "@/components/ui/Picture";
 
 const SocialProofBar = () => (
   <section
@@ -65,7 +66,7 @@ const SocialProofBar = () => (
             transition={{ delay: i * 0.04 }}
             className="flex flex-col items-center justify-center min-h-[76px] md:min-h-[96px] px-3 md:px-5 py-2.5 md:py-4 rounded-lg bg-white/95 border border-white/20 transition-shadow duration-300 hover:shadow-md group"
           >
-            <img
+            <Picture
               src={client.logo}
               alt={client.name}
               width={140}

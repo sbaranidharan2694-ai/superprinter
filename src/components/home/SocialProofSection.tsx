@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { IMAGE_PATHS } from "@/data/imagePaths";
 import { TESTIMONIALS } from "@/data/v2";
+import Picture from "@/components/ui/Picture";
 
 const SocialProofSection = () => (
   <section id="reviews" className="section-pad" style={{ backgroundColor: "var(--color-cream)" }}>
@@ -33,7 +34,7 @@ const SocialProofSection = () => (
             className="review-card bg-white rounded-2xl p-6 shadow-sm"
           >
             <div className="flex items-start gap-4 mb-4">
-              <img
+              <Picture
                 src={review.avatar}
                 alt={`${review.name} — verified customer review for Super Printers Chennai`}
                 width={56}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
+import Picture from "@/components/ui/Picture";
 
 const WHATSAPP_URL = `${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers! I need a printing quote.")}`;
 
@@ -51,7 +52,7 @@ const UnifiedHeader = () => {
         {/* Logo only — large and prominent */}
         <Link to="/" className="flex items-center shrink-0" aria-label="Super Printers Home">
           {!logoImgFailed ? (
-            <img
+            <Picture
               src="/super-printers-logo.png?v=2"
               alt="Super Printers — 35 Years Experience"
               width={300}
