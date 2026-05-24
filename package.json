@@ -8,7 +8,7 @@
     "lint:alt": "node scripts/audit-alt.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "prebuild": "node scripts/audit-alt.mjs && node scripts/optimize-images.mjs",
-    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs && node scripts/refresh-sitemap.mjs",
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist/server",
     "build:dev": "vite build --mode development",
