@@ -55,7 +55,7 @@ const Contact = () => {
             "name": "Super Printers & Wedding Cards",
             "telephone": "+919840199878",
             "email": "SuperPrntrs@yahoo.com",
-            "address": { "@type": "PostalAddress", "streetAddress": "No. 6, Saraswathy Colony", "addressLocality": "Pallavaram", "addressRegion": "Tamil Nadu", "postalCode": "600043", "addressCountry": "IN" },
+            "address": { "@type": "PostalAddress", "streetAddress": "No. 8, Saraswathy Colony", "addressLocality": "Pallavaram", "addressRegion": "Tamil Nadu", "postalCode": "600043", "addressCountry": "IN" },
             "openingHoursSpecification": [
               { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "09:00", "closes": "20:00" },
               { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "16:00" }

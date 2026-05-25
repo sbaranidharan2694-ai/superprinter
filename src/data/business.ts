@@ -19,8 +19,8 @@ export const BUSINESS = {
   whatsappWedding:
     "https://wa.me/919840199878?text=Hi%2C%20I%20need%20wedding%20card%20printing",
   email: "SuperPrntrs@yahoo.com",
-  address: "No. 6, Saraswathy Colony",
-  addressFull: "No. 6, Saraswathy Colony, Pallavaram, Chennai 600043",
+  address: "No. 8, Saraswathy Colony",
+  addressFull: "No. 8, Saraswathy Colony, Pallavaram, Chennai 600043",
   addressShort: "Pallavaram, Chennai 600043",
   city: "Pallavaram",
   postalCode: "600043",

@@ -37,7 +37,7 @@ const About = () => (
           "url": BUSINESS.siteUrl,
           "logo": `${BUSINESS.siteUrl}/super-printers-logo.png`,
           "description": "Pallavaram's trusted printing press since 1990 — wedding cards, visiting cards, brochures, banners and more.",
-          "address": { "@type": "PostalAddress", "streetAddress": "No. 6, Saraswathy Colony", "addressLocality": "Pallavaram", "addressRegion": "Tamil Nadu", "postalCode": "600043", "addressCountry": "IN" },
+          "address": { "@type": "PostalAddress", "streetAddress": "No. 8, Saraswathy Colony", "addressLocality": "Pallavaram", "addressRegion": "Tamil Nadu", "postalCode": "600043", "addressCountry": "IN" },
           "telephone": "+919840199878",
           "areaServed": ["Chennai", "Pallavaram", "Chromepet", "Tambaram"]
         }

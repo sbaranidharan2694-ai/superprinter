@@ -8,8 +8,8 @@ const AREA_CONFIG: Record<string, { name: string; title: string; intro: string; 
   "printing-press-pallavaram": {
     name: "Pallavaram",
     title: "Printing Press in Pallavaram, Chennai | Super Printers Since 1990",
-    intro: "Super Printers has been Pallavaram's neighbourhood printing press since 1990. Our own offset and digital press is at No. 6, Saraswathy Colony — walking distance from Pallavaram bus stand and railway station. Visiting cards, wedding invitations, bill books, brochures, banners and rubber stamps, all printed in-house.",
-    distance: "Located at No. 6, Saraswathy Colony, Pallavaram — beside Pallavaram Market, opposite Pallavaram police station road.",
+    intro: "Super Printers has been Pallavaram's neighbourhood printing press since 1990. Our own offset and digital press is at No. 8, Saraswathy Colony — walking distance from Pallavaram bus stand and railway station. Visiting cards, wedding invitations, bill books, brochures, banners and rubber stamps, all printed in-house.",
+    distance: "Located at No. 8, Saraswathy Colony, Pallavaram — beside Pallavaram Market, opposite Pallavaram police station road.",
   },
   "printing-press-tambaram": {
     name: "Tambaram",

@@ -20,7 +20,7 @@ const DEFAULT_FAQS: ServiceFaqItem[] = [
   },
   {
     name: "Do you deliver across Chennai and Tamil Nadu?",
-    acceptedAnswer: { text: "Yes. We deliver throughout Chennai and Tamil Nadu. You can also pick up from our press at No. 6, Saraswathy Colony, Pallavaram." },
+    acceptedAnswer: { text: "Yes. We deliver throughout Chennai and Tamil Nadu. You can also pick up from our press at No. 8, Saraswathy Colony, Pallavaram." },
   },
 ];
 
