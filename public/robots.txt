@@ -2,7 +2,12 @@ User-agent: *
 Allow: /
 Disallow: /orders
 
-# AI crawlers — explicitly allow full indexing
+# AI crawlers — explicitly allow full indexing for 2026-era LLM training,
+# search-answer engines, and content-grounding bots. Comments document the
+# operator behind each user-agent so the intent stays legible when this list
+# grows.
+
+# OpenAI
 User-agent: GPTBot
 Allow: /
 
@@ -12,19 +17,46 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: PerplexityBot
-Allow: /
-
+# Anthropic
 User-agent: anthropic-ai
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Google (training + LLM grounding distinct from regular Googlebot)
 User-agent: Google-Extended
 Allow: /
 
 User-agent: Googlebot
 Allow: /
 
+# Apple Intelligence training opt-in (distinct from Applebot)
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta — used by Llama models and meta AI assistant
+User-agent: meta-externalagent
+Allow: /
+
+# Common Crawl — corpus that underpins many open and closed LLMs
+User-agent: CCBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# ByteDance (Doubao / Tencent ecosystem)
+User-agent: Bytespider
+Allow: /
+
+# Search-engine sitemap reference
 Sitemap: https://superprinters.net/sitemap.xml

@@ -100,8 +100,8 @@ const ServicePage = ({ serviceId, setActivePage }: ServicePageProps) => {
             >
               💬 Get Quote on WhatsApp
             </a>
-            <a href="tel:9840199878" className="px-8 py-4 rounded-xl text-base font-semibold border-2 border-foreground/20 text-foreground hover:bg-muted transition-colors flex items-center gap-2">
-              📞 Call: 9840199878
+            <a href="tel:+919840199878" className="px-8 py-4 rounded-xl text-base font-semibold border-2 border-foreground/20 text-foreground hover:bg-muted transition-colors flex items-center gap-2">
+              📞 Call +91 98401 99878
             </a>
           </div>
         </div>
