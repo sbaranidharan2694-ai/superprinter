@@ -41,7 +41,7 @@ const HowItWorksSection = () => (
               {step.time}
             </span>
             <h3 className="font-ui font-semibold text-[20px] text-ink-black mb-2">{step.title}</h3>
-            <p className="font-ui text-[15px] leading-relaxed max-w-[200px]" style={{ color: "#6B7280" }}>
+            <p className="font-ui text-[15px] leading-relaxed max-w-[200px]" style={{ color: "var(--gray-text-light)" }}>
               {step.desc}
             </p>
             {i < PROCESS_STEPS.length - 1 && (

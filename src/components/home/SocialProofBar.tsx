@@ -33,7 +33,7 @@ const SocialProofBar = () => (
               </div>
               <div
                 className="text-[10px] md:text-sm mt-1.5 font-semibold uppercase tracking-wider font-ui"
-                style={{ color: "#374151" }}
+                style={{ color: "var(--gray-text)" }}
               >
                 {stat.label}
               </div>

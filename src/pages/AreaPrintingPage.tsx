@@ -177,7 +177,7 @@ const AreaPrintingPage = () => {
             <p className="text-lg mb-2" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>
               {config.intro}
             </p>
-            <p className="text-sm" style={{ color: "#6B7280", fontFamily: "var(--font-body)" }}>
+            <p className="text-sm" style={{ color: "var(--gray-text-light)", fontFamily: "var(--font-body)" }}>
               {config.distance}
             </p>
           </div>

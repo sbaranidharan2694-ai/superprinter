@@ -24,7 +24,7 @@ const WeddingCardsSection = () => (
           <h2 className="font-display font-bold text-3xl md:text-[42px] leading-tight mb-6" style={{ color: "var(--color-primary)", whiteSpace: "pre-line" }}>{"Chennai's Cheapest\nWedding Cards.\nFrom ₹5 per card."}</h2>
           <ul className="space-y-3 mb-8">
             {WEDDING_FEATURES.map((feat) => (
-              <li key={feat} className="flex items-start gap-3 text-base" style={{ color: "#374151", fontFamily: "var(--font-body)" }}>
+              <li key={feat} className="flex items-start gap-3 text-base" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
                 <span style={{ color: "var(--gold)" }}>✅</span><span>{feat}</span>
               </li>
             ))}

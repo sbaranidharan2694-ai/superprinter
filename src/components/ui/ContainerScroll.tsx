@@ -87,6 +87,10 @@ const Card = ({
       scale,
       boxShadow:
         "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026",
+      // Promote the card to its own compositor layer up front so scroll-
+      // driven rotateX/scale updates don't trigger layout/paint on every
+      // frame — they animate purely on the GPU.
+      willChange: "transform",
     }}
     className="max-w-5xl mt-6 md:mt-10 mx-auto h-[20rem] md:h-[28rem] w-full border border-border bg-card rounded-2xl md:rounded-3xl shadow-2xl p-2 md:p-3"
   >
