@@ -66,7 +66,7 @@ const GetQuote = () => {
     <>
       <SEOHead
         title="Get a Print Quote | Super Printers Pallavaram Chennai"
-        description="Tell us what you need to print and we'll send a quote on WhatsApp in 30 minutes — wedding cards, visiting cards, brochures, bill books, banners, stickers and more."
+        description="Tell us what you need to print and we'll send a WhatsApp quote in 30 minutes — wedding cards, visiting cards, brochures, banners and more."
         canonical="/get-quote"
         keywords="print quote chennai, printing quote pallavaram, super printers quote, wedding card quote, visiting card quote"
         breadcrumbs={[

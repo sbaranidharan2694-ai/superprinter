@@ -44,8 +44,8 @@ const Gallery = () => {
   return (
     <>
       <SEOHead
-        title="Printing Gallery | Wedding Cards, Visiting Cards, Brochures | Super Printers Chennai"
-        description="Browse our gallery of printed work — wedding cards, visiting cards, brochures, banners, bill books, t-shirts and more. 35 years of quality printing in Chennai. Super Printers Pallavaram."
+        title="Printing Samples Gallery in Chennai | Super Printers"
+        description="Browse Super Printers' Chennai gallery — wedding cards, visiting cards, brochures, banners and more, from our Pallavaram press since 1990."
         canonical="/gallery"
         keywords="printing portfolio chennai, printing samples pallavaram, super printers work, wedding cards, visiting cards gallery"
         breadcrumbs={[

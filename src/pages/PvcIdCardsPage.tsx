@@ -15,8 +15,8 @@ const SPEC_ROWS = [
 const PvcIdCardsPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="PVC ID Card Printing Chennai | Employee, Student & Smart Cards | Super Printers Pallavaram"
-      description="PVC ID card printing in Pallavaram, Chennai. Employee, student, visitor and RFID / NFC smart cards. Photo ID, metallic and transparent PVC. From 10 cards, ready in 24–48 hours. WhatsApp +91 98401 99878."
+      title="PVC ID Card Printing Chennai | Smart, Employee, Student"
+      description="PVC ID card printing in Pallavaram, Chennai — employee, student, visitor, RFID/NFC smart cards. From 10 cards, ready in 24–48 hours."
       canonical="/pvc-id-cards"
       keywords="PVC ID card printing Chennai, employee ID card Pallavaram, student ID card Chennai, RFID card printing Chennai, NFC card Chennai, photo ID card Chennai, metallic PVC card Chennai, smart card printing"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "PVC ID Cards", url: "/pvc-id-cards" }]}

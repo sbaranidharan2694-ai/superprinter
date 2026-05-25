@@ -20,8 +20,8 @@ const EQUIPMENT = ["Offset printing", "Digital printing", "Screen printing", "Di
 const About = () => (
   <>
     <SEOHead
-      title="About Super Printers | Pallavaram's Best Printing Press Since 1990 | Chennai"
-      description="Super Printers — Pallavaram's most trusted printing press since 1990. Founded by N. Baranidharan. 35+ years serving 10,000+ customers. Trusted by Wipro, TTK, Reliance. Wedding cards, visiting cards, brochures, banners and more."
+      title="About Super Printers | Pallavaram Printing Press Since 1990"
+      description="Super Printers — Pallavaram's most trusted printing press since 1990. Founded by N. Baranidharan, serving 10,000+ Chennai customers in 35+ years."
       canonical="/about"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "About", url: "/about" }]}
       schemaMarkup={{

@@ -19,8 +19,8 @@ const SPEC_ROWS = [
 const BannersPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Banner Printing Chennai | Flex, Vinyl & Roll-up Banners | Super Printers Pallavaram"
-      description="Banner printing in Pallavaram, Chennai. Flex, vinyl, canvas and roll-up standees. Indoor and outdoor weather-proof banners. Most orders ready same day. Call +91 98401 99878 or WhatsApp for quote."
+      title="Banner Printing Chennai | Flex, Vinyl, Roll-up Standees"
+      description="Banner printing in Pallavaram, Chennai — flex, vinyl, canvas and roll-up standees. Indoor and outdoor, most orders ready same day."
       canonical="/banners"
       keywords="banner printing Chennai, flex banner printing Pallavaram, vinyl banner Chennai, roll-up standee Chennai, outdoor banner printing Pallavaram, shop banner Chennai, wedding banner Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Banners", url: "/banners" }]}

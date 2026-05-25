@@ -40,8 +40,8 @@ const COMPARE = [
 const WeddingCardsPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Cheapest Wedding Card Printing Chennai | From ₹5 per Card | Free Design | Super Printers Pallavaram"
-      description="Wedding card printing in Chennai from ₹5 per card. Free design proof, ready in 24–48 hours. Hindu, Christian, Muslim cards in Tamil & English. Cheaper than Menaka Cards & Olympic Cards. Call +91 98401 99878."
+      title="Wedding Card Printing Chennai | From ₹5/card | Free Design"
+      description="Wedding card printing in Chennai from ₹5 per card. Free design proof, ready in 24–48 hours. Hindu, Christian, Muslim cards in Tamil & English."
       canonical="/wedding-cards"
       keywords="cheapest wedding card printing Chennai, wedding cards from 5 rupees Chennai, wedding invitation printing Pallavaram, Tamil wedding cards Chennai, Hindu wedding cards Chennai, Christian wedding cards Chennai, Muslim nikah invitation Chennai, wedding card printing near me, budget wedding cards Chennai, wedding cards cheaper than Menaka Cards, wedding invitation 24 hours Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Wedding Cards", url: "/wedding-cards" }]}

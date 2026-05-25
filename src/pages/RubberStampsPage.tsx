@@ -15,8 +15,8 @@ const SPEC_ROWS = [
 const RubberStampsPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Rubber Stamp Maker Chennai | Self-Inking, Pre-Inked & Wooden | Super Printers Pallavaram"
-      description="Rubber stamp maker in Pallavaram, Chennai. Self-inking, pre-inked, wooden handle, date and GST stamps. Most stamps ready same day. Call +91 98401 99878 or WhatsApp for instant quote."
+      title="Rubber Stamp Maker Chennai | Self-Inking & Pre-Inked"
+      description="Rubber stamp maker in Pallavaram, Chennai — self-inking, pre-inked, wooden handle, date and GST stamps. Most ready same day."
       canonical="/rubber-stamps"
       keywords="rubber stamp maker Chennai, rubber stamp Pallavaram, self inking stamp Chennai, pre inked stamp Chennai, wooden handle stamp, GST stamp Chennai, office seal Chennai, date stamp Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Rubber Stamps", url: "/rubber-stamps" }]}

@@ -12,8 +12,8 @@ const SPEC_ROWS = [
 const LetterheadsPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Letterhead Printing Chennai | A4 Bond Letterheads Corporate | Super Printers"
-      description="Company letterhead printing in Pallavaram, Chennai. 90 GSM and 120 GSM bond paper, full colour, fast 24-hour delivery. Corporate stationery for businesses across Chennai. Call +91 98401 99878."
+      title="Letterhead Printing Chennai | Bond Paper, Corporate"
+      description="Corporate letterhead printing in Pallavaram, Chennai — 90 GSM and 120 GSM bond paper, full colour, 24-hour delivery across Chennai."
       canonical="/letterheads"
       keywords="letterhead printing Chennai, corporate letterhead Pallavaram, company letterhead printing, A4 letterhead printing Chennai, business stationery printing, office letterhead Chennai, cheap letterhead printing"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Letterheads", url: "/letterheads" }]}

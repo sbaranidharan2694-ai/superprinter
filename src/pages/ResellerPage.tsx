@@ -75,8 +75,8 @@ const RESELLER_FAQ = [
 const ResellerPage = () => (
   <div className="font-body text-foreground overflow-x-hidden bg-white" style={{ backgroundColor: "#FFFFFF" }}>
     <SEOHead
-      title="DTP Operator & Print Reseller Program Chennai | Bulk Printing Factory | Super Printers"
-      description="Bulk printing for DTP operators, designers and resellers in Chennai. Factory pricing, GST invoice, 24hr turnaround. Partner program with up to 25% discount. WhatsApp: +91 98401 99878."
+      title="Print Reseller & DTP Program Chennai | Factory Direct"
+      description="Bulk printing for DTP operators, designers and resellers in Chennai. Factory pricing, GST invoice, 24-hour turnaround, up to 25% partner discount."
       canonical="/reseller"
       breadcrumbs={[
         { name: "Home", url: "/" },

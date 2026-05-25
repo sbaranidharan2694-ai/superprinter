@@ -143,17 +143,26 @@ const AreaPrintingPage = () => {
 
   return (
     <>
-      <SEOHead
-        title={config.title}
-        description={`${config.intro} ${config.distance} Order on WhatsApp or visit our press at ${BUSINESS.addressFull}.`}
-        canonical={`/${slug}`}
-        schemaMarkup={schema}
-        breadcrumbs={[
-          { name: "Home", url: "/" },
-          { name: "Areas served", url: "/services" },
-          { name: `Printing press near ${config.name}`, url: `/${slug}` },
-        ]}
-      />
+      {(() => {
+        // Build a tight meta description (target 120-160 chars). The original
+        // template ran 200+ chars because it concatenated intro + distance +
+        // CTA — Google would truncate. Now we lead with the area name + a
+        // condensed pitch, keeping the keyword stack but staying in spec.
+        const description = `Printing press near ${config.name}, Chennai — wedding cards, visiting cards, brochures and more from Super Printers Pallavaram. WhatsApp +91 98401 99878.`;
+        return (
+          <SEOHead
+            title={config.title}
+            description={description}
+            canonical={`/${slug}`}
+            schemaMarkup={schema}
+            breadcrumbs={[
+              { name: "Home", url: "/" },
+              { name: "Areas served", url: "/services" },
+              { name: `Printing press near ${config.name}`, url: `/${slug}` },
+            ]}
+          />
+        );
+      })()}
       <main className="min-h-screen">
         <section className="py-16 md:py-20 px-4" style={{ background: "linear-gradient(135deg, #FFFDF7 0%, #FFF8EC 100%)" }}>
           <div className="max-w-4xl mx-auto">

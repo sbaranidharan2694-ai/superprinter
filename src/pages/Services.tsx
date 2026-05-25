@@ -38,8 +38,8 @@ const Services = () => {
   return (
     <>
       <SEOHead
-        title="Printing Services Chennai | Offset, Cards, Banners, Brochures | Super Printers"
-        description="Full-service printing in Chennai: offset & digital, visiting cards, wedding invitations, banners, brochures, bill books, letterheads, rubber stamps, T-shirts, pamphlets, ID cards. Pallavaram since 1990."
+        title="Printing Services in Chennai | Cards, Banners, Brochures"
+        description="Full-service printing in Chennai — cards, wedding invites, banners, brochures, bill books, stamps and more. Pallavaram press, since 1990."
         canonical="/services"
         keywords="printing services Chennai, offset printing, digital printing Pallavaram, corporate printing, wedding card printer Chennai"
         schemaMarkup={servicesItemListSchema()}

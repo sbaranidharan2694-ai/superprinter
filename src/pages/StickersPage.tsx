@@ -15,8 +15,8 @@ const SPEC_ROWS = [
 const StickersPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Sticker Printing Chennai | Vinyl, Paper & Product Labels | Super Printers Pallavaram"
-      description="Sticker printing in Pallavaram, Chennai. Vinyl, paper, transparent, holographic stickers and product labels. Die-cut and kiss-cut. From 50 pcs, ready in 24 hours. WhatsApp +91 98401 99878."
+      title="Sticker Printing Chennai | Vinyl, Paper & Labels"
+      description="Sticker printing in Pallavaram, Chennai — vinyl, paper, transparent, holographic, die-cut labels. From 50 pcs, ready in 24 hours."
       canonical="/stickers"
       keywords="sticker printing Chennai, vinyl sticker Pallavaram, product label printing Chennai, die-cut sticker Chennai, transparent sticker printing, holographic sticker Chennai, custom sticker Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Stickers", url: "/stickers" }]}

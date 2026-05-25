@@ -85,7 +85,7 @@ const PrintingGuide = () => {
   return (
     <>
       <SEOHead
-        title="Printing Guide — How to Get Perfect Prints | Super Printers Chennai"
+        title="Printing Guide — How to Get Perfect Prints | Chennai"
         description="Learn how to prepare files for printing, choose between offset and digital, understand paper types and GSM, and order from Super Printers Chennai."
         canonical="/printing-guide"
         keywords="printing guide, how to prepare print file, offset vs digital printing, paper GSM explained, printing tips chennai"

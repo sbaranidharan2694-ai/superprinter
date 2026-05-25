@@ -14,8 +14,8 @@ const SPEC_ROWS = [
 const CataloguesPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Catalogue Printing Chennai | Product, Jewellery & Fabric Catalogues | Super Printers Pallavaram"
-      description="Catalogue printing in Pallavaram, Chennai. Saddle-stitched, perfect-bound and spiral catalogues for products, jewellery, fabric, real estate. From 25 copies, ready in 3–5 days. WhatsApp +91 98401 99878."
+      title="Catalogue Printing Chennai | Saddle, Perfect, Spiral Bound"
+      description="Catalogue printing in Pallavaram, Chennai — saddle, perfect, spiral bound for products, jewellery, fabric. From 25 copies, ready in 3–5 days."
       canonical="/catalogues"
       keywords="catalogue printing Chennai, product catalogue printing Pallavaram, jewellery catalogue Chennai, fabric catalogue Chennai, real estate brochure book, saddle stitched catalogue, perfect bound catalogue Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Catalogues", url: "/catalogues" }]}
