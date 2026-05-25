@@ -78,6 +78,10 @@ const ResellerPage = () => (
       title="DTP Operator & Print Reseller Program Chennai | Bulk Printing Factory | Super Printers"
       description="Bulk printing for DTP operators, designers and resellers in Chennai. Factory pricing, GST invoice, 24hr turnaround. Partner program with up to 25% discount. WhatsApp: +91 98401 99878."
       canonical="/reseller"
+      breadcrumbs={[
+        { name: "Home", url: "/" },
+        { name: "Reseller & DTP partner program", url: "/reseller" },
+      ]}
     />
 
     <div className="pt-[116px] pb-20">

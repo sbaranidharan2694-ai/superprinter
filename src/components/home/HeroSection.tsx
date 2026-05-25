@@ -59,6 +59,10 @@ const HeroSection = () => (
             transition={{ delay: 0.3 }}
             className="text-base md:text-lg leading-relaxed mb-8 max-w-xl"
             style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}
+            // Tagged for SpeakableSpecification: this is the highest-value
+            // sentence for voice assistants and AI Overview extraction
+            // (proof + turnaround + WhatsApp commitment in one line).
+            data-speakable="true"
           >
             {HERO.body}
           </motion.p>

@@ -5,6 +5,25 @@ import { BUSINESS } from "./business";
 import { services, type ServiceData } from "./services";
 import { FAQ_ITEMS, TESTIMONIALS } from "./v2";
 
+/**
+ * SpeakableSpecification — tells Google Assistant / voice search / AI
+ * Overview extractors which CSS selectors hold the most "speakable" parts
+ * of the page. Targets the H1, every H2 (section headings), and any element
+ * tagged with `data-speakable` (so the dedicated summary line in the hero
+ * gets read aloud first). Wrapped as a WebPage so Google links it to the
+ * URL, not just the document.
+ */
+export const SPEAKABLE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  url: BUSINESS.siteUrl,
+  name: BUSINESS.name,
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", "h2", "[data-speakable]"],
+  },
+};
+
 export const HOMEPAGE_FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",

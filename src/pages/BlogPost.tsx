@@ -11,14 +11,40 @@ const BlogPost = () => {
     return <Navigate to="/" replace />;
   }
 
+  // Article schema enhanced for AI citation (Perplexity/ChatGPT/Gemini favour
+  // posts with author + image + mainEntityOfPage). dateModified falls back
+  // to datePublished if the blog post data file doesn't carry an explicit
+  // updated timestamp — `post.updated` is optional in the BlogPostData type.
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${BUSINESS.siteUrl}/blog/${post.slug}#article`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${BUSINESS.siteUrl}/blog/${post.slug}`,
+    },
     "headline": post.title,
-    "author": { "@type": "Organization", "name": BUSINESS.shortName },
-    "publisher": { "@type": "Organization", "name": BUSINESS.shortName, "url": BUSINESS.siteUrl },
+    "description": post.description,
+    "image": [`${BUSINESS.siteUrl}/og-image.jpg`],
+    "author": {
+      "@type": "Person",
+      "@id": `${BUSINESS.siteUrl}/#founder`,
+      "name": BUSINESS.founder,
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": `${BUSINESS.siteUrl}/#organization`,
+      "name": BUSINESS.shortName,
+      "url": BUSINESS.siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${BUSINESS.siteUrl}/super-printers-logo.png`,
+      },
+    },
     "datePublished": post.date,
-    "dateModified": "2026-03-15",
+    "dateModified": (post as { updated?: string }).updated ?? post.date,
+    "keywords": post.keyword,
+    "inLanguage": "en-IN",
   };
 
   return (

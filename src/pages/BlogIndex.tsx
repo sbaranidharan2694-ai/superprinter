@@ -9,6 +9,10 @@ const BlogIndex = () => (
       description="Printing guides, paper GSM, visiting card finishes, wedding cards, offset vs digital, and bulk printing tips from Super Printers Pallavaram."
       canonical="/blog"
       keywords="printing blog Chennai, visiting card guide, wedding card printing guide, offset vs digital printing"
+      breadcrumbs={[
+        { name: "Home", url: "/" },
+        { name: "Blog & Guides", url: "/blog" },
+      ]}
     />
     <main className="pt-8 pb-16 px-4">
       <div className="max-w-3xl mx-auto">

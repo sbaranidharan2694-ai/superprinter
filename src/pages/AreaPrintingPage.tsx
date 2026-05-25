@@ -104,6 +104,11 @@ const AreaPrintingPage = () => {
         description={`${config.intro} ${config.distance} Order on WhatsApp or visit our press at ${BUSINESS.addressFull}.`}
         canonical={`/${slug}`}
         schemaMarkup={schema}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Areas served", url: "/services" },
+          { name: `Printing press near ${config.name}`, url: `/${slug}` },
+        ]}
       />
       <main className="min-h-screen">
         <section className="py-16 md:py-20 px-4" style={{ background: "linear-gradient(135deg, #FFFDF7 0%, #FFF8EC 100%)" }}>
