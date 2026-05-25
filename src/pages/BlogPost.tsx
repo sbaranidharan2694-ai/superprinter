@@ -12,9 +12,9 @@ const BlogPost = () => {
   }
 
   // Article schema enhanced for AI citation (Perplexity/ChatGPT/Gemini favour
-  // posts with author + image + mainEntityOfPage). dateModified falls back
-  // to datePublished if the blog post data file doesn't carry an explicit
-  // updated timestamp — `post.updated` is optional in the BlogPostData type.
+  // posts with author + image + mainEntityOfPage). image, updated are
+  // optional in BlogPostData — fall back to OG image and publish date.
+  const heroImage = `${BUSINESS.siteUrl}${post.image ?? "/og-image.jpg"}`;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -25,7 +25,7 @@ const BlogPost = () => {
     },
     "headline": post.title,
     "description": post.description,
-    "image": [`${BUSINESS.siteUrl}/og-image.jpg`],
+    "image": [heroImage],
     "author": {
       "@type": "Person",
       "@id": `${BUSINESS.siteUrl}/#founder`,
@@ -42,7 +42,7 @@ const BlogPost = () => {
       },
     },
     "datePublished": post.date,
-    "dateModified": (post as { updated?: string }).updated ?? post.date,
+    "dateModified": post.updated ?? post.date,
     "keywords": post.keyword,
     "inLanguage": "en-IN",
   };
@@ -54,6 +54,8 @@ const BlogPost = () => {
         description={post.description}
         canonical={`/blog/${post.slug}`}
         keywords={post.keyword}
+        ogImage={heroImage}
+        ogType="article"
         schemaMarkup={articleSchema}
         breadcrumbs={[
           { name: "Home", url: "/" },

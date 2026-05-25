@@ -8,7 +8,22 @@ export interface BlogPostData {
   description: string;
   keyword?: string;
   content: string;
+  /** Original publish date (ISO YYYY-MM-DD). */
   date: string;
+  /**
+   * Last meaningful content edit (ISO YYYY-MM-DD). Optional — when present,
+   * BlogPost.tsx emits this as `dateModified` in the BlogPosting schema,
+   * which feeds Google's freshness signal. Bump this when content actually
+   * changes (typos and CSS tweaks don't count).
+   */
+  updated?: string;
+  /**
+   * Per-post featured image (absolute path under public/, e.g.
+   * "/images/hero/wedding.jpg"). When omitted, BlogPost.tsx falls back to
+   * the sitewide og-image.jpg. Per-post images unlock the Article
+   * rich-result card in Google Discover and improve AI-engine extraction.
+   */
+  image?: string;
   readTime?: string;
   category?: string;
 }
@@ -16,6 +31,7 @@ export interface BlogPostData {
 export const BLOG_POSTS: BlogPostData[] = [
   {
     slug: "how-to-prepare-files-for-printing",
+    image: "/images/hero/visiting.jpg",
     title: "How to Prepare Print Files: A Complete Guide for Chennai Designers",
     description: "A complete print file preparation guide for India: CMYK, DPI, bleed, and file formats. Get your files print-ready for visiting cards, brochures, and more.",
     keyword: "print file preparation guide India",
@@ -43,6 +59,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "gsm-paper-guide",
+    image: "/images/hero/brochures.jpg",
     title: "Paper GSM Guide: Which Paper Weight for Which Print Job?",
     description: "Understand paper GSM for printing in India. When to use 90 GSM, 170 GSM, or 300 GSM for letterheads, brochures, and visiting cards.",
     keyword: "paper GSM guide printing India",
@@ -68,6 +85,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "how-to-choose-visiting-card-finish",
+    image: "/images/hero/visiting.jpg",
     title: "Matte vs Glossy vs Spot UV: Which Visiting Card Finish is Best?",
     description: "Compare matte, glossy, and spot UV finishes for visiting cards in Chennai. Choose the right finish for your brand and budget.",
     keyword: "visiting card finish matte glossy spot UV Chennai",
@@ -86,6 +104,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "wedding-card-printing-guide-chennai",
+    image: "/images/hero/wedding.jpg",
     title: "Complete Guide to Wedding Card Printing in Chennai (2026)",
     description: "Everything you need to know about wedding invitation printing in Chennai: designs, languages, pricing, and how to order from Super Printers.",
     keyword: "wedding card printing Chennai guide 2026",
@@ -106,6 +125,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "offset-vs-digital-printing",
+    image: "/images/hero/brochures.jpg",
     title: "Offset vs Digital Printing: Which Should You Choose?",
     description: "Understand the difference between offset and digital printing in Chennai. Best for quantity, quality, cost, and turnaround.",
     keyword: "offset vs digital printing Chennai",
@@ -127,6 +147,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "gst-bill-book-printing-guide",
+    image: "/images/hero/bill-books.jpg",
     title: "GST Bill Book Printing: What Every Business Owner Needs to Know",
     description: "GST-compliant bill book printing in Chennai. NCR sets, numbering, and formats for invoicing. Super Printers Pallavaram.",
     keyword: "GST bill book printing Chennai NCR",
@@ -145,6 +166,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "bulk-printing-discounts-chennai",
+    image: "/images/hero/brochures.jpg",
     title: "How to Save 30% on Bulk Printing in Chennai",
     description: "Tips to get the best bulk printing rates in Chennai: quantity, paper, and timing. Partner and reseller options at Super Printers.",
     keyword: "bulk printing discounts Chennai",
@@ -165,6 +187,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "spot-uv-vs-foil",
+    image: "/images/hero/visiting.jpg",
     title: "Spot UV vs Gold Foil: Which Business Card Finish is Right for You?",
     description: "Compare Spot UV and gold foil finishes for business cards in India. Pros, cons, and when to choose each for maximum impact.",
     keyword: "spot UV vs foil business cards India",
@@ -193,6 +216,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "visiting-card-printing-guide-chennai",
+    image: "/images/hero/visiting.jpg",
     title: "Complete Guide to Visiting Card Printing in Chennai (2026)",
     description: "Everything you need to know about visiting card printing in Chennai — finishes, paper, pricing, and how to order from Super Printers Pallavaram.",
     date: "2026-03-01",
@@ -202,6 +226,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "banner-printing-guide-chennai",
+    image: "/images/banner/bn1.jpg",
     title: "Flex Banner Printing in Chennai: Sizes, Prices & Tips (2026)",
     description: "Complete guide to flex banner printing in Chennai. Sizes, prices, materials and how to order flex banners for events, shops and promotions.",
     date: "2026-03-05",
@@ -211,6 +236,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "rubber-stamp-printing-chennai",
+    image: "/images/catalog/stamp.jpg",
     title: "Rubber Stamp Making in Chennai — Types, Prices & How to Order",
     description: "Get custom rubber stamps made in Chennai. Self-inking stamps, pre-inked stamps, traditional stamps. Fast delivery from Super Printers Pallavaram.",
     date: "2026-03-10",
@@ -220,6 +246,7 @@ export const BLOG_POSTS: BlogPostData[] = [
   },
   {
     slug: "wedding-card-tamil-traditional-designs",
+    image: "/images/hero/wedding.jpg",
     title: "Tamil Wedding Cards in Chennai — Traditional Designs, Pricing & Customs",
     description: "Tamil wedding card printing in Chennai — Hindu, Christian and Muslim designs in Tamil and English. Traditional motifs, modern layouts, gold foil and laser-cut. From ₹5 per card at Super Printers Pallavaram.",
     keyword: "Tamil wedding cards Chennai",
