@@ -29,10 +29,10 @@
     <!-- Per-page title / description / canonical / OG / twitter / robots are injected by Helmet during prerender -->
     <!--ssg-head-->
 
-    <!-- LCP: hero tile + header logo. The `imagesrcset` + `type` combo lets
-         the browser pick AVIF/WebP/JPG itself instead of preloading the JPG
-         then re-fetching the AVIF post-parse. -->
-    <link rel="preload" as="image" href="/images/hero/wedding.avif" imagesrcset="/images/hero/wedding.avif" type="image/avif" fetchpriority="high" />
+    <!-- LCP: hero tile + header logo. The `imagesrcset` lists all three
+         formats so the browser can fall back to WebP/JPG if AVIF is
+         unsupported, without re-parsing the <picture> element first. -->
+    <link rel="preload" as="image" href="/images/hero/wedding.avif" imagesrcset="/images/hero/wedding.avif 1x, /images/hero/wedding.webp 1x, /images/hero/wedding.jpg 1x" type="image/avif" fetchpriority="high" />
     <link rel="preload" as="image" href="/super-printers-logo.webp" imagesrcset="/super-printers-logo.webp" type="image/webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
