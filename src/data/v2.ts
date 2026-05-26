@@ -43,7 +43,7 @@ export const HERO = {
   //      surfaced via internal links, footer, sitemap, and dedicated
   //      pages with their own H1s.
   microLabel: "EST. 1990 · PALLAVARAM, CHENNAI",
-  h1: "Printing Press in Pallavaram — Cards, Brochures, Banners",
+  h1: "Printing Press in Chennai — Wedding & Visiting Cards",
   accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house in Pallavaram.",
   body: "Proof shared before every print run. Most orders ready in 24 hours. WhatsApp us for a quote in 30 minutes.",
   ctaPrimary: "Get Quote",

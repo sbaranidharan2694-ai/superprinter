@@ -24,6 +24,23 @@ export const SPEAKABLE_SCHEMA = {
   },
 };
 
+/**
+ * FAQPage schema for the homepage FAQ section.
+ *
+ * **2026 status:** Google dropped FAQ rich results from Search on May 7 2026
+ * and removed FAQ from the Rich Results Test in June 2026. Per the March
+ * 2026 core update, FAQ schema on pages whose PRIMARY content isn't a FAQ
+ * can trigger rich-result suppression. We therefore no longer attach this
+ * to the homepage `<SEOHead>` schemaMarkup array (see src/pages/Index.tsx).
+ *
+ * The export is retained because:
+ *   - LLM citation engines (ChatGPT, Claude, Perplexity, Google AI
+ *     Overviews) still parse FAQPage as a high-signal source — FAQ schema
+ *     has one of the highest cite rates in AI-generated answers (2026
+ *     Stackmatix research).
+ *   - A future dedicated `/faq` page (where FAQ IS the primary content)
+ *     can opt back in safely.
+ */
 export const HOMEPAGE_FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -112,12 +129,42 @@ export function productSchema(opts: {
         availability: "https://schema.org/InStock",
         url: `${BUSINESS.siteUrl}${path}`,
         seller: { "@id": `${BUSINESS.siteUrl}/#business` },
-        // Indicates a "starting from" anchor — useful for AI extraction.
+        // "Starting from" anchor — useful for AI extraction.
         priceSpecification: {
           "@type": "PriceSpecification",
           price: numericPrice,
           priceCurrency: "INR",
           valueAddedTaxIncluded: false,
+        },
+        // Required for Product merchant rich results since the 2024 update
+        // and still enforced under the March 2026 core guidance. Without
+        // these, Google strips the result back to a plain blue link.
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "IN",
+          // Custom printed goods are non-returnable once produced — we
+          // honour proof-approval reprints instead, which doesn't map to a
+          // standard return policy category. Declaring this explicitly
+          // satisfies the rich-result requirement without misrepresenting
+          // the actual policy.
+          returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+        },
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingDestination: {
+            "@type": "DefinedRegion",
+            addressCountry: "IN",
+          },
+          shippingRate: {
+            "@type": "MonetaryAmount",
+            value: "0",
+            currency: "INR",
+          },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" },
+            transitTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
+          },
         },
       },
     }),
@@ -170,7 +217,15 @@ export function servicesItemListSchema() {
   };
 }
 
-/** HowTo schema — "How to order printing from Super Printers". Use on service landing pages. */
+/**
+ * HowTo schema — "How to order printing from Super Printers".
+ *
+ * **2026 usage rule:** Use ONLY on a page whose PRIMARY content is a
+ * step-by-step ordering tutorial. The March 2026 core update penalises
+ * HowTo schema on pages whose primary purpose is product/service marketing
+ * (not tutorial). Suitable for a future dedicated /how-to-order page; do
+ * NOT inject onto product or service landing pages.
+ */
 export const howToOrderSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",

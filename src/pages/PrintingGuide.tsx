@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { useInView } from "@/hooks/useInView";
+import { BUSINESS } from "@/data/business";
 
 const sections = [
   {
@@ -44,14 +45,14 @@ const sections = [
   },
   {
     title: "Understanding Print Turnaround Times",
-    content: `**Standard Turnaround:**
-- Visiting Cards: 2–3 business days
-- Brochures & Pamphlets: 3–5 business days
-- Bill Books (NCR): 3–5 business days
-- Wedding Invitations: 5–7 business days
-- Offset Printing (bulk): 5–7 business days
-- Banners: 1–3 business days
-- Rubber Stamps: 1–2 business days
+    content: `**Standard Turnaround + indicative Chennai pricing:**
+- Visiting Cards: 2–3 business days · from ₹149 for 100 cards (300 GSM matt), ₹1,800 for 500
+- Brochures & Pamphlets: 3–5 business days · from ₹6/copy at 1,000+ qty (A4 art paper)
+- Bill Books (NCR): 3–5 business days · from ₹280 per 50-leaf 2-part book
+- Wedding Invitations: 5–7 business days · from ₹5/card (250 GSM card paper, custom design)
+- Offset Printing (bulk): 5–7 business days · from ₹0.80/copy at 5,000+ qty
+- Banners: 1–3 business days · from ₹12/sq.ft (flex) and ₹35/sq.ft (vinyl)
+- Rubber Stamps: 1–2 business days · from ₹180 (self-inking) to ₹450 (date stamp)
 
 **Express / Urgent Jobs:** Many items can be expedited for an additional charge. Ask us when placing your order.
 
@@ -93,20 +94,45 @@ const PrintingGuide = () => {
           { name: "Home", url: "/" },
           { name: "Printing Guide", url: "/printing-guide" },
         ]}
+        // March 2026 core update: HowTo schema is suppressed on pages whose
+        // primary purpose isn't a single procedural tutorial. This guide
+        // mixes file-prep, paper-types, turnaround pricing and offset-vs-
+        // digital — it is reference content. We model it as Article (with
+        // explicit author + publisher + dateModified) which is the
+        // 2026-compliant rich-result type for editorial knowledge content.
         schemaMarkup={{
           "@context": "https://schema.org",
-          "@type": "HowTo",
-          "name": "How to Order Custom Printing from Super Printers Chennai",
-          "description": "Step-by-step guide to ordering custom printing in Chennai — preparing files, choosing paper, getting a quote, and receiving your prints.",
-          "totalTime": "PT30M",
-          "estimatedCost": { "@type": "MonetaryAmount", "currency": "INR", "value": "100" },
-          "step": [
-            { "@type": "HowToStep", "name": "Prepare your design", "text": "Export your design as a print-ready PDF at 300 DPI with 3mm bleed and CMYK colors." },
-            { "@type": "HowToStep", "name": "Choose paper and finish", "text": "Pick paper GSM (300–400 for visiting cards, 250–300 for wedding cards) and finish (matte, gloss, spot UV, foil)." },
-            { "@type": "HowToStep", "name": "Request a quote", "text": "WhatsApp +91 98401 99878 with your file, quantity, and finish. We respond within 30 minutes." },
-            { "@type": "HowToStep", "name": "Approve free design proof", "text": "We send a digital proof for your approval before printing. Free revisions included." },
-            { "@type": "HowToStep", "name": "Receive your prints", "text": "Most orders ready in 24–48 hours. Pickup from Pallavaram or delivery across Chennai." }
-          ]
+          "@type": "Article",
+          "headline": "Chennai Printing Guide — File Prep, Paper, Pricing, Turnaround",
+          "description": "Expert printing guide from a 35-year Chennai press — how to prepare files, choose paper GSM, compare offset vs digital, and what current Chennai print pricing looks like.",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `${BUSINESS.siteUrl}/printing-guide`,
+          },
+          "image": [`${BUSINESS.siteUrl}/og-image.jpg`],
+          "author": {
+            "@type": "Person",
+            "@id": `${BUSINESS.siteUrl}/#founder`,
+            "name": BUSINESS.founder,
+            "jobTitle": BUSINESS.founderTitle,
+            "worksFor": { "@id": `${BUSINESS.siteUrl}/#business` },
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": `${BUSINESS.siteUrl}/#organization`,
+            "name": BUSINESS.shortName,
+            "url": BUSINESS.siteUrl,
+            "logo": { "@type": "ImageObject", "url": `${BUSINESS.siteUrl}/super-printers-logo.png` },
+          },
+          "datePublished": "2024-08-01",
+          "dateModified": "2026-05-26",
+          "inLanguage": "en-IN",
+          "about": [
+            { "@type": "Thing", "name": "Printing" },
+            { "@type": "Thing", "name": "Offset printing" },
+            { "@type": "Thing", "name": "Digital printing" },
+            { "@type": "Place", "name": "Chennai" },
+          ],
         }}
       />
       <main>

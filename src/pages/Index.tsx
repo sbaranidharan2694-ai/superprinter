@@ -1,5 +1,5 @@
 import SEOHead from "@/components/SEOHead";
-import { HOMEPAGE_FAQ_SCHEMA, HOMEPAGE_REVIEWS_SCHEMA, SPEAKABLE_SCHEMA } from "@/data/seoSchemas";
+import { HOMEPAGE_REVIEWS_SCHEMA, SPEAKABLE_SCHEMA } from "@/data/seoSchemas";
 import { FOUNDER_PERSON_SCHEMA } from "@/data/business";
 import HeroSection from "@/components/home/HeroSection";
 import SocialProofBar from "@/components/home/SocialProofBar";
@@ -31,11 +31,17 @@ import ChennaiAreasSection from "@/components/home/ChennaiAreasSection";
 const Index = () => (
   <div className="text-foreground bg-background overflow-x-hidden" style={{ fontFamily: "var(--font-body)" }}>
     <SEOHead
-      title="Printing Press in Chennai | Wedding & Visiting Cards"
-      description="Pallavaram printing press since 1990. Wedding cards from ₹5, visiting cards, brochures, banners, bill books. Free proof, ready in 24 hours."
+      title="Printing Press in Chennai | Wedding & Visiting Cards | Super Printers"
+      description="Chennai's trusted printing press since 1990. Wedding cards from ₹5, visiting cards, brochures, banners, bill books. Free proof, ready in 24 hours. Pallavaram, Chennai."
       canonical="/"
       keywords="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards Chennai, brochure printing Chennai"
-      schemaMarkup={[HOMEPAGE_FAQ_SCHEMA, FOUNDER_PERSON_SCHEMA, SPEAKABLE_SCHEMA, ...HOMEPAGE_REVIEWS_SCHEMA]}
+      // HOMEPAGE_FAQ_SCHEMA intentionally omitted from JSON-LD: Google
+      // dropped FAQ rich results on May 7 2026 and removed FAQ support from
+      // the Rich Results Test in June 2026. The visible FAQ section still
+      // renders in DOM for AI Overview / ChatGPT / Perplexity citation
+      // (LLMs ingest the rendered content, not the schema). Schema export
+      // is retained for any future /faq page that's primary-content FAQ.
+      schemaMarkup={[FOUNDER_PERSON_SCHEMA, SPEAKABLE_SCHEMA, ...HOMEPAGE_REVIEWS_SCHEMA]}
     />
     <HeroSection />
     <SocialProofBar />
