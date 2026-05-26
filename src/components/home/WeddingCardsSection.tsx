@@ -20,7 +20,7 @@ const WeddingCardsSection = () => (
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-          <p className="text-xs font-bold tracking-[0.15em] uppercase mb-3" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>WEDDING INVITATIONS PALLAVARAM</p>
+          <p className="text-xs font-bold tracking-[0.15em] uppercase mb-3" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>WEDDING INVITATIONS PALLAVARAM</p>
           <h2 className="font-display font-bold text-3xl md:text-[42px] leading-tight mb-6" style={{ color: "var(--color-primary)", whiteSpace: "pre-line" }}>{"Chennai's Cheapest\nWedding Cards.\nFrom ₹5 per card."}</h2>
           <ul className="space-y-3 mb-8">
             {WEDDING_FEATURES.map((feat) => (

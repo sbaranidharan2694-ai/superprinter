@@ -11,7 +11,7 @@ const HowItWorksSection = () => (
         viewport={{ once: true }}
         className="text-center mb-14"
       >
-        <p className="text-gold font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold)" }}>
+        <p className="font-ui text-sm font-medium mb-2 flex items-center justify-center gap-2" style={{ color: "var(--gold-dark)" }}>
           <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current" />
           Simple ordering
         </p>

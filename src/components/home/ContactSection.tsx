@@ -10,7 +10,7 @@ const ContactSection = () => (
         viewport={{ once: true }}
         className="text-center mb-10"
       >
-        <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
+        <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
           FIND US
         </p>
         <h2 className="font-display font-bold text-3xl md:text-4xl" style={{ color: "var(--color-primary)" }}>
@@ -47,13 +47,13 @@ const ContactSection = () => (
           </div>
           <div>
             <h3 className="font-display font-bold text-lg mb-1" style={{ color: "var(--color-primary)" }}>Phone</h3>
-            <a href={BUSINESS.phoneTel} className="text-sm font-semibold" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
+            <a href={BUSINESS.phoneTel} className="text-sm font-semibold" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
               {BUSINESS.phone}
             </a>
           </div>
           <div>
             <h3 className="font-display font-bold text-lg mb-1" style={{ color: "var(--color-primary)" }}>Email</h3>
-            <a href={`mailto:${BUSINESS.email}`} className="text-sm" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
+            <a href={`mailto:${BUSINESS.email}`} className="text-sm" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
               {BUSINESS.email}
             </a>
           </div>

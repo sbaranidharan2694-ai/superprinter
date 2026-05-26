@@ -49,7 +49,7 @@ const QuoteFormSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-xs font-bold tracking-[0.15em] uppercase mb-3" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
+            <p className="text-xs font-bold tracking-[0.15em] uppercase mb-3" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
               GET A QUOTE
             </p>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4" style={{ color: "var(--color-primary)" }}>

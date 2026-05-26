@@ -12,7 +12,7 @@ const SocialProofSection = () => (
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
+        <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
           CUSTOMER REVIEWS
         </p>
         <h2 className="font-display font-bold text-3xl md:text-4xl mb-3" style={{ color: "var(--color-primary)" }}>

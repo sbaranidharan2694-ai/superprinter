@@ -19,7 +19,7 @@ const FeaturedCraftSection = () => (
         <div className="px-4 md:px-0">
           <p
             className="text-[11px] font-bold tracking-[0.22em] uppercase mb-2"
-            style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}
+            style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}
           >
             Featured work
           </p>

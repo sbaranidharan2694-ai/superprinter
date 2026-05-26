@@ -23,7 +23,7 @@ const AboutSection = () => (
         viewport={{ once: true }}
         className="text-center mb-10"
       >
-        <p className="text-xs font-bold tracking-[0.15em] uppercase mb-3" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
+        <p className="text-xs font-bold tracking-[0.15em] uppercase mb-3" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
           OUR STORY
         </p>
         <h2 className="font-display font-extrabold text-3xl md:text-5xl mb-4" style={{ color: "var(--color-primary)" }}>

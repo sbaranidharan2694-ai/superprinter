@@ -6,7 +6,7 @@ const FAQSectionNew = () => (
   <section id="faq" className="section-pad" style={{ backgroundColor: "var(--color-cream)" }}>
     <div className="max-w-3xl mx-auto px-6">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
-        <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>FREQUENTLY ASKED</p>
+        <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>FREQUENTLY ASKED</p>
         <h2 className="font-display font-bold text-3xl md:text-4xl" style={{ color: "var(--color-primary)" }}>Common Questions</h2>
       </motion.div>
       <Accordion type="single" collapsible className="space-y-3">
