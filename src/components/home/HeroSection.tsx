@@ -33,15 +33,20 @@ const HeroSection = () => (
             {HERO.microLabel}
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.55 }}
+          {/* The H1 is the LCP candidate. Rendering it via motion.h1 with
+              initial={{ opacity: 0 }} bakes opacity:0 into the SSR HTML —
+              Google's Lighthouse then waits for JS to make it visible
+              before flagging LCP. Render it as a plain <h1> with full
+              opacity from the start so LCP fires on the SSR paint, not
+              after hydration. The other hero elements (eyebrow, body,
+              CTAs, badges) keep their motion entry — they're not the
+              LCP element. */}
+          <h1
             className="font-display font-bold text-[40px] sm:text-5xl lg:text-[64px] leading-[1.04] tracking-[-0.01em] mb-5"
             style={{ color: "var(--ink-black)" }}
           >
             {HERO.h1}
-          </motion.h1>
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 12 }}

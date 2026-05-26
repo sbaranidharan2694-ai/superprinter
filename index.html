@@ -36,8 +36,13 @@
     <link rel="preload" as="image" href="/super-printers-logo.webp" imagesrcset="/super-printers-logo.webp" type="image/webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400;500&display=swap" /></noscript>
+    <!-- Font weights trimmed: Noto Sans Tamil dropped from 400+500 to just
+         400 (used in a single ServicePageFooter line, only at body weight).
+         Other families kept as-is because each weight is referenced in CSS
+         (Playfair 700/800/900 + italic 700; DM Sans 400/500/700; Poppins
+         600/700). display=swap keeps the page paint unblocked. -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400&display=swap" /></noscript>
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#1a1a2e" />
     <meta name="mobile-web-app-capable" content="yes" />
