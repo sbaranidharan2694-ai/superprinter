@@ -1,73 +1,47 @@
-# Welcome to your Lovable project
+# Super Printers & Wedding Cards — superprinters.net
 
-## Project info
+Marketing site for Super Printers, a printing press in Pallavaram, Chennai
+operating since 1990. Wedding cards, visiting cards, brochures, banners,
+bill books, offset and digital printing.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Stack
 
-## How can I edit this code?
+- Vite + React 18 + TypeScript
+- Tailwind CSS + shadcn/ui
+- React Router (client) + custom SSG prerender (`scripts/prerender.mjs`)
+- React Helmet Async for per-page head tags
+- GA4 (deferred to first interaction)
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Local development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Build + prerender
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+npm run build       # vite build (client + server bundles)
+npm run prerender   # emits static HTML per route from STATIC_ROUTES + dynamic
+```
 
-**Use GitHub Codespaces**
+The list of prerendered routes lives in `src/entry-server.tsx`. Suburb
+landing pages (`/printing-press-*`) are derived from `AREA_PAGE_SLUGS`
+exported by `src/pages/AreaPrintingPage.tsx`, so adding a new suburb
+requires only one edit (the slug + intro block).
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## SEO architecture
 
-## What technologies are used for this project?
+- `index.html` — sitewide `LocalBusiness`, `Organization`, `WebSite` JSON-LD
+- `src/components/SEOHead.tsx` — per-page title/description/canonical/OG/Twitter, hreflang en-IN + x-default, BreadcrumbList helper
+- `src/data/seoSchemas.ts` — Product, Service, FAQ, HowTo, Review, Speakable schema builders
+- `public/sitemap.xml` — primary + product + suburb + blog URLs with image sitemap entries for hero pages
+- `public/robots.txt` — explicit allow-list for major AI training/search bots
+- `public/llms.txt` — authoritative summary for LLM grounding
 
-This project is built with:
+## Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+The built `dist/` is published to the static host. Apache `.htaccess` strips
+trailing slashes; `AreaPrintingPage` strips both leading and trailing
+slashes defensively so client-side navigation matches either form.

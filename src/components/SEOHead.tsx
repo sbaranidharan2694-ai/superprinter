@@ -60,6 +60,12 @@ const SEOHead = ({
       <meta name="robots" content={robots} />
       <link rel="canonical" href={fullCanonical} />
 
+      {/* en-IN locale hint for Google India localized SERPs. Single-language
+          site today — x-default points at the same canonical so the cluster
+          is explicit without forking translated URLs. */}
+      <link rel="alternate" hrefLang="en-IN" href={fullCanonical} />
+      <link rel="alternate" hrefLang="x-default" href={fullCanonical} />
+
       {/* Geo meta tags */}
       <meta name="geo.region" content="IN-TN" />
       <meta name="geo.placename" content="Chennai" />

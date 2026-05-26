@@ -65,7 +65,130 @@ const AREA_CONFIG: Record<string, { name: string; title: string; intro: string; 
     intro: "Adyar residents and businesses get premium printing from Super Printers — wedding cards, visiting cards, brochures, and more. Quality printing since 1990 with delivery across Chennai.",
     distance: "Accessible from Adyar via Inner Ring Road connecting to Pallavaram.",
   },
+  "printing-press-alandur": {
+    name: "Alandur",
+    title: "Printing Press Near Alandur | Super Printers Pallavaram",
+    intro: "Alandur businesses and metro-corridor offices rely on Super Printers for visiting cards, brochures, letterheads and bulk offset jobs. Same-day proofs, 24-hour digital orders, 35 years of Chennai print expertise.",
+    distance: "Just one metro stop from Pallavaram via Alandur Metro / GST Road.",
+  },
+  "printing-press-t-nagar": {
+    name: "T. Nagar",
+    title: "Printing Press Near T. Nagar, Chennai | Super Printers",
+    intro: "Chennai's busiest commercial hub trusts Super Printers for visiting cards, GST bill books, wedding invitations and retail packaging. Bulk offset pricing for T. Nagar showrooms and textile traders.",
+    distance: "Quick GST Road run from T. Nagar to our Pallavaram press; same-day pickup possible.",
+  },
+  "printing-press-anna-nagar": {
+    name: "Anna Nagar",
+    title: "Printing Press Near Anna Nagar, Chennai | Super Printers",
+    intro: "Anna Nagar professionals, clinics and businesses choose Super Printers for premium visiting cards, brochures, letterheads and wedding cards. Free design assist + WhatsApp proof before every print run.",
+    distance: "Delivered to Anna Nagar via Inner Ring Road and 100 Feet Road in 24–48 hours.",
+  },
+  "printing-press-porur": {
+    name: "Porur",
+    title: "Printing Press Near Porur, Chennai | Super Printers",
+    intro: "Porur IT parks, hospitals and SMEs use Super Printers for ID cards, letterheads, brochures and visiting cards. Bulk corporate pricing with proof approval on WhatsApp.",
+    distance: "Connected from Porur via Mount-Poonamallee Road and Outer Ring Road to our Pallavaram press.",
+  },
+  "printing-press-omr": {
+    name: "OMR (Old Mahabalipuram Road)",
+    title: "Printing Press Near OMR & Sholinganallur | Super Printers Chennai",
+    intro: "OMR IT corridor offices — Sholinganallur, Thoraipakkam, Navalur, Siruseri — use Super Printers for employee ID cards, visiting cards, event branding and corporate brochures. Bulk pricing, fast turnaround.",
+    distance: "Delivered along OMR from Pallavaram via GST Road–Medavakkam Main Road in 24–48 hours.",
+  },
+  "printing-press-vadapalani": {
+    name: "Vadapalani",
+    title: "Printing Press Near Vadapalani | Super Printers Chennai",
+    intro: "Vadapalani's media houses, studios and retailers depend on Super Printers for posters, brochures, visiting cards and bulk flyers. 35 years of offset and digital printing experience.",
+    distance: "Easy reach from Vadapalani via 100 Feet Road / Inner Ring Road.",
+  },
+  "printing-press-mylapore": {
+    name: "Mylapore",
+    title: "Printing Press Near Mylapore | Super Printers Chennai",
+    intro: "Mylapore families choose Super Printers for traditional Hindu and Tamil wedding invitations, naming-ceremony cards, and visiting cards. Custom Tamil typography, free design proof.",
+    distance: "Comfortable drive from Mylapore via Kamarajar Salai and GST Road.",
+  },
+  "printing-press-saidapet": {
+    name: "Saidapet",
+    title: "Printing Press Near Saidapet | Super Printers Chennai",
+    intro: "Saidapet's traders, schools and small businesses rely on Super Printers for GST bill books, letterheads, ID cards and event banners. Affordable, fast, since 1990.",
+    distance: "Short GST Road / Mount Road run from Saidapet to Pallavaram.",
+  },
+  "printing-press-ekkattuthangal": {
+    name: "Ekkattuthangal",
+    title: "Printing Press Near Ekkattuthangal | Super Printers",
+    intro: "Ekkattuthangal industries and offices use Super Printers for safety stickers, employee ID cards, GST bill books, brochures and visiting cards. Direct corporate billing available.",
+    distance: "10 minutes from Ekkattuthangal via Mount-Poonamallee Road to our Pallavaram press.",
+  },
+  "printing-press-ashok-nagar": {
+    name: "Ashok Nagar",
+    title: "Printing Press Near Ashok Nagar | Super Printers Chennai",
+    intro: "Ashok Nagar residents and West Chennai businesses trust Super Printers for wedding invitations, visiting cards and corporate stationery. Free design help and WhatsApp proof approval.",
+    distance: "Reachable from Ashok Nagar via Inner Ring Road / 100 Feet Road.",
+  },
+  "printing-press-egmore": {
+    name: "Egmore",
+    title: "Printing Press Near Egmore, Chennai | Super Printers",
+    intro: "Egmore businesses, lawyers and clinics order visiting cards, letterheads, GST bill books and brochures from Super Printers. 35-year reputation, on-time delivery.",
+    distance: "Short Anna Salai / GST Road run from Egmore to our Pallavaram press.",
+  },
+  "printing-press-anna-salai": {
+    name: "Anna Salai (Mount Road)",
+    title: "Printing Press Near Anna Salai / Mount Road | Super Printers",
+    intro: "Mount Road's corporates and showrooms rely on Super Printers for premium brochures, presentation folders, visiting cards and corporate stationery. Pantone spot colour and offset finishing in-house.",
+    distance: "Direct Anna Salai → GST Road corridor to our Pallavaram press.",
+  },
+  "printing-press-manapakkam": {
+    name: "Manapakkam",
+    title: "Printing Press Near Manapakkam | Super Printers Chennai",
+    intro: "Manapakkam IT parks and DLF offices use Super Printers for employee ID cards, brochures, visiting cards and event collateral. Corporate bulk pricing with PO billing.",
+    distance: "Quick Mount-Poonamallee Road link to our Pallavaram press.",
+  },
+  "printing-press-sholinganallur": {
+    name: "Sholinganallur",
+    title: "Printing Press Near Sholinganallur, OMR | Super Printers Chennai",
+    intro: "Sholinganallur and OMR IT corridor offices choose Super Printers for employee ID cards, visiting cards, event branding and bulk corporate printing. Bulk pricing, PO billing.",
+    distance: "Delivered along OMR from Pallavaram via GST Road–Medavakkam Main Road within 24–48 hours.",
+  },
+  "printing-press-thiruvanmiyur": {
+    name: "Thiruvanmiyur",
+    title: "Printing Press Near Thiruvanmiyur / ECR | Super Printers Chennai",
+    intro: "Thiruvanmiyur and ECR residents and businesses use Super Printers for wedding cards, visiting cards, brochures and posters. Free design assistance and digital proof.",
+    distance: "Reached from Thiruvanmiyur via ECR / Sardar Patel Road to our Pallavaram press.",
+  },
+  "printing-press-mogappair": {
+    name: "Mogappair",
+    title: "Printing Press Near Mogappair | Super Printers Chennai",
+    intro: "Mogappair East and West businesses use Super Printers for visiting cards, wedding invitations, letterheads and brochures. 35 years of trusted Chennai printing.",
+    distance: "Easily delivered from Pallavaram via Inner Ring Road and Golden Flats area.",
+  },
+  "printing-press-kodambakkam": {
+    name: "Kodambakkam",
+    title: "Printing Press Near Kodambakkam | Super Printers Chennai",
+    intro: "Kodambakkam's media houses, film offices and traders use Super Printers for posters, brochures, visiting cards and wedding invitations. Premium offset and digital finishes.",
+    distance: "Quick run from Kodambakkam via Arcot Road and Inner Ring Road.",
+  },
+  "printing-press-nungambakkam": {
+    name: "Nungambakkam",
+    title: "Printing Press Near Nungambakkam | Super Printers Chennai",
+    intro: "Nungambakkam premium clients order luxury wedding cards, foil/spot-UV visiting cards, presentation folders and brochures from Super Printers. Concierge proof approval on WhatsApp.",
+    distance: "Reached from Nungambakkam via Sterling Road / Anna Salai to our Pallavaram press.",
+  },
+  "printing-press-ambattur": {
+    name: "Ambattur",
+    title: "Printing Press Near Ambattur | Super Printers Chennai",
+    intro: "Ambattur Industrial Estate companies use Super Printers for safety labels, employee ID cards, GST bill books, brochures and industrial signage. Corporate PO billing supported.",
+    distance: "Delivered from Pallavaram to Ambattur via Inner Ring Road / MTH Road in 48 hours.",
+  },
+  "printing-press-avadi": {
+    name: "Avadi",
+    title: "Printing Press Near Avadi | Super Printers Chennai",
+    intro: "Avadi families and businesses choose Super Printers for wedding invitations, visiting cards, ID cards and letterheads. 35-year printing reputation with delivery across West Chennai.",
+    distance: "Reached from Avadi via CTH Road and Inner Ring Road to our Pallavaram press.",
+  },
 };
+
+/** Single source of truth for static area routes (consumed by App router, prerender, sitemap). */
+export const AREA_PAGE_SLUGS = Object.keys(AREA_CONFIG);
 
 const TOP_SERVICES = services.slice(0, 5).filter((s) => s.startingPrice && s.startingPrice !== "Varies");
 
@@ -133,12 +256,11 @@ const AreaPrintingPage = () => {
       },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "16:00" },
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": BUSINESS.googleRating,
-      "reviewCount": String(BUSINESS.googleReviewCount),
-      "bestRating": "5",
-    },
+    // aggregateRating intentionally NOT duplicated on per-area sub-entities.
+    // The 147-review rating belongs to the canonical #business node referenced
+    // via parentOrganization above. Duplicating it across 20+ suburb URLs is
+    // flagged as inflated review markup under Google's 2025 structured-data
+    // guidelines and risks rich-result suppression.
   };
 
   return (

@@ -5,6 +5,7 @@ import App from "./App";
 import { BLOG_POSTS } from "./data/blog";
 import { services as SERVICES } from "./data/services";
 import { CATALOG_CATEGORIES as CATALOG } from "./data/catalog";
+import { AREA_PAGE_SLUGS } from "./pages/AreaPrintingPage";
 
 export function render(url: string) {
   const helmetContext = {} as Partial<FilledContext>;
@@ -54,16 +55,7 @@ export const STATIC_ROUTES = [
   "/rubber-stamps",
   "/catalogues",
   "/pvc-id-cards",
-  "/printing-press-pallavaram",
-  "/printing-press-tambaram",
-  "/printing-press-chromepet",
-  "/printing-press-pammal",
-  "/printing-press-perungalathur",
-  "/printing-press-velachery",
-  "/printing-press-nanganallur",
-  "/printing-press-medavakkam",
-  "/printing-press-guindy",
-  "/printing-press-adyar",
+  ...AREA_PAGE_SLUGS.map((slug) => `/${slug}`),
   "/reseller",
   "/blog",
   "/printing-guide",

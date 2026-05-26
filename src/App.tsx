@@ -28,7 +28,7 @@ import Gallery from "./pages/Gallery";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import GetQuote from "./pages/GetQuote";
-import AreaPrintingPage from "./pages/AreaPrintingPage";
+import AreaPrintingPage, { AREA_PAGE_SLUGS } from "./pages/AreaPrintingPage";
 import Orders from "./pages/Orders";
 
 const queryClient = new QueryClient();
@@ -61,16 +61,9 @@ const App = () => (
             <Route path="/rubber-stamps" element={<RubberStampsPage />} />
             <Route path="/catalogues" element={<CataloguesPage />} />
             <Route path="/pvc-id-cards" element={<PvcIdCardsPage />} />
-            <Route path="/printing-press-pallavaram" element={<AreaPrintingPage />} />
-            <Route path="/printing-press-tambaram" element={<AreaPrintingPage />} />
-            <Route path="/printing-press-chromepet" element={<AreaPrintingPage />} />
-            <Route path="/printing-press-pammal" element={<AreaPrintingPage />} />
-            <Route path="/printing-press-perungalathur" element={<AreaPrintingPage />} />
-            <Route path="/printing-press-velachery" element={<AreaPrintingPage />} />
-            <Route path="/printing-press-nanganallur" element={<AreaPrintingPage />} />
-            <Route path="/printing-press-medavakkam" element={<AreaPrintingPage />} />
-            <Route path="/printing-press-guindy" element={<AreaPrintingPage />} />
-            <Route path="/printing-press-adyar" element={<AreaPrintingPage />} />
+            {AREA_PAGE_SLUGS.map((slug) => (
+              <Route key={slug} path={`/${slug}`} element={<AreaPrintingPage />} />
+            ))}
             <Route path="/reseller" element={<ResellerPage />} />
             <Route path="/blog" element={<BlogIndex />} />
             <Route path="/blog/:slug" element={<BlogPost />} />

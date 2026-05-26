@@ -14,6 +14,7 @@ import AboutSection from "@/components/home/AboutSection";
 import PartnerSection from "@/components/home/PartnerSection";
 import FAQSectionNew from "@/components/home/FAQSectionNew";
 import ContactSection from "@/components/home/ContactSection";
+import ChennaiAreasSection from "@/components/home/ChennaiAreasSection";
 
 /**
  * Homepage section order — re-sequenced after the May 2026 UX audit.
@@ -48,6 +49,7 @@ const Index = () => (
     <AboutSection />
     <PartnerSection />
     <FAQSectionNew />
+    <ChennaiAreasSection />
     <ContactSection />
   </div>
 );
