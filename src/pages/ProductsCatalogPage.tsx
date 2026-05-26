@@ -227,7 +227,10 @@ const ProductsCatalogPage = () => {
       <SEOHead
         title={`${sectionTitle} | Super Printers Chennai`}
         description={`Browse ${sectionTitle} and other printing products. Order online or via WhatsApp. Super Printers, Pallavaram, Chennai.`}
-        canonical="/products"
+        // Per-category canonical so /products/<slug> doesn't collapse into
+        // /products. Previous single canonical was de-indexing every
+        // category page in Google.
+        canonical={categorySlug ? `/products/${categorySlug}` : "/products"}
         breadcrumbs={breadcrumbs}
       />
 

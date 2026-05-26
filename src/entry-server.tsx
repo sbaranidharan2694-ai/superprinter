@@ -49,7 +49,9 @@ export const STATIC_ROUTES = [
   "/gallery",
   "/services",
   "/get-quote",
-  "/orders",
+  // "/orders" intentionally excluded from prerender — the page itself is
+  // marked noindex/nofollow via SEOHead, and emitting a static HTML copy
+  // wastes crawl budget and risks accidental indexation.
   "/banners",
   "/stickers",
   "/rubber-stamps",

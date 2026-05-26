@@ -244,7 +244,19 @@ const AreaPrintingPage = () => {
     "areaServed": {
       "@type": "Place",
       "name": `${config.name}, Chennai, Tamil Nadu`,
-      "containedInPlace": { "@type": "City", "name": "Chennai" },
+      // Nest Place → City → AdministrativeArea so AI engines can resolve
+      // "printing near {City}" queries via entity hierarchy. Previously
+      // the suburb was a flat string under City Chennai which lost the
+      // Tamil Nadu admin-region anchor.
+      "containedInPlace": {
+        "@type": "City",
+        "name": "Chennai",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "Tamil Nadu",
+          "containedInPlace": { "@type": "Country", "name": "India" },
+        },
+      },
     },
     "parentOrganization": { "@id": `${BUSINESS.siteUrl}/#business` },
     "openingHoursSpecification": [

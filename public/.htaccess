@@ -15,11 +15,16 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
-  # ── Canonical host: force apex + HTTPS ───────────────────────────────────
+  # ── Canonical host: force apex + HTTPS + strip trailing slash in ONE hop ─
+  # Combined into a single 301 so a request like
+  # http://www.superprinters.net/about/ does ONE redirect to
+  # https://superprinters.net/about (not www→apex then /→no-/ which bled
+  # PageRank and added an extra RTT to LCP for crawler-driven traffic).
   RewriteCond %{HTTPS} !=on [OR]
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [OR]
-  RewriteCond %{HTTP_HOST} ^www\.superprinters\.net$ [NC]
-  RewriteRule ^(.*)$ https://superprinters.net/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^www\.superprinters\.net$ [NC] [OR]
+  RewriteCond %{REQUEST_URI} ^(.+)/$
+  RewriteRule ^(.*?)/?$ https://superprinters.net/$1 [R=301,L]
 
   # ── Legacy URL → canonical area pages ────────────────────────────────────
   RewriteRule ^tambaram-printing/?$         /printing-press-tambaram         [R=301,L]
@@ -32,11 +37,6 @@ DirectoryIndex index.html
   RewriteRule ^guindy-printing/?$           /printing-press-guindy           [R=301,L]
   RewriteRule ^adyar-printing/?$            /printing-press-adyar            [R=301,L]
 
-  # ── Strip trailing slash (canonical form is no trailing slash) ───────────
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} ^(.+)/$
-  RewriteRule ^ %1 [R=301,L]
-
   # ── Serve prerendered HTML when /<route>/index.html exists ───────────────
   # This is what makes the site crawlable without executing JS.
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -44,10 +44,15 @@ DirectoryIndex index.html
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
   RewriteRule ^(.*)$ /$1/index.html [L]
 
-  # ── SPA fallback for anything not prerendered (client-side route) ────────
+  # ── Unknown routes → real HTTP 404 (avoid soft-404) ──────────────────────
+  # We deliberately do NOT fall back to /index.html with a 200 status for
+  # paths that have no prerendered HTML. Doing that produced soft-404s on
+  # typo URLs (Google: "Crawled — currently not indexed (soft 404)"). The
+  # ErrorDocument directive below serves /404.html with the prerendered
+  # NotFound markup, while the server emits a real 404 status code.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ /index.html [L]
+  RewriteRule ^ - [R=404,L]
 </IfModule>
 
 # ── Custom 404 (prerendered NotFound with noindex,nofollow) ────────────────

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
@@ -33,6 +33,24 @@ const UnifiedHeader = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenu]);
 
+  // a11y: when the mobile menu opens, move focus into it (close button)
+  // and close on Escape. Without these, the panel violated WCAG 2.4.3
+  // (focus order) and 2.1.1 (keyboard accessibility).
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+  const menuTriggerRef = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => {
+    if (!mobileMenu) return;
+    closeBtnRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenu(false);
+        menuTriggerRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileMenu]);
+
   return (
     <header
       data-critical-header
@@ -45,6 +63,8 @@ const UnifiedHeader = () => {
         boxShadow: "0 1px 12px rgba(26,26,46,0.08)",
       }}
     >
+      {/* Skip-link + <main id="main-content"> landmark live in UnifiedLayout
+          (already in place sitewide, WCAG 2.4.1). */}
       <div
         className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[72px] md:min-h-[88px] py-2"
         style={{ color: "#1A1A2E" }}
@@ -53,12 +73,22 @@ const UnifiedHeader = () => {
         <Link to="/" className="flex items-center shrink-0" aria-label="Super Printers Home">
           {!logoImgFailed ? (
             <Picture
-              src="/super-printers-logo.png?v=2"
+              // Drop the `?v=2` cachebuster so the URL matches the
+              // index.html preload (`/super-printers-logo.webp`). With the
+              // buster the preloaded WebP was discarded and a fresh PNG
+              // was fetched at LCP time. Picture will derive the .webp
+              // sibling automatically.
+              src="/super-printers-logo.png"
               alt="Super Printers — 35 Years Experience"
               width={300}
               height={200}
+              fetchPriority="high"
+              decoding="async"
               className="h-[72px] sm:h-[80px] md:h-[88px] lg:h-[88px] w-auto object-contain object-left max-w-[280px] sm:max-w-[320px] md:max-w-[360px] drop-shadow-sm"
-              style={{ minHeight: 96 }}
+              // Removed `style={{ minHeight: 96 }}` — on mobile (<640px)
+              // the responsive height class is 72px but the inline style
+              // forced 96px after CSS loaded, producing a ~24px CLS jump
+              // measurable as CLS ≥ 0.15 on slow networks.
               onError={(e) => {
                 const target = e.currentTarget;
                 if (target.getAttribute("data-fallback") !== "done") {
@@ -151,8 +181,10 @@ const UnifiedHeader = () => {
             <span>Call</span>
           </a>
           <button
+            ref={menuTriggerRef}
+            type="button"
             onClick={() => setMobileMenu(!mobileMenu)}
-            className="min-[600px]:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+            className="min-[600px]:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             aria-label="Toggle menu"
             aria-expanded={mobileMenu}
             aria-controls="mobile-menu-panel"
@@ -164,16 +196,24 @@ const UnifiedHeader = () => {
         </div>
       </div>
 
-      {/* Mobile full-screen overlay */}
+      {/* Mobile full-screen overlay — modelled as a real dialog.
+          - role="dialog" + aria-modal="true" + aria-label = AT semantics
+          - id matches the button's aria-controls
+          - Escape handler + initial focus are wired in the useEffect above */}
       {mobileMenu && (
         <div
+          id="mobile-menu-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Main menu"
           className="min-[600px]:hidden fixed inset-0 top-[132px] z-50 flex flex-col items-center justify-start pt-8 gap-0 overflow-y-auto"
           style={{ backgroundColor: "#FFFFFF" }}
         >
           <button
+            ref={closeBtnRef}
             type="button"
             onClick={() => setMobileMenu(false)}
-            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+            className="absolute top-4 right-4 w-11 h-11 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             style={{ color: "var(--color-primary)" }}
             aria-label="Close menu"
           >

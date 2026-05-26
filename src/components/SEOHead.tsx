@@ -93,8 +93,9 @@ const SEOHead = ({
           {JSON.stringify(schema)}
         </script>
       ))}
-      {/* AI search and citation signals */}
-      <meta name="author" content="Super Printers & Wedding Cards" />
+      {/* AI search and citation signals. `author` is already emitted above
+          (line 59) — Helmet de-dupes by tag identity so listing it twice
+          previously triggered Search Console "duplicate meta" lint. */}
       <meta name="copyright" content="Super Printers & Wedding Cards" />
       <meta name="language" content="en-IN" />
       <meta name="revisit-after" content="7 days" />

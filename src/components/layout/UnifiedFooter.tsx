@@ -46,8 +46,8 @@ const UnifiedFooter = () => (
           <p className="text-sm leading-snug mb-3 font-bold text-white" style={{ fontFamily: "var(--font-body)" }}>
             Chennai's trusted printing press since 1990. 35+ years of quality.
           </p>
-          <p className="text-xs mb-1.5" style={{ color: "var(--gold)" }}>✅ GST Registered · {BUSINESS.gstNumber}</p>
-          <p className="text-xs" style={{ color: "var(--gold)" }}>⭐ {BUSINESS.googleRating} Google Rating · {BUSINESS.googleReviewCount} Reviews</p>
+          <p className="text-xs mb-1.5" style={{ color: "#E8C76A" }}>✅ GST Registered · {BUSINESS.gstNumber}</p>
+          <p className="text-xs" style={{ color: "#E8C76A" }}>⭐ {BUSINESS.googleRating} Google Rating · {BUSINESS.googleReviewCount} Reviews</p>
         </div>
 
         {/* Services — denser stack: text-sm with leading-snug (1.375) and

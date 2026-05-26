@@ -16,11 +16,28 @@ import { FAQ_ITEMS, TESTIMONIALS } from "./v2";
 export const SPEAKABLE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "WebPage",
+  "@id": `${BUSINESS.siteUrl}/#webpage`,
   url: BUSINESS.siteUrl,
   name: BUSINESS.name,
+  inLanguage: "en-IN",
+  // Graph linking — declares this WebPage as part of the WebSite and the
+  // primary topic as the LocalBusiness entity. AI engines that build
+  // entity graphs from JSON-LD will now traverse from page → business →
+  // founder cleanly instead of treating WebPage as an orphan node.
+  isPartOf: { "@id": `${BUSINESS.siteUrl}/#website` },
+  about: { "@id": `${BUSINESS.siteUrl}/#business` },
+  mainEntity: { "@id": `${BUSINESS.siteUrl}/#business` },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: `${BUSINESS.siteUrl}/og-image.jpg`,
+  },
+  // Speakable selector narrowed: H2s are section headers (Pricing, FAQ,
+  // Reviews) — having voice assistants read every heading is noisy.
+  // Restrict to H1 + explicitly-tagged speakable sentences + lead-answer
+  // paragraphs.
   speakable: {
     "@type": "SpeakableSpecification",
-    cssSelector: ["h1", "h2", "[data-speakable]"],
+    cssSelector: ["h1", "[data-speakable]", ".lead-answer"],
   },
 };
 

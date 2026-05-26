@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 import { IMAGE_PATHS } from "@/data/imagePaths";
@@ -23,15 +22,17 @@ const HeroSection = () => (
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         {/* Copy column */}
         <div className="lg:col-span-7">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.05 }}
+          {/* Hero entry animations removed — framer-motion above the fold
+              held the H1 + body + CTAs at opacity:0 in the SSR DOM until
+              hydration, which pushed both LCP and INP. Static markup
+              prints on the first frame; reduced-motion users get the
+              same experience now. */}
+          <p
             className="text-[11px] font-bold tracking-[0.22em] uppercase mb-5 font-ui"
             style={{ color: "var(--gold-dark)" }}
           >
             {HERO.microLabel}
-          </motion.p>
+          </p>
 
           {/* The H1 is the LCP candidate. Rendering it via motion.h1 with
               initial={{ opacity: 0 }} bakes opacity:0 into the SSR HTML —
@@ -48,36 +49,25 @@ const HeroSection = () => (
             {HERO.h1}
           </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <p
             className="font-display italic text-lg md:text-xl mb-5 max-w-xl"
             style={{ color: "var(--gold-dark)" }}
           >
             {HERO.accent}
-          </motion.p>
+          </p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+          <p
             className="text-base md:text-lg leading-relaxed mb-8 max-w-xl"
             style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}
-            // Tagged for SpeakableSpecification: this is the highest-value
-            // sentence for voice assistants and AI Overview extraction
-            // (proof + turnaround + WhatsApp commitment in one line).
+            // SpeakableSpecification target: highest-value sentence for voice
+            // assistants and AI Overview extraction (proof + turnaround +
+            // WhatsApp commitment in one line).
             data-speakable="true"
           >
             {HERO.body}
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-3 mb-7"
-          >
+          <div className="flex flex-col sm:flex-row gap-3 mb-7">
             <Link
               to="/get-quote"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-semibold transition-transform hover:scale-[1.02] active:scale-[0.99]"
@@ -100,13 +90,10 @@ const HeroSection = () => (
               </svg>
               {HERO.ctaSecondary}
             </a>
-          </motion.div>
+          </div>
 
           {/* Single proof line — replaces 3 badge pills */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.55 }}
+          <div
             className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-ui"
             style={{ color: "var(--gray-text)" }}
           >
@@ -117,16 +104,11 @@ const HeroSection = () => (
                 <span>{b.label}</span>
               </span>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Single editorial image — replaces 4-product grid that duplicated ProductsSection */}
-        <motion.div
-          initial={{ opacity: 0, x: 16 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.25, duration: 0.55 }}
-          className="lg:col-span-5 relative"
-        >
+        <div className="lg:col-span-5 relative">
           {/* HeroTiltCard applies a desktop-only 3D tilt on cursor move. On
               touch / mobile / reduced-motion it's a no-op pass-through, so
               the SSR DOM and the mobile experience are unaffected. */}
@@ -177,7 +159,7 @@ const HeroSection = () => (
               </div>
             </div>
           </HeroTiltCard>
-        </motion.div>
+        </div>
       </div>
     </div>
   </section>
