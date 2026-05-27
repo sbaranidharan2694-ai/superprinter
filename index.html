@@ -26,6 +26,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Google Search Console site ownership. Belt-and-suspenders alongside
+         /googlefef551c4cdc491c2.html so verification survives whichever
+         method GSC checks first. Once verified, submit the sitemap and
+         request indexing for the top 30 URLs. -->
+    <meta name="google-site-verification" content="googlefef551c4cdc491c2" />
+
+    <!-- Maximize SERP snippet richness — large image previews, full text
+         snippets, no length cap on video previews. Without these Google
+         defaults to short snippets, which hurts CTR for long-tail "near me"
+         queries where the address line needs to fit in the preview. -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
     <!-- Per-page title / description / canonical / OG / twitter / robots are injected by Helmet during prerender -->
     <!--ssg-head-->
 
