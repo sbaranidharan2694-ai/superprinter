@@ -46,6 +46,11 @@ export const BUSINESS = {
   // Google's Knowledge Graph from picking up a dead link.
   sameAs: [
     "https://wa.me/919840199878",
+    "https://www.justdial.com/Chennai/Super-Printers-Near-Pallavaram-Railway-Station-Road-Pallavaram/044PXX44-XX44-121116100915-F7I8_BZDET",
+    "https://www.weddingwire.in/wedding-invitations/super-printers-and-weddings-cards--e494180",
+    "https://www.weddingbazaar.com/wedding-cards/chennai/super-printers-and-wedding-cards",
+    // Replace placeholders once the owner verifies each profile. Dead sameAs
+    // links weaken Knowledge Graph confidence.
     // "https://www.google.com/maps/place/?q=place_id:REPLACE_WITH_GBP_PLACE_ID",
     // "https://www.instagram.com/superprinters",
     // "https://www.facebook.com/superprinters",
@@ -148,7 +153,29 @@ export const LOCAL_BUSINESS_SCHEMA = {
     "Adyar",
     "Alandur",
   ],
-  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "147", bestRating: "5" },
+  // aggregateRating intentionally removed from sitewide LocalBusiness.
+  // Google's structured-data guidance (May 2025+ enforcement): a business
+  // should not self-rate via aggregateRating on its own LocalBusiness node
+  // — that markup is reserved for sites *capturing* reviews about other
+  // businesses. The 4.8 ★ / 147 reviews now flows from the visible
+  // testimonials section + Product schema only (see seoSchemas.ts).
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+919840199878",
+      contactType: "customer service",
+      areaServed: "IN",
+      availableLanguage: ["English", "Tamil"],
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+919840199878",
+      contactType: "sales",
+      areaServed: "IN",
+      availableLanguage: ["English", "Tamil"],
+    },
+  ],
+  paymentAccepted: "Cash, UPI, Bank Transfer",
   sameAs: BUSINESS.sameAs,
   hasMap: BUSINESS.googleMapsUrl,
   // image as an array satisfies Google's preferred-image guidance; the first

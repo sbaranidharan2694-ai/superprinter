@@ -26,16 +26,20 @@ function toWebp(src: string): string | null {
   return src.replace(/\.(jpe?g|png)(\?|$)/i, ".webp$2");
 }
 
-const Picture = ({ src, ...imgProps }: Props) => {
+const Picture = ({ src, loading, ...imgProps }: Props) => {
   const webp = toWebp(src);
+  // Default `loading="lazy"` for below-fold images. Above-fold callers (hero,
+  // header logo) that need eager loading pass `fetchPriority="high"`
+  // and/or `loading="eager"` explicitly. Aligns with Google's lazy-loading
+  // guidance (developers.google.com/search/docs/crawling-indexing/javascript/lazy-loading).
+  const effectiveLoading = loading ?? "lazy";
   if (!webp) {
-    // Remote / unsupported source — render plain <img>.
-    return <img src={src} {...imgProps} />;
+    return <img src={src} loading={effectiveLoading} {...imgProps} />;
   }
   return (
     <picture>
       <source srcSet={webp} type="image/webp" />
-      <img src={src} {...imgProps} />
+      <img src={src} loading={effectiveLoading} {...imgProps} />
     </picture>
   );
 };

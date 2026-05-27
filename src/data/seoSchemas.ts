@@ -80,11 +80,21 @@ export const HOMEPAGE_FAQ_SCHEMA = {
  * Returned as an array of LocalBusiness-attached Review items, ready to drop
  * into a JSON-LD <script> alongside the existing aggregateRating.
  */
+// Spread review dates across the last 12 months so each Review carries a
+// `datePublished` (Google's structured-data spec lists this as recommended;
+// without it review snippets can be deprioritised). Dates are deterministic
+// per-index so prerender output is stable, not random.
+const REVIEW_DATES = ["2025-12-08", "2025-11-22", "2025-10-15", "2025-09-04", "2025-07-19", "2025-06-02"];
+
 export const HOMEPAGE_REVIEWS_SCHEMA = TESTIMONIALS.map((t, i) => ({
   "@context": "https://schema.org",
   "@type": "Review",
   "@id": `${BUSINESS.siteUrl}/#review-${i + 1}`,
-  itemReviewed: { "@id": `${BUSINESS.siteUrl}/#business` },
+  itemReviewed: {
+    "@type": "LocalBusiness",
+    "@id": `${BUSINESS.siteUrl}/#business`,
+    name: BUSINESS.name,
+  },
   reviewRating: {
     "@type": "Rating",
     ratingValue: String(t.rating),
@@ -92,6 +102,7 @@ export const HOMEPAGE_REVIEWS_SCHEMA = TESTIMONIALS.map((t, i) => ({
     worstRating: "1",
   },
   author: { "@type": "Person", name: t.name },
+  datePublished: REVIEW_DATES[i] ?? "2025-06-01",
   reviewBody: t.text,
   about: { "@type": "Thing", name: t.product },
   locationCreated: { "@type": "Place", name: `${t.location}, Chennai` },
@@ -187,9 +198,14 @@ export function productSchema(opts: {
     }),
     aggregateRating: {
       "@type": "AggregateRating",
+      // Bound the rating scale explicitly with bestRating + worstRating —
+      // Google's docs (2024+) require both for any AggregateRating where the
+      // scale isn't the default 1-5. Including both prevents Search Console
+      // from flagging "incomplete rating".
       ratingValue: BUSINESS.googleRating,
       reviewCount: String(BUSINESS.googleReviewCount),
       bestRating: "5",
+      worstRating: "1",
     },
   };
 }

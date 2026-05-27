@@ -84,6 +84,7 @@ const UnifiedHeader = () => {
               height={200}
               fetchPriority="high"
               decoding="async"
+              loading="eager"
               className="h-[72px] sm:h-[80px] md:h-[88px] lg:h-[88px] w-auto object-contain object-left max-w-[280px] sm:max-w-[320px] md:max-w-[360px] drop-shadow-sm"
               // Removed `style={{ minHeight: 96 }}` — on mobile (<640px)
               // the responsive height class is 72px but the inline style

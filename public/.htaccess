@@ -26,6 +26,23 @@ DirectoryIndex index.html
   RewriteCond %{REQUEST_URI} ^(.+)/$
   RewriteRule ^(.*?)/?$ https://superprinters.net/$1 [R=301,L]
 
+  # ── Legacy /services/<slug> → flat product URL (kill duplicate clusters) ─
+  # `/services/visiting-cards` and `/visiting-cards` rendered the same body
+  # and self-canonicalized to themselves, splitting PageRank between the
+  # two URLs. Permanent 301 onto the flat URL consolidates link equity
+  # onto a single canonical and prevents the duplicate-content downgrade
+  # Google has applied since the March 2024 core update.
+  RewriteRule ^services/visiting-cards/?$       /visiting-cards          [R=301,L]
+  RewriteRule ^services/wedding-invitations/?$  /wedding-cards           [R=301,L]
+  RewriteRule ^services/brochure-printing/?$    /brochures               [R=301,L]
+  RewriteRule ^services/bill-books/?$           /bill-books              [R=301,L]
+  RewriteRule ^services/letterheads/?$          /letterheads             [R=301,L]
+  RewriteRule ^services/banner-printing/?$      /banners                 [R=301,L]
+  RewriteRule ^services/stickers-labels/?$      /stickers                [R=301,L]
+  RewriteRule ^services/rubber-stamps/?$        /rubber-stamps           [R=301,L]
+  RewriteRule ^services/catalogues/?$           /catalogues              [R=301,L]
+  RewriteRule ^services/id-cards/?$             /pvc-id-cards            [R=301,L]
+
   # ── Legacy URL → canonical area pages ────────────────────────────────────
   RewriteRule ^tambaram-printing/?$         /printing-press-tambaram         [R=301,L]
   RewriteRule ^chromepet-printing/?$        /printing-press-chromepet        [R=301,L]

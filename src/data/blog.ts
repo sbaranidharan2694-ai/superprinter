@@ -26,6 +26,17 @@ export interface BlogPostData {
   image?: string;
   readTime?: string;
   category?: string;
+  /**
+   * Author byline. Defaults to the founder when not specified — every post
+   * needs a named expert per Google's E-E-A-T + Helpful Content guidance
+   * (anonymous knowledge content is increasingly down-weighted post the
+   * March 2024 + March 2026 core updates). `url` should point at the
+   * author's biography (About page for the founder).
+   */
+  author?: {
+    name: string;
+    url?: string;
+  };
 }
 
 export const BLOG_POSTS: BlogPostData[] = [

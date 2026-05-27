@@ -29,7 +29,8 @@ const BlogPost = () => {
     "author": {
       "@type": "Person",
       "@id": `${BUSINESS.siteUrl}/#founder`,
-      "name": BUSINESS.founder,
+      "name": post.author?.name ?? BUSINESS.founder,
+      "url": post.author?.url ?? `${BUSINESS.siteUrl}/about`,
     },
     "publisher": {
       "@type": "Organization",

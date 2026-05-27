@@ -66,11 +66,9 @@ const SEOHead = ({
       <link rel="alternate" hrefLang="en-IN" href={fullCanonical} />
       <link rel="alternate" hrefLang="x-default" href={fullCanonical} />
 
-      {/* Geo meta tags */}
-      <meta name="geo.region" content="IN-TN" />
-      <meta name="geo.placename" content="Chennai" />
-      <meta name="geo.position" content={`${BUSINESS.lat};${BUSINESS.lng}`} />
-      <meta name="ICBM" content={`${BUSINESS.lat}, ${BUSINESS.lng}`} />
+      {/* geo.* and ICBM meta tags removed — Google has not supported them
+          since ~2014. Geographic data flows from JSON-LD GeoCoordinates
+          on the LocalBusiness node (see index.html). */}
 
       {/* Open Graph */}
       <meta property="og:type" content={ogType} />
@@ -97,8 +95,9 @@ const SEOHead = ({
           (line 59) — Helmet de-dupes by tag identity so listing it twice
           previously triggered Search Console "duplicate meta" lint. */}
       <meta name="copyright" content="Super Printers & Wedding Cards" />
-      <meta name="language" content="en-IN" />
-      <meta name="revisit-after" content="7 days" />
+      {/* `language` + `revisit-after` removed — `language` duplicates the
+          <html lang> attribute, and `revisit-after` is explicitly listed
+          as unsupported in Google's special-tags doc. */}
       <link rel="me" href="https://wa.me/919840199878" />
     </Helmet>
   );

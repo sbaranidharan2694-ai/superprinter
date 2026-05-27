@@ -3,6 +3,7 @@ import SEOHead from "@/components/SEOHead";
 import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
 import { services } from "@/data/services";
+import { AREA_PROFILES } from "@/data/areaProfiles";
 
 const AREA_CONFIG: Record<string, { name: string; title: string; intro: string; distance: string }> = {
   "printing-press-pallavaram": {
@@ -201,6 +202,7 @@ const AreaPrintingPage = () => {
   // that lands with a slash) we still need the slug to match.
   const slug = location.pathname.replace(/^\/+|\/+$/g, "") || "";
   const config = AREA_SLUGS.includes(slug) ? AREA_CONFIG[slug] : null;
+  const profile = AREA_PROFILES[slug] ?? null;
 
   if (!config) {
     return (
@@ -275,6 +277,25 @@ const AreaPrintingPage = () => {
     // guidelines and risks rich-result suppression.
   };
 
+  // Per-area FAQPage schema, built from profile.areaFaqs. Each suburb gets
+  // 3 questions whose answers contain area-specific facts (road names,
+  // landmarks, business types), so the FAQ on each page is genuinely
+  // unique rather than templated. This is the structured-data complement
+  // to the visible FAQ section we render below — Google's spec says
+  // structured FAQ data must match visible content.
+  const areaFaqSchema = profile
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${BUSINESS.siteUrl}/${slug}#faq`,
+        mainEntity: profile.areaFaqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+
   return (
     <>
       {(() => {
@@ -288,7 +309,7 @@ const AreaPrintingPage = () => {
             title={config.title}
             description={description}
             canonical={`/${slug}`}
-            schemaMarkup={schema}
+            schemaMarkup={areaFaqSchema ? [schema, areaFaqSchema] : schema}
             breadcrumbs={[
               { name: "Home", url: "/" },
               { name: "Areas served", url: "/services" },
@@ -317,6 +338,41 @@ const AreaPrintingPage = () => {
           </div>
         </section>
 
+        {profile && (
+          <section className="py-12 px-4 bg-white" aria-labelledby="local-context-heading">
+            <div className="max-w-4xl mx-auto">
+              <h2 id="local-context-heading" className="font-display text-xl font-bold mb-4" style={{ color: "var(--color-primary)" }}>
+                Why we serve {config.name}
+              </h2>
+              <p className="text-base leading-relaxed lead-answer" style={{ color: "#374151", fontFamily: "var(--font-body)" }}>
+                {profile.localContext}
+              </p>
+            </div>
+          </section>
+        )}
+
+        {profile && (
+          <section className="py-12 px-4" style={{ backgroundColor: "#FFFDF7" }} aria-labelledby="popular-services-heading">
+            <div className="max-w-4xl mx-auto">
+              <h2 id="popular-services-heading" className="font-display text-xl font-bold mb-6" style={{ color: "var(--color-primary)" }}>
+                What {config.name} customers order most
+              </h2>
+              <ul className="space-y-5">
+                {profile.popularServices.map((p) => (
+                  <li key={p.service} className="border-l-4 pl-4" style={{ borderColor: "var(--gold)" }}>
+                    <h3 className="font-display text-base font-bold mb-1" style={{ color: "var(--color-primary)" }}>
+                      {p.service}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>
+                      {p.reason}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
         <section className="py-12 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-display text-xl font-bold mb-6" style={{ color: "var(--color-primary)" }}>
@@ -340,6 +396,11 @@ const AreaPrintingPage = () => {
             <h2 className="font-display text-xl font-bold mb-4" style={{ color: "var(--color-primary)" }}>
               Delivery to {config.name}
             </h2>
+            {profile && (
+              <p className="mb-3 text-sm" style={{ color: "#374151", fontFamily: "var(--font-body)" }}>
+                <strong>Route from our Pallavaram press:</strong> {profile.routeKm} km · {profile.routeMins} min · {profile.routeRoad}
+              </p>
+            )}
             <p className="mb-6" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>
               We deliver to {config.name} — orders ready in 48 hours. Place your order on WhatsApp or call us for a quote.
             </p>
@@ -357,7 +418,29 @@ const AreaPrintingPage = () => {
           </div>
         </section>
 
-        <section className="py-12 px-4 bg-white">
+        {profile && (
+          <section className="py-12 px-4 bg-white" aria-labelledby="area-faq-heading">
+            <div className="max-w-4xl mx-auto">
+              <h2 id="area-faq-heading" className="font-display text-xl font-bold mb-6" style={{ color: "var(--color-primary)" }}>
+                {config.name} customer questions
+              </h2>
+              <dl className="space-y-6">
+                {profile.areaFaqs.map((faq) => (
+                  <div key={faq.q}>
+                    <dt className="font-display text-base font-bold mb-2" style={{ color: "var(--color-primary)" }}>
+                      {faq.q}
+                    </dt>
+                    <dd className="text-sm leading-relaxed" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>
+                      {faq.a}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        )}
+
+        <section className="py-12 px-4" style={{ backgroundColor: "#FFFDF7" }}>
           <div className="max-w-4xl mx-auto text-center">
             <a
               href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(`Hi, I need printing and I'm from ${config.name}. Please send me a quote.`)}`}

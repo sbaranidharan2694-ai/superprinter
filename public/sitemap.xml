@@ -53,21 +53,12 @@
   <url><loc>https://superprinters.net/catalogues</loc>                <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://superprinters.net/pvc-id-cards</loc>              <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
 
-  <!-- ── Service detail (legacy /services/:slug routes) ───────────────── -->
-  <url><loc>https://superprinters.net/services/offset-printing</loc>     <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/visiting-cards</loc>      <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/banner-printing</loc>     <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/brochure-printing</loc>   <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/bill-books</loc>          <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/wedding-invitations</loc> <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/t-shirt-printing</loc>    <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/rubber-stamps</loc>       <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/stickers-labels</loc>     <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/letterheads</loc>         <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/catalogues</loc>          <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/pamphlet-printing</loc>   <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/screen-printing</loc>     <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://superprinters.net/services/id-cards</loc>            <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- /services/<slug> URLs removed from sitemap — they now 301-redirect
+       to their flat counterparts (/visiting-cards, /wedding-cards, etc.)
+       via .htaccess, so listing them again would just feed Google
+       duplicates. Slugs without a flat alias (offset-printing, screen-
+       printing, t-shirt-printing, pamphlet-printing) are intentionally
+       de-prioritised from the sitemap until they get dedicated pages. -->
 
   <!-- ── Local area pages (canonical /printing-press-{area}) ─────────── -->
   <url><loc>https://superprinters.net/printing-press-pallavaram</loc>    <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
@@ -133,5 +124,7 @@
   <url><loc>https://superprinters.net/products/hospital-files</loc>      <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://superprinters.net/products/ready-made</loc>          <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://superprinters.net/llm.html</loc>                  <lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <!-- /llm.html removed — it's an AI-grounding helper, not a primary
+       canonical URL. Indexing it competes with the homepage for the same
+       brand-name queries. llms.txt at the site root remains for AI crawlers. -->
 </urlset>

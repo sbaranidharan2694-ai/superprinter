@@ -31,7 +31,9 @@ import ChennaiAreasSection from "@/components/home/ChennaiAreasSection";
 const Index = () => (
   <div className="text-foreground bg-background overflow-x-hidden" style={{ fontFamily: "var(--font-body)" }}>
     <SEOHead
-      title="Printing Press in Chennai | Wedding & Visiting Cards | Super Printers"
+      // Title sized to fit Google's ~580px SERP allowance (≈ 60 chars).
+      // Brand at end so the head term "Printing Press in Chennai" leads.
+      title="Printing Press in Chennai | Super Printers Pallavaram"
       description="Chennai's trusted printing press since 1990. Wedding cards from ₹5, visiting cards, brochures, banners, bill books. Free proof, ready in 24 hours. Pallavaram, Chennai."
       canonical="/"
       keywords="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards Chennai, brochure printing Chennai"
