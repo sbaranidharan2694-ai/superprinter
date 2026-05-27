@@ -85,9 +85,30 @@ ErrorDocument 404 /404.html
   </FilesMatch>
   Header set X-Content-Type-Options "nosniff"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
-  # HSTS: tell browsers to use HTTPS for the next ~6 months. `preload` makes us
-  # eligible for the Chromium HSTS preload list once we submit the domain.
-  Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
+  # HSTS — bumped to 1 year (31,536,000 s) which is the minimum the
+  # Chromium HSTS preload list requires. Submit at hstspreload.org to
+  # be added to browser shipped lists.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # ── Content Security Policy ─────────────────────────────────────────
+  # Locks down what scripts/styles/fonts/iframes the browser will execute.
+  # Tuned to allow: inline JSON-LD blocks, GA4 (gtm + ga collector +
+  # regional region1 endpoint), Google Fonts CSS+WOFF2, Google Maps embed
+  # iframe, image hosts (broad https — tighten once we inventory all
+  # third-party image sources). 'unsafe-inline' on script-src kept for
+  # the inline ld+json blocks; tighten to hash/nonce once Vite is wired
+  # for it. frame-ancestors 'self' replaces X-Frame-Options.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://region1.google-analytics.com; frame-src https://www.google.com https://maps.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+
+  # Permissions-Policy — explicitly disable browser features we don't use.
+  # Defends against accidental opt-in by third-party scripts.
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+
+  # Cross-origin isolation — WhatsApp deeplinks open in a new tab via
+  # window.open; same-origin-allow-popups keeps process-isolation while
+  # permitting that flow.
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
 </IfModule>
 
 <IfModule mod_expires.c>

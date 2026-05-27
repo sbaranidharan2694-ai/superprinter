@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Environment files — defense-in-depth. None exist today, but pinning
+# the rule now prevents accidental commits if a backend is added later.
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
