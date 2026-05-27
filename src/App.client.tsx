@@ -87,6 +87,26 @@ const App = () => (
               <Route path="/printing-press-medavakkam" element={<AreaPrintingPage />} />
               <Route path="/printing-press-guindy" element={<AreaPrintingPage />} />
               <Route path="/printing-press-adyar" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-alandur" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-t-nagar" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-anna-nagar" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-porur" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-omr" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-sholinganallur" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-vadapalani" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-mylapore" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-saidapet" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-ekkattuthangal" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-ashok-nagar" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-egmore" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-anna-salai" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-manapakkam" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-thiruvanmiyur" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-mogappair" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-kodambakkam" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-nungambakkam" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-ambattur" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-avadi" element={<AreaPrintingPage />} />
               <Route path="/reseller" element={<ResellerPage />} />
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogPost />} />

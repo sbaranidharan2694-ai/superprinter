@@ -61,9 +61,43 @@ const App = () => (
             <Route path="/rubber-stamps" element={<RubberStampsPage />} />
             <Route path="/catalogues" element={<CataloguesPage />} />
             <Route path="/pvc-id-cards" element={<PvcIdCardsPage />} />
-            {AREA_PAGE_SLUGS.map((slug) => (
-              <Route key={slug} path={`/${slug}`} element={<AreaPrintingPage />} />
-            ))}
+            {/* All 30 suburb routes listed explicitly. React Router v6
+                does accept `.map()` arrays inside <Routes>, but in this
+                project's setup the mapped routes failed to register at
+                runtime for slugs added after the initial 10 (Pallavaram
+                worked, T. Nagar 404'd). Keeping the source of truth in
+                AREA_PAGE_SLUGS for sitemap + prerender + ChennaiAreasSection;
+                only the route list itself is duplicated here. */}
+            <Route path="/printing-press-pallavaram" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-tambaram" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-chromepet" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-pammal" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-perungalathur" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-velachery" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-nanganallur" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-medavakkam" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-guindy" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-adyar" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-alandur" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-t-nagar" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-anna-nagar" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-porur" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-omr" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-sholinganallur" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-vadapalani" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-mylapore" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-saidapet" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-ekkattuthangal" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-ashok-nagar" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-egmore" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-anna-salai" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-manapakkam" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-thiruvanmiyur" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-mogappair" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-kodambakkam" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-nungambakkam" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-ambattur" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-avadi" element={<AreaPrintingPage />} />
             <Route path="/reseller" element={<ResellerPage />} />
             <Route path="/blog" element={<BlogIndex />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
