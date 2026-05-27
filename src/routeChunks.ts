@@ -38,6 +38,11 @@ const exactRoutes: Record<string, Loader> = {
 };
 
 const prefixedRoutes: Array<[RegExp, Loader]> = [
+  // Order matters — head-keyword pages also match the area-page regex
+  // (/^\/printing-press-[a-z-]+$/), so they MUST be checked first.
+  [/^\/printing-press-chennai$/, () => import("./pages/HeadKeywordPage")],
+  [/^\/(offset|digital)-printing-press-in-chennai$/, () => import("./pages/HeadKeywordPage")],
+  [/^\/industries\/[a-z-]+$/, () => import("./pages/IndustryPage")],
   [/^\/printing-press-[a-z-]+$/, () => import("./pages/AreaPrintingPage")],
   [/^\/services\/[a-z-]+$/, () => import("./pages/ServiceDetail")],
   [/^\/blog\/[a-z-]+$/, () => import("./pages/BlogPost")],

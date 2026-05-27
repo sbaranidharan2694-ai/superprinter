@@ -40,6 +40,8 @@ const Services = lazy(() => import("./pages/Services"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 const GetQuote = lazy(() => import("./pages/GetQuote"));
 const AreaPrintingPage = lazy(() => import("./pages/AreaPrintingPage"));
+const HeadKeywordPage = lazy(() => import("./pages/HeadKeywordPage"));
+const IndustryPage = lazy(() => import("./pages/IndustryPage"));
 const Orders = lazy(() => import("./pages/Orders"));
 
 const queryClient = new QueryClient();
@@ -107,6 +109,15 @@ const App = () => (
               <Route path="/printing-press-nungambakkam" element={<AreaPrintingPage />} />
               <Route path="/printing-press-ambattur" element={<AreaPrintingPage />} />
               <Route path="/printing-press-avadi" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-chennai" element={<HeadKeywordPage />} />
+              <Route path="/offset-printing-press-in-chennai" element={<HeadKeywordPage />} />
+              <Route path="/digital-printing-press-in-chennai" element={<HeadKeywordPage />} />
+              <Route path="/industries/pharma-printing-chennai" element={<IndustryPage />} />
+              <Route path="/industries/automotive-printing-chennai" element={<IndustryPage />} />
+              <Route path="/industries/hospital-printing-chennai" element={<IndustryPage />} />
+              <Route path="/industries/hospitality-printing-chennai" element={<IndustryPage />} />
+              <Route path="/industries/education-printing-chennai" element={<IndustryPage />} />
+              <Route path="/industries/it-printing-chennai" element={<IndustryPage />} />
               <Route path="/reseller" element={<ResellerPage />} />
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogPost />} />

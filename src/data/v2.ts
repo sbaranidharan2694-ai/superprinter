@@ -28,20 +28,15 @@ export const HERO = {
   //  (long H1s push content down the page and hurt AI-Overview extraction).
   //
   //  Word choices:
-  //    • "Printing Press in Pallavaram" — head term + local-pack anchor.
-  //      Dropped ", Chennai" because Google's knowledge graph maps
-  //      Pallavaram → Chennai natively, the title tag carries "Chennai",
-  //      and the eyebrow above also has it. Spending 9 chars on a
-  //      duplicate signal isn't worth it post-May-2026 (specificity wins).
-  //    • "Cards, Brochures, Banners" — three concrete category anchors
-  //      that explicitly match three high-volume product queries
-  //      (wedding/visiting cards, brochure printing, banner printing).
-  //      Google's BERT/MUM map "Cards" → wedding cards + visiting cards
-  //      + business cards, so one word covers three subcategories.
-  //    • Dropped "& More" — the May 2026 update rewards specific keywords
-  //      over generic breadth signals. The other 11 services we offer are
-  //      surfaced via internal links, footer, sitemap, and dedicated
-  //      pages with their own H1s.
+  //    • "Printing Press in Chennai" — exact-match for the head commercial
+  //      query. Earlier copy led with "Pallavaram" which self-demoted the
+  //      page topic to a suburb; competitive analysis (May 2026 vs the
+  //      then-#1 imprintwings.com) showed Google's H1 → topic signal was
+  //      reading us as a Pallavaram-only press despite the title tag
+  //      carrying "Chennai". H1 + title alignment matters more than the
+  //      knowledge-graph fallback path.
+  //    • "Wedding & Visiting Cards" — the two highest-volume sub-queries
+  //      ride along with the head term in a single 56-char H1.
   microLabel: "EST. 1990 · PALLAVARAM, CHENNAI",
   h1: "Printing Press in Chennai — Wedding & Visiting Cards",
   accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house in Pallavaram.",

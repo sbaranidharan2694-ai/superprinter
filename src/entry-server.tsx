@@ -58,6 +58,17 @@ export const STATIC_ROUTES = [
   "/catalogues",
   "/pvc-id-cards",
   ...AREA_PAGE_SLUGS.map((slug) => `/${slug}`),
+  // Head-keyword exact-match pages.
+  "/printing-press-chennai",
+  "/offset-printing-press-in-chennai",
+  "/digital-printing-press-in-chennai",
+  // Industry-vertical pages.
+  "/industries/pharma-printing-chennai",
+  "/industries/automotive-printing-chennai",
+  "/industries/hospital-printing-chennai",
+  "/industries/hospitality-printing-chennai",
+  "/industries/education-printing-chennai",
+  "/industries/it-printing-chennai",
   "/reseller",
   "/blog",
   "/printing-guide",

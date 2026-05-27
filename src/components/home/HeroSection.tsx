@@ -125,7 +125,7 @@ const HeroSection = () => (
                 <source srcSet="/images/hero/wedding.webp" type="image/webp" />
                 <img
                   src={IMAGE_PATHS.hero.wedding}
-                  alt="Wedding card with gold foil printed by Super Printers, Pallavaram"
+                  alt="Wedding card with gold foil printed in Chennai by Super Printers, Pallavaram press"
                   width={800}
                   height={600}
                   fetchPriority="high"

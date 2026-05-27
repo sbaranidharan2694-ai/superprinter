@@ -29,6 +29,8 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import GetQuote from "./pages/GetQuote";
 import AreaPrintingPage, { AREA_PAGE_SLUGS } from "./pages/AreaPrintingPage";
+import HeadKeywordPage from "./pages/HeadKeywordPage";
+import IndustryPage from "./pages/IndustryPage";
 import Orders from "./pages/Orders";
 
 const queryClient = new QueryClient();
@@ -98,6 +100,19 @@ const App = () => (
             <Route path="/printing-press-nungambakkam" element={<AreaPrintingPage />} />
             <Route path="/printing-press-ambattur" element={<AreaPrintingPage />} />
             <Route path="/printing-press-avadi" element={<AreaPrintingPage />} />
+            {/* Head-keyword exact-match landing pages (May 2026 — built to
+                compete with imprintwings.com's /printing-press-in-chennai.php
+                pattern for the head commercial query). */}
+            <Route path="/printing-press-chennai" element={<HeadKeywordPage />} />
+            <Route path="/offset-printing-press-in-chennai" element={<HeadKeywordPage />} />
+            <Route path="/digital-printing-press-in-chennai" element={<HeadKeywordPage />} />
+            {/* Industry-vertical pages — B2B intent positioning. */}
+            <Route path="/industries/pharma-printing-chennai" element={<IndustryPage />} />
+            <Route path="/industries/automotive-printing-chennai" element={<IndustryPage />} />
+            <Route path="/industries/hospital-printing-chennai" element={<IndustryPage />} />
+            <Route path="/industries/hospitality-printing-chennai" element={<IndustryPage />} />
+            <Route path="/industries/education-printing-chennai" element={<IndustryPage />} />
+            <Route path="/industries/it-printing-chennai" element={<IndustryPage />} />
             <Route path="/reseller" element={<ResellerPage />} />
             <Route path="/blog" element={<BlogIndex />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
