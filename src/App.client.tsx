@@ -43,6 +43,8 @@ const AreaPrintingPage = lazy(() => import("./pages/AreaPrintingPage"));
 const HeadKeywordPage = lazy(() => import("./pages/HeadKeywordPage"));
 const IndustryPage = lazy(() => import("./pages/IndustryPage"));
 const ChennaiPrintingGuidePage = lazy(() => import("./pages/ChennaiPrintingGuidePage"));
+const OurPressPage = lazy(() => import("./pages/OurPressPage"));
+const ClientsPage = lazy(() => import("./pages/ClientsPage"));
 const Orders = lazy(() => import("./pages/Orders"));
 
 const queryClient = new QueryClient();
@@ -117,6 +119,8 @@ const App = () => (
               <Route path="/large-format-signage-chennai" element={<HeadKeywordPage />} />
               <Route path="/custom-packaging-printing-chennai" element={<HeadKeywordPage />} />
               <Route path="/chennai-printing-guide" element={<ChennaiPrintingGuidePage />} />
+              <Route path="/our-press" element={<OurPressPage />} />
+              <Route path="/clients" element={<ClientsPage />} />
               <Route path="/industries/pharma-printing-chennai" element={<IndustryPage />} />
               <Route path="/industries/automotive-printing-chennai" element={<IndustryPage />} />
               <Route path="/industries/hospital-printing-chennai" element={<IndustryPage />} />

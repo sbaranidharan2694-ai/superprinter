@@ -30,7 +30,7 @@ export interface HeadKeywordPage {
 export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
   {
     slug: "printing-press-chennai",
-    title: "Printing Press in Chennai | Offset & Digital | Super Printers",
+    title: "Printing Press in Chennai from ₹5 — Offset & Digital | Super Printers",
     metaDescription:
       "Chennai's full-service printing press since 1990. Offset, digital, screen printing — wedding cards, visiting cards, brochures, bill books, banners. Free design proof, ready in 24 hours.",
     h1: "Printing Press in Chennai — Offset & Digital, Since 1990",
@@ -92,7 +92,7 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
   },
   {
     slug: "offset-printing-press-in-chennai",
-    title: "Offset Printing Press in Chennai | Super Printers Pallavaram",
+    title: "Offset Printing Press in Chennai from ₹0.80/copy | Super Printers",
     metaDescription:
       "Best offset printing press in Chennai since 1990. Wedding cards from ₹5, GST bill books, brochures, catalogues — 4 & 5-colour offset, Pantone spot matching. Pallavaram, Chennai.",
     h1: "Offset Printing Press in Chennai — Since 1990",
@@ -146,7 +146,7 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
   },
   {
     slug: "digital-printing-press-in-chennai",
-    title: "Digital Printing Press in Chennai | Super Printers Pallavaram",
+    title: "Digital Printing Press in Chennai from ₹4/sheet — Same-Day | Super Printers",
     metaDescription:
       "Fast digital printing press in Chennai — visiting cards in 24 hours, wedding cards from ₹5, PVC ID cards, brochures, signage. Walk in to our Pallavaram press or order on WhatsApp.",
     h1: "Digital Printing Press in Chennai — Same-Day for Small Runs",
@@ -200,7 +200,7 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
   },
   {
     slug: "business-cards-chennai",
-    title: "Business Cards Chennai | Premium Visiting Cards | Super Printers",
+    title: "Business Cards Chennai from ₹149/100 — Same-Day | Super Printers",
     metaDescription:
       "High-quality business cards in Chennai from ₹149/100. 300-400 GSM matt, gloss, spot UV, foil, letterpress finishes. Free design, ready in 24 hours. Pallavaram, Chennai.",
     h1: "High-Quality Business Cards in Chennai — From ₹149",
@@ -258,7 +258,7 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
   },
   {
     slug: "large-format-signage-chennai",
-    title: "Large Format Signage Chennai | Flex Banners, Standees, Vinyl Print",
+    title: "Flex Banner Printing Chennai from ₹12/sqft — Vinyl, Standees | Super Printers",
     metaDescription:
       "Large format printing in Chennai — flex banners, vinyl signage, roll-up standees, foam-board pop-ups, billboard panels. Super Printers Pallavaram, ready in 24-48 hours.",
     h1: "Large Format Signage Solutions in Chennai",
@@ -312,7 +312,7 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
   },
   {
     slug: "custom-packaging-printing-chennai",
-    title: "Custom Packaging Printing Chennai | Boxes, Pouches, Labels",
+    title: "Custom Packaging Printing Chennai from ₹14/carton — Boxes, Pouches, Labels",
     metaDescription:
       "Custom packaging printing in Chennai — folding cartons, mailer boxes, gift boxes, food packaging, pouches, labels. Super Printers Pallavaram serves D2C, food, beauty, pharma brands.",
     h1: "Custom Packaging Printing in Chennai",

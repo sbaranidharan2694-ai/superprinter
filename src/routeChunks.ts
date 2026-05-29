@@ -35,6 +35,8 @@ const exactRoutes: Record<string, Loader> = {
   "/reseller": () => import("./pages/ResellerPage"),
   "/blog": () => import("./pages/BlogIndex"),
   "/printing-guide": () => import("./pages/PrintingGuide"),
+  "/our-press": () => import("./pages/OurPressPage"),
+  "/clients": () => import("./pages/ClientsPage"),
 };
 
 const prefixedRoutes: Array<[RegExp, Loader]> = [
