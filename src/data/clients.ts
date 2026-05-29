@@ -55,11 +55,11 @@ export const CLIENTS: Client[] = [
   { name: "NK Grand Park", tag: "Hospitality", logo: "/clients/nk-grand-park.png" },
   { name: "Harsha Exports", tag: "Exports", logo: "/clients/harsha-exports.png" },
   { name: "Panoply", tag: "Packaging — Corrugated Boards & Boxes", logo: "/clients/panoply.png" },
-  { name: "Mothers Medical", tag: "Healthcare", logo: "/clients/mothers-medical.svg" },
+  { name: "Mothers Medica", tag: "Healthcare", logo: "/clients/mothers-medica.png" },
   { name: "ESAB", tag: "Industrial", logo: "/clients/esab.svg", brandfetchDomain: "esab.com" },
   { name: "Indian Bank", tag: "Banking", logo: "/clients/indian-bank.svg", brandfetchDomain: "indianbank.in" },
   { name: "GG Organics", tag: "Sustainable Leather & Textiles", logo: "/clients/gg-organics.png" },
-  { name: "Kwowa Natesan", tag: "Corporate", logo: "/clients/kwowa-natesan.svg" },
+  { name: "Kyowa Natesan", tag: "Corporate", logo: "/clients/kyowa-natesan.svg" },
   { name: "CGRD Chemicals", tag: "Industrial Chemicals", logo: "/clients/cgrd-chemicals.png" },
   { name: "Gokul Ram Leathers", tag: "Leather Manufacturing", logo: "/clients/gokul-ram-leathers.svg" },
 ];
