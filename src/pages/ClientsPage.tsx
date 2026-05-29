@@ -1,7 +1,64 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
-import { CLIENTS } from "@/data/clients";
+import { CLIENTS, type Client } from "@/data/clients";
+
+/**
+ * Initials monogram for clients whose logo file isn't on disk yet. Keeps
+ * the trust grid visually consistent even before the owner drops in a real
+ * brand logo at the matching public/clients/ path.
+ */
+function initialsOf(name: string): string {
+  const words = name.replace(/[^A-Za-z. ]/g, "").split(/[\s.]+/).filter(Boolean);
+  if (words.length === 0) return "?";
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
+
+const ClientLogoTile = ({ client }: { client: Client }) => {
+  const [loadFailed, setLoadFailed] = useState(false);
+  const initials = initialsOf(client.name);
+  return (
+    <li className="rounded-xl border border-gray-200 bg-white p-4 flex flex-col items-center gap-3 hover:shadow-md transition-shadow">
+      <div className="h-16 w-full flex items-center justify-center">
+        {loadFailed ? (
+          <div
+            aria-hidden="true"
+            className="w-16 h-16 rounded-lg flex items-center justify-center font-display font-bold text-xl"
+            style={{
+              background: "linear-gradient(135deg, #FFF8EC 0%, #FFFDF7 100%)",
+              color: "var(--color-primary)",
+              border: "1px solid rgba(201,168,76,0.35)",
+            }}
+          >
+            {initials}
+          </div>
+        ) : (
+          <img
+            src={client.logo}
+            alt={`${client.name} — Chennai client of Super Printers`}
+            loading="lazy"
+            decoding="async"
+            className="max-h-16 max-w-full object-contain"
+            style={{ filter: "grayscale(15%)" }}
+            onError={() => setLoadFailed(true)}
+          />
+        )}
+      </div>
+      <div className="text-center">
+        <p className="font-display text-sm font-bold" style={{ color: "var(--color-primary)" }}>
+          {client.name}
+        </p>
+        {client.tag && (
+          <p className="text-xs mt-0.5" style={{ color: "#6B7280" }}>
+            {client.tag}
+          </p>
+        )}
+      </div>
+    </li>
+  );
+};
 
 /**
  * /clients — enterprise client logo wall (Imprint Wings pattern).
@@ -77,31 +134,7 @@ const ClientsPage = () => {
             <h2 id="clients-grid-heading" className="sr-only">Client logos</h2>
             <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {CLIENTS.map((c) => (
-                <li
-                  key={c.name}
-                  className="rounded-xl border border-gray-200 bg-white p-4 flex flex-col items-center gap-3 hover:shadow-md transition-shadow"
-                >
-                  <div className="h-16 w-full flex items-center justify-center">
-                    <img
-                      src={c.logo}
-                      alt={`${c.name} — Chennai client of Super Printers`}
-                      loading="lazy"
-                      decoding="async"
-                      className="max-h-16 max-w-full object-contain"
-                      style={{ filter: "grayscale(15%)" }}
-                    />
-                  </div>
-                  <div className="text-center">
-                    <p className="font-display text-sm font-bold" style={{ color: "var(--color-primary)" }}>
-                      {c.name}
-                    </p>
-                    {c.tag && (
-                      <p className="text-xs mt-0.5" style={{ color: "#6B7280" }}>
-                        {c.tag}
-                      </p>
-                    )}
-                  </div>
-                </li>
+                <ClientLogoTile key={c.name} client={c} />
               ))}
             </ul>
           </div>
