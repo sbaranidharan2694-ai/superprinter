@@ -7,7 +7,26 @@
 export interface Client {
   name: string;
   tag?: string;
+  /** Path to a locally-hosted logo under /public/clients/. Highest priority. */
   logo: string;
+  /**
+   * Optional brand domain for the Brandfetch Logo Link API. When the local
+   * `logo` file isn't on disk yet, the page falls back to
+   * `https://cdn.brandfetch.io/<brandfetchDomain>?c=<VITE_BRANDFETCH_CLIENT_ID>`
+   * which returns the brand-supplied logo if Brandfetch has it. Brandfetch
+   * only ships logos that brands have themselves uploaded, so this is a
+   * licensed-use channel (vs scraping Google Images).
+   *
+   * Set this for clients with a clear public brand identity (ESAB, Indian
+   * Bank etc.). Leave undefined for smaller B2B clients without a
+   * predictable domain; those gracefully fall through to the initials
+   * monogram render.
+   *
+   * Brandfetch free tier: 25k requests/month. Register at
+   * https://developers.brandfetch.com to get a client ID, then set the env
+   * var `VITE_BRANDFETCH_CLIENT_ID` in your .env (or hosting platform).
+   */
+  brandfetchDomain?: string;
 }
 
 export const CLIENTS: Client[] = [
@@ -33,8 +52,8 @@ export const CLIENTS: Client[] = [
   { name: "Harsha Exports", tag: "Exports", logo: "/clients/harsha-exports.svg" },
   { name: "Panapoly", tag: "Corporate", logo: "/clients/panapoly.svg" },
   { name: "Mothers Medical", tag: "Healthcare", logo: "/clients/mothers-medical.svg" },
-  { name: "ESAB", tag: "Industrial", logo: "/clients/esab.svg" },
-  { name: "Indian Bank", tag: "Banking", logo: "/clients/indian-bank.svg" },
+  { name: "ESAB", tag: "Industrial", logo: "/clients/esab.svg", brandfetchDomain: "esab.com" },
+  { name: "Indian Bank", tag: "Banking", logo: "/clients/indian-bank.svg", brandfetchDomain: "indianbank.in" },
   { name: "GG Organics", tag: "Food & Organics", logo: "/clients/gg-organics.svg" },
   { name: "Kwowa Natesan", tag: "Corporate", logo: "/clients/kwowa-natesan.svg" },
   { name: "CGRD", tag: "Corporate", logo: "/clients/cgrd.svg" },

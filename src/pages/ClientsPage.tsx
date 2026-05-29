@@ -16,13 +16,38 @@ function initialsOf(name: string): string {
   return (words[0][0] + words[1][0]).toUpperCase();
 }
 
+/**
+ * Resolves the runtime logo URL with a two-step fallback:
+ *   1. local file under /public/clients/<slug> (owner-supplied, highest trust)
+ *   2. Brandfetch Logo Link API (https://cdn.brandfetch.io/<domain>) — only
+ *      ships brand-uploaded logos so it's licensed-use, unlike scraping
+ *      Google Images. Requires VITE_BRANDFETCH_CLIENT_ID (free tier).
+ *   3. Initials monogram (rendered when both above fail via onError).
+ */
+function brandfetchUrl(domain: string): string {
+  const clientId = import.meta.env.VITE_BRANDFETCH_CLIENT_ID;
+  // If the client ID isn't configured, return the bare URL — Brandfetch will
+  // respond with a 401 and we'll fall through to the monogram. Avoids
+  // hard-failing the build when the env var is unset.
+  const idParam = clientId ? `?c=${clientId}` : "";
+  return `https://cdn.brandfetch.io/${domain}${idParam}`;
+}
+
 const ClientLogoTile = ({ client }: { client: Client }) => {
-  const [loadFailed, setLoadFailed] = useState(false);
+  // Two-stage fallback tracked as a single index:
+  //   0 → local /clients/<slug>
+  //   1 → Brandfetch CDN (only if brandfetchDomain set)
+  //   2 → initials monogram
+  const stages: string[] = [client.logo];
+  if (client.brandfetchDomain) stages.push(brandfetchUrl(client.brandfetchDomain));
+  const [stageIdx, setStageIdx] = useState(0);
   const initials = initialsOf(client.name);
+  const showMonogram = stageIdx >= stages.length;
+
   return (
     <li className="rounded-xl border border-gray-200 bg-white p-4 flex flex-col items-center gap-3 hover:shadow-md transition-shadow">
       <div className="h-16 w-full flex items-center justify-center">
-        {loadFailed ? (
+        {showMonogram ? (
           <div
             aria-hidden="true"
             className="w-16 h-16 rounded-lg flex items-center justify-center font-display font-bold text-xl"
@@ -36,13 +61,16 @@ const ClientLogoTile = ({ client }: { client: Client }) => {
           </div>
         ) : (
           <img
-            src={client.logo}
+            // `key` forces React to remount the <img> when we advance to the
+            // next stage URL, so onError fires again for the new URL.
+            key={stages[stageIdx]}
+            src={stages[stageIdx]}
             alt={`${client.name} — Chennai client of Super Printers`}
             loading="lazy"
             decoding="async"
             className="max-h-16 max-w-full object-contain"
             style={{ filter: "grayscale(15%)" }}
-            onError={() => setLoadFailed(true)}
+            onError={() => setStageIdx((i) => i + 1)}
           />
         )}
       </div>
