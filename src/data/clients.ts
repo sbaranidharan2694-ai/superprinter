@@ -48,14 +48,18 @@ export const CLIENTS: Client[] = [
   // under public/clients/ — until then, ClientsPage falls back to an
   // initials monogram via its onError handler.
   { name: "G.A. Jolly", tag: "Retail", logo: "/clients/ga-jolly.svg" },
-  { name: "NK Grand Palace", tag: "Hospitality", logo: "/clients/nk-grand-palace.svg" },
-  { name: "Harsha Exports", tag: "Exports", logo: "/clients/harsha-exports.svg" },
-  { name: "Panapoly", tag: "Corporate", logo: "/clients/panapoly.svg" },
+  // Names corrected against owner-supplied logo files (May 2026):
+  // "NK Grand Palace" → "NK Grand Park" (the boutique-hotel brand mark)
+  // "Panapoly" → "Panoply" (Panoply Corrugated Boards & Boxes)
+  // "CGRD" → "CGRD Chemicals" (the brand's full mark reads C.G.R.D. Chemicals)
+  { name: "NK Grand Park", tag: "Hospitality", logo: "/clients/nk-grand-park.png" },
+  { name: "Harsha Exports", tag: "Exports", logo: "/clients/harsha-exports.png" },
+  { name: "Panoply", tag: "Packaging — Corrugated Boards & Boxes", logo: "/clients/panoply.png" },
   { name: "Mothers Medical", tag: "Healthcare", logo: "/clients/mothers-medical.svg" },
   { name: "ESAB", tag: "Industrial", logo: "/clients/esab.svg", brandfetchDomain: "esab.com" },
   { name: "Indian Bank", tag: "Banking", logo: "/clients/indian-bank.svg", brandfetchDomain: "indianbank.in" },
-  { name: "GG Organics", tag: "Food & Organics", logo: "/clients/gg-organics.svg" },
+  { name: "GG Organics", tag: "Sustainable Leather & Textiles", logo: "/clients/gg-organics.png" },
   { name: "Kwowa Natesan", tag: "Corporate", logo: "/clients/kwowa-natesan.svg" },
-  { name: "CGRD", tag: "Corporate", logo: "/clients/cgrd.svg" },
+  { name: "CGRD Chemicals", tag: "Industrial Chemicals", logo: "/clients/cgrd-chemicals.png" },
   { name: "Gokul Ram Leathers", tag: "Leather Manufacturing", logo: "/clients/gokul-ram-leathers.svg" },
 ];
