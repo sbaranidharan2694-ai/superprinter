@@ -47,7 +47,7 @@ export const CLIENTS: Client[] = [
   // entries marked "placeholder" need to be dropped at the matching path
   // under public/clients/ — until then, ClientsPage falls back to an
   // initials monogram via its onError handler.
-  { name: "G.A. Jolly", tag: "Retail", logo: "/clients/ga-jolly.svg" },
+  { name: "G.A. Jolli", tag: "Retail", logo: "/clients/ga-jolly.svg" },
   // Names corrected against owner-supplied logo files (May 2026):
   // "NK Grand Palace" → "NK Grand Park" (the boutique-hotel brand mark)
   // "Panapoly" → "Panoply" (Panoply Corrugated Boards & Boxes)
