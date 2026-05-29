@@ -78,6 +78,7 @@ export const STATIC_ROUTES = [
   // Trust / authority hubs.
   "/our-press",
   "/clients",
+  "/certifications",
   "/reseller",
   "/blog",
   "/printing-guide",
