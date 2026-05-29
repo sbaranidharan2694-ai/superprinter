@@ -34,7 +34,6 @@ import IndustryPage from "./pages/IndustryPage";
 import ChennaiPrintingGuidePage from "./pages/ChennaiPrintingGuidePage";
 import OurPressPage from "./pages/OurPressPage";
 import ClientsPage from "./pages/ClientsPage";
-import CertificationsPage from "./pages/CertificationsPage";
 import Orders from "./pages/Orders";
 
 const queryClient = new QueryClient();
@@ -119,7 +118,6 @@ const App = () => (
             {/* Trust / authority hubs (Rathna + Imprint Wings patterns). */}
             <Route path="/our-press" element={<OurPressPage />} />
             <Route path="/clients" element={<ClientsPage />} />
-            <Route path="/certifications" element={<CertificationsPage />} />
             {/* Industry-vertical pages — B2B intent positioning. */}
             <Route path="/industries/pharma-printing-chennai" element={<IndustryPage />} />
             <Route path="/industries/automotive-printing-chennai" element={<IndustryPage />} />
