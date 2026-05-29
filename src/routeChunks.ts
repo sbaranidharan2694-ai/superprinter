@@ -42,6 +42,10 @@ const prefixedRoutes: Array<[RegExp, Loader]> = [
   // (/^\/printing-press-[a-z-]+$/), so they MUST be checked first.
   [/^\/printing-press-chennai$/, () => import("./pages/HeadKeywordPage")],
   [/^\/(offset|digital)-printing-press-in-chennai$/, () => import("./pages/HeadKeywordPage")],
+  [/^\/business-cards-chennai$/, () => import("./pages/HeadKeywordPage")],
+  [/^\/large-format-signage-chennai$/, () => import("./pages/HeadKeywordPage")],
+  [/^\/custom-packaging-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
+  [/^\/chennai-printing-guide$/, () => import("./pages/ChennaiPrintingGuidePage")],
   [/^\/industries\/[a-z-]+$/, () => import("./pages/IndustryPage")],
   [/^\/printing-press-[a-z-]+$/, () => import("./pages/AreaPrintingPage")],
   [/^\/services\/[a-z-]+$/, () => import("./pages/ServiceDetail")],

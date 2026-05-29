@@ -69,6 +69,12 @@ export const STATIC_ROUTES = [
   "/industries/hospitality-printing-chennai",
   "/industries/education-printing-chennai",
   "/industries/it-printing-chennai",
+  // High-intent service deep-dives.
+  "/business-cards-chennai",
+  "/large-format-signage-chennai",
+  "/custom-packaging-printing-chennai",
+  // Pillar guide.
+  "/chennai-printing-guide",
   "/reseller",
   "/blog",
   "/printing-guide",

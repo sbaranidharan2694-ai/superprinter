@@ -31,6 +31,7 @@ import GetQuote from "./pages/GetQuote";
 import AreaPrintingPage, { AREA_PAGE_SLUGS } from "./pages/AreaPrintingPage";
 import HeadKeywordPage from "./pages/HeadKeywordPage";
 import IndustryPage from "./pages/IndustryPage";
+import ChennaiPrintingGuidePage from "./pages/ChennaiPrintingGuidePage";
 import Orders from "./pages/Orders";
 
 const queryClient = new QueryClient();
@@ -106,6 +107,12 @@ const App = () => (
             <Route path="/printing-press-chennai" element={<HeadKeywordPage />} />
             <Route path="/offset-printing-press-in-chennai" element={<HeadKeywordPage />} />
             <Route path="/digital-printing-press-in-chennai" element={<HeadKeywordPage />} />
+            {/* Specific high-intent service deep-dives. */}
+            <Route path="/business-cards-chennai" element={<HeadKeywordPage />} />
+            <Route path="/large-format-signage-chennai" element={<HeadKeywordPage />} />
+            <Route path="/custom-packaging-printing-chennai" element={<HeadKeywordPage />} />
+            {/* Pillar guide (broad-query authority hub). */}
+            <Route path="/chennai-printing-guide" element={<ChennaiPrintingGuidePage />} />
             {/* Industry-vertical pages — B2B intent positioning. */}
             <Route path="/industries/pharma-printing-chennai" element={<IndustryPage />} />
             <Route path="/industries/automotive-printing-chennai" element={<IndustryPage />} />
