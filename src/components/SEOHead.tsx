@@ -20,7 +20,10 @@ const SEOHead = ({
   ogImage = `${BUSINESS.siteUrl}/og-image.jpg`,
   ogType = "website",
   keywords = "printers in chennai, printing press chennai, printing services chennai, super printers pallavaram",
-  robots = "index, follow",
+  // Includes the modern SERP-appearance directives Google honours since 2018
+  // (max-snippet, max-image-preview, max-video-preview). Per-page overrides
+  // (e.g. /orders sends "noindex, nofollow") replace this default entirely.
+  robots = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   schemaMarkup,
   breadcrumbs,
 }: SEOHeadProps) => {

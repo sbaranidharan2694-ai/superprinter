@@ -36,7 +36,12 @@
          snippets, no length cap on video previews. Without these Google
          defaults to short snippets, which hurts CTR for long-tail "near me"
          queries where the address line needs to fit in the preview. -->
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <!-- The robots indexing directive is emitted by SEOHead.tsx via
+         Helmet, so per-page overrides (e.g. /orders sends a noindex
+         value) replace cleanly instead of producing duplicate tags
+         in the prerendered HTML. The default emitted includes the
+         max-snippet / max-image-preview / max-video-preview SERP
+         appearance hints. -->
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
     <!-- Per-page title / description / canonical / OG / twitter / robots are injected by Helmet during prerender -->
