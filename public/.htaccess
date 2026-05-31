@@ -15,16 +15,20 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
-  # ── Canonical host: force apex + HTTPS + strip trailing slash in ONE hop ─
-  # Combined into a single 301 so a request like
-  # http://www.superprinters.net/about/ does ONE redirect to
-  # https://superprinters.net/about (not www→apex then /→no-/ which bled
-  # PageRank and added an extra RTT to LCP for crawler-driven traffic).
+  # ── Canonical host: force apex + HTTPS ───────────────────────────────────
+  # Fires only on protocol/host mismatches. Trailing-slash handling is left
+  # to mod_dir: Apache automatically 301s `/foo` → `/foo/` when `foo/` is a
+  # real directory containing index.html, which is exactly what our
+  # prerender emits. Our canonical form is therefore *with* trailing slash
+  # (except `/`). A previous version of this rule also stripped trailing
+  # slashes — that created a permanent redirect loop on LiteSpeed where
+  # our `!-d` filesystem check resolves differently than Apache, so the
+  # strip rule fired against real directories and bounced forever against
+  # mod_dir's slash-adding behaviour.
   RewriteCond %{HTTPS} !=on [OR]
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [OR]
-  RewriteCond %{HTTP_HOST} ^www\.superprinters\.net$ [NC] [OR]
-  RewriteCond %{REQUEST_URI} ^(.+)/$
-  RewriteRule ^(.*?)/?$ https://superprinters.net/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^www\.superprinters\.net$ [NC]
+  RewriteRule ^(.*)$ https://superprinters.net/$1 [R=301,L]
 
   # ── Legacy /services/<slug> → flat product URL (kill duplicate clusters) ─
   # `/services/visiting-cards` and `/visiting-cards` rendered the same body
@@ -32,27 +36,29 @@ DirectoryIndex index.html
   # two URLs. Permanent 301 onto the flat URL consolidates link equity
   # onto a single canonical and prevents the duplicate-content downgrade
   # Google has applied since the March 2024 core update.
-  RewriteRule ^services/visiting-cards/?$       /visiting-cards          [R=301,L]
-  RewriteRule ^services/wedding-invitations/?$  /wedding-cards           [R=301,L]
-  RewriteRule ^services/brochure-printing/?$    /brochures               [R=301,L]
-  RewriteRule ^services/bill-books/?$           /bill-books              [R=301,L]
-  RewriteRule ^services/letterheads/?$          /letterheads             [R=301,L]
-  RewriteRule ^services/banner-printing/?$      /banners                 [R=301,L]
-  RewriteRule ^services/stickers-labels/?$      /stickers                [R=301,L]
-  RewriteRule ^services/rubber-stamps/?$        /rubber-stamps           [R=301,L]
-  RewriteRule ^services/catalogues/?$           /catalogues              [R=301,L]
-  RewriteRule ^services/id-cards/?$             /pvc-id-cards            [R=301,L]
+  # Targets carry trailing slashes so the 301 lands directly on the canonical
+  # form — no extra hop through mod_dir.
+  RewriteRule ^services/visiting-cards/?$       /visiting-cards/         [R=301,L]
+  RewriteRule ^services/wedding-invitations/?$  /wedding-cards/          [R=301,L]
+  RewriteRule ^services/brochure-printing/?$    /brochures/              [R=301,L]
+  RewriteRule ^services/bill-books/?$           /bill-books/             [R=301,L]
+  RewriteRule ^services/letterheads/?$          /letterheads/            [R=301,L]
+  RewriteRule ^services/banner-printing/?$      /banners/                [R=301,L]
+  RewriteRule ^services/stickers-labels/?$      /stickers/               [R=301,L]
+  RewriteRule ^services/rubber-stamps/?$        /rubber-stamps/          [R=301,L]
+  RewriteRule ^services/catalogues/?$           /catalogues/             [R=301,L]
+  RewriteRule ^services/id-cards/?$             /pvc-id-cards/           [R=301,L]
 
   # ── Legacy URL → canonical area pages ────────────────────────────────────
-  RewriteRule ^tambaram-printing/?$         /printing-press-tambaram         [R=301,L]
-  RewriteRule ^chromepet-printing/?$        /printing-press-chromepet        [R=301,L]
-  RewriteRule ^pammal-printing/?$           /printing-press-pammal           [R=301,L]
-  RewriteRule ^perungalathur-printing/?$    /printing-press-perungalathur    [R=301,L]
-  RewriteRule ^velachery-printing/?$        /printing-press-velachery        [R=301,L]
-  RewriteRule ^nanganallur-printing/?$      /printing-press-nanganallur      [R=301,L]
-  RewriteRule ^medavakkam-printing/?$       /printing-press-medavakkam       [R=301,L]
-  RewriteRule ^guindy-printing/?$           /printing-press-guindy           [R=301,L]
-  RewriteRule ^adyar-printing/?$            /printing-press-adyar            [R=301,L]
+  RewriteRule ^tambaram-printing/?$         /printing-press-tambaram/        [R=301,L]
+  RewriteRule ^chromepet-printing/?$        /printing-press-chromepet/       [R=301,L]
+  RewriteRule ^pammal-printing/?$           /printing-press-pammal/          [R=301,L]
+  RewriteRule ^perungalathur-printing/?$    /printing-press-perungalathur/   [R=301,L]
+  RewriteRule ^velachery-printing/?$        /printing-press-velachery/       [R=301,L]
+  RewriteRule ^nanganallur-printing/?$      /printing-press-nanganallur/     [R=301,L]
+  RewriteRule ^medavakkam-printing/?$       /printing-press-medavakkam/      [R=301,L]
+  RewriteRule ^guindy-printing/?$           /printing-press-guindy/          [R=301,L]
+  RewriteRule ^adyar-printing/?$            /printing-press-adyar/           [R=301,L]
 
   # ── Serve prerendered HTML when /<route>/index.html exists ───────────────
   # This is what makes the site crawlable without executing JS.

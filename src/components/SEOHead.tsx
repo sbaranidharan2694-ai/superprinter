@@ -27,9 +27,17 @@ const SEOHead = ({
   schemaMarkup,
   breadcrumbs,
 }: SEOHeadProps) => {
-  const fullCanonical = canonical
-    ? `${BUSINESS.siteUrl}${canonical}`
-    : BUSINESS.siteUrl;
+  // Canonical form is *with* trailing slash (except the homepage `/`).
+  // Production .htaccess relies on mod_dir's filesystem-aware behaviour to
+  // serve `dist/<route>/index.html`, which means Apache/LiteSpeed naturally
+  // 301s `/foo` → `/foo/`. Emitting `/foo` as canonical would self-redirect
+  // to `/foo/` and split link equity — emit the slash form directly.
+  const withTrailingSlash = (path: string): string => {
+    if (!path || path === "/") return "/";
+    return path.endsWith("/") ? path : `${path}/`;
+  };
+  const canonicalPath = canonical ? withTrailingSlash(canonical) : "/";
+  const fullCanonical = `${BUSINESS.siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
 
   const schemas: object[] = [];
 
@@ -47,7 +55,10 @@ const SEOHead = ({
         "@type": "ListItem",
         "position": i + 1,
         "name": bc.name,
-        "item": `${BUSINESS.siteUrl}${bc.url}`,
+        // Match the canonical trailing-slash form so the BreadcrumbList item
+        // URLs land on the live URL in one hop (no 301 chain through
+        // mod_dir's slash adder).
+        "item": `${BUSINESS.siteUrl}${withTrailingSlash(bc.url)}`,
       })),
     });
   }
