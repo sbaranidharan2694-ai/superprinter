@@ -69,7 +69,7 @@ const HeroSection = () => (
 
           <div className="flex flex-col sm:flex-row gap-3 mb-7">
             <Link
-              to="/get-quote"
+              to="/get-quote/"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-semibold transition-transform hover:scale-[1.02] active:scale-[0.99]"
               style={{ backgroundColor: "var(--ink-black)", color: "white", fontFamily: "var(--font-accent)" }}
             >

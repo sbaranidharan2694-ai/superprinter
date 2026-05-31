@@ -48,10 +48,10 @@ const DesktopStickyCTA = () => {
 
       {/* Get Quote — secondary. Same expand-on-hover pattern. */}
       <Link
-        to="/get-quote"
+        to="/get-quote/"
         className="group pointer-events-auto flex items-center gap-2 pl-3 pr-3 py-3 rounded-full shadow-[0_8px_24px_-6px_rgba(197,168,128,0.55)] hover:shadow-[0_12px_32px_-6px_rgba(197,168,128,0.75)] hover:pr-5 transition-all duration-200"
         style={{ backgroundColor: "var(--gold)", color: "var(--ink-black)" }}
-        aria-label="Get a printing quote"
+        aria-label="Get Quote for printing"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 shrink-0">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />

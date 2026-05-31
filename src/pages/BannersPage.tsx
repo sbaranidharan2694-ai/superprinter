@@ -129,7 +129,7 @@ const BannersPage = () => (
             </div>
             <div>
               <p className="font-semibold text-ink-black">Do you deliver to Tambaram / Chromepet / Velachery?</p>
-              <p>Yes &mdash; we deliver across Chennai. See our <Link to="/printing-press-pallavaram" className="text-gold hover:underline">Pallavaram</Link>, <Link to="/printing-press-tambaram" className="text-gold hover:underline">Tambaram</Link> and <Link to="/printing-press-chromepet" className="text-gold hover:underline">Chromepet</Link> pages for delivery details.</p>
+              <p>Yes &mdash; we deliver across Chennai. See our <Link to="/printing-press-pallavaram/" className="text-gold hover:underline">Pallavaram</Link>, <Link to="/printing-press-tambaram/" className="text-gold hover:underline">Tambaram</Link> and <Link to="/printing-press-chromepet/" className="text-gold hover:underline">Chromepet</Link> pages for delivery details.</p>
             </div>
           </div>
         </section>

@@ -97,7 +97,7 @@ const WeddingCardsPage = () => (
             Get Cheapest Rate on WhatsApp
           </a>
           <Link
-            to="/get-quote"
+            to="/get-quote/"
             className="inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-base border-2 transition-transform hover:scale-[1.02]"
             style={{ borderColor: "#C9A84C", color: "#C9A84C" }}
           >

@@ -38,7 +38,12 @@ const ClientLogoTile = ({ client }: { client: Client }) => {
   //   0 → local /clients/<slug>
   //   1 → Brandfetch CDN (only if brandfetchDomain set)
   //   2 → initials monogram
-  const stages: string[] = [client.logo];
+  // Only push stages the browser can actually hit successfully — skipping
+  // undefined `logo` here keeps Lighthouse's "errors in console" audit
+  // clean (a missing /clients/<slug> file previously emitted a 404 before
+  // falling through to the monogram).
+  const stages: string[] = [];
+  if (client.logo) stages.push(client.logo);
   if (client.brandfetchDomain) stages.push(brandfetchUrl(client.brandfetchDomain));
   const [stageIdx, setStageIdx] = useState(0);
   const initials = initialsOf(client.name);
@@ -180,12 +185,12 @@ const ClientsPage = () => {
                 landing pages explaining what each sector typically orders from us:
               </p>
               <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm" style={{ color: "var(--color-primary)" }}>
-                <li><Link to="/industries/pharma-printing-chennai" className="hover:underline">Pharmaceutical printing in Chennai</Link></li>
-                <li><Link to="/industries/automotive-printing-chennai" className="hover:underline">Automotive printing in Chennai</Link></li>
-                <li><Link to="/industries/hospital-printing-chennai" className="hover:underline">Hospital &amp; healthcare printing</Link></li>
-                <li><Link to="/industries/hospitality-printing-chennai" className="hover:underline">Hotel &amp; restaurant printing</Link></li>
-                <li><Link to="/industries/education-printing-chennai" className="hover:underline">School &amp; college printing</Link></li>
-                <li><Link to="/industries/it-printing-chennai" className="hover:underline">IT corporate printing</Link></li>
+                <li><Link to="/industries/pharma-printing-chennai/" className="hover:underline">Pharmaceutical printing in Chennai</Link></li>
+                <li><Link to="/industries/automotive-printing-chennai/" className="hover:underline">Automotive printing in Chennai</Link></li>
+                <li><Link to="/industries/hospital-printing-chennai/" className="hover:underline">Hospital &amp; healthcare printing</Link></li>
+                <li><Link to="/industries/hospitality-printing-chennai/" className="hover:underline">Hotel &amp; restaurant printing</Link></li>
+                <li><Link to="/industries/education-printing-chennai/" className="hover:underline">School &amp; college printing</Link></li>
+                <li><Link to="/industries/it-printing-chennai/" className="hover:underline">IT corporate printing</Link></li>
               </ul>
             </div>
           </section>

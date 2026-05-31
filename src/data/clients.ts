@@ -7,8 +7,13 @@
 export interface Client {
   name: string;
   tag?: string;
-  /** Path to a locally-hosted logo under /public/clients/. Highest priority. */
-  logo: string;
+  /**
+   * Path to a locally-hosted logo under /public/clients/. Highest priority.
+   * Optional — if undefined or the file doesn't exist yet, ClientLogoTile
+   * renders an initials monogram without firing a 404 network request.
+   * Lighthouse flagged earlier rounds with 4 missing-logo 404s.
+   */
+  logo?: string;
   /**
    * Optional brand domain for the Brandfetch Logo Link API. When the local
    * `logo` file isn't on disk yet, the page falls back to
@@ -56,10 +61,17 @@ export const CLIENTS: Client[] = [
   { name: "Harsha Exports", tag: "Exports", logo: "/clients/harsha-exports.png" },
   { name: "Panoply", tag: "Packaging — Corrugated Boards & Boxes", logo: "/clients/panoply.png" },
   { name: "Mothers Medica", tag: "Healthcare", logo: "/clients/mothers-medica.png" },
-  { name: "ESAB", tag: "Industrial", logo: "/clients/esab.svg", brandfetchDomain: "esab.com" },
-  { name: "Indian Bank", tag: "Banking", logo: "/clients/indian-bank.svg", brandfetchDomain: "indianbank.in" },
+  // ESAB + Indian Bank: no local logo file yet. brandfetchDomain set so
+  // the Logo Link API serves the brand-uploaded mark when
+  // VITE_BRANDFETCH_CLIENT_ID is configured; falls through to initials
+  // monogram otherwise. No <img src> for the local path = no 404.
+  { name: "ESAB", tag: "Industrial", brandfetchDomain: "esab.com" },
+  { name: "Indian Bank", tag: "Banking", brandfetchDomain: "indianbank.in" },
   { name: "GG Organics", tag: "Sustainable Leather & Textiles", logo: "/clients/gg-organics.png" },
-  { name: "Kyowa Natesan", tag: "Corporate", logo: "/clients/kyowa-natesan.svg" },
+  // Kyowa Natesan + Gokul Ram Leathers: no logo file on disk yet. Owner
+  // can drop a PNG at the matching slug and add `logo: "/clients/..."`
+  // to re-enable. Until then, ClientLogoTile renders the monogram.
+  { name: "Kyowa Natesan", tag: "Corporate" },
   { name: "CGRD Chemicals", tag: "Industrial Chemicals", logo: "/clients/cgrd-chemicals.png" },
-  { name: "Gokul Ram Leathers", tag: "Leather Manufacturing", logo: "/clients/gokul-ram-leathers.svg" },
+  { name: "Gokul Ram Leathers", tag: "Leather Manufacturing" },
 ];

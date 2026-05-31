@@ -76,7 +76,7 @@ const AboutSection = () => (
         className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
       >
         <Link
-          to="/about"
+          to="/about/"
           className="inline-flex items-center gap-2 font-semibold underline-offset-4 hover:underline transition-colors"
           style={{ color: "var(--color-primary)", fontFamily: "var(--font-body)" }}
         >

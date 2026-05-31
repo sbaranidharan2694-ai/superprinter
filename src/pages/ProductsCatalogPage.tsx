@@ -242,7 +242,7 @@ const ProductsCatalogPage = () => {
               Home
             </Link>
             <span className="mx-2">›</span>
-            <Link to="/products" className="hover:text-foreground transition-colors">
+            <Link to="/products/" className="hover:text-foreground transition-colors">
               Products
             </Link>
             {categorySlug && (

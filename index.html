@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en-IN">
   <head>
+    <!-- Charset + viewport first so they sit comfortably inside the first
+         1024 bytes of the document. Lighthouse flags the page if the
+         charset declaration appears past that threshold (HTML spec requires
+         it before any byte that could trigger a re-decode). The GA4 loader
+         script below is ~1000 bytes on its own — putting it before charset
+         pushed the meta tag right to the byte-1000 boundary and tripped
+         the audit even though the browser handled it fine. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- GA4 — loaded on first user interaction or 3s idle to free the main
          thread for LCP. Re-introduces tracking without blocking render. -->
     <script>
@@ -23,8 +32,6 @@
         setTimeout(loadGA, 3000);
       })();
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Google Search Console site ownership. Belt-and-suspenders alongside
          /googlefef551c4cdc491c2.html so verification survives whichever

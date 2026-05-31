@@ -121,7 +121,7 @@ const UnifiedFooter = () => (
             onClick={() => trackWhatsAppClick("footer_cta")}
             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white mt-5 transition-transform hover:scale-[1.02] w-full sm:w-auto"
             style={{ backgroundColor: "#25D366", fontFamily: "var(--font-accent)" }}
-            aria-label="Chat on WhatsApp"
+            aria-label="WhatsApp Now — chat with Super Printers"
           >
             <span aria-hidden>💬</span>
             WhatsApp Now
@@ -140,7 +140,7 @@ const UnifiedFooter = () => (
       <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
         <span>© 2026 {BUSINESS.shortName}. GST: {BUSINESS.gstNumber} | All rights reserved.</span>
         <span className="flex gap-4">
-          <Link to="/contact" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link to="/contact/" className="hover:text-white transition-colors">Privacy Policy</Link>
           <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Sitemap</a>
         </span>
       </div>

@@ -141,7 +141,7 @@ const VisitingCards = () => (
         <p className="text-muted-foreground mb-8">Get premium visiting cards delivered in 1-2 business days. WhatsApp us or fill our quote form.</p>
         <div className="flex gap-4 justify-center flex-wrap">
           <a href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers, I need visiting cards. Quantity: Type: ")}`} className="bg-[#25D366] text-white font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-opacity">Order via WhatsApp</a>
-          <Link to="/get-quote" className="bg-primary text-primary-foreground font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-opacity">Get a Quote</Link>
+          <Link to="/get-quote/" className="bg-primary text-primary-foreground font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-opacity">Get a Quote</Link>
         </div>
       </div>
     </section>

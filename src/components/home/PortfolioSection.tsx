@@ -56,7 +56,7 @@ const PortfolioSection = () => (
       </div>
       <div className="text-center mt-10">
         <Link
-          to="/gallery"
+          to="/gallery/"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-transform hover:scale-[1.02]"
           style={{ backgroundColor: "var(--color-primary)", color: "white", fontFamily: "var(--font-accent)" }}
         >

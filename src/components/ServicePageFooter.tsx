@@ -144,7 +144,7 @@ const ServicePageFooter = ({ currentSlug, serviceName, whatsappPrompt }: Service
               </Link>
             ))}
             <Link
-              to="/services"
+              to="/services/"
               className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-ui font-medium text-gold hover:underline"
             >
               All areas &rsaquo;

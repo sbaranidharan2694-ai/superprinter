@@ -41,7 +41,12 @@ const ChennaiPrintingGuidePage = () => {
       logo: { "@type": "ImageObject", url: `${BUSINESS.siteUrl}/super-printers-logo.png` },
     },
     datePublished: "2025-08-01",
-    dateModified: new Date().toISOString().split("T")[0],
+    // Hardcoded so SSR HTML matches client hydration. Previously this used
+    // `new Date()` which produced a build-time value in prerendered HTML
+    // but a visit-time value on hydration — triggering React error #418
+    // (hydration mismatch) and #423 (recovered via full client re-render).
+    // Bump this string manually when the guide content materially changes.
+    dateModified: "2026-05-30",
     inLanguage: "en-IN",
     about: [
       { "@type": "Thing", name: "Printing" },
@@ -114,12 +119,12 @@ const ChennaiPrintingGuidePage = () => {
               <li>
                 <strong>Life-event printing</strong> — wedding invitations, naming-ceremony cards, upanayanam, sashtiabdapoorthi
                 (60th-birthday), sadhabhishekam (80th-birthday). High volume in Mylapore, Adyar, Anna Nagar, T. Nagar, Nungambakkam.
-                See our <Link to="/wedding-cards" className="underline" style={{ color: "var(--color-primary)" }}>wedding card page</Link>.
+                See our <Link to="/wedding-cards/" className="underline" style={{ color: "var(--color-primary)" }}>wedding card page</Link>.
               </li>
               <li>
                 <strong>Business / B2B printing</strong> — visiting cards, letterheads, GST bill books, brochures, presentation
                 folders, employee ID cards. Heavy demand from the Guindy / OMR / Manapakkam IT corridor and the Mount Road
-                head-office belt. See our <Link to="/business-cards-chennai" className="underline" style={{ color: "var(--color-primary)" }}>business cards guide</Link>.
+                head-office belt. See our <Link to="/business-cards-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>business cards guide</Link>.
               </li>
               <li>
                 <strong>Retail / commercial printing</strong> — flyers, pamphlets, posters, festive-sale leaflets, retail
@@ -128,8 +133,8 @@ const ChennaiPrintingGuidePage = () => {
               <li>
                 <strong>Large-format and packaging</strong> — flex banners, vinyl signage, roll-up standees, custom mailer
                 boxes, folding cartons, food-safe packaging. Demand from D2C startups, hotels, hospitals, IT events. See our
-                <Link to="/large-format-signage-chennai" className="underline" style={{ color: "var(--color-primary)" }}> large-format signage</Link> and{" "}
-                <Link to="/custom-packaging-printing-chennai" className="underline" style={{ color: "var(--color-primary)" }}>custom packaging</Link> pages.
+                <Link to="/large-format-signage-chennai/" className="underline" style={{ color: "var(--color-primary)" }}> large-format signage</Link> and{" "}
+                <Link to="/custom-packaging-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>custom packaging</Link> pages.
               </li>
             </ul>
           </div>
@@ -152,8 +157,8 @@ const ChennaiPrintingGuidePage = () => {
               brand collateral, wedding card foil-base) offset is the only option — digital CMYK can only approximate.
             </p>
             <p className="text-base leading-relaxed" style={{ color: "#374151" }}>
-              Deeper details on each: <Link to="/offset-printing-press-in-chennai" className="underline" style={{ color: "var(--color-primary)" }}>offset printing press in Chennai</Link>{" "}
-              and <Link to="/digital-printing-press-in-chennai" className="underline" style={{ color: "var(--color-primary)" }}>digital printing press in Chennai</Link>.
+              Deeper details on each: <Link to="/offset-printing-press-in-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>offset printing press in Chennai</Link>{" "}
+              and <Link to="/digital-printing-press-in-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>digital printing press in Chennai</Link>.
             </p>
           </div>
         </section>
@@ -242,7 +247,7 @@ const ChennaiPrintingGuidePage = () => {
               <li><strong>Colour mode</strong> — CMYK, not RGB. RGB blues shift toward purple in print; reds darken.</li>
               <li><strong>Fonts</strong> — outline / flatten or embed. Otherwise we may have to substitute.</li>
               <li><strong>Bleed</strong> — design extends 3 mm past the trim line on every edge so trimming doesn't leave a white sliver.</li>
-              <li>For details and templates, see the <Link to="/printing-guide" className="underline" style={{ color: "var(--color-primary)" }}>file-prep printing guide</Link>.</li>
+              <li>For details and templates, see the <Link to="/printing-guide/" className="underline" style={{ color: "var(--color-primary)" }}>file-prep printing guide</Link>.</li>
             </ul>
           </div>
         </section>
@@ -275,23 +280,23 @@ const ChennaiPrintingGuidePage = () => {
               dedicated page with route details, delivery times and area-specific service notes:
             </p>
             <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2 text-sm" style={{ color: "var(--color-primary)" }}>
-              <li><Link to="/printing-press-pallavaram" className="hover:underline">Pallavaram</Link></li>
-              <li><Link to="/printing-press-tambaram" className="hover:underline">Tambaram</Link></li>
-              <li><Link to="/printing-press-chromepet" className="hover:underline">Chromepet</Link></li>
-              <li><Link to="/printing-press-velachery" className="hover:underline">Velachery</Link></li>
-              <li><Link to="/printing-press-guindy" className="hover:underline">Guindy</Link></li>
-              <li><Link to="/printing-press-adyar" className="hover:underline">Adyar</Link></li>
-              <li><Link to="/printing-press-t-nagar" className="hover:underline">T. Nagar</Link></li>
-              <li><Link to="/printing-press-anna-nagar" className="hover:underline">Anna Nagar</Link></li>
-              <li><Link to="/printing-press-mylapore" className="hover:underline">Mylapore</Link></li>
-              <li><Link to="/printing-press-nungambakkam" className="hover:underline">Nungambakkam</Link></li>
-              <li><Link to="/printing-press-porur" className="hover:underline">Porur</Link></li>
-              <li><Link to="/printing-press-omr" className="hover:underline">OMR</Link></li>
-              <li><Link to="/printing-press-sholinganallur" className="hover:underline">Sholinganallur</Link></li>
-              <li><Link to="/printing-press-vadapalani" className="hover:underline">Vadapalani</Link></li>
-              <li><Link to="/printing-press-mogappair" className="hover:underline">Mogappair</Link></li>
-              <li><Link to="/printing-press-ambattur" className="hover:underline">Ambattur</Link></li>
-              <li><Link to="/printing-press-avadi" className="hover:underline">Avadi</Link></li>
+              <li><Link to="/printing-press-pallavaram/" className="hover:underline">Pallavaram</Link></li>
+              <li><Link to="/printing-press-tambaram/" className="hover:underline">Tambaram</Link></li>
+              <li><Link to="/printing-press-chromepet/" className="hover:underline">Chromepet</Link></li>
+              <li><Link to="/printing-press-velachery/" className="hover:underline">Velachery</Link></li>
+              <li><Link to="/printing-press-guindy/" className="hover:underline">Guindy</Link></li>
+              <li><Link to="/printing-press-adyar/" className="hover:underline">Adyar</Link></li>
+              <li><Link to="/printing-press-t-nagar/" className="hover:underline">T. Nagar</Link></li>
+              <li><Link to="/printing-press-anna-nagar/" className="hover:underline">Anna Nagar</Link></li>
+              <li><Link to="/printing-press-mylapore/" className="hover:underline">Mylapore</Link></li>
+              <li><Link to="/printing-press-nungambakkam/" className="hover:underline">Nungambakkam</Link></li>
+              <li><Link to="/printing-press-porur/" className="hover:underline">Porur</Link></li>
+              <li><Link to="/printing-press-omr/" className="hover:underline">OMR</Link></li>
+              <li><Link to="/printing-press-sholinganallur/" className="hover:underline">Sholinganallur</Link></li>
+              <li><Link to="/printing-press-vadapalani/" className="hover:underline">Vadapalani</Link></li>
+              <li><Link to="/printing-press-mogappair/" className="hover:underline">Mogappair</Link></li>
+              <li><Link to="/printing-press-ambattur/" className="hover:underline">Ambattur</Link></li>
+              <li><Link to="/printing-press-avadi/" className="hover:underline">Avadi</Link></li>
             </ul>
           </div>
         </section>

@@ -83,10 +83,10 @@ const MobileBottomCTA = () => {
           <span className="text-[11px] font-medium font-ui leading-tight" style={{ color: "var(--ink-black)" }}>WhatsApp</span>
         </a>
         <Link
-          to="/get-quote"
+          to="/get-quote/"
           className="flex flex-col items-center justify-center py-2.5 active:opacity-90 active:scale-95 transition-transform duration-100"
           style={{ backgroundColor: "var(--gold)" }}
-          aria-label="Get a printing quote"
+          aria-label="Get Quote for printing"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 mb-0.5" style={{ color: "var(--ink-black)" }}>
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />

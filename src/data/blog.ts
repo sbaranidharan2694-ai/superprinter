@@ -320,7 +320,7 @@ export const BLOG_POSTS: BlogPostData[] = [
 <h2>Ordering Tamil wedding cards from Super Printers, Pallavaram</h2>
 <p>WhatsApp +91 98401 99878 with your muhurtham details and a rough idea of budget. We send 4–6 sample designs that match your community and price band, you pick one, we share a digital proof with all your details in place, you approve, and your cards are ready in 48–72 hours. Pickup from our Pallavaram press is free; we also deliver across Chennai — Tambaram, Chromepet, Velachery, Adyar — for a small charge.</p>
 
-<p>Visit our <a href="/wedding-cards">wedding cards page</a> for design samples and a full price list, or our <a href="/printing-press-pallavaram">Pallavaram printing press</a> page for directions to the shop.</p>`,
+<p>Visit our <a href="/wedding-cards/">wedding cards page</a> for design samples and a full price list, or our <a href="/printing-press-pallavaram/">Pallavaram printing press</a> page for directions to the shop.</p>`,
   },
 ];
 

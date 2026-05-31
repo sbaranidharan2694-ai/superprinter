@@ -80,7 +80,7 @@ const IndustryPage = () => {
             <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
               <Link to="/" className="hover:underline">Home</Link>
               <span className="mx-2">›</span>
-              <Link to="/industries" className="hover:underline">Industries</Link>
+              <Link to="/industries/" className="hover:underline">Industries</Link>
               <span className="mx-2">›</span>
               <span style={{ color: "var(--color-primary)" }}>{page.industry}</span>
             </nav>

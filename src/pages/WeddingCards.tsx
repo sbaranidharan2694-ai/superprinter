@@ -138,7 +138,7 @@ const WeddingCards = () => (
         <p className="text-muted-foreground mb-8">Beautiful wedding cards delivered in 5-7 business days. Free design consultation available.</p>
         <div className="flex gap-4 justify-center flex-wrap">
           <a href={`${BUSINESS.whatsapp}?text=${encodeURIComponent("Hi Super Printers, I need wedding invitations. Date: Quantity: Style preference: ")}`} className="bg-[#25D366] text-white font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-opacity">Order via WhatsApp</a>
-          <Link to="/get-quote" className="bg-primary text-primary-foreground font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-opacity">Get a Quote</Link>
+          <Link to="/get-quote/" className="bg-primary text-primary-foreground font-bold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-opacity">Get a Quote</Link>
         </div>
       </div>
     </section>

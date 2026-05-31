@@ -31,27 +31,33 @@ const TopInfoBar = () => {
         </div>
       </div>
       <div className="shrink-0 flex items-center gap-1 pr-3" role="group" aria-label="Language">
-        {/* Language pills: tight visually but the TopInfoBar is a thin top
-            strip — 44 px tap targets would dominate it. WCAG 2.5.8 AA permits
-            24x24 with 24px spacing, which we satisfy. `aria-pressed` and
-            `aria-label` give screen readers the state + intent. */}
+        {/* Language pills. WCAG 2.5.3 (Label in Name) requires the
+            accessible name to contain the visible label text — so we let
+            the button text itself ("EN" / "தமிழ்") be the accessible
+            name and use the parent group's aria-label="Language" for
+            context. aria-pressed conveys the selected state. No more
+            `opacity-70` on the unselected state: that dropped contrast
+            below 4.5:1 against the gold background. Instead the
+            unselected state uses the full primary navy at 100% opacity. */}
         <button
           type="button"
           onClick={() => setLang("en")}
-          aria-label="Switch to English"
           aria-pressed={lang === "en"}
-          className={`px-2.5 py-1.5 rounded-full text-xs font-medium transition-all ${lang === "en" ? "text-white" : "opacity-70 hover:opacity-100"}`}
-          style={lang === "en" ? { backgroundColor: "var(--color-primary)", color: "#fff" } : { color: "var(--color-primary)" }}
+          className="px-2.5 py-1.5 rounded-full text-xs font-bold transition-all"
+          style={lang === "en"
+            ? { backgroundColor: "var(--color-primary)", color: "#fff" }
+            : { color: "var(--color-primary)" }}
         >
           EN
         </button>
         <button
           type="button"
           onClick={() => setLang("ta")}
-          aria-label="Switch to Tamil"
           aria-pressed={lang === "ta"}
-          className={`px-2.5 py-1.5 rounded-full text-xs font-medium transition-all ${lang === "ta" ? "text-white" : "opacity-70 hover:opacity-100"}`}
-          style={lang === "ta" ? { backgroundColor: "var(--color-primary)", color: "#fff" } : { color: "var(--color-primary)" }}
+          className="px-2.5 py-1.5 rounded-full text-xs font-bold transition-all"
+          style={lang === "ta"
+            ? { backgroundColor: "var(--color-primary)", color: "#fff" }
+            : { color: "var(--color-primary)" }}
         >
           தமிழ்
         </button>

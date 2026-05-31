@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import { services } from "@/data/services";
@@ -11,12 +12,26 @@ const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = services.find((s) => s.slug === slug);
   const { ref, isVisible } = useInView();
+  // Urgency badge depends on the current time, which differs between
+  // prerender (build time) and hydration (visit time). Rendering it
+  // directly in JSX caused React hydration mismatch errors #418/#423.
+  // Hold the time-derived strings in state, populate only after mount,
+  // and render nothing during SSR so the client-vs-server DOM matches.
+  const [urgency, setUrgency] = useState<{ isBeforeNoon: boolean; tomorrowStr: string } | null>(null);
+  useEffect(() => {
+    const now = new Date();
+    const tomorrow = new Date(now.getTime() + 86400000);
+    setUrgency({
+      isBeforeNoon: now.getHours() < 12,
+      tomorrowStr: tomorrow.toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
+    });
+  }, []);
 
   if (!service) {
     return (
       <div className="py-20 text-center">
         <h1 className="font-display text-3xl font-bold text-foreground mb-4">Service Not Found</h1>
-        <Link to="/services" className="text-secondary hover:underline font-body">← Back to All Services</Link>
+        <Link to="/services/" className="text-secondary hover:underline font-body">← Back to All Services</Link>
       </div>
     );
   }
@@ -56,7 +71,7 @@ const ServiceDetail = () => {
             <nav className="text-gray-400 text-sm font-body mb-6" aria-label="Breadcrumb">
               <Link to="/" className="hover:opacity-80" style={{ color: "var(--color-primary)" }}>Home</Link>
               <span className="mx-2">›</span>
-              <Link to="/services" className="hover:opacity-80" style={{ color: "var(--color-primary)" }}>Services</Link>
+              <Link to="/services/" className="hover:opacity-80" style={{ color: "var(--color-primary)" }}>Services</Link>
               <span className="mx-2">›</span>
               <span style={{ color: "var(--color-primary)" }}>{service.name}</span>
             </nav>
@@ -66,25 +81,19 @@ const ServiceDetail = () => {
                 <h1 className="font-display text-3xl md:text-5xl font-black leading-tight" style={{ color: "var(--color-primary)" }}>
                   {service.name} in Chennai
                 </h1>
-                {(() => {
-                  const now = new Date();
-                  const isBeforeNoon = now.getHours() < 12;
-                  const tomorrow = new Date(now.getTime() + 86400000);
-                  const tomorrowStr = tomorrow.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
-                  return (
-                    <p className="mt-3">
-                      {isBeforeNoon ? (
-                        <span className="inline-block px-3 py-1.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                          ✅ Order before 12PM today for same-day printing
-                        </span>
-                      ) : (
-                        <span className="inline-block px-3 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                          📦 Order now — delivery by {tomorrowStr}
-                        </span>
-                      )}
-                    </p>
-                  );
-                })()}
+                {urgency && (
+                  <p className="mt-3">
+                    {urgency.isBeforeNoon ? (
+                      <span className="inline-block px-3 py-1.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                        ✅ Order before 12PM today for same-day printing
+                      </span>
+                    ) : (
+                      <span className="inline-block px-3 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        📦 Order now — delivery by {urgency.tomorrowStr}
+                      </span>
+                    )}
+                  </p>
+                )}
               </div>
             </div>
             {service.isNew && (
