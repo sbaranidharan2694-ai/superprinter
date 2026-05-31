@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemaps-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- ── Head-keyword exact-match landing pages (May 2026) ───────────── -->
   <url><loc>https://superprinters.net/printing-press-chennai/</loc>              <lastmod>2026-05-30</lastmod><changefreq>weekly</changefreq><priority>0.98</priority></url>
   <url><loc>https://superprinters.net/offset-printing-press-in-chennai/</loc>    <lastmod>2026-05-30</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
@@ -25,43 +24,13 @@
   <url><loc>https://superprinters.net/industries/it-printing-chennai/</loc>          <lastmod>2026-05-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- ── Primary pages ───────────────────────────────────────────────── -->
-  <url>
-    <loc>https://superprinters.net/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://superprinters.net/super-printers-logo.png</image:loc>
-      <image:title>Super Printers &amp; Wedding Cards — Pallavaram, Chennai</image:title>
-      <image:caption>Printing press in Chennai since 1990</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://superprinters.net/og-image.jpg</image:loc>
-      <image:title>Wedding and visiting card printing Chennai</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://superprinters.net/wedding-cards/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://superprinters.net/images/hero/wedding.jpg</image:loc>
-      <image:title>Wedding card printing in Chennai — Super Printers</image:title>
-      <image:caption>Hindu, Christian, Muslim and Tamil wedding invitations printed in Pallavaram</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://superprinters.net/visiting-cards/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://superprinters.net/images/hero/visiting-cards.jpg</image:loc>
-      <image:title>Visiting card printing Chennai — Super Printers</image:title>
-      <image:caption>Gloss, matt, spot UV and foil visiting cards from Pallavaram, Chennai</image:caption>
-    </image:image>
-  </url>
+  <!-- Inline image-sitemap entries removed: GSC flagged an
+       "incorrect-namespace" error on the extension elements even with
+       the namespace declaration in place. Image discovery still works
+       via the normal HTML crawl picking up img tags. -->
+  <url><loc>https://superprinters.net/</loc>                          <lastmod>2026-05-31</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://superprinters.net/wedding-cards/</loc>            <lastmod>2026-05-31</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://superprinters.net/visiting-cards/</loc>           <lastmod>2026-05-31</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
   <url><loc>https://superprinters.net/services/</loc>                  <lastmod>2026-05-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://superprinters.net/products/</loc>                  <lastmod>2026-05-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://superprinters.net/get-quote/</loc>                 <lastmod>2026-05-30</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
