@@ -61,12 +61,12 @@ export const CLIENTS: Client[] = [
   { name: "Harsha Exports", tag: "Exports", logo: "/clients/harsha-exports.png" },
   { name: "Panoply", tag: "Packaging — Corrugated Boards & Boxes", logo: "/clients/panoply.png" },
   { name: "Mothers Medica", tag: "Healthcare", logo: "/clients/mothers-medica.png" },
-  // ESAB + Indian Bank: no local logo file yet. brandfetchDomain set so
-  // the Logo Link API serves the brand-uploaded mark when
-  // VITE_BRANDFETCH_CLIENT_ID is configured; falls through to initials
-  // monogram otherwise. No <img src> for the local path = no 404.
-  { name: "ESAB", tag: "Industrial", brandfetchDomain: "esab.com" },
-  { name: "Indian Bank", tag: "Banking", brandfetchDomain: "indianbank.in" },
+  // ESAB + Indian Bank: local logo files supplied by owner (June 2026).
+  // brandfetchDomain kept as a second-tier fallback in case the local file
+  // ever goes missing in a deploy — Brandfetch only fires if the local
+  // <img> 404s, and only if VITE_BRANDFETCH_CLIENT_ID is configured.
+  { name: "ESAB", tag: "Industrial", logo: "/clients/esab.png", brandfetchDomain: "esab.com" },
+  { name: "Indian Bank", tag: "Banking", logo: "/clients/indian-bank.png", brandfetchDomain: "indianbank.in" },
   { name: "GG Organics", tag: "Sustainable Leather & Textiles", logo: "/clients/gg-organics.png" },
   // Kyowa Natesan + Gokul Ram Leathers: no logo file on disk yet. Owner
   // can drop a PNG at the matching slug and add `logo: "/clients/..."`
