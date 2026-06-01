@@ -1,5 +1,5 @@
 import SEOHead from "@/components/SEOHead";
-import { HOMEPAGE_REVIEWS_SCHEMA, SPEAKABLE_SCHEMA } from "@/data/seoSchemas";
+import { SPEAKABLE_SCHEMA } from "@/data/seoSchemas";
 import { FOUNDER_PERSON_SCHEMA } from "@/data/business";
 import HeroSection from "@/components/home/HeroSection";
 import SocialProofBar from "@/components/home/SocialProofBar";
@@ -43,7 +43,15 @@ const Index = () => (
       // renders in DOM for AI Overview / ChatGPT / Perplexity citation
       // (LLMs ingest the rendered content, not the schema). Schema export
       // is retained for any future /faq page that's primary-content FAQ.
-      schemaMarkup={[FOUNDER_PERSON_SCHEMA, SPEAKABLE_SCHEMA, ...HOMEPAGE_REVIEWS_SCHEMA]}
+      // First-party Review nodes intentionally removed: Google's review-
+      // snippet policy (Sept 2024) requires reviews on a business's own
+      // website to come from a verified third party, and 6 monthly
+      // 5-star Reviews on the homepage created a self-serving-review
+      // policy risk without earning a snippet. AggregateRating on the
+      // #business node (declared in index.html) carries the social-proof
+      // signal cleanly. TESTIMONIALS still render in DOM for AI overview
+      // citations — visible content, not structured-data claims.
+      schemaMarkup={[FOUNDER_PERSON_SCHEMA, SPEAKABLE_SCHEMA]}
     />
     <HeroSection />
     <SocialProofBar />

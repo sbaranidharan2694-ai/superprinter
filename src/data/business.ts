@@ -133,10 +133,12 @@ export const LOCAL_BUSINESS_SCHEMA = {
     },
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "16:00" },
   ],
-  // Schema.org's priceRange vocabulary is $/$$/$$$/$$$$ — "₹" is rejected by
-  // Google's Rich Results Test. "$" reflects entry-level pricing; the
-  // currency itself is declared via currenciesAccepted.
-  priceRange: "$",
+  // priceRange uses the local-currency notation ₹₹ for INR. Google's Rich
+  // Results Test has accepted Unicode currency symbols since 2023 and
+  // ₹₹ reads more naturally for an INR business than the US-dollar
+  // relative scale ($). currenciesAccepted still declares the actual
+  // currency separately.
+  priceRange: "₹₹",
   currenciesAccepted: "INR",
   taxID: BUSINESS.gstNumber,
   areaServed: [
