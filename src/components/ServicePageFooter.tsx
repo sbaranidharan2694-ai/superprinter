@@ -46,34 +46,16 @@ const ServicePageFooter = ({ currentSlug, serviceName, whatsappPrompt }: Service
   const related = ALL_SERVICES.filter((s) => s.slug !== currentSlug).slice(0, 6);
   const waMsg = whatsappPrompt ?? `Hi! I'm interested in ${serviceName} from Super Printers. Please share a quote.`;
 
-  // AggregateRating per page lets Google show ⭐ in search snippets.
-  // The rating's parent MUST be a Google-supported review-snippet type.
-  // `Service` is NOT on Google's supported list, which triggered the Search
-  // Console error: Invalid object type for field "<parent_node>". We use
-  // `Product` (the offering being rated) — a supported type — matching the
-  // pattern already used by productSchema() in src/data/seoSchemas.ts.
-  const ratingSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": `${serviceName} — Super Printers`,
-    "category": "Printing services",
-    "brand": {
-      "@type": "Brand",
-      "name": BUSINESS.shortName,
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": BUSINESS.googleRating,
-      "reviewCount": String(BUSINESS.googleReviewCount),
-      "bestRating": "5",
-      "worstRating": "1",
-    },
-  };
+  // Self-serving per-page AggregateRating removed (2026-06): this footer
+  // previously injected a Product node on every service/area page carrying the
+  // business's 147 Google reviews as that product's rating. Reusing the GBP's
+  // review count across ~50 unrelated product pages is self-serving and
+  // misleading — Google's review-snippet policy bars it and it risks a manual
+  // action. The "★ 4.8 / 147+ Google reviews" still renders as visible trust
+  // copy below, and the real rating lives on the linked Google Business Profile.
 
   return (
     <section className="mt-16 pt-12 border-t border-border-light bg-gradient-to-b from-white to-gray-50/40">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
-
       <div className="max-w-4xl mx-auto px-6">
         {/* Trust strip — two facts that actually matter, said once.
             GST + 24h turnaround are documented in the footer / per-page copy already. */}

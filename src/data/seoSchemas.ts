@@ -165,17 +165,11 @@ export function productSchema(opts: {
         },
       },
     }),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      // Bound the rating scale explicitly with bestRating + worstRating —
-      // Google's docs (2024+) require both for any AggregateRating where the
-      // scale isn't the default 1-5. Including both prevents Search Console
-      // from flagging "incomplete rating".
-      ratingValue: BUSINESS.googleRating,
-      reviewCount: String(BUSINESS.googleReviewCount),
-      bestRating: "5",
-      worstRating: "1",
-    },
+    // aggregateRating intentionally omitted: reusing the business's 147 Google
+    // reviews as a per-product rating is self-serving and misleading (those
+    // reviews aren't about "wedding card printing" specifically). Google's
+    // review-snippet policy bars self-serving ratings; product star ratings
+    // should come from genuine, product-level third-party reviews only.
   };
 }
 

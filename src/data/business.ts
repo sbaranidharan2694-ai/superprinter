@@ -56,6 +56,10 @@ export const BUSINESS = {
     "https://www.justdial.com/Chennai/Super-Printers-Near-Pallavaram-Railway-Station-Road-Pallavaram/044PXX44-XX44-121116100915-F7I8_BZDET",
     "https://www.weddingwire.in/wedding-invitations/super-printers-and-weddings-cards--e494180",
     "https://www.weddingbazaar.com/wedding-cards/chennai/super-printers-and-wedding-cards",
+    // Directory listings verified June 2026 — NAP matches (Saraswathi Colony,
+    // Pallavaram 600043; founder N. Baranidharan; GST 33AAGPB7462F1Z1).
+    "https://www.sulekha.com/super-printers-pallavaram-chennai-4717400-contact-address",
+    "https://www.indiamart.com/super-printers-chennai/aboutus.html",
     // Google Business Profile — owner-verified June 2026.
     GOOGLE_BUSINESS_PROFILE,
     // Replace placeholders once the owner verifies each profile. Dead sameAs
