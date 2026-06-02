@@ -22,10 +22,24 @@ export default defineConfig(() => ({
   ssr: {
     noExternal: ["react-helmet-async"],
   },
-  // NOTE: `manualChunks` was tried here to split vendor code for parallel
-  // download, but the React 18 / react-router-dom / framer-motion init graph
-  // produces a temporal-dead-zone error ("Cannot access 'b' before
-  // initialization") when split this way under Vite 5 + Rollup 4. Leaving
-  // chunking to Rollup's default heuristic — single index.js per route is
-  // already lazy-loaded via App.client.tsx, so the loss is minor.
+  // Chunking: the earlier failed attempt split the WHOLE vendor graph
+  // (React + react-router-dom + framer-motion) into one chunk, producing a
+  // temporal-dead-zone crash ("Cannot access 'b' before initialization")
+  // because Rollup reordered the React/router init across the boundary.
+  //
+  // This targeted version peels ONLY framer-motion into its own chunk and
+  // leaves React + react-router on Rollup's default heuristic — so the
+  // init-order-sensitive graph is never split. framer-motion is then cached
+  // independently and shared across the route chunks that use it instead of
+  // being inlined per route. Verified in-browser (no hydration/TDZ error)
+  // before shipping.
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules/framer-motion")) return "framer-motion";
+        },
+      },
+    },
+  },
 }));

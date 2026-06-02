@@ -63,19 +63,15 @@
          the small minority of browsers without AVIF. -->
     <link rel="preload" as="image" href="/images/hero/wedding.avif" type="image/avif" fetchpriority="high" />
     <link rel="preload" as="image" href="/super-printers-logo.webp" type="image/webp" fetchpriority="high" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Critical font split (May 2026 CWV pass):
-         Tier 1 (above-fold, blocking) — Playfair Display 700 (the H1).
-         Tier 2 (below-fold + body, deferred) — DM Sans, Poppins, the rest
-         of Playfair weights, Noto Sans Tamil 400. Tier 2 swaps in async
-         via `onload` so the H1 paints with its real font on the first
-         frame while everything else streams in without blocking LCP. -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400&display=swap" onload="this.onload=null;this.rel='stylesheet'" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&family=Noto+Sans+Tamil:wght@400&display=swap" />
-    </noscript>
+    <!-- Self-hosted fonts (June 2026 CWV pass): woff2 served same-origin from
+         /public/fonts removes the fonts.googleapis.com + fonts.gstatic.com
+         round-trips (two DNS+TLS connections) and the third-party privacy
+         surface. Only latin / latin-ext / tamil subsets ship — see
+         public/fonts/fonts.css. The LCP H1 font (Playfair Display 700, latin)
+         is preloaded; every @font-face uses font-display:swap so text paints
+         on the first frame and the real face swaps in without blocking LCP. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-700-latin.woff2" crossorigin />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
     <!-- Favicon discovery. /favicon.ico is the default fallback Google looks
          for, but the explicit <link rel="icon"> + <link rel="apple-touch-icon">
          tags are required for predictable favicon-in-search behaviour (per

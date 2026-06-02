@@ -14,8 +14,15 @@ import { type ImgHTMLAttributes } from "react";
  * All extra props (className, loading, fetchPriority, onError, etc.) pass
  * through to the inner `<img>`.
  */
-type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src"> & {
+// width + height are REQUIRED (not the optional versions from
+// ImgHTMLAttributes): the browser uses them to reserve layout space and
+// compute aspect-ratio before the image loads, preventing CLS. Making them
+// mandatory turns a missing dimension into a compile error instead of a
+// silent layout shift in production.
+type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "width" | "height"> & {
   src: string;
+  width: number | string;
+  height: number | string;
 };
 
 /** Rewrite a local .jpg/.png path to a sibling of the given format.

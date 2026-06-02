@@ -39,8 +39,8 @@ export const HERO = {
   //      ride along with the head term in a single 56-char H1.
   microLabel: "EST. 1990 · PALLAVARAM, CHENNAI",
   h1: "Printing Press in Chennai — Wedding & Visiting Cards",
-  accent: "Wedding cards, visiting cards, brochures, bill books — printed in-house in Pallavaram.",
-  body: "Proof shared before every print run. Most orders ready in 24 hours. WhatsApp us for a quote in 30 minutes.",
+  accent: "Chennai's printing experts since 1990 — wedding cards, visiting cards, brochures and bill books, printed in-house in Pallavaram.",
+  body: "Order online over WhatsApp — proof shared before every print run, most orders ready in 24 hours, quote in 30 minutes.",
   ctaPrimary: "Get Quote",
   ctaSecondary: "WhatsApp",
   badges: [
