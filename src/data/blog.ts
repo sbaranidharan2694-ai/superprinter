@@ -457,6 +457,71 @@ export const BLOG_POSTS: BlogPostData[] = [
       <p>Send your label spec — substrate, size, surface, environment and any compliance requirement — to <a href="/get-quote/">our team on WhatsApp</a> and we will recommend the material and quote it. Browse <a href="/stickers/">sticker and label printing</a> for standard options.</p>
     `,
   },
+  {
+    slug: "how-to-choose-printing-press-chennai",
+    image: "/images/hero/brochures.jpg",
+    title: "How to Choose a Printing Press in Chennai (2026): Offset vs Digital, Pricing & Turnaround",
+    description: "A buyer's guide to choosing a printing press in Chennai — press vs reseller, offset vs digital, real price ranges, turnaround norms, a file-prep checklist, and red flags to avoid.",
+    keyword: "printing press in chennai",
+    date: "2026-06-02",
+    category: "Guide",
+    author: { name: "N. Baranidharan", url: "/about/" },
+    content: `
+      <p>Choosing a printing press in Chennai comes down to five things: are you talking to a real press or a middleman, does the job suit offset or digital, what should it actually cost, how fast can it ship, and are your files ready. This guide answers each so you can brief any printer with confidence — not just us.</p>
+
+      <h2>1. Press vs reseller — the question that saves you 30-60%</h2>
+      <p>Most "printers" advertising in Chennai are intermediaries. They take your order, send it to a press, and add 30-60% markup. You pay more and lose a day in the handoff. A real press owns the machines. Three quick tests: <strong>do they quote a price on the spot</strong> (resellers stall — they have to ask their printer first), <strong>do they have public reviews</strong>, and <strong>can you visit and see the machines running</strong>. If the answer to all three is no, you are likely paying a middleman. We are the press — walk into our Saraswathy Colony shop in <a href="/printing-press-pallavaram/">Pallavaram</a> and you are talking to the team running the offset and digital lines.</p>
+
+      <h2>2. Offset vs digital — match the method to the quantity</h2>
+      <p>This is the single biggest cost decision. The rule of thumb:</p>
+      <ul>
+        <li><strong>Digital</strong> — best under 500 pieces, same-day jobs, photo-quality, and variable data (each piece different). No plate setup, so small runs stay cheap. See <a href="/digital-printing-chennai/">digital printing in Chennai</a>.</li>
+        <li><strong>Offset</strong> — best at 500-1,000+ identical pieces, exact Pantone spot-colour matching, and the lowest per-piece cost at volume. See <a href="/offset-printing-press-in-chennai/">offset printing press in Chennai</a>.</li>
+      </ul>
+      <p>The crossover sits around 500-1,000 pieces. A good press runs both and tells you which is cheaper for your quantity; a one-method shop pushes you toward what it owns. Our <a href="/blog/offset-vs-digital-printing/">offset vs digital guide</a> has the full breakdown.</p>
+
+      <h2>3. What printing should cost in Chennai (2026)</h2>
+      <p>Pricing should never be a secret. These are real factory-direct "from" figures for standard specs — use them to sanity-check any quote you receive:</p>
+      <table>
+        <thead><tr><th>Product</th><th>From</th></tr></thead>
+        <tbody>
+          <tr><td>Visiting cards (300 GSM matt)</td><td>₹149 / 100</td></tr>
+          <tr><td>Wedding cards</td><td>₹5 / card</td></tr>
+          <tr><td>A4 tri-fold brochures (130 GSM, 1,000 qty)</td><td>₹6 / piece</td></tr>
+          <tr><td>GST bill books (50-leaf NCR)</td><td>₹280 / book</td></tr>
+          <tr><td>Letterheads (100 GSM bond)</td><td>₹4 / sheet</td></tr>
+          <tr><td>Flex banners</td><td>₹12 / sq ft</td></tr>
+          <tr><td>PVC ID cards</td><td>₹35 / card</td></tr>
+        </tbody>
+      </table>
+      <p>Finishes (lamination, spot UV, foil) add cost; bulk runs lower the per-piece price. For business and bulk orders, see the <a href="/blog/commercial-printing-cost-chennai/">commercial printing cost guide</a>.</p>
+
+      <h2>4. Turnaround — what is normal</h2>
+      <p>For a press printing in-house (not outsourcing), expect: digital jobs ready in <strong>24 hours</strong>, offset runs in <strong>48-72 hours</strong>, and wedding cards in <strong>48-72 hours</strong> after proof approval. A printer quoting a week for 500 digital business cards is almost certainly reselling. Always confirm whether the quoted time starts at order or at proof approval.</p>
+
+      <h2>5. File-prep checklist (avoid reprints)</h2>
+      <ul>
+        <li><strong>CMYK</strong>, not RGB, so colours do not shift</li>
+        <li><strong>300 DPI</strong> at final size for sharp output</li>
+        <li><strong>3mm bleed</strong> on all sides, with backgrounds extended into it</li>
+        <li>Important text <strong>5mm inside</strong> the trim line</li>
+        <li>Supply a <strong>print-ready PDF</strong> (PDF/X-1a or X-4), fonts embedded</li>
+      </ul>
+      <p>Full detail in our <a href="/blog/how-to-prepare-files-for-printing/">print file preparation guide</a>. No print-ready file? A real press has an in-house design team and shares a free proof before printing.</p>
+
+      <h2>6. Red flags to walk away from</h2>
+      <ul>
+        <li>Will not quote a price without "checking" (likely a reseller)</li>
+        <li>No reviews, no shop you can visit, no machines to see</li>
+        <li>Prints without sending a proof first (you only see mistakes after they are printed)</li>
+        <li>One-method shop steering you to offset or digital regardless of your quantity</li>
+        <li>Vague turnaround that starts "after design" with no committed date</li>
+      </ul>
+
+      <h2>Briefing a printer (including us)</h2>
+      <p>Send five things and you get a firm quote in one message: product, quantity, size, paper/GSM, and finish. At Super Printers — a 35-year <a href="/printing-press-chennai/">printing press in Chennai</a> rated 4.8 across 147 Google reviews — <a href="/get-quote/">WhatsApp the brief</a> and we reply with an itemised price in about 30 minutes, a free design proof before printing, and a GST invoice on every order. Pickup in Pallavaram or delivery across 30+ Chennai suburbs.</p>
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPostData | undefined {

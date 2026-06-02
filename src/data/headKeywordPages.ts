@@ -25,6 +25,16 @@ export interface HeadKeywordPage {
   serviceType: string;
   /** 5–8 area-specific FAQs for FAQPage schema. */
   faqs: { q: string; a: string }[];
+  /**
+   * Optional transparent price ladder. Rendered as a styled table — the
+   * single biggest differentiator vs competitors who hide pricing behind
+   * "request a quote", and the block AI Overviews quote when answering
+   * "how much does X cost". Prices are "from" anchors, not quotes.
+   */
+  priceTable?: { caption: string; rows: { item: string; price: string }[] };
+  /** Optional "further reading" link to an editorial pillar/guide (clickable;
+   *  section bodies render as plain text, so deep links live here). */
+  relatedGuide?: { label: string; url: string };
 }
 
 export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
@@ -89,6 +99,23 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
         a: "Yes — a digital WhatsApp proof is shared before every print run. Unlimited revisions are included; we print only after you approve the final proof. For wedding cards we also offer a physical sample card on request before bulk printing begins.",
       },
     ],
+    priceTable: {
+      caption: "Printing prices in Chennai (from)",
+      rows: [
+        { item: "Visiting cards (300 GSM matt)", price: "₹149 / 100" },
+        { item: "Wedding cards", price: "₹5 / card" },
+        { item: "A4 brochures (tri-fold, 130 GSM)", price: "₹6 / piece" },
+        { item: "GST bill books (50-leaf NCR)", price: "₹280 / book" },
+        { item: "Letterheads (100 GSM bond)", price: "₹4 / sheet" },
+        { item: "Flex banners", price: "₹12 / sq ft" },
+        { item: "PVC ID cards", price: "₹35 / card" },
+        { item: "Rubber stamps (self-inking)", price: "₹180" },
+      ],
+    },
+    relatedGuide: {
+      label: "How to Choose a Printing Press in Chennai (2026)",
+      url: "/blog/how-to-choose-printing-press-chennai/",
+    },
   },
   {
     slug: "offset-printing-press-in-chennai",

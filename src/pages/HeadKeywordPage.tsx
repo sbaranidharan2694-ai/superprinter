@@ -96,6 +96,37 @@ const HeadKeywordPage = () => {
           </section>
         ))}
 
+        {page.priceTable && (
+          <section className="py-10 px-4 bg-white" aria-labelledby="price-heading">
+            <div className="max-w-4xl mx-auto">
+              <h2 id="price-heading" className="font-display text-xl md:text-2xl font-bold mb-2" style={{ color: "var(--color-primary)" }}>
+                {page.priceTable.caption}
+              </h2>
+              <p className="text-sm mb-4" style={{ color: "#6B7280", fontFamily: "var(--font-body)" }}>
+                Factory-direct "from" prices — we are the press, not a reseller. No hidden plate or file charges; bulk runs cost less per piece.
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse" style={{ fontFamily: "var(--font-body)" }}>
+                  <thead>
+                    <tr style={{ borderBottom: "2px solid var(--color-primary)" }}>
+                      <th className="py-2 pr-4 text-sm font-bold" style={{ color: "var(--color-primary)" }}>Product</th>
+                      <th className="py-2 text-sm font-bold" style={{ color: "var(--color-primary)" }}>From</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {page.priceTable.rows.map((r) => (
+                      <tr key={r.item} className="border-b border-gray-100">
+                        <td className="py-2 pr-4 text-sm" style={{ color: "#374151" }}>{r.item}</td>
+                        <td className="py-2 text-sm font-semibold" style={{ color: "#374151" }}>{r.price}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="py-12 px-4" style={{ backgroundColor: "#FFFDF7" }} aria-labelledby="head-faq-heading">
           <div className="max-w-4xl mx-auto">
             <h2 id="head-faq-heading" className="font-display text-xl md:text-2xl font-bold mb-6" style={{ color: "var(--color-primary)" }}>
@@ -115,6 +146,19 @@ const HeadKeywordPage = () => {
             </dl>
           </div>
         </section>
+
+        {page.relatedGuide && (
+          <section className="py-8 px-4" style={{ backgroundColor: "#FFFDF7" }}>
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="text-base" style={{ color: "#374151", fontFamily: "var(--font-body)" }}>
+                Further reading:{" "}
+                <Link to={page.relatedGuide.url} className="underline font-semibold" style={{ color: "var(--color-primary)" }}>
+                  {page.relatedGuide.label}
+                </Link>
+              </p>
+            </div>
+          </section>
+        )}
 
         <section className="py-12 px-4 bg-white">
           <div className="max-w-4xl mx-auto text-center">

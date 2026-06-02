@@ -172,6 +172,7 @@ const ChennaiPrintingGuidePage = () => {
               <Link to="/digital-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>digital printing services</Link> page. Running print for a business?
               See the <Link to="/blog/commercial-printing-chennai-guide/" className="underline" style={{ color: "var(--color-primary)" }}>commercial printing guide</Link> and{" "}
               <Link to="/blog/industrial-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>industrial printing guide</Link>.
+              New to print buying? Read <Link to="/blog/how-to-choose-printing-press-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>how to choose a printing press in Chennai</Link>.
             </p>
           </div>
         </section>
