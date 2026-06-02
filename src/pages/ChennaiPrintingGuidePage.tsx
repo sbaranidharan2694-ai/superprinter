@@ -141,6 +141,11 @@ const ChennaiPrintingGuidePage = () => {
                 corporate folders, the back-office kit traders, clinics and offices reorder. See our{" "}
                 <Link to="/stationery-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>stationery printing</Link> page.
               </li>
+              <li>
+                <strong>Order online</strong> — send files on WhatsApp, approve a free proof, and pick up in
+                Pallavaram or get delivery. See how{" "}
+                <Link to="/online-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>online printing in Chennai</Link> works.
+              </li>
             </ul>
           </div>
         </section>

@@ -112,7 +112,7 @@ const ServicePageFooter = ({ currentSlug, serviceName, whatsappPrompt }: Service
         {/* Areas served — local SEO cross-link */}
         <section className="mb-12">
           <h2 className="font-display font-semibold text-xl text-ink-black mb-4">
-            We deliver across Chennai
+            We deliver {serviceName.toLowerCase()} across Chennai
           </h2>
           <p className="font-ui text-sm text-gray-600 mb-4">
             Free pickup from our Pallavaram press. Delivery available across these neighbourhoods:
@@ -122,6 +122,12 @@ const ServicePageFooter = ({ currentSlug, serviceName, whatsappPrompt }: Service
               <Link
                 key={a.slug}
                 to={`/${a.slug}`}
+                // Service-contextual accessible name ("visiting card printing in
+                // Tambaram") ties the suburb link to the host service so the
+                // area pages inherit per-service local relevance, while the
+                // visible chip stays compact.
+                aria-label={`${serviceName} in ${a.label}`}
+                title={`${serviceName} in ${a.label}`}
                 className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-ui font-medium border border-border-light bg-white hover:border-gold hover:bg-gold/5 transition-colors text-ink-black"
               >
                 {a.label}

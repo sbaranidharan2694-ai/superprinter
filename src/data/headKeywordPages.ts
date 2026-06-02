@@ -422,4 +422,62 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
       },
     ],
   },
+  {
+    slug: "online-printing-chennai",
+    title: "Online Printing in Chennai — Order on WhatsApp, Ready in 24h | Super Printers",
+    metaDescription:
+      "Order printing online in Chennai — visiting cards, brochures, wedding cards, bill books. Send files on WhatsApp, approve a free proof, pick up in Pallavaram or get delivery. Ready in 24-48 hours.",
+    h1: "Online Printing in Chennai — Order from Anywhere, Pick Up in Pallavaram",
+    intro:
+      "Super Printers takes printing orders online so you never have to queue at a counter. WhatsApp your files (or a photo of a sample), get a quote in 30 minutes and a free design proof before anything is printed, then collect from our Pallavaram press or have it couriered across Chennai. It is the convenience of an online print service with the accountability of a 35-year-old local press you can actually walk into — most orders ready in 24-48 hours.",
+    serviceType: "Online printing service",
+    sections: [
+      {
+        heading: "How online printing works — three WhatsApp steps",
+        body:
+          "Step 1: WhatsApp +91 98401 99878 with your product (visiting cards, brochure, wedding card, bill book), quantity and any artwork — we accept PDF, AI, CDR, PSD, JPG and PNG. Step 2: we reply with a price in about 30 minutes and a free design proof; request changes until it is right, no revision charge. Step 3: once you approve, most digital orders are printed within 24 hours — collect from Saraswathy Colony in Pallavaram or we courier across Chennai. No app to install, no account to create, no upfront payment to lock a quote.",
+      },
+      {
+        heading: "What you can order online",
+        body:
+          "Visiting cards (from ₹149/100), brochures and flyers, wedding and event invitations, GST bill books and NCR invoice books, letterheads and envelopes, banners and signage, stickers and labels, PVC ID cards, rubber stamps and catalogues. If you already have print-ready artwork we print it as-is; if you only have content and a rough idea, our design team builds the layout and shares an online proof before printing. Bulk and corporate orders get tiered offset pricing on the same online workflow.",
+      },
+      {
+        heading: "Proof, revisions and delivery",
+        body:
+          "Every online order gets a digital proof on WhatsApp before we print a single copy — this is the safeguard most online print portals skip, where you only see the result after it ships. Revisions are unlimited until you approve. After approval, collect free from our Pallavaram press, opt for paid courier to your Chennai address (typically next working day), or get free local delivery within 2 km of the shop on orders above ₹1,500.",
+      },
+      {
+        heading: "Why order from a local online printer, not a national portal",
+        body:
+          "National online printing portals print in a far-off facility, add shipping days, and give you no one to call when a colour is off. Super Printers is a real Pallavaram press, so online ordering comes with same-city speed, a human on WhatsApp, exact reprints (we keep your files and brand colours on record), and the option to walk in and check the job in person. You get the convenience of online printing in Chennai without surrendering the accountability of a neighbourhood printer that has served 10,000+ customers since 1990.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I place an online printing order in Chennai?",
+        a: "WhatsApp +91 98401 99878 with your product, quantity and artwork (PDF, AI, CDR, PSD, JPG or PNG). You get a quote in about 30 minutes and a free design proof before printing. No app or account needed.",
+      },
+      {
+        q: "Can I order printing online without visiting the shop?",
+        a: "Yes — the entire order can run over WhatsApp, from quote to proof approval. Then choose free pickup at our Pallavaram press or paid courier delivery to your Chennai address.",
+      },
+      {
+        q: "Will I see a proof before you print?",
+        a: "Always. We share a digital proof on WhatsApp and only print after you approve. Revisions are unlimited and free — unlike national portals where you see the result only after it ships.",
+      },
+      {
+        q: "How fast is online printing in Chennai?",
+        a: "Most digital orders are ready in 24 hours after proof approval; wedding cards and large offset runs take 48-72 hours. Courier across Chennai typically adds one working day.",
+      },
+      {
+        q: "What file formats do you accept online?",
+        a: "PDF, AI, CDR, PSD, JPG and PNG. If you only have content and no design, our team creates the layout and sends an online proof before printing.",
+      },
+      {
+        q: "Do I have to pay upfront to get a quote?",
+        a: "No. Quotes and design proofs are free with no upfront payment. You confirm the order after you are happy with the proof and price.",
+      },
+    ],
+  },
 ];

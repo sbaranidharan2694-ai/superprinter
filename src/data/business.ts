@@ -116,6 +116,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
   "@type": ["PrintShop", "LocalBusiness", "ProfessionalService"],
   "@id": `${BUSINESS.siteUrl}/#business`,
   name: BUSINESS.name,
+  legalName: BUSINESS.shortName,
   description:
     "Professional printing press in Pallavaram, Chennai — wedding cards, visiting cards, brochures, offset and digital printing since 1990.",
   url: BUSINESS.siteUrl,

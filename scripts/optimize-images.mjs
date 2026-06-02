@@ -18,6 +18,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.resolve(__dirname, "..", "public");
 
 const WEBP_QUALITY = 78;
+// AVIF: ~30% smaller than WebP at visually-equal quality. Emitted as a second
+// sibling so <Picture> can offer <source type="image/avif"> first, falling
+// back to WebP then the original raster. quality 50 ≈ WebP 78 perceptually.
+const AVIF_QUALITY = 50;
 
 // Skip dot-dirs (.well-known) and any future asset folders the build pipeline
 // shouldn't touch. Everything else under public/ that's a raster image gets
@@ -49,22 +53,34 @@ let skipped = 0;
 
 for (const file of files) {
   const webp = file.replace(/\.(jpe?g|png)$/i, ".webp");
+  const avif = file.replace(/\.(jpe?g|png)$/i, ".avif");
   const srcStat = fs.statSync(file);
 
-  // Skip if .webp exists and is newer than the source.
-  if (fs.existsSync(webp) && fs.statSync(webp).mtimeMs >= srcStat.mtimeMs) {
+  const webpFresh = fs.existsSync(webp) && fs.statSync(webp).mtimeMs >= srcStat.mtimeMs;
+  const avifFresh = fs.existsSync(avif) && fs.statSync(avif).mtimeMs >= srcStat.mtimeMs;
+
+  // Skip only if BOTH siblings exist and are newer than the source.
+  if (webpFresh && avifFresh) {
     skipped++;
     continue;
   }
 
-  await sharp(file).webp({ quality: WEBP_QUALITY, effort: 5 }).toFile(webp);
-  const outStat = fs.statSync(webp);
+  if (!webpFresh) {
+    await sharp(file).webp({ quality: WEBP_QUALITY, effort: 5 }).toFile(webp);
+  }
+  if (!avifFresh) {
+    await sharp(file).avif({ quality: AVIF_QUALITY, effort: 4 }).toFile(avif);
+  }
+
+  const webpStat = fs.statSync(webp);
+  const avifStat = fs.statSync(avif);
   totalIn += srcStat.size;
-  totalOut += outStat.size;
+  totalOut += avifStat.size;
   converted++;
 
-  const pct = ((1 - outStat.size / srcStat.size) * 100).toFixed(0);
-  console.log(`  ${path.relative(publicDir, file).padEnd(40)}  ${(srcStat.size / 1024).toFixed(0).padStart(5)} → ${(outStat.size / 1024).toFixed(0).padStart(5)} KB  (-${pct}%)`);
+  const wPct = ((1 - webpStat.size / srcStat.size) * 100).toFixed(0);
+  const aPct = ((1 - avifStat.size / srcStat.size) * 100).toFixed(0);
+  console.log(`  ${path.relative(publicDir, file).padEnd(40)}  ${(srcStat.size / 1024).toFixed(0).padStart(5)} KB → webp ${(webpStat.size / 1024).toFixed(0)} (-${wPct}%) · avif ${(avifStat.size / 1024).toFixed(0)} (-${aPct}%)`);
 }
 
 console.log(`\nConverted ${converted}, skipped ${skipped}.`);

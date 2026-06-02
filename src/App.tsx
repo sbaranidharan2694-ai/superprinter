@@ -114,6 +114,7 @@ const App = () => (
             <Route path="/large-format-signage-chennai" element={<HeadKeywordPage />} />
             <Route path="/custom-packaging-printing-chennai" element={<HeadKeywordPage />} />
             <Route path="/stationery-printing-chennai" element={<HeadKeywordPage />} />
+            <Route path="/online-printing-chennai" element={<HeadKeywordPage />} />
             {/* Pillar guide (broad-query authority hub). */}
             <Route path="/chennai-printing-guide" element={<ChennaiPrintingGuidePage />} />
             {/* Trust / authority hubs (Rathna + Imprint Wings patterns). */}
