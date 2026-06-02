@@ -47,17 +47,19 @@ const ServicePageFooter = ({ currentSlug, serviceName, whatsappPrompt }: Service
   const waMsg = whatsappPrompt ?? `Hi! I'm interested in ${serviceName} from Super Printers. Please share a quote.`;
 
   // AggregateRating per page lets Google show ⭐ in search snippets.
+  // The rating's parent MUST be a Google-supported review-snippet type.
+  // `Service` is NOT on Google's supported list, which triggered the Search
+  // Console error: Invalid object type for field "<parent_node>". We use
+  // `Product` (the offering being rated) — a supported type — matching the
+  // pattern already used by productSchema() in src/data/seoSchemas.ts.
   const ratingSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "Product",
     "name": `${serviceName} — Super Printers`,
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": BUSINESS.name,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": BUSINESS.addressFull,
-      },
+    "category": "Printing services",
+    "brand": {
+      "@type": "Brand",
+      "name": BUSINESS.shortName,
     },
     "aggregateRating": {
       "@type": "AggregateRating",
