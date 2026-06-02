@@ -227,10 +227,14 @@ const ProductsCatalogPage = () => {
       <SEOHead
         title={`${sectionTitle} | Super Printers Chennai`}
         description={`Browse ${sectionTitle} and other printing products. Order online or via WhatsApp. Super Printers, Pallavaram, Chennai.`}
-        // Per-category canonical so /products/<slug> doesn't collapse into
-        // /products. Previous single canonical was de-indexing every
-        // category page in Google.
-        canonical={categorySlug ? `/products/${categorySlug}` : "/products"}
+        // Canonical keys off the ROUTE PARAM, not the defaulted categorySlug.
+        // categorySlug falls back to DEFAULT_CATEGORY for rendering, so using
+        // it here made the bare /products index canonicalize to
+        // /products/visiting-cards (a child) — a sitemap-vs-canonical conflict
+        // that flagged /products as a duplicate in GSC. paramCategory is only
+        // set on the /products/<slug> route, so /products self-canonicalizes
+        // and each category page canonicalizes to itself.
+        canonical={paramCategory ? `/products/${paramCategory}` : "/products"}
         breadcrumbs={breadcrumbs}
       />
 
