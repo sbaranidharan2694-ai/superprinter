@@ -364,4 +364,62 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
       },
     ],
   },
+  {
+    slug: "stationery-printing-chennai",
+    title: "Stationery Printing in Chennai from ₹4 — Letterheads & Bill Books | Super Printers",
+    metaDescription:
+      "Business & corporate stationery printing in Chennai since 1990 — letterheads, envelopes, GST bill books, NCR invoice books, presentation folders. Free design proof, ready in 24-48 hours. Pallavaram.",
+    h1: "Stationery Printing in Chennai — Letterheads, Bill Books & Corporate Stationery",
+    intro:
+      "Super Printers is a stationery printing press in Pallavaram, Chennai, supplying business and corporate stationery to traders, clinics, schools and offices across the city since 1990. Under one roof we print letterheads, envelopes, GST bill books, NCR invoice books, presentation folders, ID cards and rubber stamps — the full back-office kit a Chennai business runs on. As the actual press (not a reselling card shop), our stationery prices start at ₹4 a letterhead and ₹280 a 50-leaf bill book, with a free design proof shared on WhatsApp and most orders ready in 24-48 hours.",
+    serviceType: "Stationery printing",
+    sections: [
+      {
+        heading: "The business stationery set every Chennai office orders",
+        body:
+          "A working stationery set is more than a letterhead. Most Chennai businesses order it as a kit: A4 letterheads (100 GSM bond or 80 GSM maplitho, ₹4-₹7 a sheet), matching DL and A4 envelopes with the logo and return address, visiting cards for the team, and GST-compliant bill or invoice books. Clinics in Porur and Adyar add prescription pads and appointment cards; schools in Anna Nagar add report-card jackets and circular letterheads; traders on Ranganathan Street add numbered estimate and delivery-challan books. We keep your logo, GSTIN and brand colours on file so every reprint matches the last one exactly.",
+      },
+      {
+        heading: "GST bill books and NCR invoice books",
+        body:
+          "NCR (no-carbon-required) bill books are the staple of every Chennai trader strip. We print 2-part and 3-part books with your shop name, address, GSTIN, serial numbering and a perforated tear line — from ₹280 for a 50-leaf book, cheaper per book in bulk. Original-duplicate-triplicate sets carbonise automatically, so a single pen stroke copies onto every leaf. We handle GST invoice formats (tax invoice, bill of supply, delivery challan, quotation, receipt) with the mandatory columns pre-ruled, and numbered sequences across multiple books so your accounts never see a duplicate serial.",
+      },
+      {
+        heading: "Corporate stationery — letterheads, envelopes, folders",
+        body:
+          "For Guindy, Mount Road and OMR offices we print the full corporate identity set: embossed or foil letterheads on 100 GSM executive bond, window and non-window envelopes (DL, A5, A4) with print-registered logo placement, presentation folders with business-card slits and spot-UV covers, and compliment slips. Offset printing keeps per-piece cost low on runs above 500-1,000; Pantone spot-colour matching keeps your brand blue the same blue on every batch. Variable-data printing lets us personalise per-branch or per-employee stationery in a single run — design and printing handled in-house, so the layout you approve is the layout that prints.",
+      },
+      {
+        heading: "Why order stationery from the press, not a card shop",
+        body:
+          "Most stationery shops in Chennai are intermediaries — they take your order and send it to a press like ours, then add 30-60% on top. We are the stationery printers. You talk to the team running the offset and digital machines at our Saraswathy Colony shop in Pallavaram, which is why our pricing is factory-direct and our reprints are exact. Bring or WhatsApp your existing letterhead or bill book and we'll match the paper, ink and layout; approve the free proof and collect across Pallavaram, Chromepet and Tambaram, or by courier to 30+ Chennai suburbs in 24-48 hours.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does stationery printing cost in Chennai?",
+        a: "Letterheads start at ₹4-₹7 a sheet depending on paper and quantity; GST bill books from ₹280 for a 50-leaf NCR book; envelopes from ₹3 each. Offset runs above 500-1,000 pieces drop the per-piece price further. We share an itemised quote on WhatsApp within 30 minutes.",
+      },
+      {
+        q: "Do you print GST-compliant bill books and invoice books?",
+        a: "Yes — 2-part and 3-part NCR bill books, tax invoices, bills of supply, delivery challans and quotations, all with your GSTIN, shop details, serial numbering and the mandatory GST columns pre-ruled. Numbered sequences run across multiple books so serials never repeat.",
+      },
+      {
+        q: "Can you match my existing letterhead or stationery?",
+        a: "Yes. Bring or WhatsApp a sample and we match the paper GSM, ink colours (Pantone where needed) and layout. We keep your logo and GSTIN on file so every future reprint is identical.",
+      },
+      {
+        q: "What's the minimum order for stationery?",
+        a: "Digital runs start small — 100 letterheads or a single bill book is fine. Offset becomes more economical above 500-1,000 pieces, so larger corporate stationery orders cost less per piece.",
+      },
+      {
+        q: "How fast is stationery printing?",
+        a: "Most letterhead, envelope and bill-book orders are ready in 24-48 hours after proof approval. Embossed, foil or spot-UV corporate stationery takes 3-7 working days.",
+      },
+      {
+        q: "Do you deliver stationery across Chennai?",
+        a: "Yes — collect from our Pallavaram press, or courier to all 30+ Chennai suburbs (Chromepet, Tambaram, Velachery, Guindy, OMR and more), typically next working day.",
+      },
+    ],
+  },
 ];

@@ -136,6 +136,11 @@ const ChennaiPrintingGuidePage = () => {
                 <Link to="/large-format-signage-chennai/" className="underline" style={{ color: "var(--color-primary)" }}> large-format signage</Link> and{" "}
                 <Link to="/custom-packaging-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>custom packaging</Link> pages.
               </li>
+              <li>
+                <strong>Business stationery</strong> — letterheads, envelopes, GST bill books, NCR invoice books and
+                corporate folders, the back-office kit traders, clinics and offices reorder. See our{" "}
+                <Link to="/stationery-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>stationery printing</Link> page.
+              </li>
             </ul>
           </div>
         </section>
