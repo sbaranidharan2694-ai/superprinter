@@ -3,7 +3,7 @@
  */
 import { BUSINESS } from "./business";
 import { services, type ServiceData } from "./services";
-import { FAQ_ITEMS, TESTIMONIALS } from "./v2";
+import { FAQ_ITEMS } from "./v2";
 
 /**
  * SpeakableSpecification — tells Google Assistant / voice search / AI
@@ -71,42 +71,11 @@ export const HOMEPAGE_FAQ_SCHEMA = {
   })),
 };
 
-/**
- * Individual Review items derived from the visible TESTIMONIALS on the
- * homepage. Google's 2026 rule: structured data must represent content
- * visible on the page. We already render these reviews in SocialProofSection
- * so the schema reflects what crawlers see in the DOM.
- *
- * Returned as an array of LocalBusiness-attached Review items, ready to drop
- * into a JSON-LD <script> alongside the existing aggregateRating.
- */
-// Spread review dates across the last 12 months so each Review carries a
-// `datePublished` (Google's structured-data spec lists this as recommended;
-// without it review snippets can be deprioritised). Dates are deterministic
-// per-index so prerender output is stable, not random.
-const REVIEW_DATES = ["2025-12-08", "2025-11-22", "2025-10-15", "2025-09-04", "2025-07-19", "2025-06-02"];
-
-export const HOMEPAGE_REVIEWS_SCHEMA = TESTIMONIALS.map((t, i) => ({
-  "@context": "https://schema.org",
-  "@type": "Review",
-  "@id": `${BUSINESS.siteUrl}/#review-${i + 1}`,
-  itemReviewed: {
-    "@type": "LocalBusiness",
-    "@id": `${BUSINESS.siteUrl}/#business`,
-    name: BUSINESS.name,
-  },
-  reviewRating: {
-    "@type": "Rating",
-    ratingValue: String(t.rating),
-    bestRating: "5",
-    worstRating: "1",
-  },
-  author: { "@type": "Person", name: t.name },
-  datePublished: REVIEW_DATES[i] ?? "2025-06-01",
-  reviewBody: t.text,
-  about: { "@type": "Thing", name: t.product },
-  locationCreated: { "@type": "Place", name: `${t.location}, Chennai` },
-}));
+// HOMEPAGE_REVIEWS_SCHEMA removed (2026-06): Google prohibits self-serving
+// first-party Review markup — reviews about your own business, hosted on your
+// own pages. They produce no rich results and risk a structured-data manual
+// action. The testimonials still render visibly in SocialProofSection; the
+// 4.8/147 rating belongs to the Google Business Profile, not on-site markup.
 
 const PROVIDER_SNIPPET = {
   "@type": "LocalBusiness" as const,
