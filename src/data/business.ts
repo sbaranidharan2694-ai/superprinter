@@ -1,5 +1,15 @@
+// Canonical Google Business Profile (knowledge-panel) URL. Personal session
+// params (authuser, mat, hl) were stripped from the owner-supplied link,
+// leaving the stable public entity tokens (q + stick). Single source of truth:
+// used in sameAs, the LocalBusiness `hasMap`, and the "View reviews" button.
+// Ideal upgrade: swap for the Google Maps "Share" short link
+// (https://maps.app.goo.gl/...) — a canonical place URL — when convenient.
+const GOOGLE_BUSINESS_PROFILE =
+  "https://www.google.com/search?q=Super+Printers+-+Wedding+Cards+%26+Printing&stick=H4sIAAAAAAAA_-NgU1I1qDBONDUyTUtONjJKNTYxNU-xMqiwSDUxMjYxs0hNTk5JSU01WsSqGVxakFqkEFCUmVeSWlSsoKsQnpqSkpmXruCcWJRSrKAGkQIKAABwJvgnVQAAAA";
+
 export const BUSINESS = {
   name: "Super Printers & Wedding Cards",
+  googleBusinessProfile: GOOGLE_BUSINESS_PROFILE,
   shortName: "Super Printers",
   tagline: "Professional Printing in Chennai Since 1990",
   founder: "N. Baranidharan",
@@ -49,9 +59,10 @@ export const BUSINESS = {
     "https://www.justdial.com/Chennai/Super-Printers-Near-Pallavaram-Railway-Station-Road-Pallavaram/044PXX44-XX44-121116100915-F7I8_BZDET",
     "https://www.weddingwire.in/wedding-invitations/super-printers-and-weddings-cards--e494180",
     "https://www.weddingbazaar.com/wedding-cards/chennai/super-printers-and-wedding-cards",
+    // Google Business Profile — owner-verified June 2026.
+    GOOGLE_BUSINESS_PROFILE,
     // Replace placeholders once the owner verifies each profile. Dead sameAs
     // links weaken Knowledge Graph confidence.
-    // "https://www.google.com/maps/place/?q=place_id:REPLACE_WITH_GBP_PLACE_ID",
     // "https://www.instagram.com/superprinters",
     // "https://www.facebook.com/superprinters",
     // "https://www.youtube.com/@superprinters",
@@ -179,7 +190,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
   ],
   paymentAccepted: "Cash, UPI, Bank Transfer",
   sameAs: BUSINESS.sameAs,
-  hasMap: BUSINESS.googleMapsUrl,
+  hasMap: BUSINESS.googleBusinessProfile,
   // image as an array satisfies Google's preferred-image guidance; the first
   // entry is the logo (1:1), second is the OG share image (16:9).
   image: [

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { BUSINESS } from "@/data/business";
 import { IMAGE_PATHS } from "@/data/imagePaths";
 import { TESTIMONIALS } from "@/data/v2";
 import Picture from "@/components/ui/Picture";
@@ -76,7 +77,7 @@ const SocialProofSection = () => (
         className="text-center mt-10"
       >
         <a
-          href="https://www.google.com/maps/search/?api=1&query=Super+printers+and+wedding+cards"
+          href={BUSINESS.googleBusinessProfile}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 text-sm font-semibold transition-colors hover:bg-white"
