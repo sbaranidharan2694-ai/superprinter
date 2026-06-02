@@ -1,11 +1,8 @@
-// Canonical Google Business Profile (knowledge-panel) URL. Personal session
-// params (authuser, mat, hl) were stripped from the owner-supplied link,
-// leaving the stable public entity tokens (q + stick). Single source of truth:
-// used in sameAs, the LocalBusiness `hasMap`, and the "View reviews" button.
-// Ideal upgrade: swap for the Google Maps "Share" short link
-// (https://maps.app.goo.gl/...) — a canonical place URL — when convenient.
-const GOOGLE_BUSINESS_PROFILE =
-  "https://www.google.com/search?q=Super+Printers+-+Wedding+Cards+%26+Printing&stick=H4sIAAAAAAAA_-NgU1I1qDBONDUyTUtONjJKNTYxNU-xMqiwSDUxMjYxs0hNTk5JSU01WsSqGVxakFqkEFCUmVeSWlSsoKsQnpqSkpmXruCcWJRSrKAGkQIKAABwJvgnVQAAAA";
+// Canonical Google Business Profile share link (owner-supplied, June 2026).
+// Official Google short link → resolves to KG entity /g/11s5473g7x
+// ("Super Printers & Wedding Cards"). Single source of truth: used in
+// sameAs, the LocalBusiness `hasMap`, and the "View reviews" button.
+const GOOGLE_BUSINESS_PROFILE = "https://share.google/unVdZhHj2Hf7fywMj";
 
 export const BUSINESS = {
   name: "Super Printers & Wedding Cards",
