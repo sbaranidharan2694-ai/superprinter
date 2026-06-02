@@ -480,4 +480,62 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
       },
     ],
   },
+  {
+    slug: "digital-printing-chennai",
+    title: "Digital Printing in Chennai from ₹10 — Same-Day | Super Printers",
+    metaDescription:
+      "Digital printing in Chennai since 1990 — business cards, brochures, ID cards, photo prints. Same-day short runs, free design proof, 4.8★ (147 reviews). Pallavaram.",
+    h1: "Digital Printing in Chennai — Same-Day, Short-Run & Photo-Quality",
+    intro:
+      "Super Printers runs digital printing in Chennai from its own press in Pallavaram — no outsourcing, no minimum-order games. Digital is the right choice when you need a small run fast, photo-quality colour, or personalised pieces: business cards from ₹149 per 100, brochures, PVC ID cards, posters and short-run invitations, most ready the same day. You get a free design proof on WhatsApp before anything prints, factory-direct pricing because we are the press, and pickup in Pallavaram or delivery across 30+ Chennai suburbs.",
+    serviceType: "Digital printing service",
+    sections: [
+      {
+        heading: "Digital printing services we run in-house",
+        body:
+          "On our digital presses we print business and visiting cards (300-400 GSM, matt/gloss), brochures and flyers, PVC ID cards and badges, photo prints, posters and canvas, short-run wedding and event invitations, and variable-data jobs (per-employee ID batches, personalised invites, numbered passes). Digital handles CMYK photo-quality on card stock up to 400 GSM with same-day turnaround — ideal for runs under 500 where offset plate setup would not be worth it.",
+      },
+      {
+        heading: "Same-day digital printing across Chennai",
+        body:
+          "Walk into our Pallavaram press before 1pm with a print-ready PDF and most digital orders — 100-500 business cards, a few hundred flyers, a batch of ID cards — are ready by 5pm the same day. For Velachery, Tambaram, Chromepet, Guindy, Adyar, OMR and T. Nagar customers, we courier next working day or you collect in person. Files come in over WhatsApp; we send the proof back the same hour.",
+      },
+      {
+        heading: "Digital printing prices in Chennai",
+        body:
+          "Factory-direct because we are the press, not a reseller: visiting cards ₹149/100, ₹299/250, ₹399/500; A5 flyers from ₹3 each on 130 GSM art paper; PVC ID cards from ₹35 each; A3 posters from ₹40; photo prints from ₹10 a sheet. Bulk runs above 500-1,000 pieces move to offset for a lower per-piece price — we tell you which is cheaper for your quantity instead of defaulting to the pricier option.",
+      },
+      {
+        heading: "Digital vs offset — which does your Chennai job need?",
+        body:
+          "Choose digital for runs under 500, same-day deadlines, photo-heavy artwork, and variable data (each piece different). Choose offset for 500-1,000+ identical pieces, exact Pantone spot-colour matching, and the lowest per-unit cost on bulk wedding cards, bill books or catalogues. We run both under one roof, so the recommendation is honest — see our offset printing press in Chennai and digital printing press in Chennai pages for the deep dives. Accepted files: PDF, AI, CDR, PSD, JPG, PNG.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does digital printing cost in Chennai?",
+        a: "Visiting cards ₹149/100; A5 flyers from ₹3 each; PVC ID cards from ₹35; A3 posters from ₹40; photo prints from ₹10 a sheet. Runs above 500-1,000 pieces are usually cheaper on offset — we quote both so you pick the lower price.",
+      },
+      {
+        q: "Can I get same-day digital printing in Chennai?",
+        a: "Yes — walk in to our Pallavaram press before 1pm with a print-ready PDF and most digital orders (cards, flyers, ID cards) are ready by 5pm the same day. Custom design adds 24 hours.",
+      },
+      {
+        q: "What is the minimum order for digital printing?",
+        a: "Small runs are welcome — 100 business cards or a handful of posters is fine. There is no plate-setup minimum on digital, which is exactly why it suits short runs better than offset.",
+      },
+      {
+        q: "Digital or offset — which is better for my job?",
+        a: "Digital for under 500 pieces, same-day jobs, photo-quality and variable data. Offset for 500-1,000+ identical pieces, Pantone matching and the lowest bulk price. We run both and recommend the cheaper fit for your quantity.",
+      },
+      {
+        q: "What files do you accept for digital printing?",
+        a: "PDF (preferred), AI, CDR, PSD, JPG and PNG at 300 DPI with 3mm bleed. No print-ready file? Our design team builds the layout and shares a free proof on WhatsApp before printing.",
+      },
+      {
+        q: "Do you deliver digital prints across Chennai?",
+        a: "Yes — free pickup at our Pallavaram press, or courier to all 30+ Chennai suburbs (Velachery, Tambaram, Chromepet, Guindy, OMR, Adyar and more), typically next working day.",
+      },
+    ],
+  },
 ];

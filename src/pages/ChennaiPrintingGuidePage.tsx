@@ -167,8 +167,11 @@ const ChennaiPrintingGuidePage = () => {
               brand collateral, wedding card foil-base) offset is the only option — digital CMYK can only approximate.
             </p>
             <p className="text-base leading-relaxed" style={{ color: "#374151" }}>
-              Deeper details on each: <Link to="/offset-printing-press-in-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>offset printing press in Chennai</Link>{" "}
-              and <Link to="/digital-printing-press-in-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>digital printing press in Chennai</Link>.
+              Deeper details on each: <Link to="/offset-printing-press-in-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>offset printing press in Chennai</Link>,{" "}
+              <Link to="/digital-printing-press-in-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>digital printing press in Chennai</Link>, and our{" "}
+              <Link to="/digital-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>digital printing services</Link> page. Running print for a business?
+              See the <Link to="/blog/commercial-printing-chennai-guide/" className="underline" style={{ color: "var(--color-primary)" }}>commercial printing guide</Link> and{" "}
+              <Link to="/blog/industrial-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>industrial printing guide</Link>.
             </p>
           </div>
         </section>

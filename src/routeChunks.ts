@@ -49,6 +49,7 @@ const prefixedRoutes: Array<[RegExp, Loader]> = [
   [/^\/custom-packaging-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
   [/^\/stationery-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
   [/^\/online-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
+  [/^\/digital-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
   [/^\/chennai-printing-guide$/, () => import("./pages/ChennaiPrintingGuidePage")],
   [/^\/industries\/[a-z-]+$/, () => import("./pages/IndustryPage")],
   [/^\/printing-press-[a-z-]+$/, () => import("./pages/AreaPrintingPage")],

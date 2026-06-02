@@ -120,6 +120,7 @@ const App = () => (
               <Route path="/custom-packaging-printing-chennai" element={<HeadKeywordPage />} />
               <Route path="/stationery-printing-chennai" element={<HeadKeywordPage />} />
               <Route path="/online-printing-chennai" element={<HeadKeywordPage />} />
+              <Route path="/digital-printing-chennai" element={<HeadKeywordPage />} />
               <Route path="/chennai-printing-guide" element={<ChennaiPrintingGuidePage />} />
               <Route path="/our-press" element={<OurPressPage />} />
               <Route path="/clients" element={<ClientsPage />} />
