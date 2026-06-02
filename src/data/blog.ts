@@ -37,6 +37,9 @@ export interface BlogPostData {
     name: string;
     url?: string;
   };
+  /** Optional FAQ block. Rendered as a section + FAQPage JSON-LD by
+   *  BlogPost.tsx. 4-6 Q&As for long-form posts (on-page SEO checklist cat 5). */
+  faqs?: { q: string; a: string }[];
 }
 
 export const BLOG_POSTS: BlogPostData[] = [
@@ -338,10 +341,10 @@ export const BLOG_POSTS: BlogPostData[] = [
       <p>At Super Printers we group commercial work into four buckets: <strong>marketing collateral</strong> (brochures, flyers, catalogues, danglers, standees), <strong>corporate stationery</strong> (letterheads, envelopes, visiting cards, presentation folders — see our <a href="/stationery-printing-chennai/">stationery printing</a> page), <strong>operational print</strong> (GST <a href="/bill-books/">bill books</a>, invoice books, forms, labels) and <strong>packaging</strong> (cartons, inserts, stickers). One purchase order often spans all four, which is why ordering from a single press that runs offset and digital in-house keeps colour, paper and branding consistent across the lot.</p>
 
       <h2>Offset vs digital at commercial volumes</h2>
-      <p>The deciding factor is quantity. <strong>Offset printing</strong> wins above roughly 500–1,000 copies: the plate setup costs more up front, but the per-piece cost falls sharply and Pantone spot colours match exactly across the run — essential for brand-consistent catalogues and corporate brochures. <strong>Digital printing</strong> wins under 500, for same-day jobs and for variable data (per-branch or per-employee pieces). Read the full breakdown on our <a href="/blog/offset-vs-digital-printing/">offset vs digital</a> guide, or the capability pages for our <a href="/offset-printing-press-in-chennai/">offset press</a> and <a href="/digital-printing-chennai/">digital printing</a> in Chennai.</p>
+      <p>The deciding factor is quantity. <strong>Offset printing</strong> wins above roughly 500–1,000 copies: the plate setup costs more up front, but the per-piece cost falls sharply and Pantone spot colours match exactly across the run — essential for brand-consistent catalogues and corporate brochures. <strong>Digital printing</strong> wins under 500, for same-day jobs and for variable data (per-branch or per-employee pieces). Read the full breakdown on our <a href="/blog/offset-vs-digital-printing/">offset vs digital</a> guide (or the technical primer on <a href="https://en.wikipedia.org/wiki/Offset_printing" target="_blank" rel="noopener">offset printing</a>), or the capability pages for our <a href="/offset-printing-press-in-chennai/">offset press</a> and <a href="/digital-printing-chennai/">digital printing</a> in Chennai.</p>
 
       <h2>GST, invoicing and how businesses pay</h2>
-      <p>Commercial buyers need clean paperwork. We are GST registered (33AAGPB7462F1Z1) and issue proper tax invoices, so input credit and reconciliation are straightforward for your accounts team. Bulk orders can run on a purchase order with agreed payment terms; one-off jobs are quoted upfront with no hidden plate or "file handling" charges. For a detailed cost breakdown, see our <a href="/blog/commercial-printing-cost-chennai/">commercial printing costs in Chennai</a> guide.</p>
+      <p>Commercial buyers need clean paperwork. We are <a href="https://www.gst.gov.in/" target="_blank" rel="noopener">GST</a> registered (33AAGPB7462F1Z1) and issue proper tax invoices, so input credit and reconciliation are straightforward for your accounts team. Bulk orders can run on a purchase order with agreed payment terms; one-off jobs are quoted upfront with no hidden plate or "file handling" charges. For a detailed cost breakdown, see our <a href="/blog/commercial-printing-cost-chennai/">commercial printing costs in Chennai</a> guide.</p>
 
       <h2>Turnaround you can plan around</h2>
       <p>Because we print in-house at Pallavaram rather than outsourcing, digital commercial jobs are usually ready in 24 hours and offset runs in 48–72 hours after proof approval. Every job gets a digital proof on WhatsApp before printing, so a colour or a logo placement is never a surprise. We deliver across Chennai — Guindy, Mount Road, OMR, T. Nagar, Ambattur — or you collect from the press.</p>
@@ -351,6 +354,12 @@ export const BLOG_POSTS: BlogPostData[] = [
 
       <p>Manufacturing or industrial buyer? Labels, manuals and packaging have their own requirements — see our <a href="/blog/industrial-printing-chennai/">industrial printing in Chennai</a> guide. Ready for a quote? <a href="/get-quote/">Send your brief on WhatsApp</a> and we will price it in about 30 minutes.</p>
     `,
+    faqs: [
+      { q: "What counts as commercial printing?", a: "Print produced for a business rather than a private occasion — brochures, catalogues, annual reports, corporate stationery, marketing collateral, packaging inserts and bulk operational print like GST bill books and forms." },
+      { q: "Is offset or digital better for business printing?", a: "Digital under ~500 pieces and for same-day or variable-data jobs; offset above 500-1,000 identical pieces for the lowest per-piece cost and exact Pantone matching. A real press runs both and quotes the cheaper fit for your quantity." },
+      { q: "Do you give GST tax invoices for commercial orders?", a: "Yes — we are GST registered (33AAGPB7462F1Z1) and issue proper tax invoices, so input-credit reconciliation is clean. Bulk work can run on a purchase order with agreed terms." },
+      { q: "How fast is commercial printing in Chennai?", a: "Digital commercial jobs are usually ready in 24 hours and offset runs in 48-72 hours after proof approval, because we print in-house at Pallavaram rather than outsourcing." },
+    ],
   },
   {
     slug: "commercial-printing-cost-chennai",
@@ -370,13 +379,13 @@ export const BLOG_POSTS: BlogPostData[] = [
         <li><strong>Catalogues</strong> — from ₹45 per book (saddle-stitch, depends on page count and GSM)</li>
         <li><strong>Letterheads</strong> — from ₹4 per sheet (100 GSM bond)</li>
         <li><strong>Visiting cards</strong> — ₹149/100, ₹399/500, ₹699/1,000 (300 GSM matt)</li>
-        <li><strong>GST bill / invoice books</strong> — from ₹280 per 50-leaf NCR book</li>
+        <li><strong><a href="https://www.gst.gov.in/" target="_blank" rel="noopener">GST</a> bill / invoice books</strong> — from ₹280 per 50-leaf NCR book</li>
         <li><strong>Flyers</strong> — from ₹3 each (A5, 130 GSM, 1,000 qty)</li>
       </ul>
       <p>These are starting points for standard specs; finishes like lamination, spot UV and foil add cost. For what each product involves, start with the <a href="/blog/commercial-printing-chennai-guide/">commercial printing guide</a>.</p>
 
       <h2>The offset break-even point</h2>
-      <p>The single biggest cost lever is choosing offset or digital for your quantity. Below ~500 pieces, digital is cheaper because there is no plate setup. Above ~500–1,000, offset's per-piece cost drops below digital and keeps falling with volume. On a 5,000-brochure run, offset can be less than half the digital price. If a printer pushes you toward the pricier option for your quantity, that is a red flag — we quote both and tell you which is cheaper.</p>
+      <p>The single biggest cost lever is choosing offset or digital for your quantity. Below ~500 pieces, digital is cheaper because there is no plate setup. Above ~500–1,000, <a href="https://en.wikipedia.org/wiki/Offset_printing" target="_blank" rel="noopener">offset</a>'s per-piece cost drops below digital and keeps falling with volume. On a 5,000-brochure run, offset can be less than half the digital price. If a printer pushes you toward the pricier option for your quantity, that is a red flag — we quote both and tell you which is cheaper.</p>
 
       <h2>How to brief for an accurate quote</h2>
       <p>Five details get you a firm price in one message instead of a back-and-forth: <strong>product</strong> (e.g. tri-fold brochure), <strong>quantity</strong>, <strong>size</strong>, <strong>paper/GSM</strong>, and <strong>finish</strong> (matt/gloss lamination, spot UV, none). Attach artwork if you have it. Not sure on paper? Tell us the use and budget and we will recommend. See our <a href="/blog/gsm-paper-guide/">GSM paper guide</a> if you want to choose yourself.</p>
@@ -386,6 +395,12 @@ export const BLOG_POSTS: BlogPostData[] = [
 
       <p>Want a real number for your job? <a href="/get-quote/">WhatsApp the brief</a> — itemised quote in about 30 minutes, free design proof before you commit, GST invoice on every order.</p>
     `,
+    faqs: [
+      { q: "How much does commercial printing cost in Chennai?", a: "Indicative starting prices: brochures from ₹6/piece (1,000 qty), catalogues from ₹45/book, letterheads from ₹4/sheet, GST bill books from ₹280 per 50-leaf NCR book, flyers from ₹3 each. Finishes add cost; bulk lowers the per-piece price." },
+      { q: "When does offset become cheaper than digital?", a: "Around 500-1,000 pieces. Below that, digital wins (no plate setup); above it, offset's per-piece cost drops and keeps falling with volume — on a 5,000 run offset can be under half the digital price." },
+      { q: "What details do you need for an accurate quote?", a: "Five: product, quantity, size, paper/GSM and finish — plus artwork if you have it. That gets a firm itemised price in about 30 minutes instead of a back-and-forth." },
+      { q: "How can I reduce bulk printing costs?", a: "Use standard sizes, gang-run multiple items on one sheet, batch a year's stationery or bill books in one order for tiered pricing, and supply print-ready files to avoid design charges." },
+    ],
   },
   {
     slug: "industrial-printing-chennai",
@@ -402,8 +417,8 @@ export const BLOG_POSTS: BlogPostData[] = [
       <h2>What industrial buyers order most</h2>
       <ul>
         <li><strong>Product &amp; asset labels</strong> — durable <a href="/stickers/">stickers and labels</a> in vinyl or polyester for cartons, machines, spares and inventory</li>
-        <li><strong>Barcode / QR labels</strong> — serialized, variable-data runs for tracking and traceability</li>
-        <li><strong>Safety &amp; compliance labels</strong> — hazard, handling and statutory markings</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Barcode" target="_blank" rel="noopener">Barcode</a> / QR labels</strong> — serialized, variable-data runs for tracking and traceability</li>
+        <li><strong>Safety &amp; compliance labels</strong> — hazard, handling and statutory markings (e.g. <a href="https://www.bis.gov.in/" target="_blank" rel="noopener">BIS</a> standards)</li>
         <li><strong>Technical manuals &amp; datasheets</strong> — saddle-stitch or perfect-bound, see <a href="/catalogues/">catalogue printing</a></li>
         <li><strong>Cartons &amp; inserts</strong> — printed packaging and protective inserts</li>
         <li><strong>ID &amp; access cards</strong> — employee and contractor <a href="/pvc-id-cards/">PVC ID cards</a> in batches</li>
@@ -420,6 +435,12 @@ export const BLOG_POSTS: BlogPostData[] = [
 
       <p>For office-side print (brochures, stationery, reports), see the <a href="/blog/commercial-printing-chennai-guide/">commercial printing guide</a>. To price an industrial run, <a href="/get-quote/">send specs on WhatsApp</a> — quantity, substrate, size and any compliance requirement — and we will quote in about 30 minutes.</p>
     `,
+    faqs: [
+      { q: "What is industrial printing?", a: "Print a factory or manufacturer runs on rather than markets with — product and asset labels, barcode/QR labels, safety and compliance markings, technical manuals and datasheets, cartons and packaging inserts." },
+      { q: "Do you supply manufacturers in the Ambattur and Sriperumbudur belts?", a: "Yes — we are a GST-registered press 30-40 minutes from the Ambattur and Sriperumbudur estates, so reorders are fast, reprints are exact (artwork kept on file), and a first-piece sample can be collected the same day." },
+      { q: "What volumes and turnaround do you handle?", a: "From a few hundred labels to tens of thousands. Standard reorders are ready in 24-48 hours after proof approval; bulk runs go on offset for the lowest per-unit price, short or variable-data runs go digital." },
+      { q: "Do industrial orders come with GST invoices?", a: "Yes — every order ships with a proper GST tax invoice (33AAGPB7462F1Z1) so procurement and input-credit reconciliation stay clean. Repeat work can run on a purchase order." },
+    ],
   },
   {
     slug: "industrial-label-printing-chennai",
@@ -446,7 +467,7 @@ export const BLOG_POSTS: BlogPostData[] = [
       <p>Permanent adhesive for assets that never move; removable for short-life inventory and returnable containers; high-tack for low-energy or curved surfaces like HDPE drums. Tell us the surface and the temperature range and we will spec the adhesive — getting this wrong is the most common reason a label fails in the field.</p>
 
       <h2>Compliance and statutory marking</h2>
-      <p>Depending on your product, labels may need <strong>BIS</strong> marking, <strong>GHS</strong> hazard pictograms for chemicals, MRP/statutory declarations for consumer goods, or batch and expiry data. We print these to your approved artwork and keep the file on record so every reorder is identical — important when an auditor compares batches.</p>
+      <p>Depending on your product, labels may need <strong><a href="https://www.bis.gov.in/" target="_blank" rel="noopener">BIS</a></strong> marking, <strong><a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023" target="_blank" rel="noopener">GHS</a></strong> hazard pictograms for chemicals, MRP/statutory declarations for consumer goods, or batch and expiry data. We print these to your approved artwork and keep the file on record so every reorder is identical — important when an auditor compares batches.</p>
 
       <h2>Barcodes, QR and serialized variable data</h2>
       <p>Tracking and traceability need each label to carry a different code. Our digital press handles variable-data runs — sequential barcodes, unique QR codes, batch numbers — across a single job, so 5,000 labels can each be unique without 5,000 setups. See <a href="/digital-printing-chennai/">digital printing</a> for how variable data works.</p>
@@ -456,6 +477,12 @@ export const BLOG_POSTS: BlogPostData[] = [
 
       <p>Send your label spec — substrate, size, surface, environment and any compliance requirement — to <a href="/get-quote/">our team on WhatsApp</a> and we will recommend the material and quote it. Browse <a href="/stickers/">sticker and label printing</a> for standard options.</p>
     `,
+    faqs: [
+      { q: "Which label material should I choose?", a: "Match it to the environment: paper for indoor cartons and short-life tags, vinyl for water-resistant and outdoor use, polyester (PET) for heat/chemical/abrasion resistance, and void/tamper-evident for warranty and security seals." },
+      { q: "Do you print BIS and GHS compliant labels?", a: "Yes — we print to your approved artwork for BIS marking, GHS hazard pictograms, MRP/statutory declarations and batch/expiry data, and keep the file on record so every reorder is identical for audits." },
+      { q: "Can you do serialized barcode or QR labels?", a: "Yes — our digital press handles variable-data runs where each label carries a unique sequential barcode, QR code or batch number, across a single job without per-label setup." },
+      { q: "What is the minimum order for industrial labels?", a: "Short digital runs start at a few hundred; bulk moves to roll or sheet offset for a lower per-unit price. First-time jobs need proof approval and setup; reorders from a held file are ready in 24-48 hours." },
+    ],
   },
   {
     slug: "how-to-choose-printing-press-chennai",
@@ -476,7 +503,7 @@ export const BLOG_POSTS: BlogPostData[] = [
       <p>This is the single biggest cost decision. The rule of thumb:</p>
       <ul>
         <li><strong>Digital</strong> — best under 500 pieces, same-day jobs, photo-quality, and variable data (each piece different). No plate setup, so small runs stay cheap. See <a href="/digital-printing-chennai/">digital printing in Chennai</a>.</li>
-        <li><strong>Offset</strong> — best at 500-1,000+ identical pieces, exact Pantone spot-colour matching, and the lowest per-piece cost at volume. See <a href="/offset-printing-press-in-chennai/">offset printing press in Chennai</a>.</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Offset_printing" target="_blank" rel="noopener">Offset</a></strong> — best at 500-1,000+ identical pieces, exact Pantone spot-colour matching, and the lowest per-piece cost at volume. See <a href="/offset-printing-press-in-chennai/">offset printing press in Chennai</a>.</li>
       </ul>
       <p>The crossover sits around 500-1,000 pieces. A good press runs both and tells you which is cheaper for your quantity; a one-method shop pushes you toward what it owns. Our <a href="/blog/offset-vs-digital-printing/">offset vs digital guide</a> has the full breakdown.</p>
 
@@ -501,7 +528,7 @@ export const BLOG_POSTS: BlogPostData[] = [
 
       <h2>5. File-prep checklist (avoid reprints)</h2>
       <ul>
-        <li><strong>CMYK</strong>, not RGB, so colours do not shift</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/CMYK_color_model" target="_blank" rel="noopener">CMYK</a></strong>, not RGB, so colours do not shift</li>
         <li><strong>300 DPI</strong> at final size for sharp output</li>
         <li><strong>3mm bleed</strong> on all sides, with backgrounds extended into it</li>
         <li>Important text <strong>5mm inside</strong> the trim line</li>
@@ -521,6 +548,13 @@ export const BLOG_POSTS: BlogPostData[] = [
       <h2>Briefing a printer (including us)</h2>
       <p>Send five things and you get a firm quote in one message: product, quantity, size, paper/GSM, and finish. At Super Printers — a 35-year <a href="/printing-press-chennai/">printing press in Chennai</a> rated 4.8 across 147 Google reviews — <a href="/get-quote/">WhatsApp the brief</a> and we reply with an itemised price in about 30 minutes, a free design proof before printing, and a GST invoice on every order. Pickup in Pallavaram or delivery across 30+ Chennai suburbs.</p>
     `,
+    faqs: [
+      { q: "How do I tell a real printing press from a reseller in Chennai?", a: "Three tests: do they quote a price on the spot, do they have public reviews, and can you visit and see the machines. Resellers stall on price because they have to ask their printer first and add 30-60% markup." },
+      { q: "Should I use offset or digital printing?", a: "Digital under ~500 pieces, for same-day jobs, photo-quality and variable data. Offset at 500-1,000+ identical pieces for Pantone matching and the lowest per-piece cost. A good press runs both and recommends the cheaper fit." },
+      { q: "What should printing cost in Chennai?", a: "From-prices for standard specs: visiting cards ₹149/100, wedding cards ₹5/card, tri-fold brochures ₹6/piece, GST bill books ₹280/book, letterheads ₹4/sheet, flex banners ₹12/sq ft, PVC ID cards ₹35/card. Finishes add cost; bulk lowers it." },
+      { q: "How long should printing take?", a: "From an in-house press: digital in 24 hours, offset in 48-72 hours, wedding cards in 48-72 hours after proof approval. A week for 500 digital business cards usually signals a reseller. Confirm whether the clock starts at order or at proof approval." },
+      { q: "What makes files print-ready?", a: "CMYK (not RGB), 300 DPI at final size, 3mm bleed on all sides, important text 5mm inside the trim line, and a print-ready PDF (PDF/X-1a or X-4) with fonts embedded. No file? A real press has an in-house design team and proofs before printing." },
+    ],
   },
 ];
 
