@@ -35,6 +35,10 @@ const BY_SERVICE: Record<string, ServiceFaqItem[]> = {
     { name: "Do you print wedding cards in Tamil?", acceptedAnswer: { text: "Yes. We print in Tamil, English, Hindi, and bilingual. Send your text and we'll typeset it." } },
     { name: "What is the minimum order for wedding cards?", acceptedAnswer: { text: "Minimum 100 cards. We offer various designs—Hindu, Christian, Muslim, and modern—with free design proof." } },
     { name: "How long do wedding cards take?", acceptedAnswer: { text: "Typically 3–5 working days after proof approval. Rush orders may be possible—ask on WhatsApp." } },
+    { name: "What wedding card design styles are available?", acceptedAnswer: { text: "Traditional gold, floral and pastel, elegant modern, foil-accent, premium velvet and minimalist styles — for Hindu, Christian, Muslim and Tamil bilingual weddings. Custom designs are created free; share your theme on WhatsApp." } },
+    { name: "Do you print foil or laser-cut wedding cards?", acceptedAnswer: { text: "Yes. We offer gold and silver foil accents and laser-cut/embossed finishes on 300–350 GSM card. Foil and laser-cut designs are quoted per design — send the artwork or idea on WhatsApp for a rate." } },
+    { name: "How much do 500 wedding cards cost in Chennai?", acceptedAnswer: { text: "Cards start from ₹5 each, so 500 standard matt-laminated cards begin around ₹2,500. Final price depends on size, paper and finish (velvet/foil cost more). WhatsApp us your specs for an exact quote in 30 minutes." } },
+    { name: "Can I order wedding cards online in Chennai?", acceptedAnswer: { text: "Yes. Send your requirements on WhatsApp, approve the free digital proof, and choose pickup from our Pallavaram press or home delivery across Chennai — no shop visit required." } },
   ],
   "bill-books": [
     { name: "Are your bill books GST compliant?", acceptedAnswer: { text: "Yes. We supply GST-ready bill books with carbonless (NCR) sets, numbered pages, and formats suitable for invoicing." } },
