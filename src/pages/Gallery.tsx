@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import Picture from "@/components/ui/Picture";
 import { BUSINESS } from "@/data/business";
@@ -98,11 +98,10 @@ const Gallery = () => {
 
             {/* Image grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
-              <AnimatePresence mode="popLayout">
+              <AnimatePresence mode="sync">
                 {filteredImages.map((item, i) => (
-                  <motion.div
+                  <m.div
                     key={item.id}
-                    layout
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
@@ -135,7 +134,7 @@ const Gallery = () => {
                         {item.category}
                       </span>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </AnimatePresence>
             </div>

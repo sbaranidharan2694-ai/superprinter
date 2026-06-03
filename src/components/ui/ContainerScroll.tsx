@@ -3,7 +3,7 @@ import React, { useRef, type ReactNode } from "react";
 import {
   useScroll,
   useTransform,
-  motion,
+  m,
   type MotionValue,
   useReducedMotion,
 } from "framer-motion";
@@ -67,9 +67,9 @@ const Header = ({
   translate: MotionValue<number>;
   children: ReactNode;
 }) => (
-  <motion.div style={{ translateY: translate }} className="max-w-5xl mx-auto text-center">
+  <m.div style={{ translateY: translate }} className="max-w-5xl mx-auto text-center">
     {children}
-  </motion.div>
+  </m.div>
 );
 
 const Card = ({
@@ -81,7 +81,7 @@ const Card = ({
   scale: MotionValue<number>;
   children: ReactNode;
 }) => (
-  <motion.div
+  <m.div
     style={{
       rotateX: rotate,
       scale,
@@ -97,5 +97,5 @@ const Card = ({
     <div className="h-full w-full overflow-hidden rounded-xl md:rounded-2xl bg-muted">
       {children}
     </div>
-  </motion.div>
+  </m.div>
 );

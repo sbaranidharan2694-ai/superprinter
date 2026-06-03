@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { GALLERY_IMAGES } from "@/data/gallery";
 import { IMAGE_PATHS } from "@/data/imagePaths";
 import Picture from "@/components/ui/Picture";
@@ -12,14 +12,14 @@ const homeImages = GALLERY_IMAGES.slice(0, HOME_GALLERY_LIMIT);
 const PortfolioSection = () => (
   <section id="portfolio" className="section-pad" style={{ backgroundColor: "var(--color-cream)" }}>
     <div className="max-w-7xl mx-auto px-6">
-      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+      <m.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
         <p className="text-xs font-bold tracking-[0.15em] uppercase mb-2" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>OUR WORK</p>
         <h2 className="font-display font-bold text-3xl md:text-4xl" style={{ color: "var(--color-primary)" }}>Portfolio & Gallery</h2>
         <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto font-body">Wedding cards, visiting cards, brochures, bill books, letterheads and more.</p>
-      </motion.div>
+      </m.div>
       <div className="portfolio-masonry">
         {homeImages.map((img, i) => (
-          <motion.div
+          <m.div
             key={img.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ const PortfolioSection = () => (
                 {img.category}
               </span>
             </div>
-          </motion.div>
+          </m.div>
         ))}
       </div>
       <div className="text-center mt-10">

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BUSINESS } from "@/data/business";
 import { WEDDING_IMAGES, WEDDING_FEATURES } from "@/data/v2";
 import Picture from "@/components/ui/Picture";
@@ -19,7 +19,7 @@ const WeddingCardsSection = () => (
   >
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+        <m.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
           <p className="text-xs font-bold tracking-[0.15em] uppercase mb-3" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>WEDDING INVITATIONS PALLAVARAM</p>
           <h2 className="font-display font-bold text-3xl md:text-[42px] leading-tight mb-6" style={{ color: "var(--color-primary)", whiteSpace: "pre-line" }}>{"Chennai's Cheapest\nWedding Cards.\nFrom ₹5 per card."}</h2>
           <ul className="space-y-3 mb-8">
@@ -30,8 +30,8 @@ const WeddingCardsSection = () => (
             ))}
           </ul>
           <a href={BUSINESS.whatsappWedding} target="_blank" rel="noopener noreferrer" className="btn-cta inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base w-full sm:w-auto">💬 Get Free Design Proof on WhatsApp</a>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-3">
+        </m.div>
+        <m.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-3">
           <div className="space-y-3">
             <Picture src={WEDDING_IMAGES[0]} alt="Wedding card design" width={600} height={800} className="w-full rounded-2xl object-cover aspect-[3/4]" loading="lazy" decoding="async" />
           </div>
@@ -39,7 +39,7 @@ const WeddingCardsSection = () => (
             <Picture src={WEDDING_IMAGES[1]} alt="Wedding invitation suite" width={600} height={600} className="w-full rounded-2xl object-cover aspect-square" loading="lazy" decoding="async" />
             <Picture src={WEDDING_IMAGES[2]} alt="Floral wedding card" width={800} height={600} className="w-full rounded-2xl object-cover aspect-[4/3]" loading="lazy" decoding="async" />
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   </section>

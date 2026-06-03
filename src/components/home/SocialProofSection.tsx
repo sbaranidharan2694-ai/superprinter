@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BUSINESS } from "@/data/business";
 import { IMAGE_PATHS } from "@/data/imagePaths";
 import { TESTIMONIALS } from "@/data/v2";
@@ -7,7 +7,7 @@ import Picture from "@/components/ui/Picture";
 const SocialProofSection = () => (
   <section id="reviews" className="section-pad" style={{ backgroundColor: "var(--color-cream)" }}>
     <div className="max-w-7xl mx-auto px-6">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -22,11 +22,11 @@ const SocialProofSection = () => (
         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-50 text-sm font-bold" style={{ color: "var(--color-primary)" }}>
           ⭐ 4.8 on Google · 147 Verified Reviews
         </span>
-      </motion.div>
+      </m.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {TESTIMONIALS.map((review, i) => (
-          <motion.div
+          <m.div
             key={review.name}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,12 +65,12 @@ const SocialProofSection = () => (
             >
               {review.text}
             </p>
-          </motion.div>
+          </m.div>
         ))}
       </div>
 
       {/* CTA */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -89,7 +89,7 @@ const SocialProofSection = () => (
         >
           View All 147 Reviews on Google →
         </a>
-      </motion.div>
+      </m.div>
     </div>
   </section>
 );

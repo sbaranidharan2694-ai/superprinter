@@ -14,6 +14,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { LangProvider } from "@/contexts/LangContext";
 import UnifiedLayout from "./components/layout/UnifiedLayout";
 import Index from "./pages/Index"; // Keep eager — most common landing.
@@ -40,16 +41,18 @@ const App = () => (
       <Toaster />
       <Sonner />
       <LangProvider>
-        <Suspense fallback={null}>
-          <Routes>
-            <Route element={<UnifiedLayout />}>
-              {ROUTES.map((r) => {
-                const Component = r.id === "Index" ? Index : lazyById[r.id];
-                return <Route key={r.path} path={r.path} element={<Component />} />;
-              })}
-            </Route>
-          </Routes>
-        </Suspense>
+        <LazyMotion features={domAnimation}>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route element={<UnifiedLayout />}>
+                {ROUTES.map((r) => {
+                  const Component = r.id === "Index" ? Index : lazyById[r.id];
+                  return <Route key={r.path} path={r.path} element={<Component />} />;
+                })}
+              </Route>
+            </Routes>
+          </Suspense>
+        </LazyMotion>
       </LangProvider>
     </TooltipProvider>
   </QueryClientProvider>

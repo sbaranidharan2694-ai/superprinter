@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BUSINESS } from "@/data/business";
 
 const ContactSection = () => (
   <section id="contact" className="section-pad" style={{ backgroundColor: "var(--bg-white)" }}>
     <div className="max-w-6xl mx-auto px-6">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -16,7 +16,7 @@ const ContactSection = () => (
         <h2 className="font-display font-bold text-3xl md:text-4xl" style={{ color: "var(--color-primary)" }}>
           Visit Our Printing Press
         </h2>
-      </motion.div>
+      </m.div>
 
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Map */}
@@ -33,7 +33,7 @@ const ContactSection = () => (
         </div>
 
         {/* Info */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -84,7 +84,7 @@ const ContactSection = () => (
               🗺️ Get Directions
             </a>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   </section>

@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BUSINESS } from "@/data/business";
 import { PROCESS_STEPS } from "@/data/v2";
 
 const HowItWorksSection = () => (
   <section id="process" className="py-20 md:py-24 relative bg-white" style={{ backgroundColor: "#FFFFFF" }}>
     <div className="max-w-6xl mx-auto px-6">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -18,11 +18,11 @@ const HowItWorksSection = () => (
         <h2 className="font-display font-bold text-ink-black text-3xl md:text-4xl">
           Ready in 4 Steps
         </h2>
-      </motion.div>
+      </m.div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 relative">
         {PROCESS_STEPS.map((step, i) => (
-          <motion.div
+          <m.div
             key={step.step}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ const HowItWorksSection = () => (
             {i < PROCESS_STEPS.length - 1 && (
               <div className="hidden md:block absolute top-16 left-[55%] w-[90%] h-px border-t border-dashed border-gold/40" style={{ borderColor: "rgba(212,168,67,0.4)" }} />
             )}
-          </motion.div>
+          </m.div>
         ))}
       </div>
 
@@ -58,7 +58,7 @@ const HowItWorksSection = () => (
         Average turnaround: <strong>24 hours from approval.</strong> Same-day printing available — WhatsApp before 12PM.
       </p>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -74,7 +74,7 @@ const HowItWorksSection = () => (
           Start Your Order on WhatsApp
         </a>
         <p className="text-gray-text font-body text-sm mt-3">Quote in 30 minutes · No obligation</p>
-      </motion.div>
+      </m.div>
     </div>
   </section>
 );
