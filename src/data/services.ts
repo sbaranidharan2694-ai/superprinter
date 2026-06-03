@@ -163,9 +163,9 @@ export const services: ServiceData[] = [
     // hasOfferCatalog entry. Previously "₹1,999" (a 100-card bundle quote) leaked
     // into Product schema's numeric price extractor as "1999", contradicting the
     // body copy and triggering Google's price-mismatch validation warning.
-    shortDesc: "From ₹5/card, 24–48 hrs (5–7 days for premium foil)",
+    shortDesc: "From ₹5/card, 24–48 hrs (longer for premium foil)",
     startingPrice: "₹5",
-    turnaround: "5–7 Days",
+    turnaround: "24–48 Hours",
     isNew: true,
     heroDesc: "Beautiful wedding invitation printing in Chennai — from traditional Tamil designs to modern minimalist styles. Super Printers in Pallavaram crafts invitations that set the tone for your special day. Serving families across Tambaram, Chromepet, and all of South Chennai.",
     features: [

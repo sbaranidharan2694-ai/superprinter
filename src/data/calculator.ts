@@ -115,7 +115,7 @@ export const deliveryDays: Record<ProductKey, string | Record<string, string>> =
   letterheads: "2-3 days",
   billBooks: "3-4 days",
   envelopes: "2-3 days",
-  weddingCards: "3-5 days",
+  weddingCards: "24-48 hours",
   posters: "2-3 days",
 };
 
