@@ -123,6 +123,78 @@ export const WEDDING_STYLE_PAGES: WeddingStylePage[] = [
       { q: "How fast are Tamil wedding cards printed in Chennai?", a: "Standard cards are ready in 24–48 hours after proof approval; premium foil/laser-cut finishes may take a little longer." },
     ],
   },
+  {
+    slug: "foil-wedding-cards-chennai",
+    title: "Foil Wedding Cards Chennai | Gold & Silver Foil Invitations | Super Printers",
+    metaDescription:
+      "Gold, silver and rose-gold foil wedding invitation cards in Chennai. Real foil-pressed names, motifs and borders on 300–350 GSM card. Free design proof — WhatsApp our Pallavaram press for a quote.",
+    h1: "Foil Wedding Cards in Chennai",
+    heroSubtitle: "Gold & silver foil-pressed invitations — premium metallic finishes, free design, proof before print.",
+    serviceType: "Gold and silver foil wedding invitation card printing",
+    intro: [
+      "Foil work is what turns a good wedding card into a premium one. We use a genuine foil-stamping press — real metallic foil heat-pressed onto the card, not a printed gold ink that looks flat. The result is a crisp, reflective finish on the couple's names, the muhurtham line, motifs and borders.",
+      "Choose gold, silver or rose-gold foil, on 300–350 GSM matt, velvet or art card. Foil pairs beautifully with velvet lamination and laser-cut work, and we proof the exact foil placement on WhatsApp before pressing a single card.",
+    ],
+    highlights: [
+      { h: "Real foil press, not printed gold", p: "Heat-pressed metallic foil for a true reflective finish — sharper and more premium than gold-ink printing." },
+      { h: "Gold, silver or rose-gold", p: "Pick the foil colour to match your theme; foil the names, motifs, border or all three." },
+      { h: "Pairs with velvet & laser-cut", p: "Combine foil with velvet lamination or laser-cut borders for a layered premium card." },
+    ],
+    galleryImageIds: ["w5", "w1", "w2"],
+    faqs: [
+      { q: "Is the foil real or printed?", a: "Real foil — heat-pressed metallic foil, not printed gold ink. It gives a crisp reflective finish that printed gold can't match." },
+      { q: "What foil colours can I choose?", a: "Gold, silver and rose-gold are standard. We can foil the names, muhurtham line, motifs and borders — tell us what to highlight on WhatsApp." },
+      { q: "Do foil wedding cards cost more?", a: "Yes, a little — foil is priced per design because of the press setup. Send your quantity and design on WhatsApp for an exact rate; standard cards still start from ₹5." },
+    ],
+  },
+  {
+    slug: "budget-wedding-cards-chennai",
+    title: "Budget Wedding Cards Chennai | From ₹5/card | Cheapest Printing | Super Printers",
+    metaDescription:
+      "Cheapest wedding cards in Chennai from ₹5 per card — direct from our Pallavaram press, no middlemen. Free design, 100-card minimum, ready in 24–48 hours. WhatsApp for the lowest rate.",
+    h1: "Budget Wedding Cards in Chennai",
+    heroSubtitle: "From ₹5/card, direct from press — no retail markup. Free design, 100-card minimum, ready in 24–48 hours.",
+    serviceType: "Budget wedding invitation card printing",
+    intro: [
+      "A beautiful wedding card does not have to be expensive. Because we are the press — not a reseller — your cards come factory-direct from ₹5 each, without the retail markup card shops add. The same design, paper and finish, for less.",
+      "Even at the budget end you still get free in-house design, a WhatsApp proof before printing, and a low 100-card minimum so you are not forced to over-order. Hindu, Christian, Muslim and Tamil designs all start at the same honest price.",
+    ],
+    highlights: [
+      { h: "From ₹5 per card", p: "Factory-direct pricing — we print it ourselves, so you skip the retail markup other shops add." },
+      { h: "Free design, no hidden fees", p: "In-house design and unlimited revisions at zero cost. No plate or file charges." },
+      { h: "Low 100-card minimum", p: "Order only what you need — no forced 200–500 minimum like most card shops." },
+    ],
+    galleryImageIds: ["w3", "w7", "w4"],
+    faqs: [
+      { q: "What is the cheapest wedding card in Chennai?", a: "Ours start at ₹5 per card, factory-direct from our Pallavaram press. WhatsApp your quantity for the exact lowest rate." },
+      { q: "How much for 100 budget wedding cards?", a: "From around ₹500 for 100 standard matt-laminated cards (₹5 each). Final price depends on size and finish — message us for a 30-minute quote." },
+      { q: "Is the design still free on budget cards?", a: "Yes. Free in-house design, unlimited revisions and a WhatsApp proof are included at every price point — no extra design fee." },
+    ],
+  },
+  {
+    slug: "laser-cut-wedding-cards-chennai",
+    title: "Laser-Cut Wedding Cards Chennai | Intricate Cut-Out Invitations | Super Printers",
+    metaDescription:
+      "Laser-cut wedding invitation cards in Chennai — intricate jali, lace and floral cut-outs, pocket-fold and gate-fold designs on premium card. Free design proof. WhatsApp our Pallavaram press.",
+    h1: "Laser-Cut Wedding Cards in Chennai",
+    heroSubtitle: "Intricate laser-cut patterns & pocket-folds — premium designs, free design proof, made at our Pallavaram press.",
+    serviceType: "Laser-cut wedding invitation card printing",
+    intro: [
+      "Laser cutting lets us turn a card into something intricate — jali (lattice) panels, lace borders, floral cut-outs and delicate motifs cut cleanly into premium card stock. It is the detail guests notice the moment they open the envelope.",
+      "We offer pocket-fold and gate-fold laser-cut designs, often combined with gold foil for a layered premium look. Every cut pattern is proofed on WhatsApp before production so the finished card matches exactly what you approved.",
+    ],
+    highlights: [
+      { h: "Precision cut-work", p: "Jali, lace, floral and geometric patterns cut cleanly into 300–350 GSM card." },
+      { h: "Pocket & gate folds", p: "Laser-cut pocket-fold and gate-fold formats that hold inserts and RSVP cards neatly." },
+      { h: "Combine with foil", p: "Pair laser-cut panels with gold or silver foil for a premium, layered finish." },
+    ],
+    galleryImageIds: ["w6", "w5", "w8"],
+    faqs: [
+      { q: "Do you make laser-cut wedding cards in Chennai?", a: "Yes — jali, lace, floral and geometric laser-cut designs, including pocket-fold and gate-fold formats, made at our Pallavaram press." },
+      { q: "Can laser-cut be combined with foil?", a: "Yes, that's a popular premium combination — laser-cut panels with gold or silver foil on the names and motifs." },
+      { q: "How long do laser-cut cards take?", a: "A little longer than standard cards because of the cutting and assembly — we confirm the exact timeline when you approve the proof on WhatsApp." },
+    ],
+  },
 ];
 
 export const WEDDING_STYLE_SLUGS = WEDDING_STYLE_PAGES.map((p) => p.slug);

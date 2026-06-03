@@ -7,6 +7,7 @@ import { services } from "@/data/services";
 import PageHero from "@/components/shared/PageHero";
 import ServicePageFaqs from "@/components/shared/ServicePageFaqs";
 import { IMAGE_PATHS } from "@/data/imagePaths";
+import { WEDDING_STYLE_PAGES } from "@/data/weddingStyles";
 
 const WEDDING_SVC = services.find((s) => s.slug === "wedding-invitations")!;
 
@@ -304,6 +305,23 @@ const WeddingCardsPage = () => (
               <p className="text-sm leading-relaxed mb-3" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>{t.p}</p>
               <Link to={t.to} className="text-sm font-bold underline" style={{ color: "var(--gold-dark)" }}>View {t.h} →</Link>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Browse by style — links to every wedding-style landing page (auto) */}
+      <div className="mb-16 text-center">
+        <h2 className="font-display font-bold text-xl mb-4" style={{ color: "var(--color-primary)" }}>Browse wedding cards by style</h2>
+        <div className="flex flex-wrap justify-center gap-3 text-sm font-semibold">
+          {WEDDING_STYLE_PAGES.map((s) => (
+            <Link
+              key={s.slug}
+              to={`/${s.slug}`}
+              className="px-4 py-2 rounded-full border transition-transform hover:scale-[1.02]"
+              style={{ borderColor: "rgba(201,168,76,0.4)", color: "var(--color-primary)" }}
+            >
+              {s.h1.replace(" in Chennai", "").replace(" & Nikah Invitation Cards", "")}
+            </Link>
           ))}
         </div>
       </div>
