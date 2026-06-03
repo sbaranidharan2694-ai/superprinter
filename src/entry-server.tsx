@@ -1,6 +1,6 @@
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
-import { HelmetProvider, type FilledContext } from "react-helmet-async";
+import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
 import App from "./App";
 import { BLOG_POSTS } from "./data/blog";
 import { services as SERVICES } from "./data/services";
@@ -8,7 +8,7 @@ import { CATALOG_CATEGORIES as CATALOG } from "./data/catalog";
 import { AREA_PAGE_SLUGS } from "./pages/AreaPrintingPage";
 
 export function render(url: string) {
-  const helmetContext = {} as Partial<FilledContext>;
+  const helmetContext = {} as { helmet?: HelmetServerState };
 
   const html = renderToString(
     <HelmetProvider context={helmetContext}>
@@ -18,7 +18,7 @@ export function render(url: string) {
     </HelmetProvider>
   );
 
-  const helmet = (helmetContext as FilledContext).helmet;
+  const helmet = helmetContext.helmet;
   const head = helmet
     ? [
         helmet.title.toString(),

@@ -79,7 +79,7 @@ const ServicePageFooter = ({ currentSlug, serviceName, whatsappPrompt }: Service
         >
           <p
             className="text-lg md:text-xl font-medium text-ink-black mb-1"
-            style={{ fontFamily: "'Noto Sans Tamil', system-ui, sans-serif", lang: "ta" }}
+            style={{ fontFamily: "'Noto Sans Tamil', system-ui, sans-serif" }}
             lang="ta"
           >
             பல்லாவரத்தில் சிறந்த அச்சகம் — 1990 முதல்
