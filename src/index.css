@@ -562,3 +562,17 @@ header .btn-gold:hover {
 .bg-navy {
   background-color: var(--color-primary);
 }
+
+/* Global reduced-motion kill switch — honors the OS "reduce motion" setting
+   site-wide. Previously only ContainerScroll respected it; CSS keyframes
+   (marquee, wa-pulse, pulse-ring, foil-shimmer) and framer transitions did not. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
