@@ -101,6 +101,9 @@ const BannersPage = () => (
             <li>&#10003; Wedding and event backdrops &mdash; photo-realistic flex or canvas</li>
             <li>&#10003; Political and campaign banners &mdash; outdoor vinyl, weather-proof inks</li>
             <li>&#10003; Roll-up standees for trade shows, retail and entrance branding</li>
+            <li>&#10003; No-parking boards &mdash; printed sunboard / vinyl, ready to mount</li>
+            <li>&#10003; Auto-back &amp; vehicle stickers &mdash; reflective vinyl for autos, vans and delivery fleets</li>
+            <li>&#10003; Umbrella printing &mdash; branded promotional umbrellas for shops and events</li>
             <li>&#10003; School and college event banners, school day, sports day</li>
             <li>&#10003; Birthday and baby shower customised banners with photos</li>
           </ul>
@@ -109,7 +112,7 @@ const BannersPage = () => (
         <section className="mb-12">
           <h2 className="font-display font-semibold text-xl text-ink-black mb-4">Banner pricing &amp; how it works</h2>
           <p className="font-ui text-gray-700 mb-4">
-            Banners are priced per square foot. We share a digital proof on WhatsApp before printing &mdash; you approve, we print. Same-day pickup from our Pallavaram press for most sizes; delivery available across Chennai.
+            Banners are priced per square foot, printed on flex or eco-solvent vinyl (weather-proof, fade-resistant inks for outdoor use). We share a digital proof on WhatsApp before printing &mdash; you approve, we print. Same-day pickup from our Pallavaram press for most sizes; delivery available across Chennai.
           </p>
           <p className="font-ui text-gray-700">
             Send your design as JPG, PNG or PDF on WhatsApp at <a href={BUSINESS.whatsapp} className="text-gold hover:underline">+91 98401 99878</a>. No design? Share your photos and copy &mdash; our in-house team will lay it out for you free of charge.

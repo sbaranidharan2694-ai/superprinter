@@ -76,6 +76,7 @@ export const STATIC_ROUTES = [
   "/stationery-printing-chennai",
   "/online-printing-chennai",
   "/digital-printing-chennai",
+  "/flex-banner-printing-chennai",
   // Pillar guide.
   "/chennai-printing-guide",
   // Trust / authority hubs.

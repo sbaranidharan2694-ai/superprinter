@@ -103,6 +103,7 @@ const App = () => (
             <Route path="/printing-press-nungambakkam" element={<AreaPrintingPage />} />
             <Route path="/printing-press-ambattur" element={<AreaPrintingPage />} />
             <Route path="/printing-press-avadi" element={<AreaPrintingPage />} />
+            <Route path="/printing-press-madipakkam" element={<AreaPrintingPage />} />
             {/* Head-keyword exact-match landing pages (May 2026 — built to
                 compete with imprintwings.com's /printing-press-in-chennai.php
                 pattern for the head commercial query). */}
@@ -116,6 +117,7 @@ const App = () => (
             <Route path="/stationery-printing-chennai" element={<HeadKeywordPage />} />
             <Route path="/online-printing-chennai" element={<HeadKeywordPage />} />
             <Route path="/digital-printing-chennai" element={<HeadKeywordPage />} />
+            <Route path="/flex-banner-printing-chennai" element={<HeadKeywordPage />} />
             {/* Pillar guide (broad-query authority hub). */}
             <Route path="/chennai-printing-guide" element={<ChennaiPrintingGuidePage />} />
             {/* Trust / authority hubs (Rathna + Imprint Wings patterns). */}

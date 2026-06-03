@@ -186,6 +186,12 @@ const AREA_CONFIG: Record<string, { name: string; title: string; intro: string; 
     intro: "Avadi families and businesses choose Super Printers for wedding invitations, visiting cards, ID cards and letterheads. 35-year printing reputation with delivery across West Chennai.",
     distance: "Reached from Avadi via CTH Road and Inner Ring Road to our Pallavaram press.",
   },
+  "printing-press-madipakkam": {
+    name: "Madipakkam",
+    title: "Printing Press Near Madipakkam | Super Printers Pallavaram",
+    intro: "Madipakkam's dense residential belt and small-trader strips rely on Super Printers for visiting cards, wedding invitations, bill books, flex banners and stickers. Factory-direct prices from our Pallavaram press, with delivery to Madipakkam in 24-48 hours.",
+    distance: "About 6.5 km from our Pallavaram press via Nanganallur and the Pallavaram-Thoraipakkam Radial Road — roughly 18 minutes.",
+  },
 };
 
 /** Single source of truth for static area routes (consumed by App router, prerender, sitemap). */

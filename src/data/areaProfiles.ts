@@ -480,4 +480,19 @@ export const AREA_PROFILES: Record<string, AreaProfile> = {
       { q: "Avadi GH Road traders' visiting cards?", a: "₹149 for 100 cards (300 GSM matt); ₹399 for 500 cards; ₹699 for 1,000 cards. Free single-side design from template; courier to Avadi in 2 working days." },
     ],
   },
+  "printing-press-madipakkam": {
+    routeKm: "6.5", routeMins: "18",
+    routeRoad: "Nanganallur → Pallavaram-Thoraipakkam Radial Road to Madipakkam Main Road.",
+    localContext: "Madipakkam is a dense south-Chennai residential suburb anchored by Madipakkam Main Road, the Madipakkam lake, and the trader strips around Ram Nagar and Bharani Koil Street. Bordering Nanganallur, Velachery and Medavakkam, it has a steady mix of apartment-dwelling families ordering wedding cards and small shops, tutors and clinics needing visiting cards and bill books.",
+    popularServices: [
+      { service: "Wedding cards", reason: "Madipakkam's apartment and independent-house families form a steady share of South Chennai wedding-card orders — Tamil, Telugu and bilingual invitations." },
+      { service: "Visiting cards", reason: "Tutors, real-estate brokers and the shops along Madipakkam Main Road and 100 Feet Road reorder 200/500 visiting cards regularly." },
+      { service: "Flex banners & stickers", reason: "Local shops, clinics and apartment associations near Madipakkam lake order flex shop boards, event banners and product/label stickers." },
+    ],
+    areaFaqs: [
+      { q: "How far is your press from Madipakkam?", a: "About 6.5 km / 18 minutes via Nanganallur and the Pallavaram-Thoraipakkam Radial Road. Most Madipakkam customers order on WhatsApp and collect at Pallavaram or get courier delivery in 24-48 hours." },
+      { q: "Do you deliver flex banners to Madipakkam?", a: "Yes — flex shop boards and event banners are printed per square foot with eyelets and rope, and delivered to Madipakkam Main Road, Ram Nagar and the lake-side streets, typically next working day." },
+      { q: "Wedding cards for Madipakkam families?", a: "Wedding cards from ₹5 a card with a free design proof on WhatsApp. We keep Tamil, Telugu and bilingual samples; most orders are ready in 48-72 hours for collection or delivery to Madipakkam." },
+    ],
+  },
 };

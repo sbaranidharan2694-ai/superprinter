@@ -134,7 +134,8 @@ const ChennaiPrintingGuidePage = () => {
                 <strong>Large-format and packaging</strong> — flex banners, vinyl signage, roll-up standees, custom mailer
                 boxes, folding cartons, food-safe packaging. Demand from D2C startups, hotels, hospitals, IT events. See our
                 <Link to="/large-format-signage-chennai/" className="underline" style={{ color: "var(--color-primary)" }}> large-format signage</Link> and{" "}
-                <Link to="/custom-packaging-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>custom packaging</Link> pages.
+                <Link to="/custom-packaging-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>custom packaging</Link> pages, plus dedicated{" "}
+                <Link to="/flex-banner-printing-chennai/" className="underline" style={{ color: "var(--color-primary)" }}>flex banner printing</Link>.
               </li>
               <li>
                 <strong>Business stationery</strong> — letterheads, envelopes, GST bill books, NCR invoice books and

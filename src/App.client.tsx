@@ -112,6 +112,7 @@ const App = () => (
               <Route path="/printing-press-nungambakkam" element={<AreaPrintingPage />} />
               <Route path="/printing-press-ambattur" element={<AreaPrintingPage />} />
               <Route path="/printing-press-avadi" element={<AreaPrintingPage />} />
+              <Route path="/printing-press-madipakkam" element={<AreaPrintingPage />} />
               <Route path="/printing-press-chennai" element={<HeadKeywordPage />} />
               <Route path="/offset-printing-press-in-chennai" element={<HeadKeywordPage />} />
               <Route path="/digital-printing-press-in-chennai" element={<HeadKeywordPage />} />
@@ -121,6 +122,7 @@ const App = () => (
               <Route path="/stationery-printing-chennai" element={<HeadKeywordPage />} />
               <Route path="/online-printing-chennai" element={<HeadKeywordPage />} />
               <Route path="/digital-printing-chennai" element={<HeadKeywordPage />} />
+              <Route path="/flex-banner-printing-chennai" element={<HeadKeywordPage />} />
               <Route path="/chennai-printing-guide" element={<ChennaiPrintingGuidePage />} />
               <Route path="/our-press" element={<OurPressPage />} />
               <Route path="/clients" element={<ClientsPage />} />

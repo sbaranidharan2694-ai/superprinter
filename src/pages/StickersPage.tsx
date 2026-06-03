@@ -88,7 +88,7 @@ const StickersPage = () => (
             <li>&#10003; Product labels for bottles, jars, packaging boxes &mdash; food-safe inks available</li>
             <li>&#10003; Brand and logo stickers for retail packaging, gift hampers, courier covers</li>
             <li>&#10003; School / college event stickers &mdash; sports day, college day, fest passes</li>
-            <li>&#10003; Bumper stickers, helmet stickers, two-wheeler tank stickers (vinyl)</li>
+            <li>&#10003; Auto-back stickers, bumper stickers, helmet and two-wheeler tank stickers (reflective vinyl)</li>
             <li>&#10003; Hologram and security stickers for invoices, warranty seals</li>
             <li>&#10003; Wedding favour stickers, return-gift labels with photo and name</li>
           </ul>
