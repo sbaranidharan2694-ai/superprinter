@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { BUSINESS } from "@/data/business";
 
@@ -86,7 +86,7 @@ const ResellerPage = () => (
 
     <div className="pt-[116px] pb-20">
       <div className="max-w-5xl mx-auto px-6">
-        <motion.header
+        <m.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center py-16"
@@ -100,11 +100,11 @@ const ResellerPage = () => (
           <p className="font-ui text-lg text-gray-600 max-w-2xl mx-auto">
             35 years of printing expertise, now available to DTP operators, designers, and print resellers across Chennai and Tamil Nadu. Factory pricing. No middleman.
           </p>
-        </motion.header>
+        </m.header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           {TIERS.map((tier, i) => (
-            <motion.div
+            <m.div
               key={tier.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -135,11 +135,11 @@ const ResellerPage = () => (
               >
                 {tier.cta}
               </a>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
-        <motion.section
+        <m.section
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -157,9 +157,9 @@ const ResellerPage = () => (
               </div>
             ))}
           </div>
-        </motion.section>
+        </m.section>
 
-        <motion.section
+        <m.section
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -174,7 +174,7 @@ const ResellerPage = () => (
               </div>
             ))}
           </div>
-        </motion.section>
+        </m.section>
 
         <div className="text-center">
           <a

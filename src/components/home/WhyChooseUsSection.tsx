@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { WHY_ITEMS } from "@/data/v2";
 
 const WhyChooseUsSection = () => (
   <section id="why-us" className="section-pad" style={{ backgroundColor: "var(--color-cream)" }}>
     <div className="max-w-7xl mx-auto px-6">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -22,11 +22,11 @@ const WhyChooseUsSection = () => (
         >
           Why 10,000+ Chennai Customers Choose Us
         </h2>
-      </motion.div>
+      </m.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {WHY_ITEMS.map((item, i) => (
-          <motion.div
+          <m.div
             key={item.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ const WhyChooseUsSection = () => (
             >
               {item.desc}
             </p>
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </div>

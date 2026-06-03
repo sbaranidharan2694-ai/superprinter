@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { SOCIAL_PROOF_STATS } from "@/data/v2";
 import { CLIENTS } from "@/data/clients";
 import Picture from "@/components/ui/Picture";
@@ -16,7 +16,7 @@ const SocialProofBar = () => (
       {/* Stats — calmer cards, single shadow, lighter borders */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap items-stretch justify-center gap-3 md:gap-4 mb-8 md:mb-12">
         {SOCIAL_PROOF_STATS.map((stat, i) => (
-          <motion.div
+          <m.div
             key={stat.label}
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ const SocialProofBar = () => (
                 {stat.label}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         ))}
       </div>
 
@@ -58,7 +58,7 @@ const SocialProofBar = () => (
       {/* Client logos — tighter mobile, lighter chrome */}
       <div className="grid grid-cols-2 sm:grid-cols-4 md:flex md:flex-wrap items-stretch justify-center gap-2.5 md:gap-4">
         {CLIENTS.map((client, i) => (
-          <motion.div
+          <m.div
             key={client.name}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -81,7 +81,7 @@ const SocialProofBar = () => (
             >
               {client.name}
             </span>
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </div>

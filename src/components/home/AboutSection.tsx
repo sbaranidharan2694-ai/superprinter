@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { BUSINESS } from "@/data/business";
 
@@ -17,7 +17,7 @@ const AboutSection = () => (
   <section id="about" className="section-pad overflow-hidden" style={{ backgroundColor: "var(--bg-white)" }}>
     <div className="max-w-5xl mx-auto px-6">
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -32,10 +32,10 @@ const AboutSection = () => (
         <p className="text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
           Three generations of Chennai families and businesses have trusted us with their most important print work — from first visiting cards to children's wedding invitations.
         </p>
-      </motion.div>
+      </m.div>
 
       {/* Founder Card */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -66,10 +66,10 @@ const AboutSection = () => (
             </p>
           </div>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Footer row: link to full story + WhatsApp */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -96,7 +96,7 @@ const AboutSection = () => (
           </svg>
           WhatsApp Us
         </a>
-      </motion.div>
+      </m.div>
 
     </div>
   </section>

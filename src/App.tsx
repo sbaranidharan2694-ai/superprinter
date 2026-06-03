@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
+import { LazyMotion, domAnimation } from "framer-motion";
 import type { ComponentType } from "react";
 import { LangProvider } from "@/contexts/LangContext";
 import UnifiedLayout from "./components/layout/UnifiedLayout";
@@ -92,14 +93,16 @@ const App = () => (
       <Toaster />
       <Sonner />
       <LangProvider>
-        <Routes>
-          <Route element={<UnifiedLayout />}>
-            {ROUTES.map((r) => {
-              const Component = EAGER_COMPONENTS[r.id];
-              return <Route key={r.path} path={r.path} element={<Component />} />;
-            })}
-          </Route>
-        </Routes>
+        <LazyMotion features={domAnimation}>
+          <Routes>
+            <Route element={<UnifiedLayout />}>
+              {ROUTES.map((r) => {
+                const Component = EAGER_COMPONENTS[r.id];
+                return <Route key={r.path} path={r.path} element={<Component />} />;
+              })}
+            </Route>
+          </Routes>
+        </LazyMotion>
       </LangProvider>
     </TooltipProvider>
   </QueryClientProvider>

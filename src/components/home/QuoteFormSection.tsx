@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BUSINESS } from "@/data/business";
 import { SERVICE_OPTIONS } from "@/data/v2";
 
@@ -44,7 +44,7 @@ const QuoteFormSection = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left — Info */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -65,10 +65,10 @@ const QuoteFormSection = () => {
               <p>🕐 {BUSINESS.hours}</p>
               <p>🕐 {BUSINESS.hoursSunday}</p>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Right — Form */}
-          <motion.form
+          <m.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -193,7 +193,7 @@ const QuoteFormSection = () => {
             <p className="text-xs text-center mt-3" style={{ color: "var(--gray-text)", fontFamily: "var(--font-body)" }}>
               Mon–Sat, 9AM–8PM.
             </p>
-          </motion.form>
+          </m.form>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { PRODUCTS, PRODUCT_TABS } from "@/data/v2";
 import ServiceCard from "@/components/ServiceCard";
 
@@ -10,7 +10,7 @@ const ProductsSection = () => {
   return (
     <section id="products" className="section-pad" style={{ backgroundColor: "var(--bg-white)" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -34,7 +34,7 @@ const ProductsSection = () => {
           >
             Wedding invitations to corporate stationery &mdash; every print job done in-house at our press.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {PRODUCT_TABS.map((tab) => {

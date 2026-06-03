@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { scrollToSection } from "@/utils/scroll";
 import { BUSINESS } from "@/data/business";
 
@@ -19,7 +19,7 @@ const CTASection = () => (
       aria-hidden
     />
     <div className="max-w-4xl mx-auto px-6 text-center">
-      <motion.p
+      <m.p
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -27,8 +27,8 @@ const CTASection = () => (
         style={{ color: "var(--gold)" }}
       >
         Ready to Print?
-      </motion.p>
-      <motion.h2
+      </m.p>
+      <m.h2
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -40,8 +40,8 @@ const CTASection = () => (
         }}
       >
         Ready to Print? Let's Talk.
-      </motion.h2>
-      <motion.p
+      </m.h2>
+      <m.p
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -49,8 +49,8 @@ const CTASection = () => (
         className="font-ui text-lg text-gray-600 max-w-xl mx-auto mb-10"
       >
         WhatsApp us your requirements and get a quote in 30 minutes. Proof in 24 hours. Cards in your hands in 48 hours.
-      </motion.p>
-      <motion.div
+      </m.p>
+      <m.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -80,7 +80,7 @@ const CTASection = () => (
         >
           View Products
         </button>
-      </motion.div>
+      </m.div>
     </div>
   </section>
 );
