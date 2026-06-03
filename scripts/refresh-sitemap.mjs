@@ -1,52 +1,41 @@
 /**
- * Refresh dist/sitemap.xml so each <url>'s <lastmod> reflects the actual
- * last-modified date of the source file that backs the route.
+ * Generate dist/sitemap.xml from the canonical route list.
  *
- * The original sitemap in public/sitemap.xml hardcodes 2026-05-11 across
- * every URL — a stale date hurts freshness ranking signals under the
- * May 2026 Core Update. This script:
+ * Previously the sitemap was hand-maintained in public/sitemap.xml and this
+ * script only patched <lastmod>, so any new route silently missed the sitemap
+ * (the same drift class the route table had). Now the sitemap is GENERATED
+ * from `allRoutes()` — the exact set prerender.mjs renders — so it can never
+ * drift from the routes again. Add a route, it appears in the sitemap.
  *
- *  1. Reads the deployed sitemap from dist/sitemap.xml (Vite copies it
- *     there from public/).
- *  2. For each <loc>, maps the path to the React source file that
- *     renders it.
- *  3. Runs `git log -1 --format=%cI <file>` to get the ISO date of the
- *     latest commit touching that file. Falls back to today's date if
- *     the route maps to no file or git has no history.
- *  4. Writes the updated XML back to dist/sitemap.xml.
+ *   1. Imports allRoutes() + SITE_URL from the built SSR bundle.
+ *   2. Adds a few static non-React URLs (e.g. /llm.html).
+ *   3. Derives <lastmod> from the git mtime of the source file backing each
+ *      route, and a <priority>/<changefreq> from a path heuristic.
+ *   4. Writes dist/sitemap.xml.
  *
  * Runs after prerender as part of `npm run build`.
  */
 import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const sitemapPath = path.join(root, "dist", "sitemap.xml");
-
-if (!fs.existsSync(sitemapPath)) {
-  console.error(`[refresh-sitemap] dist/sitemap.xml not found — did prerender run?`);
-  process.exit(1);
-}
-
 const today = new Date().toISOString().slice(0, 10);
 
-/**
- * Map a sitemap URL path to the React source file that renders it. We use
- * the source file's git mtime as a proxy for "when did this page's content
- * last meaningfully change", which is what Google actually cares about for
- * the freshness signal.
- *
- * Returns the relative path under src/ or null if no obvious mapping
- * exists (in which case we fall back to today's date).
- */
-function fileForPath(p) {
-  // Strip the host and any trailing slash
-  const clean = p.replace(/^https?:\/\/[^/]+/, "").replace(/\/$/, "");
+const serverEntry = pathToFileURL(path.join(root, "dist", "server", "entry-server.js")).href;
+const { allRoutes, SITE_URL } = await import(serverEntry);
 
-  // Exact matches
+// Static, non-React files that should still be indexed.
+const EXTRA_URLS = ["/llm.html"];
+
+// All indexable route paths (no leading host), de-duped, + extras.
+const paths = Array.from(new Set([...allRoutes(), ...EXTRA_URLS]));
+
+/** Map a route path to the source file whose git mtime best represents its
+ *  content freshness. Falls back to today's date when unmapped. */
+function fileForPath(clean) {
   const exact = {
     "": "src/pages/Index.tsx",
     "/about": "src/pages/About.tsx",
@@ -68,20 +57,40 @@ function fileForPath(p) {
     "/catalogues": "src/pages/CataloguesPage.tsx",
     "/pvc-id-cards": "src/pages/PvcIdCardsPage.tsx",
     "/letterheads": "src/pages/LetterheadsPage.tsx",
+    "/our-press": "src/pages/OurPressPage.tsx",
+    "/clients": "src/pages/ClientsPage.tsx",
+    "/chennai-printing-guide": "src/pages/ChennaiPrintingGuidePage.tsx",
     "/llm.html": "public/llm.html",
   };
   if (clean in exact) return exact[clean];
-
-  // Dynamic-route prefixes — fall back to the renderer file.
-  if (clean.startsWith("/printing-press-")) return "src/pages/AreaPrintingPage.tsx";
-  if (clean.startsWith("/services/")) return "src/pages/ServiceDetail.tsx";
+  if (clean.endsWith("-wedding-cards-chennai")) return "src/data/weddingStyles.ts";
+  if (clean.startsWith("/industries/")) return "src/pages/IndustryPage.tsx";
+  if (clean.startsWith("/printing-press-")) return "src/data/areaProfiles.ts"; // area + head-keyword cluster content
+  if (clean.startsWith("/services/")) return "src/data/services.ts";
   if (clean.startsWith("/products/")) return "src/pages/ProductsCatalogPage.tsx";
-  if (clean.startsWith("/blog/")) return "src/pages/BlogPost.tsx";
-
+  if (clean.startsWith("/blog/")) return "src/data/blog.ts";
+  if (clean.endsWith("-chennai")) return "src/data/headKeywordPages.ts"; // head-keyword landing pages
   return null;
 }
 
-/** Cache git mtimes so we don't shell out N times per page. */
+/** Path-based priority + changefreq heuristic. */
+function rank(clean) {
+  if (clean === "") return { priority: "1.0", changefreq: "weekly" };
+  if (/^\/(offset-|digital-)?printing-press-(in-)?chennai$|^\/(business-cards|large-format-signage|custom-packaging-printing|stationery-printing|online-printing|digital-printing|flex-banner-printing)-chennai$/.test(clean))
+    return { priority: "0.95", changefreq: "weekly" };
+  if (clean.endsWith("-wedding-cards-chennai")) return { priority: "0.9", changefreq: "weekly" };
+  if (["/wedding-cards", "/visiting-cards", "/brochures", "/bill-books", "/banners", "/stickers", "/rubber-stamps", "/catalogues", "/pvc-id-cards", "/letterheads"].includes(clean))
+    return { priority: "0.9", changefreq: "weekly" };
+  if (clean.startsWith("/industries/")) return { priority: "0.8", changefreq: "monthly" };
+  if (["/services", "/products", "/gallery", "/clients", "/our-press", "/chennai-printing-guide"].includes(clean))
+    return { priority: "0.8", changefreq: "weekly" };
+  if (clean.startsWith("/printing-press-")) return { priority: "0.75", changefreq: "monthly" };
+  if (clean.startsWith("/services/") || clean.startsWith("/products/")) return { priority: "0.75", changefreq: "monthly" };
+  if (clean.startsWith("/blog/")) return { priority: "0.65", changefreq: "monthly" };
+  if (clean === "/blog") return { priority: "0.7", changefreq: "weekly" };
+  return { priority: "0.7", changefreq: "monthly" };
+}
+
 const mtimeCache = new Map();
 function gitMtime(file) {
   if (!file) return null;
@@ -101,26 +110,31 @@ function gitMtime(file) {
   }
 }
 
-const xml = fs.readFileSync(sitemapPath, "utf8");
+const urls = paths
+  .map((p) => {
+    const clean = p === "/" ? "" : p.replace(/\/$/, "");
+    const loc = clean.endsWith(".html")
+      ? `${SITE_URL}${clean}`
+      : `${SITE_URL}${clean}/`; // trailing slash matches canonical form
+    const date = (fileForPath(clean) && gitMtime(fileForPath(clean))) || today;
+    const { priority, changefreq } = rank(clean);
+    return { loc, date, priority, changefreq, sort: Number(priority) };
+  })
+  .sort((a, b) => b.sort - a.sort || a.loc.localeCompare(b.loc));
 
-let updated = 0;
-let stale = 0;
-const out = xml.replace(/<url>([\s\S]*?)<\/url>/g, (block) => {
-  const locMatch = block.match(/<loc>([^<]+)<\/loc>/);
-  if (!locMatch) return block;
-  const url = locMatch[1];
+const body = urls
+  .map(
+    (u) =>
+      `  <url><loc>${u.loc}</loc><lastmod>${u.date}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`,
+  )
+  .join("\n");
 
-  const file = fileForPath(url);
-  const date = (file && gitMtime(file)) || today;
+const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${body}
+</urlset>
+`;
 
-  const next = block.replace(/<lastmod>[^<]+<\/lastmod>/, `<lastmod>${date}</lastmod>`);
-  if (next !== block) {
-    updated++;
-  } else {
-    stale++;
-  }
-  return next;
-});
-
-fs.writeFileSync(sitemapPath, out, "utf8");
-console.log(`[refresh-sitemap] updated ${updated} lastmod entries (${stale} unchanged).`);
+const outPath = path.join(root, "dist", "sitemap.xml");
+fs.writeFileSync(outPath, xml, "utf8");
+console.log(`[refresh-sitemap] generated dist/sitemap.xml from allRoutes() — ${urls.length} URLs.`);

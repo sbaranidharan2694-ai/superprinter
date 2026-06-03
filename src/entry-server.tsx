@@ -5,7 +5,12 @@ import App from "./App";
 import { BLOG_POSTS } from "./data/blog";
 import { services as SERVICES } from "./data/services";
 import { CATALOG_CATEGORIES as CATALOG } from "./data/catalog";
+import { BUSINESS } from "./data/business";
 import { staticRoutePaths } from "./routes";
+
+// Re-exported for scripts/refresh-sitemap.mjs so the sitemap host stays
+// single-sourced with the rest of the app.
+export const SITE_URL = BUSINESS.siteUrl;
 
 export function render(url: string) {
   const helmetContext = {} as { helmet?: HelmetServerState };
