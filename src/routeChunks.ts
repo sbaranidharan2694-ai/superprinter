@@ -5,55 +5,27 @@
  * `hydrateRoot`. Because Vite/JS module caches share state across all
  * `import()` calls for the same specifier, the `React.lazy(...)` defined in
  * `App.client.tsx` resolves synchronously when React renders it (its loader
- * hits the already-resolved module). That preserves SSR/client DOM parity
- * and avoids hydration mismatches.
+ * hits the already-resolved module). That preserves SSR/client DOM parity and
+ * avoids hydration mismatches.
  *
- * Add a new entry here whenever a new route is added to App.client.tsx.
+ * The exact-path map is derived from the shared `ROUTES` manifest, so it can
+ * never miss a fixed route again. Only genuinely dynamic (`:param`) families
+ * need regex matching, listed below.
  */
+import { ROUTES } from "./routes";
 
 type Loader = () => Promise<unknown>;
 
-const exactRoutes: Record<string, Loader> = {
-  "/": () => import("./pages/Index"),
-  "/products": () => import("./pages/ProductsCatalogPage"),
-  "/visiting-cards": () => import("./pages/VisitingCardsPage"),
-  "/brochures": () => import("./pages/BrochuresPage"),
-  "/bill-books": () => import("./pages/BillBooksPage"),
-  "/wedding-cards": () => import("./pages/WeddingCardsPage"),
-  "/letterheads": () => import("./pages/LetterheadsPage"),
-  "/about": () => import("./pages/About"),
-  "/contact": () => import("./pages/Contact"),
-  "/gallery": () => import("./pages/Gallery"),
-  "/services": () => import("./pages/Services"),
-  "/get-quote": () => import("./pages/GetQuote"),
-  "/orders": () => import("./pages/Orders"),
-  "/banners": () => import("./pages/BannersPage"),
-  "/stickers": () => import("./pages/StickersPage"),
-  "/rubber-stamps": () => import("./pages/RubberStampsPage"),
-  "/catalogues": () => import("./pages/CataloguesPage"),
-  "/pvc-id-cards": () => import("./pages/PvcIdCardsPage"),
-  "/reseller": () => import("./pages/ResellerPage"),
-  "/blog": () => import("./pages/BlogIndex"),
-  "/printing-guide": () => import("./pages/PrintingGuide"),
-  "/our-press": () => import("./pages/OurPressPage"),
-  "/clients": () => import("./pages/ClientsPage"),
-};
+// Every fixed (non-param) route, straight from the manifest.
+const exactRoutes: Record<string, Loader> = {};
+for (const r of ROUTES) {
+  if (!r.dynamic) exactRoutes[r.path] = r.load;
+}
 
+// Param routes only — match by prefix/regex. (Head-keyword, area, and industry
+// pages are now exact lookups above, so the previous head-vs-area ordering
+// hazard is gone.)
 const prefixedRoutes: Array<[RegExp, Loader]> = [
-  // Order matters — head-keyword pages also match the area-page regex
-  // (/^\/printing-press-[a-z-]+$/), so they MUST be checked first.
-  [/^\/printing-press-chennai$/, () => import("./pages/HeadKeywordPage")],
-  [/^\/(offset|digital)-printing-press-in-chennai$/, () => import("./pages/HeadKeywordPage")],
-  [/^\/business-cards-chennai$/, () => import("./pages/HeadKeywordPage")],
-  [/^\/large-format-signage-chennai$/, () => import("./pages/HeadKeywordPage")],
-  [/^\/custom-packaging-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
-  [/^\/stationery-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
-  [/^\/online-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
-  [/^\/digital-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
-  [/^\/flex-banner-printing-chennai$/, () => import("./pages/HeadKeywordPage")],
-  [/^\/chennai-printing-guide$/, () => import("./pages/ChennaiPrintingGuidePage")],
-  [/^\/industries\/[a-z-]+$/, () => import("./pages/IndustryPage")],
-  [/^\/printing-press-[a-z-]+$/, () => import("./pages/AreaPrintingPage")],
   [/^\/services\/[a-z-]+$/, () => import("./pages/ServiceDetail")],
   [/^\/blog\/[a-z-]+$/, () => import("./pages/BlogPost")],
   [/^\/products\/[a-z-]+$/, () => import("./pages/ProductsCatalogPage")],
