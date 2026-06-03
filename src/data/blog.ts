@@ -132,7 +132,7 @@ export const BLOG_POSTS: BlogPostData[] = [
       <h2>Minimum Order and Pricing</h2>
       <p>Minimum order is typically 100 cards. Price per card depends on design complexity, paper, and finish—starting from ₹8 per card for simple designs. Bulk orders get better rates. Get a custom quote via WhatsApp with your expected quantity and design reference.</p>
       <h2>Turnaround Time</h2>
-      <p>Allow 3–5 working days after proof approval. Rush orders may be possible for an extra charge. Plan to order at least 2–3 weeks before your wedding to avoid last-minute stress.</p>
+      <p>Allow 24–48 hours after proof approval for standard cards (premium foil and laser-cut designs may take a little longer). Urgent same-day orders may be possible for an extra charge. Plan to order at least 2–3 weeks before your wedding to avoid last-minute stress.</p>
       <h2>How to Order</h2>
       <p>Send your design or reference images on WhatsApp. We'll send a proof for approval. Once you confirm, we'll print and deliver to your address in Chennai or you can pick up from our Pallavaram press. Serving Pallavaram, Chromepet, Tambaram, and all of South Chennai.</p>
     `,

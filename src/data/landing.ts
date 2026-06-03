@@ -151,7 +151,7 @@ export interface FAQItem {
 export const LANDING_FAQ: FAQItem[] = [
   {
     q: "How long does printing take?",
-    a: "Standard orders are ready in 48–72 hours. Business cards can be done same-day for urgent requirements. Wedding cards take 3–5 working days due to customisation. We'll always confirm your timeline when you place the order.",
+    a: "Standard orders are ready in 48–72 hours. Business cards can be done same-day for urgent requirements. Wedding cards are ready in 24–48 hours after proof approval. We'll always confirm your timeline when you place the order.",
   },
   {
     q: "What is the minimum order quantity?",
