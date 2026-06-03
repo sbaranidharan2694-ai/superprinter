@@ -19,6 +19,7 @@
  */
 import type { ComponentType } from "react";
 import { AREA_PAGE_SLUGS } from "./pages/AreaPrintingPage";
+import { WEDDING_STYLE_SLUGS } from "./data/weddingStyles";
 
 type Loader = () => Promise<{ default: ComponentType<unknown> }>;
 
@@ -63,6 +64,7 @@ const INDUSTRY_SLUGS = [
 const loadArea: Loader = () => import("./pages/AreaPrintingPage");
 const loadHead: Loader = () => import("./pages/HeadKeywordPage");
 const loadIndustry: Loader = () => import("./pages/IndustryPage");
+const loadWeddingStyle: Loader = () => import("./pages/WeddingStylePage");
 
 export const ROUTES: RouteDef[] = [
   { path: "/", id: "Index", load: () => import("./pages/Index") },
@@ -99,6 +101,13 @@ export const ROUTES: RouteDef[] = [
     path: `/${slug}`,
     id: "HeadKeywordPage",
     load: loadHead,
+  })),
+
+  // Wedding-card tradition/style landing pages (Hindu/Christian/Muslim/Tamil).
+  ...WEDDING_STYLE_SLUGS.map((slug): RouteDef => ({
+    path: `/${slug}`,
+    id: "WeddingStylePage",
+    load: loadWeddingStyle,
   })),
 
   { path: "/chennai-printing-guide", id: "ChennaiPrintingGuidePage", load: () => import("./pages/ChennaiPrintingGuidePage") },

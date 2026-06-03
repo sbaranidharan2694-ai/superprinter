@@ -28,10 +28,10 @@ const DESIGNS = [
 // ("hindu wedding cards chennai", "muslim nikah invitation", etc.) that
 // competitors rank for. Every claim is factual to what the press prints.
 const TRADITIONS = [
-  { h: "Hindu Wedding Cards", p: "Traditional Tamil and bilingual Hindu wedding invitations — Ganesha motifs, kalash and maroon-gold themes, with muhurtham details and family names typeset correctly in Tamil or English." },
-  { h: "Christian Wedding Cards", p: "Cross and floral motifs, scripture lines, and clean modern layouts for church weddings and receptions — printed in English or Tamil-English bilingual." },
-  { h: "Muslim Nikah Invitations", p: "Nikah and walima invitations with crescent, geometric and calligraphy-style designs, in English, Tamil or Urdu-style typesetting on request." },
-  { h: "Tamil & Bilingual Cards", p: "Specialist Tamil typesetting at no extra cost — single-language Tamil or side-by-side Tamil-English cards, proofed on WhatsApp before printing." },
+  { h: "Hindu Wedding Cards", to: "/hindu-wedding-cards-chennai", p: "Traditional Tamil and bilingual Hindu wedding invitations — Ganesha motifs, kalash and maroon-gold themes, with muhurtham details and family names typeset correctly in Tamil or English." },
+  { h: "Christian Wedding Cards", to: "/christian-wedding-cards-chennai", p: "Cross and floral motifs, scripture lines, and clean modern layouts for church weddings and receptions — printed in English or Tamil-English bilingual." },
+  { h: "Muslim Nikah Invitations", to: "/muslim-wedding-cards-chennai", p: "Nikah and walima invitations with crescent, geometric and calligraphy-style designs, in English, Tamil or Urdu-style typesetting on request." },
+  { h: "Tamil & Bilingual Cards", to: "/tamil-wedding-cards-chennai", p: "Specialist Tamil typesetting at no extra cost — single-language Tamil or side-by-side Tamil-English cards, proofed on WhatsApp before printing." },
 ];
 
 const SPEC_ROWS = [
@@ -298,8 +298,11 @@ const WeddingCardsPage = () => (
         <div className="grid md:grid-cols-2 gap-5">
           {TRADITIONS.map((t) => (
             <div key={t.h} className="p-6 rounded-2xl border" style={{ borderColor: "rgba(201,168,76,0.2)", backgroundColor: "#FFFDF7" }}>
-              <h3 className="font-display font-bold text-lg mb-2" style={{ color: "var(--color-primary)" }}>{t.h}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>{t.p}</p>
+              <h3 className="font-display font-bold text-lg mb-2" style={{ color: "var(--color-primary)" }}>
+                <Link to={t.to} className="hover:underline">{t.h}</Link>
+              </h3>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>{t.p}</p>
+              <Link to={t.to} className="text-sm font-bold underline" style={{ color: "var(--gold-dark)" }}>View {t.h} →</Link>
             </div>
           ))}
         </div>

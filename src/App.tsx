@@ -42,6 +42,7 @@ import ChennaiPrintingGuidePage from "./pages/ChennaiPrintingGuidePage";
 import OurPressPage from "./pages/OurPressPage";
 import ClientsPage from "./pages/ClientsPage";
 import Orders from "./pages/Orders";
+import WeddingStylePage from "./pages/WeddingStylePage";
 
 const EAGER_COMPONENTS: Record<string, ComponentType<unknown>> = {
   Index,
@@ -74,6 +75,7 @@ const EAGER_COMPONENTS: Record<string, ComponentType<unknown>> = {
   OurPressPage,
   ClientsPage,
   Orders,
+  WeddingStylePage,
 };
 
 // Fail loudly in dev if routes.tsx references an id with no eager binding.
