@@ -23,6 +23,24 @@ const HeadKeywordPage = () => {
     );
   }
 
+  // Machine-readable price offers from the page's price table — no Chennai
+  // competitor publishes pricing schema, so this is a clean differentiator
+  // for rich results and AI Overview price citations.
+  const offers = (page.priceTable?.rows ?? [])
+    .map((r) => {
+      const num = (r.price.match(/[\d,]+(?:\.\d+)?/) || [])[0]?.replace(/,/g, "");
+      return num
+        ? {
+            "@type": "Offer",
+            name: r.item,
+            price: num,
+            priceCurrency: "INR",
+            availability: "https://schema.org/InStock",
+          }
+        : null;
+    })
+    .filter(Boolean);
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -32,6 +50,7 @@ const HeadKeywordPage = () => {
     description: page.intro,
     url: `${BUSINESS.siteUrl}/${page.slug}`,
     provider: { "@id": `${BUSINESS.siteUrl}/#business` },
+    ...(offers.length ? { offers } : {}),
     areaServed: {
       "@type": "City",
       name: "Chennai",
@@ -159,6 +178,38 @@ const HeadKeywordPage = () => {
             </div>
           </section>
         )}
+
+        {/* Cross-links across the printing cluster — passes PageRank and
+            helps Google map the topical relationship between these pages.
+            Self-link is filtered out by slug. */}
+        <section className="py-8 px-4" aria-labelledby="related-heading">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 id="related-heading" className="font-display text-lg font-bold mb-4" style={{ color: "var(--color-primary)" }}>
+              Explore our Chennai printing services
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3 text-sm font-semibold">
+              {[
+                { to: "/printing-press-chennai", label: "Printing Press in Chennai" },
+                { to: "/offset-printing-press-in-chennai", label: "Offset Printing" },
+                { to: "/digital-printing-chennai", label: "Digital Printing" },
+                { to: "/business-cards-chennai", label: "Business Cards" },
+                { to: "/flex-banner-printing-chennai", label: "Flex Banners" },
+                { to: "/wedding-cards", label: "Wedding Cards" },
+              ]
+                .filter((l) => l.to !== `/${page.slug}`)
+                .map((l) => (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    className="px-4 py-2 rounded-full border transition-transform hover:scale-[1.02]"
+                    style={{ borderColor: "rgba(26,26,46,0.18)", color: "var(--color-primary)" }}
+                  >
+                    {l.label}
+                  </Link>
+                ))}
+            </div>
+          </div>
+        </section>
 
         <section className="py-12 px-4 bg-white">
           <div className="max-w-4xl mx-auto text-center">

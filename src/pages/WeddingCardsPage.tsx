@@ -6,8 +6,33 @@ import { getFaqPageSchema } from "@/data/serviceFaqs";
 import { services } from "@/data/services";
 import PageHero from "@/components/shared/PageHero";
 import ServicePageFaqs from "@/components/shared/ServicePageFaqs";
+import { IMAGE_PATHS } from "@/data/imagePaths";
 
 const WEDDING_SVC = services.find((s) => s.slug === "wedding-invitations")!;
+
+// Design gallery — reuses the site's existing wedding gallery assets (w1–w8),
+// labelled by finish/style so the page matches the browse intent behind
+// "wedding cards chennai" (competitors rank with large design catalogs).
+const DESIGNS = [
+  { img: "w1", label: "Traditional Gold" },
+  { img: "w3", label: "Floral & Pastel" },
+  { img: "w4", label: "Elegant Modern" },
+  { img: "w5", label: "Foil Accent" },
+  { img: "w2", label: "Full Invitation Suite" },
+  { img: "w7", label: "Minimalist Flat-lay" },
+  { img: "w6", label: "Premium Velvet" },
+  { img: "w8", label: "Tamil Bilingual" },
+];
+
+// Tradition-targeted copy — captures the religion/language sub-queries
+// ("hindu wedding cards chennai", "muslim nikah invitation", etc.) that
+// competitors rank for. Every claim is factual to what the press prints.
+const TRADITIONS = [
+  { h: "Hindu Wedding Cards", p: "Traditional Tamil and bilingual Hindu wedding invitations — Ganesha motifs, kalash and maroon-gold themes, with muhurtham details and family names typeset correctly in Tamil or English." },
+  { h: "Christian Wedding Cards", p: "Cross and floral motifs, scripture lines, and clean modern layouts for church weddings and receptions — printed in English or Tamil-English bilingual." },
+  { h: "Muslim Nikah Invitations", p: "Nikah and walima invitations with crescent, geometric and calligraphy-style designs, in English, Tamil or Urdu-style typesetting on request." },
+  { h: "Tamil & Bilingual Cards", p: "Specialist Tamil typesetting at no extra cost — single-language Tamil or side-by-side Tamil-English cards, proofed on WhatsApp before printing." },
+];
 
 const SPEC_ROWS = [
   { type: "Matt 300GSM", paper: "300 GSM", finish: "Matt Lamination", minQty: "100 pcs", price: "From ₹5/card", delivery: "24–48 hrs" },
@@ -40,8 +65,8 @@ const COMPARE = [
 const WeddingCardsPage = () => (
   <div className="font-body text-foreground bg-background overflow-x-hidden">
     <SEOHead
-      title="Wedding Card Printing Chennai | From ₹5/card | Free Design"
-      description="Wedding card printing in Chennai from ₹5 per card. Free design proof, ready in 24–48 hours. Hindu, Christian, Muslim cards in Tamil & English."
+      title="Wedding Invitation Cards Chennai | From ₹5/card | Free Design"
+      description="Wedding invitation cards in Chennai from ₹5 per card. Free design proof, Hindu, Christian, Muslim & Tamil designs in English and bilingual. Browse designs and get a WhatsApp quote."
       canonical="/wedding-cards"
       keywords="cheapest wedding card printing Chennai, wedding cards from 5 rupees Chennai, wedding invitation printing Pallavaram, Tamil wedding cards Chennai, Hindu wedding cards Chennai, Christian wedding cards Chennai, Muslim nikah invitation Chennai, wedding card printing near me, budget wedding cards Chennai, wedding cards cheaper than Menaka Cards, wedding invitation 24 hours Chennai"
       breadcrumbs={[{ name: "Home", url: "/" }, { name: "Wedding Cards", url: "/wedding-cards" }]}
@@ -63,8 +88,8 @@ const WeddingCardsPage = () => (
     />
 
     <PageHero
-      title="Wedding Card Printing Chennai"
-      subtitle="Chennai's lowest price — from ₹5 per card. Free design. Proof before print. Ready in 24 hours."
+      title="Wedding Invitation Card Printing Chennai"
+      subtitle="Chennai's lowest price — from ₹5 per card. Free design. Proof before print. Hindu, Christian, Muslim & Tamil designs."
       breadcrumbs={[{ label: "Home", to: "/" }, { label: "Wedding Cards", to: "/wedding-cards" }]}
     />
 
@@ -229,6 +254,65 @@ const WeddingCardsPage = () => (
               </li>
             ))}
           </ol>
+        </div>
+      </div>
+
+      {/* Design Gallery — browse intent */}
+      <div className="mb-16">
+        <p className="text-xs font-bold uppercase tracking-widest text-center mb-2" style={{ color: "var(--gold)" }}>SAMPLE DESIGNS</p>
+        <h2 className="font-display font-extrabold text-3xl text-center mb-3" style={{ color: "var(--color-primary)" }}>
+          Wedding Invitation Card Designs
+        </h2>
+        <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto" style={{ fontFamily: "var(--font-body)" }}>
+          A few of the styles and finishes we print. Every card is custom-designed free — send your details on WhatsApp and we will create a proof for you.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {DESIGNS.map((d) => (
+            <figure key={d.img} className="rounded-2xl overflow-hidden border bg-white" style={{ borderColor: "rgba(201,168,76,0.2)" }}>
+              <img
+                src={IMAGE_PATHS.gallery(d.img)}
+                alt={`${d.label} wedding invitation card printed in Chennai by Super Printers`}
+                width={400}
+                height={400}
+                loading="lazy"
+                decoding="async"
+                className="w-full aspect-square object-cover"
+              />
+              <figcaption className="px-3 py-2 text-xs font-semibold text-center" style={{ color: "var(--color-primary)" }}>{d.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="text-center mt-6">
+          <Link to="/gallery" className="text-sm font-bold underline" style={{ color: "var(--gold-dark)" }}>
+            See more printing samples →
+          </Link>
+        </p>
+      </div>
+
+      {/* Traditions — religion/language sub-topics */}
+      <div className="mb-16">
+        <p className="text-xs font-bold uppercase tracking-widest text-center mb-2" style={{ color: "var(--gold)" }}>FOR EVERY TRADITION</p>
+        <h2 className="font-display font-extrabold text-3xl text-center mb-8" style={{ color: "var(--color-primary)" }}>
+          Wedding Cards for Every Chennai Wedding
+        </h2>
+        <div className="grid md:grid-cols-2 gap-5">
+          {TRADITIONS.map((t) => (
+            <div key={t.h} className="p-6 rounded-2xl border" style={{ borderColor: "rgba(201,168,76,0.2)", backgroundColor: "#FFFDF7" }}>
+              <h3 className="font-display font-bold text-lg mb-2" style={{ color: "var(--color-primary)" }}>{t.h}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: "#4B5563", fontFamily: "var(--font-body)" }}>{t.p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Related services — internal linking */}
+      <div className="mb-16 text-center">
+        <h2 className="font-display font-bold text-xl mb-4" style={{ color: "var(--color-primary)" }}>You may also need</h2>
+        <div className="flex flex-wrap justify-center gap-3 text-sm font-semibold">
+          <Link to="/visiting-cards" className="px-4 py-2 rounded-full border transition-transform hover:scale-[1.02]" style={{ borderColor: "rgba(201,168,76,0.4)", color: "var(--color-primary)" }}>Visiting Cards</Link>
+          <Link to="/brochures" className="px-4 py-2 rounded-full border transition-transform hover:scale-[1.02]" style={{ borderColor: "rgba(201,168,76,0.4)", color: "var(--color-primary)" }}>Event Brochures</Link>
+          <Link to="/stickers" className="px-4 py-2 rounded-full border transition-transform hover:scale-[1.02]" style={{ borderColor: "rgba(201,168,76,0.4)", color: "var(--color-primary)" }}>Stickers & Labels</Link>
+          <Link to="/printing-press-t-nagar" className="px-4 py-2 rounded-full border transition-transform hover:scale-[1.02]" style={{ borderColor: "rgba(201,168,76,0.4)", color: "var(--color-primary)" }}>Printing in T. Nagar</Link>
         </div>
       </div>
 
