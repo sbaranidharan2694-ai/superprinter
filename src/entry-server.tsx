@@ -1,5 +1,5 @@
 import { renderToString } from "react-dom/server";
-import { StaticRouter } from "react-router-dom/server";
+import { StaticRouter } from "react-router";
 import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
 import App from "./App";
 import { BLOG_POSTS } from "./data/blog";

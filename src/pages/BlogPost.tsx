@@ -63,6 +63,13 @@ const BlogPost = () => {
 
   // Build a table of contents from H2s and inject anchor ids — long-form nav
   // with a jump link per H2. SSR-safe: pure string transform, no DOM access.
+  //
+  // SECURITY INVARIANT: `contentWithIds` is rendered below via
+  // dangerouslySetInnerHTML. That is safe for exactly one reason — every
+  // `content` string in src/data/blog.ts is a hardcoded template literal with
+  // no interpolation, so no attacker-controlled value can reach the sink.
+  // If post content ever comes from a CMS, an RSS/feed import, an admin form
+  // or user comments, sanitise it (DOMPurify) or render it as JSX instead.
   const toc: { id: string; text: string }[] = [];
   const contentWithIds = post.content.trim().replace(/<h2>([\s\S]*?)<\/h2>/g, (_m, inner) => {
     const text = inner.replace(/<[^>]+>/g, "").trim();
