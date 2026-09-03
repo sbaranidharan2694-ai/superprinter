@@ -60,6 +60,7 @@ function fileForPath(clean) {
     "/letterheads": "src/pages/LetterheadsPage.tsx",
     "/our-press": "src/pages/OurPressPage.tsx",
     "/clients": "src/pages/ClientsPage.tsx",
+    "/industries": "src/pages/IndustriesIndexPage.tsx",
     "/chennai-printing-guide": "src/pages/ChennaiPrintingGuidePage.tsx",
     "/llm.html": "public/llm.html",
   };
@@ -216,5 +217,39 @@ if (gitUsable) {
     console.log(
       `[refresh-sitemap] updated sitemap-lastmod.json (${Object.keys(next).length} files) — commit this file.`,
     );
+  }
+}
+
+// ---- .htaccess redirect-target integrity ----------------------------------
+// Every 301 in public/.htaccess must land on something this build actually
+// produces. A redirect to a missing target is worse than the 404 it replaces:
+// Google follows it, finds nothing, and records a "Redirect error".
+//
+// This runs here, in the last build step, rather than in prerender.mjs —
+// sitemap.xml is written above, so a redirect pointing at it only resolves
+// once this script has run.
+{
+  const htaccessPath = path.join(root, "public", ".htaccess");
+  const distDir = path.join(root, "dist");
+  if (fs.existsSync(htaccessPath)) {
+    const missing = new Set();
+    for (const [, target] of fs
+      .readFileSync(htaccessPath, "utf8")
+      .matchAll(/^\s*RewriteRule\s+\S+\s+(\/\S*)\s+\[R=301/gm)) {
+      const clean = target.split(/[?#]/)[0];
+      if (clean === "/") continue;
+      const bare = clean.replace(/^\//, "");
+      const asFile = path.join(distDir, bare);
+      const asRoute = path.join(distDir, bare, "index.html");
+      if (!fs.existsSync(asFile) && !fs.existsSync(asRoute)) missing.add(target);
+    }
+    if (missing.size > 0) {
+      console.error(
+        `[refresh-sitemap] ✗ .htaccess redirects to ${missing.size} target(s) ` +
+          `with no built page: ${[...missing].join(", ")}`,
+      );
+      process.exit(1);
+    }
+    console.log("[refresh-sitemap] ✓ all .htaccess 301 targets resolve to built pages.");
   }
 }

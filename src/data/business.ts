@@ -35,6 +35,10 @@ export const BUSINESS = {
   lng: 80.1482,
   areas: ["Chennai", "Tamil Nadu"],
   areasServedText: "Throughout Chennai and Tamil Nadu",
+  // Local-currency notation for INR. Google's Rich Results Test accepts
+  // either "$$" or a repeated local symbol; the local form is clearer to
+  // Indian users who see it rendered in the local pack.
+  priceRange: "₹₹",
   gstRegistered: true,
   gstNumber: "33AAGPB7462F1Z1",
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Super+printers+and+wedding+cards",
@@ -101,110 +105,5 @@ export const FOUNDER_PERSON_SCHEMA = {
     addressLocality: "Pallavaram",
     addressRegion: "Tamil Nadu",
     addressCountry: "IN",
-  },
-};
-
-export const LOCAL_BUSINESS_SCHEMA = {
-  "@context": "https://schema.org",
-  // PrintShop is a specific Schema.org subtype released for the printing
-  // industry — 2026 best practice is to use the most specific LocalBusiness
-  // subtype available. PrintShop + ProfessionalService gives crawlers two
-  // taxonomic anchors. Google supports PrintShop in Local Business panel.
-  "@type": ["PrintShop", "LocalBusiness", "ProfessionalService"],
-  "@id": `${BUSINESS.siteUrl}/#business`,
-  name: BUSINESS.name,
-  legalName: BUSINESS.shortName,
-  description:
-    "Professional printing press in Pallavaram, Chennai — wedding cards, visiting cards, brochures, offset and digital printing since 1990.",
-  url: BUSINESS.siteUrl,
-  telephone: "+919840199878",
-  email: BUSINESS.email,
-  foundingDate: "1990",
-  founder: { "@id": `${BUSINESS.siteUrl}/#founder` },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: BUSINESS.address,
-    addressLocality: "Pallavaram",
-    addressRegion: "Tamil Nadu",
-    postalCode: "600043",
-    addressCountry: "IN",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: BUSINESS.lat,
-    longitude: BUSINESS.lng,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "09:00",
-      closes: "20:00",
-    },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "16:00" },
-  ],
-  // priceRange uses the local-currency notation ₹₹ for INR. Google's Rich
-  // Results Test has accepted Unicode currency symbols since 2023 and
-  // ₹₹ reads more naturally for an INR business than the US-dollar
-  // relative scale ($). currenciesAccepted still declares the actual
-  // currency separately.
-  priceRange: "₹₹",
-  currenciesAccepted: "INR",
-  taxID: BUSINESS.gstNumber,
-  areaServed: [
-    "Chennai",
-    "Pallavaram",
-    "Chromepet",
-    "Tambaram",
-    "Pammal",
-    "Perungalathur",
-    "Velachery",
-    "Nanganallur",
-    "Medavakkam",
-    "Guindy",
-    "Adyar",
-    "Alandur",
-  ],
-  // aggregateRating intentionally removed from sitewide LocalBusiness.
-  // Google's structured-data guidance (May 2025+ enforcement): a business
-  // should not self-rate via aggregateRating on its own LocalBusiness node
-  // — that markup is reserved for sites *capturing* reviews about other
-  // businesses. The 4.8 ★ / 147 reviews now flows from the visible
-  // testimonials section + Product schema only (see seoSchemas.ts).
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: "+919840199878",
-      contactType: "customer service",
-      areaServed: "IN",
-      availableLanguage: ["English", "Tamil"],
-    },
-    {
-      "@type": "ContactPoint",
-      telephone: "+919840199878",
-      contactType: "sales",
-      areaServed: "IN",
-      availableLanguage: ["English", "Tamil"],
-    },
-  ],
-  paymentAccepted: "Cash, UPI, Bank Transfer",
-  sameAs: BUSINESS.sameAs,
-  hasMap: BUSINESS.googleBusinessProfile,
-  // image as an array satisfies Google's preferred-image guidance; the first
-  // entry is the logo (1:1), second is the OG share image (16:9).
-  image: [
-    `${BUSINESS.siteUrl}/super-printers-logo.png`,
-    `${BUSINESS.siteUrl}/og-image.jpg`,
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Printing services",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Visiting Cards" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Wedding Cards" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Brochures" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Letterheads" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bill Books" } },
-    ],
   },
 };

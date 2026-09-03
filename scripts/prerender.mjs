@@ -41,7 +41,26 @@ const routes = allRoutes();
 // last segment contains a dot (assets like /logo.png, /assets/app.js).
 const INTERNAL_HREF = /href="(\/[^"]*)"/g;
 
+// Paths that .htaccess permanently 301s. A link to one of these is canonical
+// in *form* — it already has the trailing slash — so normalizeHref leaves it
+// alone, yet it still costs Googlebot a redirect hop. /services/ was linking
+// all ten of them (September 2026). Parsed from .htaccess rather than
+// hardcoded so the two can never disagree.
+const REDIRECT_SOURCES = (() => {
+  const file = path.join(root, "public", ".htaccess");
+  if (!fs.existsSync(file)) return new Set();
+  return new Set(
+    [
+      ...fs
+        .readFileSync(file, "utf8")
+        .matchAll(/^\s*RewriteRule\s+\^([^\s]+?)\/\?\$\s+\/\S*\s+\[R=301/gm),
+    ].map(([, from]) => `/${from.replace(/\\/g, "")}/`),
+  );
+})();
+
 function normalizeHref(target) {
+  // "//cdn.example.com/x" is protocol-relative and external, not a site path.
+  if (target.startsWith("//")) return target;
   const cut = target.search(/[?#]/);
   const pathPart = cut === -1 ? target : target.slice(0, cut);
   const suffix = cut === -1 ? "" : target.slice(cut);
@@ -125,6 +144,10 @@ function assertNoRedirectingLinks(file) {
   }
   for (const [, , , target] of html.matchAll(SCHEMA_URL)) {
     if (normalizeHref(target) !== target) offenders.add(`schema:${target}`);
+  }
+  for (const [, target] of html.matchAll(INTERNAL_HREF)) {
+    const clean = normalizeHref(target).split(/[?#]/)[0];
+    if (REDIRECT_SOURCES.has(clean)) offenders.add(`301:${clean}`);
   }
   if (offenders.size > 0) {
     console.error(

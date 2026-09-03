@@ -2,6 +2,7 @@
  * Structured data for SEO (rich results). Homepage FAQ must match visible FAQ on the page.
  */
 import { BUSINESS } from "./business";
+import { serviceUrl } from "./serviceRedirects";
 import { services, type ServiceData } from "./services";
 import { FAQ_ITEMS } from "./v2";
 
@@ -208,7 +209,7 @@ export function servicesItemListSchema() {
       "@type": "ListItem",
       position: i + 1,
       name: s.name,
-      url: `${BUSINESS.siteUrl}/services/${s.slug}`,
+      url: `${BUSINESS.siteUrl}${serviceUrl(s.slug)}`,
     })),
   };
 }

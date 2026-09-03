@@ -4,6 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import { services } from "@/data/services";
 import { BUSINESS } from "@/data/business";
 import { getFaqPageSchema } from "@/data/serviceFaqs";
+import { serviceUrl } from "@/data/serviceRedirects";
 import { serviceLandingSchema } from "@/data/seoSchemas";
 import { trackWhatsAppClick, trackPhoneClick } from "@/utils/analytics";
 import { useInView } from "@/hooks/useInView";
@@ -187,7 +188,7 @@ const ServiceDetail = () => {
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">Related Printing Services</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {relatedServices.map((rs) => (
-                    <Link key={rs.id} to={`/services/${rs.slug}`} className="p-5 bg-card rounded-xl border border-border card-lift flex items-center gap-4">
+                    <Link key={rs.id} to={serviceUrl(rs.slug)} className="p-5 bg-card rounded-xl border border-border card-lift flex items-center gap-4">
                       <span className="text-3xl">{rs.emoji}</span>
                       <div>
                         <div className="font-body font-bold text-card-foreground">{rs.name}</div>

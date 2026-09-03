@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
+import { serviceUrl } from "@/data/serviceRedirects";
 import { services } from "@/data/services";
 import { AREA_PROFILES } from "@/data/areaProfiles";
 
@@ -234,7 +235,7 @@ const AreaPrintingPage = () => {
     "telephone": "+919840199878",
     "email": BUSINESS.email,
     "image": `${BUSINESS.siteUrl}/super-printers-logo.png`,
-    "priceRange": "$",
+    "priceRange": BUSINESS.priceRange,
     "currenciesAccepted": "INR",
     "address": {
       "@type": "PostalAddress",
@@ -387,7 +388,7 @@ const AreaPrintingPage = () => {
             <ul className="space-y-3">
               {TOP_SERVICES.map((s) => (
                 <li key={s.id} className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <Link to={`/services/${s.slug}`} className="font-medium hover:underline" style={{ color: "var(--color-primary)" }}>
+                  <Link to={serviceUrl(s.slug)} className="font-medium hover:underline" style={{ color: "var(--color-primary)" }}>
                     {s.emoji} {s.name}
                   </Link>
                   <span className="text-sm font-semibold" style={{ color: "var(--gold)" }}>{s.startingPrice}</span>

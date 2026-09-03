@@ -38,7 +38,7 @@ const Contact = () => {
     <>
       <SEOHead
         title="Contact Super Printers | Printing Press Pallavaram Chennai"
-        description="Visit Super Printers at Saraswathi Colony, Pallavaram. Open Mon–Sat 9:00AM–8:00PM, Sun 10:00AM–4:00PM. WhatsApp +91 98401 99878 for instant quotes."
+        description="Visit Super Printers at Saraswathy Colony, Pallavaram. Open Mon–Sat 9:00AM–8:00PM, Sun 10:00AM–4:00PM. WhatsApp +91 98401 99878 for instant quotes."
         canonical="/contact"
         keywords="contact super printers, printing press pallavaram, printing shop chennai, super printers phone number"
         breadcrumbs={[

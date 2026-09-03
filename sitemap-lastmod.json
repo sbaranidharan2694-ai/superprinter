@@ -17,6 +17,7 @@
   "src/pages/Gallery.tsx": "2026-06-03",
   "src/pages/GetQuote.tsx": "2026-05-25",
   "src/pages/Index.tsx": "2026-09-03",
+  "src/pages/IndustriesIndexPage.tsx": "2026-09-03",
   "src/pages/IndustryPage.tsx": "2026-05-31",
   "src/pages/LetterheadsPage.tsx": "2026-05-25",
   "src/pages/OurPressPage.tsx": "2026-09-03",
