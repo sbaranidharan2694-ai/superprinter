@@ -59,8 +59,8 @@ const QuoteFormSection = () => {
               Tell us what you need and we'll get back to you with a quote within 30 minutes on WhatsApp.
             </p>
             <div className="space-y-4 text-sm font-medium" style={{ color: "var(--color-text)", fontFamily: "var(--font-body)" }}>
-              <a href={BUSINESS.phoneTel} className="block hover:opacity-80 transition-opacity" style={{ color: "var(--color-primary)" }}>📞 {BUSINESS.phone}</a>
-              <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity" style={{ color: "var(--color-primary)" }}>💬 WhatsApp</a>
+              <a href={BUSINESS.phoneTel} className="block py-1.5 hover:opacity-80 transition-opacity" style={{ color: "var(--color-primary)" }}>📞 {BUSINESS.phone}</a>
+              <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="block py-1.5 hover:opacity-80 transition-opacity" style={{ color: "var(--color-primary)" }}>💬 WhatsApp</a>
               <p>📍 {BUSINESS.addressFull}</p>
               <p>🕐 {BUSINESS.hours}</p>
               <p>🕐 {BUSINESS.hoursSunday}</p>

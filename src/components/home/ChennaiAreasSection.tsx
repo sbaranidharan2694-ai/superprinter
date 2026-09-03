@@ -48,7 +48,7 @@ const ChennaiAreasSection = () => (
           <li key={slug}>
             <Link
               to={`/${slug}`}
-              className="hover:underline"
+              className="inline-block py-1 hover:underline"
               style={{ color: "var(--color-primary)", fontFamily: "var(--font-body)" }}
             >
               Printing press in {AREA_LABELS[slug] ?? slug}

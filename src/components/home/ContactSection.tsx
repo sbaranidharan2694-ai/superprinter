@@ -47,13 +47,13 @@ const ContactSection = () => (
           </div>
           <div>
             <h3 className="font-display font-bold text-lg mb-1" style={{ color: "var(--color-primary)" }}>Phone</h3>
-            <a href={BUSINESS.phoneTel} className="text-sm font-semibold" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
+            <a href={BUSINESS.phoneTel} className="inline-block py-1.5 text-sm font-semibold" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
               {BUSINESS.phone}
             </a>
           </div>
           <div>
             <h3 className="font-display font-bold text-lg mb-1" style={{ color: "var(--color-primary)" }}>Email</h3>
-            <a href={`mailto:${BUSINESS.email}`} className="text-sm" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
+            <a href={`mailto:${BUSINESS.email}`} className="inline-block py-1.5 text-sm" style={{ color: "var(--gold-dark)", fontFamily: "var(--font-body)" }}>
               {BUSINESS.email}
             </a>
           </div>

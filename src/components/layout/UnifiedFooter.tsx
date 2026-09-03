@@ -61,6 +61,8 @@ const UnifiedFooter = () => (
 
         {/* Services — denser stack: text-sm with leading-snug (1.375) and
             space-y-1.5 (6px) instead of space-y-2. Same descriptive anchors,
+            with py-1 so each link clears WCAG 2.2 SC 2.5.8's 24px minimum
+            target size — they measured 22px tall on a 375px viewport,
             just tighter rhythm. */}
         <div>
           <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-3" style={{ fontFamily: "var(--font-body)" }}>Services</h4>
@@ -69,7 +71,7 @@ const UnifiedFooter = () => (
               <Link
                 key={s.label}
                 to={s.to}
-                className="block text-sm leading-snug hover:text-white transition-colors"
+                className="block py-1 text-sm leading-snug hover:text-white transition-colors"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {s.label}
@@ -87,7 +89,7 @@ const UnifiedFooter = () => (
               <Link
                 key={a.to}
                 to={a.to}
-                className="block text-sm leading-snug hover:text-white transition-colors"
+                className="block py-1 text-sm leading-snug hover:text-white transition-colors"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {a.label}
@@ -101,13 +103,13 @@ const UnifiedFooter = () => (
           <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-3" style={{ fontFamily: "var(--font-body)" }}>Contact</h4>
           <ul className="space-y-2.5 text-sm list-none p-0 m-0 leading-snug" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.9)" }}>
             <li>
-              <a href={BUSINESS.phoneTel} onClick={() => trackPhoneClick("footer")} className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href={BUSINESS.phoneTel} onClick={() => trackPhoneClick("footer")} className="flex items-center gap-2 py-1.5 hover:text-white transition-colors">
                 <span className="text-white/70" aria-hidden>📞</span>
                 <span>{BUSINESS.phone}</span>
               </a>
             </li>
             <li>
-              <a href={`mailto:${BUSINESS.email}`} className="flex items-center gap-2 hover:text-white transition-colors break-all">
+              <a href={`mailto:${BUSINESS.email}`} className="flex items-center gap-2 py-1.5 hover:text-white transition-colors break-all">
                 <span className="text-white/70 shrink-0" aria-hidden>📧</span>
                 <span>{BUSINESS.email}</span>
               </a>
@@ -149,8 +151,8 @@ const UnifiedFooter = () => (
       <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs" style={{ color: "var(--gold)", fontFamily: "var(--font-body)" }}>
         <span>© 2026 {BUSINESS.shortName}. GST: {BUSINESS.gstNumber} | All rights reserved.</span>
         <span className="flex gap-4">
-          <Link to="/contact/" className="hover:text-white transition-colors">Privacy Policy</Link>
-          <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Sitemap</a>
+          <Link to="/contact/" className="inline-block py-1 hover:text-white transition-colors">Privacy Policy</Link>
+          <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="inline-block py-1 hover:text-white transition-colors">Sitemap</a>
         </span>
       </div>
     </div>

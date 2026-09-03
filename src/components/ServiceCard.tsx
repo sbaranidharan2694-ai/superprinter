@@ -59,7 +59,7 @@ const ServiceCard = ({ name, price, delivery, img, href }: ServiceCardProps) => 
       <div className="flex flex-col flex-grow p-4">
         <div className="flex items-start justify-between gap-3 mb-1.5">
           <h3 className="font-display font-semibold text-base leading-snug" style={{ color: "var(--ink-black)" }}>
-            <Link to={target} className="hover:text-gold transition-colors">{name}</Link>
+            <Link to={target} className="inline-block py-1 hover:text-gold transition-colors">{name}</Link>
           </h3>
           {delivery && (
             <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full font-ui" style={{ backgroundColor: "var(--gold-bg)", color: "var(--gold-dark)" }}>

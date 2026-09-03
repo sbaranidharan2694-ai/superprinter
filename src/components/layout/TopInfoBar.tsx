@@ -43,7 +43,7 @@ const TopInfoBar = () => {
           type="button"
           onClick={() => setLang("en")}
           aria-pressed={lang === "en"}
-          className="px-2.5 py-1.5 rounded-full text-xs font-bold transition-all"
+          className="px-2.5 py-1.5 min-h-[44px] inline-flex items-center justify-center rounded-full text-xs font-bold transition-all"
           style={lang === "en"
             ? { backgroundColor: "var(--color-primary)", color: "#fff" }
             : { color: "var(--color-primary)" }}
@@ -54,7 +54,7 @@ const TopInfoBar = () => {
           type="button"
           onClick={() => setLang("ta")}
           aria-pressed={lang === "ta"}
-          className="px-2.5 py-1.5 rounded-full text-xs font-bold transition-all"
+          className="px-2.5 py-1.5 min-h-[44px] inline-flex items-center justify-center rounded-full text-xs font-bold transition-all"
           style={lang === "ta"
             ? { backgroundColor: "var(--color-primary)", color: "#fff" }
             : { color: "var(--color-primary)" }}

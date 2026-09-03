@@ -43,7 +43,7 @@ const ProductsSection = () => {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className="px-5 py-2 rounded-full text-sm font-semibold font-ui transition-colors"
+                className="px-5 py-2 min-h-[44px] inline-flex items-center justify-center rounded-full text-sm font-semibold font-ui transition-colors"
                 style={{
                   backgroundColor: active ? "var(--ink-black)" : "white",
                   color: active ? "white" : "var(--gray-text)",
