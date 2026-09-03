@@ -119,7 +119,11 @@ const HeroSection = () => (
               {/* <picture> with AVIF/WebP/JPG fallback. AVIF (~65% smaller) is
                   tried first, WebP (~65% smaller) next, JPG as the universal
                   fallback. The <img> is the LCP candidate so it keeps
-                  fetchPriority="high". */}
+                  fetchpriority="high" — spread as a lowercase custom
+                  attribute because React 18 does not recognise the camelCase
+                  form: react-dom/server emits it and the client drops it, and
+                  that one-attribute mismatch made React throw away the whole
+                  prerendered tree (hydration errors #418/#423). */}
               <picture>
                 <source srcSet="/images/hero/wedding.avif" type="image/avif" />
                 <source srcSet="/images/hero/wedding.webp" type="image/webp" />
@@ -128,7 +132,7 @@ const HeroSection = () => (
                   alt="Wedding card with gold foil printed in Chennai by Super Printers, Pallavaram press"
                   width={800}
                   height={600}
-                  fetchPriority="high"
+                  {...({ fetchpriority: "high" } as Record<string, string>)}
                   decoding="async"
                   className="absolute inset-0 w-full h-full object-cover"
                   onError={(e) => {
