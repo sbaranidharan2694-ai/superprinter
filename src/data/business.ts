@@ -55,6 +55,10 @@ export const BUSINESS = {
   // Google's Knowledge Graph from picking up a dead link.
   sameAs: [
     "https://wa.me/919840199878",
+    // Google Maps CID for the listing — the same entity as the share link
+    // below, addressed the way Maps itself does. Two URLs for one entity is
+    // fine in sameAs and reinforces the Knowledge Graph match on branded search.
+    "https://maps.google.com/maps?cid=10250813327102828258",
     "https://www.weddingwire.in/wedding-invitations/super-printers-and-weddings-cards--e494180",
     "https://www.weddingbazaar.com/wedding-cards/chennai/super-printers-and-wedding-cards",
     // Directory listings verified June 2026 — NAP matches (Saraswathi Colony,

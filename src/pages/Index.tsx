@@ -36,7 +36,7 @@ const Index = () => (
       // rather than to third-party directory listings; the head term
       // "Printing Press in Chennai" still sits inside the visible window.
       title="Super Printers & Wedding Cards | Printing Press in Chennai"
-      description="Printing press in Chennai since 1990, serving 10,000+ clients. Wedding cards from ₹5, offset & digital printing, GST bill books. Get a free quote today."
+      description="Printing press in Chennai since 1990, serving 10,000+ clients. Wedding cards from ₹5, offset printing, digital prints, GST bill books. Free quote today."
       canonical="/"
       keywords="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards Chennai, brochure printing Chennai"
       // HOMEPAGE_FAQ_SCHEMA intentionally omitted from JSON-LD: Google
