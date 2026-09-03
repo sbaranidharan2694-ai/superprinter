@@ -13,15 +13,6 @@
  *
  *   node scripts/smoke-test.mjs [baseUrl]
  *
- * To check a local build, serve it with a plain static server:
- *
- *   (cd dist && python3 -m http.server 4173)
- *   node scripts/smoke-test.mjs http://localhost:4173
- *
- * Do not use `npx serve` for this: it rewrites .html URLs to their
- * extensionless form, so /llm.html reports as a 301 that production does not
- * actually have.
- *
  * Exits 1 on any failure so a workflow step fails loudly.
  */
 const BASE = (process.argv[2] || "https://superprinters.net").replace(/\/$/, "");
