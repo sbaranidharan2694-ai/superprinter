@@ -45,10 +45,31 @@ export function render(url: string) {
 // allRoutes() below.
 export const STATIC_ROUTES = staticRoutePaths();
 
+// Service slugs that .htaccess permanently 301s onto a flat product URL
+// (/services/visiting-cards/ → /visiting-cards/). They must not be prerendered
+// or listed in the sitemap: a sitemap that advertises redirects erodes the
+// trust Google places in it, and Search Console counted all ten under "Page
+// with redirect" in September 2026. Keep this in sync with the
+// "Legacy /services/<slug> → flat product URL" block in public/.htaccess.
+export const REDIRECTED_SERVICE_SLUGS = new Set([
+  "visiting-cards",
+  "wedding-invitations",
+  "brochure-printing",
+  "bill-books",
+  "letterheads",
+  "banner-printing",
+  "stickers-labels",
+  "rubber-stamps",
+  "catalogues",
+  "id-cards",
+]);
+
 export function allRoutes(): string[] {
   const dynamic = [
     ...BLOG_POSTS.map((p) => `/blog/${p.slug}`),
-    ...SERVICES.map((s) => `/services/${s.slug}`),
+    ...SERVICES.filter((s) => !REDIRECTED_SERVICE_SLUGS.has(s.slug)).map(
+      (s) => `/services/${s.slug}`,
+    ),
     ...CATALOG.map((c) => `/products/${c.slug}`),
   ];
   return Array.from(new Set([...STATIC_ROUTES, ...dynamic]));

@@ -114,7 +114,11 @@ export const ROUTES: RouteDef[] = [
   { path: "/our-press", id: "OurPressPage", load: () => import("./pages/OurPressPage") },
   { path: "/clients", id: "ClientsPage", load: () => import("./pages/ClientsPage") },
 
-  // Industry-vertical pages.
+  // Industry-vertical pages. The bare /industries hub must be registered
+  // before the slug routes so it prerenders as its own page — without it
+  // Apache refuses the directory (403) and IndustryPage's breadcrumb, which
+  // links here, dead-ends for crawlers.
+  { path: "/industries", id: "IndustriesIndexPage", load: () => import("./pages/IndustriesIndexPage") },
   ...INDUSTRY_SLUGS.map((slug): RouteDef => ({
     path: `/industries/${slug}`,
     id: "IndustryPage",
