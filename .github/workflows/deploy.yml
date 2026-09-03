@@ -1,0 +1,127 @@
+name: Deploy
+
+# Builds and publishes dist/ to the Hostinger web root, then verifies the live
+# site actually came up correctly.
+#
+# INERT UNTIL CONFIGURED. The upload step is skipped unless an FTP_SERVER
+# secret exists, so merging this changes nothing until you add three secrets
+# under Settings -> Secrets and variables -> Actions:
+#
+#   FTP_SERVER     e.g. ftp.superprinters.net   (hPanel -> Files -> FTP Accounts)
+#   FTP_USERNAME   the FTP account username
+#   FTP_PASSWORD   the FTP account password
+#
+# Optionally set an FTP_REMOTE_DIR variable if the web root is not public_html/.
+#
+# Deploying by hand stays perfectly valid: download the dist artifact from the
+# run and upload it. This mainly removes the step where .htaccess gets dropped
+# because an FTP client hid the dotfile.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      skip_deploy:
+        description: "Build and smoke-test only, do not upload"
+        type: boolean
+        default: false
+
+concurrency:
+  # Never let two deploys write to the same web root at once.
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history: refresh-sitemap.mjs reads per-file git dates for
+          # <lastmod>, and a shallow clone collapses them all to one date.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Same gate as CI. Never publish a build that would not have merged.
+      - name: Verify before publishing
+        run: |
+          npm run typecheck
+          npm run lint
+          npm run test
+          npm run build
+
+      - name: Check deploy is configured
+        id: config
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          if [ -n "$FTP_SERVER" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::FTP secrets not set — built and verified, but not uploaded. Add FTP_SERVER, FTP_USERNAME and FTP_PASSWORD to enable publishing."
+          fi
+
+      - name: Publish to Hostinger
+        if: steps.config.outputs.configured == 'true' && !inputs.skip_deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ vars.FTP_REMOTE_DIR || 'public_html/' }}
+          # dangerous-clean-slate is deliberately NOT set: it would wipe the web
+          # root, including the stale /server/ directory we want gone but also
+          # anything else living there. Delete /server/ once by hand; the 410
+          # rule in .htaccess covers it until then.
+          #
+          # The action keeps a state file on the server and uploads only changed
+          # files, so the first run is slow and later ones are quick. Dotfiles
+          # are included by default, which matters: .htaccess carries every
+          # redirect and all the security headers.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+
+      - name: Verify the live site
+        if: steps.config.outputs.configured == 'true' && !inputs.skip_deploy
+        # Give the host a moment to settle, then check the real site. This is
+        # the step that would have caught /industries/ answering 403, the SSR
+        # bundle being public, and the sitemap advertising redirects.
+        run: |
+          sleep 20
+          node scripts/smoke-test.mjs https://superprinters.net
+
+      - name: Verify the build locally
+        if: steps.config.outputs.configured != 'true' || inputs.skip_deploy
+        # Nothing was uploaded, so check what would have been.
+        run: |
+          npx --yes serve dist -l 4173 &
+          sleep 5
+          node scripts/smoke-test.mjs http://localhost:4173
+
+      - name: Upload deployable build
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ github.sha }}
+          path: dist
+          # Without this, .htaccess is silently dropped from the archive and a
+          # manual upload loses every redirect and security header.
+          include-hidden-files: true
+          retention-days: 30
