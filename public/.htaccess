@@ -30,6 +30,19 @@ DirectoryIndex index.html
   RewriteCond %{HTTP_HOST} ^www\.superprinters\.net$ [NC]
   RewriteRule ^(.*)$ https://superprinters.net/$1 [R=301,L]
 
+  # ── Stale /server/ upload from earlier deploys → 410 Gone ────────────────
+  # The SSR build used to write into dist/server/, so the whole server bundle
+  # was uploaded to the web root and served: /server/entry-server.js answered
+  # 200, and /server/, /server/images/ and /server/.well-known/ answered 403
+  # (directories with no index.html, listings off). The build no longer emits
+  # it — see dist-ssr in package.json — but the files are still on the host
+  # from previous uploads, so deny them at the server.
+  #
+  # 410 rather than 404: these URLs were genuinely published and are now
+  # permanently withdrawn, and Google drops a 410 faster than a 404. Nothing
+  # user-facing lives here, so the plain 410 body is fine.
+  RewriteRule ^server(/|$) - [R=410,L]
+
   # ── Legacy /services/<slug> → flat product URL (kill duplicate clusters) ─
   # `/services/visiting-cards` and `/visiting-cards` rendered the same body
   # and self-canonicalized to themselves, splitting PageRank between the
