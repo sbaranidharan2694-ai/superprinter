@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -98,14 +99,30 @@ const App = () => (
       <Sonner />
       <LangProvider>
         <LazyMotion features={domAnimation}>
-          <Routes>
-            <Route element={<UnifiedLayout />}>
-              {ROUTES.map((r) => {
-                const Component = EAGER_COMPONENTS[r.id];
-                return <Route key={r.path} path={r.path} element={<Component />} />;
-              })}
-            </Route>
-          </Routes>
+          {/* This <Suspense> renders no DOM and exists purely to keep the SSR
+              component tree identical to App.client.tsx, which wraps <Routes>
+              the same way for its React.lazy routes.
+
+              React's useId derives an id from the component's position in the
+              tree, so an extra boundary on one side shifts every generated id.
+              Radix's Accordion uses useId for its id / aria-controls pair, and
+              the resulting attribute mismatch (server "radix-:Rc6qn:" vs client
+              "radix-:r1:") failed hydration on every page — React discarded the
+              whole prerendered tree and re-rendered on the client, throwing away
+              the LCP head start the prerender exists to give.
+
+              Keep these two trees in lockstep: a provider or boundary added to
+              one must be added to the other. */}
+          <Suspense fallback={null}>
+            <Routes>
+              <Route element={<UnifiedLayout />}>
+                {ROUTES.map((r) => {
+                  const Component = EAGER_COMPONENTS[r.id];
+                  return <Route key={r.path} path={r.path} element={<Component />} />;
+                })}
+              </Route>
+            </Routes>
+          </Suspense>
         </LazyMotion>
       </LangProvider>
     </TooltipProvider>
