@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import ServicePageFooter from "@/components/ServicePageFooter";
 import { BUSINESS } from "@/data/business";
+import { serviceUrl } from "@/data/serviceRedirects";
 import { services } from "@/data/services";
 import { AREA_PROFILES } from "@/data/areaProfiles";
 
@@ -219,43 +220,37 @@ const AreaPrintingPage = () => {
     );
   }
 
-  // Per-area LocalBusiness sub-entity. The sitewide LocalBusiness lives at
-  // #business (see index.html); this page-specific entity links back to it
-  // via parentOrganization @id and scopes its areaServed to a single
-  // suburb. This pattern earns local-pack relevance for "[service] in
-  // [area]" queries without diluting the canonical business entity.
+  // Per-area Service node.
+  //
+  // These were LocalBusiness sub-entities until September 2026. That minted 31
+  // differently-*named* businesses ("Super Printers — Printing services near
+  // {Suburb}, Chennai") all sharing one address, phone and geo. Google resolves
+  // entities substantially on name+address co-occurrence, so 31 name variants at
+  // a fixed location is precisely the ambiguity that lets a third-party
+  // directory listing outrank the business's own site on branded search — the
+  // opposite of what this cluster is for.
+  //
+  // Service carries the same local relevance for "[service] in [area]" queries:
+  // areaServed scopes it to the suburb, and provider points every one of the 31
+  // pages back at the single canonical #business node instead of competing with
+  // it. Address, geo, phone, hours and priceRange are deliberately absent — they
+  // belong to the business, which provider references. Mirrors the pattern
+  // IndustryPage.tsx already uses for the vertical pages.
   const schema = {
     "@context": "https://schema.org",
-    "@type": ["PrintShop", "LocalBusiness", "ProfessionalService"],
-    "@id": `${BUSINESS.siteUrl}/${slug}#business`,
-    "name": `Super Printers — Printing services near ${config.name}, Chennai`,
+    "@type": "Service",
+    "@id": `${BUSINESS.siteUrl}/${slug}#service`,
+    "name": `Printing services near ${config.name}, Chennai`,
+    "serviceType": "Printing",
     "description": `${config.intro} ${config.distance}`,
-    "url": `${BUSINESS.siteUrl}/${slug}`,
-    "telephone": "+919840199878",
-    "email": BUSINESS.email,
+    "url": `${BUSINESS.siteUrl}/${slug}/`,
     "image": `${BUSINESS.siteUrl}/super-printers-logo.png`,
-    "priceRange": "$",
-    "currenciesAccepted": "INR",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": BUSINESS.address,
-      "addressLocality": "Pallavaram",
-      "addressRegion": "Tamil Nadu",
-      "postalCode": "600043",
-      "addressCountry": "IN",
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": BUSINESS.lat,
-      "longitude": BUSINESS.lng,
-    },
+    "provider": { "@id": `${BUSINESS.siteUrl}/#business` },
     "areaServed": {
       "@type": "Place",
       "name": `${config.name}, Chennai, Tamil Nadu`,
       // Nest Place → City → AdministrativeArea so AI engines can resolve
-      // "printing near {City}" queries via entity hierarchy. Previously
-      // the suburb was a flat string under City Chennai which lost the
-      // Tamil Nadu admin-region anchor.
+      // "printing near {City}" queries via entity hierarchy.
       "containedInPlace": {
         "@type": "City",
         "name": "Chennai",
@@ -266,21 +261,19 @@ const AreaPrintingPage = () => {
         },
       },
     },
-    "parentOrganization": { "@id": `${BUSINESS.siteUrl}/#business` },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "09:00",
-        "closes": "20:00",
-      },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "16:00" },
-    ],
-    // aggregateRating intentionally NOT duplicated on per-area sub-entities.
-    // The 147-review rating belongs to the canonical #business node referenced
-    // via parentOrganization above. Duplicating it across 20+ suburb URLs is
-    // flagged as inflated review markup under Google's 2025 structured-data
-    // guidelines and risks rich-result suppression.
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": `Printing services delivered to ${config.name}`,
+      "itemListElement": TOP_SERVICES.map((svc) => ({
+        "@type": "Offer",
+        "url": `${BUSINESS.siteUrl}${serviceUrl(svc.slug)}`,
+        "itemOffered": {
+          "@type": "Service",
+          "name": svc.name,
+          "provider": { "@id": `${BUSINESS.siteUrl}/#business` },
+        },
+      })),
+    },
   };
 
   // Per-area FAQPage schema, built from profile.areaFaqs. Each suburb gets
@@ -387,7 +380,7 @@ const AreaPrintingPage = () => {
             <ul className="space-y-3">
               {TOP_SERVICES.map((s) => (
                 <li key={s.id} className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <Link to={`/services/${s.slug}`} className="font-medium hover:underline" style={{ color: "var(--color-primary)" }}>
+                  <Link to={serviceUrl(s.slug)} className="font-medium hover:underline" style={{ color: "var(--color-primary)" }}>
                     {s.emoji} {s.name}
                   </Link>
                   <span className="text-sm font-semibold" style={{ color: "var(--gold)" }}>{s.startingPrice}</span>

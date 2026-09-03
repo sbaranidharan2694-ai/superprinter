@@ -186,7 +186,7 @@ const OurPressPage = () => {
               by sending a brief, getting a proof in 30 minutes, and receiving finished work in 24-48 hours.
             </p>
             <p className="text-base leading-relaxed" style={{ color: "#374151" }}>
-              <strong>Today</strong> — 10,000+ happy customers, 4.8 / 5 Google rating across 147 reviews, customers ranging
+              <strong>Today</strong> — 10,000+ happy customers across 35 years, customers ranging
               from family wedding-card buyers in Mylapore and T. Nagar to corporate ID-card runs for IT campuses on OMR
               and Manapakkam.
             </p>

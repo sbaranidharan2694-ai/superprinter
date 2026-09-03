@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import PageHero from "@/components/shared/PageHero";
+import { serviceUrl } from "@/data/serviceRedirects";
 import { services, type ServiceData } from "@/data/services";
 import { SERVICE_IMAGES } from "@/data/images";
 import { servicesItemListSchema } from "@/data/seoSchemas";
@@ -59,7 +60,7 @@ const Services = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((s) => (
-              <Link key={s.id} to={`/services/${s.slug}`} className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-xl transition-all">
+              <Link key={s.id} to={serviceUrl(s.slug)} className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-xl transition-all">
                 <div className="relative h-48 overflow-hidden">
                   <Picture src={SERVICE_IMAGES[s.slug] || ""} alt={s.name} width={800} height={600} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" decoding="async" />
                   {s.isNew && <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground text-[10px] font-bold px-3 py-1 rounded-full">NEW</span>}

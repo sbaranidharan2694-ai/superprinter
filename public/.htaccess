@@ -30,6 +30,19 @@ DirectoryIndex index.html
   RewriteCond %{HTTP_HOST} ^www\.superprinters\.net$ [NC]
   RewriteRule ^(.*)$ https://superprinters.net/$1 [R=301,L]
 
+  # ── Stale /server/ upload from earlier deploys → 410 Gone ────────────────
+  # The SSR build used to write into dist/server/, so the whole server bundle
+  # was uploaded to the web root and served: /server/entry-server.js answered
+  # 200, and /server/, /server/images/ and /server/.well-known/ answered 403
+  # (directories with no index.html, listings off). The build no longer emits
+  # it — see dist-ssr in package.json — but the files are still on the host
+  # from previous uploads, so deny them at the server.
+  #
+  # 410 rather than 404: these URLs were genuinely published and are now
+  # permanently withdrawn, and Google drops a 410 faster than a 404. Nothing
+  # user-facing lives here, so the plain 410 body is fine.
+  RewriteRule ^server(/|$) - [R=410,L]
+
   # ── Legacy /services/<slug> → flat product URL (kill duplicate clusters) ─
   # `/services/visiting-cards` and `/visiting-cards` rendered the same body
   # and self-canonicalized to themselves, splitting PageRank between the
@@ -59,6 +72,41 @@ DirectoryIndex index.html
   RewriteRule ^medavakkam-printing/?$       /printing-press-medavakkam/      [R=301,L]
   RewriteRule ^guindy-printing/?$           /printing-press-guindy/          [R=301,L]
   RewriteRule ^adyar-printing/?$            /printing-press-adyar/           [R=301,L]
+
+  # ── Legacy WordPress / WooCommerce URLs → canonical pages ────────────────
+  # superprinters.net ran WordPress + WooCommerce + Elementor before this
+  # React site (confirmed via the Wayback Machine index: /wp-admin/admin-ajax.php,
+  # /wp-json/, /xmlrpc.php and WooCommerce font assets are all archived under
+  # this domain). Google still remembers the WordPress-era URLs — Search
+  # Console reported 24 "Not found (404)" on 2026-09-03, and no internal link
+  # on the current site produces a 404, so they are almost certainly these.
+  #
+  # Only URLs with a genuinely equivalent page are redirected. WooCommerce
+  # transactional pages (/cart/, /checkout/, /my-account/), feeds, and pages
+  # with no successor are deliberately left to 404: redirecting them somewhere
+  # unrelated would be a soft-404, which Google penalises more than an honest
+  # 404. See the "Unknown routes → real HTTP 404" block below.
+  RewriteRule ^home/?$                      /                                [R=301,L]
+  RewriteRule ^index\.php/?$                /                                [R=301,L]
+  RewriteRule ^about-us/?$                  /about/                          [R=301,L]
+  RewriteRule ^contact-us/?$                /contact/                        [R=301,L]
+  RewriteRule ^our-services/?$              /services/                       [R=301,L]
+  RewriteRule ^services-2/?$                /services/                       [R=301,L]
+  RewriteRule ^shop/?$                      /products/                       [R=301,L]
+  RewriteRule ^wedding-invitations/?$       /wedding-cards/                  [R=301,L]
+  RewriteRule ^wedding-cards-chennai/?$     /wedding-cards/                  [R=301,L]
+  RewriteRule ^visiting-card/?$             /visiting-cards/                 [R=301,L]
+  RewriteRule ^visiting-cards-chennai/?$    /visiting-cards/                 [R=301,L]
+  RewriteRule ^portfolio/?$                 /gallery/                        [R=301,L]
+  RewriteRule ^our-work/?$                  /gallery/                        [R=301,L]
+  RewriteRule ^testimonials/?$              /clients/                        [R=301,L]
+  RewriteRule ^enquiry/?$                   /get-quote/                      [R=301,L]
+  RewriteRule ^get-a-quote/?$               /get-quote/                      [R=301,L]
+
+  # Yoast / core WordPress sitemap paths — Google crawled these for years and
+  # still requests them. Point them at the live sitemap rather than 404ing.
+  RewriteRule ^sitemap_index\.xml$          /sitemap.xml                     [R=301,L]
+  RewriteRule ^wp-sitemap\.xml$             /sitemap.xml                     [R=301,L]
 
   # ── Serve prerendered HTML when /<route>/index.html exists ───────────────
   # This is what makes the site crawlable without executing JS.

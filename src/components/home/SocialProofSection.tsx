@@ -20,7 +20,7 @@ const SocialProofSection = () => (
           What Chennai Customers Say About Us
         </h2>
         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-50 text-sm font-bold" style={{ color: "var(--color-primary)" }}>
-          ⭐ 4.8 on Google · 147 Verified Reviews
+          Chennai's trusted printing press since 1990, serving over 10,000 clients
         </span>
       </m.div>
 
@@ -87,7 +87,7 @@ const SocialProofSection = () => (
             fontFamily: "var(--font-accent)",
           }}
         >
-          View All 147 Reviews on Google →
+          Read our reviews on Google →
         </a>
       </m.div>
     </div>

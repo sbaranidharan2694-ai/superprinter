@@ -37,6 +37,7 @@ import ServiceDetail from "./pages/ServiceDetail";
 import GetQuote from "./pages/GetQuote";
 import AreaPrintingPage from "./pages/AreaPrintingPage";
 import HeadKeywordPage from "./pages/HeadKeywordPage";
+import IndustriesIndexPage from "./pages/IndustriesIndexPage";
 import IndustryPage from "./pages/IndustryPage";
 import ChennaiPrintingGuidePage from "./pages/ChennaiPrintingGuidePage";
 import OurPressPage from "./pages/OurPressPage";
@@ -70,6 +71,7 @@ const EAGER_COMPONENTS: Record<string, ComponentType<unknown>> = {
   GetQuote,
   AreaPrintingPage,
   HeadKeywordPage,
+  IndustriesIndexPage,
   IndustryPage,
   ChennaiPrintingGuidePage,
   OurPressPage,

@@ -84,7 +84,7 @@ const GetQuote = () => {
             "target": "https://wa.me/919840199878",
             "expectsAcceptanceOf": { "@type": "Offer", "priceCurrency": "INR" }
           },
-          "about": { "@type": "LocalBusiness", "name": "Super Printers & Wedding Cards", "telephone": "+919840199878" }
+          "about": { "@id": "https://superprinters.net/#business" }
         }}
       />
       <main>

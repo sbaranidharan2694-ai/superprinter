@@ -16,6 +16,15 @@ const SERVICES_LINKS = [
   { label: "Rubber stamp maker", to: "/rubber-stamps" },
   { label: "Catalogue printing", to: "/catalogues" },
   { label: "PVC ID card printing", to: "/pvc-id-cards" },
+  // The four services with no flat product page of their own. Without these
+  // they sat on 1-3 inbound links each while every flagship page had 100+,
+  // and all four showed up under Search Console's "Crawled - currently not
+  // indexed" (2026-09-03). A sitewide footer link is the cheapest way to give
+  // them the crawl signal the flat pages already get.
+  { label: "Offset printing in Chennai", to: "/services/offset-printing" },
+  { label: "Screen printing in Chennai", to: "/services/screen-printing" },
+  { label: "T-shirt printing in Chennai", to: "/services/t-shirt-printing" },
+  { label: "Pamphlet printing in Chennai", to: "/services/pamphlet-printing" },
   { label: "All printing services", to: "/services" },
   { label: "Get a printing quote", to: "/get-quote" },
   { label: "Print samples gallery", to: "/gallery" },
@@ -47,7 +56,7 @@ const UnifiedFooter = () => (
             Chennai's trusted printing press since 1990. 35+ years of quality.
           </p>
           <p className="text-xs mb-1.5" style={{ color: "#E8C76A" }}>✅ GST Registered · {BUSINESS.gstNumber}</p>
-          <p className="text-xs" style={{ color: "#E8C76A" }}>⭐ {BUSINESS.googleRating} Google Rating · {BUSINESS.googleReviewCount} Reviews</p>
+          <p className="text-xs" style={{ color: "#E8C76A" }}>⭐ 10,000+ clients served across Chennai</p>
         </div>
 
         {/* Services — denser stack: text-sm with leading-snug (1.375) and

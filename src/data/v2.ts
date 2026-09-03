@@ -6,7 +6,7 @@ export const MARQUEE_ITEMS = [
   "Est. 1990 — 35 Years of Quality",
   "🎨 Free Design Proof on Every Order",
   "Wedding Cards from ₹5/card",
-  "⭐ 4.8 on Google — 147 Reviews",
+  "Serving Chennai since 1990",
   "Visiting Cards · Brochures · Banners",
   "T-Shirt Printing · Rubber Stamps · Stickers",
   "⚡ Orders Ready in 24 Hours",
@@ -24,7 +24,7 @@ export const HERO = {
   //    Visiting Cards") — see src/pages/Index.tsx
   //  - H1 is breadth-led with hyper-local + concrete category anchors.
   //
-  //  Length: 56 chars — within the 2026 H1 sweet spot of 50-60 chars
+  //  Length: 58 chars — within the 2026 H1 sweet spot of 50-60 chars
   //  (long H1s push content down the page and hurt AI-Overview extraction).
   //
   //  Word choices:
@@ -35,16 +35,19 @@ export const HERO = {
   //      reading us as a Pallavaram-only press despite the title tag
   //      carrying "Chennai". H1 + title alignment matters more than the
   //      knowledge-graph fallback path.
-  //    • "Wedding & Visiting Cards" — the two highest-volume sub-queries
-  //      ride along with the head term in a single 56-char H1.
+  //    • Brand name first (2026-09): branded search for "super printers
+  //      chennai" was resolving to third-party directory listings ahead of
+  //      the site. Leading the H1 with the exact NAP name strengthens the
+  //      entity match on branded queries; the head term follows in the same
+  //      line so the topic signal is unchanged.
   microLabel: "EST. 1990 · PALLAVARAM, CHENNAI",
-  h1: "Printing Press in Chennai — Wedding & Visiting Cards",
+  h1: "Super Printers & Wedding Cards — Printing Press in Chennai",
   accent: "Chennai's printing experts since 1990 — wedding cards, visiting cards, brochures and bill books, printed in-house in Pallavaram.",
   body: "Order online over WhatsApp — proof shared before every print run, most orders ready in 24 hours, quote in 30 minutes.",
   ctaPrimary: "Get Quote",
   ctaSecondary: "WhatsApp",
   badges: [
-    { icon: "⭐", label: "4.8 · 147 reviews" },
+    { icon: "⭐", label: "10,000+ clients served" },
     { icon: "🏆", label: "35 years in Pallavaram" },
     { icon: "✅", label: "GST registered" },
   ],
@@ -60,8 +63,7 @@ export const HERO_PRODUCTS = [
 export const SOCIAL_PROOF_STATS = [
   { value: "35+", label: "Years in Business" },
   { value: "10,000+", label: "Happy Clients" },
-  { value: "4.8 ⭐", label: "Google Rating" },
-  { value: "147", label: "Reviews" },
+  { value: "1990", label: "Serving Chennai Since" },
   { value: "Fast", label: "Delivery" },
 ];
 

@@ -6,6 +6,7 @@ import { BLOG_POSTS } from "./data/blog";
 import { services as SERVICES } from "./data/services";
 import { CATALOG_CATEGORIES as CATALOG } from "./data/catalog";
 import { BUSINESS } from "./data/business";
+import { REDIRECTED_SERVICE_SLUGS } from "./data/serviceRedirects";
 import { staticRoutePaths } from "./routes";
 
 // Re-exported for scripts/refresh-sitemap.mjs so the sitemap host stays
@@ -48,7 +49,9 @@ export const STATIC_ROUTES = staticRoutePaths();
 export function allRoutes(): string[] {
   const dynamic = [
     ...BLOG_POSTS.map((p) => `/blog/${p.slug}`),
-    ...SERVICES.map((s) => `/services/${s.slug}`),
+    ...SERVICES.filter((s) => !REDIRECTED_SERVICE_SLUGS.has(s.slug)).map(
+      (s) => `/services/${s.slug}`,
+    ),
     ...CATALOG.map((c) => `/products/${c.slug}`),
   ];
   return Array.from(new Set([...STATIC_ROUTES, ...dynamic]));

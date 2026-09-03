@@ -435,30 +435,3 @@ export const testimonials = [
   { stars: 5, text: "The quality of my brochure was way beyond my expectations. Great value for the price I paid.", name: "Arjun Pillai", title: "Event Organizer", area: "Tambaram" },
   { stars: 5, text: "The wedding cards were beautiful and delivered on time. We look forward to working with you again.", name: "Suresh & Family", title: "", area: "Chromepet" },
 ];
-
-export const faqData = [
-  {
-    q: "What printing services does Super Printers offer in Chennai?",
-    a: "Super Printers offers offset printing, digital printing, visiting card printing, banner printing, brochure printing, bill book printing, wedding invitation printing, T-shirt printing, rubber stamps, sticker and label printing, screen printing, letterhead printing, catalogue printing, and spiral binding services in Chennai.",
-  },
-  {
-    q: "Where is Super Printers located in Chennai?",
-    a: "Super Printers is located at Old No.12, New No.8, Saraswathi Colony, Near Pallavaram Railway Station Road, Pallavaram, Chennai 600043, Tamil Nadu, India.",
-  },
-  {
-    q: "What are Super Printers' working hours?",
-    a: "Super Printers is open Monday to Saturday from 9:30 AM to 6:30 PM, and closed on Sundays.",
-  },
-  {
-    q: "Does Super Printers offer bulk printing services?",
-    a: "Yes, Super Printers specializes in bulk printing for businesses including brochures, bill books, visiting cards, letterheads, and catalogues at affordable rates in Chennai.",
-  },
-  {
-    q: "How can I contact Super Printers Chennai?",
-    a: "You can call Super Printers at +91 9840199878 or visit us at Saraswathi Colony, Pallavaram, Chennai 600043. You can also reach us through our website or WhatsApp.",
-  },
-  {
-    q: "Is Super Printers the best printing press in Chennai?",
-    a: "Super Printers has been a trusted printing press in Chennai since 1990, serving customers in Pallavaram, Chromepet, Tambaram and across Chennai with high-quality printing at competitive prices.",
-  },
-];

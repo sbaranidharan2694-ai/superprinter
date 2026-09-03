@@ -14,7 +14,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const distDir = path.join(root, "dist");
-const serverEntry = pathToFileURL(path.join(root, "dist", "server", "entry-server.js")).href;
+const serverEntry = pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href;
 
 const templatePath = path.join(distDir, "index.html");
 const template = fs.readFileSync(templatePath, "utf8");
@@ -24,14 +24,85 @@ const { render, allRoutes } = mod;
 
 const routes = allRoutes();
 
+// ---- Internal href normalisation -------------------------------------------
+// The canonical URL form is *with* a trailing slash (see SEOHead + .htaccess),
+// but internal links are authored as <Link to="/about">, which renders
+// href="/about". Apache then 301s /about → /about/, so historically EVERY
+// internal link cost Googlebot two requests instead of one — 103 of 116 links
+// in the September 2026 crawl. On a low-authority domain that halves the
+// effective crawl budget and is what filled Search Console's "Page with
+// redirect" bucket (36 URLs).
+//
+// Rewriting here rather than at ~97 <Link> call sites is deliberate: this also
+// covers hrefs baked into content data (blog.ts post bodies), and it cannot
+// silently regress when someone adds a new link.
+//
+// Skipped: the root "/", anything already slash-terminated, and any path whose
+// last segment contains a dot (assets like /logo.png, /assets/app.js).
+const ASSET_EXTENSION = /\.[A-Za-z0-9]{1,5}$/;
+const INTERNAL_HREF = /href="(\/[^"]*)"/g;
+
+// Paths that .htaccess permanently 301s. A link to one of these is canonical
+// in *form* — it already has the trailing slash — so normalizeHref leaves it
+// alone, yet it still costs Googlebot a redirect hop. /services/ was linking
+// all ten of them (September 2026). Parsed from .htaccess rather than
+// hardcoded so the two can never disagree.
+const REDIRECT_SOURCES = (() => {
+  const file = path.join(root, "public", ".htaccess");
+  if (!fs.existsSync(file)) return new Set();
+  return new Set(
+    [
+      ...fs
+        .readFileSync(file, "utf8")
+        .matchAll(/^\s*RewriteRule\s+\^([^\s]+?)\/\?\$\s+\/\S*\s+\[R=301/gm),
+    ].map(([, from]) => `/${from.replace(/\\/g, "")}/`),
+  );
+})();
+
+function normalizeHref(target) {
+  // "//cdn.example.com/x" is protocol-relative and external, not a site path.
+  if (target.startsWith("//")) return target;
+  const cut = target.search(/[?#]/);
+  const pathPart = cut === -1 ? target : target.slice(0, cut);
+  const suffix = cut === -1 ? "" : target.slice(cut);
+  if (pathPart === "/" || pathPart.endsWith("/")) return target;
+  // Treat a path as a file only when it ends in a real extension AND that file
+  // exists in the build. "Any dot means asset" was the earlier heuristic, but
+  // assertNoRedirectingLinks re-uses this same function to decide what counts
+  // as an offender — so a route slug containing a dot would be skipped by the
+  // normaliser and silently pass the guard that exists to catch it.
+  if (ASSET_EXTENSION.test(pathPart) && fs.existsSync(path.join(distDir, pathPart.slice(1)))) {
+    return target;
+  }
+  return `${pathPart}/${suffix}`;
+}
+
+// Same defect in structured data: Service/Product nodes emitted
+// "url":"https://superprinters.net/wedding-cards", which 301s. Only "url" is
+// rewritten — "@id" values are node identifiers that other nodes reference by
+// exact string, so changing them would break the entity graph.
+const SCHEMA_URL = /"url"(\s*):(\s*)"https:\/\/superprinters\.net(\/[^"]*)"/g;
+
+function normalizeInternalLinks(html) {
+  return html
+    .replace(INTERNAL_HREF, (_m, target) => `href="${normalizeHref(target)}"`)
+    .replace(
+      SCHEMA_URL,
+      (_m, s1, s2, target) =>
+        `"url"${s1}:${s2}"https://superprinters.net${normalizeHref(target)}"`,
+    );
+}
+
 let ok = 0;
 let failed = 0;
 for (const route of routes) {
   try {
     const { html, head } = render(route);
-    const out = template
-      .replace("<!--ssg-head-->", head ?? "")
-      .replace("<!--ssg-app-->", html ?? "");
+    const out = normalizeInternalLinks(
+      template
+        .replace("<!--ssg-head-->", head ?? "")
+        .replace("<!--ssg-app-->", html ?? ""),
+    );
 
     const outPath =
       route === "/"
@@ -51,9 +122,11 @@ for (const route of routes) {
 // Hostinger ErrorDocument target — rendered NotFound page with noindex.
 try {
   const { html, head } = render("/__sp_not_found__");
-  const out = template
-    .replace("<!--ssg-head-->", head ?? "")
-    .replace("<!--ssg-app-->", html ?? "");
+  const out = normalizeInternalLinks(
+    template
+      .replace("<!--ssg-head-->", head ?? "")
+      .replace("<!--ssg-app-->", html ?? ""),
+  );
   fs.writeFileSync(path.join(distDir, "404.html"), out, "utf8");
   console.log("[prerender] ✓ /404.html");
 } catch (err) {
@@ -65,6 +138,34 @@ try {
 // duplicate <title>, or duplicate <meta name="description">. Failing the build
 // here is cheaper than re-running an external SEO crawl.
 let assertionFailures = 0;
+/**
+ * Fail the build if a page still links to a non-canonical internal URL.
+ * Every such link costs Googlebot a 301 hop before it reaches the real page;
+ * 103 of them were live in September 2026 and drained the crawl budget.
+ */
+function assertNoRedirectingLinks(file) {
+  const html = fs.readFileSync(file, "utf8");
+  const offenders = new Set();
+  for (const [, target] of html.matchAll(INTERNAL_HREF)) {
+    if (normalizeHref(target) !== target) offenders.add(target);
+  }
+  for (const [, , , target] of html.matchAll(SCHEMA_URL)) {
+    if (normalizeHref(target) !== target) offenders.add(`schema:${target}`);
+  }
+  for (const [, target] of html.matchAll(INTERNAL_HREF)) {
+    const clean = normalizeHref(target).split(/[?#]/)[0];
+    if (REDIRECT_SOURCES.has(clean)) offenders.add(`301:${clean}`);
+  }
+  if (offenders.size > 0) {
+    console.error(
+      `[prerender] ✗ ${path.relative(distDir, file)} links to ${offenders.size} ` +
+        `non-canonical URL(s): ${[...offenders].slice(0, 5).join(", ")}` +
+        (offenders.size > 5 ? ", …" : ""),
+    );
+    assertionFailures++;
+  }
+}
+
 function assertSingle(file, tagDescriber, pattern) {
   const html = fs.readFileSync(file, "utf8");
   const count = (html.match(pattern) || []).length;
@@ -84,6 +185,7 @@ for (const route of routes) {
   assertSingle(file, "<title>", /<title[\s>]/g);
   assertSingle(file, '<meta name="description">', /name="description"/g);
   assertSingle(file, '<meta name="robots">', /name="robots"/g);
+  assertNoRedirectingLinks(file);
 }
 
 console.log(

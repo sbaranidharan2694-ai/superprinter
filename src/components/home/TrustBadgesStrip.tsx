@@ -1,5 +1,5 @@
 const BADGES = [
-  "⭐ 4.8 Google Rating — 147 Reviews",
+  "Trusted in Chennai since 1990",
   "🏅 Printing Since 1990 — 35 Years",
   "⚡ Orders Ready in 24 Hours",
   "🎨 Free Design Proof on Every Order",
