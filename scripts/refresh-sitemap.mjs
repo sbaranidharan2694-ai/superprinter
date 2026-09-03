@@ -25,7 +25,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const today = new Date().toISOString().slice(0, 10);
 
-const serverEntry = pathToFileURL(path.join(root, "dist", "server", "entry-server.js")).href;
+const serverEntry = pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href;
 const { allRoutes, SITE_URL } = await import(serverEntry);
 
 // Static, non-React files that should still be indexed.
@@ -252,4 +252,46 @@ if (gitUsable) {
     }
     console.log("[refresh-sitemap] ✓ all .htaccess 301 targets resolve to built pages.");
   }
+}
+
+// ---- No index-less directories in the published tree ----------------------
+// Apache serves a directory via DirectoryIndex; when the directory has no
+// index.html and listings are off, it answers 403 — not 404. Google reads that
+// as "forbidden, stop asking" rather than "gone". /industries/ did exactly this
+// for months: the six /industries/<slug>/ pages created the directory, nothing
+// created its index, and Search Console logged it under "Blocked due to access
+// forbidden". Asset directories are excluded — they are never requested as
+// directories, only as files beneath them.
+{
+  const distDir = path.join(root, "dist");
+  const ASSET_DIRS = new Set([
+    "assets",
+    "images",
+    "fonts",
+    "clients",
+    "visiting-cards",
+    ".well-known",
+  ]);
+
+  const offenders = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const full = path.join(dir, entry.name);
+      const rel = path.relative(distDir, full);
+      if (ASSET_DIRS.has(rel.split(path.sep)[0])) continue;
+      if (!fs.existsSync(path.join(full, "index.html"))) offenders.push(`/${rel}/`);
+      walk(full);
+    }
+  };
+  walk(distDir);
+
+  if (offenders.length > 0) {
+    console.error(
+      `[refresh-sitemap] ✗ ${offenders.length} director(ies) in dist/ have no ` +
+        `index.html and will answer 403 in production: ${offenders.join(", ")}`,
+    );
+    process.exit(1);
+  }
+  console.log("[refresh-sitemap] ✓ every published directory has an index.html.");
 }

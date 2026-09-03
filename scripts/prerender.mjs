@@ -14,7 +14,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const distDir = path.join(root, "dist");
-const serverEntry = pathToFileURL(path.join(root, "dist", "server", "entry-server.js")).href;
+const serverEntry = pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href;
 
 const templatePath = path.join(distDir, "index.html");
 const template = fs.readFileSync(templatePath, "utf8");
