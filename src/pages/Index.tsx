@@ -31,10 +31,12 @@ import ChennaiAreasSection from "@/components/home/ChennaiAreasSection";
 const Index = () => (
   <div className="text-foreground bg-background overflow-x-hidden" style={{ fontFamily: "var(--font-body)" }}>
     <SEOHead
-      // Title sized to fit Google's ~580px SERP allowance (≈ 60 chars).
-      // Brand at end so the head term "Printing Press in Chennai" leads.
-      title="Printing Press in Chennai | Super Printers Pallavaram"
-      description="Chennai's trusted printing press since 1990. Wedding cards from ₹5, visiting cards, brochures, banners, bill books. Free proof, ready in 24 hours. Pallavaram, Chennai."
+      // Title sized to fit Google's ~580px SERP allowance (≈ 60 chars); 58 here.
+      // Brand leads with the exact NAP name so branded SERPs resolve to us
+      // rather than to third-party directory listings; the head term
+      // "Printing Press in Chennai" still sits inside the visible window.
+      title="Super Printers & Wedding Cards | Printing Press in Chennai"
+      description="Printing press in Chennai since 1990, serving 10,000+ clients. Wedding cards from ₹5, offset & digital printing, GST bill books. Get a free quote today."
       canonical="/"
       keywords="printing press Chennai, printers Pallavaram, wedding cards Chennai, visiting cards Chennai, brochure printing Chennai"
       // HOMEPAGE_FAQ_SCHEMA intentionally omitted from JSON-LD: Google

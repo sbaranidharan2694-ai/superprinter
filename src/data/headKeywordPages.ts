@@ -511,7 +511,7 @@ export const HEAD_KEYWORD_PAGES: HeadKeywordPage[] = [
     slug: "digital-printing-chennai",
     title: "Digital Printing in Chennai from ₹10 — Same-Day | Super Printers",
     metaDescription:
-      "Digital printing in Chennai since 1990 — business cards, brochures, ID cards, photo prints. Same-day short runs, free design proof, 4.8★ (147 reviews). Pallavaram.",
+      "Digital printing in Chennai since 1990 — business cards, brochures, ID cards, photo prints. Same-day short runs, free design proof, trusted since 1990. Pallavaram.",
     h1: "Digital Printing in Chennai — Same-Day, Short-Run & Photo-Quality",
     intro:
       "Super Printers runs digital printing in Chennai from its own press in Pallavaram — no outsourcing, no minimum-order games. Digital is the right choice when you need a small run fast, photo-quality colour, or personalised pieces: business cards from ₹149 per 100, brochures, PVC ID cards, posters and short-run invitations, most ready the same day. You get a free design proof on WhatsApp before anything prints, factory-direct pricing because we are the press, and pickup in Pallavaram or delivery across 30+ Chennai suburbs.",

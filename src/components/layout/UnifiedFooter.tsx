@@ -47,7 +47,7 @@ const UnifiedFooter = () => (
             Chennai's trusted printing press since 1990. 35+ years of quality.
           </p>
           <p className="text-xs mb-1.5" style={{ color: "#E8C76A" }}>✅ GST Registered · {BUSINESS.gstNumber}</p>
-          <p className="text-xs" style={{ color: "#E8C76A" }}>⭐ {BUSINESS.googleRating} Google Rating · {BUSINESS.googleReviewCount} Reviews</p>
+          <p className="text-xs" style={{ color: "#E8C76A" }}>⭐ 10,000+ clients served across Chennai</p>
         </div>
 
         {/* Services — denser stack: text-sm with leading-snug (1.375) and

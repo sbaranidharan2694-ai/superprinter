@@ -51,8 +51,8 @@ const ServicePageFooter = ({ currentSlug, serviceName, whatsappPrompt }: Service
   // business's 147 Google reviews as that product's rating. Reusing the GBP's
   // review count across ~50 unrelated product pages is self-serving and
   // misleading — Google's review-snippet policy bars it and it risks a manual
-  // action. The "★ 4.8 / 147+ Google reviews" still renders as visible trust
-  // copy below, and the real rating lives on the linked Google Business Profile.
+  // action. The visible "4.8 / 147 reviews" copy was removed too (2026-09) —
+  // the figure was not sourced from the live Google Business Profile.
 
   return (
     <section className="mt-16 pt-12 border-t border-border-light bg-gradient-to-b from-white to-gray-50/40">
@@ -66,9 +66,9 @@ const ServicePageFooter = ({ currentSlug, serviceName, whatsappPrompt }: Service
           </div>
           <div className="text-center p-5 rounded-2xl bg-white border border-border-light shadow-card">
             <p className="font-display font-bold text-3xl" style={{ color: "var(--ink-black)" }}>
-              ★ {BUSINESS.googleRating}
+              10,000+
             </p>
-            <p className="text-xs font-ui text-gray-600 mt-1">{BUSINESS.googleReviewCount}+ Google reviews</p>
+            <p className="text-xs font-ui text-gray-600 mt-1">Chennai clients served</p>
           </div>
         </div>
 

@@ -37,8 +37,6 @@ export const BUSINESS = {
   areasServedText: "Throughout Chennai and Tamil Nadu",
   gstRegistered: true,
   gstNumber: "33AAGPB7462F1Z1",
-  googleRating: "4.8",
-  googleReviewCount: 147,
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Super+printers+and+wedding+cards",
   siteUrl: "https://superprinters.net",
   hours: "Mon–Sat: 9:00 AM – 8:00 PM",
@@ -53,7 +51,6 @@ export const BUSINESS = {
   // Google's Knowledge Graph from picking up a dead link.
   sameAs: [
     "https://wa.me/919840199878",
-    "https://www.justdial.com/Chennai/Super-Printers-Near-Pallavaram-Railway-Station-Road-Pallavaram/044PXX44-XX44-121116100915-F7I8_BZDET",
     "https://www.weddingwire.in/wedding-invitations/super-printers-and-weddings-cards--e494180",
     "https://www.weddingbazaar.com/wedding-cards/chennai/super-printers-and-wedding-cards",
     // Directory listings verified June 2026 — NAP matches (Saraswathi Colony,

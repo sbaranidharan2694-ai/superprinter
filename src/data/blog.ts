@@ -350,7 +350,7 @@ export const BLOG_POSTS: BlogPostData[] = [
       <p>Because we print in-house at Pallavaram rather than outsourcing, digital commercial jobs are usually ready in 24 hours and offset runs in 48–72 hours after proof approval. Every job gets a digital proof on WhatsApp before printing, so a colour or a logo placement is never a surprise. We deliver across Chennai — Guindy, Mount Road, OMR, T. Nagar, Ambattur — or you collect from the press.</p>
 
       <h2>How to vet a commercial printer in Chennai</h2>
-      <p>Most "printers" in Chennai are intermediaries who collect your order, send it to a press like ours, and add 30–60% markup. Three quick checks separate a real press from a reseller: <strong>do they quote a price</strong> (resellers stall because they have to ask their printer first), <strong>do they have reviews</strong> (we hold 4.8 stars across 147 Google reviews), and <strong>can you visit the machines</strong>. Walk into our Saraswathy Colony shop in Pallavaram and you are talking to the same team that runs the presses.</p>
+      <p>Most "printers" in Chennai are intermediaries who collect your order, send it to a press like ours, and add 30–60% markup. Three quick checks separate a real press from a reseller: <strong>do they quote a price</strong> (resellers stall because they have to ask their printer first), <strong>do they have a track record</strong> (we have served 10,000+ Chennai customers since 1990), and <strong>can you visit the machines</strong>. Walk into our Saraswathy Colony shop in Pallavaram and you are talking to the same team that runs the presses.</p>
 
       <p>Manufacturing or industrial buyer? Labels, manuals and packaging have their own requirements — see our <a href="/blog/industrial-printing-chennai/">industrial printing in Chennai</a> guide. Ready for a quote? <a href="/get-quote/">Send your brief on WhatsApp</a> and we will price it in about 30 minutes.</p>
     `,
@@ -546,7 +546,7 @@ export const BLOG_POSTS: BlogPostData[] = [
       </ul>
 
       <h2>Briefing a printer (including us)</h2>
-      <p>Send five things and you get a firm quote in one message: product, quantity, size, paper/GSM, and finish. At Super Printers — a 35-year <a href="/printing-press-chennai/">printing press in Chennai</a> rated 4.8 across 147 Google reviews — <a href="/get-quote/">WhatsApp the brief</a> and we reply with an itemised price in about 30 minutes, a free design proof before printing, and a GST invoice on every order. Pickup in Pallavaram or delivery across 30+ Chennai suburbs.</p>
+      <p>Send five things and you get a firm quote in one message: product, quantity, size, paper/GSM, and finish. At Super Printers — a 35-year <a href="/printing-press-chennai/">printing press in Chennai</a> serving 10,000+ customers since 1990 — <a href="/get-quote/">WhatsApp the brief</a> and we reply with an itemised price in about 30 minutes, a free design proof before printing, and a GST invoice on every order. Pickup in Pallavaram or delivery across 30+ Chennai suburbs.</p>
     `,
     faqs: [
       { q: "How do I tell a real printing press from a reseller in Chennai?", a: "Three tests: do they quote a price on the spot, do they have public reviews, and can you visit and see the machines. Resellers stall on price because they have to ask their printer first and add 30-60% markup." },

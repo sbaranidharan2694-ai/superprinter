@@ -9,7 +9,8 @@
  *
  *   1. Imports allRoutes() + SITE_URL from the built SSR bundle.
  *   2. Adds a few static non-React URLs (e.g. /llm.html).
- *   3. Derives <lastmod> from the git mtime of the source file backing each
+ *   3. Derives <lastmod> from the git date (or filesystem mtime, when the
+ *      checkout has no usable history) of the source file backing each
  *      route, and a <priority>/<changefreq> from a path heuristic.
  *   4. Writes dist/sitemap.xml.
  *
@@ -92,22 +93,80 @@ function rank(clean) {
 }
 
 const mtimeCache = new Map();
-function gitMtime(file) {
-  if (!file) return null;
-  if (mtimeCache.has(file)) return mtimeCache.get(file);
+
+// Per-file <lastmod> dates, committed to the repo.
+//
+// Why a manifest instead of just asking git: the production build does not run
+// where usable git history exists (a shallow `--depth 1` clone reports one
+// identical commit date for every file; a build from an uploaded artifact has
+// no .git at all). Filesystem mtime is no better — on a fresh checkout every
+// file's mtime is the checkout time. Both failure modes emit the SAME
+// <lastmod> for all 117 URLs, which is exactly what shipped between June and
+// September 2026, and a uniform lastmod teaches crawlers to ignore the field.
+//
+// So: when git IS available (a developer's working copy) we read the real
+// dates and rewrite this manifest. When it is not, we read the manifest that
+// was committed alongside the code. Keep the regenerated file in your commit.
+const MANIFEST_PATH = path.join(root, "sitemap-lastmod.json");
+
+/** True only when this build has real, non-shallow git history. */
+const gitUsable = (() => {
   try {
-    const iso = execSync(`git log -1 --format=%cI -- "${file}"`, {
+    const shallow = execSync("git rev-parse --is-shallow-repository", {
       cwd: root,
       encoding: "utf8",
       stdio: ["pipe", "pipe", "ignore"],
     }).trim();
-    const date = iso ? iso.slice(0, 10) : null;
-    mtimeCache.set(file, date);
-    return date;
+    return shallow === "false";
   } catch {
-    mtimeCache.set(file, null);
-    return null;
+    return false;
   }
+})();
+
+const manifest = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
+  } catch {
+    return {};
+  }
+})();
+
+if (!gitUsable && Object.keys(manifest).length === 0) {
+  console.warn(
+    "[sitemap] no git history AND no sitemap-lastmod.json — every <lastmod> " +
+      "will fall back to today's date. Run this script from a full checkout " +
+      "and commit sitemap-lastmod.json.",
+  );
+}
+
+/**
+ * Last-modified date for a source file, as YYYY-MM-DD.
+ * Prefers real git history; otherwise reads the committed manifest.
+ * Returns null when neither source knows the file.
+ */
+function lastModified(file) {
+  if (!file) return null;
+  if (mtimeCache.has(file)) return mtimeCache.get(file);
+
+  let date = null;
+
+  if (gitUsable) {
+    try {
+      const iso = execSync(`git log -1 --format=%cI -- "${file}"`, {
+        cwd: root,
+        encoding: "utf8",
+        stdio: ["pipe", "pipe", "ignore"],
+      }).trim();
+      if (iso) date = iso.slice(0, 10);
+    } catch {
+      // fall through to the manifest
+    }
+  }
+
+  if (!date && typeof manifest[file] === "string") date = manifest[file];
+
+  mtimeCache.set(file, date);
+  return date;
 }
 
 const urls = paths
@@ -116,7 +175,7 @@ const urls = paths
     const loc = clean.endsWith(".html")
       ? `${SITE_URL}${clean}`
       : `${SITE_URL}${clean}/`; // trailing slash matches canonical form
-    const date = (fileForPath(clean) && gitMtime(fileForPath(clean))) || today;
+    const date = (fileForPath(clean) && lastModified(fileForPath(clean))) || today;
     const { priority, changefreq } = rank(clean);
     return { loc, date, priority, changefreq, sort: Number(priority) };
   })
@@ -138,3 +197,24 @@ ${body}
 const outPath = path.join(root, "dist", "sitemap.xml");
 fs.writeFileSync(outPath, xml, "utf8");
 console.log(`[refresh-sitemap] generated dist/sitemap.xml from allRoutes() — ${urls.length} URLs.`);
+
+// Refresh the committed date manifest whenever this build had real git history,
+// so the next build in a history-less environment still emits per-file dates.
+// Commit the result alongside your code changes.
+if (gitUsable) {
+  const next = Object.fromEntries(
+    [...mtimeCache.entries()]
+      .filter(([, date]) => date)
+      .sort(([a], [b]) => a.localeCompare(b)),
+  );
+  const serialized = `${JSON.stringify(next, null, 2)}\n`;
+  const previous = fs.existsSync(MANIFEST_PATH)
+    ? fs.readFileSync(MANIFEST_PATH, "utf8")
+    : null;
+  if (serialized !== previous) {
+    fs.writeFileSync(MANIFEST_PATH, serialized, "utf8");
+    console.log(
+      `[refresh-sitemap] updated sitemap-lastmod.json (${Object.keys(next).length} files) — commit this file.`,
+    );
+  }
+}
