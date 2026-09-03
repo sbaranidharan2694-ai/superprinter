@@ -75,11 +75,14 @@ export const HOMEPAGE_FAQ_SCHEMA = {
 // HOMEPAGE_REVIEWS_SCHEMA removed (2026-06): Google prohibits self-serving
 // first-party Review markup — reviews about your own business, hosted on your
 // own pages. They produce no rich results and risk a structured-data manual
-// action. The testimonials still render visibly in SocialProofSection; the
-// 4.8/147 rating belongs to the Google Business Profile, not on-site markup.
+// action. The testimonials still render visibly in SocialProofSection; any
+// rating belongs to the Google Business Profile, not to on-site markup.
 
 const PROVIDER_SNIPPET = {
   "@type": "LocalBusiness" as const,
+  // Same @id as the sitewide node in index.html, so consumers merge this into
+  // the canonical business rather than reading it as a second, anonymous one.
+  "@id": `${BUSINESS.siteUrl}/#business`,
   name: BUSINESS.name,
   telephone: "+919840199878",
   url: BUSINESS.siteUrl,

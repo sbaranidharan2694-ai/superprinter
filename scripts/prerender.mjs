@@ -39,6 +39,7 @@ const routes = allRoutes();
 //
 // Skipped: the root "/", anything already slash-terminated, and any path whose
 // last segment contains a dot (assets like /logo.png, /assets/app.js).
+const ASSET_EXTENSION = /\.[A-Za-z0-9]{1,5}$/;
 const INTERNAL_HREF = /href="(\/[^"]*)"/g;
 
 // Paths that .htaccess permanently 301s. A link to one of these is canonical
@@ -65,8 +66,14 @@ function normalizeHref(target) {
   const pathPart = cut === -1 ? target : target.slice(0, cut);
   const suffix = cut === -1 ? "" : target.slice(cut);
   if (pathPart === "/" || pathPart.endsWith("/")) return target;
-  const lastSegment = pathPart.slice(pathPart.lastIndexOf("/") + 1);
-  if (lastSegment.includes(".")) return target;
+  // Treat a path as a file only when it ends in a real extension AND that file
+  // exists in the build. "Any dot means asset" was the earlier heuristic, but
+  // assertNoRedirectingLinks re-uses this same function to decide what counts
+  // as an offender — so a route slug containing a dot would be skipped by the
+  // normaliser and silently pass the guard that exists to catch it.
+  if (ASSET_EXTENSION.test(pathPart) && fs.existsSync(path.join(distDir, pathPart.slice(1)))) {
+    return target;
+  }
   return `${pathPart}/${suffix}`;
 }
 

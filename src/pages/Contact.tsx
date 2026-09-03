@@ -52,6 +52,7 @@ const Contact = () => {
           "url": "https://superprinters.net/contact",
           "mainEntity": {
             "@type": "LocalBusiness",
+            "@id": "https://superprinters.net/#business",
             "name": "Super Printers & Wedding Cards",
             "telephone": "+919840199878",
             "email": "SuperPrntrs@yahoo.com",
