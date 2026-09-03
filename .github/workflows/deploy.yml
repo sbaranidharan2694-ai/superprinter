@@ -111,14 +111,17 @@ jobs:
         if: steps.config.outputs.configured != 'true' || inputs.skip_deploy
         # Nothing was uploaded, so check what would have been.
         #
-        # python -m http.server, not `npx serve`: serve rewrites .html URLs to
-        # their extensionless form, so /llm.html reports as a 301 and the run
-        # fails on an artefact of the test server rather than a real defect.
-        # Python's handler serves files literally and still resolves
-        # directories to index.html, which is what Apache does in production.
+        # http-server, chosen over two alternatives that both failed:
+        #   `npx serve` rewrites .html URLs to their extensionless form, so
+        #     /llm.html reported a 301 that production does not have.
+        #   `python3 -m http.server` serves files literally but drops sockets
+        #     under the smoke test's 8 concurrent requests, crashing Node's
+        #     HTTP parser with an undici assertion.
+        # http-server serves .html literally, resolves directories to
+        # index.html the way Apache does, and handles the concurrency.
         run: |
-          (cd dist && python3 -m http.server 4173 &)
-          sleep 3
+          npx --yes http-server dist -p 4173 --silent &
+          sleep 6
           node scripts/smoke-test.mjs http://localhost:4173
 
       - name: Upload deployable build

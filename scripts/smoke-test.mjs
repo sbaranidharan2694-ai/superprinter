@@ -15,12 +15,12 @@
  *
  * To check a local build, serve it with a plain static server:
  *
- *   (cd dist && python3 -m http.server 4173)
+ *   npx http-server dist -p 4173 --silent &
  *   node scripts/smoke-test.mjs http://localhost:4173
  *
- * Do not use `npx serve` for this: it rewrites .html URLs to their
- * extensionless form, so /llm.html reports as a 301 that production does not
- * actually have.
+ * Use http-server specifically. `npx serve` rewrites .html URLs to their
+ * extensionless form, so /llm.html reports a 301 production does not have,
+ * and `python3 -m http.server` drops sockets under the concurrency below.
  *
  * Exits 1 on any failure so a workflow step fails loudly.
  */
